@@ -25,6 +25,7 @@
 				{% if short_version %}sparkle:shortVersionString="{{ release.tag_name | remove_first:'v' }}"{% endif %}
 				length="{{ asset.size }}"
 				type="application/octet-stream"
+				sparkle:edSignature="{{ release.body | split: "\n" | last}}"
 			/>
 		</item>
 		{%- endunless -%}
