@@ -8,8 +8,11 @@
 		{%- unless release.draft -%}
 		{%- unless release.prerelease and page.release_only -%}
 		<item>
+			{%- assign contents = release.body | split: "edSignature: " -%}
+			{%- assign description = contents | first -%}
+			{%- assign edSignature = contents | last -%}
 			<title>{{ release.name }}</title>
-			<description><![CDATA[{{ release.body | markdownify }}]]></description>
+			<description><![CDATA[{{ description | markdownify }}]]></description>
 			<pubDate>{{ release.published_at | date_to_rfc822 }}</pubDate>
 			{%- assign asset = release.assets.first -%}
 			{%- assign build_nums = asset.name | remove_first:site.github.project_title | remove_first:'_' | replace_first:'+',',' | remove_first:'.zip' | split:',' -%}
@@ -25,7 +28,7 @@
 				{% if short_version %}sparkle:shortVersionString="{{ release.tag_name | remove_first:'v' }}"{% endif %}
 				length="{{ asset.size }}"
 				type="application/octet-stream"
-				sparkle:edSignature="{{ release.body | split: "edSignature: " | last}}"
+				sparkle:edSignature="{{ edSignature }}"
 			/>
 		</item>
 		{%- endunless -%}
