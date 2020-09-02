@@ -10,3 +10,5 @@ A client to view Splatoon2 information.
 
 * [imink for MacOS](https://github.com/JoneWang/imink/releases/latest)
 
+* [imink for iPad](https://testflight.apple.com/join/yMqfrizI) (Testflight)
+
