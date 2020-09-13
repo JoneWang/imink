@@ -4,7 +4,7 @@ A client to view Splatoon2 information.
 
 ## Preview
 
-![preview](./preview.png)
+![Preview](./Preview.png)
 
 ## Donwload
 
