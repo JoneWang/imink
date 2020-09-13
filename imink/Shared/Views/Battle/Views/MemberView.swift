@@ -33,7 +33,7 @@ struct MemberView: View {
                         VStack(spacing: 5) {
                             Text("Rank")
                                 .sp2Font(size: 12)
-                            Text("\((udemae.name ?? "🐤").isEmpty ? "🐤" : udemae.name!)")
+                            Text("\((udemae.name?.isEmpty ?? true) ? "🐤" : udemae.name!)")
                                 .sp1Font(size: 25)
                         }
                         .frame(width: 40)
