@@ -28,6 +28,21 @@ struct MemberView: View {
                     }
                     .frame(width: 40)
                     
+                    // Star
+                    VStack {
+                        Spacer()
+
+                        ForEach(0..<4) { i in
+                            if i < member.player.starRank {
+                                Text("★")
+                                    .sp1Font(size: 10, color: AppColor.spYellow)
+                            }
+                        }
+                    }
+                    .padding(.leading, -3)
+                    .padding(.bottom, 5)
+                    .frame(width: 5)
+
                     // Rank
                     if let udemae = member.player.udemae {
                         VStack(spacing: 5) {
@@ -86,7 +101,7 @@ struct MemberView: View {
                                     URLImage(skills.main.imageURL) { proxy in
                                         ZStack {
                                             Color.black
-
+                                            
                                             proxy.image.resizable()
                                                 .padding(1)
                                         }

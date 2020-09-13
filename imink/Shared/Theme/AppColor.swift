@@ -21,4 +21,6 @@ struct AppColor {
     static let spLightGreen = Color("SPLightGreenColor")
     
     static let spPink = Color("SPPinkColor")
+    
+    static let spYellow = Color("SPYellowColor")
 }
