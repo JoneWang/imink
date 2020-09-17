@@ -6,28 +6,25 @@
 //
 
 import Foundation
+import SwiftUI
 
 @propertyWrapper
-struct StandardStorage<Value: Codable> {
-    var value: Value?
+struct StandardStorage<Value: Codable>: DynamicProperty {
+    @State var value: Value? = nil
     var key: String
-
+    
     var wrappedValue: Value? {
         get {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
             let ud = UserDefaults.standard
-
+            
             if let jsonString = ud.string(forKey: key),
-               let data = jsonString.data(using: .utf8),
-               let object = try? decoder.decode(Value.self, from: data) {
+               let object = jsonString.decode(Value.self) {
                 return object
             }
 
             return nil
         }
-        set {
+        nonmutating set {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             
@@ -41,5 +38,9 @@ struct StandardStorage<Value: Codable> {
                 ud.setValue(nil, forKey: key)
             }
         }
+    }
+    
+    public var projectedValue: Binding<Value?> {
+        $value.projectedValue
     }
 }

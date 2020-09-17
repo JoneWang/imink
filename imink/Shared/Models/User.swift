@@ -9,4 +9,5 @@ import Foundation
 
 struct User: Codable {
     let iksmSession: String
+    let sp2PrincipalId: String
 }

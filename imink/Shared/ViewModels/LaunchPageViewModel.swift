@@ -17,20 +17,22 @@ class LaunchPageViewModel: ObservableObject {
     }
     
     @Published var status: Status? = .needToken
-    @Published var clientToken: String = ""
+    @Published var inputClientToken: String = ""
+    @Published var clientToken: String? = nil
+    @Published var loginUser: User? = nil
     
     private var cancelBag = Set<AnyCancellable>()
-
-    init() { }
     
     func login() {
         status = .loading
         
-        AppAPI.me(clientToken: clientToken)
+        AppAPI.me(clientToken: inputClientToken)
             .request()
             .decode(type: User.self)
             .receive(on: DispatchQueue.main)
-            .sink { completion in
+            .sink { [weak self] completion in
+                guard let `self` = self else { return }
+                
                 switch completion {
                 case .finished:
                     break
@@ -39,9 +41,16 @@ class LaunchPageViewModel: ObservableObject {
                     print(error.localizedDescription)
                     self.status = .needToken
                 }
-            } receiveValue: { user in
-                self.status = .loginSuccess
+            } receiveValue: { [weak self] user in
+                guard let `self` = self else { return }
+                
                 // Save Client Token
+                print(self.inputClientToken)
+                
+                self.clientToken = self.inputClientToken
+                self.loginUser = user
+                self.status = .loginSuccess
+                
                 AppUserDefaults.shared.clientToken = self.clientToken
                 AppUserDefaults.shared.user = user
             }

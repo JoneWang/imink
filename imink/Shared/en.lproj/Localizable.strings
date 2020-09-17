@@ -26,6 +26,10 @@
 
 "api_error_unknown" = "Error connecting to the server";
 
+"api_error_authorization_error" = "Authorization error";
+
 "api_error_client_token_invalid" = "Client token is invalid";
+
+"api_error_iksm_session_invalid" = "The iksm_session is invalid";
 
 "api_error_request_parameter_error" = "Request paraemter error";

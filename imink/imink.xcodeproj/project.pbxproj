@@ -13,6 +13,14 @@
 		EC034AC124FE8DA500B9552A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC034AAB24FE8DA500B9552A /* Assets.xcassets */; };
 		EC1E492224FF972100E1B423 /* LaunchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */; };
 		EC1E492324FF9A2500E1B423 /* LaunchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */; };
+		EC22702725133A3100F23F78 /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22702625133A3100F23F78 /* Decode&Encode.swift */; };
+		EC22702825133A3100F23F78 /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22702625133A3100F23F78 /* Decode&Encode.swift */; };
+		EC2F044D250F5899003EC572 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC2F044C250F5899003EC572 /* GRDB */; };
+		EC2F0453250F673D003EC572 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0452250F673D003EC572 /* Record.swift */; };
+		EC2F0454250F673D003EC572 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0452250F673D003EC572 /* Record.swift */; };
+		EC2F0457250F6C3B003EC572 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0456250F6C3B003EC572 /* AppDatabase.swift */; };
+		EC2F0458250F6C3B003EC572 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0456250F6C3B003EC572 /* AppDatabase.swift */; };
+		EC2F045F2511286F003EC572 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC2F045E2511286F003EC572 /* GRDB */; };
 		EC3BD22A25025AB900744F17 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22925025AB900744F17 /* TransitionModifier.swift */; };
 		EC3BD22B25025AB900744F17 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22925025AB900744F17 /* TransitionModifier.swift */; };
 		EC3BD22D25025E5600744F17 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22C25025E5600744F17 /* MainView.swift */; };
@@ -81,6 +89,19 @@
 		ECED089125014665003C1A5A /* Splatoon2.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9AAE8924FEAD2400253370 /* Splatoon2.otf */; };
 		ECED0893250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
 		ECED0894250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
+		ECF7997C250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
+		ECF7997D250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
+		ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */; };
+		ECF79982250E329B009F8E30 /* RecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79981250E329B009F8E30 /* RecordRow.swift */; };
+		ECF79983250E329B009F8E30 /* RecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79981250E329B009F8E30 /* RecordRow.swift */; };
+		ECF79985250E34F4009F8E30 /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */; };
+		ECF79986250E34F4009F8E30 /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */; };
+		ECF79988250E36B5009F8E30 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = ECF79987250E36B5009F8E30 /* results.json */; };
+		ECF79989250E36B5009F8E30 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = ECF79987250E36B5009F8E30 /* results.json */; };
+		ECF7998B250E393D009F8E30 /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */; };
+		ECF7998C250E393D009F8E30 /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */; };
+		ECF7998E250E66D3009F8E30 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */; };
+		ECF7998F250E66D3009F8E30 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */; };
 		ECF7C81C2505EB910030E1C4 /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */; };
 		ECF7C81D2505EB910030E1C4 /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */; };
 		ECF7C81F25061CE80030E1C4 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7C81E25061CE80030E1C4 /* UserDefaultsWrapper.swift */; };
@@ -112,6 +133,9 @@
 		EC034ABA24FE8DA500B9552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC034ABB24FE8DA500B9552A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewModel.swift; sourceTree = "<group>"; };
+		EC22702625133A3100F23F78 /* Decode&Encode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decode&Encode.swift"; sourceTree = "<group>"; };
+		EC2F0452250F673D003EC572 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		EC2F0456250F6C3B003EC572 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		EC3BD22925025AB900744F17 /* TransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
 		EC3BD22C25025E5600744F17 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EC3BD22F25025E9400744F17 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -146,6 +170,12 @@
 		EC9AAE8924FEAD2400253370 /* Splatoon2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon2.otf; sourceTree = "<group>"; };
 		ECC19CAE24FFB5DC00115083 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPlayAnimation.swift; sourceTree = "<group>"; };
+		ECF7997B250E25B4009F8E30 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
+		ECF79981250E329B009F8E30 /* RecordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRow.swift; sourceTree = "<group>"; };
+		ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2TeamMember.swift; sourceTree = "<group>"; };
+		ECF79987250E36B5009F8E30 /* results.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
+		ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2TeamResult.swift; sourceTree = "<group>"; };
+		ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
 		ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInterpolation.swift; sourceTree = "<group>"; };
 		ECF7C81E25061CE80030E1C4 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		ECFBE99D2502689900D5CB82 /* BattlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlePage.swift; sourceTree = "<group>"; };
@@ -164,6 +194,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2F045F2511286F003EC572 /* GRDB in Frameworks */,
+				ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */,
 				EC3D889F2503C82E00FC9E46 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3D889C2503C81400FC9E46 /* URLImage in Frameworks */,
+				EC2F044D250F5899003EC572 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +232,7 @@
 				EC9AAE8724FEAD1200253370 /* Font */,
 				ECFBE9AE25028B9600D5CB82 /* API */,
 				ECC19CAD24FFB5B600115083 /* Data */,
+				EC2F0451250F66C9003EC572 /* DBModels */,
 				ECFBE9B825028F4500D5CB82 /* Models */,
 				EC9AAE8324FEA92600253370 /* ViewModifiers */,
 				EC1E492024FF970A00E1B423 /* ViewModels */,
@@ -250,9 +284,18 @@
 			children = (
 				EC3BD22F25025E9400744F17 /* MainViewModel.swift */,
 				EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */,
+				ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */,
 				EC763EE325036C650021947B /* BattlePageViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EC2F0451250F66C9003EC572 /* DBModels */ = {
+			isa = PBXGroup;
+			children = (
+				EC2F0452250F673D003EC572 /* Record.swift */,
+			);
+			path = DBModels;
 			sourceTree = "<group>";
 		};
 		EC3D78632500C61E00F5CA67 /* Views */ = {
@@ -275,6 +318,7 @@
 			children = (
 				EC49F5002504B48C00B192C6 /* Sample.swift */,
 				EC49F4F6250417D300B192C6 /* result.json */,
+				ECF79987250E36B5009F8E30 /* results.json */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -294,6 +338,8 @@
 				EC49F5072504BB2B00B192C6 /* SP2Battle.swift */,
 				EC49F50A2504BB9400B192C6 /* SP2Player.swift */,
 				EC49F5102504C4A700B192C6 /* SP2Weapon.swift */,
+				ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */,
+				ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */,
 			);
 			path = Splatoon2;
 			sourceTree = "<group>";
@@ -309,6 +355,7 @@
 				EC49F50D2504BEB700B192C6 /* Collection.swift */,
 				ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */,
 				ECF7C81E25061CE80030E1C4 /* UserDefaultsWrapper.swift */,
+				EC22702625133A3100F23F78 /* Decode&Encode.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -347,6 +394,7 @@
 			children = (
 				EC763EE625036E0A0021947B /* Views */,
 				ECFBE99D2502689900D5CB82 /* BattlePage.swift */,
+				ECF7997B250E25B4009F8E30 /* BattleListPage.swift */,
 			);
 			path = Battle;
 			sourceTree = "<group>";
@@ -359,6 +407,7 @@
 				EC763EED2503748D0021947B /* TeamsDataView.swift */,
 				EC49F4FA250496AC00B192C6 /* BattleResultBar.swift */,
 				EC763EF02503753A0021947B /* BattleDataView.swift */,
+				ECF79981250E329B009F8E30 /* RecordRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC19CAE24FFB5DC00115083 /* AppUserDefaults.swift */,
+				EC2F0456250F6C3B003EC572 /* AppDatabase.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -448,6 +498,8 @@
 			name = "imink (iOS)";
 			packageProductDependencies = (
 				EC3D889E2503C82E00FC9E46 /* URLImage */,
+				ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */,
+				EC2F045E2511286F003EC572 /* GRDB */,
 			);
 			productName = "imink-swiftui (iOS)";
 			productReference = EC034AB024FE8DA500B9552A /* imink.app */;
@@ -468,6 +520,7 @@
 			name = "imink (macOS)";
 			packageProductDependencies = (
 				EC3D889B2503C81400FC9E46 /* URLImage */,
+				EC2F044C250F5899003EC572 /* GRDB */,
 			);
 			productName = "imink-swiftui (macOS)";
 			productReference = EC034AB824FE8DA500B9552A /* imink.app */;
@@ -501,6 +554,9 @@
 			mainGroup = EC034AA324FE8DA400B9552A;
 			packageReferences = (
 				EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */,
+				ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				EC2F045D2511286F003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = EC034AB124FE8DA500B9552A /* Products */;
 			projectDirPath = "";
@@ -520,6 +576,7 @@
 				EC49F4F7250417D300B192C6 /* result.json in Resources */,
 				ECED089025014665003C1A5A /* Splatoon1.otf in Resources */,
 				ECFBE9A225026E6A00D5CB82 /* Localizable.strings in Resources */,
+				ECF79988250E36B5009F8E30 /* results.json in Resources */,
 				ECED089125014665003C1A5A /* Splatoon2.otf in Resources */,
 				EC034AC024FE8DA500B9552A /* Assets.xcassets in Resources */,
 			);
@@ -530,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC034AC124FE8DA500B9552A /* Assets.xcassets in Resources */,
+				ECF79989250E36B5009F8E30 /* results.json in Resources */,
 				EC49F4F8250417D300B192C6 /* result.json in Resources */,
 				ECFBE9A325026E6A00D5CB82 /* Localizable.strings in Resources */,
 			);
@@ -545,8 +603,10 @@
 				EC763EEE2503748D0021947B /* TeamsDataView.swift in Sources */,
 				EC763EF12503753A0021947B /* BattleDataView.swift in Sources */,
 				EC618BB624FF7653001EE922 /* SPButton.swift in Sources */,
+				ECF7998E250E66D3009F8E30 /* BattleListViewModel.swift in Sources */,
 				ECFBE9C32502ABCA00D5CB82 /* APITargetType.swift in Sources */,
 				EC3BD22D25025E5600744F17 /* MainView.swift in Sources */,
+				ECF7998B250E393D009F8E30 /* SP2TeamResult.swift in Sources */,
 				EC5EBFFD24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */,
 				EC763EE425036C650021947B /* BattlePageViewModel.swift in Sources */,
 				ECFBE9D625034D0000D5CB82 /* User.swift in Sources */,
@@ -555,13 +615,16 @@
 				ECFBE9B025028BB300D5CB82 /* AppAPI.swift in Sources */,
 				EC8803262500129400ED760C /* AnimatableModifier.swift in Sources */,
 				EC3D785F2500BE9100F5CA67 /* AppBundle.swift in Sources */,
+				EC2F0453250F673D003EC572 /* Record.swift in Sources */,
 				EC49F4F32504082800B192C6 /* Easeing.swift in Sources */,
+				ECF79982250E329B009F8E30 /* RecordRow.swift in Sources */,
 				EC9AAE7824FE917E00253370 /* LaunchPage.swift in Sources */,
 				ECF7C81C2505EB910030E1C4 /* StringInterpolation.swift in Sources */,
 				ECC19CAF24FFB5DC00115083 /* AppUserDefaults.swift in Sources */,
 				EC9AAE8524FEA93200253370 /* FontModifier.swift in Sources */,
 				EC618BB324FF71C3001EE922 /* AppColor.swift in Sources */,
 				ECED0893250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */,
+				EC2F0457250F6C3B003EC572 /* AppDatabase.swift in Sources */,
 				EC763EEB250370E80021947B /* TeamView.swift in Sources */,
 				ECFBE99E2502689900D5CB82 /* BattlePage.swift in Sources */,
 				EC763EE825036E330021947B /* MemberView.swift in Sources */,
@@ -579,10 +642,13 @@
 				EC49F4FB250496AC00B192C6 /* BattleResultBar.swift in Sources */,
 				EC49F5012504B48C00B192C6 /* Sample.swift in Sources */,
 				EC880323250009BC00ED760C /* LoadingPopupView.swift in Sources */,
+				ECF79985250E34F4009F8E30 /* SP2TeamMember.swift in Sources */,
 				EC49F5112504C4A700B192C6 /* SP2Weapon.swift in Sources */,
 				EC9AAE7F24FE937600253370 /* SPPopupView.swift in Sources */,
 				EC034ABC24FE8DA500B9552A /* iminkApp.swift in Sources */,
+				ECF7997C250E25B4009F8E30 /* BattleListPage.swift in Sources */,
 				EC49F5052504BAEA00B192C6 /* SP2BattleOverview.swift in Sources */,
+				EC22702725133A3100F23F78 /* Decode&Encode.swift in Sources */,
 				ECFBE9A92502732F00D5CB82 /* PasteBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,8 +660,10 @@
 				ECFBE9D725034D4C00D5CB82 /* User.swift in Sources */,
 				EC49F5022504B48C00B192C6 /* Sample.swift in Sources */,
 				ECFBE9C42502ACC500D5CB82 /* APITargetType.swift in Sources */,
+				ECF7998F250E66D3009F8E30 /* BattleListViewModel.swift in Sources */,
 				EC49F50C2504BB9400B192C6 /* SP2Player.swift in Sources */,
 				ECFBE9B725028D0800D5CB82 /* API.swift in Sources */,
+				ECF7998C250E393D009F8E30 /* SP2TeamResult.swift in Sources */,
 				EC763EF22503753A0021947B /* BattleDataView.swift in Sources */,
 				EC49F50F2504BEB700B192C6 /* Collection.swift in Sources */,
 				ECFBE9B325028BD800D5CB82 /* AppAPI.swift in Sources */,
@@ -604,13 +672,16 @@
 				ECFBE9AC2502762300D5CB82 /* PasteBoard.swift in Sources */,
 				EC1E492324FF9A2500E1B423 /* LaunchPageViewModel.swift in Sources */,
 				EC3BD22B25025AB900744F17 /* TransitionModifier.swift in Sources */,
+				EC2F0454250F673D003EC572 /* Record.swift in Sources */,
 				EC49F5092504BB2B00B192C6 /* SP2Battle.swift in Sources */,
+				ECF79983250E329B009F8E30 /* RecordRow.swift in Sources */,
 				EC618BB724FF7653001EE922 /* SPButton.swift in Sources */,
 				ECF7C81D2505EB910030E1C4 /* StringInterpolation.swift in Sources */,
 				EC5EBFFE24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */,
 				EC763EE925036E330021947B /* MemberView.swift in Sources */,
 				EC3BD22E25025E5600744F17 /* MainView.swift in Sources */,
 				EC8803272500129400ED760C /* AnimatableModifier.swift in Sources */,
+				EC2F0458250F6C3B003EC572 /* AppDatabase.swift in Sources */,
 				EC3D78602500BE9100F5CA67 /* AppBundle.swift in Sources */,
 				EC9AAE8624FEAA0C00253370 /* FontModifier.swift in Sources */,
 				EC49F4F42504082800B192C6 /* Easeing.swift in Sources */,
@@ -628,10 +699,13 @@
 				EC880324250009BD00ED760C /* LoadingPopupView.swift in Sources */,
 				EC49F4FC250496AC00B192C6 /* BattleResultBar.swift in Sources */,
 				EC763EEF2503748D0021947B /* TeamsDataView.swift in Sources */,
+				ECF79986250E34F4009F8E30 /* SP2TeamMember.swift in Sources */,
 				EC618BB024FF4E06001EE922 /* SPTextField.swift in Sources */,
 				EC763EEC250370E80021947B /* TeamView.swift in Sources */,
 				EC49F4FF2504A93D00B192C6 /* Operator.swift in Sources */,
+				ECF7997D250E25B4009F8E30 /* BattleListPage.swift in Sources */,
 				EC9AAE7924FE91E900253370 /* LaunchPage.swift in Sources */,
+				EC22702825133A3100F23F78 /* Decode&Encode.swift in Sources */,
 				EC034ABD24FE8DA500B9552A /* iminkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -895,6 +969,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EC2F045D2511286F003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.14.0;
+			};
+		};
 		EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
@@ -903,9 +993,27 @@
 				minimumVersion = 0.9.19;
 			};
 		};
+		ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC2F044C250F5899003EC572 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		EC2F045E2511286F003EC572 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC2F045D2511286F003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
 		EC3D889B2503C81400FC9E46 /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */;
@@ -915,6 +1023,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

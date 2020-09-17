@@ -12,7 +12,7 @@ enum AppAPI {
 }
 
 extension AppAPI: APITargetType {
-    var baseURL: URL { URL(string: "http://api.imink.jone.wang")! }
+    var baseURL: URL { URL(string: "https://api.imink.jone.wang")! }
     
     var path: String {
         switch self {

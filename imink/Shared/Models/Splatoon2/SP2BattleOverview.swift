@@ -8,9 +8,5 @@
 import Foundation
 
 struct SP2BattleOverview: Codable {
-    let results: [Result]
-
-    struct Result: Codable {
-        let battleNumber: String
-    }
+    let results: [SP2Battle]
 }

@@ -21,7 +21,7 @@ class BattlePageViewModel: ObservableObject {
     init() {
         lastBattle = AppUserDefaults.shared.lastBattle
         
-        startLoop()
+//        startLoop()
     }
 
     func startLoop() {

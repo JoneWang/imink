@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct LaunchPage: View {
-    @Binding var isLogin: Bool
-
+    @Binding var clientToken: String?
+    @Binding var loginUser: User?
+    
     @StateObject private var launchPageViewModel = LaunchPageViewModel()
-    
     @State private var status: LaunchPageViewModel.Status? = .needToken
-    
+
     var body: some View {
         ZStack {
             // Background
@@ -25,7 +25,7 @@ struct LaunchPage: View {
 
             if status == .needToken {
                 // Client Token login
-                ClientTokenLoginPopupView(clientToken: $launchPageViewModel.clientToken) {
+                ClientTokenLoginPopupView(clientToken: $launchPageViewModel.inputClientToken) {
                     launchPageViewModel.login()
                 }
                 .transition(.move(edge: .bottom))
@@ -38,19 +38,22 @@ struct LaunchPage: View {
         .onReceive(launchPageViewModel.$status) { value in
             withAnimation {
                 self.status = value
-                if value == .loginSuccess {
-                    self.isLogin = true
-                }
             }
+        }
+        .onReceive(launchPageViewModel.$loginUser) { user in
+            self.loginUser = user
+        }
+        .onReceive(launchPageViewModel.$clientToken) { clientToken in
+            self.clientToken = clientToken
         }
     }
 }
 
-struct Launch_Previews: PreviewProvider {
-    static var previews: some View {
-        StatefulPreviewWrapper(false) {
-            LaunchPage(isLogin: $0)
-                .frame(width: 1000, height: 800)
-        }
-    }
-}
+//struct Launch_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StatefulPreviewWrapper(nil as! User?) {
+//            LaunchPage(loginUser: $0)
+//                .frame(width: 1000, height: 800)
+//        }
+//    }
+//}
