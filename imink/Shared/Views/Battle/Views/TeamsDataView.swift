@@ -33,21 +33,23 @@ struct TeamsDataView: View {
 }
 
 extension SP2Battle {
-    var victoryTeamMembersSorted: [SP2Battle.TeamMember] {
+    var victoryTeamMembersSorted: [SP2TeamMember] {
         [
-            SP2Battle.TeamResult.Key.victory: myTeamMembersSorted,
-            SP2Battle.TeamResult.Key.defeat: otherTeamMembersSorted
+            SP2TeamResult.Key.victory: myTeamMembersSorted,
+            SP2TeamResult.Key.defeat: otherTeamMembersSorted
         ][myTeamResult.key]!
     }
     
-    var defeatTeamMembersSorted: [SP2Battle.TeamMember] {
+    var defeatTeamMembersSorted: [SP2TeamMember] {
         [
-            SP2Battle.TeamResult.Key.victory: myTeamMembersSorted,
-            SP2Battle.TeamResult.Key.defeat: otherTeamMembersSorted
+            SP2TeamResult.Key.victory: myTeamMembersSorted,
+            SP2TeamResult.Key.defeat: otherTeamMembersSorted
         ][otherTeamResult.key]!
     }
     
-    var myTeamMembersSorted: [SP2Battle.TeamMember] {
+    var myTeamMembersSorted: [SP2TeamMember] {
+        guard let myTeamMembers = myTeamMembers else { return [] }
+        
         var members = myTeamMembers
         members.append(playerResult)
         if gameMode.key == .leaguePair || gameMode.key == .leagueTeam {
@@ -58,7 +60,9 @@ extension SP2Battle {
         return members
     }
     
-    var otherTeamMembersSorted: [SP2Battle.TeamMember] {
+    var otherTeamMembersSorted: [SP2TeamMember] {
+        guard let otherTeamMembers = otherTeamMembers else { return [] }
+        
         if gameMode.key == .leaguePair || gameMode.key == .leagueTeam  {
             return otherTeamMembers.sorted(by: teamKillSort)
         } else {
@@ -66,7 +70,7 @@ extension SP2Battle {
         }
     }
     
-    private func teamKillSort(lMember: TeamMember, rMember: TeamMember) -> Bool {
+    private func teamKillSort(lMember: SP2TeamMember, rMember: SP2TeamMember) -> Bool {
         let lTotalKill = lMember.killCount + lMember.assistCount
         let rTotalKill = rMember.killCount + rMember.assistCount
         if lTotalKill != rTotalKill {

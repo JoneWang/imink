@@ -13,8 +13,8 @@ struct SP2Battle: Codable {
     let stage: Stage
     let gameMode: GameMode
     let rule: Rule
-    let myTeamResult: TeamResult
-    let otherTeamResult: TeamResult
+    let myTeamResult: SP2TeamResult
+    let otherTeamResult: SP2TeamResult
     let myEstimateLeaguePoint: Int?
     let otherEstimateLeaguePoint: Int?
     let estimateGachiPower: Int?
@@ -22,9 +22,9 @@ struct SP2Battle: Codable {
     let otherTeamPercentage: Double?
     let myTeamCount: Int?
     let otherTeamCount: Int?
-    let playerResult: TeamMember
-    let myTeamMembers: [TeamMember]
-    let otherTeamMembers: [TeamMember]
+    let playerResult: SP2TeamMember
+    let myTeamMembers: [SP2TeamMember]?
+    let otherTeamMembers: [SP2TeamMember]?
 
     enum `Type`: String, Codable {
         case regular
@@ -66,26 +66,6 @@ struct SP2Battle: Codable {
             case rainmaker
             case clamBlitz = "clam_blitz"
         }
-    }
-    
-    struct TeamResult: Codable {
-        let key: Key
-        let name: String
-        
-        enum Key: String, Codable {
-            case victory
-            case defeat
-        }
-    }
-    
-    struct TeamMember: Codable {
-        let killCount: Int
-        let assistCount: Int
-        let deathCount: Int
-        let specialCount: Int
-        let gamePaintPoint: Int
-        let sortScore: Int
-        let player: SP2Player
     }
 }
 

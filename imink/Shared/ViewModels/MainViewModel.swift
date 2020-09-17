@@ -10,14 +10,21 @@ import SwiftUI
 import Combine
 
 class MainViewModel: ObservableObject {
-    @Published var showHome = false
+//    @Published var showHome = false
     
+    @Published var currentUser = AppUserDefaults.shared.user
+    @Published var clientToken = AppUserDefaults.shared.clientToken
+
     private var cancelBag = Set<AnyCancellable>()
 
     init() {
-        showHome = AppUserDefaults.shared.user != nil
-        
-        if showHome {
+//        showHome = AppUserDefaults.shared.user != nil
+//
+//        if showHome {
+//            // If logined update user
+//            requestUserInfo()
+//        }
+        if clientToken != nil {
             // If logined update user
             requestUserInfo()
         }
@@ -33,8 +40,13 @@ class MainViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    // TODO: Popping error view
-                    print(error.localizedDescription)
+                    if case APIError.clientTokenInvalid = error {
+                        self.currentUser = nil
+                        self.clientToken = nil
+                    } else {
+                        // TODO: Popping error view
+                        print(error.localizedDescription)
+                    }
                 }
             } receiveValue: { user in
                 // Save new user information

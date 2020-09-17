@@ -10,13 +10,24 @@ import SwiftUI
 struct MainView: View {
     @StateObject private var mainViewModel = MainViewModel()
 
+    @State private var selectedRecord: Record?
+
     var body: some View {
         Group {
-            if mainViewModel.showHome {
-                BattlePage()
-                    .transition(.opacity)
+            if mainViewModel.clientToken != nil {
+                NavigationView {
+                    BattleListPage(selectedRecord: $selectedRecord)
+                    if let record = selectedRecord {
+                        BattlePage(record: record)
+                    } else {
+                        EmptyView()
+                    }
+                }
             } else {
-                LaunchPage(isLogin: $mainViewModel.showHome)
+                LaunchPage(
+                    clientToken: $mainViewModel.clientToken,
+                    loginUser: $mainViewModel.currentUser
+                )
             }
         }.overlay(
             // Show version on all pages.

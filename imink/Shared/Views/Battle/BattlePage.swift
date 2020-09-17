@@ -10,6 +10,8 @@ import URLImage
 
 struct BattlePage: View {
     @StateObject var battlePageViewModel = BattlePageViewModel()
+    
+    let record: Record
 
     var body: some View {
         let defaultImage = Image("BattleDefaultBackground")
@@ -17,10 +19,10 @@ struct BattlePage: View {
             .aspectRatio(contentMode: .fill)
         
         ZStack {
-            if let lastBattle = battlePageViewModel.lastBattle {
+            if let battle = record.battle, record.isDetail {
                 // Stage as background
                 Rectangle().overlay(
-                    URLImage(lastBattle.stage.imageURL,
+                    URLImage(battle.stage.imageURL,
                              placeholder: { _ in defaultImage }) { proxy in
                         proxy.image
                             .resizable()
@@ -33,12 +35,12 @@ struct BattlePage: View {
                 GeometryReader { geo in
                     HStack {
                         // Left content
-                        BattleDataView(battle: lastBattle)
+                        BattleDataView(battle: battle)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color.clear)
                         
                         // Right content
-                        makeTeamContent(lastBattle: lastBattle, geo: geo)
+                        makeTeamContent(lastBattle: battle, geo: geo)
                     }
                 }
             } else {
@@ -77,9 +79,9 @@ struct BattlePage: View {
     }
 }
 
-struct BattlePage_Previews: PreviewProvider {
-    static var previews: some View {
-        BattlePage()
-            .frame(width: 800, height: 600)
-    }
-}
+//struct BattlePage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BattlePage()
+//            .frame(width: 800, height: 600)
+//    }
+//}

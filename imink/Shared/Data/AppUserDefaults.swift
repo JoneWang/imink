@@ -14,10 +14,10 @@ class AppUserDefaults: ObservableObject {
     
     @AppStorage("client_token")
     var clientToken: String?
-    
+
     @StandardStorage(key: "user")
     var user: User?
-    
+
     @StandardStorage(key: "last_battle")
     var lastBattle: SP2Battle?
 }

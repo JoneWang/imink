@@ -1,4 +1,5 @@
 //
+
 //  API.swift
 //  imink
 //
@@ -12,6 +13,8 @@ enum APIError: Error, LocalizedError {
     case unknown
     case apiError(reason: String)
     case authorizationError
+    case clientTokenInvalid
+    case iksmSessionInvalid
     case requestParameterError
     
     var errorDescription: String? {
@@ -21,7 +24,11 @@ enum APIError: Error, LocalizedError {
         case .apiError(let reason):
             return reason
         case .authorizationError:
+            return "api_error_authorization_error"
+        case .clientTokenInvalid:
             return "api_error_client_token_invalid"
+        case .iksmSessionInvalid:
+            return "api_error_iksm_session_invalid"
         case .requestParameterError:
             return "api_error_request_parameter_error"
         }
@@ -92,6 +99,22 @@ class API {
 extension APITargetType {
     func request() -> AnyPublisher<Data, APIError> {
         API.shared.request(self)
+            .mapError { error -> APIError in
+                if case APIError.authorizationError = error {
+                    if type(of: self) is Splatoon2API.Type {
+                        print("iksm_session error")
+                        return .iksmSessionInvalid
+                    } else if type(of: self) is AppAPI.Type {
+                        print("client_token error")
+                        AppUserDefaults.shared.clientToken = nil
+                        AppUserDefaults.shared.user = nil
+                        return .clientTokenInvalid
+                    }
+                }
+
+                return error
+            }
+            .eraseToAnyPublisher()
     }
 }
 

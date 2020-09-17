@@ -11,7 +11,7 @@ import URLImage
 struct MemberView: View {
     let isMe: Bool
     let victory: Bool
-    let member: SP2Battle.TeamMember?
+    let member: SP2TeamMember?
     
     @State private var arrowOffsetX: CGFloat = -30
     
@@ -198,7 +198,7 @@ struct MemberView: View {
 struct MemberCell_Previews: PreviewProvider {
     static var previews: some View {
         let battle = Sample.battle()
-        let member = battle.myTeamMembers[0]
+        let member = battle.myTeamMembers![0]
         return MemberView(isMe: true, victory: true, member: member)
             .frame(width: 440, height: 50, alignment: .leading)
     }

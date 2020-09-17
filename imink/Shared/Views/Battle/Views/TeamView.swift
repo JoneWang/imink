@@ -10,7 +10,7 @@ import SwiftUI
 struct TeamView: View {
     let victory: Bool
     let me: SP2Player
-    let members: [SP2Battle.TeamMember]
+    let members: [SP2TeamMember]
     let color: Color
 
     var body: some View {
@@ -49,7 +49,7 @@ struct TeamView_Previews: PreviewProvider {
         TeamView(
             victory: true,
             me: battle.playerResult.player,
-            members: battle.otherTeamMembers,
+            members: battle.otherTeamMembers!,
             color: AppColor.spPink
         )
     }
