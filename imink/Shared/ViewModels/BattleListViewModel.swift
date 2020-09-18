@@ -62,6 +62,8 @@ class BattleListViewModel: ObservableObject {
     func syncResultsToDatabase(finished: (() -> Void)? = nil) {
         requestBattleOverview()
             .sink { completion in
+                finished?()
+                
                 switch completion {
                 case .finished:
                     break
@@ -74,14 +76,13 @@ class BattleListViewModel: ObservableObject {
                         print(error.localizedDescription)
                     }
                 }
+                
             } receiveValue: { data in
                 var haveNewRecord = false
                 self.saveRecordsData(data, haveNewRecord: &haveNewRecord)
                 if haveNewRecord {
                     self.updateReocrdsFromDatabase()
                 }
-                
-                finished?()
             }
             .store(in: &cancelBag)
     }
