@@ -29,6 +29,7 @@ struct Record: Identifiable {
 extension Record: Codable, FetchableRecord, MutablePersistableRecord {
     // Define database columns from CodingKeys
     fileprivate enum Columns {
+        static let id = Column(CodingKeys.id)
         static let sp2PrincipalId = Column(CodingKeys.sp2PrincipalId)
         static let battleNumber = Column(CodingKeys.battleNumber)
         static let json = Column(CodingKeys.json)
@@ -97,7 +98,7 @@ extension AppDatabase {
     }
     
     /// Save data from /results
-    func saveSampleBattles(_ battleObjects: [Dictionary<String, AnyObject>]) throws {
+    func saveSampleBattles(_ battleObjects: [Dictionary<String, AnyObject>], haveNewRecord: inout Bool) throws {
         guard let currentUser = AppUserDefaults.shared.user else {
             return
         }
@@ -125,11 +126,12 @@ extension AppDatabase {
         }
         
         try dbQueue.write { db in
-            for record in records {
+            for record in records.reversed() {
                 if var record = record, try Record.filter(
                     Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
                         Record.Columns.battleNumber == record.battleNumber
                 ).fetchOne(db) == nil {
+                    haveNewRecord = true
                     try record.insert(db)
                 }
             }
@@ -140,7 +142,7 @@ extension AppDatabase {
     
     func records() -> AnyPublisher<[Record], Error> {
         ValueObservation
-            .tracking(Record.all().fetchAll)
+            .tracking(Record.order(Record.Columns.id.desc).fetchAll)
             .map {
                 $0.map {
                     var record = $0
@@ -150,5 +152,19 @@ extension AppDatabase {
             }
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()
+    }
+}
+
+extension Record {
+    func copy(with zone: NSZone? = nil) -> Record {
+        let copy = Record(
+            id: id,
+            sp2PrincipalId: sp2PrincipalId,
+            battleNumber: battleNumber,
+            json: json,
+            isDetail: isDetail,
+            battle: battle
+        )
+        return copy
     }
 }

@@ -58,8 +58,6 @@
 		EC618BB424FF71C3001EE922 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB224FF71C3001EE922 /* AppColor.swift */; };
 		EC618BB624FF7653001EE922 /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB524FF7653001EE922 /* SPButton.swift */; };
 		EC618BB724FF7653001EE922 /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB524FF7653001EE922 /* SPButton.swift */; };
-		EC763EE425036C650021947B /* BattlePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EE325036C650021947B /* BattlePageViewModel.swift */; };
-		EC763EE525036C650021947B /* BattlePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EE325036C650021947B /* BattlePageViewModel.swift */; };
 		EC763EE825036E330021947B /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EE725036E330021947B /* MemberView.swift */; };
 		EC763EE925036E330021947B /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EE725036E330021947B /* MemberView.swift */; };
 		EC763EEB250370E80021947B /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EEA250370E80021947B /* TeamView.swift */; };
@@ -87,6 +85,8 @@
 		ECED0893250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
 		ECED0894250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
 		ECF10988251490E500AFB677 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = ECF10987251490E500AFB677 /* SDWebImageSwiftUI */; };
+		ECF1098A2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */; };
+		ECF1098B2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */; };
 		ECF7997C250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
 		ECF7997D250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
 		ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */; };
@@ -153,7 +153,6 @@
 		EC618BAE24FF4E06001EE922 /* SPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTextField.swift; sourceTree = "<group>"; };
 		EC618BB224FF71C3001EE922 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		EC618BB524FF7653001EE922 /* SPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
-		EC763EE325036C650021947B /* BattlePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlePageViewModel.swift; sourceTree = "<group>"; };
 		EC763EE725036E330021947B /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		EC763EEA250370E80021947B /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		EC763EED2503748D0021947B /* TeamsDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDataView.swift; sourceTree = "<group>"; };
@@ -168,6 +167,7 @@
 		EC9AAE8924FEAD2400253370 /* Splatoon2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon2.otf; sourceTree = "<group>"; };
 		ECC19CAE24FFB5DC00115083 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPlayAnimation.swift; sourceTree = "<group>"; };
+		ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeRecordRow.swift; sourceTree = "<group>"; };
 		ECF7997B250E25B4009F8E30 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
 		ECF79981250E329B009F8E30 /* RecordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRow.swift; sourceTree = "<group>"; };
 		ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2TeamMember.swift; sourceTree = "<group>"; };
@@ -281,7 +281,6 @@
 				EC3BD22F25025E9400744F17 /* MainViewModel.swift */,
 				EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */,
 				ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */,
-				EC763EE325036C650021947B /* BattlePageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -404,6 +403,7 @@
 				EC49F4FA250496AC00B192C6 /* BattleResultBar.swift */,
 				EC763EF02503753A0021947B /* BattleDataView.swift */,
 				ECF79981250E329B009F8E30 /* RecordRow.swift */,
+				ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -600,7 +600,6 @@
 				EC3BD22D25025E5600744F17 /* MainView.swift in Sources */,
 				ECF7998B250E393D009F8E30 /* SP2TeamResult.swift in Sources */,
 				EC5EBFFD24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */,
-				EC763EE425036C650021947B /* BattlePageViewModel.swift in Sources */,
 				ECFBE9D625034D0000D5CB82 /* User.swift in Sources */,
 				EC9AAE7C24FE922C00253370 /* ClientTokenLoginPopupView.swift in Sources */,
 				EC618BAF24FF4E06001EE922 /* SPTextField.swift in Sources */,
@@ -627,6 +626,7 @@
 				EC49F50B2504BB9400B192C6 /* SP2Player.swift in Sources */,
 				ECF7C81F25061CE80030E1C4 /* UserDefaultsWrapper.swift in Sources */,
 				ECFBE9B225028BBE00D5CB82 /* Splatoon2API.swift in Sources */,
+				ECF1098A2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */,
 				EC3BD22A25025AB900744F17 /* TransitionModifier.swift in Sources */,
 				ECFBE9B625028BE300D5CB82 /* API.swift in Sources */,
 				EC49F50E2504BEB700B192C6 /* Collection.swift in Sources */,
@@ -677,13 +677,13 @@
 				EC3D78602500BE9100F5CA67 /* AppBundle.swift in Sources */,
 				EC9AAE8624FEAA0C00253370 /* FontModifier.swift in Sources */,
 				EC49F4F42504082800B192C6 /* Easeing.swift in Sources */,
-				EC763EE525036C650021947B /* BattlePageViewModel.swift in Sources */,
 				ECC19CB024FFB5DC00115083 /* AppUserDefaults.swift in Sources */,
 				EC9AAE8024FE938000253370 /* SPPopupView.swift in Sources */,
 				EC49F5122504C4A700B192C6 /* SP2Weapon.swift in Sources */,
 				EC49F5062504BAEA00B192C6 /* SP2BattleOverview.swift in Sources */,
 				ECF7C82025061CE80030E1C4 /* UserDefaultsWrapper.swift in Sources */,
 				EC618BB424FF71C3001EE922 /* AppColor.swift in Sources */,
+				ECF1098B2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */,
 				EC3D785D25009C1F00F5CA67 /* AppTheme.swift in Sources */,
 				ECED0894250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */,
 				EC9AAE7D24FE933600253370 /* ClientTokenLoginPopupView.swift in Sources */,

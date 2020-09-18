@@ -10,6 +10,7 @@ import Combine
 
 class BattleListViewModel: ObservableObject {
     @Published var records: [Record] = []
+    @Published var isLoadingRealTimeBattle = false
     @Published var isLoadingDetail = false
     
     private var cancelBag = Set<AnyCancellable>()
@@ -18,7 +19,47 @@ class BattleListViewModel: ObservableObject {
         // Load data from database
         updateReocrdsFromDatabase()
         
-        // Sync data from splatoon2 api
+        // Sync battle detail to database
+        $records
+            .map { $0.filter { $0.id != -1 } }
+            .filter { _ in !self.isLoadingDetail }
+            .map { $0.filter { !$0.isDetail } }
+            .filter {
+                self.isLoadingDetail = $0.count > 0
+                return self.isLoadingDetail
+            }
+            .map {
+                $0.map { self.requestBattleDetail(battleNumber: $0.battleNumber) }
+            }
+            .flatMap {
+                $0.dropFirst().reduce($0.first!) {
+                    $0.append($1).eraseToAnyPublisher()
+                }
+            }
+            .sink { completion in
+                self.isLoadingDetail = false
+            } receiveValue: { data in
+                self.updateRecordDetail(data)
+                self.updateReocrdsFromDatabase()
+            }
+            .store(in: &cancelBag)
+        
+        startRealTimeDataLoop()
+    }
+    
+    func startRealTimeDataLoop() {
+        isLoadingRealTimeBattle = true
+        syncResultsToDatabase {
+            self.isLoadingRealTimeBattle = false
+            
+            // Next request after delayed for 7 seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                self.startRealTimeDataLoop()
+            }
+        }
+    }
+    
+    func syncResultsToDatabase(finished: (() -> Void)? = nil) {
         requestBattleOverview()
             .sink { completion in
                 switch completion {
@@ -34,33 +75,13 @@ class BattleListViewModel: ObservableObject {
                     }
                 }
             } receiveValue: { data in
-                self.saveRecordsData(data)
-                self.updateReocrdsFromDatabase()
-            }
-            .store(in: &cancelBag)
-        
-        $records
-            .filter { _ in !self.isLoadingDetail }
-            .map { $0.filter { !$0.isDetail } }
-            .filter {
-                self.isLoadingDetail = $0.count > 0
-                return self.isLoadingDetail
-            }
-            .map {
-                $0.map {
-                    self.requestBattleDetail(battleNumber: $0.battleNumber)
+                var haveNewRecord = false
+                self.saveRecordsData(data, haveNewRecord: &haveNewRecord)
+                if haveNewRecord {
+                    self.updateReocrdsFromDatabase()
                 }
-            }
-            .flatMap {
-                $0.dropFirst().reduce($0.first!) {
-                    $0.append($1).eraseToAnyPublisher()
-                }
-            }
-            .sink { completion in
-                self.isLoadingDetail = false
-            } receiveValue: { data in
-                self.updateRecordDetail(data)
-                self.updateReocrdsFromDatabase()
+                
+                finished?()
             }
             .store(in: &cancelBag)
     }
@@ -71,13 +92,26 @@ class BattleListViewModel: ObservableObject {
                 Just<[Record]>([])
             }
             .sink { records in
-                self.records = records
+                if let firstRecord = records.first {
+                    var firstRecord = firstRecord.copy()
+                    firstRecord.id = -1
+                    self.records = [firstRecord] + records
+                } else {
+                    self.records = [
+                        Record(
+                            id: -1,
+                            battleNumber: "",
+                            json: "",
+                            isDetail: false
+                        )
+                    ]
+                }
             }
             .store(in: &cancelBag)
     }
     
     /// Save original records json to database
-    func saveRecordsData(_ data: Data) {
+    func saveRecordsData(_ data: Data, haveNewRecord: inout Bool) {
         guard let json = try? JSONSerialization.jsonObject(
             with: data,
             options: .mutableContainers
@@ -86,7 +120,7 @@ class BattleListViewModel: ObservableObject {
             return
         }
         
-        try! AppDatabase.shared.saveSampleBattles(results)
+        try! AppDatabase.shared.saveSampleBattles(results, haveNewRecord: &haveNewRecord)
     }
     
     func updateRecordDetail(_ data: Data) {
