@@ -9,8 +9,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct BattlePage: View {
-    @StateObject var battlePageViewModel = BattlePageViewModel()
-    
     let record: Record
 
     var body: some View {
@@ -46,20 +44,6 @@ struct BattlePage: View {
                 )
             }
         }
-        .overlay(
-            Group {
-                // Top leading loading image
-                if battlePageViewModel.isLoading {
-                    Image("SquidLoading")
-                        .resizable()
-                        .frame(width: 70, height: 70)
-                        .modifier(SwimmingAnimationModifier())
-                        .padding([.top, .leading], 20)
-                        .shadow(radius: 10)
-                }
-            },
-            alignment: .topLeading
-        )
     }
     
     // Make battle content
