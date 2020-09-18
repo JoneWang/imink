@@ -9,21 +9,13 @@ import Foundation
 import SwiftUI
 import Combine
 
-class MainViewModel: ObservableObject {
-//    @Published var showHome = false
-    
+class MainViewModel: ObservableObject {    
     @Published var currentUser = AppUserDefaults.shared.user
     @Published var clientToken = AppUserDefaults.shared.clientToken
 
     private var cancelBag = Set<AnyCancellable>()
 
     init() {
-//        showHome = AppUserDefaults.shared.user != nil
-//
-//        if showHome {
-//            // If logined update user
-//            requestUserInfo()
-//        }
         if clientToken != nil {
             // If logined update user
             requestUserInfo()
