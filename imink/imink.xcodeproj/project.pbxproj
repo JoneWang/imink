@@ -20,7 +20,6 @@
 		EC2F0454250F673D003EC572 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0452250F673D003EC572 /* Record.swift */; };
 		EC2F0457250F6C3B003EC572 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0456250F6C3B003EC572 /* AppDatabase.swift */; };
 		EC2F0458250F6C3B003EC572 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0456250F6C3B003EC572 /* AppDatabase.swift */; };
-		EC2F045F2511286F003EC572 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC2F045E2511286F003EC572 /* GRDB */; };
 		EC3BD22A25025AB900744F17 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22925025AB900744F17 /* TransitionModifier.swift */; };
 		EC3BD22B25025AB900744F17 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22925025AB900744F17 /* TransitionModifier.swift */; };
 		EC3BD22D25025E5600744F17 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22C25025E5600744F17 /* MainView.swift */; };
@@ -89,6 +88,7 @@
 		ECED089125014665003C1A5A /* Splatoon2.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9AAE8924FEAD2400253370 /* Splatoon2.otf */; };
 		ECED0893250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
 		ECED0894250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
+		ECF10988251490E500AFB677 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = ECF10987251490E500AFB677 /* SDWebImageSwiftUI */; };
 		ECF7997C250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
 		ECF7997D250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
 		ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */; };
@@ -194,7 +194,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2F045F2511286F003EC572 /* GRDB in Frameworks */,
 				ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */,
 				EC3D889F2503C82E00FC9E46 /* URLImage in Frameworks */,
 			);
@@ -204,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECF10988251490E500AFB677 /* SDWebImageSwiftUI in Frameworks */,
 				EC3D889C2503C81400FC9E46 /* URLImage in Frameworks */,
 				EC2F044D250F5899003EC572 /* GRDB in Frameworks */,
 			);
@@ -499,7 +499,6 @@
 			packageProductDependencies = (
 				EC3D889E2503C82E00FC9E46 /* URLImage */,
 				ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */,
-				EC2F045E2511286F003EC572 /* GRDB */,
 			);
 			productName = "imink-swiftui (iOS)";
 			productReference = EC034AB024FE8DA500B9552A /* imink.app */;
@@ -521,6 +520,7 @@
 			packageProductDependencies = (
 				EC3D889B2503C81400FC9E46 /* URLImage */,
 				EC2F044C250F5899003EC572 /* GRDB */,
+				ECF10987251490E500AFB677 /* SDWebImageSwiftUI */,
 			);
 			productName = "imink-swiftui (macOS)";
 			productReference = EC034AB824FE8DA500B9552A /* imink.app */;
@@ -556,7 +556,6 @@
 				EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */,
 				ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-				EC2F045D2511286F003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = EC034AB124FE8DA500B9552A /* Products */;
 			projectDirPath = "";
@@ -977,14 +976,6 @@
 				kind = branch;
 			};
 		};
-		EC2F045D2511286F003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/groue/GRDB.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.14.0;
-			};
-		};
 		EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
@@ -1009,11 +1000,6 @@
 			package = EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
-		EC2F045E2511286F003EC572 /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC2F045D2511286F003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
-		};
 		EC3D889B2503C81400FC9E46 /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */;
@@ -1023,6 +1009,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC3D889A2503C81400FC9E46 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		ECF10987251490E500AFB677 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

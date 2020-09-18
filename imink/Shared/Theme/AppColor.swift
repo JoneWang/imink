@@ -25,4 +25,8 @@ struct AppColor {
     static let spYellow = Color("SPYellowColor")
     
     static let battleListRowBackgroundColor = Color("BattleListRowBackgroundColor")
+    
+    static let recordRowTitleNormalColor = Color("RecordRowTitleNormalColor")
+    
+    static let recordRowTitleSelectedColor = Color("RecordRowTitleSelectedColor")
 }
