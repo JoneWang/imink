@@ -13,8 +13,6 @@ struct MemberView: View {
     let victory: Bool
     let member: SP2TeamMember?
     
-    @State private var arrowOffsetX: CGFloat = -30
-    
     var body: some View {
         ZStack {
             HStack(spacing: 0) {
@@ -175,13 +173,7 @@ struct MemberView: View {
                 Image("SquidArrow")
                     .resizable()
                     .frame(width: 50, height: 50)
-                    .position(x: arrowOffsetX, y: 25)
-                    .animate(Animation
-                                .easeInOut(duration: 1)
-                                .repeatForever(autoreverses: true)
-                    ) {
-                        self.arrowOffsetX = -10
-                    }
+                    .position(x: -15, y: 25)
             }
         }
         .frame(width: 440, height: 50, alignment: .leading)
