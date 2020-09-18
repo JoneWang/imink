@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import URLImage
+import SDWebImageSwiftUI
 
 struct MemberView: View {
     let isMe: Bool
@@ -31,7 +31,7 @@ struct MemberView: View {
                     // Star
                     VStack {
                         Spacer()
-
+                        
                         ForEach(0..<4) { i in
                             if i < member.player.starRank {
                                 Text("★")
@@ -42,7 +42,7 @@ struct MemberView: View {
                     .padding(.leading, -3)
                     .padding(.bottom, 5)
                     .frame(width: 5)
-
+                    
                     // Rank
                     if let udemae = member.player.udemae {
                         VStack(spacing: 5) {
@@ -55,30 +55,25 @@ struct MemberView: View {
                     }
                     
                     // Weapon
-                    URLImage(member.player.weapon.imageURL, placeholder: { _ in
-                        Rectangle().foregroundColor(.clear)
-                    }) { proxy in
-                        proxy.image.resizable()
-                    }
-                    .aspectRatio(1, contentMode: .fit)
-                    .overlay(
-                        URLImage(victory ?
-                                    member.player.weapon.sub.imageAURL :
-                                    member.player.weapon.sub.imageBURL
-                        ) { proxy in
+                    WebImage(url: member.player.weapon.imageURL)
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fit)
+                        .overlay(
                             ZStack {
                                 Color.black.opacity(0.4)
-                                
-                                proxy.image.resizable()
-                                    .padding(1)
+                                WebImage(url: victory ?
+                                            member.player.weapon.sub.imageAURL :
+                                            member.player.weapon.sub.imageBURL
+                                )
+                                .resizable()
+                                .padding(1)
                             }
                             .frame(width: 18, height: 18)
                             .cornerRadius(4)
-                            .padding(.bottom, 1)
-                        },
-                        alignment: .bottomLeading
-                    )
-                    .padding([.leading, .trailing], 5)
+                            .padding(.bottom, 1),
+                            alignment: .bottomLeading
+                        )
+                        .padding([.leading, .trailing], 5)
                     
                     // Name
                     VStack(alignment: .leading, spacing: 3) {
@@ -98,16 +93,15 @@ struct MemberView: View {
                                     member.player.clothesSkills,
                                     member.player.shoesSkills,
                                 ], id: \.main.id) { skills in
-                                    URLImage(skills.main.imageURL) { proxy in
-                                        ZStack {
-                                            Color.black
-                                            
-                                            proxy.image.resizable()
-                                                .padding(1)
-                                        }
-                                        .frame(width: 20, height: 20)
-                                        .clipShape(Capsule())
+                                    ZStack {
+                                        Color.black
+                                        
+                                        WebImage(url: skills.main.imageURL)
+                                            .resizable()
+                                            .padding(1)
                                     }
+                                    .frame(width: 20, height: 20)
+                                    .clipShape(Capsule())
                                 }
                             }
                         }
@@ -158,12 +152,11 @@ struct MemberView: View {
                     
                     // Special
                     VStack(spacing: 4) {
-                        URLImage(victory ?
+                        WebImage(url: victory ?
                                     member.player.weapon.special.imageAURL :
                                     member.player.weapon.special.imageBURL
-                        ) { proxy in
-                            proxy.image.resizable()
-                        }
+                        )
+                        .resizable()
                         .frame(width: 18, height: 18)
                         
                         Text("\(member.specialCount)")

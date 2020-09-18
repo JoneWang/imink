@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
-import URLImage
 
 @main
 struct iminkApp: App {
     init() {
         _ = try! AppDatabase()
-        
-        URLImageService.shared.setDefaultExpiryTime(3600.0 * 365)
     }
     
     var body: some Scene {

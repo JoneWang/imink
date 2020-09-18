@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import URLImage
+import SDWebImageSwiftUI
 
 struct RecordRow: View {
     let record: Record
@@ -91,14 +91,11 @@ struct RecordRow: View {
                     .frame(height: 5)
                 }
                 
-                URLImage(battle.playerResult.player.weapon.imageURL, placeholder: { _ in
-                    Rectangle().foregroundColor(.clear)
-                }) { proxy in
-                    proxy.image.resizable()
-                }
-                .aspectRatio(1, contentMode: .fit)
-                .frame(height: 60)
-                .padding(.top, 20)
+                WebImage(url: battle.playerResult.player.weapon.imageURL)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(height: 60)
+                    .padding(.top, 20)
                 
                 if !record.isDetail {
                     ProgressView()
