@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import URLImage
+import SDWebImageSwiftUI
 
 struct BattlePage: View {
     @StateObject var battlePageViewModel = BattlePageViewModel()
@@ -14,21 +14,15 @@ struct BattlePage: View {
     let record: Record
 
     var body: some View {
-        let defaultImage = Image("BattleDefaultBackground")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-        
         ZStack {
             if let battle = record.battle, record.isDetail {
                 // Stage as background
                 Rectangle().overlay(
-                    URLImage(battle.stage.imageURL,
-                             placeholder: { _ in defaultImage }) { proxy in
-                        proxy.image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .transition(.opacity)
-                    }
+                    WebImage(url: battle.stage.imageURL)
+                        .placeholder(Image("BattleDefaultBackground"))
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .transition(.opacity)
                 )
 
                 // Content
@@ -45,7 +39,11 @@ struct BattlePage: View {
                 }
             } else {
                 // Default background
-                Rectangle().overlay(defaultImage)
+                Rectangle().overlay(
+                    Image("BattleDefaultBackground")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                )
             }
         }
         .overlay(
