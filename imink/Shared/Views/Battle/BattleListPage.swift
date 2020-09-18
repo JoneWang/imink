@@ -18,23 +18,37 @@ struct BattleListPage: View {
     @Binding var selectedRecord: Record?
     
     var body: some View {
-        List(battleListViewModel.records) { record in
-            RecordRow(
-                record: record,
-                isSelected: record == selectedRecord,
-                onSelected: { selectedRecord = $0 }
-            )
+        Group {
+            #if os(macOS)
+            List(battleListViewModel.records) { record in
+                RecordRow(
+                    record: record,
+                    isSelected: record == selectedRecord,
+                    onSelected: { selectedRecord = $0 }
+                )
+            }
+            // !!!: There is a List update bug in macOS that uses id() to force a
+            //      List to be rebuilt when records is updated.
+            .id(battleListViewModel.records)
+            #else
+            List(battleListViewModel.records) { record in
+                RecordRow(
+                    record: record,
+                    isSelected: record == selectedRecord,
+                    onSelected: { selectedRecord = $0 }
+                )
+            }
+            #endif
         }
-        // !!!: There is a List update bug in macOS that uses id() to force a
-        //      List to be rebuilt when records is updated.
-        .id(battleListViewModel.records)
         .listStyle(SidebarListStyle())
         .toolbar {
+            #if os(macOS)
             ToolbarItem {
                 Button(action: toggleSidebar, label: {
                     Image(systemName: "sidebar.left")
                 })
             }
+            #endif
             
             ToolbarItem { Spacer() }
             
@@ -49,7 +63,7 @@ struct BattleListPage: View {
                 }
             }
         }
-        .frame(minWidth: 270)
+        .frame(minWidth: 300)
         .onReceive(battleListViewModel.$records) { records in
             if records.count == 0 { return }
             if selectedRecord != nil { return }
@@ -59,8 +73,7 @@ struct BattleListPage: View {
     }
     
     private func toggleSidebar() {
-        #if os(iOS)
-        #else
+        #if os(macOS)
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
         #endif
     }
