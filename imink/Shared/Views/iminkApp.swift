@@ -20,6 +20,9 @@ struct iminkApp: App {
                 .environmentObject(AppUserDefaults.shared)
         }
         .commands {
+            // Hide new window menu
+            CommandGroup(replacing: CommandGroupPlacement.newItem) { }
+            
             SidebarCommands()
             ToolbarCommands()
         }
