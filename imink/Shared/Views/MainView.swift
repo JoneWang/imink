@@ -19,7 +19,7 @@ struct MainView: View {
                     
                     #if os(iOS)
                     BattleListPage(selectedRecord: $selectedRecord)
-                        .navigationBarTitle("", displayMode: .inline)
+                        .navigationBarTitle("Records")
                     
                     Group {
                         if let record = selectedRecord {

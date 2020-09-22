@@ -20,25 +20,20 @@ struct BattleListPage: View {
     var body: some View {
         let recordsWithIndex = battleListViewModel.records.enumerated().map({ $0 })
 
-        let contentView = ScrollView {
-            LazyVGrid(columns: [ GridItem(.flexible(), spacing: 12, alignment: .center) ]) {
-                ForEach(recordsWithIndex, id: \.element.id) { index, records in
-                    let record = battleListViewModel.records[index]
-                    if index == 0 {
-                        RealtimeRecordRow(
-                            isLoading: $battleListViewModel.isLoadingRealTimeBattle,
-                            record: record,
-                            isSelected: record == selectedRecord,
-                            onSelected: { selectedRecord = $0 }
-                        )
-                    } else {
-                        RecordRow(
-                            record: record,
-                            isSelected: record == selectedRecord,
-                            onSelected: { selectedRecord = $0 }
-                        )
-                    }
-                }
+        List(recordsWithIndex, id: \.element.id) { index, record in
+            if index == 0 {
+                RealtimeRecordRow(
+                    isLoading: $battleListViewModel.isLoadingRealTimeBattle,
+                    record: record,
+                    isSelected: record == selectedRecord,
+                    onSelected: { selectedRecord = $0 }
+                )
+            } else {
+                RecordRow(
+                    record: record,
+                    isSelected: record == selectedRecord,
+                    onSelected: { selectedRecord = $0 }
+                )
             }
         }
         .listStyle(SidebarListStyle())
@@ -71,15 +66,6 @@ struct BattleListPage: View {
             
             selectedRecord = records.first
         }
-        
-        #if os(macOS)
-        contentView
-            .padding([.leading, .trailing], 12)
-            // !!!: Fixed onTapGesture misalignment problem on macOS.
-            .padding([.top], 1)
-        #else
-        contentView
-        #endif
     }
     
     private func toggleSidebar() {

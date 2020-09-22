@@ -12,7 +12,7 @@ struct RealtimeRecordRow: View {
     let record: Record
     let isSelected: Bool
     let onSelected: (Record) -> Void
-
+    
     var body: some View {
         let contentView = HStack {
             Spacer()
@@ -54,11 +54,9 @@ struct RealtimeRecordRow: View {
         
         #if os(macOS)
         contentView
-            // !!!: 
-            .padding(.bottom, 1)
+            .padding(.bottom)
         #else
         contentView
-            .padding([.leading, .trailing, .top], 12)
         #endif
     }
 }

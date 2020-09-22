@@ -36,11 +36,18 @@ class BattleListViewModel: ObservableObject {
                     $0.append($1).eraseToAnyPublisher()
                 }
             }
-            .sink { completion in
-                self.isLoadingDetail = false
-            } receiveValue: { data in
+            .map { (data: Data) -> Void in
                 self.updateRecordDetail(data)
+                return Void()
+            }
+            .throttle(for: 2.5, scheduler: DispatchQueue.main, latest: true)
+            .sink { completion in
+            } receiveValue: {
                 self.updateReocrdsFromDatabase()
+                
+                if self.records.filter({ !$0.isDetail }).count == 0 {
+                    self.isLoadingDetail = false
+                }
             }
             .store(in: &cancelBag)
         
@@ -103,7 +110,16 @@ class BattleListViewModel: ObservableObject {
                             id: -1,
                             battleNumber: "",
                             json: "",
-                            isDetail: false
+                            isDetail: false,
+                            victory: false,
+                            weaponImage: "",
+                            rule: "",
+                            gameMode: "",
+                            stageName: "",
+                            killTotalCount: 0,
+                            deathCount: 0,
+                            myPoint: 0,
+                            otherPoint: 0
                         )
                     ]
                 }
@@ -121,7 +137,22 @@ class BattleListViewModel: ObservableObject {
             return
         }
         
-        try! AppDatabase.shared.saveSampleBattles(results, haveNewRecord: &haveNewRecord)
+        let jsonResults = results.map { result -> String? in
+            guard let data = try? JSONSerialization.data(withJSONObject: result, options: .sortedKeys),
+                  let jsonString = String(data: data, encoding: .utf8) else {
+                return nil
+            }
+            return jsonString
+        }
+        
+        let battles = jsonResults.map { json -> SP2Battle? in
+            guard let battle = json?.decode(SP2Battle.self) else {
+                return nil
+            }
+            return battle
+        }
+        
+        try! AppDatabase.shared.saveSampleBattles(jsonResults, battles: battles, haveNewRecord: &haveNewRecord)
     }
     
     func updateRecordDetail(_ data: Data) {
