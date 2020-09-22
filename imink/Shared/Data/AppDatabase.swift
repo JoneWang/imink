@@ -18,6 +18,11 @@ class AppDatabase {
         let databaseURL = try FileManager.default
             .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent("db.sqlite")
+        
+        #if DEBUG
+        print("sqlite url: \(databaseURL.path)")
+        #endif
+        
         let dbQueue = try DatabaseQueue(path: databaseURL.path)
         
         self.dbQueue = dbQueue
