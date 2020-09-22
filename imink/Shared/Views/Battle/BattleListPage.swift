@@ -20,7 +20,7 @@ struct BattleListPage: View {
     var body: some View {
         let recordsWithIndex = battleListViewModel.records.enumerated().map({ $0 })
 
-        ScrollView {
+        let contentView = ScrollView {
             LazyVGrid(columns: [ GridItem(.flexible(), spacing: 12, alignment: .center) ]) {
                 ForEach(recordsWithIndex, id: \.element.id) { index, records in
                     let record = battleListViewModel.records[index]
@@ -41,7 +41,6 @@ struct BattleListPage: View {
                 }
             }
         }
-        .padding(12)
         .listStyle(SidebarListStyle())
         .toolbar {
             #if os(macOS)
@@ -72,6 +71,13 @@ struct BattleListPage: View {
             
             selectedRecord = records.first
         }
+        
+        #if os(macOS)
+        contentView
+            .padding(12)
+        #else
+        contentView
+        #endif
     }
     
     private func toggleSidebar() {

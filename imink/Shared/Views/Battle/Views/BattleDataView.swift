@@ -33,6 +33,7 @@ struct BattleDataView: View {
             .background(Color.white)
             .clipShape(Capsule())
             .shadow(radius: 10)
+            .padding([.leading, .trailing])
             
             Spacer()
             
