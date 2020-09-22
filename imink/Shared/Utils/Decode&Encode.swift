@@ -28,11 +28,12 @@ extension Data {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
 
-        guard let object = try? decoder.decode(type.self, from: self) else {
+        do {
+            return try decoder.decode(type.self, from: self)
+        } catch {
+            print(error)
             return nil
         }
-        
-        return object
     }
     
 }
