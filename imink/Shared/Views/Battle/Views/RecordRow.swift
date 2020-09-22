@@ -55,7 +55,7 @@ struct RecordRow: View {
                         
                         Spacer()
                         
-                        VStack {
+                        VStack(alignment: .trailing) {
                             Text("\(battle.rule.name)")
                                 .sp1Font(color: Color.secondary)
                             
