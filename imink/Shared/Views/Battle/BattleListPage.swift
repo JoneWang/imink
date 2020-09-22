@@ -75,6 +75,8 @@ struct BattleListPage: View {
         #if os(macOS)
         contentView
             .padding([.leading, .trailing], 12)
+            // !!!: Fixed onTapGesture misalignment problem on macOS.
+            .padding([.top], 1)
         #else
         contentView
         #endif
