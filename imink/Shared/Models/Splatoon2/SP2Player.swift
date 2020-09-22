@@ -20,7 +20,7 @@ struct SP2Player: Codable {
     
     struct Udemae: Codable {
         let name: String?
-        let sPlusNumber: String?
+        let sPlusNumber: Int?
         let isX: Bool
     }
     
