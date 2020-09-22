@@ -54,6 +54,8 @@ struct RealtimeRecordRow: View {
         
         #if os(macOS)
         contentView
+            // !!!: 
+            .padding(.bottom, 1)
         #else
         contentView
             .padding([.leading, .trailing, .top], 12)
