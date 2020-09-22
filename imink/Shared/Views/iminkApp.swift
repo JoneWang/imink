@@ -9,15 +9,10 @@ import SwiftUI
 
 @main
 struct iminkApp: App {
-    init() {
-        _ = try! AppDatabase()
-    }
-    
     var body: some Scene {
         WindowGroup {
             MainView()
                 .frame(minWidth: 600, minHeight: 400)
-                .environmentObject(AppUserDefaults.shared)
         }
         .commands {
             // Hide new window menu

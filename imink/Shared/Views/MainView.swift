@@ -16,12 +16,33 @@ struct MainView: View {
         Group {
             if mainViewModel.clientToken != nil {
                 NavigationView {
+                    
+                    #if os(iOS)
                     BattleListPage(selectedRecord: $selectedRecord)
-                    if let record = selectedRecord {
-                        BattlePage(record: record)
-                    } else {
-                        EmptyView()
+                        .navigationBarTitle("", displayMode: .inline)
+                    
+                    Group {
+                        if let record = selectedRecord {
+                            BattlePage(record: record)
+                        } else {
+                            EmptyView()
+                        }
                     }
+                    .navigationBarHidden(true)
+                    
+                    #else
+                    
+                    BattleListPage(selectedRecord: $selectedRecord)
+                    
+                    Group {
+                        if let record = selectedRecord {
+                            BattlePage(record: record)
+                        } else {
+                            EmptyView()
+                        }
+                    }
+                    #endif
+                    
                 }
             } else {
                 LaunchPage(
