@@ -19,37 +19,29 @@ struct BattleListPage: View {
     
     var body: some View {
         let recordsWithIndex = battleListViewModel.records.enumerated().map({ $0 })
-        Group {
-            #if os(macOS)
-            List(recordsWithIndex, id: \.element.id) { index, record in
-                if index == 0 {
-                    RealtimeRecordRow(
-                        isLoading: $battleListViewModel.isLoadingRealTimeBattle,
-                        record: record,
-                        isSelected: record == selectedRecord,
-                        onSelected: { selectedRecord = $0 }
-                    )
-                } else {
-                    RecordRow(
-                        record: record,
-                        isSelected: record == selectedRecord,
-                        onSelected: { selectedRecord = $0 }
-                    )
+
+        ScrollView {
+            LazyVGrid(columns: [ GridItem(.flexible(), spacing: 12, alignment: .center) ]) {
+                ForEach(recordsWithIndex, id: \.element.id) { index, records in
+                    let record = battleListViewModel.records[index]
+                    if index == 0 {
+                        RealtimeRecordRow(
+                            isLoading: $battleListViewModel.isLoadingRealTimeBattle,
+                            record: record,
+                            isSelected: record == selectedRecord,
+                            onSelected: { selectedRecord = $0 }
+                        )
+                    } else {
+                        RecordRow(
+                            record: record,
+                            isSelected: record == selectedRecord,
+                            onSelected: { selectedRecord = $0 }
+                        )
+                    }
                 }
             }
-            // !!!: There is a List update bug in macOS that uses id() to force a
-            //      List to be rebuilt when records is updated.
-            .id(battleListViewModel.records)
-            #else
-            List(battleListViewModel.records) { record in
-                RecordRow(
-                    record: record,
-                    isSelected: record == selectedRecord,
-                    onSelected: { selectedRecord = $0 }
-                )
-            }
-            #endif
         }
+        .padding(12)
         .listStyle(SidebarListStyle())
         .toolbar {
             #if os(macOS)
@@ -58,10 +50,9 @@ struct BattleListPage: View {
                     Image(systemName: "sidebar.left")
                 })
             }
-            #endif
-            
+
             ToolbarItem { Spacer() }
-            
+
             ToolbarItem {
                 // Sync data progress view
                 if battleListViewModel.isLoadingDetail {
@@ -72,6 +63,7 @@ struct BattleListPage: View {
                     .progressViewStyle(CircularProgressViewStyle())
                 }
             }
+            #endif
         }
         .frame(minWidth: 300)
         .onReceive(battleListViewModel.$records) { records in

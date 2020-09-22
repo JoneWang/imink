@@ -48,7 +48,6 @@ struct RealtimeRecordRow: View {
         .frame(height: 90)
         .background(isSelected ? Color.accentColor : AppColor.battleListRowBackgroundColor)
         .cornerRadius(10)
-        .padding(.top, 12)
         .onTapGesture {
             onSelected(record)
         }

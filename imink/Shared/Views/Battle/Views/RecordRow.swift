@@ -105,10 +105,8 @@ struct RecordRow: View {
                 EmptyView()
             }
         }
-        .frame(height: 90)
         .background(isSelected ? Color.accentColor : AppColor.battleListRowBackgroundColor)
         .cornerRadius(10)
-        .padding(.top, 12)
         .opacity(record.isDetail ? 1 : 0.5)
         .onTapGesture {
             onSelected(record)

@@ -52,6 +52,7 @@
 		EC49F5122504C4A700B192C6 /* SP2Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5102504C4A700B192C6 /* SP2Weapon.swift */; };
 		EC5EBFFD24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EBFFC24FF793400ED0561 /* StatefulPreviewWrapper.swift */; };
 		EC5EBFFE24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EBFFC24FF793400ED0561 /* StatefulPreviewWrapper.swift */; };
+		EC5F73E12516567F002A89FF /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC5F73E02516567F002A89FF /* GRDB */; };
 		EC618BAF24FF4E06001EE922 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BAE24FF4E06001EE922 /* SPTextField.swift */; };
 		EC618BB024FF4E06001EE922 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BAE24FF4E06001EE922 /* SPTextField.swift */; };
 		EC618BB324FF71C3001EE922 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB224FF71C3001EE922 /* AppColor.swift */; };
@@ -193,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */,
+				EC5F73E12516567F002A89FF /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +496,7 @@
 			name = "imink (iOS)";
 			packageProductDependencies = (
 				ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */,
+				EC5F73E02516567F002A89FF /* GRDB */,
 			);
 			productName = "imink-swiftui (iOS)";
 			productReference = EC034AB024FE8DA500B9552A /* imink.app */;
@@ -981,6 +984,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		EC2F044C250F5899003EC572 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		EC5F73E02516567F002A89FF /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
