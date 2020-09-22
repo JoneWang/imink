@@ -14,7 +14,7 @@ struct RecordRow: View {
     let onSelected: (Record) -> Void
     
     var body: some View {
-        ZStack {
+        let contentView = ZStack {
             if let battle: SP2Battle = record.battle {
                 let barValue = Double(battle.myPoint) &/ Double((battle.myPoint + battle.otherPoint))
                 
@@ -111,6 +111,13 @@ struct RecordRow: View {
         .onTapGesture {
             onSelected(record)
         }
+        
+        #if os(macOS)
+        contentView
+        #else
+        contentView
+            .padding([.leading, .trailing], 12)
+        #endif
     }
 }
 

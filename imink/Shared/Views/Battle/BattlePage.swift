@@ -12,7 +12,7 @@ struct BattlePage: View {
     let record: Record
 
     var body: some View {
-        ZStack {
+        let contentView = ZStack {
             if let battle = record.battle, record.isDetail {
                 // Stage as background
                 Rectangle().overlay(
@@ -44,6 +44,13 @@ struct BattlePage: View {
                 )
             }
         }
+        
+        #if os(iOS)
+        contentView
+            .edgesIgnoringSafeArea(.all)
+        #else
+        contentView
+        #endif
     }
     
     // Make battle content
