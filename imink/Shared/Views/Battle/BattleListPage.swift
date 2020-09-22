@@ -74,7 +74,7 @@ struct BattleListPage: View {
         
         #if os(macOS)
         contentView
-            .padding(12)
+            .padding([.leading, .trailing], 12)
         #else
         contentView
         #endif
