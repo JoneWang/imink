@@ -43,18 +43,24 @@ class BattleListViewModel: ObservableObject {
             }
             .throttle(for: 2.5, scheduler: DispatchQueue.main, latest: true)
             .sink { completion in
-                print(completion)
+                if case .failure(let error) = completion {
+                    print("[API] \(error)")
+                }
             } receiveValue: { (json, battle) in
                 // Update records
                 if let battle = battle, let json = json,
-                    let index = self.records.firstIndex(where: { $0.battleNumber == battle.battleNumber }) {
+                    let index = self.records.firstIndex(
+                        where: { $0.id != nil && $0.battleNumber == battle.battleNumber }
+                    ) {
                     var record = self.records[index]
                     record.json = json
                     record.isDetail = true
                     self.records[index] = record
                 }
                 
-                if self.records.filter({ !$0.isDetail }).count == 0 {
+                if self.records.filter(
+                    { $0.id != nil && !$0.isDetail }
+                ).count == 0 {
                     self.isLoadingDetail = false
                 }
             }
@@ -95,7 +101,7 @@ class BattleListViewModel: ObservableObject {
                 
             } receiveValue: { data in
                 self.saveRecordsData(data) { haveNewRecord in
-                    if haveNewRecord {
+                    if haveNewRecord || self.isLoadingDetail {
                         self.updateReocrdsFromDatabase()
                     }
                 }
