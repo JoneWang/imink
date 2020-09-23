@@ -47,12 +47,12 @@ class LaunchPageViewModel: ObservableObject {
                 // Save Client Token
                 print(self.inputClientToken)
                 
+                AppUserDefaults.shared.clientToken = self.clientToken
+                AppUserDefaults.shared.user = user
+                
                 self.clientToken = self.inputClientToken
                 self.loginUser = user
                 self.status = .loginSuccess
-                
-                AppUserDefaults.shared.clientToken = self.clientToken
-                AppUserDefaults.shared.user = user
             }
             .store(in: &cancelBag)
     }
