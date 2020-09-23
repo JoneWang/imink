@@ -21,7 +21,7 @@ class BattleListViewModel: ObservableObject {
         
         // Sync battle detail to database
         $records
-            .map { $0.filter { $0.id != -1 } }
+            .map { $0.filter { $0.id != nil } }
             .filter { _ in !self.isLoadingDetail }
             .map { $0.filter { !$0.isDetail } }
             .filter {
@@ -43,6 +43,7 @@ class BattleListViewModel: ObservableObject {
             }
             .throttle(for: 2.5, scheduler: DispatchQueue.main, latest: true)
             .sink { completion in
+                print(completion)
             } receiveValue: { (json, battle) in
                 // Update records
                 if let battle = battle, let json = json,
