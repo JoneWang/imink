@@ -15,7 +15,7 @@ struct LaunchPage: View {
     @State private var status: LaunchPageViewModel.Status? = .needToken
 
     var body: some View {
-        ZStack {
+        let contentView = ZStack {
             // Background
             Rectangle().overlay(
                 Image("LaunchBackground")
@@ -46,6 +46,14 @@ struct LaunchPage: View {
         .onReceive(launchPageViewModel.$clientToken) { clientToken in
             self.clientToken = clientToken
         }
+        
+        
+        #if os(iOS)
+        contentView
+            .edgesIgnoringSafeArea(.all)
+        #else
+        contentView
+        #endif
     }
 }
 
