@@ -28,7 +28,6 @@ struct MainView: View {
                             EmptyView()
                         }
                     }
-                    .navigationBarHidden(true)
                     
                     #else
                     
