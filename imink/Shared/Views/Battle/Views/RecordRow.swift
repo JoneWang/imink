@@ -28,13 +28,13 @@ struct RecordRow: View {
                     
                     Text("\(record.victory ? "VICTORY" : "DEFEAT")")
                         .sp1Font(
-                            size: 20,
+                            size: 17,
                             color: record.victory ?
                                 AppColor.spPink :
                                 AppColor.spLightGreen
                         )
                 }
-                .padding([.leading, .top], 10)
+                .padding([.leading, .top], 5)
                 
                 HStack(alignment: .top) {
                     VStack {
@@ -45,7 +45,7 @@ struct RecordRow: View {
                         
                         Text("\(record.killTotalCount) k  \(record.deathCount) d")
                             .sp2Font(
-                                size: 20,
+                                size: 15,
                                 color: isSelected ?
                                     AppColor.recordRowTitleSelectedColor :
                                     AppColor.recordRowTitleNormalColor
@@ -69,7 +69,7 @@ struct RecordRow: View {
                             .padding(.bottom, 5)
                     }
                 }
-                .padding([.leading, .trailing], 10)
+                .padding([.leading, .trailing], 5)
                 
                 Spacer()
                 
@@ -93,15 +93,15 @@ struct RecordRow: View {
             WebImage(url: record.weaponImageURL)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
-                .frame(height: 60)
-                .padding(.top, 20)
+                .frame(height: 50)
+                .padding(.top, 15)
             
             if !record.isDetail {
                 ProgressView()
             }
         }
         .background(isSelected ? Color.accentColor : AppColor.battleListRowBackgroundColor)
-        .cornerRadius(10)
+        .cornerRadius(5)
         .opacity(record.isDetail ? 1 : 0.5)
         .onTapGesture {
             onSelected(record)
@@ -109,7 +109,7 @@ struct RecordRow: View {
         
         #if os(macOS)
         contentView
-            .padding(.bottom)
+            .padding(.bottom, 6)
         #else
         contentView
         #endif
@@ -120,10 +120,10 @@ struct BattleRow_Previews: PreviewProvider {
     
     static var previews: some View {
         PreviewWrapper()
-            .frame(width: 300, height: 230)
+            .frame(width: 300, height: 200)
             .preferredColorScheme(.dark)
         PreviewWrapper()
-            .frame(width: 300, height: 230)
+            .frame(width: 300, height: 200)
             .preferredColorScheme(.light)
     }
     
@@ -134,9 +134,9 @@ struct BattleRow_Previews: PreviewProvider {
             VStack {
                 if let record = record {
                     RecordRow(record: record, isSelected: false, onSelected: { _ in })
-                        .frame(width: 300)
+                        .frame(width: 260)
                     RecordRow(record: record, isSelected: true, onSelected: { _ in })
-                        .frame(width: 300)
+                        .frame(width: 260)
                 }
             }
             .onAppear {

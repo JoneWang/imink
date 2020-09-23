@@ -59,7 +59,7 @@ struct BattleListPage: View {
             }
             #endif
         }
-        .frame(minWidth: 300)
+        .frame(minWidth: 270)
         .onReceive(battleListViewModel.$records) { records in
             if records.count == 0 { return }
             
