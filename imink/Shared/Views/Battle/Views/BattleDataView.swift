@@ -59,6 +59,7 @@ struct BattleDataView: View {
                 
                 // Progressbar
                 BattleResultBar(
+                    victory: battle.myTeamResult.key == .victory,
                     leftTitle: battle.myPointTitle,
                     rightTitle: battle.otherPointTitle,
                     value: Double(battle.myPoint) &/

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BattleResultBar: View {
+    let victory: Bool
     let leftTitle: String
     let rightTitle: String
     let value: Double
@@ -17,11 +18,19 @@ struct BattleResultBar: View {
             GeometryReader { geo in
                 HStack(spacing: 0) {
                     Rectangle()
-                        .foregroundColor(AppColor.spPink)
+                        .foregroundColor(
+                            victory ?
+                                AppColor.spPink :
+                                AppColor.spLightGreen
+                        )
                         .frame(width: CGFloat(value) * geo.size.width)
                     
                     Rectangle()
-                        .foregroundColor(AppColor.spLightGreen)
+                        .foregroundColor(
+                            victory ?
+                                AppColor.spLightGreen :
+                                AppColor.spPink
+                        )
                 }
             }
             
@@ -43,7 +52,7 @@ struct BattleResultBar: View {
 
 struct BattleResultBar_Previews: PreviewProvider {
     static var previews: some View {
-        BattleResultBar(leftTitle: "33", rightTitle: "22", value: 0.67)
+        BattleResultBar(victory: true, leftTitle: "33", rightTitle: "22", value: 0.67)
             .frame(height: 80)
     }
 }
