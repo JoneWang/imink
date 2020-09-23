@@ -62,9 +62,15 @@ struct BattleListPage: View {
         .frame(minWidth: 300)
         .onReceive(battleListViewModel.$records) { records in
             if records.count == 0 { return }
-            if selectedRecord != nil { return }
             
-            selectedRecord = records.first
+            guard let currentRecord = selectedRecord else {
+                selectedRecord = records.first
+                return
+            }
+            
+            if currentRecord.id == nil {
+                selectedRecord = records.first
+            }
         }
     }
     

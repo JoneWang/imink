@@ -59,14 +59,11 @@ extension Record: Codable, FetchableRecord, MutablePersistableRecord {
 
 extension DerivableRequest where RowDecoder == Record { }
 
-extension Record: Hashable {
+extension Record: Equatable {
     static func == (lhs: Record, rhs: Record) -> Bool {
-        lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(self.id)
-        hasher.combine(self.isDetail)
+        lhs.id == rhs.id &&
+            lhs.json == rhs.json &&
+            lhs.isDetail == rhs.isDetail
     }
 }
 

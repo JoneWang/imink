@@ -102,12 +102,11 @@ class BattleListViewModel: ObservableObject {
             .sink { records in
                 if let firstRecord = records.first {
                     var firstRecord = firstRecord.copy()
-                    firstRecord.id = -1
+                    firstRecord.id = nil
                     self.records = [firstRecord] + records
                 } else {
                     self.records = [
                         Record(
-                            id: -1,
                             battleNumber: "",
                             json: "",
                             isDetail: false,
