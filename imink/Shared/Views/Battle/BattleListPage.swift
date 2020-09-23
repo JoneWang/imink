@@ -19,9 +19,55 @@ struct BattleListPage: View {
     
     var body: some View {
         let recordsWithIndex = battleListViewModel.records.enumerated().map({ $0 })
-
-        List(recordsWithIndex, id: \.element.id) { index, record in
+        
+        #if os(iOS)
+        
+        let listView = List(recordsWithIndex, id: \.element.id) { index, record in
             if index == 0 {
+                NavigationLink(
+                    destination:
+                        Group {
+                            if let record = selectedRecord {
+                                BattlePage(record: record)
+                            } else {
+                                EmptyView()
+                            }
+                        },
+                    isActive: .constant(record == selectedRecord),
+                    label: {
+                        RealtimeRecordRow(
+                            isLoading: $battleListViewModel.isLoadingRealTimeBattle,
+                            record: record,
+                            isSelected: record == selectedRecord,
+                            onSelected: { selectedRecord = $0 }
+                        )
+                    })
+            } else {
+                NavigationLink(
+                    destination:
+                        Group {
+                            if let record = selectedRecord {
+                                BattlePage(record: record)
+                            } else {
+                                EmptyView()
+                            }
+                        },
+                    isActive: .constant(record == selectedRecord),
+                    label: {
+                        RecordRow(
+                            record: record,
+                            isSelected: record == selectedRecord,
+                            onSelected: { selectedRecord = $0 }
+                        )
+                    })
+            }
+        }
+        
+        #else
+        
+        let listView = List(recordsWithIndex, id: \.element.id) { index, record in
+            if index == 0 {
+                
                 RealtimeRecordRow(
                     isLoading: $battleListViewModel.isLoadingRealTimeBattle,
                     record: record,
@@ -36,42 +82,46 @@ struct BattleListPage: View {
                 )
             }
         }
-        .listStyle(SidebarListStyle())
-        .toolbar {
-            #if os(macOS)
-            ToolbarItem {
-                Button(action: toggleSidebar, label: {
-                    Image(systemName: "sidebar.left")
-                })
+        
+        #endif
+        
+        listView
+            .listStyle(SidebarListStyle())
+            .toolbar {
+                #if os(macOS)
+                ToolbarItem {
+                    Button(action: toggleSidebar, label: {
+                        Image(systemName: "sidebar.left")
+                    })
+                }
+                
+                ToolbarItem { Spacer() }
+                
+                ToolbarItem {
+                    // Sync data progress view
+                    if battleListViewModel.isLoadingDetail {
+                        ProgressView(
+                            value: Double(battleListViewModel.records.filter { $0.isDetail }.count),
+                            total: Double(battleListViewModel.records.count)
+                        )
+                        .progressViewStyle(CircularProgressViewStyle())
+                    }
+                }
+                #endif
             }
-
-            ToolbarItem { Spacer() }
-
-            ToolbarItem {
-                // Sync data progress view
-                if battleListViewModel.isLoadingDetail {
-                    ProgressView(
-                        value: Double(battleListViewModel.records.filter { $0.isDetail }.count),
-                        total: Double(battleListViewModel.records.count)
-                    )
-                    .progressViewStyle(CircularProgressViewStyle())
+            .frame(minWidth: 270)
+            .onReceive(battleListViewModel.$records) { records in
+                if records.count == 0 { return }
+                
+                guard let currentRecord = selectedRecord else {
+                    selectedRecord = records.first
+                    return
+                }
+                
+                if currentRecord.id == nil {
+                    selectedRecord = records.first
                 }
             }
-            #endif
-        }
-        .frame(minWidth: 270)
-        .onReceive(battleListViewModel.$records) { records in
-            if records.count == 0 { return }
-            
-            guard let currentRecord = selectedRecord else {
-                selectedRecord = records.first
-                return
-            }
-            
-            if currentRecord.id == nil {
-                selectedRecord = records.first
-            }
-        }
     }
     
     private func toggleSidebar() {
