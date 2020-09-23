@@ -27,12 +27,10 @@ struct BattlePage: View {
                 GeometryReader { geo in
                     HStack {
                         // Left content
-                        BattleDataView(battle: battle)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(Color.clear)
+                        makeBattleInfo(battle: battle, geo: geo)
                         
                         // Right content
-                        makeTeamContent(lastBattle: battle, geo: geo)
+                        makeTeamContent(battle: battle, geo: geo)
                     }
                 }
             } else {
@@ -53,8 +51,25 @@ struct BattlePage: View {
         #endif
     }
     
+    func makeBattleInfo(battle: SP2Battle, geo: GeometryProxy) -> some View {
+        let teamsDataViewRatio = TeamsDataView.size.width / TeamsDataView.size.height
+        let teamsDataViewWidth = teamsDataViewRatio * geo.size.height
+        let battleInfoViewWidth = geo.size.width - teamsDataViewWidth
+        
+        return
+            Group {
+            if battleInfoViewWidth > 180 {
+                BattleDataView(battle: battle)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.clear)
+            } else {
+                Spacer()
+            }
+        }
+    }
+    
     // Make battle content
-    func makeTeamContent(lastBattle: SP2Battle, geo: GeometryProxy) -> some View {
+    func makeTeamContent(battle: SP2Battle, geo: GeometryProxy) -> some View {
         let teamsDataViewRatio = TeamsDataView.size.width / TeamsDataView.size.height
         let teamsDataViewScale = geo.size.height / TeamsDataView.size.height
         return Rectangle()
@@ -62,7 +77,7 @@ struct BattlePage: View {
             .aspectRatio(teamsDataViewRatio, contentMode: .fill)
             .fixedSize(horizontal: true, vertical: false)
             .overlay(
-                TeamsDataView(battle: lastBattle)
+                TeamsDataView(battle: battle)
                     .scaleEffect(teamsDataViewScale)
             )
     }
