@@ -36,14 +36,22 @@ class BattleListViewModel: ObservableObject {
                     $0.append($1).eraseToAnyPublisher()
                 }
             }
-            .map { (data: Data) -> Void in
+            .map { data -> (String?, SP2Battle?) in
                 self.updateRecordDetail(data)
-                return Void()
+                let json = String(data: data, encoding: .utf8)
+                return (json, json?.decode(SP2Battle.self))
             }
             .throttle(for: 2.5, scheduler: DispatchQueue.main, latest: true)
             .sink { completion in
-            } receiveValue: {
-                self.updateReocrdsFromDatabase()
+            } receiveValue: { (json, battle) in
+                // Update records
+                if let battle = battle, let json = json,
+                    let index = self.records.firstIndex(where: { $0.battleNumber == battle.battleNumber }) {
+                    var record = self.records[index]
+                    record.json = json
+                    record.isDetail = true
+                    self.records[index] = record
+                }
                 
                 if self.records.filter({ !$0.isDetail }).count == 0 {
                     self.isLoadingDetail = false
@@ -85,10 +93,10 @@ class BattleListViewModel: ObservableObject {
                 }
                 
             } receiveValue: { data in
-                var haveNewRecord = false
-                self.saveRecordsData(data, haveNewRecord: &haveNewRecord)
-                if haveNewRecord {
-                    self.updateReocrdsFromDatabase()
+                self.saveRecordsData(data) { haveNewRecord in
+                    if haveNewRecord {
+                        self.updateReocrdsFromDatabase()
+                    }
                 }
             }
             .store(in: &cancelBag)
@@ -127,7 +135,7 @@ class BattleListViewModel: ObservableObject {
     }
     
     /// Save original records json to database
-    func saveRecordsData(_ data: Data, haveNewRecord: inout Bool) {
+    func saveRecordsData(_ data: Data, completed: @escaping (_ haveNewRecord: Bool) -> Void) {
         guard let json = try? JSONSerialization.jsonObject(
             with: data,
             options: .mutableContainers
@@ -151,7 +159,7 @@ class BattleListViewModel: ObservableObject {
             return battle
         }
         
-        try! AppDatabase.shared.saveSampleBattles(jsonResults, battles: battles, haveNewRecord: &haveNewRecord)
+        try! AppDatabase.shared.saveSampleBattles(jsonResults, battles: battles, completed: completed)
     }
     
     func updateRecordDetail(_ data: Data) {
