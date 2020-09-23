@@ -18,16 +18,9 @@ struct MainView: View {
                 NavigationView {
                     
                     #if os(iOS)
+                    
                     BattleListPage(selectedRecord: $selectedRecord)
                         .navigationBarTitle("Records")
-                    
-                    Group {
-                        if let record = selectedRecord {
-                            BattlePage(record: record)
-                        } else {
-                            EmptyView()
-                        }
-                    }
                     
                     #else
                     
@@ -40,6 +33,7 @@ struct MainView: View {
                             EmptyView()
                         }
                     }
+                    
                     #endif
                     
                 }
