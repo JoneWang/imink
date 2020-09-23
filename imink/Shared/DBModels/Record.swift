@@ -73,24 +73,24 @@ extension AppDatabase {
     
     /// Save a full battle record, from /results/<id>
     func saveFullBattle(_ battleObject: Dictionary<String, AnyObject>) throws {
-        guard let currentUser = AppUserDefaults.shared.user else {
-            return
-        }
-        
-        let battleNumber = battleObject["battle_number"] as! String
-        
-        guard let data = try? JSONSerialization.data(
-            withJSONObject: battleObject,
-            options: .sortedKeys
-        ) else {
-            return
-        }
-        
-        guard let battleJson = String(data: data, encoding: .utf8) else {
-            return
-        }
-        
-        try dbQueue.write { db in
+        dbQueue.asyncWrite { db in
+            guard let currentUser = AppUserDefaults.shared.user else {
+                return
+            }
+            
+            let battleNumber = battleObject["battle_number"] as! String
+            
+            guard let data = try? JSONSerialization.data(
+                withJSONObject: battleObject,
+                options: .sortedKeys
+            ) else {
+                return
+            }
+            
+            guard let battleJson = String(data: data, encoding: .utf8) else {
+                return
+            }
+            
             if var record = try Record.filter(
                 Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
                     Record.Columns.battleNumber == battleNumber
@@ -99,11 +99,15 @@ extension AppDatabase {
                 record.isDetail = true
                 try record.update(db)
             }
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                print("[Database] saveFullBattle \(error)")
+            }
         }
     }
     
     /// Save data from /results
-    func saveSampleBattles(_ jsonResults: [String?], battles: [SP2Battle?], haveNewRecord: inout Bool) throws {
+    func saveSampleBattles(_ jsonResults: [String?], battles: [SP2Battle?], completed: @escaping (_ haveNewRecord: Bool) -> Void) throws {
         guard let currentUser = AppUserDefaults.shared.user else {
             return
         }
@@ -131,12 +135,7 @@ extension AppDatabase {
             )
         }
         
-        if records.count == 0 {
-            haveNewRecord = false
-            return
-        }
-        
-        try dbQueue.write { db in
+        dbQueue.asyncWrite { db in
             let battleNumbers = records.map { $0.battleNumber }
             
             let existRecords = try Record.filter(
@@ -146,16 +145,27 @@ extension AppDatabase {
             
             let existBattleNumbers = existRecords.map { $0.battleNumber }
             
-            let records = records.filter {
+            let nonexistentRecords = records.filter {
                 !existBattleNumbers.contains($0.battleNumber)
             }
             
-            for record in records.reversed() {
-                var record = record
-                try record.insert(db)
+            if nonexistentRecords.count > 0 {
+                for record in nonexistentRecords.reversed() {
+                    var record = record
+                    try record.insert(db)
+                }
+                DispatchQueue.main.async {
+                    completed(true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completed(false)
+                }
             }
-            
-            haveNewRecord = true
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                print("[Database] saveSampleBattles \(error)")
+            }
         }
     }
     
