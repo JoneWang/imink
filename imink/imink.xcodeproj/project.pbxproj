@@ -7,540 +7,442 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC034ABC24FE8DA500B9552A /* iminkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC034AA924FE8DA400B9552A /* iminkApp.swift */; };
-		EC034ABD24FE8DA500B9552A /* iminkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC034AA924FE8DA400B9552A /* iminkApp.swift */; };
-		EC034AC024FE8DA500B9552A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC034AAB24FE8DA500B9552A /* Assets.xcassets */; };
-		EC034AC124FE8DA500B9552A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC034AAB24FE8DA500B9552A /* Assets.xcassets */; };
-		EC1E492224FF972100E1B423 /* LaunchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */; };
-		EC1E492324FF9A2500E1B423 /* LaunchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */; };
-		EC22702725133A3100F23F78 /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22702625133A3100F23F78 /* Decode&Encode.swift */; };
-		EC22702825133A3100F23F78 /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22702625133A3100F23F78 /* Decode&Encode.swift */; };
-		EC2F044D250F5899003EC572 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC2F044C250F5899003EC572 /* GRDB */; };
-		EC2F0453250F673D003EC572 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0452250F673D003EC572 /* Record.swift */; };
-		EC2F0454250F673D003EC572 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0452250F673D003EC572 /* Record.swift */; };
-		EC2F0457250F6C3B003EC572 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0456250F6C3B003EC572 /* AppDatabase.swift */; };
-		EC2F0458250F6C3B003EC572 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0456250F6C3B003EC572 /* AppDatabase.swift */; };
-		EC3BD22A25025AB900744F17 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22925025AB900744F17 /* TransitionModifier.swift */; };
-		EC3BD22B25025AB900744F17 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22925025AB900744F17 /* TransitionModifier.swift */; };
-		EC3BD22D25025E5600744F17 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22C25025E5600744F17 /* MainView.swift */; };
-		EC3BD22E25025E5600744F17 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22C25025E5600744F17 /* MainView.swift */; };
-		EC3BD23025025E9400744F17 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22F25025E9400744F17 /* MainViewModel.swift */; };
-		EC3BD23125025E9400744F17 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BD22F25025E9400744F17 /* MainViewModel.swift */; };
-		EC3D785C25009C1F00F5CA67 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D785B25009C1F00F5CA67 /* AppTheme.swift */; };
-		EC3D785D25009C1F00F5CA67 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D785B25009C1F00F5CA67 /* AppTheme.swift */; };
-		EC3D785F2500BE9100F5CA67 /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D785E2500BE9100F5CA67 /* AppBundle.swift */; };
-		EC3D78602500BE9100F5CA67 /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3D785E2500BE9100F5CA67 /* AppBundle.swift */; };
-		EC49F4F32504082800B192C6 /* Easeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F4F22504082800B192C6 /* Easeing.swift */; };
-		EC49F4F42504082800B192C6 /* Easeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F4F22504082800B192C6 /* Easeing.swift */; };
-		EC49F4F7250417D300B192C6 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = EC49F4F6250417D300B192C6 /* result.json */; };
-		EC49F4F8250417D300B192C6 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = EC49F4F6250417D300B192C6 /* result.json */; };
-		EC49F4FB250496AC00B192C6 /* BattleResultBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F4FA250496AC00B192C6 /* BattleResultBar.swift */; };
-		EC49F4FC250496AC00B192C6 /* BattleResultBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F4FA250496AC00B192C6 /* BattleResultBar.swift */; };
-		EC49F4FE2504A93D00B192C6 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F4FD2504A93D00B192C6 /* Operator.swift */; };
-		EC49F4FF2504A93D00B192C6 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F4FD2504A93D00B192C6 /* Operator.swift */; };
-		EC49F5012504B48C00B192C6 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5002504B48C00B192C6 /* Sample.swift */; };
-		EC49F5022504B48C00B192C6 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5002504B48C00B192C6 /* Sample.swift */; };
-		EC49F5052504BAEA00B192C6 /* SP2BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5042504BAEA00B192C6 /* SP2BattleOverview.swift */; };
-		EC49F5062504BAEA00B192C6 /* SP2BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5042504BAEA00B192C6 /* SP2BattleOverview.swift */; };
-		EC49F5082504BB2B00B192C6 /* SP2Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5072504BB2B00B192C6 /* SP2Battle.swift */; };
-		EC49F5092504BB2B00B192C6 /* SP2Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5072504BB2B00B192C6 /* SP2Battle.swift */; };
-		EC49F50B2504BB9400B192C6 /* SP2Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F50A2504BB9400B192C6 /* SP2Player.swift */; };
-		EC49F50C2504BB9400B192C6 /* SP2Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F50A2504BB9400B192C6 /* SP2Player.swift */; };
-		EC49F50E2504BEB700B192C6 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F50D2504BEB700B192C6 /* Collection.swift */; };
-		EC49F50F2504BEB700B192C6 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F50D2504BEB700B192C6 /* Collection.swift */; };
-		EC49F5112504C4A700B192C6 /* SP2Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5102504C4A700B192C6 /* SP2Weapon.swift */; };
-		EC49F5122504C4A700B192C6 /* SP2Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49F5102504C4A700B192C6 /* SP2Weapon.swift */; };
-		EC5EBFFD24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EBFFC24FF793400ED0561 /* StatefulPreviewWrapper.swift */; };
-		EC5EBFFE24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5EBFFC24FF793400ED0561 /* StatefulPreviewWrapper.swift */; };
-		EC5F73E12516567F002A89FF /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC5F73E02516567F002A89FF /* GRDB */; };
-		EC618BAF24FF4E06001EE922 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BAE24FF4E06001EE922 /* SPTextField.swift */; };
-		EC618BB024FF4E06001EE922 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BAE24FF4E06001EE922 /* SPTextField.swift */; };
-		EC618BB324FF71C3001EE922 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB224FF71C3001EE922 /* AppColor.swift */; };
-		EC618BB424FF71C3001EE922 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB224FF71C3001EE922 /* AppColor.swift */; };
-		EC618BB624FF7653001EE922 /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB524FF7653001EE922 /* SPButton.swift */; };
-		EC618BB724FF7653001EE922 /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC618BB524FF7653001EE922 /* SPButton.swift */; };
-		EC763EE825036E330021947B /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EE725036E330021947B /* MemberView.swift */; };
-		EC763EE925036E330021947B /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EE725036E330021947B /* MemberView.swift */; };
-		EC763EEB250370E80021947B /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EEA250370E80021947B /* TeamView.swift */; };
-		EC763EEC250370E80021947B /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EEA250370E80021947B /* TeamView.swift */; };
-		EC763EEE2503748D0021947B /* TeamsDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EED2503748D0021947B /* TeamsDataView.swift */; };
-		EC763EEF2503748D0021947B /* TeamsDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EED2503748D0021947B /* TeamsDataView.swift */; };
-		EC763EF12503753A0021947B /* BattleDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EF02503753A0021947B /* BattleDataView.swift */; };
-		EC763EF22503753A0021947B /* BattleDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763EF02503753A0021947B /* BattleDataView.swift */; };
-		EC880323250009BC00ED760C /* LoadingPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC880322250009BC00ED760C /* LoadingPopupView.swift */; };
-		EC880324250009BD00ED760C /* LoadingPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC880322250009BC00ED760C /* LoadingPopupView.swift */; };
-		EC8803262500129400ED760C /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8803252500129400ED760C /* AnimatableModifier.swift */; };
-		EC8803272500129400ED760C /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8803252500129400ED760C /* AnimatableModifier.swift */; };
-		EC9AAE7824FE917E00253370 /* LaunchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE7724FE917E00253370 /* LaunchPage.swift */; };
-		EC9AAE7924FE91E900253370 /* LaunchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE7724FE917E00253370 /* LaunchPage.swift */; };
-		EC9AAE7C24FE922C00253370 /* ClientTokenLoginPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE7B24FE922C00253370 /* ClientTokenLoginPopupView.swift */; };
-		EC9AAE7D24FE933600253370 /* ClientTokenLoginPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE7B24FE922C00253370 /* ClientTokenLoginPopupView.swift */; };
-		EC9AAE7F24FE937600253370 /* SPPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE7E24FE937600253370 /* SPPopupView.swift */; };
-		EC9AAE8024FE938000253370 /* SPPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE7E24FE937600253370 /* SPPopupView.swift */; };
-		EC9AAE8524FEA93200253370 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE8424FEA93200253370 /* FontModifier.swift */; };
-		EC9AAE8624FEAA0C00253370 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AAE8424FEA93200253370 /* FontModifier.swift */; };
-		ECC19CAF24FFB5DC00115083 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC19CAE24FFB5DC00115083 /* AppUserDefaults.swift */; };
-		ECC19CB024FFB5DC00115083 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC19CAE24FFB5DC00115083 /* AppUserDefaults.swift */; };
-		ECED089025014665003C1A5A /* Splatoon1.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9AAE8824FEAD2400253370 /* Splatoon1.otf */; };
-		ECED089125014665003C1A5A /* Splatoon2.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC9AAE8924FEAD2400253370 /* Splatoon2.otf */; };
-		ECED0893250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
-		ECED0894250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */; };
-		ECF10988251490E500AFB677 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = ECF10987251490E500AFB677 /* SDWebImageSwiftUI */; };
-		ECF1098A2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */; };
-		ECF1098B2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */; };
-		ECF7997C250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
-		ECF7997D250E25B4009F8E30 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7997B250E25B4009F8E30 /* BattleListPage.swift */; };
-		ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */; };
-		ECF79982250E329B009F8E30 /* RecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79981250E329B009F8E30 /* RecordRow.swift */; };
-		ECF79983250E329B009F8E30 /* RecordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79981250E329B009F8E30 /* RecordRow.swift */; };
-		ECF79985250E34F4009F8E30 /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */; };
-		ECF79986250E34F4009F8E30 /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */; };
-		ECF79988250E36B5009F8E30 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = ECF79987250E36B5009F8E30 /* results.json */; };
-		ECF79989250E36B5009F8E30 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = ECF79987250E36B5009F8E30 /* results.json */; };
-		ECF7998B250E393D009F8E30 /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */; };
-		ECF7998C250E393D009F8E30 /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */; };
-		ECF7998E250E66D3009F8E30 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */; };
-		ECF7998F250E66D3009F8E30 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */; };
-		ECF7C81C2505EB910030E1C4 /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */; };
-		ECF7C81D2505EB910030E1C4 /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */; };
-		ECF7C81F25061CE80030E1C4 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7C81E25061CE80030E1C4 /* UserDefaultsWrapper.swift */; };
-		ECF7C82025061CE80030E1C4 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7C81E25061CE80030E1C4 /* UserDefaultsWrapper.swift */; };
-		ECFBE99E2502689900D5CB82 /* BattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE99D2502689900D5CB82 /* BattlePage.swift */; };
-		ECFBE9A225026E6A00D5CB82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECFBE9A525026E6A00D5CB82 /* Localizable.strings */; };
-		ECFBE9A325026E6A00D5CB82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECFBE9A525026E6A00D5CB82 /* Localizable.strings */; };
-		ECFBE9A92502732F00D5CB82 /* PasteBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9A82502732F00D5CB82 /* PasteBoard.swift */; };
-		ECFBE9AC2502762300D5CB82 /* PasteBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9AA250275B000D5CB82 /* PasteBoard.swift */; };
-		ECFBE9AD25028B3000D5CB82 /* BattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE99D2502689900D5CB82 /* BattlePage.swift */; };
-		ECFBE9B025028BB300D5CB82 /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9AF25028BB300D5CB82 /* AppAPI.swift */; };
-		ECFBE9B225028BBE00D5CB82 /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9B125028BBE00D5CB82 /* Splatoon2API.swift */; };
-		ECFBE9B325028BD800D5CB82 /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9AF25028BB300D5CB82 /* AppAPI.swift */; };
-		ECFBE9B425028BD800D5CB82 /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9B125028BBE00D5CB82 /* Splatoon2API.swift */; };
-		ECFBE9B625028BE300D5CB82 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9B525028BE300D5CB82 /* API.swift */; };
-		ECFBE9B725028D0800D5CB82 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9B525028BE300D5CB82 /* API.swift */; };
-		ECFBE9C32502ABCA00D5CB82 /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9C22502ABCA00D5CB82 /* APITargetType.swift */; };
-		ECFBE9C42502ACC500D5CB82 /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9C22502ABCA00D5CB82 /* APITargetType.swift */; };
-		ECFBE9D625034D0000D5CB82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9D525034D0000D5CB82 /* User.swift */; };
-		ECFBE9D725034D4C00D5CB82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE9D525034D0000D5CB82 /* User.swift */; };
+		EC00DBC6251C9BE70010366A /* SplitViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBC5251C9BE70010366A /* SplitViewDelegate.swift */; };
+		EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */; };
+		EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */; };
+		EC00DBD0251C9D5B0010366A /* BattleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */; };
+		EC00DBD3251CA05F0010366A /* BattleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC00DBD2251CA05F0010366A /* BattleDetail.storyboard */; };
+		EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBD6251CA11D0010366A /* TabBarController.swift */; };
+		EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBE3251CC57F0010366A /* BattleRecordListCell.swift */; };
+		EC00DBEA251CC5CE0010366A /* BattleRecordListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC00DBE9251CC5CE0010366A /* BattleRecordListCell.xib */; };
+		EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
+		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
+		EC00DBF7251CD29C0010366A /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
+		EC00DC09251CD8770010366A /* BattleDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC00251CD8770010366A /* BattleDataView.swift */; };
+		EC00DC0B251CD8770010366A /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC02251CD8770010366A /* TeamView.swift */; };
+		EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC03251CD8770010366A /* BattleResultBar.swift */; };
+		EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC04251CD8770010366A /* TeamsDataView.swift */; };
+		EC00DC0F251CD8770010366A /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC06251CD8770010366A /* MemberView.swift */; };
+		EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC18251CD90B0010366A /* RegularBattlePage.swift */; };
+		EC00DC1E251CEFD00010366A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC1D251CEFD00010366A /* LoginViewController.swift */; };
+		EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA53251C95DE00283D28 /* SDWebImage */; };
+		EC43AA58251C9A7100283D28 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
+		EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
+		EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
+		EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */; };
+		EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */; };
+		EC606045251CD5B200DCF35E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
+		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
+		EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B8274251F088800B25307 /* CompactBattlePage.swift */; };
+		EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E74251C55FF00AA0B20 /* AppDelegate.swift */; };
+		EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */; };
+		EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7A251C55FF00AA0B20 /* Main.storyboard */; };
+		EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7D251C55FF00AA0B20 /* Assets.xcassets */; };
+		EC900E81251C55FF00AA0B20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7F251C55FF00AA0B20 /* LaunchScreen.storyboard */; };
+		EC900E8F251C827100AA0B20 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E8E251C827100AA0B20 /* SidebarViewController.swift */; };
+		EC900EC0251C8EF700AA0B20 /* Splatoon2.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E92251C8EF600AA0B20 /* Splatoon2.otf */; };
+		EC900EC1251C8EF700AA0B20 /* Splatoon1.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E93251C8EF600AA0B20 /* Splatoon1.otf */; };
+		EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */; };
+		EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */; };
+		EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E97251C8EF600AA0B20 /* Collection.swift */; };
+		EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E98251C8EF600AA0B20 /* Easeing.swift */; };
+		EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E99251C8EF600AA0B20 /* Operator.swift */; };
+		EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */; };
+		EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9B251C8EF600AA0B20 /* AppBundle.swift */; };
+		EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */; };
+		EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */; };
+		EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
+		EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA0251C8EF600AA0B20 /* APITargetType.swift */; };
+		EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
+		EC900ECE251C8EF700AA0B20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
+		EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
+		EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA5251C8EF600AA0B20 /* AppTheme.swift */; };
+		EC900ED1251C8EF700AA0B20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
+		EC900ED2251C8EF700AA0B20 /* SP2Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */; };
+		EC900ED3251C8EF700AA0B20 /* SP2Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAA251C8EF600AA0B20 /* SP2Player.swift */; };
+		EC900ED4251C8EF700AA0B20 /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */; };
+		EC900ED5251C8EF700AA0B20 /* SP2Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */; };
+		EC900ED6251C8EF700AA0B20 /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */; };
+		EC900ED7251C8EF700AA0B20 /* SP2BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */; };
+		EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */; };
+		EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
+		EC900EDB251C8EF700AA0B20 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = EC900EB7251C8EF700AA0B20 /* result.json */; };
+		EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB8251C8EF700AA0B20 /* Sample.swift */; };
+		EC900EDD251C8EF700AA0B20 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = EC900EB9251C8EF700AA0B20 /* results.json */; };
+		EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */; };
+		EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */; };
+		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
+		EC900EE1251C8EF700AA0B20 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* Record.swift */; };
+		ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE8DC325209BB6003D7EDC /* LoginPage.swift */; };
+		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		ECAE8DBA25207FA1003D7EDC /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		EC034AA924FE8DA400B9552A /* iminkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iminkApp.swift; sourceTree = "<group>"; };
-		EC034AAB24FE8DA500B9552A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC034AB024FE8DA500B9552A /* imink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imink.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC034AB324FE8DA500B9552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC034AB824FE8DA500B9552A /* imink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imink.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC034ABA24FE8DA500B9552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC034ABB24FE8DA500B9552A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewModel.swift; sourceTree = "<group>"; };
-		EC22702625133A3100F23F78 /* Decode&Encode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decode&Encode.swift"; sourceTree = "<group>"; };
-		EC2F0452250F673D003EC572 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		EC2F0456250F6C3B003EC572 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
-		EC3BD22925025AB900744F17 /* TransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
-		EC3BD22C25025E5600744F17 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		EC3BD22F25025E9400744F17 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		EC3D785B25009C1F00F5CA67 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		EC3D785E2500BE9100F5CA67 /* AppBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBundle.swift; sourceTree = "<group>"; };
-		EC49F4F22504082800B192C6 /* Easeing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easeing.swift; sourceTree = "<group>"; };
-		EC49F4F6250417D300B192C6 /* result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
-		EC49F4FA250496AC00B192C6 /* BattleResultBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleResultBar.swift; sourceTree = "<group>"; };
-		EC49F4FD2504A93D00B192C6 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
-		EC49F5002504B48C00B192C6 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
-		EC49F5042504BAEA00B192C6 /* SP2BattleOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2BattleOverview.swift; sourceTree = "<group>"; };
-		EC49F5072504BB2B00B192C6 /* SP2Battle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Battle.swift; sourceTree = "<group>"; };
-		EC49F50A2504BB9400B192C6 /* SP2Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Player.swift; sourceTree = "<group>"; };
-		EC49F50D2504BEB700B192C6 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
-		EC49F5102504C4A700B192C6 /* SP2Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Weapon.swift; sourceTree = "<group>"; };
-		EC5EBFFC24FF793400ED0561 /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
-		EC618BAE24FF4E06001EE922 /* SPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTextField.swift; sourceTree = "<group>"; };
-		EC618BB224FF71C3001EE922 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
-		EC618BB524FF7653001EE922 /* SPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
-		EC763EE725036E330021947B /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
-		EC763EEA250370E80021947B /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
-		EC763EED2503748D0021947B /* TeamsDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDataView.swift; sourceTree = "<group>"; };
-		EC763EF02503753A0021947B /* BattleDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDataView.swift; sourceTree = "<group>"; };
-		EC880322250009BC00ED760C /* LoadingPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPopupView.swift; sourceTree = "<group>"; };
-		EC8803252500129400ED760C /* AnimatableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
-		EC9AAE7724FE917E00253370 /* LaunchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPage.swift; sourceTree = "<group>"; };
-		EC9AAE7B24FE922C00253370 /* ClientTokenLoginPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTokenLoginPopupView.swift; sourceTree = "<group>"; };
-		EC9AAE7E24FE937600253370 /* SPPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPPopupView.swift; sourceTree = "<group>"; };
-		EC9AAE8424FEA93200253370 /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
-		EC9AAE8824FEAD2400253370 /* Splatoon1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon1.otf; sourceTree = "<group>"; };
-		EC9AAE8924FEAD2400253370 /* Splatoon2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon2.otf; sourceTree = "<group>"; };
-		ECC19CAE24FFB5DC00115083 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
-		ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPlayAnimation.swift; sourceTree = "<group>"; };
-		ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeRecordRow.swift; sourceTree = "<group>"; };
-		ECF7997B250E25B4009F8E30 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
-		ECF79981250E329B009F8E30 /* RecordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRow.swift; sourceTree = "<group>"; };
-		ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2TeamMember.swift; sourceTree = "<group>"; };
-		ECF79987250E36B5009F8E30 /* results.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
-		ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2TeamResult.swift; sourceTree = "<group>"; };
-		ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
-		ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInterpolation.swift; sourceTree = "<group>"; };
-		ECF7C81E25061CE80030E1C4 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
-		ECFBE99D2502689900D5CB82 /* BattlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlePage.swift; sourceTree = "<group>"; };
-		ECFBE9A425026E6A00D5CB82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ECFBE9A82502732F00D5CB82 /* PasteBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteBoard.swift; sourceTree = "<group>"; };
-		ECFBE9AA250275B000D5CB82 /* PasteBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteBoard.swift; sourceTree = "<group>"; };
-		ECFBE9AF25028BB300D5CB82 /* AppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
-		ECFBE9B125028BBE00D5CB82 /* Splatoon2API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splatoon2API.swift; sourceTree = "<group>"; };
-		ECFBE9B525028BE300D5CB82 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		ECFBE9C22502ABCA00D5CB82 /* APITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
-		ECFBE9D525034D0000D5CB82 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EC00DBC5251C9BE70010366A /* SplitViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewDelegate.swift; sourceTree = "<group>"; };
+		EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
+		EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListViewController.swift; sourceTree = "<group>"; };
+		EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailViewController.swift; sourceTree = "<group>"; };
+		EC00DBD2251CA05F0010366A /* BattleDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BattleDetail.storyboard; sourceTree = "<group>"; };
+		EC00DBD6251CA11D0010366A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		EC00DBE3251CC57F0010366A /* BattleRecordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListCell.swift; sourceTree = "<group>"; };
+		EC00DBE9251CC5CE0010366A /* BattleRecordListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleRecordListCell.xib; sourceTree = "<group>"; };
+		EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
+		EC00DBF3251CD29C0010366A /* TransitionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
+		EC00DBF4251CD29C0010366A /* FontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
+		EC00DC00251CD8770010366A /* BattleDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleDataView.swift; sourceTree = "<group>"; };
+		EC00DC02251CD8770010366A /* TeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		EC00DC03251CD8770010366A /* BattleResultBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleResultBar.swift; sourceTree = "<group>"; };
+		EC00DC04251CD8770010366A /* TeamsDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsDataView.swift; sourceTree = "<group>"; };
+		EC00DC06251CD8770010366A /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
+		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
+		EC00DC1D251CEFD00010366A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListRealTimeCell.swift; sourceTree = "<group>"; };
+		EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleRecordListRealTimeCell.xib; sourceTree = "<group>"; };
+		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
+		EC6B8274251F088800B25307 /* CompactBattlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactBattlePage.swift; sourceTree = "<group>"; };
+		EC900E71251C55FF00AA0B20 /* imink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC900E74251C55FF00AA0B20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EC900E7B251C55FF00AA0B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC900E7D251C55FF00AA0B20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC900E80251C55FF00AA0B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC900E82251C55FF00AA0B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC900E89251C560C00AA0B20 /* imink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = imink.entitlements; sourceTree = "<group>"; };
+		EC900E8E251C827100AA0B20 /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
+		EC900E92251C8EF600AA0B20 /* Splatoon2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon2.otf; sourceTree = "<group>"; };
+		EC900E93251C8EF600AA0B20 /* Splatoon1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon1.otf; sourceTree = "<group>"; };
+		EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decode&Encode.swift"; sourceTree = "<group>"; };
+		EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
+		EC900E97251C8EF600AA0B20 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		EC900E98251C8EF600AA0B20 /* Easeing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easeing.swift; sourceTree = "<group>"; };
+		EC900E99251C8EF600AA0B20 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		EC900E9B251C8EF600AA0B20 /* AppBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBundle.swift; sourceTree = "<group>"; };
+		EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringInterpolation.swift; sourceTree = "<group>"; };
+		EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPlayAnimation.swift; sourceTree = "<group>"; };
+		EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splatoon2API.swift; sourceTree = "<group>"; };
+		EC900EA0251C8EF600AA0B20 /* APITargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
+		EC900EA1251C8EF600AA0B20 /* AppAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
+		EC900EA2251C8EF600AA0B20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EC900EA4251C8EF600AA0B20 /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		EC900EA5251C8EF600AA0B20 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		EC900EA7251C8EF600AA0B20 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2Battle.swift; sourceTree = "<group>"; };
+		EC900EAA251C8EF600AA0B20 /* SP2Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2Player.swift; sourceTree = "<group>"; };
+		EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2TeamMember.swift; sourceTree = "<group>"; };
+		EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2Weapon.swift; sourceTree = "<group>"; };
+		EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2TeamResult.swift; sourceTree = "<group>"; };
+		EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2BattleOverview.swift; sourceTree = "<group>"; };
+		EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
+		EC900EB7251C8EF700AA0B20 /* result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
+		EC900EB8251C8EF700AA0B20 /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		EC900EB9251C8EF700AA0B20 /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
+		EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
+		EC900EBF251C8EF700AA0B20 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		ECAE8DC325209BB6003D7EDC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EC034AAD24FE8DA500B9552A /* Frameworks */ = {
+		EC900E6E251C55FF00AA0B20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECF79980250E2855009F8E30 /* SDWebImageSwiftUI in Frameworks */,
-				EC5F73E12516567F002A89FF /* GRDB in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC034AB524FE8DA500B9552A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECF10988251490E500AFB677 /* SDWebImageSwiftUI in Frameworks */,
-				EC2F044D250F5899003EC572 /* GRDB in Frameworks */,
+				EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */,
+				EC606045251CD5B200DCF35E /* SnapKit in Frameworks */,
+				EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */,
+				EC43AA58251C9A7100283D28 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC034AA324FE8DA400B9552A = {
+		EC00DBC2251C9AD90010366A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EC034AA824FE8DA400B9552A /* Shared */,
-				EC034AB224FE8DA500B9552A /* iOS */,
-				EC034AB924FE8DA500B9552A /* macOS */,
-				EC034AB124FE8DA500B9552A /* Products */,
-				EC3D889D2503C82E00FC9E46 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		EC034AA824FE8DA400B9552A /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				EC49F4F92504192500B192C6 /* Resources */,
-				EC5EBFFB24FF791700ED0561 /* Utils */,
-				EC618BB124FF71BB001EE922 /* Theme */,
-				EC9AAE8724FEAD1200253370 /* Font */,
-				ECFBE9AE25028B9600D5CB82 /* API */,
-				ECC19CAD24FFB5B600115083 /* Data */,
-				EC2F0451250F66C9003EC572 /* DBModels */,
-				ECFBE9B825028F4500D5CB82 /* Models */,
-				EC9AAE8324FEA92600253370 /* ViewModifiers */,
-				EC1E492024FF970A00E1B423 /* ViewModels */,
-				EC9AAE7A24FE91FA00253370 /* Views */,
-				EC034AAB24FE8DA500B9552A /* Assets.xcassets */,
-				ECFBE9A525026E6A00D5CB82 /* Localizable.strings */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		EC034AB124FE8DA500B9552A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EC034AB024FE8DA500B9552A /* imink.app */,
-				EC034AB824FE8DA500B9552A /* imink.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		EC034AB224FE8DA500B9552A /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				ECFBE9A72502732400D5CB82 /* Utils */,
-				EC034AB324FE8DA500B9552A /* Info.plist */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		EC034AB924FE8DA500B9552A /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				EC1E491C24FF8BD100E1B423 /* Utils */,
-				EC034ABA24FE8DA500B9552A /* Info.plist */,
-				EC034ABB24FE8DA500B9552A /* macOS.entitlements */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		EC1E491C24FF8BD100E1B423 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				ECFBE9AA250275B000D5CB82 /* PasteBoard.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		EC1E492024FF970A00E1B423 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				EC3BD22F25025E9400744F17 /* MainViewModel.swift */,
-				EC1E492124FF972100E1B423 /* LaunchPageViewModel.swift */,
-				ECF7998D250E66D3009F8E30 /* BattleListViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		EC2F0451250F66C9003EC572 /* DBModels */ = {
-			isa = PBXGroup;
-			children = (
-				EC2F0452250F673D003EC572 /* Record.swift */,
-			);
-			path = DBModels;
-			sourceTree = "<group>";
-		};
-		EC3D78632500C61E00F5CA67 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EC9AAE7B24FE922C00253370 /* ClientTokenLoginPopupView.swift */,
+				EC00DBEC251CCA710010366A /* SwiftUI */,
+				EC00DBE2251CC5440010366A /* Subviews */,
+				EC900E7A251C55FF00AA0B20 /* Main.storyboard */,
+				EC00DBD2251CA05F0010366A /* BattleDetail.storyboard */,
+				EC00DBD6251CA11D0010366A /* TabBarController.swift */,
+				EC900E8E251C827100AA0B20 /* SidebarViewController.swift */,
+				EC00DC1D251CEFD00010366A /* LoginViewController.swift */,
+				EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */,
+				EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		EC3D889D2503C82E00FC9E46 /* Frameworks */ = {
+		EC00DBC4251C9BD80010366A /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				EC900E74251C55FF00AA0B20 /* AppDelegate.swift */,
+				EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */,
+				EC00DBC5251C9BE70010366A /* SplitViewDelegate.swift */,
+				EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */,
 			);
-			name = Frameworks;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
-		EC49F4F5250417BE00B192C6 /* Samples */ = {
+		EC00DBE2251CC5440010366A /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				EC49F5002504B48C00B192C6 /* Sample.swift */,
-				EC49F4F6250417D300B192C6 /* result.json */,
-				ECF79987250E36B5009F8E30 /* results.json */,
+				EC00DBE3251CC57F0010366A /* BattleRecordListCell.swift */,
+				EC00DBE9251CC5CE0010366A /* BattleRecordListCell.xib */,
+				EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */,
+				EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */,
 			);
-			path = Samples;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
-		EC49F4F92504192500B192C6 /* Resources */ = {
+		EC00DBEC251CCA710010366A /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				EC49F4F5250417BE00B192C6 /* Samples */,
+				EC00DBF1251CD29C0010366A /* ViewModifiers */,
+				EC00DBFF251CD8770010366A /* Views */,
+				EC6B8274251F088800B25307 /* CompactBattlePage.swift */,
+				EC00DC18251CD90B0010366A /* RegularBattlePage.swift */,
+				ECAE8DC325209BB6003D7EDC /* LoginPage.swift */,
 			);
-			path = Resources;
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
-		EC49F5032504BACC00B192C6 /* Splatoon2 */ = {
+		EC00DBF1251CD29C0010366A /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				EC49F5042504BAEA00B192C6 /* SP2BattleOverview.swift */,
-				EC49F5072504BB2B00B192C6 /* SP2Battle.swift */,
-				EC49F50A2504BB9400B192C6 /* SP2Player.swift */,
-				EC49F5102504C4A700B192C6 /* SP2Weapon.swift */,
-				ECF79984250E34F4009F8E30 /* SP2TeamMember.swift */,
-				ECF7998A250E393D009F8E30 /* SP2TeamResult.swift */,
-			);
-			path = Splatoon2;
-			sourceTree = "<group>";
-		};
-		EC5EBFFB24FF791700ED0561 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				EC3D785E2500BE9100F5CA67 /* AppBundle.swift */,
-				EC5EBFFC24FF793400ED0561 /* StatefulPreviewWrapper.swift */,
-				ECED0892250152D6003C1A5A /* AutoPlayAnimation.swift */,
-				EC49F4F22504082800B192C6 /* Easeing.swift */,
-				EC49F4FD2504A93D00B192C6 /* Operator.swift */,
-				EC49F50D2504BEB700B192C6 /* Collection.swift */,
-				ECF7C81B2505EB910030E1C4 /* StringInterpolation.swift */,
-				ECF7C81E25061CE80030E1C4 /* UserDefaultsWrapper.swift */,
-				EC22702625133A3100F23F78 /* Decode&Encode.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		EC618BB124FF71BB001EE922 /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				EC3D785B25009C1F00F5CA67 /* AppTheme.swift */,
-				EC618BB224FF71C3001EE922 /* AppColor.swift */,
-			);
-			path = Theme;
-			sourceTree = "<group>";
-		};
-		EC61EE3024FECE6F00FD6701 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EC880322250009BC00ED760C /* LoadingPopupView.swift */,
-				EC9AAE7E24FE937600253370 /* SPPopupView.swift */,
-				EC618BAE24FF4E06001EE922 /* SPTextField.swift */,
-				EC618BB524FF7653001EE922 /* SPButton.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		EC61EE3124FECE7C00FD6701 /* Launch */ = {
-			isa = PBXGroup;
-			children = (
-				EC3D78632500C61E00F5CA67 /* Views */,
-				EC9AAE7724FE917E00253370 /* LaunchPage.swift */,
-			);
-			path = Launch;
-			sourceTree = "<group>";
-		};
-		EC61EE3224FECE9C00FD6701 /* Battle */ = {
-			isa = PBXGroup;
-			children = (
-				EC763EE625036E0A0021947B /* Views */,
-				ECFBE99D2502689900D5CB82 /* BattlePage.swift */,
-				ECF7997B250E25B4009F8E30 /* BattleListPage.swift */,
-			);
-			path = Battle;
-			sourceTree = "<group>";
-		};
-		EC763EE625036E0A0021947B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EC763EE725036E330021947B /* MemberView.swift */,
-				EC763EEA250370E80021947B /* TeamView.swift */,
-				EC763EED2503748D0021947B /* TeamsDataView.swift */,
-				EC49F4FA250496AC00B192C6 /* BattleResultBar.swift */,
-				EC763EF02503753A0021947B /* BattleDataView.swift */,
-				ECF79981250E329B009F8E30 /* RecordRow.swift */,
-				ECF109892514A99600AFB677 /* RealtimeRecordRow.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		EC9AAE7A24FE91FA00253370 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EC61EE3224FECE9C00FD6701 /* Battle */,
-				EC61EE3124FECE7C00FD6701 /* Launch */,
-				EC61EE3024FECE6F00FD6701 /* Views */,
-				EC3BD22C25025E5600744F17 /* MainView.swift */,
-				EC034AA924FE8DA400B9552A /* iminkApp.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		EC9AAE8324FEA92600253370 /* ViewModifiers */ = {
-			isa = PBXGroup;
-			children = (
-				EC9AAE8424FEA93200253370 /* FontModifier.swift */,
-				EC8803252500129400ED760C /* AnimatableModifier.swift */,
-				EC3BD22925025AB900744F17 /* TransitionModifier.swift */,
+				EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */,
+				EC00DBF3251CD29C0010366A /* TransitionModifier.swift */,
+				EC00DBF4251CD29C0010366A /* FontModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
-		EC9AAE8724FEAD1200253370 /* Font */ = {
+		EC00DBFF251CD8770010366A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EC9AAE8824FEAD2400253370 /* Splatoon1.otf */,
-				EC9AAE8924FEAD2400253370 /* Splatoon2.otf */,
+				EC00DC00251CD8770010366A /* BattleDataView.swift */,
+				EC00DC02251CD8770010366A /* TeamView.swift */,
+				EC00DC03251CD8770010366A /* BattleResultBar.swift */,
+				EC00DC04251CD8770010366A /* TeamsDataView.swift */,
+				EC00DC06251CD8770010366A /* MemberView.swift */,
+			);
+			name = Views;
+			path = Views/Views;
+			sourceTree = "<group>";
+		};
+		EC900E68251C55FE00AA0B20 = {
+			isa = PBXGroup;
+			children = (
+				EC900E73251C55FF00AA0B20 /* imink */,
+				EC900E72251C55FF00AA0B20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC900E72251C55FF00AA0B20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC900E71251C55FF00AA0B20 /* imink.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC900E73251C55FF00AA0B20 /* imink */ = {
+			isa = PBXGroup;
+			children = (
+				EC900E9E251C8EF600AA0B20 /* API */,
+				EC900EAF251C8EF700AA0B20 /* Data */,
+				EC900E91251C8EF600AA0B20 /* Font */,
+				EC900EA6251C8EF600AA0B20 /* Models */,
+				EC900EBE251C8EF700AA0B20 /* DBModels */,
+				EC900EB5251C8EF700AA0B20 /* Resources */,
+				EC900EA3251C8EF600AA0B20 /* Theme */,
+				EC900E94251C8EF600AA0B20 /* Utils */,
+				EC900EBA251C8EF700AA0B20 /* ViewModels */,
+				EC00DBC2251C9AD90010366A /* Views */,
+				EC00DBC4251C9BD80010366A /* Delegates */,
+				EC900E89251C560C00AA0B20 /* imink.entitlements */,
+				EC565B5A251D882900CCAC9A /* NotificationName.swift */,
+				EC900E7D251C55FF00AA0B20 /* Assets.xcassets */,
+				EC900E7F251C55FF00AA0B20 /* LaunchScreen.storyboard */,
+				EC900E82251C55FF00AA0B20 /* Info.plist */,
+				ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */,
+			);
+			path = imink;
+			sourceTree = "<group>";
+		};
+		EC900E91251C8EF600AA0B20 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				EC900E92251C8EF600AA0B20 /* Splatoon2.otf */,
+				EC900E93251C8EF600AA0B20 /* Splatoon1.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
 		};
-		ECC19CAD24FFB5B600115083 /* Data */ = {
+		EC900E94251C8EF600AA0B20 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				ECC19CAE24FFB5DC00115083 /* AppUserDefaults.swift */,
-				EC2F0456250F6C3B003EC572 /* AppDatabase.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		ECFBE9A72502732400D5CB82 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				ECFBE9A82502732F00D5CB82 /* PasteBoard.swift */,
+				EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */,
+				EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */,
+				EC900E97251C8EF600AA0B20 /* Collection.swift */,
+				EC900E98251C8EF600AA0B20 /* Easeing.swift */,
+				EC900E99251C8EF600AA0B20 /* Operator.swift */,
+				EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */,
+				EC900E9B251C8EF600AA0B20 /* AppBundle.swift */,
+				EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */,
+				EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */,
+				EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		ECFBE9AE25028B9600D5CB82 /* API */ = {
+		EC900E9E251C8EF600AA0B20 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				ECFBE9AF25028BB300D5CB82 /* AppAPI.swift */,
-				ECFBE9B125028BBE00D5CB82 /* Splatoon2API.swift */,
-				ECFBE9B525028BE300D5CB82 /* API.swift */,
-				ECFBE9C22502ABCA00D5CB82 /* APITargetType.swift */,
+				EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */,
+				EC900EA0251C8EF600AA0B20 /* APITargetType.swift */,
+				EC900EA1251C8EF600AA0B20 /* AppAPI.swift */,
+				EC900EA2251C8EF600AA0B20 /* API.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
 		};
-		ECFBE9B825028F4500D5CB82 /* Models */ = {
+		EC900EA3251C8EF600AA0B20 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				EC49F5032504BACC00B192C6 /* Splatoon2 */,
-				ECFBE9D525034D0000D5CB82 /* User.swift */,
+				EC900EA4251C8EF600AA0B20 /* AppColor.swift */,
+				EC900EA5251C8EF600AA0B20 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		EC900EA6251C8EF600AA0B20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EA7251C8EF600AA0B20 /* User.swift */,
+				EC900EA8251C8EF600AA0B20 /* Splatoon2 */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EC900EA8251C8EF600AA0B20 /* Splatoon2 */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */,
+				EC900EAA251C8EF600AA0B20 /* SP2Player.swift */,
+				EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */,
+				EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */,
+				EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */,
+				EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */,
+			);
+			path = Splatoon2;
+			sourceTree = "<group>";
+		};
+		EC900EAF251C8EF700AA0B20 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */,
+				EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EC900EB5251C8EF700AA0B20 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EB6251C8EF700AA0B20 /* Samples */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EC900EB6251C8EF700AA0B20 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EB7251C8EF700AA0B20 /* result.json */,
+				EC900EB8251C8EF700AA0B20 /* Sample.swift */,
+				EC900EB9251C8EF700AA0B20 /* results.json */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
+		EC900EBA251C8EF700AA0B20 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */,
+				EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */,
+				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EC900EBE251C8EF700AA0B20 /* DBModels */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EBF251C8EF700AA0B20 /* Record.swift */,
+			);
+			path = DBModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EC034AAF24FE8DA500B9552A /* imink (iOS) */ = {
+		EC900E70251C55FF00AA0B20 /* imink */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC034AC424FE8DA500B9552A /* Build configuration list for PBXNativeTarget "imink (iOS)" */;
+			buildConfigurationList = EC900E85251C55FF00AA0B20 /* Build configuration list for PBXNativeTarget "imink" */;
 			buildPhases = (
-				EC034AAC24FE8DA500B9552A /* Sources */,
-				EC034AAD24FE8DA500B9552A /* Frameworks */,
-				EC034AAE24FE8DA500B9552A /* Resources */,
+				EC900E6D251C55FF00AA0B20 /* Sources */,
+				EC900E6E251C55FF00AA0B20 /* Frameworks */,
+				EC900E6F251C55FF00AA0B20 /* Resources */,
+				ECAE8DBA25207FA1003D7EDC /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "imink (iOS)";
+			name = imink;
 			packageProductDependencies = (
-				ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */,
-				EC5F73E02516567F002A89FF /* GRDB */,
+				EC43AA53251C95DE00283D28 /* SDWebImage */,
+				EC43AA57251C9A7100283D28 /* GRDB */,
+				EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */,
+				EC606044251CD5B200DCF35E /* SnapKit */,
 			);
-			productName = "imink-swiftui (iOS)";
-			productReference = EC034AB024FE8DA500B9552A /* imink.app */;
-			productType = "com.apple.product-type.application";
-		};
-		EC034AB724FE8DA500B9552A /* imink (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC034AC724FE8DA500B9552A /* Build configuration list for PBXNativeTarget "imink (macOS)" */;
-			buildPhases = (
-				EC034AB424FE8DA500B9552A /* Sources */,
-				EC034AB524FE8DA500B9552A /* Frameworks */,
-				EC034AB624FE8DA500B9552A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "imink (macOS)";
-			packageProductDependencies = (
-				EC2F044C250F5899003EC572 /* GRDB */,
-				ECF10987251490E500AFB677 /* SDWebImageSwiftUI */,
-			);
-			productName = "imink-swiftui (macOS)";
-			productReference = EC034AB824FE8DA500B9552A /* imink.app */;
+			productName = imink;
+			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EC034AA424FE8DA400B9552A /* Project object */ = {
+		EC900E69251C55FE00AA0B20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					EC034AAF24FE8DA500B9552A = {
-						CreatedOnToolsVersion = 12.0;
-					};
-					EC034AB724FE8DA500B9552A = {
-						CreatedOnToolsVersion = 12.0;
+					EC900E70251C55FF00AA0B20 = {
+						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
-			buildConfigurationList = EC034AA724FE8DA400B9552A /* Build configuration list for PBXProject "imink" */;
+			buildConfigurationList = EC900E6C251C55FE00AA0B20 /* Build configuration list for PBXProject "imink" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -548,170 +450,127 @@
 				en,
 				Base,
 			);
-			mainGroup = EC034AA324FE8DA400B9552A;
+			mainGroup = EC900E68251C55FE00AA0B20;
 			packageReferences = (
-				ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
-			productRefGroup = EC034AB124FE8DA500B9552A /* Products */;
+			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC034AAF24FE8DA500B9552A /* imink (iOS) */,
-				EC034AB724FE8DA500B9552A /* imink (macOS) */,
+				EC900E70251C55FF00AA0B20 /* imink */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EC034AAE24FE8DA500B9552A /* Resources */ = {
+		EC900E6F251C55FF00AA0B20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC49F4F7250417D300B192C6 /* result.json in Resources */,
-				ECED089025014665003C1A5A /* Splatoon1.otf in Resources */,
-				ECFBE9A225026E6A00D5CB82 /* Localizable.strings in Resources */,
-				ECF79988250E36B5009F8E30 /* results.json in Resources */,
-				ECED089125014665003C1A5A /* Splatoon2.otf in Resources */,
-				EC034AC024FE8DA500B9552A /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC034AB624FE8DA500B9552A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC034AC124FE8DA500B9552A /* Assets.xcassets in Resources */,
-				ECF79989250E36B5009F8E30 /* results.json in Resources */,
-				EC49F4F8250417D300B192C6 /* result.json in Resources */,
-				ECFBE9A325026E6A00D5CB82 /* Localizable.strings in Resources */,
+				EC900E81251C55FF00AA0B20 /* LaunchScreen.storyboard in Resources */,
+				EC00DBEA251CC5CE0010366A /* BattleRecordListCell.xib in Resources */,
+				ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */,
+				EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */,
+				EC900EDB251C8EF700AA0B20 /* result.json in Resources */,
+				EC00DBD3251CA05F0010366A /* BattleDetail.storyboard in Resources */,
+				EC900EC1251C8EF700AA0B20 /* Splatoon1.otf in Resources */,
+				EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */,
+				EC900EC0251C8EF700AA0B20 /* Splatoon2.otf in Resources */,
+				EC900EDD251C8EF700AA0B20 /* results.json in Resources */,
+				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EC034AAC24FE8DA500B9552A /* Sources */ = {
+		EC900E6D251C55FF00AA0B20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC763EEE2503748D0021947B /* TeamsDataView.swift in Sources */,
-				EC763EF12503753A0021947B /* BattleDataView.swift in Sources */,
-				EC618BB624FF7653001EE922 /* SPButton.swift in Sources */,
-				ECF7998E250E66D3009F8E30 /* BattleListViewModel.swift in Sources */,
-				ECFBE9C32502ABCA00D5CB82 /* APITargetType.swift in Sources */,
-				EC3BD22D25025E5600744F17 /* MainView.swift in Sources */,
-				ECF7998B250E393D009F8E30 /* SP2TeamResult.swift in Sources */,
-				EC5EBFFD24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */,
-				ECFBE9D625034D0000D5CB82 /* User.swift in Sources */,
-				EC9AAE7C24FE922C00253370 /* ClientTokenLoginPopupView.swift in Sources */,
-				EC618BAF24FF4E06001EE922 /* SPTextField.swift in Sources */,
-				ECFBE9B025028BB300D5CB82 /* AppAPI.swift in Sources */,
-				EC8803262500129400ED760C /* AnimatableModifier.swift in Sources */,
-				EC3D785F2500BE9100F5CA67 /* AppBundle.swift in Sources */,
-				EC2F0453250F673D003EC572 /* Record.swift in Sources */,
-				EC49F4F32504082800B192C6 /* Easeing.swift in Sources */,
-				ECF79982250E329B009F8E30 /* RecordRow.swift in Sources */,
-				EC9AAE7824FE917E00253370 /* LaunchPage.swift in Sources */,
-				ECF7C81C2505EB910030E1C4 /* StringInterpolation.swift in Sources */,
-				ECC19CAF24FFB5DC00115083 /* AppUserDefaults.swift in Sources */,
-				EC9AAE8524FEA93200253370 /* FontModifier.swift in Sources */,
-				EC618BB324FF71C3001EE922 /* AppColor.swift in Sources */,
-				ECED0893250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */,
-				EC2F0457250F6C3B003EC572 /* AppDatabase.swift in Sources */,
-				EC763EEB250370E80021947B /* TeamView.swift in Sources */,
-				ECFBE99E2502689900D5CB82 /* BattlePage.swift in Sources */,
-				EC763EE825036E330021947B /* MemberView.swift in Sources */,
-				EC3D785C25009C1F00F5CA67 /* AppTheme.swift in Sources */,
-				EC49F5082504BB2B00B192C6 /* SP2Battle.swift in Sources */,
-				EC49F4FE2504A93D00B192C6 /* Operator.swift in Sources */,
-				EC3BD23025025E9400744F17 /* MainViewModel.swift in Sources */,
-				EC49F50B2504BB9400B192C6 /* SP2Player.swift in Sources */,
-				ECF7C81F25061CE80030E1C4 /* UserDefaultsWrapper.swift in Sources */,
-				ECFBE9B225028BBE00D5CB82 /* Splatoon2API.swift in Sources */,
-				ECF1098A2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */,
-				EC3BD22A25025AB900744F17 /* TransitionModifier.swift in Sources */,
-				ECFBE9B625028BE300D5CB82 /* API.swift in Sources */,
-				EC49F50E2504BEB700B192C6 /* Collection.swift in Sources */,
-				EC1E492224FF972100E1B423 /* LaunchPageViewModel.swift in Sources */,
-				EC49F4FB250496AC00B192C6 /* BattleResultBar.swift in Sources */,
-				EC49F5012504B48C00B192C6 /* Sample.swift in Sources */,
-				EC880323250009BC00ED760C /* LoadingPopupView.swift in Sources */,
-				ECF79985250E34F4009F8E30 /* SP2TeamMember.swift in Sources */,
-				EC49F5112504C4A700B192C6 /* SP2Weapon.swift in Sources */,
-				EC9AAE7F24FE937600253370 /* SPPopupView.swift in Sources */,
-				EC034ABC24FE8DA500B9552A /* iminkApp.swift in Sources */,
-				ECF7997C250E25B4009F8E30 /* BattleListPage.swift in Sources */,
-				EC49F5052504BAEA00B192C6 /* SP2BattleOverview.swift in Sources */,
-				EC22702725133A3100F23F78 /* Decode&Encode.swift in Sources */,
-				ECFBE9A92502732F00D5CB82 /* PasteBoard.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC034AB424FE8DA500B9552A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECFBE9D725034D4C00D5CB82 /* User.swift in Sources */,
-				EC49F5022504B48C00B192C6 /* Sample.swift in Sources */,
-				ECFBE9C42502ACC500D5CB82 /* APITargetType.swift in Sources */,
-				ECF7998F250E66D3009F8E30 /* BattleListViewModel.swift in Sources */,
-				EC49F50C2504BB9400B192C6 /* SP2Player.swift in Sources */,
-				ECFBE9B725028D0800D5CB82 /* API.swift in Sources */,
-				ECF7998C250E393D009F8E30 /* SP2TeamResult.swift in Sources */,
-				EC763EF22503753A0021947B /* BattleDataView.swift in Sources */,
-				EC49F50F2504BEB700B192C6 /* Collection.swift in Sources */,
-				ECFBE9B325028BD800D5CB82 /* AppAPI.swift in Sources */,
-				ECFBE9B425028BD800D5CB82 /* Splatoon2API.swift in Sources */,
-				ECFBE9AD25028B3000D5CB82 /* BattlePage.swift in Sources */,
-				ECFBE9AC2502762300D5CB82 /* PasteBoard.swift in Sources */,
-				EC1E492324FF9A2500E1B423 /* LaunchPageViewModel.swift in Sources */,
-				EC3BD22B25025AB900744F17 /* TransitionModifier.swift in Sources */,
-				EC2F0454250F673D003EC572 /* Record.swift in Sources */,
-				EC49F5092504BB2B00B192C6 /* SP2Battle.swift in Sources */,
-				ECF79983250E329B009F8E30 /* RecordRow.swift in Sources */,
-				EC618BB724FF7653001EE922 /* SPButton.swift in Sources */,
-				ECF7C81D2505EB910030E1C4 /* StringInterpolation.swift in Sources */,
-				EC5EBFFE24FF793400ED0561 /* StatefulPreviewWrapper.swift in Sources */,
-				EC763EE925036E330021947B /* MemberView.swift in Sources */,
-				EC3BD22E25025E5600744F17 /* MainView.swift in Sources */,
-				EC8803272500129400ED760C /* AnimatableModifier.swift in Sources */,
-				EC2F0458250F6C3B003EC572 /* AppDatabase.swift in Sources */,
-				EC3D78602500BE9100F5CA67 /* AppBundle.swift in Sources */,
-				EC9AAE8624FEAA0C00253370 /* FontModifier.swift in Sources */,
-				EC49F4F42504082800B192C6 /* Easeing.swift in Sources */,
-				ECC19CB024FFB5DC00115083 /* AppUserDefaults.swift in Sources */,
-				EC9AAE8024FE938000253370 /* SPPopupView.swift in Sources */,
-				EC49F5122504C4A700B192C6 /* SP2Weapon.swift in Sources */,
-				EC49F5062504BAEA00B192C6 /* SP2BattleOverview.swift in Sources */,
-				ECF7C82025061CE80030E1C4 /* UserDefaultsWrapper.swift in Sources */,
-				EC618BB424FF71C3001EE922 /* AppColor.swift in Sources */,
-				ECF1098B2514A99600AFB677 /* RealtimeRecordRow.swift in Sources */,
-				EC3D785D25009C1F00F5CA67 /* AppTheme.swift in Sources */,
-				ECED0894250152D6003C1A5A /* AutoPlayAnimation.swift in Sources */,
-				EC9AAE7D24FE933600253370 /* ClientTokenLoginPopupView.swift in Sources */,
-				EC3BD23125025E9400744F17 /* MainViewModel.swift in Sources */,
-				EC880324250009BD00ED760C /* LoadingPopupView.swift in Sources */,
-				EC49F4FC250496AC00B192C6 /* BattleResultBar.swift in Sources */,
-				EC763EEF2503748D0021947B /* TeamsDataView.swift in Sources */,
-				ECF79986250E34F4009F8E30 /* SP2TeamMember.swift in Sources */,
-				EC618BB024FF4E06001EE922 /* SPTextField.swift in Sources */,
-				EC763EEC250370E80021947B /* TeamView.swift in Sources */,
-				EC49F4FF2504A93D00B192C6 /* Operator.swift in Sources */,
-				ECF7997D250E25B4009F8E30 /* BattleListPage.swift in Sources */,
-				EC9AAE7924FE91E900253370 /* LaunchPage.swift in Sources */,
-				EC22702825133A3100F23F78 /* Decode&Encode.swift in Sources */,
-				EC034ABD24FE8DA500B9552A /* iminkApp.swift in Sources */,
+				EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */,
+				EC900ED6251C8EF700AA0B20 /* SP2TeamResult.swift in Sources */,
+				EC00DBF7251CD29C0010366A /* FontModifier.swift in Sources */,
+				EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */,
+				EC00DC0B251CD8770010366A /* TeamView.swift in Sources */,
+				EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */,
+				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
+				EC900ED7251C8EF700AA0B20 /* SP2BattleOverview.swift in Sources */,
+				EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */,
+				EC00DC09251CD8770010366A /* BattleDataView.swift in Sources */,
+				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
+				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
+				EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */,
+				EC00DBC6251C9BE70010366A /* SplitViewDelegate.swift in Sources */,
+				EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */,
+				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
+				EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */,
+				EC00DBD0251C9D5B0010366A /* BattleDetailViewController.swift in Sources */,
+				EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */,
+				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
+				EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */,
+				EC900ED1251C8EF700AA0B20 /* User.swift in Sources */,
+				EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */,
+				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
+				EC00DC1E251CEFD00010366A /* LoginViewController.swift in Sources */,
+				EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */,
+				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
+				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
+				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
+				EC900EE1251C8EF700AA0B20 /* Record.swift in Sources */,
+				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
+				EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */,
+				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
+				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
+				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
+				EC900ED2251C8EF700AA0B20 /* SP2Battle.swift in Sources */,
+				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
+				EC900ED5251C8EF700AA0B20 /* SP2Weapon.swift in Sources */,
+				EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */,
+				EC900E8F251C827100AA0B20 /* SidebarViewController.swift in Sources */,
+				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
+				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
+				EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */,
+				EC00DC0F251CD8770010366A /* MemberView.swift in Sources */,
+				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
+				EC900ED3251C8EF700AA0B20 /* SP2Player.swift in Sources */,
+				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
+				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
+				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,
+				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
+				EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */,
+				EC900ED4251C8EF700AA0B20 /* SP2TeamMember.swift in Sources */,
+				EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ECFBE9A525026E6A00D5CB82 /* Localizable.strings */ = {
+		EC900E7A251C55FF00AA0B20 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				ECFBE9A425026E6A00D5CB82 /* en */,
+				EC900E7B251C55FF00AA0B20 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC900E7F251C55FF00AA0B20 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC900E80251C55FF00AA0B20 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECAE8DCA2520B7E0003D7EDC /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -719,7 +578,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EC034AC224FE8DA500B9552A /* Debug */ = {
+		EC900E83251C55FF00AA0B20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -770,15 +629,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		EC034AC324FE8DA500B9552A /* Release */ = {
+		EC900E84251C55FF00AA0B20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -823,140 +684,85 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		EC034AC524FE8DA500B9552A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.imink2;
-				PRODUCT_NAME = imink;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = Debug;
-		};
-		EC034AC624FE8DA500B9552A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.imink2;
-				PRODUCT_NAME = imink;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		EC034AC824FE8DA500B9552A /* Debug */ = {
+		EC900E86251C55FF00AA0B20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_FILE = imink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.imink;
-				PRODUCT_NAME = imink;
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
-		EC034AC924FE8DA500B9552A /* Release */ = {
+		EC900E87251C55FF00AA0B20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_FILE = imink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.imink;
-				PRODUCT_NAME = imink;
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC034AA724FE8DA400B9552A /* Build configuration list for PBXProject "imink" */ = {
+		EC900E6C251C55FE00AA0B20 /* Build configuration list for PBXProject "imink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC034AC224FE8DA500B9552A /* Debug */,
-				EC034AC324FE8DA500B9552A /* Release */,
+				EC900E83251C55FF00AA0B20 /* Debug */,
+				EC900E84251C55FF00AA0B20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC034AC424FE8DA500B9552A /* Build configuration list for PBXNativeTarget "imink (iOS)" */ = {
+		EC900E85251C55FF00AA0B20 /* Build configuration list for PBXNativeTarget "imink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC034AC524FE8DA500B9552A /* Debug */,
-				EC034AC624FE8DA500B9552A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC034AC724FE8DA500B9552A /* Build configuration list for PBXNativeTarget "imink (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC034AC824FE8DA500B9552A /* Debug */,
-				EC034AC924FE8DA500B9552A /* Release */,
+				EC900E86251C55FF00AA0B20 /* Debug */,
+				EC900E87251C55FF00AA0B20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -964,15 +770,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/groue/GRDB.swift.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
-		ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+		EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -980,30 +794,38 @@
 				minimumVersion = 1.5.0;
 			};
 		};
+		EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC2F044C250F5899003EC572 /* GRDB */ = {
+		EC43AA53251C95DE00283D28 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		EC43AA57251C9A7100283D28 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
-		EC5F73E02516567F002A89FF /* GRDB */ = {
+		EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EC2F044B250F5899003EC572 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
-		};
-		ECF10987251490E500AFB677 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			package = EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
-		ECF7997F250E2855009F8E30 /* SDWebImageSwiftUI */ = {
+		EC606044251CD5B200DCF35E /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ECF7997E250E2855009F8E30 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
+			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = EC034AA424FE8DA400B9552A /* Project object */;
+	rootObject = EC900E69251C55FE00AA0B20 /* Project object */;
 }

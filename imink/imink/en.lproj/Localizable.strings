@@ -1,0 +1,44 @@
+/*
+  Localizable.strings
+  imink
+
+  Created by Jone Wang on 2020/9/4.
+  
+*/
+
+"sign_in_title" = "Welcome to imink!";
+
+"sign_in_with_token_title" = "Sign in with Client-Token";
+"sign_in_with_token_faq_1" = "Sending /clienttoken to";
+"sign_in_with_token_faq_2" = " @Sp2BattleBot ";
+"sign_in_with_token_faq_3" = "bot in Telegram to get Client-Token.";
+"sign_in_with_token_faq_title" = "How to get the Client-Token?";
+"sign_in_with_token_faq_content_1" = "First, \nyou must set up Splatoon2\'s token using @Sp2BattleBot in telegram.";
+"sign_in_with_token_faq_content_2" = "(How to use the /start command sent to @Sp2BattleBot to learn how to.)";
+"sign_in_with_token_faq_content_3" = "Second, \nsend the /clienttoken command to @Sp2BattleBot to get the Client Token.";
+"sign_in_with_token_faq_content_4" = "Finally, \ncopy the Client Token and tap the button below.";
+
+"token_login_paste_button" = "Click here to paste the Client Token";
+
+"token_login_ok_button" = "OK";
+
+"token_login_error" = "Not a valid Client Token";
+
+"popup_loading_title" = "Swimming...";
+
+"api_error_unknown" = "Error connecting to the server";
+
+"api_error_authorization_error" = "Authorization error";
+
+"api_error_client_token_invalid" = "Client token is invalid";
+
+"api_error_iksm_session_invalid" = "The iksm_session is invalid";
+
+"api_error_request_parameter_error" = "Request paraemter error";
+
+
+// MARK: Button
+
+"button_back_title" = "Back";
+"button_sign_in_title" = "Sign In";
+"button_close_title" = "Close";
