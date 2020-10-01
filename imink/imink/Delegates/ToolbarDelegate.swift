@@ -68,14 +68,6 @@ extension ToolbarDelegate: NSToolbarDelegate {
             item.target = self
             item.isBordered = true
             toolbarItem = item
-
-//        case .toggleRecipeIsFavorite:
-//            let item = NSToolbarItem(itemIdentifier: itemIdentifier)
-//            item.image = UIImage(systemName: "heart")
-//            item.label = "Toggle Favorite"
-//            item.action = #selector(toggleRecipeIsFavorite(_:))
-//            item.target = self
-//            toolbarItem = item
             
         default:
             toolbarItem = nil
