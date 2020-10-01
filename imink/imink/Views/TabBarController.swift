@@ -15,12 +15,13 @@ class TabBarController: UITabBarController {
     
     private var cancelBag = Set<AnyCancellable>()
     
-    private var tabBarViewModel = TabBarViewModel()
+    private var tabBarViewModel: TabBarViewModel!
     private var loginPageViewModel: LoginViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarViewModel = TabBarViewModel()
     }
     
     override func viewDidAppear(_ animated: Bool) {
