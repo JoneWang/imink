@@ -59,7 +59,6 @@ class BattleListViewModel: ObservableObject {
                 if let firstRecord = records.first {
                     var firstRecord = firstRecord.copy()
                     firstRecord.id = nil
-                    print(self.isLogin)
                     return [firstRecord] + records
                 } else {
                     return [
@@ -146,7 +145,8 @@ extension BattleListViewModel {
                     }
                 }
             } receiveValue: { data in
-                self.saveRecordsData(data) { [weak self] _ in
+                // Save original records json to database
+                try! AppDatabase.shared.saveSampleBattlesData(data) { [weak self] _ in
                     guard let `self` = self else { return }
                     
                     if self.records.filter({ !$0.isDetail }).count > 0 && !self.isLoadingDetail {
@@ -184,34 +184,6 @@ extension BattleListViewModel {
 // MARK: Database
 
 extension BattleListViewModel {
-    
-    /// Save original records json to database
-    func saveRecordsData(_ data: Data, completed: @escaping (_ haveNewRecord: Bool) -> Void) {
-        guard let json = try? JSONSerialization.jsonObject(
-            with: data,
-            options: .mutableContainers
-        ) as? [String: AnyObject],
-        let results = json["results"] as? [Dictionary<String, AnyObject>] else {
-            return
-        }
-        
-        let jsonResults = results.map { result -> String? in
-            guard let data = try? JSONSerialization.data(withJSONObject: result, options: .sortedKeys),
-                  let jsonString = String(data: data, encoding: .utf8) else {
-                return nil
-            }
-            return jsonString
-        }
-        
-        let battles = jsonResults.map { json -> SP2Battle? in
-            guard let battle = json?.decode(SP2Battle.self) else {
-                return nil
-            }
-            return battle
-        }
-        
-        try! AppDatabase.shared.saveSampleBattles(jsonResults, battles: battles, completed: completed)
-    }
     
     func updateRecordDetail(_ data: Data) {
         guard let detail = try? JSONSerialization.jsonObject(

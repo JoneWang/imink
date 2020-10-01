@@ -61,9 +61,9 @@ class BattleRecordListViewController: UIViewController {
                    let selectedIndexPath = indexPathsForSelectedItems.first,
                    selectedIndexPath.row == 0,
                    let firstRecord = records.first,
-                   (firstRecord.battleNumber != (self.selectedRecord?.battleNumber ?? "") || self.selectedRecord == nil || (firstRecord.battleNumber == self.selectedRecord?.battleNumber && firstRecord.isDetail != self.selectedRecord?.isDetail)) {
-                    print(firstRecord.battleNumber)
-                    print(self.selectedRecord?.battleNumber)
+                   (firstRecord.battleNumber != self.selectedRecord?.battleNumber) ||
+                        self.selectedRecord == nil ||
+                        (firstRecord.battleNumber == self.selectedRecord?.battleNumber && firstRecord.isDetail != self.selectedRecord?.isDetail) {
                     // Update list
                     self.apply(records)
 
@@ -220,38 +220,36 @@ extension BattleRecordListViewController {
 extension BattleRecordListViewController {
 
     func configureDataSource() {
-        // Register the cell that displays a record in the collection view.
-        collectionView.register(BattleRecordListCell.nib, forCellWithReuseIdentifier: BattleRecordListCell.reuseIdentifier)
-        collectionView.register(BattleRecordListRealTimeCell.nib, forCellWithReuseIdentifier: BattleRecordListRealTimeCell.reuseIdentifier)
+        let recordCell = UICollectionView.CellRegistration<BattleRecordListCell, Record>(cellNib: BattleRecordListCell.nib) { (cell, _, record) in
+            cell.record = record
+        }
+        
+        let realTimeCell = UICollectionView.CellRegistration<BattleRecordListRealTimeCell, Record>(cellNib: BattleRecordListRealTimeCell.nib) { (cell, _, record) in
+            cell.record = record
+        }
 
         // Create a diffable data source, and configure the cell with record data.
-        dataSource = UICollectionViewDiffableDataSource<Section, Record>(collectionView: self.collectionView) { (
+        dataSource = UICollectionViewDiffableDataSource<Section, Record>(collectionView: collectionView) { (
             collectionView: UICollectionView,
             indexPath: IndexPath,
             record: Record) -> UICollectionViewCell? in
-
-            var cell: UICollectionViewCell
             if record.id != nil {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: BattleRecordListCell.reuseIdentifier, for: indexPath)
+                return collectionView.dequeueConfiguredReusableCell(using: recordCell, for: indexPath, item: record)
             } else {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: BattleRecordListRealTimeCell.reuseIdentifier, for: indexPath)
+                return collectionView.dequeueConfiguredReusableCell(using: realTimeCell, for: indexPath, item: record)
             }
-
-            if let battleRecordListCell = cell as? BattleRecordListCell {
-                battleRecordListCell.configure(with: record)
-            } else if let realTimeCell = cell as? BattleRecordListRealTimeCell {
-                realTimeCell.configure(with: record)
-            }
-
-            return cell
         }
     }
 
     func apply(_ records: [Record]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Record>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(records)
-        dataSource.apply(snapshot, animatingDifferences: true)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let `self` = self else { return }
+            
+            var snapshot = NSDiffableDataSourceSnapshot<Section, Record>()
+            snapshot.appendSections([.main])
+            snapshot.appendItems(records)
+            self.dataSource.apply(snapshot, animatingDifferences: true)
+        }
     }
 
 }
