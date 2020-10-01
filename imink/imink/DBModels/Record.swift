@@ -110,35 +110,50 @@ extension AppDatabase {
     }
     
     /// Save data from /results
-    func saveSampleBattles(_ jsonResults: [String?], battles: [SP2Battle?], completed: @escaping (_ haveNewRecord: Bool) -> Void) throws {
+    func saveSampleBattlesData(_ data: Data, completed: @escaping (_ haveNewRecord: Bool) -> Void) throws {
         guard let currentUser = AppUserDefaults.shared.user else {
             return
         }
         
-        var records = [Record]()
-        for index in jsonResults.indices {
-            guard let jsonResult = jsonResults[index] else { continue }
-            guard let battle = battles[index] else { continue }
-            
-            records.append(
-                Record(
-                    sp2PrincipalId: currentUser.sp2PrincipalId,
-                    battleNumber: battle.battleNumber,
-                    json: jsonResult,
-                    isDetail: false,
-                    victory: battle.myTeamResult.key == .victory,
-                    weaponImage: battle.playerResult.player.weapon.image,
-                    rule: battle.rule.name,
-                    gameMode: battle.gameMode.name,
-                    stageName: battle.stage.name,
-                    killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
-                    deathCount: battle.playerResult.deathCount,
-                    myPoint: battle.myPoint,
-                    otherPoint: battle.otherPoint)
-            )
+        guard let json = try? JSONSerialization.jsonObject(
+            with: data,
+            options: .mutableContainers
+        ) as? [String: AnyObject],
+        let results = json["results"] as? [Dictionary<String, AnyObject>] else {
+            return
         }
         
         dbQueue.asyncWrite { db in
+            
+            var records = [Record]()
+            for index in results.indices {
+                guard let data = try? JSONSerialization.data(withJSONObject: results[index], options: .sortedKeys),
+                      let jsonString = String(data: data, encoding: .utf8) else {
+                    continue
+                }
+                
+                guard let battle = jsonString.decode(SP2Battle.self) else {
+                    continue
+                }
+                
+                records.append(
+                    Record(
+                        sp2PrincipalId: currentUser.sp2PrincipalId,
+                        battleNumber: battle.battleNumber,
+                        json: jsonString,
+                        isDetail: false,
+                        victory: battle.myTeamResult.key == .victory,
+                        weaponImage: battle.playerResult.player.weapon.image,
+                        rule: battle.rule.name,
+                        gameMode: battle.gameMode.name,
+                        stageName: battle.stage.name,
+                        killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
+                        deathCount: battle.playerResult.deathCount,
+                        myPoint: battle.myPoint,
+                        otherPoint: battle.otherPoint)
+                )
+            }
+            
             let battleNumbers = records.map { $0.battleNumber }
             
             let existRecords = try Record.filter(

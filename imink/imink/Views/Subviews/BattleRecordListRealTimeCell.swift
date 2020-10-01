@@ -10,13 +10,21 @@ import Combine
 
 class BattleRecordListRealTimeCell: UICollectionViewCell {
     
-    static let reuseIdentifier = "battleRecordListRealTimeCell"
     static let nib = UINib(nibName: "BattleRecordListRealTimeCell", bundle: .main)
     
     @IBOutlet weak var realTimeLabel: UILabel!
     @IBOutlet weak var battleNumberLabel: UILabel!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var containerView: UIView!
+    
+    var record: Record? {
+        didSet {
+            guard let record = record else { return }
+            if record == oldValue { return }
+            
+            configure(with: record)
+        }
+    }
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -46,7 +54,7 @@ class BattleRecordListRealTimeCell: UICollectionViewCell {
         }
     }
     
-    func configure(with record: Record) {        
+    func configure(with record: Record) {
         battleNumberLabel.text = "ID: \(record.battleNumber)"
         
         NotificationCenter.default

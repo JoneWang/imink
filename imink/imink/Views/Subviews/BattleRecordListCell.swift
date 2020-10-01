@@ -12,7 +12,6 @@ import SDWebImage
 
 class BattleRecordListCell: UICollectionViewCell {
     
-    static let reuseIdentifier = "battleRecordListCell"
     static let nib = UINib(nibName: "BattleRecordListCell", bundle: .main)
     
     @IBOutlet weak var weaponImageView: UIImageView!
@@ -27,7 +26,16 @@ class BattleRecordListCell: UICollectionViewCell {
     @IBOutlet weak var barConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-
+    
+    var record: Record? {
+        didSet {
+            guard let record = record else { return }
+            if record == oldValue { return }
+            
+            configure(with: record)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -49,7 +57,7 @@ class BattleRecordListCell: UICollectionViewCell {
         }
     }
     
-    func configure(with record: Record) {        
+    private func configure(with record: Record) {
         battleNumberLabel.text = record.battleNumber
         resultLabel.text = "\(record.victory ? "VICTORY" : "DEFEAT")"
         resultLabel.textColor = record.victory ?
