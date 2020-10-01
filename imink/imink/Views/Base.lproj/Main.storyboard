@@ -39,7 +39,6 @@
         <!--Home-->
         <scene sceneID="Bwf-8P-ySS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="obU-mq-l1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Home" id="yfN-5b-8RM" customClass="HomeViewController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ozv-QQ-fiR">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -50,6 +49,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="flag.circle.fill" catalog="system" id="Xac-6T-caG"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obU-mq-l1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4574" y="-2441"/>
         </scene>

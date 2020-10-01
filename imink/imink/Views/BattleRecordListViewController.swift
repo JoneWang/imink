@@ -63,14 +63,26 @@ class BattleRecordListViewController: UIViewController {
                         self.selectedRecord == nil ||
                         (firstRecord.battleNumber == self.selectedRecord?.battleNumber && firstRecord.isDetail != self.selectedRecord?.isDetail) {
                     // Update list
-                    self.apply(records)
-
-                    let indexPath = IndexPath(item: 0, section: 0)
-                    self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                    self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+                    self.apply(records) {
+                        if self.traitCollection.userInterfaceIdiom == .pad ||
+                            self.traitCollection.userInterfaceIdiom == .mac {
+                            let indexPath = IndexPath(item: 0, section: 0)
+                            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+                        }
+                    }
                 } else {
                     // Update list
-                    self.apply(records)
+                    self.apply(records) {
+                        if self.selectedRecord == nil {
+                            if self.traitCollection.userInterfaceIdiom == .pad ||
+                                self.traitCollection.userInterfaceIdiom == .mac {
+                                let indexPath = IndexPath(item: 0, section: 0)
+                                self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                                self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+                            }
+                        }
+                    }
                 }
 
             }
@@ -89,14 +101,6 @@ class BattleRecordListViewController: UIViewController {
                 }
             }
             .store(in: &cancelBag)
-
-        if self.traitCollection.userInterfaceIdiom == .pad ||
-               self.traitCollection.userInterfaceIdiom == .mac {
-            // Select the first item by default
-            let indexPath = IndexPath(item: 0, section: 0)
-            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -204,14 +208,16 @@ extension BattleRecordListViewController {
         }
     }
 
-    func apply(_ records: [Record]) {
+    func apply(_ records: [Record], completed: @escaping (() -> Void)) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let `self` = self else { return }
             
             var snapshot = NSDiffableDataSourceSnapshot<Section, Record>()
             snapshot.appendSections([.main])
             snapshot.appendItems(records)
-            self.dataSource.apply(snapshot, animatingDifferences: true)
+            self.dataSource.apply(snapshot, animatingDifferences: true) {
+                completed()
+            }
         }
     }
 

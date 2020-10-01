@@ -15,4 +15,6 @@ extension Notification.Name {
     
     static let share = NSNotification.Name("ShareNotification")
     
+    static let recordSyncDetailFinished = NSNotification.Name("RecordSyncDetailFinished")
+    
 }

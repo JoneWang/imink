@@ -32,7 +32,9 @@ class AppDatabase {
     
     private var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
+        #if DEBUG
         migrator.eraseDatabaseOnSchemaChange = true
+        #endif
         migrator.registerMigration("createRecord") { db in
             // Create a table
             // See https://github.com/groue/GRDB.swift#create-tables
@@ -51,6 +53,32 @@ class AppDatabase {
                 t.column("deathCount", .integer).notNull()
                 t.column("myPoint", .double).notNull()
                 t.column("otherPoint", .double).notNull()
+            }
+        }
+        
+        migrator.registerMigration("V2") { db in
+            let records = try Record.fetchAll(db)
+            
+            try db.alter(table: "record", body: { tableAlteration in
+                tableAlteration.add(column: "killCount", .integer)
+                tableAlteration.add(column: "assistCount", .integer)
+                tableAlteration.add(column: "specialCount", .integer)
+                tableAlteration.add(column: "gamePaintPoint", .integer)
+                tableAlteration.add(column: "syncDetailTime", .datetime)
+            })
+            
+            for record in records {
+                var record = record
+                
+                let battle = record.battle
+                record.killCount = battle?.playerResult.killCount ?? 0
+                record.assistCount = battle?.playerResult.assistCount ?? 0
+                record.specialCount = battle?.playerResult.specialCount ?? 0
+                record.gamePaintPoint = battle?.playerResult.gamePaintPoint ?? 0
+                
+                record.syncDetailTime = Date()
+                
+                try record.update(db)
             }
         }
         
