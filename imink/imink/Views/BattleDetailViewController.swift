@@ -35,6 +35,8 @@ class BattleDetailViewController: UIViewController {
     @IBOutlet weak var fullScreenSwitchButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    var allBarButtonItems: [UIBarButtonItem] = []
+    
     var scrollView: UIScrollView?
     var battleDetailView: UIView!
     
@@ -42,63 +44,22 @@ class BattleDetailViewController: UIViewController {
     
     private var updateModel = UpdateModel()
     
-    private var isFullScreen = false {
-        didSet {
-            fullScreenSwitchButton.image = UIImage(
-                systemName: isFullScreen ?
-                    "arrow.down.right.and.arrow.up.left" :
-                    "arrow.up.left.and.arrow.down.right"
-            )
-        }
-    }
-    
     private var isInitLayout = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // On iPhone
-        if traitCollection.horizontalSizeClass == .compact {
-            navigationItem.rightBarButtonItems = [self.shareButton]
-        }
+        allBarButtonItems = navigationItem.rightBarButtonItems ?? []
         
         // Detail
         if traitCollection.horizontalSizeClass == .compact {
-            let hostingController = UIHostingController(rootView: CompactBattlePage(model: updateModel))
-            addChild(hostingController)
-            
-            let scrollView = UIScrollView()
-            scrollView.contentInsetAdjustmentBehavior = .never
-            view.addSubview(scrollView)
-            scrollView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
-            
-            battleDetailView = hostingController.view
-            scrollView.addSubview(battleDetailView)
-            
-            self.scrollView = scrollView
+            configureCompactView()
         } else {
-            let hostingController = UIHostingController(rootView: RegularBattlePage(model: updateModel))
-            addChild(hostingController)
-            battleDetailView = hostingController.view
-            
-            view.addSubview(battleDetailView)
-            battleDetailView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
+            configureRegularView()
         }
         
         // Notification
         let notificationCenter = NotificationCenter.default
-        notificationCenter
-            .publisher(for: .splitVCDisplayMode)
-            .receive(on: RunLoop.main)
-            .map { ($0.object as! UISplitViewController.DisplayMode) == .secondaryOnly }
-            .sink { [weak self] in
-                self?.isFullScreen = $0
-            }
-            .store(in: &cancelBag)
         
         notificationCenter
             .publisher(for: .share)
@@ -140,7 +101,56 @@ class BattleDetailViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        print(traitCollection.horizontalSizeClass)
+        if previousTraitCollection?.horizontalSizeClass == traitCollection.horizontalSizeClass {
+            return
+        }
+        
+        if traitCollection.horizontalSizeClass == .compact {
+            configureCompactView()
+        } else {
+            configureRegularView()
+        }
+    }
+    
+    func configureCompactView() {
+        if let battleDetailView = battleDetailView {
+            battleDetailView.removeFromSuperview()
+        }
+                
+        let hostingController = UIHostingController(rootView: CompactBattlePage(model: updateModel))
+        addChild(hostingController)
+        
+        let scrollView = UIScrollView()
+        scrollView.contentInsetAdjustmentBehavior = .never
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        battleDetailView = hostingController.view
+        scrollView.addSubview(battleDetailView)
+        
+        self.scrollView = scrollView
+    }
+    
+    func configureRegularView() {
+        if let battleDetailView = battleDetailView {
+            battleDetailView.removeFromSuperview()
+        }
+        
+        if let scrollView = scrollView {
+            scrollView.removeFromSuperview()
+        }
+                
+        let hostingController = UIHostingController(rootView: RegularBattlePage(model: updateModel))
+        addChild(hostingController)
+        battleDetailView = hostingController.view
+        
+        view.addSubview(battleDetailView)
+        battleDetailView.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
 }
@@ -148,14 +158,6 @@ class BattleDetailViewController: UIViewController {
 // MARK: - Actions
 
 extension BattleDetailViewController {
-    
-    @IBAction func toggleFullScreen(_ sender: Any) {
-        isFullScreen.toggle()
-        
-        if let splitViewController = self.splitViewController {
-            splitViewController.preferredDisplayMode = isFullScreen ? .secondaryOnly : .oneBesideSecondary
-        }
-    }
     
     @IBAction func shareBattle(_ sender: Any?) {
         // Add share icon

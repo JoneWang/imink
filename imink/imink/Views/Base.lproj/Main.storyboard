@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uMY-Si-6i2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O1Z-0P-dM4">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="5nx-NJ-jfg">
             <objects>
-                <tabBarController id="O1Z-0P-dM4" customClass="TabBarController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" hidesBottomBarWhenPushed="YES" id="O1Z-0P-dM4" customClass="TabBarController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ywU-YO-Gsc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -19,26 +19,27 @@
                     </tabBar>
                     <connections>
                         <segue destination="yfN-5b-8RM" kind="relationship" relationship="viewControllers" id="rbk-RY-093"/>
-                        <segue destination="kmx-Vr-Yf2" kind="relationship" relationship="viewControllers" id="vcf-R4-YwX"/>
+                        <segue destination="uMY-Si-6i2" kind="relationship" relationship="viewControllers" id="NIq-2c-fyi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zko-Eh-nlv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4523" y="-1796"/>
+            <point key="canvasLocation" x="-5481" y="-2061"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Battles-->
         <scene sceneID="EGN-LD-laU">
             <objects>
-                <splitViewController storyboardIdentifier="TwoColumnSplit" id="uMY-Si-6i2" sceneMemberID="viewController">
+                <splitViewController allowDoubleColumnStyle="YES" preferredDisplayMode="beside" id="uMY-Si-6i2" customClass="BattleSplitViewController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Battles" image="TabbarBattleRecord" id="wVe-tG-ttH"/>
                     <connections>
-                        <segue destination="O1Z-0P-dM4" kind="relationship" relationship="masterViewController" id="kSL-FX-8Db"/>
+                        <segue destination="kmx-Vr-Yf2" kind="relationship" relationship="masterViewController" id="LfT-LD-ocJ"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAw-Dm-lpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5378" y="-1796"/>
+            <point key="canvasLocation" x="-4574" y="-1624"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="Bwf-8P-ySS">
             <objects>
                 <viewController id="yfN-5b-8RM" sceneMemberID="viewController">
@@ -48,11 +49,11 @@
                         <viewLayoutGuide key="safeArea" id="gzl-pE-Onc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Xac-6T-caG"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="flag.circle.fill" catalog="system" id="Xac-6T-caG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obU-mq-l1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3697" y="-2502"/>
+            <point key="canvasLocation" x="-4574" y="-2441"/>
         </scene>
         <!--Battles-->
         <scene sceneID="EFI-v1-QXb">
@@ -71,7 +72,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTQ-q6-EdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3697" y="-1796"/>
+            <point key="canvasLocation" x="-3697" y="-1613"/>
         </scene>
         <!--Battle Record List View Controller-->
         <scene sceneID="Yz9-db-Ume">
@@ -82,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mPf-Hc-GDg">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="718"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xb7-Ja-ojl">
                                     <size key="itemSize" width="128" height="128"/>
@@ -99,7 +100,7 @@
                             <constraint firstItem="P6H-fo-Gft" firstAttribute="trailing" secondItem="mPf-Hc-GDg" secondAttribute="trailing" id="hCH-Ld-SDe"/>
                             <constraint firstItem="mPf-Hc-GDg" firstAttribute="leading" secondItem="sHV-aI-RE0" secondAttribute="leading" id="idd-CP-0nm"/>
                             <constraint firstItem="mPf-Hc-GDg" firstAttribute="top" secondItem="sHV-aI-RE0" secondAttribute="top" id="uS5-4q-xS1"/>
-                            <constraint firstItem="P6H-fo-Gft" firstAttribute="bottom" secondItem="mPf-Hc-GDg" secondAttribute="bottom" id="wWi-NZ-CdH"/>
+                            <constraint firstAttribute="bottom" secondItem="mPf-Hc-GDg" secondAttribute="bottom" id="wWi-NZ-CdH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uZT-0d-b14"/>
@@ -109,11 +110,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pN1-x2-g7E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2913" y="-1796"/>
+            <point key="canvasLocation" x="-2831" y="-1624"/>
         </scene>
     </scenes>
     <resources>
+        <image name="TabbarBattleRecord" width="32" height="32"/>
         <image name="TabbarBattleRecord" width="128" height="128"/>
+        <image name="flag.circle.fill" catalog="system" width="128" height="121"/>
         <image name="tray" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

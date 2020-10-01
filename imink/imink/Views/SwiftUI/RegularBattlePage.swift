@@ -9,6 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct RegularBattlePage: View {
+    
     @ObservedObject var model: BattleDetailViewController.UpdateModel
     
     var record: Record? {
@@ -16,34 +17,36 @@ struct RegularBattlePage: View {
     }
     
     var body: some View {
-        let contentView = ZStack {
+        let contentView = Group {
             if let record = record, let battle = record.battle {
-                // Stage as background
-                Rectangle().overlay(
-                    WebImage(url: battle.stage.imageURL)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .transition(.opacity)
-                )
-                
-                // Content
                 GeometryReader { geo in
-                    HStack {
-                        // Left content
-                        makeBattleInfo(battle: battle, geo: geo)
+                    ZStack {
+                        // Stage as background
+                        Rectangle().overlay(
+                            WebImage(url: battle.stage.imageURL)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .transition(.opacity)
+                        )
+                        .edgesIgnoringSafeArea(.all)
                         
-                        // Right content
-                        makeTeamContent(battle: battle, geo: geo)
+                        // Content
+                        HStack {
+                            // Left content
+                            makeBattleInfo(battle: battle, geo: geo)
+                            
+                            // Right content
+                            makeTeamContent(battle: battle, geo: geo)
+                        }
+                        .padding(.init(top: 0, leading: 0, bottom: 60, trailing: 0))
                     }
+                    .drawingGroup()
                 }
-                .padding(.bottom, 30)
             }
         }
         
         #if os(iOS)
         contentView
-            .drawingGroup()
-            .edgesIgnoringSafeArea(.bottom)
         #else
         contentView
         #endif
@@ -83,7 +86,9 @@ struct RegularBattlePage: View {
     func teamsDataViewWidthAndScale(geo: GeometryProxy) -> (CGFloat, CGFloat) {
         let maxWidth = geo.size.width * (3 / 5)
         
-        var scale = geo.size.height / TeamsDataView.size.height
+        let displayHeight = geo.size.height
+        
+        var scale = displayHeight / TeamsDataView.size.height
         var width = scale * TeamsDataView.size.width
         if width > maxWidth {
             width = maxWidth
@@ -92,6 +97,7 @@ struct RegularBattlePage: View {
         
         return (width, scale)
     }
+    
 }
 
 //struct BattlePage_Previews: PreviewProvider {

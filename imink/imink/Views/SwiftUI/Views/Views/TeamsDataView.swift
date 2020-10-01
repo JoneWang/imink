@@ -20,7 +20,6 @@ struct TeamsDataView: View {
                      members: battle.victoryTeamMembersSorted,
                      color: AppColor.spPink
             )
-            .drawingGroup()
             
             // Bottom team
             TeamView(victory: false,
