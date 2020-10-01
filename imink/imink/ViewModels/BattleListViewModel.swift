@@ -46,6 +46,10 @@ class BattleListViewModel: ObservableObject {
                             gameMode: "",
                             stageName: "",
                             killTotalCount: 0,
+                            killCount: 0,
+                            assistCount: 0,
+                            specialCount: 0,
+                            gamePaintPoint: 0,
                             deathCount: 0,
                             myPoint: 0,
                             otherPoint: 0

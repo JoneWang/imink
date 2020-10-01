@@ -55,6 +55,7 @@ class TabBarViewModel: ObservableObject {
                 
                 if self.databaseRecords.filter({ !$0.isDetail }).count == 0 {
                     self.isLoadingDetail = false
+                    NotificationCenter.default.post(name: .recordSyncDetailFinished, object: nil)
                 }
             }
             .store(in: &cancelBag)
@@ -164,7 +165,7 @@ extension TabBarViewModel {
             return
         }
         
-        try! AppDatabase.shared.saveFullBattle(detail)
+        try! AppDatabase.shared.saveDetail(detail)
     }
     
 }

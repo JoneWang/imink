@@ -29,9 +29,14 @@ struct Record: Identifiable {
     var gameMode: String
     var stageName: String
     var killTotalCount: Int
+    var killCount: Int
+    var assistCount: Int
+    var specialCount: Int
+    var gamePaintPoint: Int
     var deathCount: Int
     var myPoint: Double
     var otherPoint: Double
+    var syncDetailTime: Date?
 }
 
 extension Record: Codable, FetchableRecord, MutablePersistableRecord {
@@ -48,9 +53,14 @@ extension Record: Codable, FetchableRecord, MutablePersistableRecord {
         static let gameMode = Column(CodingKeys.gameMode)
         static let stageName = Column(CodingKeys.stageName)
         static let killTotalCount = Column(CodingKeys.killTotalCount)
+        static let killCount = Column(CodingKeys.killCount)
+        static let assistCount = Column(CodingKeys.assistCount)
+        static let specialCount = Column(CodingKeys.specialCount)
+        static let gamePaintPoint = Column(CodingKeys.gamePaintPoint)
         static let deathCount = Column(CodingKeys.deathCount)
         static let myPoint = Column(CodingKeys.myPoint)
         static let otherPoint = Column(CodingKeys.otherPoint)
+        static let syncDetailTime = Column(CodingKeys.syncDetailTime)
     }
     
     mutating func didInsert(with rowID: Int64, for column: String?) {
@@ -71,7 +81,7 @@ extension AppDatabase {
     // MARK: Writes
     
     /// Save a full battle record, from /results/<id>
-    func saveFullBattle(_ battleObject: Dictionary<String, AnyObject>) throws {
+    func saveDetail(_ battleObject: Dictionary<String, AnyObject>) throws {
         dbQueue.asyncWrite { db in
             guard let currentUser = AppUserDefaults.shared.user else {
                 return
@@ -98,6 +108,7 @@ extension AppDatabase {
             ).fetchOne(db) {
                 record.json = battleJson
                 record.isDetail = true
+                record.syncDetailTime = Date()
                 try record.update(db)
             }
         } completion: { _, error in
@@ -146,6 +157,10 @@ extension AppDatabase {
                         gameMode: battle.gameMode.name,
                         stageName: battle.stage.name,
                         killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
+                        killCount: battle.playerResult.killCount,
+                        assistCount: battle.playerResult.assistCount,
+                        specialCount: battle.playerResult.specialCount,
+                        gamePaintPoint: battle.playerResult.gamePaintPoint,
                         deathCount: battle.playerResult.deathCount,
                         myPoint: battle.myPoint,
                         otherPoint: battle.otherPoint)
@@ -194,11 +209,37 @@ extension AppDatabase {
             .eraseToAnyPublisher()
     }
     
-    func r() -> [Record] {
+    func totalCount() -> AnyPublisher<Int, Error> {
+        ValueObservation
+            .tracking(Record.fetchCount)
+            .publisher(in: dbQueue, scheduling: .immediate)
+            .eraseToAnyPublisher()
+    }
+    
+    func totalKillCount() -> Int {
         dbQueue.read { db in
-            let records = try! Record.order(Record.Columns.battleNumber.desc).fetchAll(db)
-            return records
+            let request = Record.select(sum(Record.Columns.killCount))
+            return try! Int.fetchOne(db, request) ?? 0
         }
+    }
+    
+    func currentSyncTotalCount(lastSyncTime: Date) -> AnyPublisher<Int, Error> {
+        ValueObservation
+            .tracking(Record.filter(
+                        Record.Columns.syncDetailTime == nil || (Record.Columns.syncDetailTime != nil &&
+                                                                    Record.Columns.syncDetailTime > lastSyncTime)
+            ).fetchCount)
+            .publisher(in: dbQueue, scheduling: .immediate)
+            .eraseToAnyPublisher()
+    }
+    
+    func currentSynchronizedCount(lastSyncTime: Date) -> AnyPublisher<Int, Error> {
+        ValueObservation
+            .tracking(Record.filter(
+                        Record.Columns.isDetail && Record.Columns.syncDetailTime > lastSyncTime
+            ).fetchCount)
+            .publisher(in: dbQueue, scheduling: .immediate)
+            .eraseToAnyPublisher()
     }
 }
 
@@ -216,6 +257,10 @@ extension Record {
             gameMode: gameMode,
             stageName: stageName,
             killTotalCount: killTotalCount,
+            killCount: killCount,
+            assistCount: assistCount,
+            specialCount: specialCount,
+            gamePaintPoint: gamePaintPoint,
             deathCount: deathCount,
             myPoint: myPoint,
             otherPoint: otherPoint
