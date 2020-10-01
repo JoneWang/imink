@@ -27,6 +27,10 @@
 		EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA53251C95DE00283D28 /* SDWebImage */; };
 		EC43AA58251C9A7100283D28 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
+		EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362472525D68E0037BD12 /* HomeViewModel.swift */; };
+		EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */; };
+		EC5362502525DB1D0037BD12 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53624F2525DB1D0037BD12 /* HomeViewController.swift */; };
+		EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362522525DDDF0037BD12 /* HomePage.swift */; };
 		EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
 		EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */; };
 		EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */; };
@@ -107,6 +111,10 @@
 		EC00DC06251CD8770010366A /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
 		EC00DC1D251CEFD00010366A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EC5362472525D68E0037BD12 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		EC53624F2525DB1D0037BD12 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EC5362522525DDDF0037BD12 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListRealTimeCell.swift; sourceTree = "<group>"; };
 		EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleRecordListRealTimeCell.xib; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 				EC00DBD2251CA05F0010366A /* BattleDetail.storyboard */,
 				EC00DBD6251CA11D0010366A /* TabBarController.swift */,
 				EC00DC1D251CEFD00010366A /* LoginViewController.swift */,
+				EC53624F2525DB1D0037BD12 /* HomeViewController.swift */,
 				EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */,
 				EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */,
 				ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */,
@@ -218,6 +227,7 @@
 				EC6B8274251F088800B25307 /* CompactBattlePage.swift */,
 				EC00DC18251CD90B0010366A /* RegularBattlePage.swift */,
 				ECAE8DC325209BB6003D7EDC /* LoginPage.swift */,
+				EC5362522525DDDF0037BD12 /* HomePage.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -383,7 +393,9 @@
 		EC900EBA251C8EF700AA0B20 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */,
 				EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */,
+				EC5362472525D68E0037BD12 /* HomeViewModel.swift */,
 				EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */,
 				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
 			);
@@ -505,6 +517,7 @@
 				EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */,
 				ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */,
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
+				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
 				EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */,
 				EC00DBD0251C9D5B0010366A /* BattleDetailViewController.swift in Sources */,
 				EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */,
@@ -528,12 +541,15 @@
 				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
 				EC900ED5251C8EF700AA0B20 /* SP2Weapon.swift in Sources */,
 				EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */,
+				EC5362502525DB1D0037BD12 /* HomeViewController.swift in Sources */,
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
 				EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */,
 				EC00DC0F251CD8770010366A /* MemberView.swift in Sources */,
 				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
 				EC900ED3251C8EF700AA0B20 /* SP2Player.swift in Sources */,
+				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
+				EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,

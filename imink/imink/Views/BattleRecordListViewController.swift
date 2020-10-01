@@ -19,14 +19,12 @@ class BattleRecordListViewController: UIViewController {
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
-    private var loginViewController: UIHostingController<LoginPage>?
 
     private var cancelBag = Set<AnyCancellable>()
 
     private var dataSource: UICollectionViewDiffableDataSource<Section, Record>!
 
     private var battleListViewModel: BattleListViewModel!
-    private var loginPageViewModel: LoginViewModel?
     private var selectedRecord: Record? {
         guard
             let indexPathsForSelectedItems = collectionView.indexPathsForSelectedItems,
@@ -92,48 +90,13 @@ class BattleRecordListViewController: UIViewController {
             }
             .store(in: &cancelBag)
 
-        battleListViewModel.$isLogin
-            .sink { [weak self] isLogin in
-                guard let `self` = self else { return }
-
-                if isLogin {
-                    if self.traitCollection.userInterfaceIdiom == .pad ||
-                           self.traitCollection.userInterfaceIdiom == .mac {
-                        // Select the first item by default
-                        let indexPath = IndexPath(item: 0, section: 0)
-                        self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                        self.collectionView(self.collectionView, didSelectItemAt: indexPath)
-                    }
-                } else {
-                    let viewModel = LoginViewModel()
-
-                    let loginPage = LoginPage(launchPageViewModel: viewModel)
-                    let loginViewController = UIHostingController(rootView: loginPage)
-                    loginViewController.modalPresentationStyle = .formSheet
-                    loginViewController.preferredContentSize = .init(width: 400, height: 250)
-
-                    viewModel.$status
-                        .filter { $0 == .loginSuccess }
-                        .sink { _ in
-                            self.battleListViewModel.isLogin = true
-                            self.loginViewController?.dismiss(animated: true)
-                        }
-                        .store(in: &viewModel.cancelBag)
-
-                    self.loginViewController = loginViewController
-
-                    self.present(loginViewController, animated: true) {
-                        // Disable dismiss gesture
-                        loginViewController
-                            .presentationController?
-                            .presentedView?
-                            .gestureRecognizers?[0]
-                            .isEnabled = false
-                    }
-                }
-            }
-            .store(in: &cancelBag)
-
+        if self.traitCollection.userInterfaceIdiom == .pad ||
+               self.traitCollection.userInterfaceIdiom == .mac {
+            // Select the first item by default
+            let indexPath = IndexPath(item: 0, section: 0)
+            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

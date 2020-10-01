@@ -15,8 +15,7 @@ class BattleListViewModel: ObservableObject {
     @Published var databaseRecords: [Record] = []
     
     @Published var isLoadingDetail = false
-    @Published var autoRefresh = false
-    @Published var isLogin = false
+    @Published var autoRefresh = true
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -89,16 +88,6 @@ class BattleListViewModel: ObservableObject {
                 }
             }
             .store(in: &cancelBag)
-        
-        $isLogin
-            .sink { [weak self] isLogin in
-                guard let `self` = self else { return }
-                
-                self.autoRefresh = isLogin
-            }
-            .store(in: &cancelBag)
-        
-        isLogin = AppUserDefaults.shared.user != nil
     }
     
 }
