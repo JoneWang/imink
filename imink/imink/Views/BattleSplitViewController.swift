@@ -9,6 +9,12 @@ import UIKit
 
 class BattleSplitViewController: UISplitViewController {
     
+    static let storyboardID = "BattleSplit"
+    static func instantiateFromStoryboard() -> BattleSplitViewController? {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        return storyboard.instantiateViewController(identifier: storyboardID) as? BattleSplitViewController
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

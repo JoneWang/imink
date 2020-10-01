@@ -17,10 +17,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="yfN-5b-8RM" kind="relationship" relationship="viewControllers" id="rbk-RY-093"/>
-                        <segue destination="uMY-Si-6i2" kind="relationship" relationship="viewControllers" id="NIq-2c-fyi"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zko-Eh-nlv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,8 +25,9 @@
         <!--Battles-->
         <scene sceneID="EGN-LD-laU">
             <objects>
-                <splitViewController allowDoubleColumnStyle="YES" preferredDisplayMode="beside" id="uMY-Si-6i2" customClass="BattleSplitViewController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="BattleSplit" allowDoubleColumnStyle="YES" preferredDisplayMode="beside" id="uMY-Si-6i2" customClass="BattleSplitViewController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Battles" image="TabbarBattleRecord" id="wVe-tG-ttH"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="kmx-Vr-Yf2" kind="relationship" relationship="masterViewController" id="LfT-LD-ocJ"/>
                     </connections>
@@ -42,7 +39,8 @@
         <!--Home-->
         <scene sceneID="Bwf-8P-ySS">
             <objects>
-                <viewController id="yfN-5b-8RM" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obU-mq-l1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Home" id="yfN-5b-8RM" customClass="HomeViewController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ozv-QQ-fiR">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,8 +48,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="flag.circle.fill" catalog="system" id="Xac-6T-caG"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="obU-mq-l1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4574" y="-2441"/>
         </scene>
@@ -114,8 +112,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TabbarBattleRecord" width="32" height="32"/>
         <image name="TabbarBattleRecord" width="128" height="128"/>
+        <image name="TabbarBattleRecord" width="32" height="32"/>
         <image name="flag.circle.fill" catalog="system" width="128" height="121"/>
         <image name="tray" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
