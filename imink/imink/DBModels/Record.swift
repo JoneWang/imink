@@ -62,9 +62,7 @@ extension DerivableRequest where RowDecoder == Record { }
 
 extension Record: Hashable {
     static func == (lhs: Record, rhs: Record) -> Bool {
-        lhs.id == rhs.id &&
-            lhs.json == rhs.json &&
-            lhs.isDetail == rhs.isDetail
+        lhs.id == rhs.id && lhs.json == rhs.json
     }
 }
 

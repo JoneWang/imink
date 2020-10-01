@@ -14,9 +14,6 @@ class BattleListViewModel: ObservableObject {
     @Published var records: [Record] = []
     @Published var databaseRecords: [Record] = []
     
-    @Published var isLoadingDetail = false
-    @Published var autoRefresh = true
-    
     private var cancelBag = Set<AnyCancellable>()
     
     private var requestDetailCancellable: AnyCancellable!
@@ -28,29 +25,7 @@ class BattleListViewModel: ObservableObject {
                 os_log("Database Error: [records] \(error.localizedDescription)")
                 return Just<[Record]>([])
             }
-            .map {
-                return $0
-            }
-            .assign(to: \.databaseRecords, on: self)
-            .store(in: &self.cancelBag)
-        
-        // Synchronizing the record where first isDetail is false
-        $databaseRecords
-            .compactMap { $0.first(where: { !$0.isDetail }) }
-            .flatMap { self.requestBattleDetail(battleNumber: $0.battleNumber) }
-            .catch { error -> Just<Data> in
-                os_log("API Error: [splatoon2/battles/id] \(error.localizedDescription)")
-                return Just<Data>(Data())
-            }
-            .sink { [weak self] data in
-                guard let `self` = self else { return }
-                self.updateRecordDetail(data)
-                
-                if self.databaseRecords.filter({ !$0.isDetail }).count == 0 {
-                    self.isLoadingDetail = false
-                }
-            }
-            .store(in: &cancelBag)
+            .assign(to: &$databaseRecords)
         
         // Handle data source of list
         $databaseRecords
@@ -80,109 +55,6 @@ class BattleListViewModel: ObservableObject {
             }
             .filter { _ in AppUserDefaults.shared.user != nil }
             .assign(to: &$records)
-        
-        $autoRefresh
-            .sink { [weak self] isAutoRefresh in
-                if isAutoRefresh {
-                    self?.startRealTimeDataLoop()
-                }
-            }
-            .store(in: &cancelBag)
-    }
-    
-}
-
-// MARK: Real time
-
-extension BattleListViewModel {
-    
-    func startRealTimeDataLoop() {
-        NotificationCenter.default.post(
-            name: .isLoadingRealTimeBattleResult,
-            object: true
-        )
-        syncResultsToDatabase {
-            NotificationCenter.default.post(
-                name: .isLoadingRealTimeBattleResult,
-                object: false
-            )
-            
-            if !self.autoRefresh { return }
-            
-            // Next request after delayed for 7 seconds
-            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-                self.startRealTimeDataLoop()
-            }
-        }
-    }
-    
-    func syncResultsToDatabase(finished: (() -> Void)? = nil) {
-        requestBattleOverview()
-            .sink { completion in
-                finished?()
-                
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    if case APIError.authorizationError = error {
-                        // iksm_session invalid
-                        // TODO: Recapture iksm_session
-                    } else {
-                        // TODO: Other errors
-                        os_log("API Error: [splatoon2/results] \(error.localizedDescription)")
-                    }
-                }
-            } receiveValue: { data in
-                // Save original records json to database
-                try! AppDatabase.shared.saveSampleBattlesData(data) { [weak self] _ in
-                    guard let `self` = self else { return }
-                    
-                    if self.records.filter({ !$0.isDetail }).count > 0 && !self.isLoadingDetail {
-                        // Trigger detail request
-                        Just<[Record]>(self.databaseRecords)
-                            .assign(to: &self.$databaseRecords)
-                    }
-                }
-            }
-            .store(in: &cancelBag)
-    }
-    
-}
-
-// MARK: Request
-
-extension BattleListViewModel {
-    
-    func requestBattleOverview() -> AnyPublisher<Data, APIError>  {
-        Splatoon2API.battleInformation
-            .request() // Not decode
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-    
-    func requestBattleDetail(battleNumber: String) -> AnyPublisher<Data, APIError>  {
-        Splatoon2API.result(battleNumber: battleNumber)
-            .request() // Not decode
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-    
-}
-
-// MARK: Database
-
-extension BattleListViewModel {
-    
-    func updateRecordDetail(_ data: Data) {
-        guard let detail = try? JSONSerialization.jsonObject(
-            with: data,
-            options: .mutableContainers
-        ) as? [String: AnyObject] else {
-            return
-        }
-        
-        try! AppDatabase.shared.saveFullBattle(detail)
     }
     
 }
