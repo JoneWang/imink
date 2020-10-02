@@ -57,16 +57,15 @@ class AppDatabase {
         }
         
         migrator.registerMigration("V2") { db in
-            let records = try Record.fetchAll(db)
-            
             try db.alter(table: "record", body: { tableAlteration in
-                tableAlteration.add(column: "killCount", .integer)
-                tableAlteration.add(column: "assistCount", .integer)
-                tableAlteration.add(column: "specialCount", .integer)
-                tableAlteration.add(column: "gamePaintPoint", .integer)
+                tableAlteration.add(column: "killCount", .integer).defaults(to: 0).notNull()
+                tableAlteration.add(column: "assistCount", .integer).defaults(to: 0).notNull()
+                tableAlteration.add(column: "specialCount", .integer).defaults(to: 0).notNull()
+                tableAlteration.add(column: "gamePaintPoint", .integer).defaults(to: 0).notNull()
                 tableAlteration.add(column: "syncDetailTime", .datetime)
             })
             
+            let records = try Record.fetchAll(db)
             for record in records {
                 var record = record
                 
