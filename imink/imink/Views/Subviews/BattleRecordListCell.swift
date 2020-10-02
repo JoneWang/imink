@@ -73,7 +73,7 @@ class BattleRecordListCell: UICollectionViewCell {
         rightBarView.backgroundColor = record.victory ?
             AppUIColor.spLightGreen :
             AppUIColor.spPink
-        barConstraint.constant = CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint))
+        barConstraint = barConstraint.setMultiplier(multiplier: CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint)))
         
         weaponImageView.image = nil
         weaponImageView.sd_setImage(with: record.weaponImageURL)
