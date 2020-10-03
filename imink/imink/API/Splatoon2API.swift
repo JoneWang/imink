@@ -10,6 +10,7 @@ import Foundation
 enum Splatoon2API {
     case battleInformation
     case result(battleNumber: String)
+    case schedules
 }
 
 extension Splatoon2API: APITargetType {
@@ -23,12 +24,14 @@ extension Splatoon2API: APITargetType {
             return "/results"
         case .result(let battleNumber):
             return "/results/\(battleNumber)"
+        case .schedules:
+            return "/schedules"
         }
     }
     
     var method: APIMethod {
         switch self {
-        case .battleInformation, .result:
+        case .battleInformation, .result, .schedules:
             return .get
         }
     }

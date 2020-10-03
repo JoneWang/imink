@@ -10,9 +10,9 @@ import Foundation
 struct SP2Battle: Codable {
     let battleNumber: String
     let type: `Type`
-    let stage: Stage
-    let gameMode: GameMode
-    let rule: Rule
+    let stage: SP2Stage
+    let gameMode: SP2GameMode
+    let rule: SP2Rule
     let myTeamResult: SP2TeamResult
     let otherTeamResult: SP2TeamResult
     let myEstimateLeaguePoint: Int?
@@ -32,44 +32,9 @@ struct SP2Battle: Codable {
         case league
         case `private`
     }
-    
-    struct Stage: Codable {
-        let id: String
-        let name: String
-        let image: String
-    }
-    
-    struct GameMode: Codable {
-        let key: Key
-        let name: String
-        
-        enum Key: String, Codable {
-            case regular
-            case leaguePair = "league_pair"
-            case leagueTeam = "league_team"
-            case gachi
-            case fesTeam = "fes_team"
-            case fesSolo = "fes_solo"
-            case `private`
-        }
-    }
-    
-    struct Rule: Codable {
-        let key: Key
-        let name: String
-        let multilineName: String
-        
-        enum Key: String, Codable {
-            case turfWar = "turf_war"
-            case splatZones = "splat_zones"
-            case towerControl = "tower_control"
-            case rainmaker
-            case clamBlitz = "clam_blitz"
-        }
-    }
 }
 
-extension SP2Battle.Stage {
+extension SP2Stage {
     var imageURL: URL {
         Splatoon2API.host.appendingPathComponent(image)
     }
