@@ -5,8 +5,8 @@
         "color-space" : "display-p3",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "0.557",
-          "green" : "0.293",
+          "blue" : "0.195",
+          "green" : "0.380",
           "red" : "1.000"
         }
       },

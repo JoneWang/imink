@@ -24,6 +24,8 @@ struct AppColor {
     
     static let spYellow = Color("SPYellowColor")
     
+    static let spOrange = Color("SPOrangeColor")
+    
     static let battleListRowBackgroundColor = Color("BattleListRowBackgroundColor")
     
     static let recordRowTitleNormalColor = Color("RecordRowTitleNormalColor")
@@ -47,6 +49,8 @@ struct AppUIColor {
     static let spPink = UIColor(named: "SPPinkColor")
     
     static let spYellow = UIColor(named: "SPYellowColor")
+    
+    static let spOrange = UIColor(named: "SPOrangeColor")
     
     static let battleListRowBackgroundColor = UIColor(named: "BattleListRowBackgroundColor")
     

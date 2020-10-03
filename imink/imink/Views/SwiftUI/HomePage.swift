@@ -15,7 +15,7 @@ struct HomePage: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack {
                 HStack {
                     Spacer()
                     
@@ -30,84 +30,89 @@ struct HomePage: View {
                     GeometryReader { geo in
                         Rectangle()
                             .foregroundColor(AppColor.spPink)
-                            .frame(width: geo.size.width * (CGFloat(homeViewModel.synchronizedCount) / CGFloat(homeViewModel.syncTotalCount)))
+                            .frame(width: geo.size.width * CGFloat((Double(homeViewModel.synchronizedCount) &/ Double(homeViewModel.syncTotalCount))))
                     }
                 }
                 .frame(height: 10)
                 .clipShape(Capsule())
                 .animation(.linear)
+                .padding(.horizontal)
                 
                 HStack(alignment: .top, spacing: 20) {
                     
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(AppColor.spGreen)
+                    LazyVGrid(
+                        columns: [GridItem(.adaptive(minimum: 150))],
+                        alignment: .center
+                    ) {
                         
-                        VStack(spacing: 10) {
-                            HStack {
-                                Text("Record Count:")
-                                    .sp2Font(size: 20)
-                                    .minimumScaleFactor(0.5)
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(AppColor.spGreen)
+                            
+                            VStack(spacing: 10) {
+                                HStack {
+                                    Text("Record Count:")
+                                        .sp2Font(size: 20)
+                                        .minimumScaleFactor(0.5)
+                                    
+                                    Spacer()
+                                }
+                                
+                                Spacer()
+                                
+                                Text("\(homeViewModel.recordTotalCount)")
+                                    .sp1Font(size: 35)
+                                    .minimumScaleFactor(0.3)
                                 
                                 Spacer()
                             }
-                            
-                            Spacer()
-                            
-                            Text("\(homeViewModel.recordTotalCount)")
-                                .sp1Font(size: 35)
-                                .minimumScaleFactor(0.3)
+                            .padding()
                             
                             Spacer()
                         }
-                        .padding()
+                        .frame(width: 150, height: 150)
+                        .cornerRadius(20)
                         
-                        Spacer()
-                    }
-                    .frame(width: 150, height: 150)
-                    .cornerRadius(20)
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(AppColor.spRed)
-                        
-                        VStack(spacing: 10) {
-                            HStack {
-                                Text("Total Kill:")
-                                    .sp2Font(size: 20)
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(AppColor.spRed)
+                            
+                            VStack(spacing: 10) {
+                                HStack {
+                                    Text("Total Kill:")
+                                        .sp2Font(size: 20)
+                                    
+                                    Spacer()
+                                }
+                                
+                                Spacer()
+                                
+                                Text("\(totalKillCount)")
+                                    .sp1Font(size: 35)
+                                    .minimumScaleFactor(0.3)
                                 
                                 Spacer()
                             }
-                            
-                            Spacer()
-                            
-                            Text("\(totalKillCount)")
-                                .sp1Font(size: 35)
-                                .minimumScaleFactor(0.3)
+                            .padding()
                             
                             Spacer()
                         }
-                        .padding()
+                        .frame(width: 150, height: 150)
+                        .cornerRadius(20)
                         
-                        Spacer()
                     }
-                    .frame(width: 150, height: 150)
-                    .cornerRadius(20)
                     
                 }
                 .padding(.top, 30)
                 
-                HStack {
-                    Spacer()
-                }
-                .frame(height: 400)
-                .background(Color.secondary.opacity(0.5))
-                .cornerRadius(20)
-                .padding(.top, 30)
+                ScheduleView(
+                    regularSchedules: homeViewModel.schedules?.regular ?? [],
+                    gachiSchedules: homeViewModel.schedules?.gachi ?? [],
+                    leagueSchedules: homeViewModel.schedules?.league ?? []
+                )
                 
                 Spacer()
             }
-            .padding()
         }
         .onAppear {
             totalKillCount = homeViewModel.totalKillCount
@@ -120,5 +125,9 @@ struct HomePage_Previews: PreviewProvider {
         HomePage()
             .previewLayout(.sizeThatFits)
             .frame(width: 1024, height: 768)
+        
+        HomePage()
+            .previewLayout(.sizeThatFits)
+            .frame(width: 400, height: 768)
     }
 }
