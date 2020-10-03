@@ -60,7 +60,7 @@ struct ScheduleView: View {
                                 Spacer()
                                 
                                 HStack(spacing: 4) {
-                                    Image(gameModeImageNames[j])
+                                    Image(schedule.gameMode.imageName)
                                         .resizable()
                                         .aspectRatio(1, contentMode: .fill)
                                         .frame(width: 20)

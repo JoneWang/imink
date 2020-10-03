@@ -36,25 +36,27 @@ struct AppColor {
 struct AppUIColor {
     static let spText = UIColor.white
     
-    static let spGreen = UIColor(named: "SPGreenColor")
+    static let spGreen = UIColor(named: "SPGreenColor")!
     
-    static let spPurple = UIColor(named: "SPPurpleColor")
+    static let spPurple = UIColor(named: "SPPurpleColor")!
     
-    static let spLime = UIColor(named: "SPLimeColor")
+    static let spLime = UIColor(named: "SPLimeColor")!
     
-    static let spRed = UIColor(named: "SPRedColor")
+    static let spRed = UIColor(named: "SPRedColor")!
     
-    static let spLightGreen = UIColor(named: "SPLightGreenColor")
+    static let spLightGreen = UIColor(named: "SPLightGreenColor")!
     
-    static let spPink = UIColor(named: "SPPinkColor")
+    static let spPink = UIColor(named: "SPPinkColor")!
     
-    static let spYellow = UIColor(named: "SPYellowColor")
+    static let spYellow = UIColor(named: "SPYellowColor")!
     
-    static let spOrange = UIColor(named: "SPOrangeColor")
+    static let spOrange = UIColor(named: "SPOrangeColor")!
     
-    static let battleListRowBackgroundColor = UIColor(named: "BattleListRowBackgroundColor")
+    static let spBlue = UIColor.blue
     
-    static let recordRowTitleNormalColor = UIColor(named: "RecordRowTitleNormalColor")
+    static let battleListRowBackgroundColor = UIColor(named: "BattleListRowBackgroundColor")!
     
-    static let recordRowTitleSelectedColor = UIColor(named: "RecordRowTitleSelectedColor")
+    static let recordRowTitleNormalColor = UIColor(named: "RecordRowTitleNormalColor")!
+    
+    static let recordRowTitleSelectedColor = UIColor(named: "RecordRowTitleSelectedColor")!
 }
