@@ -64,12 +64,9 @@ class BattleRecordListViewController: UIViewController {
                         (firstRecord.battleNumber == self.selectedRecord?.battleNumber && firstRecord.isDetail != self.selectedRecord?.isDetail) {
                     // Update list
                     self.apply(records) {
-                        if self.traitCollection.userInterfaceIdiom == .pad ||
-                            self.traitCollection.userInterfaceIdiom == .mac {
-                            let indexPath = IndexPath(item: 0, section: 0)
-                            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
-                        }
+                        let indexPath = IndexPath(item: 0, section: 0)
+                        self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                        self.collectionView(self.collectionView, didSelectItemAt: indexPath)
                     }
                 } else {
                     // Update list
@@ -140,8 +137,7 @@ extension BattleRecordListViewController: UICollectionViewDelegate {
         } else {
             guard let battleDetailViewController = BattleDetailViewController.instantiateFromStoryboard() else { return }
             battleDetailViewController.record = record
-            let navigationController = UINavigationController(rootViewController: battleDetailViewController)
-            showDetailViewController(navigationController, sender: self)
+            showDetailViewController(battleDetailViewController, sender: self)
         }
 
         selectEnabled = false
