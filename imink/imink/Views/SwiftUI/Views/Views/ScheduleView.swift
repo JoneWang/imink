@@ -27,8 +27,7 @@ struct ScheduleView: View {
         let calendar = NSCalendar.current
         
         LazyVGrid(
-            columns: [GridItem(.flexible())],
-            alignment: .center
+            columns: [GridItem(.flexible())]
         ) {
             
             ForEach(0..<regularSchedules.count, id: \.self) { (index: Int) in
@@ -98,11 +97,9 @@ struct ScheduleView: View {
                 .padding()
                 .background(Color.primary.opacity(0.1))
                 .cornerRadius(10)
-                .padding(.top, 15)
             }
+            .padding(0)
         }
-        .padding([.leading, .trailing, .bottom])
-        .padding(.top, 30)
     }
     
 }

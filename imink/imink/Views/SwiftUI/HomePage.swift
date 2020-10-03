@@ -105,11 +105,34 @@ struct HomePage: View {
                 }
                 .padding(.top, 30)
                 
-                ScheduleView(
-                    regularSchedules: homeViewModel.schedules?.regular ?? [],
-                    gachiSchedules: homeViewModel.schedules?.gachi ?? [],
-                    leagueSchedules: homeViewModel.schedules?.league ?? []
-                )
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    Text("# Schedule")
+                        .sp2Font(size: 20, color: Color.primary)
+                    
+                    if let schedules = homeViewModel.schedules {
+                        ScheduleView(
+                            regularSchedules: schedules.regular,
+                            gachiSchedules: schedules.gachi,
+                            leagueSchedules: schedules.league
+                        )
+                        .padding(.top)
+                    } else {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                            Spacer()
+                        }
+                        .padding()
+                        .background(Color.primary.opacity(0.1))
+                        .cornerRadius(10)
+                        .padding(.top)
+                    }
+                    
+                }
+                .padding([.leading, .trailing, .bottom])
+                .padding(.top, 30)
+                .animation(.default)
                 
                 Spacer()
             }
