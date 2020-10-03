@@ -137,7 +137,7 @@ struct HomePage: View {
                 Spacer()
             }
         }
-        .onAppear {
+        .onReceive(homeViewModel.$recordTotalCount) { _ in
             totalKillCount = homeViewModel.totalKillCount
         }
     }
