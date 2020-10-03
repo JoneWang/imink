@@ -33,3 +33,18 @@ struct SP2Schedule: Codable {
         }
     }
 }
+
+extension SP2Schedule.GameMode {
+    
+    var imageName: String {
+        switch key {
+        case .regular:
+            return "RegularBattle"
+        case .gachi:
+            return "RankedBattle"
+        case .league:
+            return "LeagueBattle"
+        }
+    }
+    
+}

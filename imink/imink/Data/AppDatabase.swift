@@ -33,7 +33,7 @@ class AppDatabase {
     private var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
         #if DEBUG
-        migrator.eraseDatabaseOnSchemaChange = true
+//        migrator.eraseDatabaseOnSchemaChange = true
         #endif
         migrator.registerMigration("createRecord") { db in
             // Create a table
@@ -48,6 +48,7 @@ class AppDatabase {
                 t.column("weaponImage", .text).notNull()
                 t.column("rule", .text).notNull()
                 t.column("gameMode", .text).notNull()
+                t.column("gameModeKey", .text).notNull()
                 t.column("stageName", .text).notNull()
                 t.column("killTotalCount", .integer).notNull()
                 t.column("deathCount", .integer).notNull()
@@ -76,6 +77,23 @@ class AppDatabase {
                 record.gamePaintPoint = battle?.playerResult.gamePaintPoint ?? 0
                 
                 record.syncDetailTime = Date()
+                
+                try record.update(db)
+            }
+        }
+        
+        migrator.registerMigration("V3") { db in
+            try db.alter(table: "record", body: { tableAlteration in
+                tableAlteration.add(column: "gameModeKey", .text).defaults(to: "").notNull()
+            })
+            
+            let records = try Record.fetchAll(db)
+            for record in records {
+                var record = record
+                
+                if let battle = record.battle {
+                    record.gameModeKey = battle.gameMode.key.rawValue
+                }
                 
                 try record.update(db)
             }

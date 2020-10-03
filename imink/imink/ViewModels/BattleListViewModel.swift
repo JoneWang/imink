@@ -44,6 +44,7 @@ class BattleListViewModel: ObservableObject {
                             weaponImage: "",
                             rule: "",
                             gameMode: "",
+                            gameModeKey: "",
                             stageName: "",
                             killTotalCount: 0,
                             killCount: 0,

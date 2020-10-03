@@ -27,6 +27,7 @@ struct Record: Identifiable {
     var weaponImage: String
     var rule: String
     var gameMode: String
+    var gameModeKey: String
     var stageName: String
     var killTotalCount: Int
     var killCount: Int
@@ -51,6 +52,7 @@ extension Record: Codable, FetchableRecord, MutablePersistableRecord {
         static let weaponImage = Column(CodingKeys.weaponImage)
         static let rule = Column(CodingKeys.rule)
         static let gameMode = Column(CodingKeys.gameMode)
+        static let gameModeKey = Column(CodingKeys.gameModeKey)
         static let stageName = Column(CodingKeys.stageName)
         static let killTotalCount = Column(CodingKeys.killTotalCount)
         static let killCount = Column(CodingKeys.killCount)
@@ -155,6 +157,7 @@ extension AppDatabase {
                         weaponImage: battle.playerResult.player.weapon.image,
                         rule: battle.rule.name,
                         gameMode: battle.gameMode.name,
+                        gameModeKey: battle.gameMode.key.rawValue,
                         stageName: battle.stage.name,
                         killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
                         killCount: battle.playerResult.killCount,
@@ -255,6 +258,7 @@ extension Record {
             weaponImage: weaponImage,
             rule: rule,
             gameMode: gameMode,
+            gameModeKey: gameModeKey,
             stageName: stageName,
             killTotalCount: killTotalCount,
             killCount: killCount,

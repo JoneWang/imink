@@ -26,6 +26,7 @@ class BattleRecordListCell: UICollectionViewCell {
     @IBOutlet weak var barConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var gameModeImageView: UIImageView!
     
     var record: Record? {
         didSet {
@@ -64,7 +65,9 @@ class BattleRecordListCell: UICollectionViewCell {
             AppUIColor.spPink :
             AppUIColor.spLightGreen
         ruleNameLabel.text = record.rule
+        gameModeImageView.image = UIImage(named: record.gameModeImageName)
         gameModeNameLabel.text = record.gameMode
+        gameModeNameLabel.textColor = record.gameModeColor
         killInfoLabel.text = "\(record.killTotalCount) k  \(record.deathCount) d"
         stageNameLabel.text = record.stageName
         leftBarView.backgroundColor = record.victory ?
@@ -83,6 +86,52 @@ class BattleRecordListCell: UICollectionViewCell {
             activityIndicatorView.startAnimating()
         }
         containerView.alpha = record.isDetail ? 1 : 0.5
+    }
+    
+}
+
+extension Record {
+    
+    var gameModeImageName: String {
+        switch gameModeKey {
+        case "regular":
+            return "RegularBattle"
+        case "gachi":
+            return "RankedBattle"
+        case "league_pair":
+            return "LeagueBattle"
+        case "league_team":
+            return "LeagueBattle"
+        case "fesTeam":
+            return "SplatfestBattle"
+        case "fesSolo":
+            return "SplatfestBattle"
+        case "private":
+            return "PrivateBattle"
+        default:
+            return ""
+        }
+    }
+    
+    var gameModeColor: UIColor {
+        switch gameModeKey {
+        case "regular":
+            return AppUIColor.spLightGreen
+        case "gachi":
+            return AppUIColor.spOrange
+        case "league_pair":
+            return AppUIColor.spPink
+        case "league_team":
+            return AppUIColor.spPink
+        case "fesTeam":
+            return AppUIColor.spYellow
+        case "fesSolo":
+            return AppUIColor.spYellow
+        case "private":
+            return AppUIColor.spBlue
+        default:
+            return UIColor.black
+        }
     }
     
 }
