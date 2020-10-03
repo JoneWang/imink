@@ -53,13 +53,21 @@ struct ScheduleView: View {
                     
                     HStack {
                         
-                        ForEach(0..<3) { i in
+                        ForEach(0..<3) { j in
+                            let schedule = schedules[j][index]
+                            
                             VStack {
                                 Spacer()
-                                Image(gameModeImageNames[i])
-                                    .resizable()
-                                    .aspectRatio(1, contentMode: .fill)
-                                    .frame(width: 20)
+                                
+                                HStack(spacing: 4) {
+                                    Image(gameModeImageNames[j])
+                                        .resizable()
+                                        .aspectRatio(1, contentMode: .fill)
+                                        .frame(width: 20)
+                                    Text(schedule.rule.name)
+                                        .sp2Font(color: gameModeColors[j])
+                                }
+                                
                                 Spacer()
                             }
                             .frame(maxWidth: .infinity)
@@ -77,7 +85,7 @@ struct ScheduleView: View {
                                     let stage = [schedule.stageA, schedule.stageB][k]
                                     
                                     Text(stage.name)
-                                        .sp2Font(color: gameModeColors[j])
+                                        .sp2Font(color: Color.primary)
                                         .minimumScaleFactor(0.5)
                                     
                                     WebImage(url: stage.imageURL)
