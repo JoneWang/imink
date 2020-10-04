@@ -132,12 +132,14 @@ extension BattleRecordListViewController: UICollectionViewDelegate {
            let battleDetailViewController = splitVC.viewControllers.last as? BattleDetailViewController {
             battleDetailViewController.record = record
         } else if let navVC = navigationController,
-                  let battleDetailViewController = navVC.viewControllers.last as? BattleDetailViewController {
+                  let detailNavVC = navVC.viewControllers.last as? UINavigationController,
+                  let battleDetailViewController = detailNavVC.viewControllers.last as? BattleDetailViewController {
             battleDetailViewController.record = record
         } else {
             guard let battleDetailViewController = BattleDetailViewController.instantiateFromStoryboard() else { return }
             battleDetailViewController.record = record
-            showDetailViewController(battleDetailViewController, sender: self)
+            let navigationController = UINavigationController(rootViewController: battleDetailViewController)
+            showDetailViewController(navigationController, sender: self)
         }
 
         selectEnabled = false
