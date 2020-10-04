@@ -70,13 +70,14 @@ class AppDatabase {
             for record in records {
                 var record = record
                 
-                let battle = record.battle
-                record.killCount = battle?.playerResult.killCount ?? 0
-                record.assistCount = battle?.playerResult.assistCount ?? 0
-                record.specialCount = battle?.playerResult.specialCount ?? 0
-                record.gamePaintPoint = battle?.playerResult.gamePaintPoint ?? 0
-                
-                record.syncDetailTime = Date()
+                if let battle = record.battle {
+                    record.killCount = battle.playerResult.killCount
+                    record.assistCount = battle.playerResult.assistCount
+                    record.specialCount = battle.playerResult.specialCount
+                    record.gamePaintPoint = battle.playerResult.gamePaintPoint
+                    
+                    record.syncDetailTime = Date()
+                }
                 
                 try record.update(db)
             }
@@ -85,6 +86,7 @@ class AppDatabase {
         migrator.registerMigration("V3") { db in
             try db.alter(table: "record", body: { tableAlteration in
                 tableAlteration.add(column: "gameModeKey", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "startDateTime", .datetime).defaults(to: Date()).notNull()
             })
             
             let records = try Record.fetchAll(db)
@@ -93,6 +95,7 @@ class AppDatabase {
                 
                 if let battle = record.battle {
                     record.gameModeKey = battle.gameMode.key.rawValue
+                    record.startDateTime = battle.startDate
                 }
                 
                 try record.update(db)

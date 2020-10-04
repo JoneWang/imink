@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct HomePage: View {
     
-    @StateObject var homeViewModel = HomeViewModel()
+    @StateObject private var homeViewModel = HomeViewModel()
     
-    @State var totalKillCount = 0
+    @State private var chartType = 0
+    
+    @State private var recordCountChartData = [(String, Double)]()
+    @State private var kdChartData = [(String, Double)]()
+    
+    let chartOrangeStyle = ChartStyle(
+        backgroundColor: .white,
+        foregroundColor: [ColorGradient(ChartColors.orangeBright, ChartColors.orangeDark)]
+    )
     
     var body: some View {
         ScrollView {
@@ -38,72 +47,57 @@ struct HomePage: View {
                 .animation(.linear)
                 .padding(.horizontal)
                 
-                HStack(alignment: .top, spacing: 20) {
+                VStack(alignment: .leading, spacing: 0) {
                     
-                    LazyVGrid(
-                        columns: [GridItem(.adaptive(minimum: 150))],
-                        alignment: .center
-                    ) {
+                    Text("# Chart (Last month)")
+                        .sp2Font(size: 20, color: Color.primary)
+                    
+                    VStack {
                         
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(AppColor.spGreen)
-                            
-                            VStack(spacing: 10) {
-                                HStack {
-                                    Text("Record Count:")
-                                        .sp2Font(size: 20)
-                                        .minimumScaleFactor(0.5)
-                                    
+                        Picker(selection: $chartType, label: Text("Picker"), content: {
+                            Text("Record Count").tag(0)
+                            Text("K/D").tag(1)
+                        })
+                        .pickerStyle(SegmentedPickerStyle())
+                        .frame(width: 230)
+                        
+                        if chartType == 0 {
+                            ChartGrid {
+                                BarChart()
+                            }
+                            .data(recordCountChartData)
+                            .chartStyle(chartOrangeStyle)
+                            .frame(height: 100)
+                            .minimumScaleFactor(0.1)
+                        } else if chartType == 1 {
+                            ChartGrid {
+                                LineChart()
+                            }
+                            .data(kdChartData)
+                            .chartStyle(chartOrangeStyle)
+                            .frame(height: 100)
+                            .minimumScaleFactor(0.1)
+                        }
+                        
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            HStack {
+                                ForEach(recordCountChartData, id: \.0) { data in
+                                    Spacer()
+                                    Text("\(data.0)")
+                                        .sp2Font(size: 8, color: Color.primary.opacity(0.5))
+                                        .minimumScaleFactor(0)
                                     Spacer()
                                 }
-                                
-                                Spacer()
-                                
-                                Text("\(homeViewModel.recordTotalCount)")
-                                    .sp1Font(size: 35)
-                                    .minimumScaleFactor(0.3)
-                                
-                                Spacer()
                             }
-                            .padding()
-                            
-                            Spacer()
+                            .frame(maxWidth: .infinity)
+                            .padding(.leading, 5)
+                            .padding(.trailing, 10)
                         }
-                        .frame(width: 150, height: 150)
-                        .cornerRadius(20)
-                        
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(AppColor.spRed)
-                            
-                            VStack(spacing: 10) {
-                                HStack {
-                                    Text("Total Kill:")
-                                        .sp2Font(size: 20)
-                                    
-                                    Spacer()
-                                }
-                                
-                                Spacer()
-                                
-                                Text("\(totalKillCount)")
-                                    .sp1Font(size: 35)
-                                    .minimumScaleFactor(0.3)
-                                
-                                Spacer()
-                            }
-                            .padding()
-                            
-                            Spacer()
-                        }
-                        .frame(width: 150, height: 150)
-                        .cornerRadius(20)
-                        
                     }
+                    .padding(.top)
                     
                 }
-                .padding(.top, 30)
+                .padding(.horizontal)
                 
                 VStack(alignment: .leading, spacing: 0) {
                     
@@ -138,7 +132,8 @@ struct HomePage: View {
             }
         }
         .onReceive(homeViewModel.$recordTotalCount) { _ in
-            totalKillCount = homeViewModel.totalKillCount
+            recordCountChartData = homeViewModel.recordCountForLastMonthChartData
+            kdChartData = homeViewModel.kdForLastMonthChartData
         }
     }
 }

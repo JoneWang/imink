@@ -16,8 +16,64 @@ class HomeViewModel: ObservableObject {
     @Published var recordTotalCount = 0
     @Published var schedules: SP2Schedules?
     
-    var totalKillCount: Int {
-        AppDatabase.shared.totalKillCount()
+    var recordCountForLastMonthChartData: [(String, Double)] {
+        let databaseData = AppDatabase.shared.recordCountForPerDay()
+        
+        let currentDate = Date()
+        var dateComponent = DateComponents()
+        dateComponent.month = -1
+        guard let oneMonthAgoDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) else { return [] }
+        let components = Calendar.current.dateComponents([Calendar.Component.day], from: oneMonthAgoDate, to: currentDate)
+        let days = components.day ?? 0
+        
+        var data = [(String, Double)]()
+        for i in 0..<days {
+            guard let date = Calendar.current.date(byAdding: .day, value: i, to: oneMonthAgoDate) else { continue }
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM-dd"
+            let dateString = formatter.string(from: date)
+            formatter.dateFormat = "dd"
+            let dayString = formatter.string(from: date)
+            
+            if let count = databaseData[dateString] {
+                data.append((dayString, Double(count)))
+            } else {
+                data.append((dayString, 0))
+            }
+        }
+        
+        return data
+    }
+    
+    var kdForLastMonthChartData: [(String, Double)] {
+        let databaseData = AppDatabase.shared.kdForPerDay()
+        
+        let currentDate = Date()
+        var dateComponent = DateComponents()
+        dateComponent.month = -1
+        guard let oneMonthAgoDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) else { return [] }
+        let components = Calendar.current.dateComponents([Calendar.Component.day], from: oneMonthAgoDate, to: currentDate)
+        let days = components.day ?? 0
+        
+        var data = [(String, Double)]()
+        for i in 0..<days {
+            guard let date = Calendar.current.date(byAdding: .day, value: i, to: oneMonthAgoDate) else { continue }
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM-dd"
+            let dateString = formatter.string(from: date)
+            formatter.dateFormat = "dd"
+            let dayString = formatter.string(from: date)
+            
+            if let kd = databaseData[dateString] {
+                data.append((dayString, Double(kd)))
+            } else {
+                data.append((dayString, 0))
+            }
+        }
+        
+        return data
     }
     
     private var cancelBag = Set<AnyCancellable>()
@@ -81,12 +137,3 @@ class HomeViewModel: ObservableObject {
     }
     
 }
-
-// MARK: Request
-
-//extension HomeViewModel {
-//
-//    func requestSchedules() -> AnyPublisher<SP2Schedules, APIError> {
-//    }
-//
-//}

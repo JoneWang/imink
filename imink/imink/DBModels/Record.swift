@@ -38,6 +38,7 @@ struct Record: Identifiable {
     var myPoint: Double
     var otherPoint: Double
     var syncDetailTime: Date?
+    var startDateTime: Date
 }
 
 extension Record: Codable, FetchableRecord, MutablePersistableRecord {
@@ -63,6 +64,7 @@ extension Record: Codable, FetchableRecord, MutablePersistableRecord {
         static let myPoint = Column(CodingKeys.myPoint)
         static let otherPoint = Column(CodingKeys.otherPoint)
         static let syncDetailTime = Column(CodingKeys.syncDetailTime)
+        static let startDateTime = Column(CodingKeys.startDateTime)
     }
     
     mutating func didInsert(with rowID: Int64, for column: String?) {
@@ -166,7 +168,8 @@ extension AppDatabase {
                         gamePaintPoint: battle.playerResult.gamePaintPoint,
                         deathCount: battle.playerResult.deathCount,
                         myPoint: battle.myPoint,
-                        otherPoint: battle.otherPoint)
+                        otherPoint: battle.otherPoint,
+                        startDateTime: battle.startDate)
                 )
             }
             
@@ -226,6 +229,51 @@ extension AppDatabase {
         }
     }
     
+    func totalKD() -> Int {
+        dbQueue.read { db in
+            let request = Record.select(sum(Record.Columns.killCount))
+            return try! Int.fetchOne(db, request) ?? 0
+        }
+    }
+    
+    func recordCountForPerDay(startDate: Date? = nil) -> Dictionary<String, Int> {
+        dbQueue.read { db in
+            let rows = try! Row.fetchCursor(
+                db,
+                sql: "select strftime('%m-%d', datetime(startDateTime), 'localtime') date, count(*) count " +
+                "from record " +
+                "GROUP BY strftime('%Y%m%d', datetime(startDateTime), 'localtime')"
+            )
+            
+            var data = Dictionary<String, Int>()
+            while let row = try? rows.next() {
+                data[row["date"]] = row["count"]
+            }
+            
+            return data
+        }
+    }
+    
+    func kdForPerDay(startDate: Date? = nil) -> Dictionary<String, Double> {
+        dbQueue.read { db in
+            let rows = try! Row.fetchCursor(
+                db,
+                sql: "select strftime('%m-%d', datetime(startDateTime), 'localtime') date, sum(killCount) killCount, sum(deathCount) deathCount " +
+                "from record " +
+                "GROUP BY strftime('%Y%m%d', datetime(startDateTime), 'localtime')"
+            )
+            
+            var data = Dictionary<String, Double>()
+            while let row = try? rows.next() {
+                let killCount = Double(row["killCount"] as! Int64)
+                let deathCount = Double(row["deathCount"] as! Int64)
+                data[row["date"]] = Double(killCount) &/ Double(deathCount)
+            }
+            
+            return data
+        }
+    }
+    
     func currentSyncTotalCount(lastSyncTime: Date) -> AnyPublisher<Int, Error> {
         ValueObservation
             .tracking(Record.filter(
@@ -267,7 +315,8 @@ extension Record {
             gamePaintPoint: gamePaintPoint,
             deathCount: deathCount,
             myPoint: myPoint,
-            otherPoint: otherPoint
+            otherPoint: otherPoint,
+            startDateTime: startDateTime
         )
         return copy
     }
