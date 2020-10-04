@@ -53,7 +53,8 @@ class BattleListViewModel: ObservableObject {
                             gamePaintPoint: 0,
                             deathCount: 0,
                             myPoint: 0,
-                            otherPoint: 0
+                            otherPoint: 0,
+                            startDateTime: Date()
                         )
                     ]
                 }

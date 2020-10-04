@@ -25,6 +25,7 @@ struct SP2Battle: Codable {
     let playerResult: SP2TeamMember
     let myTeamMembers: [SP2TeamMember]?
     let otherTeamMembers: [SP2TeamMember]?
+    let startTime: TimeInterval
 
     enum `Type`: String, Codable {
         case regular
@@ -63,5 +64,9 @@ extension SP2Battle {
         } else {
             return Double(otherTeamCount!)
         }
+    }
+    
+    var startDate: Date {
+        Date(timeIntervalSince1970: startTime)
     }
 }
