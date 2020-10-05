@@ -65,21 +65,34 @@ class AppDatabase {
                 tableAlteration.add(column: "gamePaintPoint", .integer).defaults(to: 0).notNull()
                 tableAlteration.add(column: "syncDetailTime", .datetime)
             })
-            
-            let records = try Record.fetchAll(db)
-            for record in records {
-                var record = record
                 
-                if let battle = record.battle {
-                    record.killCount = battle.playerResult.killCount
-                    record.assistCount = battle.playerResult.assistCount
-                    record.specialCount = battle.playerResult.specialCount
-                    record.gamePaintPoint = battle.playerResult.gamePaintPoint
-                    
-                    record.syncDetailTime = Date()
+            let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
+            while let row = try? rows.next() {
+                guard let id = row["id"] as? Int64,
+                      let json = row["json"] as? String else {
+                    continue
                 }
                 
-                try record.update(db)
+                guard let battle = json.decode(SP2Battle.self) else {
+                    continue
+                }
+                
+                try db.execute(
+                    sql: "UPDATE record SET " +
+                        "killCount = :killCount, " +
+                        "assistCount = :assistCount, " +
+                        "specialCount = :specialCount, " +
+                        "gamePaintPoint = :gamePaintPoint, " +
+                        "syncDetailTime = :syncDetailTime " +
+                        "WHERE id = :id",
+                    arguments: [
+                        "killCount": battle.playerResult.killCount,
+                        "assistCount": battle.playerResult.assistCount,
+                        "specialCount": battle.playerResult.specialCount,
+                        "gamePaintPoint": battle.playerResult.gamePaintPoint,
+                        "syncDetailTime": Date(),
+                        "id": id
+                    ])
             }
         }
         
@@ -89,16 +102,27 @@ class AppDatabase {
                 tableAlteration.add(column: "startDateTime", .datetime).defaults(to: Date()).notNull()
             })
             
-            let records = try Record.fetchAll(db)
-            for record in records {
-                var record = record
-                
-                if let battle = record.battle {
-                    record.gameModeKey = battle.gameMode.key.rawValue
-                    record.startDateTime = battle.startDate
+            let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
+            while let row = try? rows.next() {
+                guard let id = row["id"] as? Int64,
+                      let json = row["json"] as? String else {
+                    continue
                 }
                 
-                try record.update(db)
+                guard let battle = json.decode(SP2Battle.self) else {
+                    continue
+                }
+                
+                try db.execute(
+                    sql: "UPDATE record SET " +
+                        "gameModeKey = :gameModeKey, " +
+                        "startDateTime = :startDateTime " +
+                        "WHERE id = :id",
+                    arguments: [
+                        "gameModeKey": battle.gameMode.key.rawValue,
+                        "startDateTime": battle.startDate,
+                        "id": id
+                    ])
             }
         }
         
