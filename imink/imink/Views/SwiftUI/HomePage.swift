@@ -135,6 +135,7 @@ struct HomePage: View {
             recordCountChartData = homeViewModel.recordCountForLastMonthChartData
             kdChartData = homeViewModel.kdForLastMonthChartData
         }
+        
     }
 }
 

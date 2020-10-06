@@ -39,12 +39,12 @@ class TabBarController: UITabBarController {
     }
     
     func showHome() {
-        guard let homeViewController = HomeViewController.instantiateFromStoryboard(),
+        guard let homeNavigationController = HomeNavigationController.instantiateFromStoryboard(),
               let battleSplitViewController = BattleSplitViewController.instantiateFromStoryboard() else {
             return
         }
         
-        viewControllers = [homeViewController, battleSplitViewController]
+        viewControllers = [homeNavigationController, battleSplitViewController]
     }
     
     func showLogin() {

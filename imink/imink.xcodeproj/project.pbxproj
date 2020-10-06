@@ -24,6 +24,7 @@
 		EC00DC0F251CD8770010366A /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC06251CD8770010366A /* MemberView.swift */; };
 		EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC18251CD90B0010366A /* RegularBattlePage.swift */; };
 		EC00DC1E251CEFD00010366A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC1D251CEFD00010366A /* LoginViewController.swift */; };
+		EC173884252C5A8C006B3CD9 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC173883252C5A8C006B3CD9 /* HomeNavigationController.swift */; };
 		EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA53251C95DE00283D28 /* SDWebImage */; };
 		EC43AA58251C9A7100283D28 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
@@ -118,6 +119,7 @@
 		EC00DC06251CD8770010366A /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
 		EC00DC1D251CEFD00010366A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EC173883252C5A8C006B3CD9 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		EC5362472525D68E0037BD12 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		EC53624F2525DB1D0037BD12 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */,
 				EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */,
 				ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */,
+				EC173883252C5A8C006B3CD9 /* HomeNavigationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
 				EC00DC1E251CEFD00010366A /* LoginViewController.swift in Sources */,
 				EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */,
+				EC173884252C5A8C006B3CD9 /* HomeNavigationController.swift in Sources */,
 				EC9A90492527851C00390573 /* ScheduleView.swift in Sources */,
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
