@@ -23,119 +23,122 @@ struct HomePage: View {
     )
     
     var body: some View {
-        ScrollView {
-            VStack {
-                HStack {
-                    Spacer()
+        NavigationView {
+            
+            ScrollView {
+                VStack {
                     
-                    Text("imink")
-                        .sp2Font(size: 50, color: .primary)
-                    
-                    Spacer()
-                }
-                .padding()
-                
-                HStack {
-                    GeometryReader { geo in
-                        Rectangle()
-                            .foregroundColor(AppColor.spPink)
-                            .frame(width: geo.size.width * CGFloat((Double(homeViewModel.synchronizedCount) &/ Double(homeViewModel.syncTotalCount))))
-                    }
-                }
-                .frame(height: 10)
-                .clipShape(Capsule())
-                .animation(.linear)
-                .padding(.horizontal)
-                
-                VStack(alignment: .leading, spacing: 0) {
-                    
-                    Text("# Chart (Last month)")
-                        .sp2Font(size: 20, color: Color.primary)
-                    
-                    VStack {
-                        
-                        Picker(selection: $chartType, label: Text("Picker"), content: {
-                            Text("Record Count").tag(0)
-                            Text("K/D").tag(1)
-                        })
-                        .pickerStyle(SegmentedPickerStyle())
-                        .frame(width: 230)
-                        
-                        if chartType == 0 {
-                            ChartGrid {
-                                BarChart()
-                            }
-                            .data(recordCountChartData)
-                            .chartStyle(chartOrangeStyle)
-                            .frame(height: 100)
-                            .minimumScaleFactor(0.1)
-                        } else if chartType == 1 {
-                            ChartGrid {
-                                LineChart()
-                            }
-                            .data(kdChartData)
-                            .chartStyle(chartOrangeStyle)
-                            .frame(height: 100)
-                            .minimumScaleFactor(0.1)
+                    HStack {
+                        GeometryReader { geo in
+                            Rectangle()
+                                .foregroundColor(AppColor.spPink)
+                                .frame(width: geo.size.width * CGFloat((Double(homeViewModel.synchronizedCount) &/ Double(homeViewModel.syncTotalCount))))
                         }
+                    }
+                    .frame(height: 10)
+                    .clipShape(Capsule())
+                    .animation(.linear)
+                    .padding(.horizontal)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
                         
-                        if UIDevice.current.userInterfaceIdiom == .pad {
-                            HStack {
-                                ForEach(recordCountChartData, id: \.0) { data in
-                                    Spacer()
-                                    Text("\(data.0)")
-                                        .sp2Font(size: 8, color: Color.primary.opacity(0.5))
-                                        .minimumScaleFactor(0)
-                                    Spacer()
+                        Text("# Chart (Last month)")
+                            .sp2Font(size: 20, color: Color.primary)
+                        
+                        VStack {
+                            
+                            Picker(selection: $chartType, label: Text("Picker"), content: {
+                                Text("Record Count").tag(0)
+                                Text("K/D").tag(1)
+                            })
+                            .pickerStyle(SegmentedPickerStyle())
+                            .frame(width: 230)
+                            
+                            if chartType == 0 {
+                                ChartGrid {
+                                    BarChart()
                                 }
+                                .data(recordCountChartData)
+                                .chartStyle(chartOrangeStyle)
+                                .frame(height: 100)
+                                .minimumScaleFactor(0.1)
+                            } else if chartType == 1 {
+                                ChartGrid {
+                                    LineChart()
+                                }
+                                .data(kdChartData)
+                                .chartStyle(chartOrangeStyle)
+                                .frame(height: 100)
+                                .minimumScaleFactor(0.1)
                             }
-                            .frame(maxWidth: .infinity)
-                            .padding(.leading, 5)
-                            .padding(.trailing, 10)
+                            
+                            if UIDevice.current.userInterfaceIdiom == .pad {
+                                HStack {
+                                    ForEach(recordCountChartData, id: \.0) { data in
+                                        Spacer()
+                                        Text("\(data.0)")
+                                            .sp2Font(size: 8, color: Color.primary.opacity(0.5))
+                                            .minimumScaleFactor(0)
+                                        Spacer()
+                                    }
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.leading, 5)
+                                .padding(.trailing, 10)
+                            }
                         }
-                    }
-                    .padding(.top)
-                    
-                }
-                .padding(.horizontal)
-                
-                VStack(alignment: .leading, spacing: 0) {
-                    
-                    Text("# Schedule")
-                        .sp2Font(size: 20, color: Color.primary)
-                    
-                    if let schedules = homeViewModel.schedules {
-                        ScheduleView(
-                            regularSchedules: schedules.regular,
-                            gachiSchedules: schedules.gachi,
-                            leagueSchedules: schedules.league
-                        )
                         .padding(.top)
-                    } else {
-                        HStack {
-                            Spacer()
-                            ProgressView()
-                            Spacer()
+                        
+                    }
+                    .padding(.horizontal)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        
+                        Text("# Schedule")
+                            .sp2Font(size: 20, color: Color.primary)
+                        
+                        if let schedules = homeViewModel.schedules {
+                            ScheduleView(
+                                regularSchedules: schedules.regular,
+                                gachiSchedules: schedules.gachi,
+                                leagueSchedules: schedules.league
+                            )
+                            .padding(.top)
+                        } else {
+                            HStack {
+                                Spacer()
+                                ProgressView()
+                                Spacer()
+                            }
+                            .padding()
+                            .background(Color.primary.opacity(0.1))
+                            .cornerRadius(10)
+                            .padding(.top)
                         }
-                        .padding()
-                        .background(Color.primary.opacity(0.1))
-                        .cornerRadius(10)
-                        .padding(.top)
+                        
                     }
+                    .padding([.leading, .trailing, .bottom])
+                    .padding(.top, 30)
+                    .animation(.default)
                     
+                    Spacer()
                 }
-                .padding([.leading, .trailing, .bottom])
-                .padding(.top, 30)
-                .animation(.default)
-                
-                Spacer()
             }
+            .navigationBarTitle("Home", displayMode: .inline)
+            .navigationBarItems(trailing:
+                HStack {
+                    Button(action: {}) {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                    }
+                }
+            )
+            .navigationBarHidden(false)
+            .onReceive(homeViewModel.$recordTotalCount) { _ in
+                recordCountChartData = homeViewModel.recordCountForLastMonthChartData
+                kdChartData = homeViewModel.kdForLastMonthChartData
+            }
+            
         }
-        .onReceive(homeViewModel.$recordTotalCount) { _ in
-            recordCountChartData = homeViewModel.recordCountForLastMonthChartData
-            kdChartData = homeViewModel.kdForLastMonthChartData
-        }
-        
     }
 }
 

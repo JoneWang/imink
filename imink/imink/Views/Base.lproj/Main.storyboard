@@ -22,22 +22,6 @@
             </objects>
             <point key="canvasLocation" x="-5481" y="-2061"/>
         </scene>
-        <!--Home Navigation Controller-->
-        <scene sceneID="hup-bl-byb">
-            <objects>
-                <navigationController storyboardIdentifier="HomeNav" id="fv4-qT-XXo" customClass="HomeNavigationController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5D1-qr-MvY">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="yfN-5b-8RM" kind="relationship" relationship="rootViewController" id="rLf-ul-kCL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SJg-TB-mx1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4574" y="-2438"/>
-        </scene>
         <!--Battles-->
         <scene sceneID="EGN-LD-laU">
             <objects>
@@ -64,11 +48,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="flag.circle.fill" catalog="system" id="Xac-6T-caG"/>
                     <navigationItem key="navigationItem" title="Home" id="XSd-n5-x2L"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obU-mq-l1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3697" y="-2438"/>
+            <point key="canvasLocation" x="-4574" y="-2452"/>
         </scene>
         <!--Battles-->
         <scene sceneID="EFI-v1-QXb">
@@ -129,8 +114,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TabbarBattleRecord" width="128" height="128"/>
         <image name="TabbarBattleRecord" width="32" height="32"/>
+        <image name="TabbarBattleRecord" width="128" height="128"/>
         <image name="flag.circle.fill" catalog="system" width="128" height="121"/>
         <image name="tray" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
