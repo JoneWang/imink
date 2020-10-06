@@ -48,7 +48,6 @@ class AppDatabase {
                 t.column("weaponImage", .text).notNull()
                 t.column("rule", .text).notNull()
                 t.column("gameMode", .text).notNull()
-                t.column("gameModeKey", .text).notNull()
                 t.column("stageName", .text).notNull()
                 t.column("killTotalCount", .integer).notNull()
                 t.column("deathCount", .integer).notNull()
