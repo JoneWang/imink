@@ -12,8 +12,8 @@ struct HomePage: View {
     
     @StateObject private var homeViewModel = HomeViewModel()
     
+    @State private var scheduleType = 0
     @State private var chartType = 0
-    
     @State private var recordCountChartData = [(String, Double)]()
     @State private var kdChartData = [(String, Double)]()
     
@@ -97,23 +97,37 @@ struct HomePage: View {
                         Text("# Schedule")
                             .sp2Font(size: 20, color: Color.primary)
                         
-                        if let schedules = homeViewModel.schedules {
-                            ScheduleView(
-                                regularSchedules: schedules.regular,
-                                gachiSchedules: schedules.gachi,
-                                leagueSchedules: schedules.league
-                            )
-                            .padding(.top)
-                        } else {
-                            HStack {
-                                Spacer()
-                                ProgressView()
-                                Spacer()
+                        VStack {
+                            Picker(selection: $scheduleType, label: Text("Picker"), content: {
+                                Text("Battle").tag(0)
+                                Text("Salmon Run").tag(1)
+                            })
+                            .pickerStyle(SegmentedPickerStyle())
+                            .frame(width: 230)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.top)
+                        
+                        if scheduleType == 0 {
+                            if let schedules = homeViewModel.schedules {
+                                ScheduleView(
+                                    regularSchedules: schedules.regular,
+                                    gachiSchedules: schedules.gachi,
+                                    leagueSchedules: schedules.league
+                                )
+                                .padding(.top)
+                            } else {
+                                makeLoadingView()
                             }
-                            .padding()
-                            .background(Color.primary.opacity(0.1))
-                            .cornerRadius(10)
-                            .padding(.top)
+                        } else {
+                            if let salmonRunSchedules = homeViewModel.salmonRunSchedules {
+                                SalmonRunScheduleView(
+                                    schedules: salmonRunSchedules
+                                )
+                                .padding(.top)
+                            } else {
+                                makeLoadingView()
+                            }
                         }
                         
                     }
@@ -125,19 +139,39 @@ struct HomePage: View {
                 }
             }
             .navigationBarTitle("Home", displayMode: .inline)
-            .navigationBarItems(trailing:
-                HStack {
-                    Button(action: {}) {
-                        Image(systemName: "arrow.triangle.2.circlepath")
-                    }
-                }
-            )
+            .navigationBarItems(trailing: makeNavigationBarItems())
             .navigationBarHidden(false)
             .onReceive(homeViewModel.$recordTotalCount) { _ in
                 recordCountChartData = homeViewModel.recordCountForLastMonthChartData
                 kdChartData = homeViewModel.kdForLastMonthChartData
             }
             
+        }
+    }
+    
+    func makeLoadingView() -> some View {
+        HStack {
+            Spacer()
+            ProgressView()
+            Spacer()
+        }
+        .padding()
+        .background(Color.primary.opacity(0.1))
+        .cornerRadius(10)
+        .padding(.top)
+    }
+    
+    func makeNavigationBarItems() -> some View {
+        HStack {
+            if homeViewModel.isLoading {
+                ProgressView()
+            } else {
+                Button(action: {
+                    homeViewModel.updateSchedules()
+                }) {
+                    Image(systemName: "arrow.triangle.2.circlepath")
+                }
+            }
         }
     }
 }

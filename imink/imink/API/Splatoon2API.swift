@@ -11,6 +11,7 @@ enum Splatoon2API {
     case battleInformation
     case result(battleNumber: String)
     case schedules
+    case salmonRunSchedules
 }
 
 extension Splatoon2API: APITargetType {
@@ -26,12 +27,14 @@ extension Splatoon2API: APITargetType {
             return "/results/\(battleNumber)"
         case .schedules:
             return "/schedules"
+        case .salmonRunSchedules:
+            return "/coop_schedules"
         }
     }
     
     var method: APIMethod {
         switch self {
-        case .battleInformation, .result, .schedules:
+        case .battleInformation, .result, .schedules, .salmonRunSchedules:
             return .get
         }
     }

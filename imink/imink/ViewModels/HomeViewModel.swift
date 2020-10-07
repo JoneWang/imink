@@ -15,6 +15,8 @@ class HomeViewModel: ObservableObject {
     @Published var synchronizedCount = 0
     @Published var recordTotalCount = 0
     @Published var schedules: SP2Schedules?
+    @Published var salmonRunSchedules: SP2SalmonRunSchedules?
+    @Published var isLoading: Bool = false
     
     var recordCountForLastMonthChartData: [(String, Double)] {
         let databaseData = AppDatabase.shared.recordCountForPerDay()
@@ -97,8 +99,24 @@ class HomeViewModel: ObservableObject {
             }
             .assign(to: &$recordTotalCount)
         
-        // Get schedules
-        Splatoon2API.schedules
+        $schedules
+            .map { _ in false }
+            .assign(to: &$isLoading)
+        
+        $schedules
+            .map { _ in false }
+            .assign(to: &$isLoading)
+        
+        updateSchedules()
+        
+        startSyncCountPublisher()
+    }
+    
+    /// Get schedules
+    func updateSchedules() {
+        isLoading = true
+        
+        let battleSchedules = Splatoon2API.schedules
             .request()
             .decode(type: SP2Schedules.self)
             .receive(on: DispatchQueue.main)
@@ -107,9 +125,27 @@ class HomeViewModel: ObservableObject {
                 os_log("API Error: [schedules] \(error.localizedDescription)")
                 return Just<SP2Schedules?>(nil)
             }
+            
+        battleSchedules
             .assign(to: &$schedules)
         
-        self.startSyncCountPublisher()
+        let salmonRunSchedules = Splatoon2API.salmonRunSchedules
+            .request()
+            .decode(type: SP2SalmonRunSchedules.self)
+            .receive(on: DispatchQueue.main)
+            .map { schedules -> SP2SalmonRunSchedules? in schedules }
+            .catch { error -> Just<SP2SalmonRunSchedules?> in
+                os_log("API Error: [salmonRunSchedules] \(error.localizedDescription)")
+                return Just<SP2SalmonRunSchedules?>(nil)
+            }
+            
+        salmonRunSchedules
+            .assign(to: &$salmonRunSchedules)
+        
+        // All finish
+        Publishers.Zip(battleSchedules, salmonRunSchedules)
+            .map { _ in false }
+            .assign(to: &$isLoading)
     }
     
     func startSyncCountPublisher() {
