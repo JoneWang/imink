@@ -147,6 +147,7 @@ struct HomePage: View {
             }
             
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func makeLoadingView() -> some View {
