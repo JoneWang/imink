@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 
 struct HomePage: View {
     
@@ -14,13 +13,8 @@ struct HomePage: View {
     
     @State private var scheduleType = 0
     @State private var chartType = 0
-    @State private var recordCountChartData = [(String, Double)]()
-    @State private var kdChartData = [(String, Double)]()
-    
-    let chartOrangeStyle = ChartStyle(
-        backgroundColor: .white,
-        foregroundColor: [ColorGradient(ChartColors.orangeBright, ChartColors.orangeDark)]
-    )
+    @State private var vdChartData = [Bool]()
+    @State private var vdChartViewHeight: CGFloat = 0
     
     var body: some View {
         NavigationView {
@@ -42,52 +36,23 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        Text("# Chart (Last month)")
+                        Text("# Results (Last 500)")
                             .sp2Font(size: 20, color: Color.primary)
                         
-                        VStack {
-                            
-                            Picker(selection: $chartType, label: Text("Picker"), content: {
-                                Text("Record Count").tag(0)
-                                Text("K/D").tag(1)
-                            })
-                            .pickerStyle(SegmentedPickerStyle())
-                            .frame(width: 230)
-                            
-                            if chartType == 0 {
-                                ChartGrid {
-                                    BarChart()
-                                }
-                                .data(recordCountChartData)
-                                .chartStyle(chartOrangeStyle)
-                                .frame(height: 100)
-                                .minimumScaleFactor(0.1)
-                            } else if chartType == 1 {
-                                ChartGrid {
-                                    LineChart()
-                                }
-                                .data(kdChartData)
-                                .chartStyle(chartOrangeStyle)
-                                .frame(height: 100)
-                                .minimumScaleFactor(0.1)
-                            }
-                            
-                            if UIDevice.current.userInterfaceIdiom == .pad {
-                                HStack {
-                                    ForEach(recordCountChartData, id: \.0) { data in
-                                        Spacer()
-                                        Text("\(data.0)")
-                                            .sp2Font(size: 8, color: Color.primary.opacity(0.5))
-                                            .minimumScaleFactor(0)
-                                        Spacer()
-                                    }
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding(.leading, 5)
-                                .padding(.trailing, 10)
+                        GeometryReader { geo in
+                            HStack {
+                                Spacer()
+                                
+                                Text("Last 50")
+                                    .sp2Font(size: 16, color: Color.secondary)
+                                    .minimumScaleFactor(0.5)
+                                    .frame(width: geo.size.width / 10 - 2)
                             }
                         }
-                        .padding(.top)
+                        .frame(height: 20)
+                        
+                        VDGridView(data: vdChartData, height: $vdChartViewHeight)
+                            .frame(height: vdChartViewHeight)
                         
                     }
                     .padding(.horizontal)
@@ -142,8 +107,7 @@ struct HomePage: View {
             .navigationBarItems(trailing: makeNavigationBarItems())
             .navigationBarHidden(false)
             .onReceive(homeViewModel.$recordTotalCount) { _ in
-                recordCountChartData = homeViewModel.recordCountForLastMonthChartData
-                kdChartData = homeViewModel.kdForLastMonthChartData
+                vdChartData = homeViewModel.vdWithLast500
             }
             
         }
