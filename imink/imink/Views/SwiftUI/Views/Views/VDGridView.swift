@@ -15,10 +15,11 @@ struct VDGridView: View {
         case none
     }
     
-    let data: [Bool]
+    var data: [Bool]
     @Binding var height: CGFloat
     
     private var dataSource: [(Double, ItemStatus)] {
+        let data = Array(self.data.reversed())
         let haveResultStartIndex = Int(count) - data.count
         let indexs = (0..<Int(count))
         return indexs.map { i in
