@@ -229,6 +229,12 @@ extension AppDatabase {
         }
     }
     
+    func vdWithLast500() -> [Bool] {
+        dbQueue.read { db in
+            return try! Bool.fetchAll(db, sql: "SELECT victory FROM record ORDER BY startDateTime DESC LIMIT 0, 500")
+        }
+    }
+    
     func totalKD() -> Int {
         dbQueue.read { db in
             let request = Record.select(sum(Record.Columns.killCount))
@@ -236,49 +242,11 @@ extension AppDatabase {
         }
     }
     
-    func recordCountForPerDay(startDate: Date? = nil) -> Dictionary<String, Int> {
-        dbQueue.read { db in
-            let rows = try! Row.fetchCursor(
-                db,
-                sql: "select strftime('%m-%d', datetime(startDateTime), 'localtime') date, count(*) count " +
-                "from record " +
-                "GROUP BY strftime('%Y%m%d', datetime(startDateTime), 'localtime')"
-            )
-            
-            var data = Dictionary<String, Int>()
-            while let row = try? rows.next() {
-                data[row["date"]] = row["count"]
-            }
-            
-            return data
-        }
-    }
-    
-    func kdForPerDay(startDate: Date? = nil) -> Dictionary<String, Double> {
-        dbQueue.read { db in
-            let rows = try! Row.fetchCursor(
-                db,
-                sql: "select strftime('%m-%d', datetime(startDateTime), 'localtime') date, sum(killCount) killCount, sum(deathCount) deathCount " +
-                "from record " +
-                "GROUP BY strftime('%Y%m%d', datetime(startDateTime), 'localtime')"
-            )
-            
-            var data = Dictionary<String, Double>()
-            while let row = try? rows.next() {
-                let killCount = Double(row["killCount"] as! Int64)
-                let deathCount = Double(row["deathCount"] as! Int64)
-                data[row["date"]] = Double(killCount) &/ Double(deathCount)
-            }
-            
-            return data
-        }
-    }
-    
     func currentSyncTotalCount(lastSyncTime: Date) -> AnyPublisher<Int, Error> {
         ValueObservation
             .tracking(Record.filter(
-                        Record.Columns.syncDetailTime == nil || (Record.Columns.syncDetailTime != nil &&
-                                                                    Record.Columns.syncDetailTime > lastSyncTime)
+                Record.Columns.syncDetailTime == nil || (Record.Columns.syncDetailTime != nil &&
+                                                            Record.Columns.syncDetailTime > lastSyncTime)
             ).fetchCount)
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()
@@ -287,7 +255,7 @@ extension AppDatabase {
     func currentSynchronizedCount(lastSyncTime: Date) -> AnyPublisher<Int, Error> {
         ValueObservation
             .tracking(Record.filter(
-                        Record.Columns.isDetail && Record.Columns.syncDetailTime > lastSyncTime
+                Record.Columns.isDetail && Record.Columns.syncDetailTime > lastSyncTime
             ).fetchCount)
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()

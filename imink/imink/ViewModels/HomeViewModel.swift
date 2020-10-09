@@ -18,64 +18,8 @@ class HomeViewModel: ObservableObject {
     @Published var salmonRunSchedules: SP2SalmonRunSchedules?
     @Published var isLoading: Bool = false
     
-    var recordCountForLastMonthChartData: [(String, Double)] {
-        let databaseData = AppDatabase.shared.recordCountForPerDay()
-        
-        let currentDate = Date()
-        var dateComponent = DateComponents()
-        dateComponent.month = -1
-        guard let oneMonthAgoDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) else { return [] }
-        let components = Calendar.current.dateComponents([Calendar.Component.day], from: oneMonthAgoDate, to: currentDate)
-        let days = components.day ?? 0
-        
-        var data = [(String, Double)]()
-        for i in 0..<days {
-            guard let date = Calendar.current.date(byAdding: .day, value: i, to: oneMonthAgoDate) else { continue }
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MM-dd"
-            let dateString = formatter.string(from: date)
-            formatter.dateFormat = "dd"
-            let dayString = formatter.string(from: date)
-            
-            if let count = databaseData[dateString] {
-                data.append((dayString, Double(count)))
-            } else {
-                data.append((dayString, 0))
-            }
-        }
-        
-        return data
-    }
-    
-    var kdForLastMonthChartData: [(String, Double)] {
-        let databaseData = AppDatabase.shared.kdForPerDay()
-        
-        let currentDate = Date()
-        var dateComponent = DateComponents()
-        dateComponent.month = -1
-        guard let oneMonthAgoDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) else { return [] }
-        let components = Calendar.current.dateComponents([Calendar.Component.day], from: oneMonthAgoDate, to: currentDate)
-        let days = components.day ?? 0
-        
-        var data = [(String, Double)]()
-        for i in 0..<days {
-            guard let date = Calendar.current.date(byAdding: .day, value: i, to: oneMonthAgoDate) else { continue }
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MM-dd"
-            let dateString = formatter.string(from: date)
-            formatter.dateFormat = "dd"
-            let dayString = formatter.string(from: date)
-            
-            if let kd = databaseData[dateString] {
-                data.append((dayString, Double(kd)))
-            } else {
-                data.append((dayString, 0))
-            }
-        }
-        
-        return data
+    var vdWithLast500: [Bool] {
+        AppDatabase.shared.vdWithLast500()
     }
     
     private var cancelBag = Set<AnyCancellable>()

@@ -28,6 +28,7 @@
 		EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA53251C95DE00283D28 /* SDWebImage */; };
 		EC43AA58251C9A7100283D28 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
+		EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4DF4F5252EF1510020B234 /* VDGridView.swift */; };
 		EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362472525D68E0037BD12 /* HomeViewModel.swift */; };
 		EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */; };
 		EC5362502525DB1D0037BD12 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53624F2525DB1D0037BD12 /* HomeViewController.swift */; };
@@ -36,7 +37,6 @@
 		EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */; };
 		EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */; };
 		EC606045251CD5B200DCF35E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
-		EC60851D2529765B00778D06 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = EC60851C2529765B00778D06 /* SwiftUICharts */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B8274251F088800B25307 /* CompactBattlePage.swift */; };
 		EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E74251C55FF00AA0B20 /* AppDelegate.swift */; };
@@ -121,6 +121,7 @@
 		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
 		EC00DC1D251CEFD00010366A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2SalmonRunSchedules.swift; sourceTree = "<group>"; };
+		EC4DF4F5252EF1510020B234 /* VDGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDGridView.swift; sourceTree = "<group>"; };
 		EC5362472525D68E0037BD12 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		EC53624F2525DB1D0037BD12 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +193,6 @@
 				EC606045251CD5B200DCF35E /* SnapKit in Frameworks */,
 				EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */,
 				EC43AA58251C9A7100283D28 /* GRDB in Frameworks */,
-				EC60851D2529765B00778D06 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +270,7 @@
 				EC00DC06251CD8770010366A /* MemberView.swift */,
 				EC9A90482527851C00390573 /* ScheduleView.swift */,
 				ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */,
+				EC4DF4F5252EF1510020B234 /* VDGridView.swift */,
 			);
 			name = Views;
 			path = Views/Views;
@@ -458,7 +459,6 @@
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
-				EC60851C2529765B00778D06 /* SwiftUICharts */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -492,7 +492,6 @@
 				EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
-				EC60851B2529765B00778D06 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -577,6 +576,7 @@
 				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
 				EC900ED5251C8EF700AA0B20 /* SP2Weapon.swift in Sources */,
 				EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */,
+				EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */,
 				EC5362502525DB1D0037BD12 /* HomeViewController.swift in Sources */,
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
@@ -850,14 +850,6 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		EC60851B2529765B00778D06 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView.git";
-			requirement = {
-				branch = "new-version-beta2";
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -880,11 +872,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		EC60851C2529765B00778D06 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC60851B2529765B00778D06 /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

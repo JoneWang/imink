@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "SwiftUICharts",
-        "repositoryURL": "https://github.com/AppPear/ChartView.git",
-        "state": {
-          "branch": "new-version-beta2",
-          "revision": "422c5c03032bcf807df3bb97b0e84bda5b64f6bd",
-          "version": null
-        }
-      },
-      {
         "package": "GRDB",
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
