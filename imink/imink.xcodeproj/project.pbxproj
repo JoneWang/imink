@@ -83,6 +83,7 @@
 		EC9A903F25275BA000390573 /* SP2GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903E25275BA000390573 /* SP2GameMode.swift */; };
 		EC9A904225275D6D00390573 /* SP2Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A904125275D6D00390573 /* SP2Rule.swift */; };
 		EC9A90492527851C00390573 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90482527851C00390573 /* ScheduleView.swift */; };
+		ECA695092531AC9D00376D95 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA695082531AC9D00376D95 /* PieView.swift */; };
 		ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE8DC325209BB6003D7EDC /* LoginPage.swift */; };
 		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
@@ -178,6 +179,7 @@
 		EC9A903E25275BA000390573 /* SP2GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2GameMode.swift; sourceTree = "<group>"; };
 		EC9A904125275D6D00390573 /* SP2Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Rule.swift; sourceTree = "<group>"; };
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		ECAE8DC325209BB6003D7EDC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				EC9A90482527851C00390573 /* ScheduleView.swift */,
 				ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */,
 				EC4DF4F5252EF1510020B234 /* VDGridView.swift */,
+				ECA695082531AC9D00376D95 /* PieView.swift */,
 			);
 			name = Views;
 			path = Views/Views;
@@ -581,6 +584,7 @@
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
 				EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */,
+				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				EC00DC0F251CD8770010366A /* MemberView.swift in Sources */,
 				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
 				EC900ED3251C8EF700AA0B20 /* SP2Player.swift in Sources */,
@@ -750,7 +754,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -776,7 +780,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
