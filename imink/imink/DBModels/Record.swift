@@ -260,6 +260,28 @@ extension AppDatabase {
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
+    
+    func victoryAndDefeatCount(startTime: Date, endTime: Date = Date()) -> (Int, Int) {
+        dbQueue.read { db in
+            guard let victoryCount = try? Int.fetchOne(db, sql: "SELECT COUNT(*) FROM record WHERE victory AND startDateTime > ? AND startDateTime < ?", arguments: [startTime, endTime]),
+                  let defeatCount = try? Int.fetchOne(db, sql: "SELECT COUNT(*) FROM record WHERE NOT victory AND startDateTime > ? AND startDateTime < ?", arguments: [startTime, endTime]) else {
+                return (0, 0)
+            }
+            
+            return (victoryCount, defeatCount)
+        }
+    }
+    
+    func killAndDeathCount(startTime: Date, endTime: Date = Date()) -> (Int, Int) {
+        dbQueue.read { db in
+            guard let killCount = try? Int.fetchOne(db, sql: "SELECT SUM(killCount) FROM record WHERE startDateTime > ? AND startDateTime < ?", arguments: [startTime, endTime]),
+                  let deathCount = try? Int.fetchOne(db, sql: "SELECT SUM(deathCount) FROM record WHERE startDateTime > ? AND startDateTime < ?", arguments: [startTime, endTime]) else {
+                return (0, 0)
+            }
+            
+            return (killCount, deathCount)
+        }
+    }
 }
 
 extension Record {

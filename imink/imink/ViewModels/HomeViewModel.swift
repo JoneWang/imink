@@ -9,6 +9,16 @@ import Foundation
 import Combine
 import os
 
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
+    }
+}
+
 class HomeViewModel: ObservableObject {
     
     @Published var syncTotalCount = 0
@@ -20,6 +30,34 @@ class HomeViewModel: ObservableObject {
     
     var vdWithLast500: [Bool] {
         AppDatabase.shared.vdWithLast500()
+    }
+    
+    var todayVictoryAndDefeatCount: (Int, Int) {
+        guard let todayStartTime = todayStartTime else { return (0, 0)}
+        return AppDatabase.shared.victoryAndDefeatCount(startTime: todayStartTime)
+    }
+    
+    var todayKillAndDeathCount: (Int, Int) {
+        guard let todayStartTime = todayStartTime else { return (0, 0)}
+        return AppDatabase.shared.killAndDeathCount(startTime: todayStartTime)
+    }
+    
+    private var todayStartTime: Date? {
+        let now = Date()
+        
+        guard var startTime = Calendar.current.date(bySettingHour: 3, minute: 0, second: 0, of: now) else {
+            return nil
+        }
+        
+        if now.get(.hour) < 3 {
+            guard let tomorrow3Clock = Calendar.current.date(byAdding: .day, value: -1, to: startTime) else {
+                return nil
+            }
+            
+            startTime = tomorrow3Clock
+        }
+        
+        return startTime
     }
     
     private var cancelBag = Set<AnyCancellable>()
