@@ -57,7 +57,6 @@ class HomeViewModel: ObservableObject {
             startTime = tomorrow3Clock
         }
         
-        return Date.init(timeIntervalSince1970: 0)
         return startTime
     }
     
