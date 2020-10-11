@@ -16,7 +16,16 @@ class AppUserDefaults: ObservableObject {
     var clientToken: String?
 
     @StandardStorage(key: "user")
-    var user: User?
+    var user: User? {
+        didSet {
+            if oldValue != nil, user == nil {
+                NotificationCenter.default.post(
+                    name: .logout,
+                    object: nil
+                )
+            }
+        }
+    }
     
     @StandardStorage(key: "last_battle")
     var lastBattle: SP2Battle?

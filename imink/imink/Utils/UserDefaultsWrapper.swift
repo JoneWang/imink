@@ -24,7 +24,7 @@ struct StandardStorage<Value: Codable>: DynamicProperty {
 
             return nil
         }
-        nonmutating set {
+        set {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             

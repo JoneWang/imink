@@ -25,6 +25,9 @@
 		EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC18251CD90B0010366A /* RegularBattlePage.swift */; };
 		EC00DC1E251CEFD00010366A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC1D251CEFD00010366A /* LoginViewController.swift */; };
 		EC25EBD5252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */; };
+		EC344FE525330312004A7AF1 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE425330312004A7AF1 /* MeViewController.swift */; };
+		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
+		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA53251C95DE00283D28 /* SDWebImage */; };
 		EC43AA58251C9A7100283D28 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
@@ -122,6 +125,9 @@
 		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
 		EC00DC1D251CEFD00010366A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2SalmonRunSchedules.swift; sourceTree = "<group>"; };
+		EC344FE425330312004A7AF1 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		EC344FE825330351004A7AF1 /* MePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePage.swift; sourceTree = "<group>"; };
+		EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		EC4DF4F5252EF1510020B234 /* VDGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDGridView.swift; sourceTree = "<group>"; };
 		EC5362472525D68E0037BD12 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */,
 				EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */,
 				ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */,
+				EC344FE425330312004A7AF1 /* MeViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 				EC00DC18251CD90B0010366A /* RegularBattlePage.swift */,
 				ECAE8DC325209BB6003D7EDC /* LoginPage.swift */,
 				EC5362522525DDDF0037BD12 /* HomePage.swift */,
+				EC344FE825330351004A7AF1 /* MePage.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 				EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */,
 				EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */,
 				EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */,
+				EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -562,6 +571,7 @@
 				EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
+				EC344FE525330312004A7AF1 /* MeViewController.swift in Sources */,
 				EC00DC1E251CEFD00010366A /* LoginViewController.swift in Sources */,
 				EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */,
 				EC9A90492527851C00390573 /* ScheduleView.swift in Sources */,
@@ -584,6 +594,8 @@
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
 				EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */,
+				EC344FE925330351004A7AF1 /* MePage.swift in Sources */,
+				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				EC00DC0F251CD8770010366A /* MemberView.swift in Sources */,
 				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
@@ -763,7 +775,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink;
+				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -789,7 +801,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink;
+				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
