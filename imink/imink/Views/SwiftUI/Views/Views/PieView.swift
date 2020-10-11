@@ -15,6 +15,8 @@ struct PieView: View {
         GeometryReader { geo in
             let radius = geo.size.width / 2
             
+            Circle()
+                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
             ForEach(0..<values.count) { index in
                 self.makeCircularSector(index: index, radius: radius)
             }
@@ -30,8 +32,6 @@ struct PieView: View {
         
         let endAngle = startAngle + 360 * (value / values.reduce(0, +))
         
-        print("start \(startAngle) , end \(endAngle)")
-        
         let view = Path { path in
             
             path.move(to: .init(x: radius, y: radius))
@@ -45,7 +45,7 @@ struct PieView: View {
             
         }
         .fill(color)
-                
+        
         return view
     }
     
