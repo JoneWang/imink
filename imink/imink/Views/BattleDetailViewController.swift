@@ -93,9 +93,7 @@ class BattleDetailViewController: UIViewController {
                 $0.width.equalTo(self.view)
                 $0.width.equalTo(self.battleDetailView.snp.height).multipliedBy(375.0 / (812.0 - scrollView.safeAreaInsets.top))
             }
-            
-            scrollView.contentInset = .init(top: scrollView.safeAreaInsets.top, left: 0, bottom: 0, right: 0)
-            
+                        
             isInitLayout = true
         }
     }
@@ -121,7 +119,6 @@ class BattleDetailViewController: UIViewController {
         addChild(hostingController)
         
         let scrollView = UIScrollView()
-        scrollView.contentInsetAdjustmentBehavior = .never
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
