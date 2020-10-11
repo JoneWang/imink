@@ -22,6 +22,12 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         tabBarViewModel = TabBarViewModel()
+        
+        NotificationCenter.default
+            .publisher(for: .logout)
+            .receive(on: RunLoop.main)
+            .map { _ in false }
+            .assign(to: &tabBarViewModel.$isLogin)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,7 +36,7 @@ class TabBarController: UITabBarController {
         tabBarViewModel.$isLogin
             .sink { [weak self] isLogin in
                 if isLogin {
-                    self?.showHome()
+                    self?.setupItems()
                 } else {
                     self?.showLogin()
                 }
@@ -38,16 +44,19 @@ class TabBarController: UITabBarController {
             .store(in: &cancelBag)
     }
     
-    func showHome() {
+    func setupItems() {
         guard let homeViewController = HomeViewController.instantiateFromStoryboard(),
-              let battleSplitViewController = BattleSplitViewController.instantiateFromStoryboard() else {
+              let battleSplitViewController = BattleSplitViewController.instantiateFromStoryboard(),
+              let meViewController = MeViewController.instantiateFromStoryboard() else {
             return
         }
         
-        viewControllers = [homeViewController, battleSplitViewController]
+        viewControllers = [homeViewController, battleSplitViewController, meViewController]
     }
     
     func showLogin() {
+        viewControllers = []
+        
         let viewModel = LoginViewModel()
         
         let loginPage = LoginPage(launchPageViewModel: viewModel)

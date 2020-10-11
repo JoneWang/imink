@@ -9,6 +9,8 @@ import Foundation
 
 extension Notification.Name {
     
+    static let logout = NSNotification.Name("logout")
+    
     static let splitVCDisplayMode = NSNotification.Name("SplitVCDisplayModeNotification")
     
     static let isLoadingRealTimeBattleResult = NSNotification.Name("IsLoadingRealTimeBattleResultNotification")
