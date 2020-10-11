@@ -37,9 +37,9 @@ class HomeViewModel: ObservableObject {
         return AppDatabase.shared.victoryAndDefeatCount(startTime: todayStartTime)
     }
     
-    var todayKillAndDeathCount: (Int, Int) {
-        guard let todayStartTime = todayStartTime else { return (0, 0)}
-        return AppDatabase.shared.killAndDeathCount(startTime: todayStartTime)
+    var todayKillAssistAndDeathCount: (Int, Int, Int) {
+        guard let todayStartTime = todayStartTime else { return (0, 0, 0)}
+        return AppDatabase.shared.killAssistAndDeathCount(startTime: todayStartTime)
     }
     
     private var todayStartTime: Date? {
@@ -57,6 +57,7 @@ class HomeViewModel: ObservableObject {
             startTime = tomorrow3Clock
         }
         
+        return Date.init(timeIntervalSince1970: 0)
         return startTime
     }
     

@@ -8,50 +8,55 @@
 import SwiftUI
 
 struct PieView: View {
-    let value1: Double
-    let value2: Double
-    let color1: Color
-    let color2: Color
-    
-    private var endAngle: Double {
-        360 * (value2 / (value1 + value2))
-    }
+    let values: [Double]
+    let colors: [Color]
     
     var body: some View {
         GeometryReader { geo in
             let radius = geo.size.width / 2
             
-            Rectangle()
-                .foregroundColor((value1 > 0 && value2 == 0) ? color1 : color2)
-                .clipShape(Capsule())
-            
-            if value1 > 0 {
-                Path { path in
-
-                    path.move(to: .init(x: radius, y: radius))
-                    path.addArc(
-                        center: .init(x: radius, y: radius),
-                        radius: radius,
-                        startAngle: .degrees(0),
-                        endAngle: .degrees(endAngle),
-                        clockwise: true
-                    )
-
-                }
-                .fill(color1)
+            ForEach(0..<values.count) { index in
+                self.makeCircularSector(index: index, radius: radius)
             }
             
         }
+    }
+    
+    func makeCircularSector(index: Int, radius: CGFloat) -> some View {
+        let startAngle = 360 * (values[0..<index].reduce(0, +) / values.reduce(0, +)) + 90
+        
+        let value = values[index]
+        let color = colors[index]
+        
+        let endAngle = startAngle + 360 * (value / values.reduce(0, +))
+        
+        print("start \(startAngle) , end \(endAngle)")
+        
+        let view = Path { path in
+            
+            path.move(to: .init(x: radius, y: radius))
+            path.addArc(
+                center: .init(x: radius, y: radius),
+                radius: radius,
+                startAngle: .degrees(startAngle),
+                endAngle: .degrees(endAngle),
+                clockwise: false
+            )
+            
+        }
+        .fill(color)
+                
+        return view
     }
     
 }
 
 struct PieView_Previews: PreviewProvider {
     static var previews: some View {
-        PieView(value1: 1, value2: 10, color1: AppColor.spPink, color2: AppColor.spLightGreen)
+        PieView(values: [1, 2, 10], colors: [.red, .green, .blue])
             .frame(width: 50, height: 50)
             .previewLayout(.sizeThatFits)
-        PieView(value1: 10, value2: 0, color1: AppColor.spPink, color2: AppColor.spLightGreen)
+        PieView(values: [1, 0], colors: [AppColor.spPink, AppColor.spLightGreen])
             .frame(width: 50, height: 50)
             .previewLayout(.sizeThatFits)
     }
