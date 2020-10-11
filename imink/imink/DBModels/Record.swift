@@ -272,14 +272,15 @@ extension AppDatabase {
         }
     }
     
-    func killAndDeathCount(startTime: Date, endTime: Date = Date()) -> (Int, Int) {
+    func killAssistAndDeathCount(startTime: Date, endTime: Date = Date()) -> (Int, Int, Int) {
         dbQueue.read { db in
             guard let killCount = try? Int.fetchOne(db, sql: "SELECT SUM(killCount) FROM record WHERE startDateTime > ? AND startDateTime < ?", arguments: [startTime, endTime]),
+                  let assistCount = try? Int.fetchOne(db, sql: "SELECT SUM(assistCount) FROM record WHERE startDateTime > ? AND startDateTime < ?", arguments: [startTime, endTime]),
                   let deathCount = try? Int.fetchOne(db, sql: "SELECT SUM(deathCount) FROM record WHERE startDateTime > ? AND startDateTime < ?", arguments: [startTime, endTime]) else {
-                return (0, 0)
+                return (0, 0, 0)
             }
             
-            return (killCount, deathCount)
+            return (killCount, assistCount, deathCount)
         }
     }
 }

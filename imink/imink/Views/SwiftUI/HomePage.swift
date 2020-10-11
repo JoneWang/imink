@@ -18,7 +18,11 @@ struct HomePage: View {
     @State private var todayVictoryCount: Int = 0
     @State private var todayDefeatCount: Int = 0
     @State private var todayKillCount: Int = 0
+    @State private var todayAssistCount: Int = 0
     @State private var todayDeathCount: Int = 0
+    
+    @AppStorage("showKDInHome")
+    var showKD: Bool = false
     
     var body: some View {
         NavigationView {
@@ -43,12 +47,13 @@ struct HomePage: View {
                             VStack {
                                 HStack {
                                     
-                                    PieView(value1: Double(todayVictoryCount), value2: Double(todayDefeatCount), color1: AppColor.spPink, color2: AppColor.spLightGreen)
+                                    PieView(values: [Double(todayVictoryCount), Double(todayDefeatCount)], colors: [AppColor.spPink, AppColor.spLightGreen])
                                         .opacity(0.9)
                                         .frame(width: 25, height: 25)
                                     
                                     Text("Victory:")
                                         .sp2Font(size: 16, color: Color.primary)
+                                        .minimumScaleFactor(0.5)
                                     
                                     Text("\((Double(todayVictoryCount) &/ Double(todayVictoryCount + todayDefeatCount)) * 100)%")
                                         .sp2Font(size: 16, color: Color.secondary)
@@ -66,6 +71,7 @@ struct HomePage: View {
                                         
                                         Text("\(todayVictoryCount)")
                                             .sp1Font(size: 24, color: AppColor.spPink)
+                                            .minimumScaleFactor(0.5)
                                         
                                     }
                                     
@@ -78,6 +84,7 @@ struct HomePage: View {
                                         
                                         Text("\(todayDefeatCount)")
                                             .sp1Font(size: 24, color: AppColor.spLightGreen)
+                                            .minimumScaleFactor(0.5)
                                         
                                     }
                                     
@@ -89,54 +96,96 @@ struct HomePage: View {
                             .background(Color.primary.opacity(0.1))
                             .cornerRadius(10)
                             
-                            VStack {
-                                HStack {
+                            ZStack {
+                                VStack {
+                                    HStack {
+                                        
+                                        if showKD {
+                                            PieView(values: [Double(todayKillCount), Double(todayDeathCount)], colors: [.red, Color.gray.opacity(0.5)])
+                                                .opacity(0.9)
+                                                .frame(width: 25, height: 25)
+                                            
+                                            Text("K/D:")
+                                                .sp2Font(size: 16, color: Color.primary)
+                                            
+                                            Text("\(Double(todayKillCount) &/ Double(todayDeathCount), places: 1)")
+                                                .sp2Font(size: 16, color: Color.secondary)
+                                        } else {
+                                            PieView(values: [Double(todayKillCount), Double(todayAssistCount), Double(todayDeathCount)], colors: [.red, Color.red.opacity(0.5), Color.gray.opacity(0.5)])
+                                                .opacity(0.9)
+                                                .frame(width: 25, height: 25)
+                                            
+                                            Text("KA/D:")
+                                                .sp2Font(size: 16, color: Color.primary)
+                                            
+                                            Text("\(Double(todayKillCount + todayAssistCount) &/ Double(todayDeathCount), places: 1)")
+                                                .sp2Font(size: 16, color: Color.secondary)
+                                        }
+                                        
+                                    }
                                     
-                                    PieView(value1: Double(todayKillCount), value2: Double(todayDeathCount), color1: .red, color2: Color.gray.opacity(0.5))
-                                        .opacity(0.9)
-                                        .frame(width: 25, height: 25)
-                                    
-                                    Text("K/D:")
-                                        .sp2Font(size: 16, color: Color.primary)
-                                    
-                                    Text("\(Double(todayKillCount) &/ Double(todayDeathCount), places: 1)")
-                                        .sp2Font(size: 16, color: Color.secondary)
-                                    
+                                    HStack {
+                                        
+                                        Spacer()
+                                        
+                                        VStack(spacing: 4) {
+                                            
+                                            if showKD {
+                                                Text("KILL")
+                                                    .sp2Font(size: 10, color: Color.secondary)
+                                            
+                                                Text("\(todayKillCount)")
+                                                    .sp1Font(size: 24, color: .red)
+                                                    .minimumScaleFactor(0.5)
+                                            } else {
+                                                Text("KILL+ASSIST")
+                                                    .sp2Font(size: 10, color: Color.secondary)
+                                                
+                                                Text("\(todayKillCount + todayAssistCount)")
+                                                    .sp1Font(size: 24, color: .red)
+                                                    .minimumScaleFactor(0.5)
+                                            }
+                                            
+                                        }
+                                        
+                                        Spacer()
+                                        
+                                        VStack(spacing: 4) {
+                                            
+                                            Text("DEATH")
+                                                .sp2Font(size: 10, color: Color.secondary)
+                                            
+                                            Text("\(todayDeathCount)")
+                                                .sp1Font(size: 24, color: Color.gray.opacity(0.5))
+                                                .minimumScaleFactor(0.5)
+                                            
+                                        }
+                                        
+                                        Spacer()
+                                        
+                                    }
                                 }
+                                .padding()
+                                .background(Color.primary.opacity(0.1))
+                                .cornerRadius(10)
                                 
-                                HStack {
-                                    
-                                    Spacer()
-                                    
-                                    VStack(spacing: 4) {
+                                VStack {
+                                    HStack {
+                                        Spacer()
                                         
-                                        Text("KILL")
-                                            .sp2Font(size: 10, color: Color.secondary)
-                                        
-                                        Text("\(todayKillCount)")
-                                            .sp1Font(size: 24, color: .red)
-                                        
+                                        Image(systemName: showKD ? "circle" : "largecircle.fill.circle")
+                                            .resizable()
+                                            .frame(width: 14, height: 14)
+                                            .foregroundColor(Color.gray.opacity(0.3))
+                                            .padding([.trailing, .top], 6)
                                     }
                                     
                                     Spacer()
-                                    
-                                    VStack(spacing: 4) {
-                                        
-                                        Text("DEATH")
-                                            .sp2Font(size: 10, color: Color.secondary)
-                                        
-                                        Text("\(todayDeathCount)")
-                                            .sp1Font(size: 24, color: Color.gray.opacity(0.5))
-                                        
-                                    }
-                                    
-                                    Spacer()
-                                    
                                 }
                             }
-                            .padding()
-                            .background(Color.primary.opacity(0.1))
-                            .cornerRadius(10)
+                            .onTapGesture {
+                                showKD.toggle()
+                            }
                             
                         }
                         .frame(maxWidth: .infinity)
@@ -228,7 +277,7 @@ struct HomePage: View {
             .onReceive(homeViewModel.$recordTotalCount) { _ in
                 vdChartData = homeViewModel.vdWithLast500
                 (todayVictoryCount, todayDefeatCount) = homeViewModel.todayVictoryAndDefeatCount
-                (todayKillCount, todayDeathCount) = homeViewModel.todayKillAndDeathCount
+                (todayKillCount, todayAssistCount, todayDeathCount) = homeViewModel.todayKillAssistAndDeathCount
             }
             
         }
