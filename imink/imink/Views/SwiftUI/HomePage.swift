@@ -111,7 +111,7 @@ struct HomePage: View {
                                             Text("\(Double(todayKillCount) &/ Double(todayDeathCount), places: 1)")
                                                 .sp2Font(size: 16, color: Color.secondary)
                                         } else {
-                                            PieView(values: [Double(todayKillCount), Double(todayAssistCount), Double(todayDeathCount)], colors: [.red, Color.red.opacity(0.5), Color.gray.opacity(0.5)])
+                                            PieView(values: [Double(todayKillCount), Double(todayAssistCount), Double(todayDeathCount)], colors: [.red, Color.red.opacity(0.8), Color.gray.opacity(0.5)])
                                                 .opacity(0.9)
                                                 .frame(width: 25, height: 25)
                                             
