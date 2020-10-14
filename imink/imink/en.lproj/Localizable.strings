@@ -36,9 +36,20 @@
 
 "api_error_request_parameter_error" = "Request paraemter error";
 
+// MARK: Me
+
+"me_source_code_title" = "Source code / report an issue";
+
+"me_faq_title" = "FAQ";
+
+"me_version_title" = "Version";
+
+"me_logout_title" = "Logout";
 
 // MARK: Button
 
 "button_back_title" = "Back";
 "button_sign_in_title" = "Sign In";
 "button_close_title" = "Close";
+"button_yes_title" = "Yes";
+"button_no_title" = "No";
