@@ -165,6 +165,7 @@ extension BattleRecordListViewController {
         collectionView.alwaysBounceVertical = true
         collectionView.collectionViewLayout = createCollectionViewLayout()
         collectionView.backgroundColor = AppUIColor.listBackgroundColor
+        collectionView.contentInset = .init(top: 5, left: 0, bottom: 5, right: 0)
     }
 
     func createCollectionViewLayout() -> UICollectionViewLayout {
