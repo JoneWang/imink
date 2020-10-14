@@ -95,7 +95,7 @@ struct SalmonRunScheduleView: View {
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color.primary.opacity(0.1))
+            .background(AppColor.listItemBackgroundColor)
             .cornerRadius(10)
             
         }

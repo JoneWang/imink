@@ -45,7 +45,7 @@
                                 <rect key="frame" x="96.5" y="6" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" name="BattleListRowBackgroundColor"/>
+                        <color key="backgroundColor" name="ListItemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="F9p-1y-hrT" firstAttribute="centerX" secondItem="Ss1-2r-pTq" secondAttribute="centerX" id="Ifb-6G-nHn"/>
                             <constraint firstItem="EtL-0I-MHs" firstAttribute="centerX" secondItem="Ss1-2r-pTq" secondAttribute="centerX" id="QQL-Ff-QmG"/>
@@ -73,8 +73,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="BattleListRowBackgroundColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="ListItemBackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="RecordRowTitleNormalColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

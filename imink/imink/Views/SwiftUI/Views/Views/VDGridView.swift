@@ -80,7 +80,7 @@ extension VDGridView.ItemStatus {
         case .defeat:
             return AppColor.spLightGreen.opacity(0.8)
         case .none:
-            return Color.primary.opacity(0.2)
+            return Color.primary.opacity(0.15)
         }
     }
     

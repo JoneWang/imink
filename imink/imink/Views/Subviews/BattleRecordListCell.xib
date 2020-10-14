@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -30,13 +30,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="230" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VICTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNS-Dn-dSj">
-                                <rect key="frame" x="75.5" y="0.0" width="79.5" height="34"/>
+                                <rect key="frame" x="79" y="0.0" width="72" height="20"/>
                                 <fontDescription key="fontDescription" name="Splatoon1" family="Splatoon1" pointSize="17"/>
                                 <color key="textColor" name="SPPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc4-c1-JCN">
-                                <rect key="frame" x="5" y="5" width="20.5" height="20"/>
+                                <rect key="frame" x="5" y="5" width="22.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Splatoon2" family="Splatoon2" pointSize="10"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="92.5" height="47"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="wPP-zg-kl9">
-                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="23"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="23"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegularBattle" translatesAutoresizingMaskIntoConstraints="NO" id="OXk-7S-BsB">
                                                         <rect key="frame" x="0.0" y="3" width="17" height="17"/>
@@ -58,7 +58,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranked Battle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QfO-n4-eRY">
-                                                        <rect key="frame" x="20" y="1.5" width="72.5" height="20"/>
+                                                        <rect key="frame" x="20" y="5.5" width="63.5" height="12"/>
                                                         <fontDescription key="fontDescription" name="Splatoon1" family="Splatoon1" pointSize="10"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 k  2d" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-Tm-nkB">
-                                                <rect key="frame" x="0.0" y="23" width="42.5" height="24"/>
+                                                <rect key="frame" x="0.0" y="23" width="43" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="28y-D9-GCW"/>
                                                 </constraints>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="127.5" y="0.0" width="92.5" height="47"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranked Battle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gkM-OV-Lvd">
-                                                <rect key="frame" x="13.5" y="0.0" width="79" height="23"/>
+                                                <rect key="frame" x="29" y="0.0" width="63.5" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="VJ6-Zu-dj8"/>
                                                 </constraints>
@@ -89,7 +89,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 k  2d" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GZ2-og-HXu">
-                                                <rect key="frame" x="50" y="23" width="42.5" height="24"/>
+                                                <rect key="frame" x="49.5" y="23" width="43" height="24"/>
                                                 <fontDescription key="fontDescription" name="Splatoon2" family="Splatoon2" pointSize="14"/>
                                                 <color key="textColor" name="RecordRowTitleNormalColor"/>
                                                 <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nbW-tg-t4F">
-                                <rect key="frame" x="90" y="19" width="50" height="50"/>
+                                <rect key="frame" x="90" y="5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="bfN-RC-Nge"/>
                                     <constraint firstAttribute="height" constant="50" id="t1r-on-qva"/>
@@ -123,7 +123,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="BattleListRowBackgroundColor"/>
+                        <color key="backgroundColor" name="ListItemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gNS-Dn-dSj" firstAttribute="top" secondItem="cco-PG-d8b" secondAttribute="top" id="4Xk-46-u3b"/>
                             <constraint firstItem="hc4-c1-JCN" firstAttribute="leading" secondItem="cco-PG-d8b" secondAttribute="leading" constant="5" id="8aR-2A-Ge4"/>
@@ -174,8 +174,8 @@
     </objects>
     <resources>
         <image name="RegularBattle" width="552" height="500"/>
-        <namedColor name="BattleListRowBackgroundColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="ListItemBackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="RecordRowTitleNormalColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
