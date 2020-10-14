@@ -52,8 +52,16 @@ class API {
     
     func request(_ api: APITargetType) -> AnyPublisher<Data, APIError> {
         let url = api.baseURL.appendingPathComponent(api.path)
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         
-        var request = URLRequest(url: url)
+        if let querys = api.querys {
+            let queryItems = querys.map { name, value in
+                URLQueryItem(name: name, value: value)
+            }
+            urlComponents.queryItems = queryItems
+        }
+        
+        var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = api.method.rawValue
         
         if let headers = api.headers {

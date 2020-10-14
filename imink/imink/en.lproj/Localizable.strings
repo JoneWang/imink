@@ -53,3 +53,10 @@
 "button_close_title" = "Close";
 "button_yes_title" = "Yes";
 "button_no_title" = "No";
+
+// MARK: Game mode
+
+"splat_zones_title" = "Splat Zones";
+"tower_control_title" = "Tower Control";
+"rainmaker_title" = "Rainmaker";
+"clam_blitz_title" = "Clam Blitz";

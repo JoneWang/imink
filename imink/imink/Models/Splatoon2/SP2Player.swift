@@ -14,6 +14,10 @@ struct SP2Player: Codable {
     let starRank: Int
     let weapon: SP2Weapon
     let udemae: Udemae?
+    let udemaeZones: Udemae?
+    let udemaeRainmaker: Udemae?
+    let udemaeTower: Udemae?
+    let udemaeClam: Udemae?
     let headSkills: ClothingSkill
     let clothesSkills: ClothingSkill
     let shoesSkills: ClothingSkill
@@ -22,6 +26,8 @@ struct SP2Player: Codable {
         let name: String?
         let sPlusNumber: Int?
         let isX: Bool
+        let number: Int?
+        let isNumberReached: Bool?
     }
     
     struct ClothingSkill: Codable {

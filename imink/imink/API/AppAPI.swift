@@ -40,4 +40,8 @@ extension AppAPI: APITargetType {
 
         return nil
     }
+    
+    var querys: [(String, String?)]? {
+        return nil
+    }
 }
