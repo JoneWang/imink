@@ -26,9 +26,8 @@ protocol APITargetType {
     /// The HTTP method used in the request.
     var method: APIMethod { get }
 
-    // TODO: The type of HTTP task to be performed.
-    // var task: Task { get }
-
     /// The headers to be used in the request.
     var headers: [String: String]? { get }
+    
+    var querys: [(String, String?)]? { get }
 }

@@ -12,6 +12,8 @@ enum Splatoon2API {
     case result(battleNumber: String)
     case schedules
     case salmonRunSchedules
+    case records
+    case nicknameAndIcon(id: String)
 }
 
 extension Splatoon2API: APITargetType {
@@ -29,12 +31,21 @@ extension Splatoon2API: APITargetType {
             return "/schedules"
         case .salmonRunSchedules:
             return "/coop_schedules"
+        case .records:
+            return "/records"
+        case .nicknameAndIcon:
+            return "/nickname_and_icon"
         }
     }
     
     var method: APIMethod {
         switch self {
-        case .battleInformation, .result, .schedules, .salmonRunSchedules:
+        case .battleInformation,
+             .result,
+             .schedules,
+             .salmonRunSchedules,
+             .records,
+             .nicknameAndIcon:
             return .get
         }
     }
@@ -45,5 +56,14 @@ extension Splatoon2API: APITargetType {
         }
 
         return nil
+    }
+    
+    var querys: [(String, String?)]? {
+        switch self {
+        case .nicknameAndIcon(let id):
+            return [("id", id)]
+        default:
+            return nil
+        }
     }
 }
