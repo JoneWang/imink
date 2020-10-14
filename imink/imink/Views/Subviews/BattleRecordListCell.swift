@@ -48,7 +48,7 @@ class BattleRecordListCell: UICollectionViewCell {
         didSet {
             containerView.backgroundColor = isSelected ?
                 UIColor.systemBlue :
-                AppUIColor.battleListRowBackgroundColor
+                AppUIColor.listItemBackgroundColor
             killInfoLabel.textColor = isSelected ?
                 AppUIColor.recordRowTitleSelectedColor :
                 AppUIColor.recordRowTitleNormalColor

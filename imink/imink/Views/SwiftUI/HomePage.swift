@@ -93,7 +93,7 @@ struct HomePage: View {
                                 }
                             }
                             .padding()
-                            .background(Color.primary.opacity(0.1))
+                            .background(AppColor.listItemBackgroundColor)
                             .cornerRadius(10)
                             
                             ZStack {
@@ -166,7 +166,7 @@ struct HomePage: View {
                                     }
                                 }
                                 .padding()
-                                .background(Color.primary.opacity(0.1))
+                                .background(AppColor.listItemBackgroundColor)
                                 .cornerRadius(10)
                                 
                                 VStack {
@@ -271,6 +271,7 @@ struct HomePage: View {
                     Spacer()
                 }
             }
+            .background(AppColor.listBackgroundColor)
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
             .navigationBarHidden(false)
@@ -291,7 +292,7 @@ struct HomePage: View {
             Spacer()
         }
         .padding()
-        .background(Color.primary.opacity(0.1))
+        .background(AppColor.listItemBackgroundColor)
         .cornerRadius(10)
         .padding(.top)
     }

@@ -25,12 +25,14 @@ struct AppColor {
     static let spYellow = Color("SPYellowColor")
     
     static let spOrange = Color("SPOrangeColor")
-    
-    static let battleListRowBackgroundColor = Color("BattleListRowBackgroundColor")
-    
+        
     static let recordRowTitleNormalColor = Color("RecordRowTitleNormalColor")
     
     static let recordRowTitleSelectedColor = Color("RecordRowTitleSelectedColor")
+    
+    static let listBackgroundColor = Color("ListBackgroundColor")
+    
+    static let listItemBackgroundColor = Color("ListItemBackgroundColor")
 }
 
 struct AppUIColor {
@@ -53,10 +55,12 @@ struct AppUIColor {
     static let spOrange = UIColor(named: "SPOrangeColor")!
     
     static let spBlue = UIColor.blue
-    
-    static let battleListRowBackgroundColor = UIColor(named: "BattleListRowBackgroundColor")!
-    
+        
     static let recordRowTitleNormalColor = UIColor(named: "RecordRowTitleNormalColor")!
     
     static let recordRowTitleSelectedColor = UIColor(named: "RecordRowTitleSelectedColor")!
+    
+    static let listBackgroundColor = UIColor(named: "ListBackgroundColor")!
+    
+    static let listItemBackgroundColor = UIColor(named: "ListItemBackgroundColor")!
 }

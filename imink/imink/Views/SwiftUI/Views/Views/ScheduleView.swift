@@ -103,7 +103,7 @@ struct ScheduleView: View {
                     }
                 }
                 .padding()
-                .background(Color.primary.opacity(0.1))
+                .background(AppColor.listItemBackgroundColor)
                 .cornerRadius(10)
             }
             .padding(0)
