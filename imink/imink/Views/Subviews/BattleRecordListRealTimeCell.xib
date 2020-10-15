@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Splatoon1.otf">
-            <string>Splatoon1</string>
+        <array key="Splatfont.otf">
+            <string>Splatfont</string>
         </array>
-        <array key="Splatoon2.otf">
-            <string>Splatoon2</string>
+        <array key="Splatfont2.otf">
+            <string>Splatfont2</string>
         </array>
     </customFonts>
     <objects>
@@ -31,13 +31,13 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Real-time data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8F-yg-arD">
                                 <rect key="frame" x="56" y="49" width="118.5" height="21"/>
-                                <fontDescription key="fontDescription" name="Splatoon1" family="Splatoon1" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Splatfont" family="Splatfont" pointSize="18"/>
                                 <color key="textColor" name="RecordRowTitleNormalColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtL-0I-MHs">
                                 <rect key="frame" x="89" y="14" width="52.5" height="21"/>
-                                <fontDescription key="fontDescription" name="Splatoon2" family="Splatoon2" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Splatfont2" family="Splatfont 2" pointSize="18"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
