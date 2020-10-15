@@ -50,8 +50,8 @@
 		EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7A251C55FF00AA0B20 /* Main.storyboard */; };
 		EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7D251C55FF00AA0B20 /* Assets.xcassets */; };
 		EC900E81251C55FF00AA0B20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7F251C55FF00AA0B20 /* LaunchScreen.storyboard */; };
-		EC900EC0251C8EF700AA0B20 /* Splatoon2.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E92251C8EF600AA0B20 /* Splatoon2.otf */; };
-		EC900EC1251C8EF700AA0B20 /* Splatoon1.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E93251C8EF600AA0B20 /* Splatoon1.otf */; };
+		EC900EC0251C8EF700AA0B20 /* Splatfont2.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E92251C8EF600AA0B20 /* Splatfont2.otf */; };
+		EC900EC1251C8EF700AA0B20 /* Splatfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E93251C8EF600AA0B20 /* Splatfont.otf */; };
 		EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */; };
 		EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */; };
 		EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E97251C8EF600AA0B20 /* Collection.swift */; };
@@ -152,8 +152,8 @@
 		EC900E80251C55FF00AA0B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC900E82251C55FF00AA0B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC900E89251C560C00AA0B20 /* imink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = imink.entitlements; sourceTree = "<group>"; };
-		EC900E92251C8EF600AA0B20 /* Splatoon2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon2.otf; sourceTree = "<group>"; };
-		EC900E93251C8EF600AA0B20 /* Splatoon1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatoon1.otf; sourceTree = "<group>"; };
+		EC900E92251C8EF600AA0B20 /* Splatfont2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatfont2.otf; sourceTree = "<group>"; };
+		EC900E93251C8EF600AA0B20 /* Splatfont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Splatfont.otf; sourceTree = "<group>"; };
 		EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decode&Encode.swift"; sourceTree = "<group>"; };
 		EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
 		EC900E97251C8EF600AA0B20 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -336,8 +336,8 @@
 		EC900E91251C8EF600AA0B20 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				EC900E92251C8EF600AA0B20 /* Splatoon2.otf */,
-				EC900E93251C8EF600AA0B20 /* Splatoon1.otf */,
+				EC900E92251C8EF600AA0B20 /* Splatfont2.otf */,
+				EC900E93251C8EF600AA0B20 /* Splatfont.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -534,9 +534,9 @@
 				EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */,
 				EC900EDB251C8EF700AA0B20 /* result.json in Resources */,
 				EC00DBD3251CA05F0010366A /* BattleDetail.storyboard in Resources */,
-				EC900EC1251C8EF700AA0B20 /* Splatoon1.otf in Resources */,
+				EC900EC1251C8EF700AA0B20 /* Splatfont.otf in Resources */,
 				EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */,
-				EC900EC0251C8EF700AA0B20 /* Splatoon2.otf in Resources */,
+				EC900EC0251C8EF700AA0B20 /* Splatfont2.otf in Resources */,
 				EC900EDD251C8EF700AA0B20 /* results.json in Resources */,
 				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
 			);
@@ -778,7 +778,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -804,7 +804,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
