@@ -32,13 +32,14 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        HStack(alignment: .lastTextBaseline) {
+                        HStack(alignment: .bottom) {
                             
-                            Text("# Today")
-                                .sp2Font(size: 20, color: Color.primary)
+                            Text("Today")
+                                .sp1Font(size: 22, color: Color.primary)
                             
                             Text("(3:00 reset)")
                                 .sp2Font(color: Color.secondary)
+                                .padding(.bottom, 2)
                             
                         }
                         
@@ -197,13 +198,14 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        HStack(alignment: .lastTextBaseline) {
+                        HStack(alignment: .bottom) {
                             
-                            Text("# Results")
-                                .sp2Font(size: 20, color: Color.primary)
+                            Text("Results")
+                                .sp1Font(size: 22, color: Color.primary)
                             
                             Text("(Last 500)")
                                 .sp2Font(color: Color.secondary)
+                                .padding(.bottom, 2)
                             
                         }
                         
@@ -228,8 +230,8 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        Text("# Schedule")
-                            .sp2Font(size: 20, color: Color.primary)
+                        Text("Schedule")
+                            .sp1Font(size: 22, color: Color.primary)
                         
                         VStack {
                             Picker(selection: $scheduleType, label: Text("Picker"), content: {

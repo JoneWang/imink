@@ -65,7 +65,7 @@ struct ScheduleView: View {
                                         .aspectRatio(1, contentMode: .fill)
                                         .frame(width: 20)
                                     Text(schedule.rule.name)
-                                        .sp2Font(color: gameModeColors[j])
+                                        .sp1Font(color: gameModeColors[j])
                                 }
                                 
                                 Spacer()
