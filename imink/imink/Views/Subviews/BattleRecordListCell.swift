@@ -128,7 +128,7 @@ extension Record {
         case "fesSolo":
             return AppUIColor.spYellow
         case "private":
-            return AppUIColor.spBlue
+            return AppUIColor.spPurple
         default:
             return UIColor.black
         }
