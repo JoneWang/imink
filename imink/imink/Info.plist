@@ -32,8 +32,8 @@
 	<string>Save pictures to album.</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Splatoon1.otf</string>
-		<string>Splatoon2.otf</string>
+		<string>Splatfont.otf</string>
+		<string>Splatfont2.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

@@ -44,7 +44,7 @@ struct SP1FontModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom("Splatoon1", size: size))
+            .font(.custom("Splatfont", size: size))
             .foregroundColor(color)
             .lineLimit(lineLimit)
             .frame(height: lineLimit == 1 ? size : .infinity)
@@ -58,7 +58,7 @@ struct SP2FontModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom("Splatoon2", size: size))
+            .font(.custom("Splatfont2", size: size))
             .foregroundColor(color)
             .lineLimit(lineLimit)
             .frame(height: (lineLimit == 1) ? size : .infinity)
