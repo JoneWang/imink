@@ -66,6 +66,7 @@ struct ScheduleView: View {
                                         .frame(width: 20)
                                     Text(schedule.rule.name)
                                         .sp1Font(color: gameModeColors[j])
+                                        .minimumScaleFactor(0.5)
                                 }
                                 
                                 Spacer()
