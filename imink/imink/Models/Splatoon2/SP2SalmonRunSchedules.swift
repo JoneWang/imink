@@ -25,12 +25,18 @@ struct SP2SalmonRunSchedules: Codable {
         
         struct Weapon: Codable {
             let id: String
-            let weapon: WeaponDetail
+            let weapon: WeaponDetail?
+            let coopSpecialWeapon: CoopSpecialWeapon?
             
             struct WeaponDetail: Codable {
                 let id: String
                 let name: String
                 let thumbnail: String
+                let image: String
+            }
+            
+            struct CoopSpecialWeapon: Codable {
+                let name: String
                 let image: String
             }
         }
@@ -63,6 +69,14 @@ extension SP2SalmonRunSchedules.Schedule.Weapon.WeaponDetail {
     
     var thumbnailURL: URL {
         Splatoon2API.host.appendingPathComponent(thumbnail)
+    }
+    
+}
+
+extension SP2SalmonRunSchedules.Schedule.Weapon.CoopSpecialWeapon {
+    
+    var imageURL: URL {
+        Splatoon2API.host.appendingPathComponent(image)
     }
     
 }
