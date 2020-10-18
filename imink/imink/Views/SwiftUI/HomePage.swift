@@ -238,7 +238,7 @@ struct HomePage: View {
                     if let festival = homeViewModel.activeFestivals?.festivals.first {
                         VStack(alignment: .leading, spacing: 0) {
                             
-                            Text("Festival")
+                            Text("Splatfest")
                                 .sp1Font(size: 22, color: Color.primary)
                             
                             VStack {
