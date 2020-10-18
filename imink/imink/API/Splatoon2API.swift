@@ -14,6 +14,7 @@ enum Splatoon2API {
     case salmonRunSchedules
     case records
     case nicknameAndIcon(id: String)
+    case activeFestivals
 }
 
 extension Splatoon2API: APITargetType {
@@ -35,6 +36,8 @@ extension Splatoon2API: APITargetType {
             return "/records"
         case .nicknameAndIcon:
             return "/nickname_and_icon"
+        case .activeFestivals:
+            return "/festivals/active"
         }
     }
     
@@ -45,7 +48,8 @@ extension Splatoon2API: APITargetType {
              .schedules,
              .salmonRunSchedules,
              .records,
-             .nicknameAndIcon:
+             .nicknameAndIcon,
+             .activeFestivals:
             return .get
         }
     }
