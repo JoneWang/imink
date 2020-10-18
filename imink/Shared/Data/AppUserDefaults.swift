@@ -12,10 +12,10 @@ import SwiftUI
 class AppUserDefaults: ObservableObject {
     static let shared = AppUserDefaults()
     
-    @AppStorage("client_token")
+    @AppStorage("client_token", store: UserDefaults.appGroup)
     var clientToken: String?
 
-    @StandardStorage(key: "user")
+    @StandardStorage(key: "user", store: UserDefaults.appGroup)
     var user: User? {
         didSet {
             if oldValue != nil, user == nil {
@@ -27,12 +27,12 @@ class AppUserDefaults: ObservableObject {
         }
     }
     
-    @StandardStorage(key: "last_battle")
+    @StandardStorage(key: "last_battle", store: UserDefaults.appGroup)
     var lastBattle: SP2Battle?
     
-    @AppStorage("splatoon2_records")
+    @AppStorage("splatoon2_records", store: UserDefaults.appGroup)
     var splatoon2RecordsData: Data?
     
-    @AppStorage("splatoon2_nickname_and_icon")
+    @AppStorage("splatoon2_nickname_and_icon", store: UserDefaults.appGroup)
     var splatoon2NicknameAndIconData: Data?
 }

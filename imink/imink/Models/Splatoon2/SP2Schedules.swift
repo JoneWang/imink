@@ -34,6 +34,18 @@ struct SP2Schedule: Codable {
     }
 }
 
+extension SP2Schedule {
+    
+    var startDate: Date {
+        Date(timeIntervalSince1970: startTime)
+    }
+    
+    var endDate: Date {
+        Date(timeIntervalSince1970: endTime)
+    }
+    
+}
+
 extension SP2Schedule.GameMode {
     
     var imageName: String {
