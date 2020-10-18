@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomePage: View {
     
@@ -23,6 +24,12 @@ struct HomePage: View {
     
     @AppStorage("showKDInHome")
     var showKD: Bool = false
+    
+    private let scheduleTimeFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd HH:mm"
+        return formatter
+    }()
     
     var body: some View {
         NavigationView {
@@ -227,6 +234,52 @@ struct HomePage: View {
                     }
                     .padding(.horizontal)
                     .padding(.top)
+                    
+                    if let festival = homeViewModel.activeFestivals?.festivals.first {
+                        VStack(alignment: .leading, spacing: 0) {
+                            
+                            Text("Festival")
+                                .sp1Font(size: 22, color: Color.primary)
+                            
+                            VStack {
+                                ZStack {
+                                HStack(spacing: 0) {
+                                    HStack(spacing: 0) {
+                                        WebImage(url: festival.images.alphaImageURL)
+                                            .resizable()
+                                            .scaledToFit()
+                                        Text(festival.names.alphaShort)
+                                            .sp1Font(size: 14)
+                                        Spacer()
+                                    }
+                                    .padding(5)
+                                    .background(festival.colors.alphaColor)
+                                    HStack(spacing: 0) {
+                                        Spacer()
+                                        Text(festival.names.bravoShort)
+                                            .sp1Font(size: 14)
+                                        WebImage(url: festival.images.bravoImageURL)
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
+                                    .padding(5)
+                                    .background(festival.colors.bravoColor)
+                                }
+                                    
+                                    Text("\(festival.times.startDate, formatter: scheduleTimeFormat) - \(festival.times.endDate, formatter: scheduleTimeFormat)")
+                                        .sp2Font()
+                                        .padding(.horizontal)
+                                        .minimumScaleFactor(0.5)
+                                }
+                            }
+                            .frame(height: 50)
+                            .background(AppColor.listItemBackgroundColor)
+                            .cornerRadius(10)
+                            .padding(.top)
+                        }
+                        .padding(.horizontal)
+                        .padding(.top)
+                    }
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
