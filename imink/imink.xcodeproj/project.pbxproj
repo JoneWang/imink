@@ -45,6 +45,48 @@
 		EC62E77A2537084C0028428C /* SP2NicknameAndIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E7792537084C0028428C /* SP2NicknameAndIcon.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B8274251F088800B25307 /* CompactBattlePage.swift */; };
+		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
+		EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611AA253AA873003BA67A /* SwiftUI.framework */; };
+		EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8611CB253AB9CB003BA67A /* Assets.xcassets */; };
+		EC8611D0253AB9CB003BA67A /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8611D7253ABA31003BA67A /* AppWidget.swift */; };
+		EC86121D253AC61E003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC861218253AC61E003BA67A /* Assets.xcassets */; };
+		EC861222253AC656003BA67A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
+		EC861223253AC656003BA67A /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
+		EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
+		EC861225253AC656003BA67A /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA0251C8EF600AA0B20 /* APITargetType.swift */; };
+		EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
+		EC86122C253AC6D0003BA67A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
+		EC86122F253AC6D4003BA67A /* SP2Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E7752536EEA20028428C /* SP2Records.swift */; };
+		EC861230253AC6D4003BA67A /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */; };
+		EC861231253AC6D4003BA67A /* SP2Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */; };
+		EC861232253AC6D4003BA67A /* SP2GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903E25275BA000390573 /* SP2GameMode.swift */; };
+		EC861233253AC6D4003BA67A /* SP2Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A904125275D6D00390573 /* SP2Rule.swift */; };
+		EC861234253AC6D4003BA67A /* SP2SalmonRunSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */; };
+		EC861235253AC6D4003BA67A /* SP2BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */; };
+		EC861236253AC6D4003BA67A /* SP2Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAA251C8EF600AA0B20 /* SP2Player.swift */; };
+		EC861237253AC6D4003BA67A /* SP2Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903825274B4200390573 /* SP2Schedules.swift */; };
+		EC861238253AC6D4003BA67A /* SP2Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903B252759D800390573 /* SP2Stage.swift */; };
+		EC861239253AC6D4003BA67A /* SP2Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */; };
+		EC86123A253AC6D4003BA67A /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */; };
+		EC86123B253AC6D4003BA67A /* SP2NicknameAndIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E7792537084C0028428C /* SP2NicknameAndIcon.swift */; };
+		EC86123E253AC6ED003BA67A /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E99251C8EF600AA0B20 /* Operator.swift */; };
+		EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9B251C8EF600AA0B20 /* AppBundle.swift */; };
+		EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */; };
+		EC861241253AC6ED003BA67A /* NSLayoutConstraint+Mutiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */; };
+		EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
+		EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */; };
+		EC861244253AC6ED003BA67A /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E97251C8EF600AA0B20 /* Collection.swift */; };
+		EC861245253AC6ED003BA67A /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */; };
+		EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */; };
+		EC861247253AC6ED003BA67A /* Easeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E98251C8EF600AA0B20 /* Easeing.swift */; };
+		EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
+		EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */; };
+		EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
+		EC861258253ACACA003BA67A /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC861257253ACACA003BA67A /* UserDefaultsMigrator.swift */; };
+		EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC861262253ACFE2003BA67A /* UserDefaults.swift */; };
+		EC86126D253ADB52003BA67A /* Splatfont2.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E92251C8EF600AA0B20 /* Splatfont2.otf */; };
+		EC86126E253ADB52003BA67A /* Splatfont.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC900E93251C8EF600AA0B20 /* Splatfont.otf */; };
 		EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E74251C55FF00AA0B20 /* AppDelegate.swift */; };
 		EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */; };
 		EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7A251C55FF00AA0B20 /* Main.storyboard */; };
@@ -83,6 +125,15 @@
 		EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */; };
 		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
 		EC900EE1251C8EF700AA0B20 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* Record.swift */; };
+		EC984217253ADE880079D739 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
+		EC984218253ADE880079D739 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA5251C8EF600AA0B20 /* AppTheme.swift */; };
+		EC98421B253ADE970079D739 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
+		EC984226253AE2310079D739 /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984220253AE2030079D739 /* SalmonRunScheduleWidget.swift */; };
+		EC98422D253AE3B40079D739 /* BattleScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984229253AE2720079D739 /* BattleScheduleWidget.swift */; };
+		EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
+		EC984233253AF3F70079D739 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
+		EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
+		EC98423C253BEC0A0079D739 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC98423B253BEC0A0079D739 /* SDWebImage */; };
 		EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */; };
 		EC9A903925274B4200390573 /* SP2Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903825274B4200390573 /* SP2Schedules.swift */; };
 		EC9A903C252759D800390573 /* SP2Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903B252759D800390573 /* SP2Stage.swift */; };
@@ -96,7 +147,28 @@
 		ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EC8611CE253AB9CB003BA67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC900E69251C55FE00AA0B20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC8611C4253AB9C9003BA67A;
+			remoteInfo = SalmonRunSchedulesWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		EC8611BC253AA876003BA67A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EC8611D0253AB9CB003BA67A /* WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ECAE8DBA25207FA1003D7EDC /* Embed App Clips */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,6 +216,16 @@
 		EC62E7792537084C0028428C /* SP2NicknameAndIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2NicknameAndIcon.swift; sourceTree = "<group>"; };
 		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		EC6B8274251F088800B25307 /* CompactBattlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactBattlePage.swift; sourceTree = "<group>"; };
+		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		EC8611AA253AA873003BA67A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC8611CB253AB9CB003BA67A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC8611CD253AB9CB003BA67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC8611D1253AB9CB003BA67A /* AppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppWidgetExtension.entitlements; sourceTree = "<group>"; };
+		EC8611D7253ABA31003BA67A /* AppWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWidget.swift; sourceTree = "<group>"; };
+		EC861218253AC61E003BA67A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC861257253ACACA003BA67A /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
+		EC861262253ACFE2003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EC900E71251C55FF00AA0B20 /* imink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC900E74251C55FF00AA0B20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +267,8 @@
 		EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
 		EC900EBF251C8EF700AA0B20 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		EC984220253AE2030079D739 /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
+		EC984229253AE2720079D739 /* BattleScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleWidget.swift; sourceTree = "<group>"; };
 		EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Mutiplier.swift"; sourceTree = "<group>"; };
 		EC9A903825274B4200390573 /* SP2Schedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Schedules.swift; sourceTree = "<group>"; };
 		EC9A903B252759D800390573 /* SP2Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Stage.swift; sourceTree = "<group>"; };
@@ -199,6 +283,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EC8611C2253AB9C9003BA67A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */,
+				EC98423C253BEC0A0079D739 /* SDWebImage in Frameworks */,
+				EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC900E6E251C55FF00AA0B20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,7 +349,6 @@
 		EC00DBEC251CCA710010366A /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				EC00DBF1251CD29C0010366A /* ViewModifiers */,
 				EC00DBFF251CD8770010366A /* Views */,
 				EC6B8274251F088800B25307 /* CompactBattlePage.swift */,
 				EC00DC18251CD90B0010366A /* RegularBattlePage.swift */,
@@ -293,10 +386,69 @@
 			path = Views/Views;
 			sourceTree = "<group>";
 		};
+		EC8611A7253AA873003BA67A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC8611A8253AA873003BA67A /* WidgetKit.framework */,
+				EC8611AA253AA873003BA67A /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC8611C8253AB9C9003BA67A /* AppWidget */ = {
+			isa = PBXGroup;
+			children = (
+				EC861262253ACFE2003BA67A /* UserDefaults.swift */,
+				EC8611D7253ABA31003BA67A /* AppWidget.swift */,
+				EC8611CB253AB9CB003BA67A /* Assets.xcassets */,
+				EC8611CD253AB9CB003BA67A /* Info.plist */,
+				EC984220253AE2030079D739 /* SalmonRunScheduleWidget.swift */,
+				EC984229253AE2720079D739 /* BattleScheduleWidget.swift */,
+			);
+			path = AppWidget;
+			sourceTree = "<group>";
+		};
+		EC861216253AC61E003BA67A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				EC565B5A251D882900CCAC9A /* NotificationName.swift */,
+				EC900E94251C8EF600AA0B20 /* Utils */,
+				EC900E91251C8EF600AA0B20 /* Font */,
+				EC900EA3251C8EF600AA0B20 /* Theme */,
+				EC00DBF1251CD29C0010366A /* ViewModifiers */,
+				EC900EA6251C8EF600AA0B20 /* Models */,
+				EC861228253AC688003BA67A /* Data */,
+				EC900E9E251C8EF600AA0B20 /* API */,
+				EC861218253AC61E003BA67A /* Assets.xcassets */,
+				EC861217253AC61E003BA67A /* Resources */,
+				ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		EC861217253AC61E003BA67A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EC861228253AC688003BA67A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		EC900E68251C55FE00AA0B20 = {
 			isa = PBXGroup;
 			children = (
+				EC8611D1253AB9CB003BA67A /* AppWidgetExtension.entitlements */,
+				EC861216253AC61E003BA67A /* Shared */,
 				EC900E73251C55FF00AA0B20 /* imink */,
+				EC8611C8253AB9C9003BA67A /* AppWidget */,
+				EC8611A7253AA873003BA67A /* Frameworks */,
 				EC900E72251C55FF00AA0B20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -305,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				EC900E71251C55FF00AA0B20 /* imink.app */,
+				EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,23 +465,16 @@
 		EC900E73251C55FF00AA0B20 /* imink */ = {
 			isa = PBXGroup;
 			children = (
-				EC900E9E251C8EF600AA0B20 /* API */,
 				EC900EAF251C8EF700AA0B20 /* Data */,
-				EC900E91251C8EF600AA0B20 /* Font */,
-				EC900EA6251C8EF600AA0B20 /* Models */,
 				EC900EBE251C8EF700AA0B20 /* DBModels */,
 				EC900EB5251C8EF700AA0B20 /* Resources */,
-				EC900EA3251C8EF600AA0B20 /* Theme */,
-				EC900E94251C8EF600AA0B20 /* Utils */,
 				EC900EBA251C8EF700AA0B20 /* ViewModels */,
 				EC00DBC2251C9AD90010366A /* Views */,
 				EC00DBC4251C9BD80010366A /* Delegates */,
 				EC900E89251C560C00AA0B20 /* imink.entitlements */,
-				EC565B5A251D882900CCAC9A /* NotificationName.swift */,
 				EC900E7D251C55FF00AA0B20 /* Assets.xcassets */,
 				EC900E7F251C55FF00AA0B20 /* LaunchScreen.storyboard */,
 				EC900E82251C55FF00AA0B20 /* Info.plist */,
-				ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */,
 			);
 			path = imink;
 			sourceTree = "<group>";
@@ -387,7 +533,8 @@
 				EC900EA7251C8EF600AA0B20 /* User.swift */,
 				EC900EA8251C8EF600AA0B20 /* Splatoon2 */,
 			);
-			path = Models;
+			name = Models;
+			path = ../imink/Models;
 			sourceTree = "<group>";
 		};
 		EC900EA8251C8EF600AA0B20 /* Splatoon2 */ = {
@@ -414,7 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */,
-				EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */,
+				EC861257253ACACA003BA67A /* UserDefaultsMigrator.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -461,6 +608,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EC8611C4253AB9C9003BA67A /* WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC8611D2253AB9CB003BA67A /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildPhases = (
+				EC8611C1253AB9C9003BA67A /* Sources */,
+				EC8611C2253AB9C9003BA67A /* Frameworks */,
+				EC8611C3253AB9C9003BA67A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetExtension;
+			packageProductDependencies = (
+				EC98423B253BEC0A0079D739 /* SDWebImage */,
+			);
+			productName = SalmonRunSchedulesWidgetExtension;
+			productReference = EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EC900E70251C55FF00AA0B20 /* imink */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC900E85251C55FF00AA0B20 /* Build configuration list for PBXNativeTarget "imink" */;
@@ -469,10 +636,12 @@
 				EC900E6E251C55FF00AA0B20 /* Frameworks */,
 				EC900E6F251C55FF00AA0B20 /* Resources */,
 				ECAE8DBA25207FA1003D7EDC /* Embed App Clips */,
+				EC8611BC253AA876003BA67A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EC8611CF253AB9CB003BA67A /* PBXTargetDependency */,
 			);
 			name = imink;
 			packageProductDependencies = (
@@ -491,9 +660,12 @@
 		EC900E69251C55FE00AA0B20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					EC8611C4253AB9C9003BA67A = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					EC900E70251C55FF00AA0B20 = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -519,11 +691,23 @@
 			projectRoot = "";
 			targets = (
 				EC900E70251C55FF00AA0B20 /* imink */,
+				EC8611C4253AB9C9003BA67A /* WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EC8611C3253AB9C9003BA67A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC86126D253ADB52003BA67A /* Splatfont2.otf in Resources */,
+				EC98421B253ADE970079D739 /* Localizable.strings in Resources */,
+				EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */,
+				EC86126E253ADB52003BA67A /* Splatfont.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC900E6F251C55FF00AA0B20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,6 +722,7 @@
 				EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */,
 				EC900EC0251C8EF700AA0B20 /* Splatfont2.otf in Resources */,
 				EC900EDD251C8EF700AA0B20 /* results.json in Resources */,
+				EC86121D253AC61E003BA67A /* Assets.xcassets in Resources */,
 				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +730,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EC8611C1253AB9C9003BA67A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC984226253AE2310079D739 /* SalmonRunScheduleWidget.swift in Sources */,
+				EC861245253AC6ED003BA67A /* UserDefaultsWrapper.swift in Sources */,
+				EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */,
+				EC861222253AC656003BA67A /* API.swift in Sources */,
+				EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */,
+				EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */,
+				EC861234253AC6D4003BA67A /* SP2SalmonRunSchedules.swift in Sources */,
+				EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */,
+				EC98422D253AE3B40079D739 /* BattleScheduleWidget.swift in Sources */,
+				EC861237253AC6D4003BA67A /* SP2Schedules.swift in Sources */,
+				EC861238253AC6D4003BA67A /* SP2Stage.swift in Sources */,
+				EC86123E253AC6ED003BA67A /* Operator.swift in Sources */,
+				EC861233253AC6D4003BA67A /* SP2Rule.swift in Sources */,
+				EC861236253AC6D4003BA67A /* SP2Player.swift in Sources */,
+				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
+				EC86123A253AC6D4003BA67A /* SP2TeamResult.swift in Sources */,
+				EC861235253AC6D4003BA67A /* SP2BattleOverview.swift in Sources */,
+				EC861241253AC6ED003BA67A /* NSLayoutConstraint+Mutiplier.swift in Sources */,
+				EC861232253AC6D4003BA67A /* SP2GameMode.swift in Sources */,
+				EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */,
+				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
+				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
+				EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */,
+				EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */,
+				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
+				EC86122F253AC6D4003BA67A /* SP2Records.swift in Sources */,
+				EC861225253AC656003BA67A /* APITargetType.swift in Sources */,
+				EC984233253AF3F70079D739 /* FontModifier.swift in Sources */,
+				EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */,
+				EC861239253AC6D4003BA67A /* SP2Weapon.swift in Sources */,
+				EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */,
+				EC861244253AC6ED003BA67A /* Collection.swift in Sources */,
+				EC861230253AC6D4003BA67A /* SP2TeamMember.swift in Sources */,
+				EC86123B253AC6D4003BA67A /* SP2NicknameAndIcon.swift in Sources */,
+				EC861231253AC6D4003BA67A /* SP2Battle.swift in Sources */,
+				EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */,
+				EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */,
+				EC984217253ADE880079D739 /* AppColor.swift in Sources */,
+				EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */,
+				EC861223253AC656003BA67A /* AppAPI.swift in Sources */,
+				EC86122C253AC6D0003BA67A /* User.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC900E6D251C55FF00AA0B20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -561,6 +794,7 @@
 				EC9A903F25275BA000390573 /* SP2GameMode.swift in Sources */,
 				EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */,
 				EC00DC09251CD8770010366A /* BattleDataView.swift in Sources */,
+				EC861258253ACACA003BA67A /* UserDefaultsMigrator.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */,
@@ -626,6 +860,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EC8611CF253AB9CB003BA67A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC8611C4253AB9C9003BA67A /* WidgetExtension */;
+			targetProxy = EC8611CE253AB9CB003BA67A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		EC900E7A251C55FF00AA0B20 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -654,6 +896,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EC8611D3253AB9CB003BA67A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AppWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
+				INFOPLIST_FILE = AppWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC8611D4253AB9CB003BA67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AppWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
+				INFOPLIST_FILE = AppWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EC900E83251C55FF00AA0B20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -825,6 +1123,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EC8611D2253AB9CB003BA67A /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC8611D3253AB9CB003BA67A /* Debug */,
+				EC8611D4253AB9CB003BA67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EC900E6C251C55FE00AA0B20 /* Build configuration list for PBXProject "imink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -900,6 +1207,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EC98423B253BEC0A0079D739 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
