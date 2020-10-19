@@ -72,11 +72,20 @@ struct SalmonRunScheduleView: View {
                                 HStack(alignment: .center) {
                                     
                                     ForEach(weapons, id: \.id) { weapon in
-                                        WebImage(url: weapon.weapon.thumbnailURL)
-                                            .resizable()
-                                            .aspectRatio(1, contentMode: .fit)
-                                            .frame(minWidth: 40)
-                                            .cornerRadius(8)
+                                        if let thumbnailURL = weapon.weapon?.thumbnailURL {
+                                            WebImage(url: thumbnailURL)
+                                                .resizable()
+                                                .aspectRatio(1, contentMode: .fit)
+                                                .frame(minWidth: 40)
+                                                .cornerRadius(8)
+                                        }
+                                        else if let imageURL = weapon.coopSpecialWeapon?.imageURL {
+                                            WebImage(url: imageURL)
+                                                .resizable()
+                                                .aspectRatio(1, contentMode: .fit)
+                                                .frame(minWidth: 40)
+                                                .cornerRadius(8)
+                                        }
                                     }
                                     
                                 }
