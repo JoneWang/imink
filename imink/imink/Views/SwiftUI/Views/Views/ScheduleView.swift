@@ -40,7 +40,7 @@ struct ScheduleView: View {
                         VStack {
                             Text(index == 0 ?
                                     LocalizedStringKey("schedule_now_title") :
-                                    "\(calendar.isDateInToday(scheduleTime) ? "" : "\(LocalizedStringKey("schedule_next_day_title")) ")\(scheduleTime, formatter: scheduleTimeFormat)")
+                                    "\(calendar.isDateInToday(scheduleTime) ? "" : "\(NSLocalizedString("schedule_next_day_title", comment: "")) ")\(scheduleTime, formatter: scheduleTimeFormat)")
                                 .sp2Font(size: 15, color: Color.primary)
                                 .colorInvert()
                         }
