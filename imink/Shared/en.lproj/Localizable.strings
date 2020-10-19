@@ -77,6 +77,18 @@
 
 // MARK: Widget
 
+"widget_regular_schedule_preview_title" = "Regular Battle";
+
+"widget_regular_schedule_preview_description" = "View the current and upcoming Regular Battle stages.";
+
+"widget_ranked_schedule_preview_title" = "Ranked Battle";
+
+"widget_ranked_schedule_preview_description" = "View the current and upcoming Ranked Battle stages.";
+
+"widget_league_schedule_preview_title" = "League Battle";
+
+"widget_league_schedule_preview_description" = "View the current and upcoming League Battle stages.";
+
 "widget_schedule_now_title" = "Now";
 
 "widget_schedule_next_title" = "Next";
