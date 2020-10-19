@@ -327,7 +327,7 @@ struct HomePage: View {
                 }
             }
             .background(AppColor.listBackgroundColor)
-            .navigationBarTitle("Home", displayMode: .inline)
+            .navigationBarTitle("tabbar_home_title", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
             .navigationBarHidden(false)
             .onReceive(homeViewModel.$recordTotalCount) { _ in

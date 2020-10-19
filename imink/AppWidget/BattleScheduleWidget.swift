@@ -248,7 +248,7 @@ struct BattleScheduleWidgetEntryView : View {
                 HStack(spacing: 10) {
                     VStack(spacing: titleAndStageSpacing) {
                         HStack {
-                            Text("Now")
+                            Text("widget_schedule_now_title")
                                 .sp1Font(size: 14)
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                 .unredacted()
@@ -291,7 +291,7 @@ struct BattleScheduleWidgetEntryView : View {
                 HStack(spacing: 10) {
                     VStack(spacing: titleAndStageSpacing) {
                         HStack {
-                            Text("Next")
+                            Text("widget_schedule_next_title")
                                 .sp1Font(size: 14)
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                 .unredacted()

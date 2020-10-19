@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     }
     
     func configureContentView() {
+        tabBarItem.title = NSLocalizedString("tabbar_home_title", comment: "")
+        
         let hostingController = UIHostingController(rootView: HomePage())
         addChild(hostingController)
         

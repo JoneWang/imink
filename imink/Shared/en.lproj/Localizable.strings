@@ -6,6 +6,18 @@
   
 */
 
+// MARK: Tab bar
+
+"tabbar_home_title" = "Home";
+
+"tabbar_battle_title" = "Battle";
+
+"tabbar_salmonrun_title" = "Salmon Run";
+
+"tabbar_me_title" = "Me";
+
+// MARK: Sign in
+
 "sign_in_title" = "Welcome to imink!";
 
 "sign_in_with_token_title" = "Sign in with Client-Token";
@@ -13,10 +25,6 @@
 "sign_in_with_token_faq_2" = " @Sp2BattleBot ";
 "sign_in_with_token_faq_3" = "bot in Telegram to get Client-Token.";
 "sign_in_with_token_faq_title" = "How to get the Client-Token?";
-"sign_in_with_token_faq_content_1" = "First, \nyou must set up Splatoon2\'s token using @Sp2BattleBot in telegram.";
-"sign_in_with_token_faq_content_2" = "(How to use the /start command sent to @Sp2BattleBot to learn how to.)";
-"sign_in_with_token_faq_content_3" = "Second, \nsend the /clienttoken command to @Sp2BattleBot to get the Client Token.";
-"sign_in_with_token_faq_content_4" = "Finally, \ncopy the Client Token and tap the button below.";
 
 "token_login_paste_button" = "Click here to paste the Client Token";
 
@@ -35,6 +43,12 @@
 "api_error_iksm_session_invalid" = "The iksm_session is invalid";
 
 "api_error_request_parameter_error" = "Request paraemter error";
+
+// MARK: Schedule
+
+"schedule_now_title" = "Now";
+
+"schedule_next_day_title" = "Next Day";
 
 // MARK: Me
 
@@ -60,3 +74,9 @@
 "tower_control_title" = "Tower Control";
 "rainmaker_title" = "Rainmaker";
 "clam_blitz_title" = "Clam Blitz";
+
+// MARK: Widget
+
+"widget_schedule_now_title" = "Now";
+
+"widget_schedule_next_title" = "Next";

@@ -23,6 +23,8 @@ class MeViewController: UIViewController {
     }
     
     func configureContentView() {
+        tabBarItem.title = NSLocalizedString("tabbar_me_title", comment: "")
+        
         let hostingController = UIHostingController(rootView: MePage())
         addChild(hostingController)
         
