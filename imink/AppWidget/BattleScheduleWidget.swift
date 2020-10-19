@@ -364,13 +364,15 @@ enum WidgetKind: String {
 
 struct BattleScheduleWidget: Widget {
     var kind: WidgetKind = .regular
+    var displayName: LocalizedStringKey = ""
+    var description: LocalizedStringKey = ""
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind.rawValue, provider: BattleScheduleProvider(kind: kind)) { entry in
             BattleScheduleWidgetEntryView(entry: entry, kind: kind)
         }
         .supportedFamilies([.systemMedium])
-        .configurationDisplayName("Salmon Run Schedule")
-        .description("See the current schedule for Salmon Run.")
+        .configurationDisplayName(displayName)
+        .description(description)
     }
 }

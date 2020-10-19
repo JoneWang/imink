@@ -12,8 +12,20 @@ import SwiftUI
 struct SwiftWidgetsBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
-        BattleScheduleWidget(kind: .regular)
-        BattleScheduleWidget(kind: .gachi)
-        BattleScheduleWidget(kind: .league)
+        BattleScheduleWidget(
+            kind: .regular,
+            displayName: "widget_regular_schedule_preview_title",
+            description: "widget_regular_schedule_preview_description"
+        )
+        BattleScheduleWidget(
+            kind: .gachi,
+            displayName: "widget_ranked_schedule_preview_title",
+            description: "widget_ranked_schedule_preview_description"
+        )
+        BattleScheduleWidget(
+            kind: .league,
+            displayName: "widget_league_schedule_preview_title",
+            description: "widget_league_schedule_preview_description"
+        )
     }
 }
