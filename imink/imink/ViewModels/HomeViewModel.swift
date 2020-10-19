@@ -26,6 +26,7 @@ class HomeViewModel: ObservableObject {
     @Published var recordTotalCount = 0
     @Published var schedules: SP2Schedules?
     @Published var salmonRunSchedules: SP2SalmonRunSchedules?
+    @Published var activeFestivals: SP2ActiveFestivals?
     @Published var isLoading: Bool = false
     
     var vdWithLast500: [Bool] {
@@ -81,14 +82,6 @@ class HomeViewModel: ObservableObject {
             }
             .assign(to: &$recordTotalCount)
         
-        $schedules
-            .map { _ in false }
-            .assign(to: &$isLoading)
-        
-        $schedules
-            .map { _ in false }
-            .assign(to: &$isLoading)
-        
         updateSchedules()
         
         startSyncCountPublisher()
@@ -124,8 +117,21 @@ class HomeViewModel: ObservableObject {
         salmonRunSchedules
             .assign(to: &$salmonRunSchedules)
         
+        let activeFestivals = Splatoon2API.activeFestivals
+            .request()
+            .decode(type: SP2ActiveFestivals.self)
+            .receive(on: DispatchQueue.main)
+            .map { festivals -> SP2ActiveFestivals? in festivals }
+            .catch { error -> Just<SP2ActiveFestivals?> in
+                os_log("API Error: [activeFestivals] \(error.localizedDescription)")
+                return Just<SP2ActiveFestivals?>(nil)
+            }
+            
+        activeFestivals
+            .assign(to: &$activeFestivals)
+        
         // All finish
-        Publishers.Zip(battleSchedules, salmonRunSchedules)
+        Publishers.Zip3(battleSchedules, salmonRunSchedules, activeFestivals)
             .map { _ in false }
             .assign(to: &$isLoading)
     }

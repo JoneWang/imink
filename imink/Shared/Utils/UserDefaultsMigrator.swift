@@ -2,27 +2,12 @@
 //  UserDefaultsMigrator.swift
 //  imink
 //
-//  Created by Jone Wang on 2020/10/17.
+//  Created by Jone Wang on 2020/10/18.
 //
 
 import Foundation
-import SwiftUI
-import WidgetKit
 
-@objc extension UserDefaults {
-    
-    private static let migrator = Migrator(
-        from: .standard,
-        to: UserDefaults(suiteName: "group.wang.jone.imink") ?? .standard)
-    
-    @objc static let appGroup: UserDefaults = {
-        migrator.migrate()
-        return migrator.defaults()
-    }()
-    
-}
-
-final class Migrator: NSObject {
+final class UserDefaultsMigrator: NSObject {
     private let from: UserDefaults
     private let to: UserDefaults
     
@@ -51,7 +36,7 @@ final class Migrator: NSObject {
         }
         
         // Key to track if we migrated
-        let didMigrateToAppGroups = "DidMigrateToAppGroups8"
+        let didMigrateToAppGroups = "DidMigrateToAppGroups9"
         
         if !groupDefaults.bool(forKey: didMigrateToAppGroups) {
             
@@ -60,9 +45,6 @@ final class Migrator: NSObject {
                 groupDefaults.set(userDefaults.dictionaryRepresentation()[key], forKey: key)
             }
             groupDefaults.set(true, forKey: didMigrateToAppGroups)
-            
-            // Refresh widget
-            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     

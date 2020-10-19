@@ -12,11 +12,16 @@ import SwiftUI
 struct StandardStorage<Value: Codable>: DynamicProperty {
     @State var value: Value? = nil
     var key: String
-    var store: UserDefaults
+    var store: UserDefaults?
     
     var wrappedValue: Value? {
         get {
-            if let jsonString = store.string(forKey: key),
+            var ud = UserDefaults.standard
+            if let store = store {
+                ud = store
+            }
+            
+            if let jsonString = ud.string(forKey: key),
                let object = jsonString.decode(Value.self) {
                 return object
             }
@@ -26,13 +31,18 @@ struct StandardStorage<Value: Codable>: DynamicProperty {
         set {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
-                        
+            
+            var ud = UserDefaults.standard
+            if let store = store {
+                ud = store
+            }
+            
             if let newValue = newValue,
                let data = try? JSONEncoder().encode(newValue) {
                 let jsonString = String(data: data, encoding: .utf8)
-                store.setValue(jsonString, forKey: key)
+                ud.setValue(jsonString, forKey: key)
             } else {
-                store.setValue(nil, forKey: key)
+                ud.setValue(nil, forKey: key)
             }
         }
     }
