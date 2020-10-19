@@ -12,7 +12,8 @@ import SwiftUI
 struct SwiftWidgetsBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
-//        SalmonRunScheduleWidget()
-        BattleScheduleWidget()
+        BattleScheduleWidget(kind: .regular)
+        BattleScheduleWidget(kind: .gachi)
+        BattleScheduleWidget(kind: .league)
     }
 }

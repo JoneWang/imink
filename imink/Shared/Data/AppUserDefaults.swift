@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import WidgetKit
 
 class AppUserDefaults: ObservableObject {
     static let shared = AppUserDefaults()
@@ -24,6 +25,7 @@ class AppUserDefaults: ObservableObject {
                     object: nil
                 )
             }
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
@@ -35,4 +37,7 @@ class AppUserDefaults: ObservableObject {
     
     @AppStorage("splatoon2_nickname_and_icon", store: UserDefaults.appGroup)
     var splatoon2NicknameAndIconData: Data?
+    
+    @AppStorage("splatoon2_battle_schedule", store: UserDefaults.appGroup)
+    var splatoon2BattleScheduleData: Data?
 }
