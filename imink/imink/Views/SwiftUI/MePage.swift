@@ -133,7 +133,7 @@ struct MePage: View {
                 }
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationBarTitle("Me", displayMode: .inline)
+            .navigationBarTitle("tabbar_me_title", displayMode: .inline)
             .navigationBarHidden(false)
             
         }

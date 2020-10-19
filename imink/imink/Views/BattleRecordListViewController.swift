@@ -43,6 +43,8 @@ class BattleRecordListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBarItem.title = NSLocalizedString("tabbar_battle_title", comment: "")
 
         battleListViewModel = BattleListViewModel()
 
