@@ -148,6 +148,7 @@
 		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
 		ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */; };
+		ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +286,7 @@
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
 		ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSplitViewController.swift; sourceTree = "<group>"; };
+		ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 				EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */,
 				EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */,
 				ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */,
+				ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */,
 				EC344FE425330312004A7AF1 /* MeViewController.swift */,
 			);
 			path = Views;
@@ -840,6 +843,7 @@
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
 				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
+				ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */,
 				EC900ED2251C8EF700AA0B20 /* SP2Battle.swift in Sources */,
 				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
 				EC900ED5251C8EF700AA0B20 /* SP2Weapon.swift in Sources */,

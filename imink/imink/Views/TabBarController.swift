@@ -47,11 +47,17 @@ class TabBarController: UITabBarController {
     func setupItems() {
         guard let homeViewController = HomeViewController.instantiateFromStoryboard(),
               let battleSplitViewController = BattleSplitViewController.instantiateFromStoryboard(),
-              let meViewController = MeViewController.instantiateFromStoryboard() else {
+              let meViewController = MeViewController.instantiateFromStoryboard(),
+              let salmonRunViewController = SalmonRunViewController.instantiateFromStoryboard() else {
             return
         }
         
-        viewControllers = [homeViewController, battleSplitViewController, meViewController]
+        homeViewController.tabBarItem.title = NSLocalizedString("tabbar_home_title", comment: "")
+        battleSplitViewController.tabBarItem.title = NSLocalizedString("tabbar_battle_title", comment: "")
+        salmonRunViewController.tabBarItem.title = NSLocalizedString("tabbar_salmonrun_title", comment: "")
+        meViewController.tabBarItem.title = NSLocalizedString("tabbar_me_title", comment: "")
+        
+        viewControllers = [homeViewController, battleSplitViewController, salmonRunViewController, meViewController]
     }
     
     func showLogin() {
