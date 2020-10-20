@@ -59,7 +59,7 @@ struct HomePage: View {
                                         .opacity(0.9)
                                         .frame(width: 25, height: 25)
                                     
-                                    Text("Victory:")
+                                    Text("\(NSLocalizedString("victory_title", comment: "")):")
                                         .sp2Font(size: 16, color: Color.primary)
                                         .minimumScaleFactor(0.5)
                                     
@@ -74,7 +74,7 @@ struct HomePage: View {
                                     
                                     VStack(spacing: 4) {
                                         
-                                        Text("VICTORY")
+                                        Text("victory_uppercase_title")
                                             .sp2Font(size: 10, color: Color.secondary)
                                         
                                         Text("\(todayVictoryCount)")
@@ -87,7 +87,7 @@ struct HomePage: View {
                                     
                                     VStack(spacing: 4) {
                                         
-                                        Text("DEFEAT")
+                                        Text("defeat_uppercase_title")
                                             .sp2Font(size: 10, color: Color.secondary)
                                         
                                         Text("\(todayDefeatCount)")
@@ -207,10 +207,10 @@ struct HomePage: View {
                         
                         HStack(alignment: .bottom) {
                             
-                            Text("Results")
+                            Text("home_results_title")
                                 .sp1Font(size: 22, color: Color.primary)
                             
-                            Text("(Last 500)")
+                            Text("(\(NSLocalizedString("home_results_last_500_title", comment: ""))")
                                 .sp2Font(color: Color.secondary)
                                 .padding(.bottom, 2)
                             
@@ -220,7 +220,7 @@ struct HomePage: View {
                             HStack {
                                 Spacer()
                                 
-                                Text("Last 50")
+                                Text("home_results_last_50_title")
                                     .sp2Font(size: 16, color: Color.secondary)
                                     .minimumScaleFactor(0.5)
                                     .frame(width: geo.size.width / 10 - 2)
@@ -238,7 +238,7 @@ struct HomePage: View {
                     if let festival = homeViewModel.activeFestivals?.festivals.first {
                         VStack(alignment: .leading, spacing: 0) {
                             
-                            Text("Splatfest")
+                            Text("home_splatfest_title")
                                 .sp1Font(size: 22, color: Color.primary)
                             
                             VStack {
@@ -283,13 +283,13 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        Text("Schedule")
+                        Text("home_shedule_title")
                             .sp1Font(size: 22, color: Color.primary)
                         
                         VStack {
                             Picker(selection: $scheduleType, label: Text("Picker"), content: {
-                                Text("Battle").tag(0)
-                                Text("Salmon Run").tag(1)
+                                Text("battle_title").tag(0)
+                                Text("salmon_run_title").tag(1)
                             })
                             .pickerStyle(SegmentedPickerStyle())
                             .frame(width: 230)

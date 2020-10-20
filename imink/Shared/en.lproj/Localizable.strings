@@ -9,23 +9,16 @@
 // MARK: API error
 
 "api_error_unknown" = "Error connecting to the server";
-
 "api_error_authorization_error" = "Authorization error";
-
 "api_error_client_token_invalid" = "Client token is invalid";
-
 "api_error_iksm_session_invalid" = "The iksm_session is invalid";
-
 "api_error_request_parameter_error" = "Request paraemter error";
 
 // MARK: Tab bar
 
 "tabbar_home_title" = "Home";
-
 "tabbar_battle_title" = "Battle";
-
 "tabbar_salmonrun_title" = "Salmon Run";
-
 "tabbar_me_title" = "Me";
 
 // MARK: Sign in
@@ -39,25 +32,31 @@
 "sign_in_with_token_faq_title" = "How to get the Client-Token?";
 
 "token_title" = "Client-Token"
-
 "token_login_ok_button" = "OK";
-
 "token_login_error" = "Not a valid Client Token";
+
+// MARK: Home
+"home_today_title" = "Today";
+"home_results_title" = "Results";
+"home_results_last_500_title" = "Last 500";
+"home_results_last_50_title" = "Last 50";
+"home_splatfest_title" = "Splatfest";
+"home_shedule_title" = "Schedule";
 
 // MARK: Schedule
 
+// Battle
 "schedule_now_title" = "Now";
-
 "schedule_next_day_title" = "Next Day";
+
+// SalmonRun
+"schedule_supplied_weapons_title" = "Supplied Weapons";
 
 // MARK: Me
 
 "me_source_code_title" = "Source code / report an issue";
-
 "me_faq_title" = "FAQ";
-
 "me_version_title" = "Version";
-
 "me_logout_title" = "Logout";
 
 // MARK: Button
@@ -70,9 +69,15 @@
 
 // MARK: Game
 
-// Mode
+"battle_title" = "Battle"
+
+"victory_title" = "Victory";
+"defeat_title" = "Ddfeat";
 "victory_uppercase_title" = "VICTORY";
 "defeat_uppercase_title" = "DEFEAT";
+
+// Mode
+"salmon_run_title" = "Salmon Run"
 
 // Rule
 "splat_zones_title" = "Splat Zones";
@@ -83,17 +88,10 @@
 // MARK: Widget
 
 "widget_regular_schedule_preview_title" = "Regular Battle";
-
 "widget_regular_schedule_preview_description" = "View the current and upcoming Regular Battle stages.";
-
 "widget_ranked_schedule_preview_title" = "Ranked Battle";
-
 "widget_ranked_schedule_preview_description" = "View the current and upcoming Ranked Battle stages.";
-
 "widget_league_schedule_preview_title" = "League Battle";
-
 "widget_league_schedule_preview_description" = "View the current and upcoming League Battle stages.";
-
 "widget_schedule_now_title" = "Now";
-
 "widget_schedule_next_title" = "Next";
