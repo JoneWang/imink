@@ -39,7 +39,7 @@ struct LoginPage: View {
                                 .font(.footnote)
                         }
                         
-                        TextField("Client-Token", text: $launchPageViewModel.clientToken)
+                        TextField("token_title", text: $launchPageViewModel.clientToken)
                             .multilineTextAlignment(.center)
                             .padding(2)
                             .frame(width: 280)

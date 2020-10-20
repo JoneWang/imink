@@ -6,6 +6,18 @@
   
 */
 
+// MAR: API error
+
+"api_error_unknown" = "Error connecting to the server";
+
+"api_error_authorization_error" = "Authorization error";
+
+"api_error_client_token_invalid" = "Client token is invalid";
+
+"api_error_iksm_session_invalid" = "The iksm_session is invalid";
+
+"api_error_request_parameter_error" = "Request paraemter error";
+
 // MARK: Tab bar
 
 "tabbar_home_title" = "Home";
@@ -26,23 +38,11 @@
 "sign_in_with_token_faq_3" = "bot in Telegram to get Client-Token.";
 "sign_in_with_token_faq_title" = "How to get the Client-Token?";
 
-"token_login_paste_button" = "Click here to paste the Client Token";
+"token_title" = "Client-Token"
 
 "token_login_ok_button" = "OK";
 
 "token_login_error" = "Not a valid Client Token";
-
-"popup_loading_title" = "Swimming...";
-
-"api_error_unknown" = "Error connecting to the server";
-
-"api_error_authorization_error" = "Authorization error";
-
-"api_error_client_token_invalid" = "Client token is invalid";
-
-"api_error_iksm_session_invalid" = "The iksm_session is invalid";
-
-"api_error_request_parameter_error" = "Request paraemter error";
 
 // MARK: Schedule
 
@@ -68,8 +68,13 @@
 "button_yes_title" = "Yes";
 "button_no_title" = "No";
 
-// MARK: Game mode
+// MARK: Game
 
+// Mode
+"victory_uppercase_title" = "VICTORY";
+"defeat_uppercase_title" = "DEFEAT";
+
+// Rule
 "splat_zones_title" = "Splat Zones";
 "tower_control_title" = "Tower Control";
 "rainmaker_title" = "Rainmaker";
