@@ -6,7 +6,7 @@
   
 */
 
-// MAR: API error
+// MARK: API error
 
 "api_error_unknown" = "Error connecting to the server";
 
