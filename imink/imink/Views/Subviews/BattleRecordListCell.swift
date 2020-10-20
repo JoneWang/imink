@@ -60,7 +60,7 @@ class BattleRecordListCell: UICollectionViewCell {
     
     private func configure(with record: Record) {
         battleNumberLabel.text = record.battleNumber
-        resultLabel.text = "\(record.victory ? "VICTORY" : "DEFEAT")"
+        resultLabel.text = "\(record.victory ? NSLocalizedString("victory_uppercase_title", comment: "") : NSLocalizedString("defeat_uppercase_title", comment: ""))"
         resultLabel.textColor = record.victory ?
             AppUIColor.spPink :
             AppUIColor.spLightGreen
