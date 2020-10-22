@@ -131,6 +131,22 @@ struct BattleScheduleLargeWidgetEntryView : View {
         }
     }
     
+    var topBarHeight: CGFloat {
+        var height: CGFloat = 49
+        if entry.size == .size320x568 {
+            height = 47
+        }
+        return height
+    }
+    
+    var stageNameLineSpacing: CGFloat {
+        var lineSpacing: CGFloat = 3.3
+        if entry.size == .size320x568 {
+            lineSpacing = 3.025
+        }
+        return lineSpacing
+    }
+    
     var body: some View {
         if entry.schedules != nil {
             makeContent()
@@ -177,7 +193,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                 }
                 .offset(x: 0, y: 2)
             }
-            .frame(height: 49)
+            .frame(height: topBarHeight)
             .clipped()
             .unredacted()
 
@@ -213,7 +229,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
 
                                 Text(schedule?.stageA.name ?? "      \n      ")
                                     .sp2Font(size: stageNameFontSize, lineLimit: 2)
-                                    .lineSpacing(3.3)
+                                    .lineSpacing(stageNameLineSpacing)
                                     .multilineTextAlignment(.leading)
                                     .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
                             }
@@ -226,7 +242,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
 
                                 Text(schedule?.stageB.name ?? "      \n      ")
                                     .sp2Font(size: stageNameFontSize, lineLimit: 2)
-                                    .lineSpacing(3.3)
+                                    .lineSpacing(stageNameLineSpacing)
                                     .multilineTextAlignment(.leading)
                                     .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
                                     .padding(.trailing, stagePadding)
