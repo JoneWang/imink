@@ -125,15 +125,18 @@
 		EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */; };
 		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
 		EC900EE1251C8EF700AA0B20 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* Record.swift */; };
+		EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */; };
+		EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440E025406C8200060E46 /* WidgetSize.swift */; };
+		EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */; };
+		EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440F025407ACA00060E46 /* BattleScheduleWidget.swift */; };
 		EC984217253ADE880079D739 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
 		EC984218253ADE880079D739 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA5251C8EF600AA0B20 /* AppTheme.swift */; };
 		EC98421B253ADE970079D739 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
 		EC984226253AE2310079D739 /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984220253AE2030079D739 /* SalmonRunScheduleWidget.swift */; };
-		EC98422D253AE3B40079D739 /* BattleScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984229253AE2720079D739 /* BattleScheduleWidget.swift */; };
+		EC98422D253AE3B40079D739 /* BattleScheduleMediumWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */; };
 		EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC984233253AF3F70079D739 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
-		EC98423C253BEC0A0079D739 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC98423B253BEC0A0079D739 /* SDWebImage */; };
 		EC984249253C13770079D739 /* SP2ActiveFestivals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984248253C13770079D739 /* SP2ActiveFestivals.swift */; };
 		EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
@@ -271,8 +274,12 @@
 		EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
 		EC900EBF251C8EF700AA0B20 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleProvider.swift; sourceTree = "<group>"; };
+		EC9440E025406C8200060E46 /* WidgetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSize.swift; sourceTree = "<group>"; };
+		EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
+		EC9440F025407ACA00060E46 /* BattleScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleWidget.swift; sourceTree = "<group>"; };
 		EC984220253AE2030079D739 /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
-		EC984229253AE2720079D739 /* BattleScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleWidget.swift; sourceTree = "<group>"; };
+		EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC984248253C13770079D739 /* SP2ActiveFestivals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2ActiveFestivals.swift; sourceTree = "<group>"; };
 		EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
 		EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Mutiplier.swift"; sourceTree = "<group>"; };
@@ -295,7 +302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */,
-				EC98423C253BEC0A0079D739 /* SDWebImage in Frameworks */,
 				EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,12 +412,14 @@
 		EC8611C8253AB9C9003BA67A /* AppWidget */ = {
 			isa = PBXGroup;
 			children = (
+				EC9440D925406C2F00060E46 /* Providers */,
+				EC9440D625406BB900060E46 /* BattleWidget */,
 				EC861262253ACFE2003BA67A /* UserDefaults.swift */,
 				EC8611D7253ABA31003BA67A /* AppWidget.swift */,
 				EC8611CB253AB9CB003BA67A /* Assets.xcassets */,
 				EC8611CD253AB9CB003BA67A /* Info.plist */,
 				EC984220253AE2030079D739 /* SalmonRunScheduleWidget.swift */,
-				EC984229253AE2720079D739 /* BattleScheduleWidget.swift */,
+				EC9440E025406C8200060E46 /* WidgetSize.swift */,
 			);
 			path = AppWidget;
 			sourceTree = "<group>";
@@ -615,6 +623,24 @@
 			path = DBModels;
 			sourceTree = "<group>";
 		};
+		EC9440D625406BB900060E46 /* BattleWidget */ = {
+			isa = PBXGroup;
+			children = (
+				EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */,
+				EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */,
+				EC9440F025407ACA00060E46 /* BattleScheduleWidget.swift */,
+			);
+			path = BattleWidget;
+			sourceTree = "<group>";
+		};
+		EC9440D925406C2F00060E46 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -632,7 +658,6 @@
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
-				EC98423B253BEC0A0079D739 /* SDWebImage */,
 			);
 			productName = SalmonRunSchedulesWidgetExtension;
 			productReference = EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */;
@@ -748,11 +773,12 @@
 				EC861245253AC6ED003BA67A /* UserDefaultsWrapper.swift in Sources */,
 				EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */,
 				EC861222253AC656003BA67A /* API.swift in Sources */,
+				EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */,
 				EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */,
 				EC861234253AC6D4003BA67A /* SP2SalmonRunSchedules.swift in Sources */,
 				EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */,
-				EC98422D253AE3B40079D739 /* BattleScheduleWidget.swift in Sources */,
+				EC98422D253AE3B40079D739 /* BattleScheduleMediumWidgetEntryView.swift in Sources */,
 				EC861237253AC6D4003BA67A /* SP2Schedules.swift in Sources */,
 				EC861238253AC6D4003BA67A /* SP2Stage.swift in Sources */,
 				EC86123E253AC6ED003BA67A /* Operator.swift in Sources */,
@@ -762,10 +788,12 @@
 				EC86123A253AC6D4003BA67A /* SP2TeamResult.swift in Sources */,
 				EC861235253AC6D4003BA67A /* SP2BattleOverview.swift in Sources */,
 				EC861241253AC6ED003BA67A /* NSLayoutConstraint+Mutiplier.swift in Sources */,
+				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
 				EC861232253AC6D4003BA67A /* SP2GameMode.swift in Sources */,
 				EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */,
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
+				EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */,
 				EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */,
 				EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */,
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
@@ -777,6 +805,7 @@
 				EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */,
 				EC861244253AC6ED003BA67A /* Collection.swift in Sources */,
 				EC861230253AC6D4003BA67A /* SP2TeamMember.swift in Sources */,
+				EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */,
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC86123B253AC6D4003BA67A /* SP2NicknameAndIcon.swift in Sources */,
 				EC861231253AC6D4003BA67A /* SP2Battle.swift in Sources */,
@@ -919,6 +948,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -927,6 +957,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -947,6 +978,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -955,6 +987,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1090,7 +1123,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1116,7 +1149,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1221,11 +1254,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		EC98423B253BEC0A0079D739 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
