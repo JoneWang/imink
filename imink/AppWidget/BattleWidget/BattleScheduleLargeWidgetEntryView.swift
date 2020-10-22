@@ -150,19 +150,8 @@ struct BattleScheduleLargeWidgetEntryView : View {
     var body: some View {
         if entry.schedules != nil {
             makeContent()
-                .background(
-                    Image(backgroundName)
-                        .resizable()
-                        .scaledToFill()
-                )
         } else {
             makeContent()
-                .background(
-                    Image(backgroundName)
-                        .resizable()
-                        .scaledToFill()
-                        .unredacted()
-                )
                 .redacted(reason: .placeholder)
         }
     }
@@ -174,87 +163,97 @@ struct BattleScheduleLargeWidgetEntryView : View {
     }()
     
     func makeContent() -> some View {
-        VStack(spacing: topBarSpacing) {
-            ZStack {
-                Rectangle()
-                    .overlay(
-                        Image("Topbar")
-                            .resizable()
-                            .scaledToFill(),
-                        alignment: .top
-                    )
-                
-                HStack(alignment: .center) {
-                    Spacer()
-                    Image(titleIconName)
-                    Text(gameMode.name)
-                        .sp1Font(size: 17)
-                    Spacer()
+        ZStack {
+            Rectangle()
+                .overlay(
+                    Image(backgroundName)
+                        .resizable()
+                        .scaledToFill(),
+                    alignment: .top
+                )
+            
+            VStack(spacing: topBarSpacing) {
+                ZStack {
+                    Rectangle()
+                        .overlay(
+                            Image("Topbar")
+                                .resizable()
+                                .scaledToFill(),
+                            alignment: .top
+                        )
+                    
+                    HStack(alignment: .center) {
+                        Spacer()
+                        Image(titleIconName)
+                        Text(gameMode.name)
+                            .sp1Font(size: 17)
+                        Spacer()
+                    }
+                    .offset(x: 0, y: 2)
                 }
-                .offset(x: 0, y: 2)
-            }
-            .frame(height: topBarHeight)
-            .clipped()
-            .unredacted()
-
-            VStack(spacing: vSpacing) {
-                ForEach(0..<3) { index in
-                    let schedule: SP2Schedule? = entry.schedules?[index]
-                    let titles: [LocalizedStringKey] = [
-                        "widget_schedule_now_title",
-                        "widget_schedule_next_title",
-                        schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "           "]
-
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack {
-                            Text(titles[index])
-                                .sp1Font(size: 14)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                                .unredacted()
-
-                            Spacer()
-
-                            Text("\(schedule?.rule.name ?? "      ")")
-                                .sp1Font(size: 14, color: ruleNameColor)
-                                .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
-                        }
-                        .padding(.top, 0)
-
-                        HStack(spacing: stageSpacing) {
-                            HStack(spacing: stageImageAndNameSpcaing) {
-                                makeStageImage(
-                                    stageId: schedule?.stageA.id ?? "0"
-                                )
-                                .padding([.leading, .top, .bottom], stagePadding)
-
-                                Text(schedule?.stageA.name ?? "      \n      ")
-                                    .sp2Font(size: stageNameFontSize, lineLimit: 2)
-                                    .lineSpacing(stageNameLineSpacing)
-                                    .multilineTextAlignment(.leading)
-                                    .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
+                .frame(height: topBarHeight)
+                .clipped()
+                .unredacted()
+                
+                VStack(spacing: vSpacing) {
+                    ForEach(0..<3) { index in
+                        let schedule: SP2Schedule? = entry.schedules?[index]
+                        let titles: [LocalizedStringKey] = [
+                            "widget_schedule_now_title",
+                            "widget_schedule_next_title",
+                            schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "           "]
+                        
+                        VStack(spacing: titleAndStageSpacing) {
+                            HStack {
+                                Text(titles[index])
+                                    .sp1Font(size: 14)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    .unredacted()
+                                
+                                Spacer()
+                                
+                                Text("\(schedule?.rule.name ?? "      ")")
+                                    .sp1Font(size: 14, color: ruleNameColor)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
                             }
-
-                            HStack(spacing: stageImageAndNameSpcaing) {
-                                makeStageImage(
-                                    stageId: schedule?.stageB.id ?? "0"
-                                )
-                                .padding([.top, .bottom], stagePadding)
-
-                                Text(schedule?.stageB.name ?? "      \n      ")
-                                    .sp2Font(size: stageNameFontSize, lineLimit: 2)
-                                    .lineSpacing(stageNameLineSpacing)
-                                    .multilineTextAlignment(.leading)
-                                    .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
-                                    .padding(.trailing, stagePadding)
+                            .padding(.top, 0)
+                            
+                            HStack(spacing: stageSpacing) {
+                                HStack(spacing: stageImageAndNameSpcaing) {
+                                    makeStageImage(
+                                        stageId: schedule?.stageA.id ?? "0"
+                                    )
+                                    .padding([.leading, .top, .bottom], stagePadding)
+                                    
+                                    Text(schedule?.stageA.name ?? "      \n      ")
+                                        .sp2Font(size: stageNameFontSize, lineLimit: 2)
+                                        .lineSpacing(stageNameLineSpacing)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
+                                }
+                                
+                                HStack(spacing: stageImageAndNameSpcaing) {
+                                    makeStageImage(
+                                        stageId: schedule?.stageB.id ?? "0"
+                                    )
+                                    .padding([.top, .bottom], stagePadding)
+                                    
+                                    Text(schedule?.stageB.name ?? "      \n      ")
+                                        .sp2Font(size: stageNameFontSize, lineLimit: 2)
+                                        .lineSpacing(stageNameLineSpacing)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
+                                        .padding(.trailing, stagePadding)
+                                }
                             }
+                            .background(Color.black.opacity(0.6))
+                            .cornerRadius(10)
                         }
-                        .background(Color.black.opacity(0.6))
-                        .cornerRadius(10)
                     }
                 }
+                .padding([.leading, .trailing, .bottom], 16)
+                .padding(.top, 0)
             }
-            .padding([.leading, .trailing, .bottom], 16)
-            .padding(.top, 0)
         }
     }
     
