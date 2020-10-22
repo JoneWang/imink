@@ -61,6 +61,5 @@ struct SP2FontModifier: ViewModifier {
             .font(.custom("Splatfont2", size: size))
             .foregroundColor(color)
             .lineLimit(lineLimit)
-            .frame(height: (lineLimit == 1) ? size : .infinity)
     }
 }

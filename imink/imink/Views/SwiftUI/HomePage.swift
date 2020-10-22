@@ -39,14 +39,13 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        HStack(alignment: .bottom) {
+                        HStack(alignment: .firstTextBaseline) {
                             
                             Text("Today")
                                 .sp1Font(size: 22, color: Color.primary)
                             
                             Text("(3:00 reset)")
                                 .sp2Font(color: Color.secondary)
-                                .padding(.bottom, 2)
                             
                         }
                         
@@ -205,14 +204,13 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        HStack(alignment: .bottom) {
+                        HStack(alignment: .firstTextBaseline) {
                             
                             Text("home_results_title")
                                 .sp1Font(size: 22, color: Color.primary)
                             
-                            Text("(\(NSLocalizedString("home_results_last_500_title", comment: ""))")
+                            Text("(\(NSLocalizedString("home_results_last_500_title", comment: "")))")
                                 .sp2Font(color: Color.secondary)
-                                .padding(.bottom, 2)
                             
                         }
                         
