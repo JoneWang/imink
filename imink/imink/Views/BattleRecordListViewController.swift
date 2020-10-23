@@ -173,7 +173,7 @@ extension BattleRecordListViewController {
         let recordItem = NSCollectionLayoutItem(layoutSize: recordItemSize)
         recordItem.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 16.0, bottom: 4, trailing: 16.0)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(80.0))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(88.0))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: recordItem, count: 1)
 
         let section = NSCollectionLayoutSection(group: group)
