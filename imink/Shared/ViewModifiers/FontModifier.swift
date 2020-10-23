@@ -58,7 +58,7 @@ struct SP2FontModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom("Splatfont2", size: size))
+            .font(.custom("Splatfont 2 v1.001", size: size))
             .foregroundColor(color)
             .lineLimit(lineLimit)
     }
