@@ -21,17 +21,17 @@ enum APIError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .unknown:
-            return "api_error_unknown"
+            return "Error connecting to the server"
         case .apiError(let reason):
             return reason
         case .authorizationError:
-            return "api_error_authorization_error"
+            return "Authorization error"
         case .clientTokenInvalid:
-            return "api_error_client_token_invalid"
+            return "Client token is invalid"
         case .iksmSessionInvalid:
-            return "api_error_iksm_session_invalid"
+            return "The iksm_session is invalid"
         case .requestParameterError:
-            return "api_error_request_parameter_error"
+            return "Request paraemter error"
         }
     }
 }

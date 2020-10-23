@@ -22,7 +22,7 @@ struct LoginPage: View {
             VStack {
                 if let _ = selectedLoginMethod {
                     VStack {
-                        Text("sign_in_with_token_title")
+                        Text("Sign in with Client Token")
                             .font(.title)
                             .padding()
                             .cornerRadius(10)
@@ -30,16 +30,16 @@ struct LoginPage: View {
                         Spacer()
                         
                         VStack {
-                            Text("sign_in_with_token_faq_1")
+                            Text("Sending /clienttoken to ")
                                 .font(.footnote)
                             
-                            Link("sign_in_with_token_faq_2", destination: URL(string: "tg://resolve?domain=Sp2BattleBot")!)
+                            Link("@Sp2BattleBot", destination: URL(string: "tg://resolve?domain=Sp2BattleBot")!)
                             
-                            Text("sign_in_with_token_faq_3")
+                            Text(" bot in Telegram to get Client-Token.")
                                 .font(.footnote)
                         }
                         
-                        TextField("token_title", text: $launchPageViewModel.clientToken)
+                        TextField("Client Token", text: $launchPageViewModel.clientToken)
                             .multilineTextAlignment(.center)
                             .padding(2)
                             .frame(width: 280)
@@ -56,7 +56,7 @@ struct LoginPage: View {
                                     self.selectedLoginMethod = nil
                                 }
                             }) {
-                                Text("button_back_title")
+                                Text("Back")
                                     .foregroundColor(.white)
                                     .frame(width: 100)
                                     .padding(5)
@@ -68,7 +68,7 @@ struct LoginPage: View {
                             Button(action: {
                                 launchPageViewModel.login()
                             }) {
-                                Text("button_sign_in_title")
+                                Text("Sign In")
                                     .foregroundColor(.white)
                                     .frame(width: 100)
                                     .padding(5)
@@ -83,7 +83,7 @@ struct LoginPage: View {
                     .padding()
                 } else {
                     VStack {
-                        Text("sign_in_title")
+                        Text("Welcome to imink!")
                             .font(.title)
                             .padding()
                         
@@ -94,7 +94,7 @@ struct LoginPage: View {
                                 self.selectedLoginMethod = .token
                             }
                         }) {
-                            Text("sign_in_with_token_title")
+                            Text("Sign in with Client Token")
                                 .foregroundColor(.white)
                                 .frame(width: 250)
                                 .padding()

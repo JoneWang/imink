@@ -58,7 +58,7 @@ struct HomePage: View {
                                         .opacity(0.9)
                                         .frame(width: 25, height: 25)
                                     
-                                    Text("\(NSLocalizedString("victory_title", comment: "")):")
+                                    Text("\(NSLocalizedString("Victory", comment: "")):")
                                         .sp2Font(size: 16, color: Color.primary)
                                         .minimumScaleFactor(0.5)
                                     
@@ -73,7 +73,7 @@ struct HomePage: View {
                                     
                                     VStack(spacing: 4) {
                                         
-                                        Text("victory_uppercase_title")
+                                        Text("VICTORY")
                                             .sp2Font(size: 10, color: Color.secondary)
                                         
                                         Text("\(todayVictoryCount)")
@@ -86,7 +86,7 @@ struct HomePage: View {
                                     
                                     VStack(spacing: 4) {
                                         
-                                        Text("defeat_uppercase_title")
+                                        Text("DEFEAT")
                                             .sp2Font(size: 10, color: Color.secondary)
                                         
                                         Text("\(todayDefeatCount)")
@@ -206,10 +206,10 @@ struct HomePage: View {
                         
                         HStack(alignment: .firstTextBaseline) {
                             
-                            Text("home_results_title")
+                            Text("Results")
                                 .sp1Font(size: 22, color: Color.primary)
                             
-                            Text("(\(NSLocalizedString("home_results_last_500_title", comment: "")))")
+                            Text("(\(NSLocalizedString("Last 500", comment: "")))")
                                 .sp2Font(color: Color.secondary)
                             
                         }
@@ -218,7 +218,7 @@ struct HomePage: View {
                             HStack {
                                 Spacer()
                                 
-                                Text("home_results_last_50_title")
+                                Text("Last 50")
                                     .sp2Font(size: 16, color: Color.secondary)
                                     .minimumScaleFactor(0.5)
                                     .frame(width: geo.size.width / 10 - 2)
@@ -236,7 +236,7 @@ struct HomePage: View {
                     if let festival = homeViewModel.activeFestivals?.festivals.first {
                         VStack(alignment: .leading, spacing: 0) {
                             
-                            Text("home_splatfest_title")
+                            Text("Splatfest")
                                 .sp1Font(size: 22, color: Color.primary)
                             
                             VStack {
@@ -281,13 +281,13 @@ struct HomePage: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         
-                        Text("home_shedule_title")
+                        Text("Schedule")
                             .sp1Font(size: 22, color: Color.primary)
                         
                         VStack {
                             Picker(selection: $scheduleType, label: Text("Picker"), content: {
-                                Text("battle_title").tag(0)
-                                Text("salmon_run_title").tag(1)
+                                Text("Battle").tag(0)
+                                Text("Salmon Run").tag(1)
                             })
                             .pickerStyle(SegmentedPickerStyle())
                             .frame(width: 230)
@@ -325,7 +325,7 @@ struct HomePage: View {
                 }
             }
             .background(AppColor.listBackgroundColor)
-            .navigationBarTitle("tabbar_home_title", displayMode: .inline)
+            .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
             .navigationBarHidden(false)
             .onReceive(homeViewModel.$recordTotalCount) { _ in
