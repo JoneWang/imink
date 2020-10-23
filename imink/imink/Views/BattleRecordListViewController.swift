@@ -165,13 +165,13 @@ extension BattleRecordListViewController {
         collectionView.alwaysBounceVertical = true
         collectionView.collectionViewLayout = createCollectionViewLayout()
         collectionView.backgroundColor = AppUIColor.listBackgroundColor
-        collectionView.contentInset = .init(top: 5, left: 0, bottom: 5, right: 0)
+        collectionView.contentInset = .init(top: 12, left: 0, bottom: 12, right: 0)
     }
 
     func createCollectionViewLayout() -> UICollectionViewLayout {
         let recordItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let recordItem = NSCollectionLayoutItem(layoutSize: recordItemSize)
-        recordItem.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 10.0, bottom: 5.0, trailing: 10.0)
+        recordItem.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 16.0, bottom: 4, trailing: 16.0)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(80.0))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: recordItem, count: 1)

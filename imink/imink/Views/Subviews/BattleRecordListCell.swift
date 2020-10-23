@@ -42,6 +42,10 @@ class BattleRecordListCell: UICollectionViewCell {
         
         containerView.layer.cornerRadius = 5
         containerView.clipsToBounds = true
+        
+        rightBarView.backgroundColor = UIColor.gray
+        rightBarView.layer.cornerRadius = 4
+        rightBarView.clipsToBounds = true
     }
     
     override var isSelected: Bool {
@@ -73,9 +77,6 @@ class BattleRecordListCell: UICollectionViewCell {
         leftBarView.backgroundColor = record.victory ?
             AppUIColor.spPink :
             AppUIColor.spLightGreen
-        rightBarView.backgroundColor = record.victory ?
-            AppUIColor.spLightGreen :
-            AppUIColor.spPink
         barConstraint = barConstraint.setMultiplier(multiplier: CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint)))
         
         weaponImageView.image = nil
