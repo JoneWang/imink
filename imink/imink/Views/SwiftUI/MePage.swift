@@ -105,7 +105,13 @@ struct MePage: View {
                 Section {
                     makeRow(image: "chevron.left.slash.chevron.right", text: "Source code", link: URL(string: "https://github.com/JoneWang/imink"), color: .accentColor)
                     makeRow(image: "questionmark.circle", text: "FAQ", link: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ"), color: .accentColor)
-                    makeDetailRow(image: "tag", text: "Version", detail: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))", color: .accentColor)
+                    ZStack {
+                        makeDetailRow(image: "tag", text: "About inimk", detail: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))", color: .accentColor)
+                        NavigationLink(destination: AboutPage()) {
+                            EmptyView()
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
                 }
                 
                 Section {
@@ -174,6 +180,7 @@ struct MePage: View {
             Text(detail)
                 .foregroundColor(.gray)
                 .font(.callout)
+            Image(systemName: "chevron.right").imageScale(.medium)
         }
     }
 }
