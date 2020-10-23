@@ -199,8 +199,8 @@ struct BattleScheduleLargeWidgetEntryView : View {
                     ForEach(0..<3) { index in
                         let schedule: SP2Schedule? = entry.schedules?[index]
                         let titles: [LocalizedStringKey] = [
-                            "widget_schedule_now_title",
-                            "widget_schedule_next_title",
+                            "Now",
+                            "Next",
                             schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "           "]
                         
                         VStack(spacing: titleAndStageSpacing) {
@@ -286,11 +286,11 @@ extension BattleScheduleWidgetGameMode {
     var name: LocalizedStringKey {
         switch self {
         case .regular:
-            return "widget_regular_schedule_preview_title"
+            return "Regular Battle"
         case .gachi:
-            return "widget_ranked_schedule_preview_title"
+            return "Ranked Battle"
         case .league:
-            return "widget_league_schedule_preview_title"
+            return "League Battle"
         }
     }
     

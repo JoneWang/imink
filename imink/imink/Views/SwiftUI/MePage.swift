@@ -21,16 +21,16 @@ struct MePage: View {
         
         var data = [(LocalizedStringKey, SP2Player.Udemae)]()
         if let udemaeZones = player.udemaeZones, udemaeZones.name != nil {
-            data.append(("splat_zones_title", udemaeZones))
+            data.append(("Splat Zones", udemaeZones))
         }
         if let udemaeTower = player.udemaeTower, udemaeTower.name != nil {
-            data.append(("tower_control_title", udemaeTower))
+            data.append(("Tower Control", udemaeTower))
         }
         if let udemaeRainmaker = player.udemaeRainmaker, udemaeRainmaker.name != nil {
-            data.append(("rainmaker_title", udemaeRainmaker))
+            data.append(("Rainmaker", udemaeRainmaker))
         }
         if let udemaeClam = player.udemaeClam, udemaeClam.name != nil {
-            data.append(("clam_blitz_title", udemaeClam))
+            data.append(("Clam Blitz", udemaeClam))
         }
         
         return data
@@ -103,16 +103,16 @@ struct MePage: View {
                 }
                 
                 Section {
-                    makeRow(image: "chevron.left.slash.chevron.right", text: "me_source_code_title", link: URL(string: "https://github.com/JoneWang/imink"), color: .accentColor)
-                    makeRow(image: "questionmark.circle", text: "me_faq_title", link: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ"), color: .accentColor)
-                    makeDetailRow(image: "tag", text: "me_version_title", detail: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))", color: .accentColor)
+                    makeRow(image: "chevron.left.slash.chevron.right", text: "Source code", link: URL(string: "https://github.com/JoneWang/imink"), color: .accentColor)
+                    makeRow(image: "questionmark.circle", text: "FAQ", link: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ"), color: .accentColor)
+                    makeDetailRow(image: "tag", text: "Version", detail: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))", color: .accentColor)
                 }
                 
                 Section {
                     HStack {
                         Spacer()
                         
-                        Text("me_logout_title")
+                        Text("Logout")
                             .foregroundColor(.red)
                         
                         Spacer()
@@ -122,18 +122,18 @@ struct MePage: View {
                     }
                     .alert(isPresented: $showLogoutAlert) {
                         Alert(
-                            title: Text("me_logout_title"),
+                            title: Text("Logout"),
                             message: Text("Are you sure you want to logout?"),
-                            primaryButton: .destructive(Text("button_yes_title"), action: {
+                            primaryButton: .destructive(Text("Yes"), action: {
                                 AppUserDefaults.shared.user = nil
                             }),
-                            secondaryButton: .cancel(Text("button_no_title"))
+                            secondaryButton: .cancel(Text("No"))
                         )
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationBarTitle("tabbar_me_title", displayMode: .inline)
+            .navigationBarTitle("Me", displayMode: .inline)
             .navigationBarHidden(false)
             
         }

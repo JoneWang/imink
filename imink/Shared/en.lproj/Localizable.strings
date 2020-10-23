@@ -8,90 +8,84 @@
 
 // MARK: API error
 
-"api_error_unknown" = "Error connecting to the server";
-"api_error_authorization_error" = "Authorization error";
-"api_error_client_token_invalid" = "Client token is invalid";
-"api_error_iksm_session_invalid" = "The iksm_session is invalid";
-"api_error_request_parameter_error" = "Request paraemter error";
+"Error connecting to the server" = "Error connecting to the server";
+"Authorization error" = "Authorization error";
+"Client token is invalid" = "Client token is invalid";
+"The iksm_session is invalid" = "The iksm_session is invalid";
+"Request paraemter error" = "Request paraemter error";
 
 // MARK: Tab bar
 
-"tabbar_home_title" = "Home";
-"tabbar_battle_title" = "Battle";
-"tabbar_salmonrun_title" = "Salmon Run";
-"tabbar_me_title" = "Me";
+"Home" = "Home";
+"Battle" = "Battle";
+"Me" = "Me";
 
 // MARK: Sign in
 
-"sign_in_title" = "Welcome to imink!";
+"Welcome to imink!" = "Welcome to imink!";
 
-"sign_in_with_token_title" = "Sign in with Client-Token";
-"sign_in_with_token_faq_1" = "Sending /clienttoken to";
-"sign_in_with_token_faq_2" = " @Sp2BattleBot ";
-"sign_in_with_token_faq_3" = "bot in Telegram to get Client-Token.";
-"sign_in_with_token_faq_title" = "How to get the Client-Token?";
+"Sign in with Client Token" = "Sign in with Client Token";
+"sign_in_client_token_tip_1" = "Sending /clienttoken to ";
+"sign_in_client_token_tip_2" = " bot in Telegram to get Client-Token.";
+"Sign In" = "Sign In";
 
-"token_title" = "Client-Token";
-"token_login_ok_button" = "OK";
-"token_login_error" = "Not a valid Client Token";
+"Client Token" = "Client Token";
 
 // MARK: Home
-"home_today_title" = "Today";
-"home_results_title" = "Results";
-"home_results_last_500_title" = "Last 500";
-"home_results_last_50_title" = "Last 50";
-"home_splatfest_title" = "Splatfest";
-"home_shedule_title" = "Schedule";
+
+"Today" = "Today";
+"Results" = "Results";
+"Last 500" = "Last 500";
+"Last 50" = "Last 50";
+"Splatfest" = "Splatfest";
+"Schedule" = "Schedule";
 
 // MARK: Schedule
 
+"Next" = "Next";
+
 // Battle
-"schedule_now_title" = "Now";
-"schedule_next_day_title" = "Next Day";
+"Now" = "Now";
+"Next Day" = "Next Day";
 
 // SalmonRun
-"schedule_supplied_weapons_title" = "Supplied Weapons";
+"Supplied Weapons" = "Supplied Weapons";
 
 // MARK: Me
 
-"me_source_code_title" = "Source code / report an issue";
-"me_faq_title" = "FAQ";
-"me_version_title" = "Version";
-"me_logout_title" = "Logout";
-
-// MARK: Button
-
-"button_back_title" = "Back";
-"button_sign_in_title" = "Sign In";
-"button_close_title" = "Close";
-"button_yes_title" = "Yes";
-"button_no_title" = "No";
-
-// MARK: Game
-
-"battle_title" = "Battle";
-
-"victory_title" = "Victory";
-"defeat_title" = "Ddfeat";
-"victory_uppercase_title" = "VICTORY";
-"defeat_uppercase_title" = "DEFEAT";
-
-// Mode
-"salmon_run_title" = "Salmon Run";
-
-// Rule
-"splat_zones_title" = "Splat Zones";
-"tower_control_title" = "Tower Control";
-"rainmaker_title" = "Rainmaker";
-"clam_blitz_title" = "Clam Blitz";
+"Source code" = "Source code";
+"FAQ" = "FAQ";
+"Version" = "Version";
+"Logout" = "Logout";
 
 // MARK: Widget
 
-"widget_regular_schedule_preview_title" = "Regular Battle";
 "widget_regular_schedule_preview_description" = "View the current and upcoming Regular Battle stages.";
-"widget_ranked_schedule_preview_title" = "Ranked Battle";
 "widget_ranked_schedule_preview_description" = "View the current and upcoming Ranked Battle stages.";
-"widget_league_schedule_preview_title" = "League Battle";
 "widget_league_schedule_preview_description" = "View the current and upcoming League Battle stages.";
-"widget_schedule_now_title" = "Now";
-"widget_schedule_next_title" = "Next";
+"widget_salmon_run_schedule_preview_description" = "View the latest Salmon Run shift schedule.";
+
+// MARK: Game
+
+"Victory" = "Victory";
+"Defeat" = "Defeat";
+"VICTORY" = "VICTORY";
+"DEFEAT" = "DEFEAT";
+
+// Mode
+"Regular Battle" = "Regular Battle";
+"Ranked Battle" = "Ranked Battle";
+"League Battle" = "League Battle";
+"Salmon Run" = "Salmon Run";
+
+// Rule
+"Splat Zones" = "Splat Zones";
+"Tower Control" = "Tower Control";
+"Rainmaker" = "Rainmaker";
+"Clam Blitz" = "Clam Blitz";
+
+// MARK: Common
+
+"Back" = "Back";
+"Yes" = "Yes";
+"No" = "No";

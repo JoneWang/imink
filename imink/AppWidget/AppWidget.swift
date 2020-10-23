@@ -14,17 +14,17 @@ struct SwiftWidgetsBundle: WidgetBundle {
     var body: some Widget {
         BattleScheduleWidget(
             gameMode: .regular,
-            displayName: "widget_regular_schedule_preview_title",
+            displayName: "Regular Battle",
             description: "widget_regular_schedule_preview_description"
         )
         BattleScheduleWidget(
             gameMode: .gachi,
-            displayName: "widget_ranked_schedule_preview_title",
+            displayName: "Ranked Battle",
             description: "widget_ranked_schedule_preview_description"
         )
         BattleScheduleWidget(
             gameMode: .league,
-            displayName: "widget_league_schedule_preview_title",
+            displayName: "League Battle",
             description: "widget_league_schedule_preview_description"
         )
     }
