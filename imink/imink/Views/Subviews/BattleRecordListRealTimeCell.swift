@@ -31,7 +31,7 @@ class BattleRecordListRealTimeCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        containerView.layer.cornerRadius = 5
+        containerView.layer.cornerRadius = 10
         containerView.clipsToBounds = true
     }
     
