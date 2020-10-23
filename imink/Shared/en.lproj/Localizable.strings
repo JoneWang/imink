@@ -55,8 +55,13 @@
 
 "Source code" = "Source code";
 "FAQ" = "FAQ";
-"Version" = "Version";
+"About imink" = "About imink";
 "Logout" = "Logout";
+
+// About
+"Developer" = "Developer";
+"Designer" = "Designer";
+"Thanks" = "Thanks";
 
 // MARK: Widget
 
