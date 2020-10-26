@@ -19,51 +19,19 @@ class TabBarViewModel: ObservableObject {
     @Published var autoRefresh = true
     
     private var cancelBag = Set<AnyCancellable>()
+    private var syncCancelBag = Set<AnyCancellable>()
     
     init() {
-        // Database records publisher
-        AppDatabase.shared.records()
-            .catch { error -> Just<[Record]> in
-                os_log("Database Error: [records] \(error.localizedDescription)")
-                return Just<[Record]>([])
-            }
-            .assign(to: &$databaseRecords)
-        
-        // Synchronizing the record where first isDetail is false
-        $databaseRecords
-            .compactMap { $0.first(where: { !$0.isDetail }) }
-            .breakpoint(receiveSubscription: { subscription in
-                    return false
-                }, receiveOutput: { value in
-                    print(value.battleNumber)
-                    return false
-                }, receiveCompletion: { completion in
-                    return false
-                })
-            .map { [weak self] record -> Record in
-                self?.isLoadingDetail = true
-                return record
-            }
-            .flatMap { self.requestBattleDetail(battleNumber: $0.battleNumber) }
-            .catch { error -> Just<Data> in
-                os_log("API Error: [splatoon2/battles/id] \(error.localizedDescription)")
-                return Just<Data>(Data())
-            }
-            .sink { [weak self] data in
-                guard let `self` = self else { return }
-                self.updateRecordDetail(data)
-                
-                if self.databaseRecords.filter({ !$0.isDetail }).count == 0 {
-                    self.isLoadingDetail = false
-                    NotificationCenter.default.post(name: .recordSyncDetailFinished, object: nil)
-                }
-            }
-            .store(in: &cancelBag)
-        
         $autoRefresh
             .filter { $0 }
             .sink { [weak self] _ in
                 self?.startRealTimeDataLoop()
+            }
+            .store(in: &cancelBag)
+        
+        $autoRefresh
+            .sink { [weak self] _ in
+                self?.syncDetails()
             }
             .store(in: &cancelBag)
         
@@ -134,6 +102,50 @@ extension TabBarViewModel {
                 }
             }
             .store(in: &cancelBag)
+    }
+    
+    func syncDetails() {
+        syncCancelBag = Set<AnyCancellable>()
+        
+        // Database records publisher
+        AppDatabase.shared.records()
+            .catch { error -> Just<[Record]> in
+                os_log("Database Error: [records] \(error.localizedDescription)")
+                return Just<[Record]>([])
+            }
+            .assign(to: \.databaseRecords, on: self)
+            .store(in: &syncCancelBag)
+        
+        // Synchronizing the record where first isDetail is false
+        $databaseRecords
+            .compactMap { $0.first(where: { !$0.isDetail }) }
+            .breakpoint(receiveSubscription: { subscription in
+                return false
+            }, receiveOutput: { value in
+                print(value.battleNumber)
+                return false
+            }, receiveCompletion: { completion in
+                return false
+            })
+            .map { [weak self] record -> Record in
+                self?.isLoadingDetail = true
+                return record
+            }
+            .flatMap { self.requestBattleDetail(battleNumber: $0.battleNumber) }
+            .catch { error -> Just<Data> in
+                os_log("API Error: [splatoon2/battles/id] \(error.localizedDescription)")
+                return Just<Data>(Data())
+            }
+            .sink { [weak self] data in
+                guard let `self` = self else { return }
+                self.updateRecordDetail(data)
+                
+                if self.databaseRecords.filter({ !$0.isDetail }).count == 0 {
+                    self.isLoadingDetail = false
+                    NotificationCenter.default.post(name: .recordSyncDetailFinished, object: nil)
+                }
+            }
+            .store(in: &syncCancelBag)
     }
     
 }
