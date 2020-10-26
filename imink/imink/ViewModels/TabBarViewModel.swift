@@ -70,6 +70,11 @@ class TabBarViewModel: ObservableObject {
         $isLogin.assign(to: &$autoRefresh)
         
         isLogin = AppUserDefaults.shared.user != nil
+        
+        if AppUserDefaults.shared.clientToken != nil {
+            // If logined update user
+            requestUserInfo()
+        }
     }
 }
 
@@ -149,6 +154,30 @@ extension TabBarViewModel {
             .request() // Not decode
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    }
+    
+    func requestUserInfo() {
+        AppAPI.me()
+            .request()
+            .decode(type: User.self)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    if case APIError.clientTokenInvalid = error {
+                        self.isLogin = false
+                    } else {
+                        // TODO: Popping error view
+                        os_log("API Error: [/me] \(error.localizedDescription)")
+                    }
+                }
+            } receiveValue: { user in
+                // Save new user information
+                AppUserDefaults.shared.user = user
+            }
+            .store(in: &cancelBag)
     }
     
 }

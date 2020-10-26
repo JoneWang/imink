@@ -79,7 +79,7 @@ class API {
                     throw APIError.unknown
                 }
                 
-                if httpResponse.statusCode == 403 {
+                if 401...403 ~= httpResponse.statusCode {
                     throw APIError.authorizationError
                 }
                 
