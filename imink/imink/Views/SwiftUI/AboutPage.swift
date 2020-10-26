@@ -36,7 +36,7 @@ struct AboutPage: View {
                         VStack(spacing: 4) {
                             Text("Key山")
                                 .sp2Font(size: 18, color: Color.primary.opacity(0.8))
-                            Text("Provides Japanese translation of imink and Chinese translation of Splatoon2 content.")
+                            Text("Provides Japanese translation of imink and Chinese translation of Splatoon 2 content.")
                                 .font(.system(size: 10))
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.secondary)
