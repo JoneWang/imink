@@ -34,6 +34,7 @@ class TabBarController: UITabBarController {
         super.viewDidAppear(animated)
         
         tabBarViewModel.$isLogin
+            .removeDuplicates()
             .sink { [weak self] isLogin in
                 if isLogin {
                     self?.setupItems()
@@ -65,7 +66,7 @@ class TabBarController: UITabBarController {
         
         let viewModel = LoginViewModel()
         
-        let loginPage = LoginPage(launchPageViewModel: viewModel)
+        let loginPage = LoginPage(loginViewModel: viewModel)
         let loginViewController = UIHostingController(rootView: loginPage)
         loginViewController.modalPresentationStyle = .formSheet
         loginViewController.preferredContentSize = .init(width: 400, height: 250)

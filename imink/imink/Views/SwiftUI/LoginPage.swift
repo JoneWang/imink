@@ -13,7 +13,7 @@ struct LoginPage: View {
         case token
     }
         
-    @StateObject var launchPageViewModel: LoginViewModel
+    @StateObject var loginViewModel: LoginViewModel
     
     @State private var selectedLoginMethod: LoginMethod?
     
@@ -39,7 +39,7 @@ struct LoginPage: View {
                                 .font(.footnote)
                         }
                         
-                        TextField("Client Token", text: $launchPageViewModel.clientToken)
+                        TextField("Client Token", text: $loginViewModel.clientToken)
                             .multilineTextAlignment(.center)
                             .padding(2)
                             .frame(width: 280)
@@ -66,7 +66,7 @@ struct LoginPage: View {
                             .padding()
                             
                             Button(action: {
-                                launchPageViewModel.login()
+                                loginViewModel.login()
                             }) {
                                 Text("Sign In")
                                     .foregroundColor(.white)
@@ -75,8 +75,8 @@ struct LoginPage: View {
                                     .background(Color.accentColor)
                                     .cornerRadius(10)
                             }
-                            .disabled(launchPageViewModel.clientToken == "")
-                            .opacity(launchPageViewModel.clientToken == "" ? 0.5 : 1)
+                            .disabled(loginViewModel.clientToken == "")
+                            .opacity(loginViewModel.clientToken == "" ? 0.5 : 1)
                             .padding()
                         }
                     }
@@ -108,7 +108,7 @@ struct LoginPage: View {
                 }
             }
             
-            if launchPageViewModel.status == .loading {
+            if loginViewModel.status == .loading {
                 Rectangle()
                     .foregroundColor(Color.primary.opacity(0.8))
                     .colorInvert()
