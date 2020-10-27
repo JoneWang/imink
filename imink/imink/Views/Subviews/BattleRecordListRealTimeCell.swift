@@ -33,6 +33,9 @@ class BattleRecordListRealTimeCell: UICollectionViewCell {
         
         containerView.layer.cornerRadius = 10
         containerView.clipsToBounds = true
+        
+        realTimeLabel.font = AppTheme.spFont?.withSize(18)
+        battleNumberLabel.font = AppTheme.spFont?.withSize(18)
     }
     
     override func prepareForReuse() {

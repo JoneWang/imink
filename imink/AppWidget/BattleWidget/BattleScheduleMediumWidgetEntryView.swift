@@ -88,6 +88,9 @@ struct BattleScheduleMediumWidgetEntryView : View {
     
     func makeContent() -> some View {
         VStack(spacing: vSpacing) {
+            let schedule = entry.schedules?[0]
+            let nextSchedule = entry.schedules?[1]
+            
             HStack(spacing: 10) {
                 VStack(spacing: titleAndStageSpacing) {
                     HStack {
@@ -100,8 +103,8 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     }
                     
                     makeStageImage(
-                        stageId: entry.schedules?[0].stageA.id ?? "0",
-                        stageName: entry.schedules?[0].stageA.name ?? "            "
+                        stageId: schedule?.stageA.id ?? "0",
+                        stageName: schedule?.stageA.name.localizedKey ?? "            "
                     )
                 }
                 
@@ -109,14 +112,14 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     HStack {
                         Spacer()
                         
-                        Text("\(entry.schedules?[0].rule.name ?? "      ")")
+                        Text(schedule?.rule.name.localizedKey ?? "      ")
                             .sp1Font(size: 14, color: ruleNameColor)
                             .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
                     }
                     
                     makeStageImage(
-                        stageId: entry.schedules?[0].stageB.id ?? "0",
-                        stageName: entry.schedules?[0].stageB.name ?? "            "
+                        stageId: schedule?.stageB.id ?? "0",
+                        stageName: schedule?.stageB.name.localizedKey ?? "            "
                     )
                 }
             }
@@ -134,7 +137,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
             HStack(spacing: 10) {
                 VStack(spacing: titleAndStageSpacing) {
                     HStack {
-                        Text("Next")
+                        Text(nextSchedule?.startDate != nil ? "\(nextSchedule!.startDate, formatter: scheduleTimeFormat)" : "     ")
                             .sp1Font(size: 14)
                             .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                             .unredacted()
@@ -143,8 +146,8 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     }
                     
                     makeStageImage(
-                        stageId: entry.schedules?[1].stageA.id ?? "0",
-                        stageName: entry.schedules?[1].stageA.name ?? "            "
+                        stageId: nextSchedule?.stageA.id ?? "0",
+                        stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
                     )
                 }
                 
@@ -152,21 +155,21 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     HStack {
                         Spacer()
                         
-                        Text("\(entry.schedules?[1].rule.name ?? "      ")")
+                        Text(nextSchedule?.rule.name.localizedKey ?? "      ")
                             .sp1Font(size: 14, color: ruleNameColor)
                             .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
                     }
                     
                     makeStageImage(
-                        stageId: entry.schedules?[1].stageB.id ?? "0",
-                        stageName: entry.schedules?[1].stageB.name ?? "            "
+                        stageId: nextSchedule?.stageB.id ?? "0",
+                        stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
                     )
                 }
             }
         }
     }
     
-    func makeStageImage(stageId: String, stageName: String) -> some View {
+    func makeStageImage(stageId: String, stageName: LocalizedStringKey) -> some View {
         var borderColor = Color("RegularScheduleStageBorderColor")
         switch gameMode {
         case .gachi:
@@ -190,7 +193,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     )
                     .opacity(0.4)
             )
-            .overlay(Text("\(stageName)").sp2Font(), alignment: .center)
+            .overlay(Text(stageName).sp2Font(), alignment: .center)
             .cornerRadius(6)
             .clipped()
     }

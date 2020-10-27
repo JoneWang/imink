@@ -46,6 +46,14 @@ class BattleRecordListCell: UICollectionViewCell {
         rightBarView.backgroundColor = UIColor.gray
         rightBarView.layer.cornerRadius = 4
         rightBarView.clipsToBounds = true
+        
+        battleNumberLabel.font = AppTheme.sp2Font?.withSize(10)
+        resultLabel.font = AppTheme.spFont?.withSize(17)
+        stageNameLabel.font = AppTheme.spFont?.withSize(14)
+        gameModeNameLabel.font = AppTheme.spFont?.withSize(10)
+        killInfoLabel.font = AppTheme.sp2Font?.withSize(14)
+        ruleNameLabel.font = AppTheme.sp2Font?.withSize(10)
+        
     }
     
     override var isSelected: Bool {
@@ -68,12 +76,12 @@ class BattleRecordListCell: UICollectionViewCell {
         resultLabel.textColor = record.victory ?
             AppUIColor.spPink :
             AppUIColor.spLightGreen
-        ruleNameLabel.text = record.rule
+        ruleNameLabel.text = record.stageName.localized
         gameModeImageView.image = UIImage(named: record.gameModeImageName)
-        gameModeNameLabel.text = record.gameMode
+        gameModeNameLabel.text = record.gameMode.localized
         gameModeNameLabel.textColor = record.gameModeColor
         killInfoLabel.text = "\(record.killTotalCount) k  \(record.deathCount) d"
-        stageNameLabel.text = record.stageName
+        stageNameLabel.text = record.rule.localized
         leftBarView.backgroundColor = record.victory ?
             AppUIColor.spPink :
             AppUIColor.spLightGreen

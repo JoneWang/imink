@@ -12,7 +12,7 @@ struct AboutPage: View {
         ScrollView {
             
             VStack(spacing: 48) {
-                Text("About imink")
+                Text(String("About imink"))
                     .sp1Font(size: 30, color: .primary)
                 
                 VStack(spacing: 28) {

@@ -2,13 +2,16 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Splatfont 1 v1.001.otf">
+            <string>Splatfont1v1.001-Regular</string>
+        </array>
         <array key="Splatfont 2 v1.001.otf">
             <string>Splatfont2v1.001-Regular</string>
         </array>
@@ -31,7 +34,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VICTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNS-Dn-dSj">
                                 <rect key="frame" x="79" y="0.0" width="72" height="20"/>
-                                <fontDescription key="fontDescription" name="Splatfont" family="Splatfont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Splatfont1v1.001-Regular" family="Splatfont 1 v1.001" pointSize="17"/>
                                 <color key="textColor" name="SPPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -91,7 +94,7 @@
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 k  2d" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GZ2-og-HXu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 k  2d" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GZ2-og-HXu">
                                                 <rect key="frame" x="46.5" y="18" width="43" height="24"/>
                                                 <fontDescription key="fontDescription" name="Splatfont2v1.001-Regular" family="Splatfont 2 v1.001" pointSize="14"/>
                                                 <color key="textColor" name="RecordRowTitleNormalColor"/>

@@ -48,7 +48,7 @@ struct SalmonRunScheduleView: View {
                         
                         VStack(spacing: 0) {
                             
-                            Text("\(stage.name)")
+                            Text(stage.name)
                                 .sp2Font(color: Color.primary)
                             
                             WebImage(url: stage.imageURL)

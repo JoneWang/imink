@@ -64,7 +64,7 @@ struct ScheduleView: View {
                                         .resizable()
                                         .aspectRatio(1, contentMode: .fill)
                                         .frame(width: 20)
-                                    Text(schedule.rule.name)
+                                    Text(schedule.rule.name.localizedKey)
                                         .sp1Font(color: gameModeColors[j])
                                         .minimumScaleFactor(0.5)
                                 }
@@ -85,7 +85,7 @@ struct ScheduleView: View {
                                 ForEach(0..<2) { k in
                                     let stage = [schedule.stageA, schedule.stageB][k]
                                     
-                                    Text(stage.name)
+                                    Text(stage.name.localizedKey)
                                         .sp2Font(color: Color.primary)
                                         .minimumScaleFactor(0.5)
                                     

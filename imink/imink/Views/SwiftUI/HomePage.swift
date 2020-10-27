@@ -44,7 +44,7 @@ struct HomePage: View {
                             Text("Today")
                                 .sp1Font(size: 22, color: Color.primary)
                             
-                            Text("(3:00 reset)")
+                            Text("(3:00 \("reset".localized))")
                                 .sp2Font(color: Color.secondary)
                             
                         }
@@ -58,7 +58,7 @@ struct HomePage: View {
                                         .opacity(0.9)
                                         .frame(width: 25, height: 25)
                                     
-                                    Text("\(NSLocalizedString("Victory", comment: "")):")
+                                    Text("Victory rate:")
                                         .sp2Font(size: 16, color: Color.primary)
                                         .minimumScaleFactor(0.5)
                                     
