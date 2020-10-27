@@ -110,6 +110,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzy-aS-sXe">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="8"/>
                                         <color key="backgroundColor" name="SPLightGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="8zH-tq-ydd"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" name="SPPinkColor"/>
@@ -117,7 +120,6 @@
                                     <constraint firstAttribute="bottom" secondItem="gzy-aS-sXe" secondAttribute="bottom" id="Hyj-5u-rgY"/>
                                     <constraint firstAttribute="height" constant="8" id="Mlm-WP-d8H"/>
                                     <constraint firstItem="gzy-aS-sXe" firstAttribute="leading" secondItem="aBt-LL-iCg" secondAttribute="leading" id="grZ-kN-I5w"/>
-                                    <constraint firstItem="gzy-aS-sXe" firstAttribute="width" secondItem="aBt-LL-iCg" secondAttribute="width" multiplier="0.3" id="oDz-yC-OMc"/>
                                     <constraint firstItem="gzy-aS-sXe" firstAttribute="top" secondItem="aBt-LL-iCg" secondAttribute="top" id="qzp-Z1-GQU"/>
                                 </constraints>
                             </view>
@@ -162,7 +164,7 @@
             <size key="customSize" width="270" height="90"/>
             <connections>
                 <outlet property="activityIndicatorView" destination="okd-V8-T2a" id="DBL-ZI-bd5"/>
-                <outlet property="barConstraint" destination="oDz-yC-OMc" id="CFg-Oi-8Uz"/>
+                <outlet property="barWidth" destination="8zH-tq-ydd" id="Gyj-q8-bA3"/>
                 <outlet property="battleNumberLabel" destination="hc4-c1-JCN" id="BHV-Sm-yp0"/>
                 <outlet property="containerView" destination="cco-PG-d8b" id="TTj-HM-t5C"/>
                 <outlet property="gameModeImageView" destination="OXk-7S-BsB" id="JPz-4X-hQ8"/>
