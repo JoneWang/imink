@@ -9,33 +9,32 @@ import Foundation
 import SwiftUI
 
 enum WidgetSize {
-    case size414x896
-    case size375x812
-    case size414x736
-    case size375x667
-    case size320x568
+    case size360 // iPhone 12 Pro Max
+    case size348 // iPhone 8 Plus
+    case size338 // iPhone 12 Pro
+    case size329 // iPhone 11 Pro
+    case size322 // iPhone 8
+    case size291 // iPhone SE 1st-gen
 }
 
 extension WidgetSize {
     
     static func with(_ size: CGSize) -> WidgetSize {
-        if size.width == 414 {
-            if size.height == 896 {
-                return .size414x896
-            } else if size.height == 736 {
-                return .size414x736
-            }
-        } else if size.width == 375 {
-            if size.height == 812 {
-                return .size375x812
-            } else if size.height == 667 {
-                return .size375x667
-            }
-        } else if size.width == 320 {
-            return .size320x568
+        if size.width == 360 {
+            return .size360
+        } else if size.width == 348 {
+            return .size348
+        } else if size.width == 338 {
+            return .size338
+        } else if size.width == 329 {
+            return .size329
+        } else if size.width == 322 {
+            return .size322
+        } else if size.width == 291 {
+            return .size291
         }
         
-        return .size414x736
+        return .size348
     }
     
 }

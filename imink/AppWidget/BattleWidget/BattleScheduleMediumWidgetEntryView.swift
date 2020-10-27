@@ -28,11 +28,13 @@ struct BattleScheduleMediumWidgetEntryView : View {
     
     var vSpacing: CGFloat {
         var vSpacing: CGFloat = 11
-        if entry.size == .size414x896 {
+        if entry.size == .size360 {
             vSpacing = 13
-        } else if entry.size == .size375x667 {
+        } else if entry.size == .size338 {
+            vSpacing = 11.5
+        } else if entry.size == .size322 {
             vSpacing = 8.5
-        } else if entry.size == .size320x568 {
+        } else if entry.size == .size291 {
             vSpacing = 9
         }
         return vSpacing
@@ -40,7 +42,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
     
     var titleAndStageSpacing: CGFloat {
         var titleAndStageSpacing: CGFloat = 8
-        if entry.size == .size414x896 {
+        if entry.size == .size360 {
             titleAndStageSpacing = 9
         }
         return titleAndStageSpacing
