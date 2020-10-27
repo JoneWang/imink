@@ -204,8 +204,8 @@ struct BattleScheduleLargeWidgetEntryView : View {
                         let schedule: SP2Schedule? = entry.schedules?[index]
                         let titles: [LocalizedStringKey] = [
                             "Now",
-                            "Next",
-                            schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "           "]
+                            schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "     ",
+                            schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "     "]
                         
                         VStack(spacing: titleAndStageSpacing) {
                             HStack {
@@ -216,7 +216,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                 
                                 Spacer()
                                 
-                                Text("\(schedule?.rule.name ?? "      ")")
+                                Text(schedule?.rule.name.localizedKey ?? "      ")
                                     .sp1Font(size: 14, color: ruleNameColor)
                                     .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
                             }
@@ -229,7 +229,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                     )
                                     .padding([.leading, .top, .bottom], stagePadding)
                                     
-                                    Text(schedule?.stageA.name ?? "      \n      ")
+                                    Text(schedule?.stageA.nameLocalizedStringKey ?? "      \n      ")
                                         .sp2Font(size: stageNameFontSize, lineLimit: 2)
                                         .lineSpacing(stageNameLineSpacing)
                                         .multilineTextAlignment(.leading)
@@ -242,7 +242,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                     )
                                     .padding([.top, .bottom], stagePadding)
                                     
-                                    Text(schedule?.stageB.name ?? "      \n      ")
+                                    Text(schedule?.stageB.nameLocalizedStringKey ?? "      \n      ")
                                         .sp2Font(size: stageNameFontSize, lineLimit: 2)
                                         .lineSpacing(stageNameLineSpacing)
                                         .multilineTextAlignment(.leading)
@@ -283,6 +283,14 @@ struct BattleScheduleLargeWidgetEntryView : View {
             .cornerRadius(6)
             .clipped()
     }
+}
+
+private extension SP2Stage {
+    
+    var nameLocalizedStringKey: LocalizedStringKey {
+        "\(name)_multi-line".localizedKey
+    }
+    
 }
 
 extension BattleScheduleWidgetGameMode {

@@ -103,10 +103,14 @@ struct MePage: View {
                 }
                 
                 Section {
+                    makeRow(image: "globe", text: "Language", link: URL(string: UIApplication.openSettingsURLString), color: .accentColor)
+                }
+                
+                Section {
                     makeRow(image: "chevron.left.slash.chevron.right", text: "Source code", link: URL(string: "https://github.com/JoneWang/imink"), color: .accentColor)
                     makeRow(image: "questionmark.circle", text: "FAQ", link: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ"), color: .accentColor)
                     ZStack {
-                        makeDetailRow(image: "tag", text: "About inimk", detail: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))", color: .accentColor)
+                        makeDetailRow(image: "tag", text: "About imink", detail: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))", color: .accentColor)
                         NavigationLink(destination: AboutPage()) {
                             EmptyView()
                         }

@@ -10,6 +10,12 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh_CN</string>
+		<string>ja</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -32,8 +38,8 @@
 	<string>Save pictures to album.</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Splatfont.otf</string>
-		<string>Splatfont 2 v1.001.otf</string>
+		<string>Splatfont 1 v1.001.otf</string>
+		<string>Splatfont 2 v1.002.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

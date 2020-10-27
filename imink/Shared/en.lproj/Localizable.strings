@@ -1,3 +1,4 @@
+
 /*
   Localizable.strings
   imink
@@ -23,33 +24,22 @@
 // MARK: Sign in
 
 "Welcome to imink!" = "Welcome to imink!";
-
 "Sign in with Client Token" = "Sign in with Client Token";
 "sign_in_client_token_tip_1" = "Sending /clienttoken to ";
-"sign_in_client_token_tip_2" = " bot in Telegram to get Client-Token.";
-"Sign In" = "Sign In";
-
+"sign_in_client_token_tip_2" = " bot in Telegram to get Client Token.";
 "Client Token" = "Client Token";
+"Sign In" = "Sign In";
 
 // MARK: Home
 
 "Today" = "Today";
+"reset" = "reset";
+"Victory rate:" = "Victory:";
 "Results" = "Results";
 "Last 500" = "Last 500";
 "Last 50" = "Last 50";
 "Splatfest" = "Splatfest";
 "Schedule" = "Schedule";
-
-// MARK: Schedule
-
-"Next" = "Next";
-
-// Battle
-"Now" = "Now";
-"Next Day" = "Next Day";
-
-// SalmonRun
-"Supplied Weapons" = "Supplied Weapons";
 
 // MARK: Me
 
@@ -58,10 +48,12 @@
 "About imink" = "About imink";
 "Logout" = "Logout";
 
-// About
-"Developer" = "Developer";
-"Designer" = "Designer";
-"Thanks" = "Thanks";
+// MARK: Schedule
+
+"Now" = "Now";
+"Next" = "Next";
+"Next Day" = "Next Day";
+"Supplied Weapons" = "Supplied Weapons";
 
 // MARK: Widget
 
@@ -76,18 +68,149 @@
 "Defeat" = "Defeat";
 "VICTORY" = "VICTORY";
 "DEFEAT" = "DEFEAT";
-
-// Mode
-"Regular Battle" = "Regular Battle";
-"Ranked Battle" = "Ranked Battle";
-"League Battle" = "League Battle";
 "Salmon Run" = "Salmon Run";
-
-// Rule
+"Regular Battle" = "Regular Battle";
+"レギュラーマッチ" = "Regular Battle";
+"Ranked Battle" = "Ranked Battle";
+"ガチマッチ" = "Ranked Battle";
+"League Battle" = "League Battle";
+"リーグマッチ" = "League Battle";
+"Splatfest Battle" = "Splatfest Battle";
+"フェスマッチ" = "Splatfest Battle";
+"Private Battle" = "Private Battle";
+"プライベートマッチ" = "Private Battle";
+"Turf War" = "Turf War";
+"ナワバリバトル" = "Turf War";
 "Splat Zones" = "Splat Zones";
+"ガチエリア" = "Splat Zones";
 "Tower Control" = "Tower Control";
+"ガチヤグラ" = "Tower Control";
 "Rainmaker" = "Rainmaker";
+"ガチホコバトル" = "Rainmaker";
 "Clam Blitz" = "Clam Blitz";
+"ガチアサリ" = "Clam Blitz";
+
+// MARK: Battle Stages
+
+"The Reef" = "The Reef";
+"バッテラストリート" = "The Reef";
+"The Reef_multi-line" = "The Reef";
+"バッテラストリート_multi-line" = "The Reef";
+"Musselforge Fitness" = "Musselforge Fitness";
+"フジツボスポーツクラブ" = "Musselforge Fitness";
+"Musselforge Fitness_multi-line" = "Musselforge\nFitness";
+"フジツボスポーツクラブ_multi-line" = "Musselforge\nFitness";
+"Starfish Mainstage" = "Starfish Mainstage";
+"ガンガゼ野外音楽堂" = "Starfish Mainstage";
+"Starfish Mainstage_multi-line" = "Starfish\nMainstage";
+"ガンガゼ野外音楽堂_multi-line" = "Starfish\nMainstage";
+"Humpback Pump Track" = "Humpback Pump Track";
+"コンブトラック" = "Humpback Pump Track";
+"Humpback Pump Track_multi-line" = "Humpback\nPump Track";
+"コンブトラック_multi-line" = "Humpback\nPump Track";
+"Inkblot Art Academy" = "Inkblot Art Academy";
+"海女美術大学" = "Inkblot Art Academy";
+"Inkblot Art Academy_multi-line" = "Inkblot Art\nAcademy";
+"海女美術大学_multi-line" = "Inkblot Art\nAcademy";
+"Sturgeon Shipyard" = "Sturgeon Shipyard";
+"チョウザメ造船" = "Sturgeon Shipyard";
+"Sturgeon Shipyard_multi-line" = "Sturgeon\nShipyard";
+"チョウザメ造船_multi-line" = "Sturgeon\nShipyard";
+"Moray Towers" = "Moray Towers";
+"タチウオパーキング" = "Moray Towers";
+"Moray Towers_multi-line" = "Moray\nTowers";
+"タチウオパーキング_multi-line" = "Moray\nTowers";
+"Port Mackerel" = "Port Mackerel";
+"ホッケふ頭" = "Port Mackerel";
+"Port Mackerel_multi-line" = "Port\nMackerel";
+"ホッケふ頭_multi-line" = "Port\nMackerel";
+"Manta Maria" = "Manta Maria";
+"マンタマリア号" = "Manta Maria";
+"Manta Maria_multi-line" = "Manta\nMaria";
+"マンタマリア号_multi-line" = "Manta\nMaria";
+"Kelp Dome" = "Kelp Dome";
+"Kelp Dome" = "Kelp Dome";
+"Kelp Dome_multi-line" = "Kelp Dome";
+"モズク農園_multi-line" = "Kelp Dome";
+"Snapper Canal" = "Snapper Canal";
+"エンガワ河川敷" = "Snapper Canal";
+"Snapper Canal_multi-line" = "Snapper\nCanal";
+"エンガワ河川敷_multi-line" = "Snapper\nCanal";
+"Blackbelly Skatepark" = "Blackbelly Skatepark";
+"Bバスパーク" = "Blackbelly Skatepark";
+"Blackbelly Skatepark_multi-line" = "Blackbelly\nSkatepark";
+"Bバスパーク_multi-line" = "Blackbelly\nSkatepark";
+"MakoMart" = "MakoMart";
+"ザトウマーケット" = "MakoMart";
+"MakoMart_multi-line" = "MakoMart";
+"ザトウマーケット_multi-line" = "MakoMart";
+"Walleye Warehouse" = "Walleye Warehouse";
+"ハコフグ倉庫" = "Walleye Warehouse";
+"Walleye Warehouse_multi-line" = "Walleye\nWarehouse";
+"ハコフグ倉庫_multi-line" = "Walleye\nWarehouse";
+"Shellendorf Institute" = "Shellendorf Institute";
+"デボン海洋博物館" = "Shellendorf Institute";
+"Shellendorf Institute_multi-line" = "Shellendorf\nInstitute";
+"デボン海洋博物館_multi-line" = "Shellendorf\nInstitute";
+"Arowana Mall" = "Arowana Mall";
+"アロワナモール" = "Arowana Mall";
+"Arowana Mall_multi-line" = "Arowana\nMall";
+"アロワナモール_multi-line" = "Arowana\nMall";
+"Goby Arena" = "Goby Arena";
+"アジフライスタジアム" = "Goby Arena";
+"Goby Arena_multi-line" = "Goby Arena";
+"アジフライスタジアム_multi-line" = "Goby Arena";
+"Piranha Pit" = "Piranha Pit";
+"ショッツル鉱山" = "Piranha Pit";
+"Piranha Pit_multi-line" = "Piranha Pit";
+"ショッツル鉱山" = "Piranha Pit";
+"Camp Triggerfish" = "Camp Triggerfish";
+"モンガラキャンプ場" = "Camp Triggerfish";
+"Camp Triggerfish_multi-line" = "Camp\nTriggerfish";
+"モンガラキャンプ場_multi-line" = "Camp\nTriggerfish";
+"Wahoo World" = "Wahoo World";
+"スメーシーワールド" = "Wahoo World";
+"Wahoo World_multi-line" = "Wahoo\nWorld";
+"スメーシーワールド_multi-line" = "Wahoo\nWorld";
+"New Albacore Hotel" = "New Albacore Hotel";
+"ホテルニューオートロ" = "New Albacore Hotel";
+"New Albacore Hotel_multi-line" = "New Albacore\nHotel";
+"ホテルニューオートロ_multi-line" = "New Albacore\nHotel";
+"Ancho-V Games" = "Ancho-V Games";
+"アンチョビットゲームズ" = "Ancho-V Games";
+"Ancho-V Games_multi-line" = "Ancho-V\nGames";
+"アンチョビットゲームズ_multi-line" = "Ancho-V\nGames";
+"Skipper Pavilion" = "Skipper Pavilion";
+"ムツゴ楼" = "Skipper Pavilion";
+"Skipper Pavilion_multi-line" = "Skipper\nPavilion";
+"ムツゴ楼_multi-line" = "Skipper\nPavilion";
+"Shifty Station" = "Shifty Station";
+"ミステリーゾーン" = "Shifty Station";
+"Shifty Station_multi-line" = "Shifty\nStation";
+"ミステリーゾーン_multi-line" = "Shifty\nStation";
+
+// MARK: Salmon Run Stages
+
+"Spawning Grounds" = "Spawning Grounds";
+"シェケナダム" = "Spawning Grounds";
+"Spawning Grounds_multi-line" = "Spawning\nGrounds";
+"シェケナダム_multi-line" = "Spawning\nGrounds";
+"Marooner's Bay" = "Marooner's Bay";
+"難破船ドン·ブラコ" = "Marooner's Bay";
+"Marooner's Bay_multi-line" = "Marooner's\nBay";
+"難破船ドン·ブラコ_multi-line" = "Marooner's\nBay";
+"Lost Outpost" = "Lost Outpost";
+"海上集落シャケト場" = "Lost Outpost";
+"Lost Outpost_multi-line" = "Lost\nOutpost";
+"海上集落シャケト場_multi-line" = "Lost\nOutpost";
+"Salmonid Smokeyard" = "Salmonid Smokeyard";
+"トキシラズいぶし工房" = "Salmonid Smokeyard";
+"Salmonid Smokeyard_multi-line" = "Salmonid\nSmokeyard";
+"トキシラズいぶし工房_multi-line" = "Salmonid\nSmokeyard";
+"Ruins of Ark Polaris" = "Ruins of Ark Polaris";
+"朽ちた箱舟 ポラリス" = "Ruins of Ark Polaris";
+"Ruins of Ark Polaris_multi-line" = "Ruins of\nArk Polaris";
+"朽ちた箱舟 ポラリス_multi-line" = "Ruins of\nArk Polaris";
 
 // MARK: Common
 
