@@ -23,7 +23,7 @@ class BattleRecordListCell: UICollectionViewCell {
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var rightBarView: UIView!
     @IBOutlet weak var leftBarView: UIView!
-    @IBOutlet weak var barConstraint: NSLayoutConstraint!
+    @IBOutlet weak var barWidth: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var gameModeImageView: UIImageView!
@@ -85,7 +85,7 @@ class BattleRecordListCell: UICollectionViewCell {
         leftBarView.backgroundColor = record.victory ?
             AppUIColor.spPink :
             AppUIColor.spLightGreen
-        barConstraint = barConstraint.setMultiplier(multiplier: CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint)))
+        barWidth.constant = self.rightBarView.frame.width * CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint))
         
         weaponImageView.image = nil
         weaponImageView.sd_setImage(with: record.weaponImageURL)
