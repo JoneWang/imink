@@ -28,11 +28,13 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var topBarSpacing: CGFloat {
         var spacing: CGFloat = 16
-        if entry.size == .size414x896 {
+        if entry.size == .size360 {
             spacing = 17
-        } else if entry.size == .size375x667 {
+        } else if entry.size == .size338 {
+            spacing = 15
+        } else if entry.size == .size322 {
             spacing = 14
-        } else if entry.size == .size320x568 {
+        } else if entry.size == .size291 {
             spacing = 11
         }
         return spacing
@@ -40,9 +42,11 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var vSpacing: CGFloat {
         var vSpacing: CGFloat = 18
-        if entry.size == .size375x667 {
+        if entry.size == .size338 {
+            vSpacing = 17
+        } else if entry.size == .size322 {
             vSpacing = 13
-        } else if entry.size == .size320x568 {
+        } else if entry.size == .size291 {
             vSpacing = 12
         }
         return vSpacing
@@ -50,9 +54,9 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var titleAndStageSpacing: CGFloat {
         var titleAndStageSpacing: CGFloat = 8
-        if entry.size == .size375x667 {
+        if entry.size == .size322 {
             titleAndStageSpacing = 7
-        } else if entry.size == .size320x568 {
+        } else if entry.size == .size291 {
             titleAndStageSpacing = 6
         }
         return titleAndStageSpacing
@@ -60,7 +64,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var stageImageAndNameSpcaing: CGFloat {
         var spcaing: CGFloat = 8
-        if entry.size == .size320x568 {
+        if entry.size == .size291 {
             spcaing = 6
         }
         return spcaing
@@ -68,9 +72,9 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var stagePadding: CGFloat {
         var padding: CGFloat = 10
-        if entry.size == .size414x896 {
+        if entry.size == .size360 {
             padding = 11
-        } else if entry.size == .size320x568 {
+        } else if entry.size == .size291 {
             padding = 8
         }
         return padding
@@ -78,9 +82,9 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var stageSpacing: CGFloat {
         var spacing: CGFloat = 10
-        if entry.size == .size414x896 {
+        if entry.size == .size360 {
             spacing = 11
-        } else if entry.size == .size320x568 {
+        } else if entry.size == .size291 {
             spacing = 8
         }
         return spacing
@@ -88,7 +92,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var stageNameFontSize: CGFloat {
         var size: CGFloat = 12
-        if entry.size == .size320x568 {
+        if entry.size == .size291 {
             size = 11
         }
         return size
@@ -96,14 +100,14 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var stageNameWidth: CGFloat {
         var size: CGFloat = 65.5
-        if entry.size == .size414x736 {
+        if entry.size == .size348 {
             size = 67
-        } else if entry.size == .size375x812 {
+        } else if entry.size == .size329 {
             size = 65
-            
-        } else if entry.size == .size375x667 {
+        } else if entry.size == .size322 ||
+                    entry.size == .size338 {
             size = 66
-        } else if entry.size == .size320x568 {
+        } else if entry.size == .size291 {
             size = 55
         }
         return size
@@ -133,7 +137,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var topBarHeight: CGFloat {
         var height: CGFloat = 49
-        if entry.size == .size320x568 {
+        if entry.size == .size291 {
             height = 47
         }
         return height
@@ -141,7 +145,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     var stageNameLineSpacing: CGFloat {
         var lineSpacing: CGFloat = 3.3
-        if entry.size == .size320x568 {
+        if entry.size == .size291 {
             lineSpacing = 3.025
         }
         return lineSpacing
