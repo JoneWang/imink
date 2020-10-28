@@ -234,6 +234,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                         .sp2Font(size: stageNameFontSize, lineLimit: 2)
                                         .lineSpacing(stageNameLineSpacing)
                                         .multilineTextAlignment(.leading)
+                                        .minimumScaleFactor(0.7)
                                         .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
                                 }
                                 
@@ -247,6 +248,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                         .sp2Font(size: stageNameFontSize, lineLimit: 2)
                                         .lineSpacing(stageNameLineSpacing)
                                         .multilineTextAlignment(.leading)
+                                        .minimumScaleFactor(0.7)
                                         .frame(minWidth: stageNameWidth, maxWidth: stageNameWidth, alignment: .leading)
                                         .padding(.trailing, stagePadding)
                                 }
