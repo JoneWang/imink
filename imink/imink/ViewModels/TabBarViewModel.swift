@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import os
+import WidgetKit
 
 class TabBarViewModel: ObservableObject {
     
@@ -42,6 +43,15 @@ class TabBarViewModel: ObservableObject {
         if AppUserDefaults.shared.clientToken != nil {
             // If logined update user
             requestUserInfo()
+        }
+        
+        // Check language and refresh widget
+        let currentLanguage = AppUserDefaults.shared.currentLanguage
+        if let code = Bundle.main.preferredLocalizations.first {
+            if code != currentLanguage {
+                AppUserDefaults.shared.currentLanguage = code
+                WidgetCenter.shared.reloadAllTimelines()
+            }
         }
     }
 }

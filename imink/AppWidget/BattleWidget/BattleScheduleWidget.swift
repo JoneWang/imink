@@ -16,12 +16,21 @@ struct BattleScheduleWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var body: some View {
-        VStack {
+        let content = VStack {
             if family == .systemMedium {
                 BattleScheduleMediumWidgetEntryView(entry: entry, gameMode: gameMode)
             }
             else if family == .systemLarge {
                 BattleScheduleLargeWidgetEntryView(entry: entry, gameMode: gameMode)
+            }
+        }
+
+        return Group {
+            if let code = AppUserDefaults.shared.currentLanguage {
+                content
+                    .environment(\.locale, Locale(identifier: code))
+            } else {
+                content
             }
         }
     }
