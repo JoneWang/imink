@@ -29,12 +29,12 @@
 		EC344FE525330312004A7AF1 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE425330312004A7AF1 /* MeViewController.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
-		EC39702E254812A600557BD4 /* Splatfont 2 v1.002.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC39702025480D8500557BD4 /* Splatfont 2 v1.002.otf */; };
 		EC39702F254812A600557BD4 /* Splatfont 1 v1.001.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC39702125480D8500557BD4 /* Splatfont 1 v1.001.otf */; };
-		EC397032254812A600557BD4 /* Splatfont 2 v1.002.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC39702025480D8500557BD4 /* Splatfont 2 v1.002.otf */; };
 		EC397033254812A600557BD4 /* Splatfont 1 v1.001.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC39702125480D8500557BD4 /* Splatfont 1 v1.001.otf */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
 		EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
+		EC39704825493E7B00557BD4 /* Splatfont 2 v1.003.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC39704725493E7B00557BD4 /* Splatfont 2 v1.003.otf */; };
+		EC39704B25493EB400557BD4 /* Splatfont 2 v1.003.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC39704725493E7B00557BD4 /* Splatfont 2 v1.003.otf */; };
 		EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA53251C95DE00283D28 /* SDWebImage */; };
 		EC43AA58251C9A7100283D28 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
@@ -217,9 +217,9 @@
 		EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		EC39701A2548028100557BD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EC39701D25480B9C00557BD4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EC39702025480D8500557BD4 /* Splatfont 2 v1.002.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 2 v1.002.otf"; sourceTree = "<group>"; };
 		EC39702125480D8500557BD4 /* Splatfont 1 v1.001.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.001.otf"; sourceTree = "<group>"; };
 		EC39703625482BE400557BD4 /* String+LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedString.swift"; sourceTree = "<group>"; };
+		EC39704725493E7B00557BD4 /* Splatfont 2 v1.003.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 2 v1.003.otf"; sourceTree = "<group>"; };
 		EC4DF4F5252EF1510020B234 /* VDGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDGridView.swift; sourceTree = "<group>"; };
 		EC5362472525D68E0037BD12 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
@@ -507,8 +507,8 @@
 		EC900E91251C8EF600AA0B20 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				EC39704725493E7B00557BD4 /* Splatfont 2 v1.003.otf */,
 				EC39702125480D8500557BD4 /* Splatfont 1 v1.001.otf */,
-				EC39702025480D8500557BD4 /* Splatfont 2 v1.002.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -749,7 +749,7 @@
 			files = (
 				EC98421B253ADE970079D739 /* Localizable.strings in Resources */,
 				EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */,
-				EC397032254812A600557BD4 /* Splatfont 2 v1.002.otf in Resources */,
+				EC39704B25493EB400557BD4 /* Splatfont 2 v1.003.otf in Resources */,
 				EC397033254812A600557BD4 /* Splatfont 1 v1.001.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -766,9 +766,9 @@
 				EC00DBD3251CA05F0010366A /* BattleDetail.storyboard in Resources */,
 				EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */,
 				EC39702F254812A600557BD4 /* Splatfont 1 v1.001.otf in Resources */,
-				EC39702E254812A600557BD4 /* Splatfont 2 v1.002.otf in Resources */,
 				EC900EDD251C8EF700AA0B20 /* results.json in Resources */,
 				EC86121D253AC61E003BA67A /* Assets.xcassets in Resources */,
+				EC39704825493E7B00557BD4 /* Splatfont 2 v1.003.otf in Resources */,
 				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -965,7 +965,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -996,7 +996,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1144,7 +1144,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1171,7 +1171,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

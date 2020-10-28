@@ -48,6 +48,7 @@
 "FAQ" = "常见问题";
 "About imink" = "关于 imink";
 "Logout" = "退出登录";
+"Are you sure you want to logout?" = "确定要退出登录吗？";
 
 // MARK: Schedule
 
@@ -130,7 +131,7 @@
 "Manta Maria_multi-line" = "鬼蝠玛利亚号";
 "マンタマリア号_multi-line" = "鬼蝠玛利亚号";
 "Kelp Dome" = "海蕴农园";
-"Kelp Dome" = "海蕴农园";
+"モズク農園" = "海蕴农园";
 "Kelp Dome_multi-line" = "海蕴农园";
 "モズク農園_multi-line" = "海蕴农园";
 "Snapper Canal" = "缘侧河川";
@@ -138,9 +139,9 @@
 "Snapper Canal_multi-line" = "缘侧河川";
 "エンガワ河川敷_multi-line" = "缘侧河川";
 "Blackbelly Skatepark" = "黑鲈鱼滑板公园";
-"Bバスパーク" = "黑鲈鱼滑板公园";
+"Ｂバスパーク" = "黑鲈鱼滑板公园";
 "Blackbelly Skatepark_multi-line" = "黑鲈鱼\n滑板公园";
-"Bバスパーク_multi-line" = "黑鲈鱼\n滑板公园";
+"Ｂバスパーク_multi-line" = "黑鲈鱼\n滑板公园";
 "MakoMart" = "座头超市";
 "ザトウマーケット" = "座头超市";
 "MakoMart_multi-line" = "座头超市";
@@ -164,7 +165,7 @@
 "Piranha Pit" = "盐鱼汁矿山";
 "ショッツル鉱山" = "盐鱼汁矿山";
 "Piranha Pit_multi-line" = "盐鱼汁矿山";
-"ショッツル鉱山" = "盐鱼汁矿山";
+"ショッツル鉱山_multi-line" = "盐鱼汁矿山";
 "Camp Triggerfish" = "鳞鲀露营场";
 "モンガラキャンプ場" = "鳞鲀露营场";
 "Camp Triggerfish_multi-line" = "鳞鲀露营场";
