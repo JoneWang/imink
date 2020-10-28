@@ -48,6 +48,7 @@
 "FAQ" = "よくある質問";
 "About imink" = "imink に関して";
 "Logout" = "ログアウト";
+"Are you sure you want to logout?" = "Are you sure you want to logout?";
 
 // MARK: Schedule
 
@@ -130,17 +131,17 @@
 "Manta Maria_multi-line" = "マンタマリア号";
 "マンタマリア号_multi-line" = "マンタマリア号";
 "Kelp Dome" = "モズク農園";
-"Kelp Dome" = "モズク農園";
+"モズク農園" = "モズク農園";
 "Kelp Dome_multi-line" = "モズク農園";
 "モズク農園_multi-line" = "モズク農園";
 "Snapper Canal" = "エンガワ河川敷";
 "エンガワ河川敷" = "エンガワ河川敷";
 "Snapper Canal_multi-line" = "エンガワ河川敷";
 "エンガワ河川敷_multi-line" = "エンガワ河川敷";
-"Blackbelly Skatepark" = "Bバスパーク";
-"Bバスパーク" = "Bバスパーク";
-"Blackbelly Skatepark_multi-line" = "Bバスパーク";
-"Bバスパーク_multi-line" = "Bバスパーク";
+"Blackbelly Skatepark" = "Ｂバスパーク";
+"Ｂバスパーク" = "Ｂバスパーク";
+"Blackbelly Skatepark_multi-line" = "Ｂバスパーク";
+"Ｂバスパーク_multi-line" = "Ｂバスパーク";
 "MakoMart" = "ザトウマーケット";
 "ザトウマーケット" = "ザトウマーケット";
 "MakoMart_multi-line" = "ザトウマーケット";
