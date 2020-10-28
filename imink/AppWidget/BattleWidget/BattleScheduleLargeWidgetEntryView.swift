@@ -175,6 +175,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                         .scaledToFill(),
                     alignment: .top
                 )
+                .unredacted()
             
             VStack(spacing: topBarSpacing) {
                 ZStack {
