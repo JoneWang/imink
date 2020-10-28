@@ -62,20 +62,8 @@ struct BattleScheduleMediumWidgetEntryView : View {
     var body: some View {
         if entry.schedules != nil {
             makeContent()
-                .background(
-                    Image(backgroundName)
-                        .aspectRatio(1, contentMode: .fill)
-                        .unredacted()
-                )
-                .padding(16)
         } else {
             makeContent()
-                .background(
-                    Image(backgroundName)
-                        .aspectRatio(1, contentMode: .fill)
-                        .unredacted()
-                )
-                .padding(16)
                 .redacted(reason: .placeholder)
         }
     }
@@ -87,85 +75,97 @@ struct BattleScheduleMediumWidgetEntryView : View {
     }()
     
     func makeContent() -> some View {
-        VStack(spacing: vSpacing) {
-            let schedule = entry.schedules?[0]
-            let nextSchedule = entry.schedules?[1]
+        ZStack {
+            Rectangle()
+                .overlay(
+                    Image(backgroundName)
+                        .resizable()
+                        .scaledToFill(),
+                    alignment: .top
+                )
+                .unredacted()
             
-            HStack(spacing: 10) {
-                VStack(spacing: titleAndStageSpacing) {
-                    HStack {
-                        Text("Now")
-                            .sp1Font(size: 14)
-                            .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                            .unredacted()
+            VStack(spacing: vSpacing) {
+                let schedule = entry.schedules?[0]
+                let nextSchedule = entry.schedules?[1]
+                
+                HStack(spacing: 10) {
+                    VStack(spacing: titleAndStageSpacing) {
+                        HStack {
+                            Text("Now")
+                                .sp1Font(size: 14)
+                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                .unredacted()
+                            
+                            Spacer()
+                        }
                         
-                        Spacer()
+                        makeStageImage(
+                            stageId: schedule?.stageA.id ?? "0",
+                            stageName: schedule?.stageA.name.localizedKey ?? "            "
+                        )
                     }
                     
-                    makeStageImage(
-                        stageId: schedule?.stageA.id ?? "0",
-                        stageName: schedule?.stageA.name.localizedKey ?? "            "
-                    )
+                    VStack(spacing: titleAndStageSpacing) {
+                        HStack {
+                            Spacer()
+                            
+                            Text(schedule?.rule.name.localizedKey ?? "      ")
+                                .sp1Font(size: 14, color: ruleNameColor)
+                                .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
+                        }
+                        
+                        makeStageImage(
+                            stageId: schedule?.stageB.id ?? "0",
+                            stageName: schedule?.stageB.name.localizedKey ?? "            "
+                        )
+                    }
                 }
                 
-                VStack(spacing: titleAndStageSpacing) {
-                    HStack {
-                        Spacer()
-                        
-                        Text(schedule?.rule.name.localizedKey ?? "      ")
-                            .sp1Font(size: 14, color: ruleNameColor)
-                            .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
+                GeometryReader { geo in
+                    Path { path in
+                        path.move(to: .init(x: 0, y: 0))
+                        path.addLine(to: .init(x: geo.size.width, y: 0))
                     }
-                    
-                    makeStageImage(
-                        stageId: schedule?.stageB.id ?? "0",
-                        stageName: schedule?.stageB.name.localizedKey ?? "            "
-                    )
+                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [3.5, 3.5]))
+                    .foregroundColor(Color.white.opacity(0.5))
                 }
-            }
-            
-            GeometryReader { geo in
-                Path { path in
-                    path.move(to: .init(x: 0, y: 0))
-                    path.addLine(to: .init(x: geo.size.width, y: 0))
-                }
-                .stroke(style: StrokeStyle(lineWidth: 1, dash: [3.5, 3.5]))
-                .foregroundColor(Color.white.opacity(0.5))
-            }
-            .frame(height: 1)
-            
-            HStack(spacing: 10) {
-                VStack(spacing: titleAndStageSpacing) {
-                    HStack {
-                        Text(nextSchedule?.startDate != nil ? "\(nextSchedule!.startDate, formatter: scheduleTimeFormat)" : "     ")
-                            .sp1Font(size: 14)
-                            .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                            .unredacted()
-                        
-                        Spacer()
-                    }
-                    
-                    makeStageImage(
-                        stageId: nextSchedule?.stageA.id ?? "0",
-                        stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
-                    )
-                }
+                .frame(height: 1)
                 
-                VStack(spacing: titleAndStageSpacing) {
-                    HStack {
-                        Spacer()
+                HStack(spacing: 10) {
+                    VStack(spacing: titleAndStageSpacing) {
+                        HStack {
+                            Text(nextSchedule?.startDate != nil ? "\(nextSchedule!.startDate, formatter: scheduleTimeFormat)" : "     ")
+                                .sp1Font(size: 14)
+                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                .unredacted()
+                            
+                            Spacer()
+                        }
                         
-                        Text(nextSchedule?.rule.name.localizedKey ?? "      ")
-                            .sp1Font(size: 14, color: ruleNameColor)
-                            .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
+                        makeStageImage(
+                            stageId: nextSchedule?.stageA.id ?? "0",
+                            stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
+                        )
                     }
                     
-                    makeStageImage(
-                        stageId: nextSchedule?.stageB.id ?? "0",
-                        stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
-                    )
+                    VStack(spacing: titleAndStageSpacing) {
+                        HStack {
+                            Spacer()
+                            
+                            Text(nextSchedule?.rule.name.localizedKey ?? "      ")
+                                .sp1Font(size: 14, color: ruleNameColor)
+                                .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
+                        }
+                        
+                        makeStageImage(
+                            stageId: nextSchedule?.stageB.id ?? "0",
+                            stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
+                        )
+                    }
                 }
             }
+            .padding(16)
         }
     }
     
