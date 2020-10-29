@@ -72,7 +72,15 @@ class API {
         
         // TODO: Request parameter: query & body data
         
-
+        if let data = api.data {
+            request.addValue(data.contentType, forHTTPHeaderField: "Content-Type")
+            switch data {
+            case .jsonData(let data):
+                let jsonEncoder = JSONEncoder()
+                request.httpBody = try! jsonEncoder.encode(data)
+            }
+        }
+        
         return urlSession.dataTaskPublisher(for: request)
             .tryMap { data, response in
                 guard let httpResponse = response as? HTTPURLResponse else {
@@ -102,6 +110,17 @@ class API {
             }
             .eraseToAnyPublisher()
     }
+}
+
+extension MediaType {
+    
+    var contentType: String {
+        switch self {
+        case .jsonData:
+            return "application/json"
+        }
+    }
+    
 }
 
 /// Wrapping up request

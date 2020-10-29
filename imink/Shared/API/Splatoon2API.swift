@@ -18,6 +18,7 @@ enum Splatoon2API {
 }
 
 extension Splatoon2API: APITargetType {
+    
     static let host = URL(string: "https://app.splatoon2.nintendo.net")!
     
     var baseURL: URL { Splatoon2API.host.appendingPathComponent("/api") }
@@ -69,5 +70,9 @@ extension Splatoon2API: APITargetType {
         default:
             return nil
         }
+    }
+    
+    var data: MediaType? {
+        return nil
     }
 }

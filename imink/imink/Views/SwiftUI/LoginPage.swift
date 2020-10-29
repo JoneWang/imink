@@ -8,21 +8,14 @@
 import SwiftUI
 
 struct LoginPage: View {
-    
-    enum LoginMethod {
-        case token
-    }
-        
     @StateObject var loginViewModel: LoginViewModel
-    
-    @State private var selectedLoginMethod: LoginMethod?
-    
+        
     var body: some View {
         ZStack {
             VStack {
-                if let _ = selectedLoginMethod {
+                if loginViewModel.useClientToken {
                     VStack {
-                        Text("Sign in with Client Token")
+                        Text("Sign in with Telegram Bot")
                             .font(.title)
                             .padding()
                             .cornerRadius(10)
@@ -53,7 +46,7 @@ struct LoginPage: View {
                         HStack {
                             Button(action: {
                                 withAnimation {
-                                    self.selectedLoginMethod = nil
+                                    self.loginViewModel.useNintendoAccount = false
                                 }
                             }) {
                                 Text("Back")
@@ -90,19 +83,31 @@ struct LoginPage: View {
                         Spacer()
                         
                         Button(action: {
+                            loginViewModel.useNintendoAccount = true
+                        }) {
+                            Text("Sign in with Nintendo Account")
+                                .foregroundColor(.white)
+                                .frame(width: 250)
+                                .padding()
+                                .background(AppColor.nintendoRedColor)
+                                .clipShape(Capsule())
+                        }
+                        .padding(.bottom)
+                        
+                        Button(action: {
                             withAnimation {
-                                self.selectedLoginMethod = .token
+                                loginViewModel.useClientToken = true
                             }
                         }) {
-                            Text("Sign in with Client Token")
+                            Text("Sign in with Telegram Bot")
                                 .foregroundColor(.white)
                                 .frame(width: 250)
                                 .padding()
                                 .background(Color.accentColor)
-                                .cornerRadius(10)
+                                .clipShape(Capsule())
                         }
+                        .padding(.bottom)
                         
-                        Spacer()
                     }
                     .padding()
                 }
@@ -118,6 +123,9 @@ struct LoginPage: View {
                         Spacer()
                     })
             }
+        }
+        .sheet(isPresented: $loginViewModel.useNintendoAccount) {
+            NintendoAccountLoginPage(viewModel: loginViewModel)
         }
         .frame(width: 400, height: 250)
     }

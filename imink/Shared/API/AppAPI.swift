@@ -8,6 +8,8 @@
 import Foundation
 
 enum AppAPI {
+    case loginURL
+    case signIn(authCodeVerifier: String, loginInfo: String)
     case me(clientToken: String? = nil)
 }
 
@@ -16,6 +18,10 @@ extension AppAPI: APITargetType {
     
     var path: String {
         switch self {
+        case .loginURL:
+            return "/account/login_url"
+        case .signIn:
+            return "/account/sign_in"
         case .me:
             return "/me"
         }
@@ -23,8 +29,10 @@ extension AppAPI: APITargetType {
     
     var method: APIMethod {
         switch self {
-        case .me:
+        case .loginURL, .me:
             return .get
+        case .signIn:
+            return .post
         }
     }
     
@@ -43,5 +51,19 @@ extension AppAPI: APITargetType {
     
     var querys: [(String, String?)]? {
         return nil
+    }
+    
+    var data: MediaType? {
+        switch self {
+        case .signIn(let authCodeVerifier, let loginInfo):
+            return .jsonData(
+                [
+                    "auth_code_verifier": authCodeVerifier,
+                    "login_info": loginInfo
+                ]
+            )
+        default:
+            return nil
+        }
     }
 }

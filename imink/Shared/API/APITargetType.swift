@@ -15,6 +15,11 @@ enum APIMethod: String {
     // TODO: Need more
 }
 
+enum MediaType {
+    case jsonData(_ data: [String: String])
+    // TODO: Need more
+}
+
 protocol APITargetType {
 
     /// The target's base `URL`.
@@ -30,4 +35,6 @@ protocol APITargetType {
     var headers: [String: String]? { get }
     
     var querys: [(String, String?)]? { get }
+    
+    var data: MediaType? { get }
 }
