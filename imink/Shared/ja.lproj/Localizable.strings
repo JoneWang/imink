@@ -24,11 +24,14 @@
 // MARK: Sign in
 
 "Welcome to imink!" = "imink へようこそ！";
-"Sign in with Client Token" = "Client Token でサインイン";
+"Sign in with Nintendo Account" = "Nintendo Account でサインイン";
+"Sign in with Telegram Bot" = "Telegram Bot でサインイン";
 "sign_in_client_token_tip_1" = "Telegram で /clienttoken を @Sp2BattleBot に送信して";
 "sign_in_client_token_tip_2" = "Client Token を取得する";
 "Client Token" = "Client Token";
 "Sign In" = "サインイン";
+"Failure" = "失敗";
+"Login error occurred, please try again." = "エラーが発生しました、もう一度お試しください";
 
 // MARK: Home
 
@@ -48,7 +51,7 @@
 "FAQ" = "よくある質問";
 "About imink" = "imink に関して";
 "Logout" = "ログアウト";
-"Are you sure you want to logout?" = "Are you sure you want to logout?";
+"Are you sure you want to logout?" = "ログアウトしますか？";
 
 // MARK: Schedule
 
