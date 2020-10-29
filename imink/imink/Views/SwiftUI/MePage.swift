@@ -136,6 +136,7 @@ struct MePage: View {
                             message: Text("Are you sure you want to logout?"),
                             primaryButton: .destructive(Text("Yes"), action: {
                                 AppUserDefaults.shared.user = nil
+                                AppUserDefaults.shared.clientToken = nil
                             }),
                             secondaryButton: .cancel(Text("No"))
                         )
