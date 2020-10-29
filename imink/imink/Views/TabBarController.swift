@@ -75,7 +75,7 @@ class TabBarController: UITabBarController {
             .filter { $0 == .loginSuccess }
             .sink { [weak self] _ in
                 self?.tabBarViewModel.isLogin = true
-                self?.loginViewController?.dismiss(animated: true)
+                self?.loginViewController?.presentingViewController?.dismiss(animated: true)
             }
             .store(in: &viewModel.cancelBag)
         

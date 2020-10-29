@@ -33,6 +33,8 @@ struct AppColor {
     static let listBackgroundColor = Color("ListBackgroundColor")
     
     static let listItemBackgroundColor = Color("ListItemBackgroundColor")
+    
+    static let nintendoRedColor = Color("NintendoRedColor")
 }
 
 struct AppUIColor {
@@ -63,4 +65,6 @@ struct AppUIColor {
     static let listBackgroundColor = UIColor(named: "ListBackgroundColor")!
     
     static let listItemBackgroundColor = UIColor(named: "ListItemBackgroundColor")!
+    
+    static let nintendoRedColor = UIColor(named: "NintendoRedColor")
 }
