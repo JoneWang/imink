@@ -31,6 +31,7 @@ struct SP2Battle: Codable {
         case regular
         case gachi
         case league
+        case fes
         case `private`
     }
 }

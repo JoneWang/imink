@@ -111,9 +111,9 @@ extension Record {
             return "LeagueBattle"
         case "league_team":
             return "LeagueBattle"
-        case "fesTeam":
+        case "fes_team":
             return "SplatfestBattle"
-        case "fesSolo":
+        case "fes_tolo":
             return "SplatfestBattle"
         case "private":
             return "PrivateBattle"
