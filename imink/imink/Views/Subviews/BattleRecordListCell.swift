@@ -113,7 +113,7 @@ extension Record {
             return "LeagueBattle"
         case "fes_team":
             return "SplatfestBattle"
-        case "fes_tolo":
+        case "fes_solo":
             return "SplatfestBattle"
         case "private":
             return "PrivateBattle"
@@ -132,9 +132,9 @@ extension Record {
             return AppUIColor.spPink
         case "league_team":
             return AppUIColor.spPink
-        case "fesTeam":
+        case "fes_team":
             return AppUIColor.spYellow
-        case "fesSolo":
+        case "fes_solo":
             return AppUIColor.spYellow
         case "private":
             return AppUIColor.spPurple
