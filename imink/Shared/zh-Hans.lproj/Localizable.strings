@@ -31,7 +31,7 @@
 "Client Token" = "Client Token";
 "Sign In" = "登录";
 "Failure" = "失败";
-"Login error occurred, please try again." = "登录过程中发生了出错，请重试。";
+"Login error occurred, please try again." = "登录过程中发生了错误，请重试。";
 
 // MARK: Home
 
@@ -62,10 +62,10 @@
 
 // MARK: Widget
 
-"widget_regular_schedule_preview_description" = "展示常规对战的日程和地图。";
-"widget_ranked_schedule_preview_description" = "展示真格对战的日程和地图。";
-"widget_league_schedule_preview_description" = "展示联盟对战的日程和地图。";
-"widget_salmon_run_schedule_preview_description" = "展示熊商会打工的日程和地图。";
+"widget_regular_schedule_preview_description" = "查看常规对战的日程和地图。";
+"widget_ranked_schedule_preview_description" = "查看真格对战的日程和地图。";
+"widget_league_schedule_preview_description" = "查看联盟对战的日程和地图。";
+"widget_salmon_run_schedule_preview_description" = "查看熊商会打工的日程和地图。";
 
 // MARK: Game
 
@@ -161,10 +161,10 @@
 "アロワナモール" = "骨舌鱼商业街";
 "Arowana Mall_multi-line" = "骨舌鱼商业街";
 "アロワナモール_multi-line" = "骨舌鱼商业街";
-"Goby Arena" = "炸竹荚鱼健身房";
-"アジフライスタジアム" = "炸竹荚鱼健身房";
-"Goby Arena_multi-line" = "炸竹荚鱼\n健身房";
-"アジフライスタジアム_multi-line" = "炸竹荚鱼\n健身房";
+"Goby Arena" = "炸竹荚鱼体育馆";
+"アジフライスタジアム" = "炸竹荚鱼体育馆";
+"Goby Arena_multi-line" = "炸竹荚鱼\n体育馆";
+"アジフライスタジアム_multi-line" = "炸竹荚鱼\n体育馆";
 "Piranha Pit" = "盐鱼汁矿山";
 "ショッツル鉱山" = "盐鱼汁矿山";
 "Piranha Pit_multi-line" = "盐鱼汁矿山";
@@ -200,10 +200,10 @@
 "シェケナダム" = "鲑舞大坝";
 "Spawning Grounds_multi-line" = "鲑舞大坝";
 "シェケナダム_multi-line" = "鲑舞大坝";
-"Marooner's Bay" = "难破船";
-"難破船ドン·ブラコ" = "难破船";
-"Marooner's Bay_multi-line" = "难破船";
-"難破船ドン·ブラコ_multi-line" = "难破船";
+"Marooner's Bay" = "难破船 浮载·浮沉";
+"難破船ドン·ブラコ" = "难破船 浮载·浮沉";
+"Marooner's Bay_multi-line" = "难破船\n浮载·浮沉";
+"難破船ドン·ブラコ_multi-line" = "难破船\n浮载·浮沉";
 "Lost Outpost" = "海上集落鲑鱼晒场";
 "海上集落シャケト場" = "海上集落鲑鱼晒场";
 "Lost Outpost_multi-line" = "海上集落\n鲑鱼晒场";
@@ -212,10 +212,10 @@
 "トキシラズいぶし工房" = "时鲑熏制工房";
 "Salmonid Smokeyard_multi-line" = "时鲑熏制工房";
 "トキシラズいぶし工房_multi-line" = "时鲑熏制工房";
-"Ruins of Ark Polaris" = "北极星方舟遗址";
-"朽ちた箱舟 ポラリス" = "北极星方舟遗址";
-"Ruins of Ark Polaris_multi-line" = "北极星\n方舟遗址";
-"朽ちた箱舟 ポラリス_multi-line" = "北极星\n方舟遗址";
+"Ruins of Ark Polaris" = "枯朽方舟北极星号";
+"朽ちた箱舟 ポラリス" = "枯朽方舟北极星号";
+"Ruins of Ark Polaris_multi-line" = "枯朽方舟\n北极星号";
+"朽ちた箱舟 ポラリス_multi-line" = "枯朽方舟\n北极星号";
 
 // MARK: Common
 
