@@ -33,13 +33,19 @@ struct AboutPage: View {
                     VStack(spacing: 12) {
                         Text("Thanks")
                             .sp1Font(size: 22, color: .primary)
-                        VStack(spacing: 4) {
-                            Text("Key山")
-                                .sp2Font(size: 18, color: Color.primary.opacity(0.8))
-                            Text("Provides Japanese translation of imink and Chinese translation of Splatoon 2 content.")
-                                .font(.system(size: 10))
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(.secondary)
+                        
+                        Text("Key山")
+                            .sp2Font(size: 16, color: Color.primary.opacity(0.8))
+                        
+                        HStack {
+                            Text("俐吟")
+                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
+                            Text("小傘Emp")
+                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
+                            Text("米雪")
+                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
+                            Text("ai")
+                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
                         }
                     }
                 }
