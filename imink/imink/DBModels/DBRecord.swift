@@ -24,7 +24,7 @@ struct DBRecord: Identifiable {
     
     // List item information
     var victory: Bool
-    var weaponImage: URL?
+    var weaponImage: String
     var rule: String
     var gameMode: String
     var gameModeKey: String
@@ -160,7 +160,7 @@ extension AppDatabase {
                         json: jsonString,
                         isDetail: false,
                         victory: battle.myTeamResult.key == .victory,
-                        weaponImage: battle.playerResult.player.weapon.image,
+                        weaponImage: battle.playerResult.player.weapon.$image,
                         rule: battle.rule.name,
                         gameMode: battle.gameMode.name,
                         gameModeKey: battle.gameMode.key.rawValue,
@@ -405,6 +405,9 @@ extension DBRecord {
 }
 
 extension DBRecord {
+    var weaponImageURL: URL {
+        Splatoon2API.host.appendingPathComponent(weaponImage)
+    }
     
     var battle: Battle? {
         json.decode(Battle.self)

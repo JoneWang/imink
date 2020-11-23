@@ -1322,7 +1322,7 @@
 			repositoryURL = "https://github.com/ddddxxx/SplatNet2";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 0.1.1;
 			};
 		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {

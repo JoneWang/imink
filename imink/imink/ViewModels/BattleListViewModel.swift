@@ -41,7 +41,7 @@ class BattleListViewModel: ObservableObject {
                             json: "",
                             isDetail: false,
                             victory: false,
-                            weaponImage: nil,
+                            weaponImage: "",
                             rule: "",
                             gameMode: "",
                             gameModeKey: "",
