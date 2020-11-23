@@ -202,7 +202,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                 
                 VStack(spacing: vSpacing) {
                     ForEach(0..<3) { index in
-                        let schedule: SP2Schedule? = entry.schedules?[index]
+                        let schedule: Schedules.Schedule? = entry.schedules?[index]
                         let titles: [LocalizedStringKey] = [
                             "Now",
                             schedule != nil ? "\(schedule!.startTime, formatter: scheduleTimeFormat)-\(schedule!.endTime, formatter: scheduleTimeFormat)" : "     ",
@@ -288,7 +288,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
     }
 }
 
-private extension SP2Stage {
+private extension Stage {
     
     var nameLocalizedStringKey: LocalizedStringKey {
         "\(name)_multi-line".localizedKey

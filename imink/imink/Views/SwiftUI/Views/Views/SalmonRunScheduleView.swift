@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct SalmonRunScheduleView: View {
-    let schedules: SP2SalmonRunSchedules
+    let schedules: SalmonRunSchedules
     
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -17,7 +17,7 @@ struct SalmonRunScheduleView: View {
         return formatter
     }()
     
-    private var dataSource: [SP2SalmonRunSchedules.Schedule] {
+    private var dataSource: [SalmonRunSchedules.Schedule] {
         schedules.schedules.map { schedule in
             if let schedule = schedules.details.first(where: { $0.startTime == schedule.startTime }) {
                 return schedule

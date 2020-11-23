@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TeamView: View {
     let victory: Bool
-    let me: SP2Player
-    let members: [SP2TeamMember]
+    let me: Player
+    let members: [TeamMember]
     let color: Color
 
     var body: some View {

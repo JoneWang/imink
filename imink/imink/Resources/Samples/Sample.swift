@@ -8,12 +8,12 @@
 import Foundation
 
 struct Sample {
-    static func results() -> SP2BattleOverview {
-        Sample.load("results.json", decodable: SP2BattleOverview.self)
+    static func results() -> BattleOverview {
+        Sample.load("results.json", decodable: BattleOverview.self)
     }
     
-    static func battle() -> SP2Battle {
-        Sample.load("result.json", decodable: SP2Battle.self)
+    static func battle() -> Battle {
+        Sample.load("result.json", decodable: Battle.self)
     }
     
     private static func load<T>(_ filename: String, decodable: T.Type) -> T where T: Decodable {

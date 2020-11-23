@@ -26,7 +26,7 @@
 "Welcome to imink!" = "imink へようこそ！";
 "Sign in with Nintendo Account" = "Nintendo Account でサインイン";
 "Sign in with Telegram Bot" = "Telegram Bot でサインイン";
-"sign_in_client_token_tip_1" = "Telegram で /clienttoken を @Sp2BattleBot に送信して";
+"sign_in_client_token_tip_1" = "Telegram で /clienttoken を @BattleBot に送信して";
 "sign_in_client_token_tip_2" = "Client Token を取得する";
 "Client Token" = "Client Token";
 "Sign In" = "サインイン";

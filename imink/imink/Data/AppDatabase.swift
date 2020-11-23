@@ -72,7 +72,7 @@ class AppDatabase {
                     continue
                 }
                 
-                guard let battle = json.decode(SP2Battle.self) else {
+                guard let battle = json.decode(Battle.self) else {
                     continue
                 }
                 
@@ -108,7 +108,7 @@ class AppDatabase {
                     continue
                 }
                 
-                guard let battle = json.decode(SP2Battle.self) else {
+                guard let battle = json.decode(Battle.self) else {
                     continue
                 }
                 

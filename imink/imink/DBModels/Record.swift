@@ -145,7 +145,7 @@ extension AppDatabase {
                     continue
                 }
                 
-                guard let battle = jsonString.decode(SP2Battle.self) else {
+                guard let battle = jsonString.decode(Battle.self) else {
                     continue
                 }
                 
@@ -402,7 +402,7 @@ extension Record {
 
 extension Record {
     
-    var battle: SP2Battle? {
-        json.decode(SP2Battle.self)
+    var battle: Battle? {
+        json.decode(Battle.self)
     }
 }

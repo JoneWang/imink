@@ -12,7 +12,7 @@ class MeViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     @Published var records: SP2Records?
-    @Published var nicknameAndIcons: SP2NicknameAndIcon?
+    @Published var nicknameAndIcons: NicknameAndIcon?
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -35,10 +35,10 @@ class MeViewModel: ObservableObject {
                     .receive(on: DispatchQueue.main)
                     .eraseToAnyPublisher()
             }
-            .compactMap { data -> SP2NicknameAndIcon? in
+            .compactMap { data -> NicknameAndIcon? in
                 // Cache
                 AppUserDefaults.shared.splatoon2NicknameAndIconData = data
-                return data.decode(SP2NicknameAndIcon.self)
+                return data.decode(NicknameAndIcon.self)
             }
             .sink { [weak self] error in
                 self?.isLoading = false
@@ -58,7 +58,7 @@ class MeViewModel: ObservableObject {
         }
         
         records = recordsData.decode(SP2Records.self)
-        nicknameAndIcons = nicknameAndIconData.decode(SP2NicknameAndIcon.self)
+        nicknameAndIcons = nicknameAndIconData.decode(NicknameAndIcon.self)
     }
     
 }

@@ -30,7 +30,7 @@ class AppUserDefaults: ObservableObject {
     }
     
     @StandardStorage(key: "last_battle", store: UserDefaults.appGroup)
-    var lastBattle: SP2Battle?
+    var lastBattle: Battle?
     
     @AppStorage("splatoon2_records", store: UserDefaults.appGroup)
     var splatoon2RecordsData: Data?

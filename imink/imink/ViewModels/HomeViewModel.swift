@@ -24,9 +24,9 @@ class HomeViewModel: ObservableObject {
     @Published var syncTotalCount = 0
     @Published var synchronizedCount = 0
     @Published var recordTotalCount = 0
-    @Published var schedules: SP2Schedules?
-    @Published var salmonRunSchedules: SP2SalmonRunSchedules?
-    @Published var activeFestivals: SP2ActiveFestivals?
+    @Published var schedules: Schedules?
+    @Published var salmonRunSchedules: SalmonRunSchedules?
+    @Published var activeFestivals: ActiveFestivals?
     @Published var isLoading: Bool = false
     
     var vdWithLast500: [Bool] {
@@ -93,12 +93,12 @@ class HomeViewModel: ObservableObject {
         
         let battleSchedules = Splatoon2API.schedules
             .request()
-            .decode(type: SP2Schedules.self)
+            .decode(type: Schedules.self)
             .receive(on: DispatchQueue.main)
-            .map { schedules -> SP2Schedules? in schedules }
-            .catch { error -> Just<SP2Schedules?> in
+            .map { schedules -> Schedules? in schedules }
+            .catch { error -> Just<Schedules?> in
                 os_log("API Error: [schedules] \(error.localizedDescription)")
-                return Just<SP2Schedules?>(nil)
+                return Just<Schedules?>(nil)
             }
             
         battleSchedules
@@ -106,12 +106,12 @@ class HomeViewModel: ObservableObject {
         
         let salmonRunSchedules = Splatoon2API.salmonRunSchedules
             .request()
-            .decode(type: SP2SalmonRunSchedules.self)
+            .decode(type: SalmonRunSchedules.self)
             .receive(on: DispatchQueue.main)
-            .map { schedules -> SP2SalmonRunSchedules? in schedules }
-            .catch { error -> Just<SP2SalmonRunSchedules?> in
+            .map { schedules -> SalmonRunSchedules? in schedules }
+            .catch { error -> Just<SalmonRunSchedules?> in
                 os_log("API Error: [salmonRunSchedules] \(error.localizedDescription)")
-                return Just<SP2SalmonRunSchedules?>(nil)
+                return Just<SalmonRunSchedules?>(nil)
             }
             
         salmonRunSchedules
@@ -119,12 +119,12 @@ class HomeViewModel: ObservableObject {
         
         let activeFestivals = Splatoon2API.activeFestivals
             .request()
-            .decode(type: SP2ActiveFestivals.self)
+            .decode(type: ActiveFestivals.self)
             .receive(on: DispatchQueue.main)
-            .map { festivals -> SP2ActiveFestivals? in festivals }
-            .catch { error -> Just<SP2ActiveFestivals?> in
+            .map { festivals -> ActiveFestivals? in festivals }
+            .catch { error -> Just<ActiveFestivals?> in
                 os_log("API Error: [activeFestivals] \(error.localizedDescription)")
-                return Just<SP2ActiveFestivals?>(nil)
+                return Just<ActiveFestivals?>(nil)
             }
             
         activeFestivals
