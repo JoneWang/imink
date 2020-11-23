@@ -21,7 +21,7 @@ struct CompactBattlePage: View {
             if let record = record, let battle = record.battle {
                 // Stage as background
                 Rectangle().overlay(
-                    WebImage(url: battle.stage.imageURL)
+                    WebImage(url: battle.stage.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .transition(.opacity)

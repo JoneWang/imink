@@ -35,7 +35,7 @@ struct ScheduleView: View {
                 VStack {
                     
                     if let schedule = schedules.first?[index] {
-                        let scheduleTime = Date(timeIntervalSince1970: schedule.startTime)
+                        let scheduleTime = schedule.startTime
                         
                         VStack {
                             Text(index == 0 ?
@@ -89,7 +89,7 @@ struct ScheduleView: View {
                                         .sp2Font(color: Color.primary)
                                         .minimumScaleFactor(0.5)
                                     
-                                    WebImage(url: stage.imageURL)
+                                    WebImage(url: stage.image)
                                         .resizable()
                                         .aspectRatio(640 / 360, contentMode: .fill)
                                         .cornerRadius(8)

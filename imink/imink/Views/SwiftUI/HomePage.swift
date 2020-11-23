@@ -243,7 +243,7 @@ struct HomePage: View {
                                 ZStack {
                                 HStack(spacing: 0) {
                                     HStack(spacing: 0) {
-                                        WebImage(url: festival.images.alphaImageURL)
+                                        WebImage(url: festival.images.alpha)
                                             .resizable()
                                             .scaledToFit()
                                         Text(festival.names.alphaShort)
@@ -256,7 +256,7 @@ struct HomePage: View {
                                         Spacer()
                                         Text(festival.names.bravoShort)
                                             .sp1Font(size: 14)
-                                        WebImage(url: festival.images.bravoImageURL)
+                                        WebImage(url: festival.images.bravo)
                                             .resizable()
                                             .scaledToFit()
                                     }
@@ -264,7 +264,7 @@ struct HomePage: View {
                                     .background(festival.colors.bravoColor)
                                 }
                                     
-                                    Text("\(festival.times.startDate, formatter: scheduleTimeFormat) - \(festival.times.endDate, formatter: scheduleTimeFormat)")
+                                    Text("\(festival.times.start, formatter: scheduleTimeFormat) - \(festival.times.end, formatter: scheduleTimeFormat)")
                                         .sp2Font()
                                         .padding(.horizontal)
                                         .minimumScaleFactor(0.5)

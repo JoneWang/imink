@@ -24,7 +24,7 @@ struct Record: Identifiable {
     
     // List item information
     var victory: Bool
-    var weaponImage: String
+    var weaponImage: URL?
     var rule: String
     var gameMode: String
     var gameModeKey: String
@@ -169,7 +169,7 @@ extension AppDatabase {
                         deathCount: battle.playerResult.deathCount,
                         myPoint: battle.myPoint,
                         otherPoint: battle.otherPoint,
-                        startDateTime: battle.startDate)
+                        startDateTime: battle.startTime)
                 )
             }
             
@@ -401,9 +401,6 @@ extension Record {
 }
 
 extension Record {
-    var weaponImageURL: URL {
-        Splatoon2API.host.appendingPathComponent(weaponImage)
-    }
     
     var battle: SP2Battle? {
         json.decode(SP2Battle.self)

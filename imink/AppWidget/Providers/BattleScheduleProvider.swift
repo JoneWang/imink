@@ -65,14 +65,14 @@ class BattleScheduleProvider: TimelineProvider {
                 if schedules.count - 3 < i { continue }
                 
                 let entry = ScheduleEntry(
-                    date: i == 0 ? Date() : schedule.startDate,
+                    date: i == 0 ? Date() : schedule.startTime,
                     schedules: [schedule, schedules[i + 1], schedules[i + 2]],
                     size: .with(context.displaySize)
                 )
                 entries.append(entry)
             }
             
-            let timeline = Timeline(entries: entries, policy: .after(schedules[schedules.count - 3].startDate))
+            let timeline = Timeline(entries: entries, policy: .after(schedules[schedules.count - 3].startTime))
             completion(timeline)
         } failure: {
             let refreshDate = Calendar.current.date(byAdding: .minute, value: 5, to: Date())!
@@ -100,7 +100,7 @@ extension BattleScheduleProvider {
             
             if schedules.count > 2 {
                 let lastSchedule = schedules[schedules.count - 2]
-                if lastSchedule.startDate < Date() {
+                if lastSchedule.startTime < Date() {
                     success(schedules)
                     if !mustLoading { return }
                 }

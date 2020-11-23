@@ -5,10 +5,6 @@
 //  Created by 王强 on 2020/10/2.
 //
 
-import Foundation
+import SplatNet2
 
-struct SP2Stage: Codable {
-    let id: String
-    let name: String
-    let image: String
-}
+typealias SP2Stage = SplatNet2.Stage

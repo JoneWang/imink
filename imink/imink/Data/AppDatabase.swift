@@ -119,7 +119,7 @@ class AppDatabase {
                         "WHERE id = :id",
                     arguments: [
                         "gameModeKey": battle.gameMode.key.rawValue,
-                        "startDateTime": battle.startDate,
+                        "startDateTime": battle.startTime,
                         "id": id
                     ])
             }

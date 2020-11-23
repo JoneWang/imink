@@ -33,7 +33,7 @@ struct SalmonRunScheduleView: View {
             VStack(spacing: 10) {
                 
                 VStack {
-                    Text("\(schedule.startDate, formatter: scheduleTimeFormat) - \(schedule.endDate, formatter: scheduleTimeFormat)")
+                    Text("\(schedule.startTime, formatter: scheduleTimeFormat) - \(schedule.endTime, formatter: scheduleTimeFormat)")
                         .sp2Font(size: 15, color: Color.primary)
                         .colorInvert()
                 }
@@ -51,7 +51,7 @@ struct SalmonRunScheduleView: View {
                             Text(stage.name.localizedKey)
                                 .sp2Font(color: Color.primary)
                             
-                            WebImage(url: stage.imageURL)
+                            WebImage(url: stage.image)
                                 .resizable()
                                 .aspectRatio(640 / 360, contentMode: .fill)
                                 .frame(minWidth: 100)
@@ -72,14 +72,14 @@ struct SalmonRunScheduleView: View {
                                 HStack(alignment: .center) {
                                     
                                     ForEach(weapons, id: \.id) { weapon in
-                                        if let thumbnailURL = weapon.weapon?.thumbnailURL {
+                                        if let thumbnailURL = weapon.weapon?.thumbnail {
                                             WebImage(url: thumbnailURL)
                                                 .resizable()
                                                 .aspectRatio(1, contentMode: .fit)
                                                 .frame(minWidth: 40)
                                                 .cornerRadius(8)
                                         }
-                                        else if let imageURL = weapon.coopSpecialWeapon?.imageURL {
+                                        else if let imageURL = weapon.coopSpecialWeapon?.image {
                                             WebImage(url: imageURL)
                                                 .resizable()
                                                 .aspectRatio(1, contentMode: .fit)

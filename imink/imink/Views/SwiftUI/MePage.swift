@@ -46,7 +46,7 @@ struct MePage: View {
                            let nicknameAndIcon = meViewModel.nicknameAndIcons?.nicknameAndIcons.first {
                             VStack {
                                 HStack(alignment: .top) {
-                                    WebImage(url: nicknameAndIcon.avatarURL)
+                                    WebImage(url: nicknameAndIcon.thumbnailUrl)
                                         .resizable()
                                         .frame(width: 60, height: 60)
                                         .background(Color.secondary)

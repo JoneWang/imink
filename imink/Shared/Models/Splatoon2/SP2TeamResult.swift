@@ -5,14 +5,6 @@
 //  Created by Jone Wang on 2020/9/13.
 //
 
-import Foundation
+import SplatNet2
 
-struct SP2TeamResult: Codable {
-    let key: Key
-    let name: String
-    
-    enum Key: String, Codable {
-        case victory
-        case defeat
-    }
-}
+typealias SP2TeamResult = SplatNet2.TeamResult

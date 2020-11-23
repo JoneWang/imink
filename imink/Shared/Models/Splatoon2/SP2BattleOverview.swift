@@ -5,8 +5,6 @@
 //  Created by Jone Wang on 2020/9/6.
 //
 
-import Foundation
+import SplatNet2
 
-struct SP2BattleOverview: Codable {
-    let results: [SP2Battle]
-}
+typealias SP2BattleOverview = SplatNet2.BattleOverview
