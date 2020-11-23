@@ -42,6 +42,10 @@ struct DBRecord: Identifiable {
 }
 
 extension DBRecord: Codable, FetchableRecord, MutablePersistableRecord {
+    
+    // Table name
+    static let databaseTableName = "record"
+    
     // Define database columns from CodingKeys
     fileprivate enum Columns {
         static let id = Column(CodingKeys.id)
