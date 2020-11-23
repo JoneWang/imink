@@ -88,7 +88,7 @@ class BattleRecordListCell: UICollectionViewCell {
         barWidth.constant = self.rightBarView.frame.width * CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint))
         
         weaponImageView.image = nil
-        weaponImageView.sd_setImage(with: record.weaponImageURL)
+        weaponImageView.sd_setImage(with: record.weaponImage)
         
         activityIndicatorView.isHidden = record.isDetail
         if !record.isDetail {

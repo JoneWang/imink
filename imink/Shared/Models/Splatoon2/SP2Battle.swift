@@ -5,42 +5,9 @@
 //  Created by Jone Wang on 2020/9/6.
 //
 
-import Foundation
+import SplatNet2
 
-struct SP2Battle: Codable {
-    let battleNumber: String
-    let type: `Type`
-    let stage: SP2Stage
-    let gameMode: SP2GameMode
-    let rule: SP2Rule
-    let myTeamResult: SP2TeamResult
-    let otherTeamResult: SP2TeamResult
-    let myEstimateLeaguePoint: Int?
-    let otherEstimateLeaguePoint: Int?
-    let estimateGachiPower: Int?
-    let myTeamPercentage: Double?
-    let otherTeamPercentage: Double?
-    let myTeamCount: Int?
-    let otherTeamCount: Int?
-    let playerResult: SP2TeamMember
-    let myTeamMembers: [SP2TeamMember]?
-    let otherTeamMembers: [SP2TeamMember]?
-    let startTime: TimeInterval
-
-    enum `Type`: String, Codable {
-        case regular
-        case gachi
-        case league
-        case fes
-        case `private`
-    }
-}
-
-extension SP2Stage {
-    var imageURL: URL {
-        Splatoon2API.host.appendingPathComponent(image)
-    }
-}
+typealias SP2Battle = SplatNet2.Battle
 
 extension SP2Battle {
     var myPower: Int? {
@@ -65,9 +32,5 @@ extension SP2Battle {
         } else {
             return Double(otherTeamCount!)
         }
-    }
-    
-    var startDate: Date {
-        Date(timeIntervalSince1970: startTime)
     }
 }

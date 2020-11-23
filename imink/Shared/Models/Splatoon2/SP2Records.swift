@@ -5,16 +5,6 @@
 //  Created by Jone Wang on 2020/10/14.
 //
 
-import Foundation
+import SplatNet2
 
-struct SP2Records: Codable {
-    
-    let records: Records
-    
-    struct Records: Codable {
-        
-        let player: SP2Player
-        
-    }
-    
-}
+typealias SP2Records = SplatNet2.Records

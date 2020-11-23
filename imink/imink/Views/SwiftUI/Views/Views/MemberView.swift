@@ -53,15 +53,15 @@ struct MemberView: View {
                     }
                     
                     // Weapon
-                    WebImage(url: member.player.weapon.imageURL)
+                    WebImage(url: member.player.weapon.image)
                         .resizable()
                         .aspectRatio(1, contentMode: .fit)
                         .overlay(
                             ZStack {
                                 Color.black.opacity(0.4)
                                 WebImage(url: victory ?
-                                            member.player.weapon.sub.imageAURL :
-                                            member.player.weapon.sub.imageBURL
+                                            member.player.weapon.sub.imageA :
+                                            member.player.weapon.sub.imageB
                                 )
                                 .resizable()
                                 .padding(1)
@@ -94,7 +94,7 @@ struct MemberView: View {
                                     ZStack {
                                         Color.black
                                         
-                                        WebImage(url: skills.main.imageURL)
+                                        WebImage(url: skills.main.image)
                                             .resizable()
                                             .padding(1)
                                     }
@@ -151,8 +151,8 @@ struct MemberView: View {
                     // Special
                     VStack(spacing: 4) {
                         WebImage(url: victory ?
-                                    member.player.weapon.special.imageAURL :
-                                    member.player.weapon.special.imageBURL
+                                    member.player.weapon.special.imageA :
+                                    member.player.weapon.special.imageB
                         )
                         .resizable()
                         .frame(width: 18, height: 18)

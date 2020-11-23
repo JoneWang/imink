@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBC15A22256B9CD300B67514 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = BBC15A21256B9CD300B67514 /* SplatNet2 */; };
+		BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
+		BBC15A24256B9CE200B67514 /* InkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBC15A2A256B9CEA00B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
 		EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */; };
 		EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */; };
 		EC00DBD0251C9D5B0010366A /* BattleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBCF251C9D5B0010366A /* BattleDetailViewController.swift */; };
@@ -23,7 +27,6 @@
 		EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC04251CD8770010366A /* TeamsDataView.swift */; };
 		EC00DC0F251CD8770010366A /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC06251CD8770010366A /* MemberView.swift */; };
 		EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC18251CD90B0010366A /* RegularBattlePage.swift */; };
-		EC17CB10256B995900E34247 /* InkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = EC17CB0E256B995900E34247 /* InkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25EBD5252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */; };
 		EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F19DA2543306E00CE9B34 /* AboutPage.swift */; };
 		EC344FE525330312004A7AF1 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE425330312004A7AF1 /* MeViewController.swift */; };
@@ -162,6 +165,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BBC15A25256B9CE300B67514 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC900E69251C55FE00AA0B20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC17CB0B256B995900E34247;
+			remoteInfo = InkCore;
+		};
+		BBC15A2C256B9CEA00B67514 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC900E69251C55FE00AA0B20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC17CB0B256B995900E34247;
+			remoteInfo = InkCore;
+		};
 		EC8611CE253AB9CB003BA67A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC900E69251C55FE00AA0B20 /* Project object */;
@@ -172,6 +189,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		BBC15A27256B9CE300B67514 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BBC15A24256B9CE200B67514 /* InkCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC8611BC253AA876003BA67A /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,7 +241,6 @@
 		EC00DC06251CD8770010366A /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC17CB0E256B995900E34247 /* InkCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InkCore.h; sourceTree = "<group>"; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2SalmonRunSchedules.swift; sourceTree = "<group>"; };
 		EC2F19DA2543306E00CE9B34 /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
@@ -318,6 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC15A22256B9CD300B67514 /* SplatNet2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +353,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC15A2A256B9CEA00B67514 /* InkCore.framework in Frameworks */,
 				EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */,
 				EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */,
 			);
@@ -337,6 +366,7 @@
 				EC43AA5C251CCDF000283D28 /* SDWebImageSwiftUI in Frameworks */,
 				EC606045251CD5B200DCF35E /* SnapKit in Frameworks */,
 				EC43AA54251C95DE00283D28 /* SDWebImage in Frameworks */,
+				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				EC43AA58251C9A7100283D28 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +458,6 @@
 		EC17CB0D256B995900E34247 /* InkCore */ = {
 			isa = PBXGroup;
 			children = (
-				EC17CB0E256B995900E34247 /* InkCore.h */,
 				EC17CB0F256B995900E34247 /* Info.plist */,
 			);
 			path = InkCore;
@@ -686,7 +715,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC17CB10256B995900E34247 /* InkCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +735,9 @@
 			dependencies = (
 			);
 			name = InkCore;
+			packageProductDependencies = (
+				BBC15A21256B9CD300B67514 /* SplatNet2 */,
+			);
 			productName = InkCore;
 			productReference = EC17CB0C256B995900E34247 /* InkCore.framework */;
 			productType = "com.apple.product-type.framework";
@@ -722,6 +753,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BBC15A2D256B9CEA00B67514 /* PBXTargetDependency */,
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
@@ -739,11 +771,13 @@
 				EC900E6F251C55FF00AA0B20 /* Resources */,
 				ECAE8DBA25207FA1003D7EDC /* Embed App Clips */,
 				EC8611BC253AA876003BA67A /* Embed App Extensions */,
+				BBC15A27256B9CE300B67514 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				EC8611CF253AB9CB003BA67A /* PBXTargetDependency */,
+				BBC15A26256B9CE300B67514 /* PBXTargetDependency */,
 			);
 			name = imink;
 			packageProductDependencies = (
@@ -793,6 +827,7 @@
 				EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BBC15A20256B9CD300B67514 /* XCRemoteSwiftPackageReference "SplatNet2" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -998,6 +1033,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BBC15A26256B9CE300B67514 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC17CB0B256B995900E34247 /* InkCore */;
+			targetProxy = BBC15A25256B9CE300B67514 /* PBXContainerItemProxy */;
+		};
+		BBC15A2D256B9CEA00B67514 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC17CB0B256B995900E34247 /* InkCore */;
+			targetProxy = BBC15A2C256B9CEA00B67514 /* PBXContainerItemProxy */;
+		};
 		EC8611CF253AB9CB003BA67A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EC8611C4253AB9C9003BA67A /* WidgetExtension */;
@@ -1039,6 +1084,7 @@
 		EC17CB11256B995900E34247 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1067,6 +1113,7 @@
 		EC17CB12256B995900E34247 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1368,6 +1415,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BBC15A20256B9CD300B67514 /* XCRemoteSwiftPackageReference "SplatNet2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ddddxxx/SplatNet2";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1403,6 +1458,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BBC15A21256B9CD300B67514 /* SplatNet2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBC15A20256B9CD300B67514 /* XCRemoteSwiftPackageReference "SplatNet2" */;
+			productName = SplatNet2;
+		};
 		EC43AA53251C95DE00283D28 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;

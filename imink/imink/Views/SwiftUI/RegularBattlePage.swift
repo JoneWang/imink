@@ -18,12 +18,12 @@ struct RegularBattlePage: View {
     
     var body: some View {
         let contentView = Group {
-            if let record = record, let battle = record.battle {
+            if let battle = record?.battle {
                 GeometryReader { geo in
                     ZStack {
                         // Stage as background
                         Rectangle().overlay(
-                            WebImage(url: battle.stage.imageURL)
+                            WebImage(url: battle.stage.image)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .transition(.opacity)

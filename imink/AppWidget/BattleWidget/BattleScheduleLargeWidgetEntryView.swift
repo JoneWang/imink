@@ -205,8 +205,8 @@ struct BattleScheduleLargeWidgetEntryView : View {
                         let schedule: SP2Schedule? = entry.schedules?[index]
                         let titles: [LocalizedStringKey] = [
                             "Now",
-                            schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "     ",
-                            schedule != nil ? "\(schedule!.startDate, formatter: scheduleTimeFormat)-\(schedule!.endDate, formatter: scheduleTimeFormat)" : "     "]
+                            schedule != nil ? "\(schedule!.startTime, formatter: scheduleTimeFormat)-\(schedule!.endTime, formatter: scheduleTimeFormat)" : "     ",
+                            schedule != nil ? "\(schedule!.startTime, formatter: scheduleTimeFormat)-\(schedule!.endTime, formatter: scheduleTimeFormat)" : "     "]
                         
                         VStack(spacing: titleAndStageSpacing) {
                             HStack {

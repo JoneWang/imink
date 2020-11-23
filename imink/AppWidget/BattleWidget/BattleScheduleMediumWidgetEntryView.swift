@@ -135,7 +135,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
                 HStack(spacing: 10) {
                     VStack(spacing: titleAndStageSpacing) {
                         HStack {
-                            Text(nextSchedule?.startDate != nil ? "\(nextSchedule!.startDate, formatter: scheduleTimeFormat)" : "     ")
+                            Text(nextSchedule?.startTime != nil ? "\(nextSchedule!.startTime, formatter: scheduleTimeFormat)" : "     ")
                                 .sp1Font(size: 14)
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                 .unredacted()
