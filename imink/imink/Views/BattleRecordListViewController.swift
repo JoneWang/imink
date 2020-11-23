@@ -22,10 +22,10 @@ class BattleRecordListViewController: UIViewController {
 
     private var cancelBag = Set<AnyCancellable>()
 
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Record>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, DBRecord>!
 
     private var battleListViewModel: BattleListViewModel!
-    private var selectedRecord: Record? {
+    private var selectedRecord: DBRecord? {
         guard
             let indexPathsForSelectedItems = collectionView.indexPathsForSelectedItems,
             let selectedIndexPath = indexPathsForSelectedItems.first,
@@ -187,19 +187,19 @@ extension BattleRecordListViewController {
 extension BattleRecordListViewController {
 
     func configureDataSource() {
-        let recordCell = UICollectionView.CellRegistration<BattleRecordListCell, Record>(cellNib: BattleRecordListCell.nib) { (cell, _, record) in
+        let recordCell = UICollectionView.CellRegistration<BattleRecordListCell, DBRecord>(cellNib: BattleRecordListCell.nib) { (cell, _, record) in
             cell.record = record
         }
         
-        let realTimeCell = UICollectionView.CellRegistration<BattleRecordListRealTimeCell, Record>(cellNib: BattleRecordListRealTimeCell.nib) { (cell, _, record) in
+        let realTimeCell = UICollectionView.CellRegistration<BattleRecordListRealTimeCell, DBRecord>(cellNib: BattleRecordListRealTimeCell.nib) { (cell, _, record) in
             cell.record = record
         }
 
         // Create a diffable data source, and configure the cell with record data.
-        dataSource = UICollectionViewDiffableDataSource<Section, Record>(collectionView: collectionView) { (
+        dataSource = UICollectionViewDiffableDataSource<Section, DBRecord>(collectionView: collectionView) { (
             collectionView: UICollectionView,
             indexPath: IndexPath,
-            record: Record) -> UICollectionViewCell? in
+            record: DBRecord) -> UICollectionViewCell? in
             if record.id != nil {
                 return collectionView.dequeueConfiguredReusableCell(using: recordCell, for: indexPath, item: record)
             } else {
@@ -208,11 +208,11 @@ extension BattleRecordListViewController {
         }
     }
 
-    func apply(_ records: [Record], completed: @escaping (() -> Void)) {
+    func apply(_ records: [DBRecord], completed: @escaping (() -> Void)) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let `self` = self else { return }
             
-            var snapshot = NSDiffableDataSourceSnapshot<Section, Record>()
+            var snapshot = NSDiffableDataSourceSnapshot<Section, DBRecord>()
             snapshot.appendSections([.main])
             snapshot.appendItems(records)
             self.dataSource.apply(snapshot, animatingDifferences: true) {

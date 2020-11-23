@@ -8,14 +8,14 @@
 import SplatNet2
 
 typealias ActiveFestivals = SplatNet2.ActiveFestivals
+typealias Battle = SplatNet2.Battle
 typealias BattleOverview = SplatNet2.BattleOverview
 typealias GameMode = SplatNet2.GameMode
 typealias NicknameAndIcon = SplatNet2.NicknameAndIcon
 typealias Player = SplatNet2.Player
+typealias Records = SplatNet2.Records
 typealias SalmonRunSchedules = SplatNet2.SalmonRunSchedules
 typealias Schedules = SplatNet2.Schedules
-typealias Battle = SplatNet2.Battle
-typealias SP2Records = SplatNet2.Records
 typealias Stage = SplatNet2.Stage
 typealias TeamMember = SplatNet2.TeamMember
 typealias TeamResult = SplatNet2.TeamResult
@@ -84,6 +84,8 @@ extension Battle {
         }
     }
 }
+
+import SwiftUI
 
 extension SN2Color {
     var color: Color {

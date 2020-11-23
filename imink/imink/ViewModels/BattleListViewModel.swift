@@ -11,8 +11,8 @@ import os
 
 class BattleListViewModel: ObservableObject {
     
-    @Published var records: [Record] = []
-    @Published var databaseRecords: [Record] = []
+    @Published var records: [DBRecord] = []
+    @Published var databaseRecords: [DBRecord] = []
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -21,9 +21,9 @@ class BattleListViewModel: ObservableObject {
     init() {
         // Database records publisher
         AppDatabase.shared.records()
-            .catch { error -> Just<[Record]> in
+            .catch { error -> Just<[DBRecord]> in
                 os_log("Database Error: [records] \(error.localizedDescription)")
-                return Just<[Record]>([])
+                return Just<[DBRecord]>([])
             }
             .assign(to: &$databaseRecords)
         
@@ -36,7 +36,7 @@ class BattleListViewModel: ObservableObject {
                     return [firstRecord] + records
                 } else {
                     return [
-                        Record(
+                        DBRecord(
                             battleNumber: "",
                             json: "",
                             isDetail: false,
