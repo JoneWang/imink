@@ -12,7 +12,7 @@ import WidgetKit
 
 class TabBarViewModel: ObservableObject {
     
-    @Published var databaseRecords: [Record] = []
+    @Published var databaseRecords: [DBRecord] = []
     
     @Published var isLoadingDetail = false
     
@@ -106,7 +106,7 @@ extension TabBarViewModel {
                     // Restart data synchronization
                     if self.databaseRecords.filter({ !$0.isDetail }).count > 0 && !self.isLoadingDetail {
                         // Trigger detail request
-                        Just<[Record]>(self.databaseRecords)
+                        Just<[DBRecord]>(self.databaseRecords)
                             .assign(to: &self.$databaseRecords)
                     }
                 }
@@ -119,9 +119,9 @@ extension TabBarViewModel {
         
         // Database records publisher
         AppDatabase.shared.records()
-            .catch { error -> Just<[Record]> in
+            .catch { error -> Just<[DBRecord]> in
                 os_log("Database Error: [records] \(error.localizedDescription)")
-                return Just<[Record]>([])
+                return Just<[DBRecord]>([])
             }
             .assign(to: \.databaseRecords, on: self)
             .store(in: &syncCancelBag)
@@ -137,7 +137,7 @@ extension TabBarViewModel {
             }, receiveCompletion: { completion in
                 return false
             })
-            .map { [weak self] record -> Record in
+            .map { [weak self] record -> DBRecord in
                 self?.isLoadingDetail = true
                 return record
             }

@@ -17,7 +17,7 @@ class BattleRecordListRealTimeCell: UICollectionViewCell {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var containerView: UIView!
     
-    var record: Record? {
+    var record: DBRecord? {
         didSet {
             guard let record = record else { return }
             if record == oldValue { return }
@@ -57,7 +57,7 @@ class BattleRecordListRealTimeCell: UICollectionViewCell {
         }
     }
     
-    func configure(with record: Record) {
+    func configure(with record: DBRecord) {
         battleNumberLabel.text = "ID: \(record.battleNumber)"
         
         NotificationCenter.default

@@ -12,7 +12,7 @@ struct RegularBattlePage: View {
     
     @ObservedObject var model: BattleDetailViewController.UpdateModel
     
-    var record: Record? {
+    var record: DBRecord? {
         model.record
     }
     

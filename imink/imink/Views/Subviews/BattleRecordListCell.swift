@@ -28,7 +28,7 @@ class BattleRecordListCell: UICollectionViewCell {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var gameModeImageView: UIImageView!
     
-    var record: Record? {
+    var record: DBRecord? {
         didSet {
             guard let record = record else { return }
             if record == oldValue { return }
@@ -70,7 +70,7 @@ class BattleRecordListCell: UICollectionViewCell {
         }
     }
     
-    private func configure(with record: Record) {
+    private func configure(with record: DBRecord) {
         battleNumberLabel.text = record.battleNumber
         resultLabel.text = "\(record.victory ? NSLocalizedString("VICTORY", comment: "") : NSLocalizedString("DEFEAT", comment: ""))"
         resultLabel.textColor = record.victory ?
@@ -99,7 +99,7 @@ class BattleRecordListCell: UICollectionViewCell {
     
 }
 
-extension Record {
+extension DBRecord {
     
     var gameModeImageName: String {
         switch gameModeKey {

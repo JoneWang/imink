@@ -11,7 +11,7 @@ import Combine
 class MeViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
-    @Published var records: SP2Records?
+    @Published var records: Records?
     @Published var nicknameAndIcons: NicknameAndIcon?
     
     private var cancelBag = Set<AnyCancellable>()
@@ -23,10 +23,10 @@ class MeViewModel: ObservableObject {
         Splatoon2API.records
             .request()
             .receive(on: DispatchQueue.main)
-            .compactMap { data -> SP2Records? in
+            .compactMap { data -> Records? in
                 // Cache
                 AppUserDefaults.shared.splatoon2RecordsData = data
-                return data.decode(SP2Records.self)
+                return data.decode(Records.self)
             }
             .flatMap { [weak self] records -> AnyPublisher<Data, APIError> in
                 self?.records = records
@@ -57,7 +57,7 @@ class MeViewModel: ObservableObject {
             return
         }
         
-        records = recordsData.decode(SP2Records.self)
+        records = recordsData.decode(Records.self)
         nicknameAndIcons = nicknameAndIconData.decode(NicknameAndIcon.self)
     }
     

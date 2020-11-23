@@ -112,7 +112,7 @@
 		EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */; };
 		EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */; };
 		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
-		EC900EE1251C8EF700AA0B20 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* Record.swift */; };
+		EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* DBRecord.swift */; };
 		EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */; };
 		EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440E025406C8200060E46 /* WidgetSize.swift */; };
 		EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */; };
@@ -281,7 +281,7 @@
 		EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
-		EC900EBF251C8EF700AA0B20 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		EC900EBF251C8EF700AA0B20 /* DBRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRecord.swift; sourceTree = "<group>"; };
 		EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleProvider.swift; sourceTree = "<group>"; };
 		EC9440E025406C8200060E46 /* WidgetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSize.swift; sourceTree = "<group>"; };
 		EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
@@ -614,7 +614,7 @@
 		EC900EBE251C8EF700AA0B20 /* DBModels */ = {
 			isa = PBXGroup;
 			children = (
-				EC900EBF251C8EF700AA0B20 /* Record.swift */,
+				EC900EBF251C8EF700AA0B20 /* DBRecord.swift */,
 			);
 			path = DBModels;
 			sourceTree = "<group>";
@@ -900,7 +900,7 @@
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
-				EC900EE1251C8EF700AA0B20 /* Record.swift in Sources */,
+				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
 				EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */,
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,

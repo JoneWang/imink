@@ -1,5 +1,5 @@
 //
-//  Record.swift
+//  DBRecord.swift
 //  imink
 //
 //  Created by Jone Wang on 2020/9/14.
@@ -10,7 +10,7 @@ import GRDB
 import Combine
 import os
 
-struct Record: Identifiable {
+struct DBRecord: Identifiable {
     
     // MARK: Column
     
@@ -41,7 +41,7 @@ struct Record: Identifiable {
     var startDateTime: Date
 }
 
-extension Record: Codable, FetchableRecord, MutablePersistableRecord {
+extension DBRecord: Codable, FetchableRecord, MutablePersistableRecord {
     // Define database columns from CodingKeys
     fileprivate enum Columns {
         static let id = Column(CodingKeys.id)
@@ -72,10 +72,10 @@ extension Record: Codable, FetchableRecord, MutablePersistableRecord {
     }
 }
 
-extension DerivableRequest where RowDecoder == Record { }
+extension DerivableRequest where RowDecoder == DBRecord { }
 
-extension Record: Hashable {
-    static func == (lhs: Record, rhs: Record) -> Bool {
+extension DBRecord: Hashable {
+    static func == (lhs: DBRecord, rhs: DBRecord) -> Bool {
         lhs.id == rhs.id && lhs.json == rhs.json
     }
 }
@@ -106,9 +106,9 @@ extension AppDatabase {
                 return
             }
             
-            if var record = try Record.filter(
-                Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
-                    Record.Columns.battleNumber == battleNumber
+            if var record = try DBRecord.filter(
+                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                    DBRecord.Columns.battleNumber == battleNumber
             ).fetchOne(db) {
                 record.json = battleJson
                 record.isDetail = true
@@ -138,7 +138,7 @@ extension AppDatabase {
         
         dbQueue.asyncWrite { db in
             
-            var records = [Record]()
+            var records = [DBRecord]()
             for index in results.indices {
                 guard let data = try? JSONSerialization.data(withJSONObject: results[index], options: .sortedKeys),
                       let jsonString = String(data: data, encoding: .utf8) else {
@@ -150,7 +150,7 @@ extension AppDatabase {
                 }
                 
                 records.append(
-                    Record(
+                    DBRecord(
                         sp2PrincipalId: currentUser.sp2PrincipalId,
                         battleNumber: battle.battleNumber,
                         json: jsonString,
@@ -175,9 +175,9 @@ extension AppDatabase {
             
             let battleNumbers = records.map { $0.battleNumber }
             
-            let existRecords = try Record.filter(
-                Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
-                    battleNumbers.contains(Record.Columns.battleNumber)
+            let existRecords = try DBRecord.filter(
+                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                    battleNumbers.contains(DBRecord.Columns.battleNumber)
             ).fetchAll(db)
             
             let existBattleNumbers = existRecords.map { $0.battleNumber }
@@ -208,18 +208,18 @@ extension AppDatabase {
     
     // MARK: Reads
     
-    func records() -> AnyPublisher<[Record], Error> {
+    func records() -> AnyPublisher<[DBRecord], Error> {
         guard let currentUser = AppUserDefaults.shared.user else {
-            return Just<[Record]>([])
+            return Just<[DBRecord]>([])
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         }
         
         return ValueObservation
             .tracking(
-                Record
-                    .filter(Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId)
-                    .order(Record.Columns.battleNumber.desc)
+                DBRecord
+                    .filter(DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId)
+                    .order(DBRecord.Columns.battleNumber.desc)
                     .fetchAll
             )
             .publisher(in: dbQueue, scheduling: .immediate)
@@ -235,8 +235,8 @@ extension AppDatabase {
         
         return ValueObservation
             .tracking(
-                Record
-                    .filter(Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId)
+                DBRecord
+                    .filter(DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId)
                     .fetchCount
             )
             .publisher(in: dbQueue, scheduling: .immediate)
@@ -249,10 +249,10 @@ extension AppDatabase {
         }
         
         return dbQueue.read { db in
-            let request = Record.filter(
-                Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+            let request = DBRecord.filter(
+                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
             )
-            .select(sum(Record.Columns.killCount))
+            .select(sum(DBRecord.Columns.killCount))
             return try! Int.fetchOne(db, request) ?? 0
         }
     }
@@ -277,10 +277,10 @@ extension AppDatabase {
         }
         
         return dbQueue.read { db in
-            let request = Record.filter(
-                Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+            let request = DBRecord.filter(
+                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
             )
-            .select(sum(Record.Columns.killCount))
+            .select(sum(DBRecord.Columns.killCount))
             return try! Int.fetchOne(db, request) ?? 0
         }
     }
@@ -294,10 +294,10 @@ extension AppDatabase {
         
         return ValueObservation
             .tracking(
-                Record.filter(
-                (Record.Columns.syncDetailTime == nil || (Record.Columns.syncDetailTime != nil &&
-                                                            Record.Columns.syncDetailTime > lastSyncTime)) &&
-                    Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+                DBRecord.filter(
+                (DBRecord.Columns.syncDetailTime == nil || (DBRecord.Columns.syncDetailTime != nil &&
+                                                            DBRecord.Columns.syncDetailTime > lastSyncTime)) &&
+                    DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
             ).fetchCount)
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()
@@ -311,10 +311,10 @@ extension AppDatabase {
         }
         
         return ValueObservation
-            .tracking(Record.filter(
-                Record.Columns.isDetail &&
-                    Record.Columns.syncDetailTime > lastSyncTime &&
-                    Record.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+            .tracking(DBRecord.filter(
+                DBRecord.Columns.isDetail &&
+                    DBRecord.Columns.syncDetailTime > lastSyncTime &&
+                    DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
             ).fetchCount)
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()
@@ -372,9 +372,9 @@ extension AppDatabase {
     }
 }
 
-extension Record {
-    func copy(with zone: NSZone? = nil) -> Record {
-        let copy = Record(
+extension DBRecord {
+    func copy(with zone: NSZone? = nil) -> DBRecord {
+        let copy = DBRecord(
             id: id,
             sp2PrincipalId: sp2PrincipalId,
             battleNumber: battleNumber,
@@ -400,7 +400,7 @@ extension Record {
     }
 }
 
-extension Record {
+extension DBRecord {
     
     var battle: Battle? {
         json.decode(Battle.self)

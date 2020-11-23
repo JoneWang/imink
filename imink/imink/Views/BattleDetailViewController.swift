@@ -19,10 +19,10 @@ class BattleDetailViewController: UIViewController {
     }
     
     class UpdateModel: ObservableObject {
-        @Published var record: Record?
+        @Published var record: DBRecord?
     }
     
-    var record: Record? {
+    var record: DBRecord? {
         didSet {
             updateModel.record = record
             
