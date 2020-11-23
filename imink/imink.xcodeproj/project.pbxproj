@@ -27,7 +27,6 @@
 		EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC04251CD8770010366A /* TeamsDataView.swift */; };
 		EC00DC0F251CD8770010366A /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC06251CD8770010366A /* MemberView.swift */; };
 		EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC18251CD90B0010366A /* RegularBattlePage.swift */; };
-		EC25EBD5252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */; };
 		EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F19DA2543306E00CE9B34 /* AboutPage.swift */; };
 		EC344FE525330312004A7AF1 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE425330312004A7AF1 /* MeViewController.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
@@ -52,11 +51,8 @@
 		EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */; };
 		EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */; };
 		EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */; };
-		EC5E76C925427F32001EFA2D /* SP2ActiveFestivals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984248253C13770079D739 /* SP2ActiveFestivals.swift */; };
 		EC606045251CD5B200DCF35E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
-		EC62E7762536EEA20028428C /* SP2Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E7752536EEA20028428C /* SP2Records.swift */; };
-		EC62E77A2537084C0028428C /* SP2NicknameAndIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E7792537084C0028428C /* SP2NicknameAndIcon.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B8274251F088800B25307 /* CompactBattlePage.swift */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
@@ -64,26 +60,13 @@
 		EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8611CB253AB9CB003BA67A /* Assets.xcassets */; };
 		EC8611D0253AB9CB003BA67A /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8611D7253ABA31003BA67A /* AppWidget.swift */; };
-		EC86121D253AC61E003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC861218253AC61E003BA67A /* Assets.xcassets */; };
 		EC861222253AC656003BA67A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
 		EC861223253AC656003BA67A /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
 		EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
 		EC861225253AC656003BA67A /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA0251C8EF600AA0B20 /* APITargetType.swift */; };
 		EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
 		EC86122C253AC6D0003BA67A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
-		EC86122F253AC6D4003BA67A /* SP2Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E7752536EEA20028428C /* SP2Records.swift */; };
-		EC861230253AC6D4003BA67A /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */; };
-		EC861231253AC6D4003BA67A /* SP2Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */; };
-		EC861232253AC6D4003BA67A /* SP2GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903E25275BA000390573 /* SP2GameMode.swift */; };
-		EC861233253AC6D4003BA67A /* SP2Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A904125275D6D00390573 /* SP2Rule.swift */; };
-		EC861234253AC6D4003BA67A /* SP2SalmonRunSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */; };
-		EC861235253AC6D4003BA67A /* SP2BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */; };
-		EC861236253AC6D4003BA67A /* SP2Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAA251C8EF600AA0B20 /* SP2Player.swift */; };
-		EC861237253AC6D4003BA67A /* SP2Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903825274B4200390573 /* SP2Schedules.swift */; };
-		EC861238253AC6D4003BA67A /* SP2Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903B252759D800390573 /* SP2Stage.swift */; };
-		EC861239253AC6D4003BA67A /* SP2Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */; };
-		EC86123A253AC6D4003BA67A /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */; };
-		EC86123B253AC6D4003BA67A /* SP2NicknameAndIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E7792537084C0028428C /* SP2NicknameAndIcon.swift */; };
+		EC861231253AC6D4003BA67A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* Models.swift */; };
 		EC86123E253AC6ED003BA67A /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E99251C8EF600AA0B20 /* Operator.swift */; };
 		EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9B251C8EF600AA0B20 /* AppBundle.swift */; };
 		EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */; };
@@ -120,12 +103,7 @@
 		EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
 		EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA5251C8EF600AA0B20 /* AppTheme.swift */; };
 		EC900ED1251C8EF700AA0B20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
-		EC900ED2251C8EF700AA0B20 /* SP2Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */; };
-		EC900ED3251C8EF700AA0B20 /* SP2Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAA251C8EF600AA0B20 /* SP2Player.swift */; };
-		EC900ED4251C8EF700AA0B20 /* SP2TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */; };
-		EC900ED5251C8EF700AA0B20 /* SP2Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */; };
-		EC900ED6251C8EF700AA0B20 /* SP2TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */; };
-		EC900ED7251C8EF700AA0B20 /* SP2BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */; };
+		EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* Models.swift */; };
 		EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */; };
 		EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
 		EC900EDB251C8EF700AA0B20 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = EC900EB7251C8EF700AA0B20 /* result.json */; };
@@ -147,14 +125,9 @@
 		EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC984233253AF3F70079D739 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
-		EC984249253C13770079D739 /* SP2ActiveFestivals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC984248253C13770079D739 /* SP2ActiveFestivals.swift */; };
 		EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */; };
-		EC9A903925274B4200390573 /* SP2Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903825274B4200390573 /* SP2Schedules.swift */; };
-		EC9A903C252759D800390573 /* SP2Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903B252759D800390573 /* SP2Stage.swift */; };
-		EC9A903F25275BA000390573 /* SP2GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A903E25275BA000390573 /* SP2GameMode.swift */; };
-		EC9A904225275D6D00390573 /* SP2Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A904125275D6D00390573 /* SP2Rule.swift */; };
 		EC9A90492527851C00390573 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90482527851C00390573 /* ScheduleView.swift */; };
 		ECA695092531AC9D00376D95 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA695082531AC9D00376D95 /* PieView.swift */; };
 		ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE8DC325209BB6003D7EDC /* LoginPage.swift */; };
@@ -242,7 +215,6 @@
 		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2SalmonRunSchedules.swift; sourceTree = "<group>"; };
 		EC2F19DA2543306E00CE9B34 /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
 		EC344FE425330312004A7AF1 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		EC344FE825330351004A7AF1 /* MePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePage.swift; sourceTree = "<group>"; };
@@ -265,8 +237,6 @@
 		EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoAccountLoginViewModel.swift; sourceTree = "<group>"; };
 		EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoLoginInfo.swift; sourceTree = "<group>"; };
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
-		EC62E7752536EEA20028428C /* SP2Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Records.swift; sourceTree = "<group>"; };
-		EC62E7792537084C0028428C /* SP2NicknameAndIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2NicknameAndIcon.swift; sourceTree = "<group>"; };
 		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		EC6B8274251F088800B25307 /* CompactBattlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactBattlePage.swift; sourceTree = "<group>"; };
 		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -276,7 +246,6 @@
 		EC8611CD253AB9CB003BA67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC8611D1253AB9CB003BA67A /* AppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppWidgetExtension.entitlements; sourceTree = "<group>"; };
 		EC8611D7253ABA31003BA67A /* AppWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWidget.swift; sourceTree = "<group>"; };
-		EC861218253AC61E003BA67A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC861257253ACACA003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EC861262253ACFE2003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EC900E71251C55FF00AA0B20 /* imink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imink.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,12 +272,7 @@
 		EC900EA4251C8EF600AA0B20 /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		EC900EA5251C8EF600AA0B20 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		EC900EA7251C8EF600AA0B20 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2Battle.swift; sourceTree = "<group>"; };
-		EC900EAA251C8EF600AA0B20 /* SP2Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2Player.swift; sourceTree = "<group>"; };
-		EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2TeamMember.swift; sourceTree = "<group>"; };
-		EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2Weapon.swift; sourceTree = "<group>"; };
-		EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2TeamResult.swift; sourceTree = "<group>"; };
-		EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SP2BattleOverview.swift; sourceTree = "<group>"; };
+		EC900EA9251C8EF600AA0B20 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		EC900EB7251C8EF700AA0B20 /* result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
@@ -324,13 +288,8 @@
 		EC9440F025407ACA00060E46 /* BattleScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleWidget.swift; sourceTree = "<group>"; };
 		EC984220253AE2030079D739 /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
 		EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
-		EC984248253C13770079D739 /* SP2ActiveFestivals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2ActiveFestivals.swift; sourceTree = "<group>"; };
 		EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
 		EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Mutiplier.swift"; sourceTree = "<group>"; };
-		EC9A903825274B4200390573 /* SP2Schedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Schedules.swift; sourceTree = "<group>"; };
-		EC9A903B252759D800390573 /* SP2Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Stage.swift; sourceTree = "<group>"; };
-		EC9A903E25275BA000390573 /* SP2GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2GameMode.swift; sourceTree = "<group>"; };
-		EC9A904125275D6D00390573 /* SP2Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP2Rule.swift; sourceTree = "<group>"; };
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		ECAE8DC325209BB6003D7EDC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
@@ -498,18 +457,9 @@
 				EC861228253AC688003BA67A /* Data */,
 				EC900E9E251C8EF600AA0B20 /* API */,
 				EC900EA6251C8EF600AA0B20 /* Models */,
-				EC861218253AC61E003BA67A /* Assets.xcassets */,
-				EC861217253AC61E003BA67A /* Resources */,
 				ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		EC861217253AC61E003BA67A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		EC861228253AC688003BA67A /* Data */ = {
@@ -613,32 +563,11 @@
 		EC900EA6251C8EF600AA0B20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EC900EA8251C8EF600AA0B20 /* Splatoon2 */,
+				EC900EA9251C8EF600AA0B20 /* Models.swift */,
 				EC900EA7251C8EF600AA0B20 /* User.swift */,
 				EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		EC900EA8251C8EF600AA0B20 /* Splatoon2 */ = {
-			isa = PBXGroup;
-			children = (
-				EC900EA9251C8EF600AA0B20 /* SP2Battle.swift */,
-				EC900EAA251C8EF600AA0B20 /* SP2Player.swift */,
-				EC900EAB251C8EF600AA0B20 /* SP2TeamMember.swift */,
-				EC900EAC251C8EF600AA0B20 /* SP2Weapon.swift */,
-				EC900EAD251C8EF600AA0B20 /* SP2TeamResult.swift */,
-				EC900EAE251C8EF600AA0B20 /* SP2BattleOverview.swift */,
-				EC9A903825274B4200390573 /* SP2Schedules.swift */,
-				EC9A903B252759D800390573 /* SP2Stage.swift */,
-				EC9A903E25275BA000390573 /* SP2GameMode.swift */,
-				EC9A904125275D6D00390573 /* SP2Rule.swift */,
-				EC25EBD4252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift */,
-				EC62E7752536EEA20028428C /* SP2Records.swift */,
-				EC62E7792537084C0028428C /* SP2NicknameAndIcon.swift */,
-				EC984248253C13770079D739 /* SP2ActiveFestivals.swift */,
-			);
-			path = Splatoon2;
 			sourceTree = "<group>";
 		};
 		EC900EAF251C8EF700AA0B20 /* Data */ = {
@@ -873,7 +802,6 @@
 				EC00DBD3251CA05F0010366A /* BattleDetail.storyboard in Resources */,
 				EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */,
 				EC900EDD251C8EF700AA0B20 /* results.json in Resources */,
-				EC86121D253AC61E003BA67A /* Assets.xcassets in Resources */,
 				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -899,21 +827,12 @@
 				EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */,
 				EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */,
-				EC861234253AC6D4003BA67A /* SP2SalmonRunSchedules.swift in Sources */,
-				EC5E76C925427F32001EFA2D /* SP2ActiveFestivals.swift in Sources */,
 				EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */,
 				EC98422D253AE3B40079D739 /* BattleScheduleMediumWidgetEntryView.swift in Sources */,
-				EC861237253AC6D4003BA67A /* SP2Schedules.swift in Sources */,
-				EC861238253AC6D4003BA67A /* SP2Stage.swift in Sources */,
 				EC86123E253AC6ED003BA67A /* Operator.swift in Sources */,
-				EC861233253AC6D4003BA67A /* SP2Rule.swift in Sources */,
-				EC861236253AC6D4003BA67A /* SP2Player.swift in Sources */,
 				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
-				EC86123A253AC6D4003BA67A /* SP2TeamResult.swift in Sources */,
-				EC861235253AC6D4003BA67A /* SP2BattleOverview.swift in Sources */,
 				EC861241253AC6ED003BA67A /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
-				EC861232253AC6D4003BA67A /* SP2GameMode.swift in Sources */,
 				EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */,
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
@@ -921,19 +840,15 @@
 				EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */,
 				EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */,
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
-				EC86122F253AC6D4003BA67A /* SP2Records.swift in Sources */,
 				EC861225253AC656003BA67A /* APITargetType.swift in Sources */,
 				EC984233253AF3F70079D739 /* FontModifier.swift in Sources */,
 				EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */,
-				EC861239253AC6D4003BA67A /* SP2Weapon.swift in Sources */,
 				EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
 				EC861244253AC6ED003BA67A /* Collection.swift in Sources */,
-				EC861230253AC6D4003BA67A /* SP2TeamMember.swift in Sources */,
 				EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */,
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
-				EC86123B253AC6D4003BA67A /* SP2NicknameAndIcon.swift in Sources */,
-				EC861231253AC6D4003BA67A /* SP2Battle.swift in Sources */,
+				EC861231253AC6D4003BA67A /* Models.swift in Sources */,
 				EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */,
 				EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */,
 				EC984217253ADE880079D739 /* AppColor.swift in Sources */,
@@ -948,21 +863,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */,
-				EC900ED6251C8EF700AA0B20 /* SP2TeamResult.swift in Sources */,
 				EC00DBF7251CD29C0010366A /* FontModifier.swift in Sources */,
 				EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */,
 				EC00DC0B251CD8770010366A /* TeamView.swift in Sources */,
 				EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */,
-				EC25EBD5252C6E3500C8C5AF /* SP2SalmonRunSchedules.swift in Sources */,
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
-				EC900ED7251C8EF700AA0B20 /* SP2BattleOverview.swift in Sources */,
-				EC9A903F25275BA000390573 /* SP2GameMode.swift in Sources */,
 				EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */,
 				EC00DC09251CD8770010366A /* BattleDataView.swift in Sources */,
 				EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */,
 				EC861258253ACACA003BA67A /* UserDefaults.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
-				EC984249253C13770079D739 /* SP2ActiveFestivals.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */,
 				EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */,
@@ -974,9 +884,6 @@
 				EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */,
 				EC00DBD0251C9D5B0010366A /* BattleDetailViewController.swift in Sources */,
 				EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */,
-				EC62E77A2537084C0028428C /* SP2NicknameAndIcon.swift in Sources */,
-				EC9A904225275D6D00390573 /* SP2Rule.swift in Sources */,
-				EC9A903925274B4200390573 /* SP2Schedules.swift in Sources */,
 				EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */,
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
 				EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */,
@@ -992,7 +899,6 @@
 				EC9A90492527851C00390573 /* ScheduleView.swift in Sources */,
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
-				EC9A903C252759D800390573 /* SP2Stage.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* Record.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
@@ -1001,9 +907,8 @@
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
 				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
 				ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */,
-				EC900ED2251C8EF700AA0B20 /* SP2Battle.swift in Sources */,
+				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,
 				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
-				EC900ED5251C8EF700AA0B20 /* SP2Weapon.swift in Sources */,
 				EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */,
 				EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */,
 				EC5362502525DB1D0037BD12 /* HomeViewController.swift in Sources */,
@@ -1011,12 +916,10 @@
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
 				EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */,
 				EC344FE925330351004A7AF1 /* MePage.swift in Sources */,
-				EC62E7762536EEA20028428C /* SP2Records.swift in Sources */,
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				EC00DC0F251CD8770010366A /* MemberView.swift in Sources */,
 				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
-				EC900ED3251C8EF700AA0B20 /* SP2Player.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
 				EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
@@ -1025,7 +928,6 @@
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
 				EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */,
-				EC900ED4251C8EF700AA0B20 /* SP2TeamMember.swift in Sources */,
 				EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,9 +10,9 @@ import SDWebImageSwiftUI
 
 struct ScheduleView: View {
     
-    let regularSchedules: [SP2Schedule]
-    let gachiSchedules: [SP2Schedule]
-    let leagueSchedules: [SP2Schedule]
+    let regularSchedules: [Schedules.Schedule]
+    let gachiSchedules: [Schedules.Schedule]
+    let leagueSchedules: [Schedules.Schedule]
     
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()

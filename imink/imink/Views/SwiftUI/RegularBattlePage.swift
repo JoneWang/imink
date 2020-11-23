@@ -52,7 +52,7 @@ struct RegularBattlePage: View {
         #endif
     }
     
-    func makeBattleInfo(battle: SP2Battle, geo: GeometryProxy) -> some View {
+    func makeBattleInfo(battle: Battle, geo: GeometryProxy) -> some View {
         let (teamsDataViewWidth, _) = teamsDataViewWidthAndScale(geo: geo)
         let battleInfoViewWidth = geo.size.width - teamsDataViewWidth
         
@@ -69,7 +69,7 @@ struct RegularBattlePage: View {
     }
     
     // Make battle content
-    func makeTeamContent(battle: SP2Battle, geo: GeometryProxy) -> some View {
+    func makeTeamContent(battle: Battle, geo: GeometryProxy) -> some View {
         let teamsDataViewRatio = TeamsDataView.size.width / TeamsDataView.size.height
         let (_, scale) = teamsDataViewWidthAndScale(geo: geo)
         

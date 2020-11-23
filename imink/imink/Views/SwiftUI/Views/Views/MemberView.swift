@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 struct MemberView: View {
     let isMe: Bool
     let victory: Bool
-    let member: SP2TeamMember?
+    let member: TeamMember?
     
     var body: some View {
         ZStack {

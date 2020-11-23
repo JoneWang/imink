@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BattleDataView: View {
-    let battle: SP2Battle
+    let battle: Battle
     
     var body: some View {
         VStack {
@@ -73,7 +73,7 @@ struct BattleDataView: View {
     }
 }
 
-extension SP2Battle {
+extension Battle {
     var myPointTitle: String {
         if myPoint == 100 {
             return "KO BONUS!"

@@ -251,7 +251,7 @@ struct HomePage: View {
                                         Spacer()
                                     }
                                     .padding(5)
-                                    .background(festival.colors.alphaColor)
+                                    .background(festival.colors.alpha.color)
                                     HStack(spacing: 0) {
                                         Spacer()
                                         Text(festival.names.bravoShort)
@@ -261,7 +261,7 @@ struct HomePage: View {
                                             .scaledToFit()
                                     }
                                     .padding(5)
-                                    .background(festival.colors.bravoColor)
+                                    .background(festival.colors.bravo.color)
                                 }
                                     
                                     Text("\(festival.times.start, formatter: scheduleTimeFormat) - \(festival.times.end, formatter: scheduleTimeFormat)")

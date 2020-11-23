@@ -45,14 +45,14 @@ struct CompactBattlePage: View {
         .edgesIgnoringSafeArea(.all)
     }
     
-    func makeBattleInfo(battle: SP2Battle, geo: GeometryProxy) -> some View {
+    func makeBattleInfo(battle: Battle, geo: GeometryProxy) -> some View {
         BattleDataView(battle: battle)
                     .frame(maxHeight: 220)
                     .background(Color.clear)
     }
     
     // Make battle content
-    func makeTeamContent(battle: SP2Battle, geo: GeometryProxy) -> some View {
+    func makeTeamContent(battle: Battle, geo: GeometryProxy) -> some View {
         let teamsDataViewRatio = TeamsDataView.size.width / TeamsDataView.size.height
         let scale = (geo.size.width - 20) / TeamsDataView.size.width
         

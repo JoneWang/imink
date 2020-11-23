@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TeamsDataView: View {
-    let battle: SP2Battle
+    let battle: Battle
     
     static let size = CGSize(width: 495, height: 610)
 
@@ -32,22 +32,22 @@ struct TeamsDataView: View {
     }
 }
 
-extension SP2Battle {
-    var victoryTeamMembersSorted: [SP2TeamMember] {
+extension Battle {
+    var victoryTeamMembersSorted: [TeamMember] {
         [
-            SP2TeamResult.Key.victory: myTeamMembersSorted,
-            SP2TeamResult.Key.defeat: otherTeamMembersSorted
+            TeamResult.Key.victory: myTeamMembersSorted,
+            TeamResult.Key.defeat: otherTeamMembersSorted
         ][myTeamResult.key]!
     }
     
-    var defeatTeamMembersSorted: [SP2TeamMember] {
+    var defeatTeamMembersSorted: [TeamMember] {
         [
-            SP2TeamResult.Key.victory: myTeamMembersSorted,
-            SP2TeamResult.Key.defeat: otherTeamMembersSorted
+            TeamResult.Key.victory: myTeamMembersSorted,
+            TeamResult.Key.defeat: otherTeamMembersSorted
         ][otherTeamResult.key]!
     }
     
-    var myTeamMembersSorted: [SP2TeamMember] {
+    var myTeamMembersSorted: [TeamMember] {
         guard let myTeamMembers = myTeamMembers else { return [] }
         
         var members = myTeamMembers
@@ -60,7 +60,7 @@ extension SP2Battle {
         return members
     }
     
-    var otherTeamMembersSorted: [SP2TeamMember] {
+    var otherTeamMembersSorted: [TeamMember] {
         guard let otherTeamMembers = otherTeamMembers else { return [] }
         
         if gameMode.key == .leaguePair || gameMode.key == .leagueTeam  {
@@ -70,7 +70,7 @@ extension SP2Battle {
         }
     }
     
-    private func teamKillSort(lMember: SP2TeamMember, rMember: SP2TeamMember) -> Bool {
+    private func teamKillSort(lMember: TeamMember, rMember: TeamMember) -> Bool {
         let lTotalKill = lMember.killCount + lMember.assistCount
         let rTotalKill = rMember.killCount + rMember.assistCount
         if lTotalKill != rTotalKill {

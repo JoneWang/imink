@@ -14,12 +14,12 @@ struct MePage: View {
     
     @State var showLogoutAlert = false
     
-    var udemaeData: [(LocalizedStringKey, SP2Player.Udemae)] {
+    var udemaeData: [(LocalizedStringKey, Player.Udemae)] {
         guard let player = meViewModel.records?.records.player else {
             return []
         }
         
-        var data = [(LocalizedStringKey, SP2Player.Udemae)]()
+        var data = [(LocalizedStringKey, Player.Udemae)]()
         if let udemaeZones = player.udemaeZones, udemaeZones.name != nil {
             data.append(("Splat Zones", udemaeZones))
         }

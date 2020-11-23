@@ -17,7 +17,7 @@ enum BattleScheduleWidgetGameMode: String {
 
 struct ScheduleEntry: TimelineEntry {
     let date: Date
-    let schedules: [SP2Schedule]?
+    let schedules: [Schedules.Schedule]?
     let size: WidgetSize
 }
 
@@ -91,11 +91,11 @@ extension BattleScheduleProvider {
     
     func updateSchedule(
         mustLoading: Bool = false,
-        success: @escaping ([SP2Schedule]) -> Void,
+        success: @escaping ([Schedules.Schedule]) -> Void,
         failure: @escaping () -> Void
     ) {
         if let data = AppUserDefaults.shared.splatoon2BattleScheduleData,
-           let schedules = data.decode(SP2Schedules.self) {
+           let schedules = data.decode(Schedules.self) {
             let schedules = schedules.getSchedules(gameMode)
             
             if schedules.count > 2 {
@@ -109,10 +109,10 @@ extension BattleScheduleProvider {
         
         Splatoon2API.schedules
             .request()
-            .compactMap { data -> SP2Schedules? in
+            .compactMap { data -> Schedules? in
                 // Cache
                 AppUserDefaults.shared.splatoon2BattleScheduleData = data
-                return data.decode(SP2Schedules.self)
+                return data.decode(Schedules.self)
             }
             .receive(on: DispatchQueue.main)
             .map { $0.getSchedules(self.gameMode) }
@@ -128,9 +128,9 @@ extension BattleScheduleProvider {
     
 }
 
-extension SP2Schedules {
+extension Schedules {
     
-    func getSchedules(_ kind: BattleScheduleWidgetGameMode) -> [SP2Schedule] {
+    func getSchedules(_ kind: BattleScheduleWidgetGameMode) -> [Schedules.Schedule] {
         if kind == BattleScheduleWidgetGameMode.regular {
             return self.regular
         } else if kind == BattleScheduleWidgetGameMode.gachi {
