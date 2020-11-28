@@ -13,7 +13,7 @@ struct AppTheme {
     
     static let spFontName = "Splatfont 1 v1.004"
     
-    static let sp2FontName = "Splatfont 2 v1.004"
+    static let sp2FontName = "Splatfont 2 v1.005"
     
     static let spFont = UIFont(name: spFontName, size: 12)
     
