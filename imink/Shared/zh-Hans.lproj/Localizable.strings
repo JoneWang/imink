@@ -18,7 +18,7 @@
 // MARK: Tab bar
 
 "Home" = "主页";
-"Battle" = "对战";
+"Battles" = "对战";
 "Me" = "我";
 
 // MARK: Sign in

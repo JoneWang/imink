@@ -54,7 +54,7 @@ class TabBarController: UITabBarController {
         }
         
         homeViewController.tabBarItem.title = NSLocalizedString("Home", comment: "")
-        battleSplitViewController.tabBarItem.title = NSLocalizedString("Battle", comment: "")
+        battleSplitViewController.tabBarItem.title = NSLocalizedString("Battles", comment: "")
         salmonRunViewController.tabBarItem.title = NSLocalizedString("Salmon Run", comment: "")
         meViewController.tabBarItem.title = NSLocalizedString("Me", comment: "")
         

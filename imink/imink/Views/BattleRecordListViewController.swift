@@ -92,7 +92,7 @@ class BattleRecordListViewController: UIViewController {
                 let allRecordCount = records.count
                 let synchronizedDetailRecordCount = records.filter { $0.isDetail }.count
                 if (allRecordCount == synchronizedDetailRecordCount) {
-                    self.title = "Battle".localized
+                    self.title = "Battles".localized
                 } else {
                     self.title = "\(synchronizedDetailRecordCount)/\(allRecordCount)"
                 }
