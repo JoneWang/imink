@@ -47,6 +47,9 @@ struct AboutPage: View {
                             Text("ai")
                                 .sp2Font(size: 16, color: Color.primary.opacity(0.8))
                         }
+                        
+                        Text("ddddxxx")
+                            .sp2Font(size: 16, color: Color.primary.opacity(0.8))
                     }
                 }
                 
