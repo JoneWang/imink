@@ -27,5 +27,6 @@ struct SwiftWidgetsBundle: WidgetBundle {
             displayName: "League Battle",
             description: "widget_league_schedule_preview_description"
         )
+        SalmonRunScheduleWidget(displayName: "Salmon Run", description: "widget_salmon_run_schedule_preview_description")
     }
 }

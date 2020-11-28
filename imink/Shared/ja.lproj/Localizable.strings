@@ -26,7 +26,7 @@
 "Welcome to imink!" = "imink へようこそ！";
 "Sign in with Nintendo Account" = "Nintendo Account でサインイン";
 "Sign in with Telegram Bot" = "Telegram Bot でサインイン";
-"sign_in_client_token_tip_1" = "Telegram で /clienttoken を @BattleBot に送信して";
+"sign_in_client_token_tip_1" = "Telegram で /clienttoken を @Sp2BattleBot に送信して";
 "sign_in_client_token_tip_2" = "Client Token を取得する";
 "Client Token" = "Client Token";
 "Sign In" = "サインイン";
@@ -59,6 +59,11 @@
 "Next" = "つぎ";
 "Next Day" = "そのつぎ";
 "Supplied Weapons" = "支給ブキ";
+"Open!" = "オープン！";
+"Soon!" = "もうすぐ";
+"Next_salmonrun" = "つぎ";
+"Future" = "そのっぎ";
+"In %d hours" = "%d時間後";
 
 // MARK: Widget
 
@@ -200,10 +205,10 @@
 "シェケナダム" = "シェケナダム";
 "Spawning Grounds_multi-line" = "シェケナダム";
 "シェケナダム_multi-line" = "シェケナダム";
-"Marooner's Bay" = "難破船ドン·ブラコ";
-"難破船ドン·ブラコ" = "難破船ドン·ブラコ";
-"Marooner's Bay_multi-line" = "難破船\nドン·ブラコ";
-"難破船ドン·ブラコ_multi-line" = "難破船\nドン·ブラコ";
+"Marooner's Bay" = "難破船ドン・ブラコ";
+"難破船ドン・ブラコ" = "難破船ドン・ブラコ";
+"Marooner's Bay_multi-line" = "難破船\nドン・ブラコ";
+"難破船ドン・ブラコ_multi-line" = "難破船\nドン・ブラコ";
 "Lost Outpost" = "海上集落シャケト場";
 "海上集落シャケト場" = "海上集落シャケト場";
 "Lost Outpost_multi-line" = "海上集落\nシャケト場";
@@ -216,6 +221,16 @@
 "朽ちた箱舟 ポラリス" = "朽ちた箱舟 ポラリス";
 "Ruins of Ark Polaris_multi-line" = "朽ちた箱舟\nポラリス";
 "朽ちた箱舟 ポラリス_multi-line" = "朽ちた箱舟\nポラリス";
+"Spawning Grounds_img" = "Spawning Grounds";
+"シェケナダム_img" = "Spawning Grounds";
+"Marooner's Bay_img" = "Marooner's Bay";
+"難破船ドン・ブラコ_img" = "Marooner's Bay";
+"Lost Outpost_img" = "Lost Outpost";
+"海上集落シャケト場_img" = "Lost Outpost";
+"Salmonid Smokeyard_img" = "Salmonid Smokeyard";
+"トキシラズいぶし工房_img" = "Salmonid Smokeyard";
+"Ruins of Ark Polaris_img" = "Ruins of Ark Polaris";
+"朽ちた箱舟 ポラリス_img" = "Ruins of Ark Polaris";
 
 // MARK: Common
 

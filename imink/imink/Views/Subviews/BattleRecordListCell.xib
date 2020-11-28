@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Splatfont 1 v1.001.otf">
-            <string>Splatfont1v1.001-Regular</string>
+        <array key="Splatfont 1 v1.004.otf">
+            <string>Splatfont1v1.004-Regular</string>
         </array>
         <array key="Splatfont 2 v1.001.otf">
             <string>Splatfont2v1.001-Regular</string>
@@ -34,7 +34,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VICTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNS-Dn-dSj">
                                 <rect key="frame" x="79" y="0.0" width="72" height="20"/>
-                                <fontDescription key="fontDescription" name="Splatfont1v1.001-Regular" family="Splatfont 1 v1.001" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Splatfont1v1.004-Regular" family="Splatfont 1 v1.004" pointSize="17"/>
                                 <color key="textColor" name="SPPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -192,7 +192,7 @@
             <color red="0.10196078431372549" green="0.80784313725490198" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SPPinkColor">
-            <color red="1" green="0.29300001263618469" blue="0.55699998140335083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.19215686274509805" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

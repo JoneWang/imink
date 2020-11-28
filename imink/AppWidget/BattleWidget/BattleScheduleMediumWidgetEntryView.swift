@@ -27,25 +27,31 @@ struct BattleScheduleMediumWidgetEntryView : View {
     }
     
     var vSpacing: CGFloat {
-        var vSpacing: CGFloat = 11
-        if entry.size == .size360 {
-            vSpacing = 13
-        } else if entry.size == .size338 {
-            vSpacing = 11.5
-        } else if entry.size == .size322 {
-            vSpacing = 8.5
-        } else if entry.size == .size291 {
-            vSpacing = 9
+        switch entry.size {
+        case .size364:
+            return 13.5
+        case .size360:
+            return 13
+        case .size348:
+            return 11
+        case .size338:
+            return 11.5
+        case .size329:
+            return 11
+        case .size322:
+            return 8.5
+        case .size291:
+            return 9
         }
-        return vSpacing
     }
     
     var titleAndStageSpacing: CGFloat {
-        var titleAndStageSpacing: CGFloat = 8
-        if entry.size == .size360 {
-            titleAndStageSpacing = 9
+        switch entry.size {
+        case .size364, .size360:
+            return 9
+        default:
+            return 8
         }
-        return titleAndStageSpacing
     }
     
     var backgroundName: String {

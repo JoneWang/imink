@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "weapon-4010.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

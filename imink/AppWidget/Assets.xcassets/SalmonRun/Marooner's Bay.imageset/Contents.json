@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Marooner's Bay.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

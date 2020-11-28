@@ -59,6 +59,11 @@
 "Next" = "下一轮";
 "Next Day" = "明天";
 "Supplied Weapons" = "武器供给";
+"Open!" = "开工中! ";
+"Soon!" = "待工中";
+"Next_salmonrun" = "下一班";
+"Future" = "已排班";
+"In %d hours" = "%d小时后";
 
 // MARK: Widget
 
@@ -200,10 +205,10 @@
 "シェケナダム" = "鲑舞大坝";
 "Spawning Grounds_multi-line" = "鲑舞大坝";
 "シェケナダム_multi-line" = "鲑舞大坝";
-"Marooner's Bay" = "难破船 浮载·浮沉";
-"難破船ドン·ブラコ" = "难破船 浮载·浮沉";
-"Marooner's Bay_multi-line" = "难破船\n浮载·浮沉";
-"難破船ドン·ブラコ_multi-line" = "难破船\n浮载·浮沉";
+"Marooner's Bay" = "难破船 浮载・浮沉";
+"難破船ドン・ブラコ" = "难破船 浮载・浮沉";
+"Marooner's Bay_multi-line" = "难破船\n浮载・浮沉";
+"難破船ドン・ブラコ_multi-line" = "难破船\n浮载・浮沉";
 "Lost Outpost" = "海上集落鲑鱼晒场";
 "海上集落シャケト場" = "海上集落鲑鱼晒场";
 "Lost Outpost_multi-line" = "海上集落\n鲑鱼晒场";
@@ -216,6 +221,16 @@
 "朽ちた箱舟 ポラリス" = "枯朽方舟北极星号";
 "Ruins of Ark Polaris_multi-line" = "枯朽方舟\n北极星号";
 "朽ちた箱舟 ポラリス_multi-line" = "枯朽方舟\n北极星号";
+"Spawning Grounds_img" = "Spawning Grounds";
+"シェケナダム_img" = "Spawning Grounds";
+"Marooner's Bay_img" = "Marooner's Bay";
+"難破船ドン・ブラコ_img" = "Marooner's Bay";
+"Lost Outpost_img" = "Lost Outpost";
+"海上集落シャケト場_img" = "Lost Outpost";
+"Salmonid Smokeyard_img" = "Salmonid Smokeyard";
+"トキシラズいぶし工房_img" = "Salmonid Smokeyard";
+"Ruins of Ark Polaris_img" = "Ruins of Ark Polaris";
+"朽ちた箱舟 ポラリス_img" = "Ruins of Ark Polaris";
 
 // MARK: Common
 

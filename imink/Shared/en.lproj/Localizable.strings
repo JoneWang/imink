@@ -59,6 +59,11 @@
 "Next" = "Next";
 "Next Day" = "Next Day";
 "Supplied Weapons" = "Supplied Weapons";
+"Open!" = "Open!";
+"Soon!" = "Soon!";
+"Next_salmonrun" = "Next";
+"Future" = "Future";
+"In %d hours" = "In %d hours";
 
 // MARK: Widget
 
@@ -201,9 +206,9 @@
 "Spawning Grounds_multi-line" = "Spawning\nGrounds";
 "シェケナダム_multi-line" = "Spawning\nGrounds";
 "Marooner's Bay" = "Marooner's Bay";
-"難破船ドン·ブラコ" = "Marooner's Bay";
+"難破船ドン・ブラコ" = "Marooner's Bay";
 "Marooner's Bay_multi-line" = "Marooner's\nBay";
-"難破船ドン·ブラコ_multi-line" = "Marooner's\nBay";
+"難破船ドン・ブラコ_multi-line" = "Marooner's\nBay";
 "Lost Outpost" = "Lost Outpost";
 "海上集落シャケト場" = "Lost Outpost";
 "Lost Outpost_multi-line" = "Lost\nOutpost";
@@ -216,6 +221,16 @@
 "朽ちた箱舟 ポラリス" = "Ruins of Ark Polaris";
 "Ruins of Ark Polaris_multi-line" = "Ruins of\nArk Polaris";
 "朽ちた箱舟 ポラリス_multi-line" = "Ruins of\nArk Polaris";
+"Spawning Grounds_img" = "Spawning Grounds";
+"シェケナダム_img" = "Spawning Grounds";
+"Marooner's Bay_img" = "Marooner's Bay";
+"難破船ドン・ブラコ_img" = "Marooner's Bay";
+"Lost Outpost_img" = "Lost Outpost";
+"海上集落シャケト場_img" = "Lost Outpost";
+"Salmonid Smokeyard_img" = "Salmonid Smokeyard";
+"トキシラズいぶし工房_img" = "Salmonid Smokeyard";
+"Ruins of Ark Polaris_img" = "Ruins of Ark Polaris";
+"朽ちた箱舟 ポラリス_img" = "Ruins of Ark Polaris";
 
 // MARK: Common
 

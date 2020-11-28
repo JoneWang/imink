@@ -41,6 +41,9 @@ class AppUserDefaults: ObservableObject {
     @AppStorage("splatoon2_battle_schedule", store: UserDefaults.appGroup)
     var splatoon2BattleScheduleData: Data?
     
+    @AppStorage("splatoon2_salmon_run_schedule", store: UserDefaults.appGroup)
+    var splatoon2SalmonRunScheduleData: Data?
+    
     @AppStorage("currentLanguage", store: UserDefaults.appGroup)
     var currentLanguage: String?
 }

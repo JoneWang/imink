@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 enum WidgetSize {
-    case size360 // iPhone 12 Pro Max
+    case size364 // iPhone 12 Pro Max
+    case size360 // iPhone 11 Pro Max
     case size348 // iPhone 8 Plus
     case size338 // iPhone 12 Pro
     case size329 // iPhone 11 Pro

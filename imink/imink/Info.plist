@@ -38,7 +38,7 @@
 	<string>Save pictures to album.</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Splatfont 1 v1.002.otf</string>
+		<string>Splatfont 1 v1.004.otf</string>
 		<string>Splatfont 2 v1.004.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
