@@ -83,10 +83,13 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
         ZStack {
             Rectangle()
                 .overlay(
-                    Image("SalmonRunBackground")
-                        .resizable()
-                        .scaledToFill(),
-                    alignment: .top
+                    GeometryReader { geo in
+                        BubbleView(size: geo.size)
+                            .background(Color("SalmonRunBubbleBackgroundColor"))
+                            .foregroundColor(Color("SalmonRunBubbleForegroundColor"))
+                            .scaleEffect(geo.size.width / 360, anchor: .topLeading)
+                    },
+                    alignment: .topLeading
                 )
                 .unredacted()
             
