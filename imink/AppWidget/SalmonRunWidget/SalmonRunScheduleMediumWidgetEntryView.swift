@@ -63,6 +63,24 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
             return 2
         }
     }
+    
+    var titleFontSize: CGFloat {
+        switch entry.size {
+        case .size291:
+            return 13
+        default:
+            return 14
+        }
+    }
+    
+    var timeFontSize: CGFloat {
+        switch entry.size {
+        case .size291:
+            return 11
+        default:
+            return 12
+        }
+    }
         
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -131,16 +149,16 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
         
         return GeometryReader() { geo in
             VStack(spacing: titleAndStageSpacing) {
-                HStack(alignment: .bottom, spacing: 10 + firstWeaponleading) {
+                HStack(alignment: .center, spacing: 10 + firstWeaponleading) {
                     Text(title)
-                        .sp1Font(size: 14, color: Color("SalmonRunTitleColor"))
+                        .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                     
                     Spacer()
                     
                     Text(schedule != nil ? "\(schedule!.startTime, formatter: scheduleTimeFormat) – \(schedule!.endTime, formatter: scheduleTimeFormat)" : "")
-                        .sp2Font(size: 12)
+                        .sp2Font(size: timeFontSize)
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                 }

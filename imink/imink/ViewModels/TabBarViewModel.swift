@@ -47,7 +47,7 @@ class TabBarViewModel: ObservableObject {
         
         // Check language and refresh widget
         let currentLanguage = AppUserDefaults.shared.currentLanguage
-        if let code = Bundle.main.preferredLocalizations.first {
+        if let code = Bundle.main.preferredLocalizations.last {
             if code != currentLanguage {
                 AppUserDefaults.shared.currentLanguage = code
                 WidgetCenter.shared.reloadAllTimelines()

@@ -15,7 +15,19 @@ extension String {
     }
     
     var localized: String {
-        NSLocalizedString(self, comment: "")
+        let language = AppUserDefaults.shared.currentLanguage
+        return NSLocalizedString(self, language: language)
     }
-    
+
+}
+
+func NSLocalizedString(_ key: String, language: String?) -> String {
+    if let language = language {
+        let path = Bundle.main.path(forResource: language, ofType: "lproj")
+        let bundle = Bundle(path: path!)
+        let string = bundle?.localizedString(forKey: key, value: nil, table: nil)
+        return string ?? key
+    } else {
+        return NSLocalizedString(key, comment: "")
+    }
 }

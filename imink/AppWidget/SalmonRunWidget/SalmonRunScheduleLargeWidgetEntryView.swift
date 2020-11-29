@@ -111,6 +111,42 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
         }
     }
     
+    var titleFontSize: CGFloat {
+        switch entry.size {
+        case .size291:
+            return 13
+        default:
+            return 14
+        }
+    }
+    
+    var timeFontSize: CGFloat {
+        switch entry.size {
+        case .size291:
+            return 11
+        default:
+            return 12
+        }
+    }
+    
+    var futureTimeFontSize: CGFloat {
+        switch entry.size {
+        case .size291:
+            return 10
+        default:
+            return 12
+        }
+    }
+    
+    var futureInHoursFontSize: CGFloat {
+        switch entry.size {
+        case .size291:
+            return 12
+        default:
+            return 14
+        }
+    }
+    
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd HH:mm"
@@ -179,7 +215,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                     VStack(spacing: titleAndStageSpacing) {
                         HStack(alignment: .bottom) {
                             Text("Future")
-                                .sp1Font(size: 14, color: Color("SalmonRunTitleColor"))
+                                .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                 .unredacted()
                             
@@ -197,14 +233,14 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                                 
                                 HStack(alignment: .center) {
                                     Text(schedule != nil ? "\(schedule!.startTime, formatter: scheduleTimeFormat) – \(schedule!.endTime, formatter: scheduleTimeFormat)" : "          ")
-                                        .sp2Font(size: 12)
+                                        .sp2Font(size: futureTimeFontSize)
                                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                     
                                     Spacer()
                                     
                                     let hours = Calendar.current.dateComponents([.hour], from: now, to: schedule?.startTime ?? now).hour ?? 0
                                     Text(String(format: "In %d hours".localized, hours))
-                                        .sp1Font(size: 14, color: Color(white: 0.8))
+                                        .sp1Font(size: futureInHoursFontSize, color: Color(white: 0.8))
                                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                 }
                             }
@@ -235,16 +271,16 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
         
         return GeometryReader() { geo in
             VStack(spacing: titleAndStageSpacing) {
-                HStack(alignment: .bottom, spacing: 10 + firstWeaponleading) {
+                HStack(alignment: .center, spacing: 10 + firstWeaponleading) {
                     Text(title)
-                        .sp1Font(size: 14, color: Color("SalmonRunTitleColor"))
+                        .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                     
                     Spacer()
                     
                     Text(schedule != nil ? "\(schedule!.startTime, formatter: scheduleTimeFormat) – \(schedule!.endTime, formatter: scheduleTimeFormat)" : "")
-                        .sp2Font(size: 12)
+                        .sp2Font(size: timeFontSize)
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                 }
@@ -261,10 +297,11 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                             if i != 0 {
                                 Spacer()
                             }
-                            let weapon = schedule?.weapons?[i]
-                            Image("weapon-\(weapon?.id ?? "")")
+                            if let weapon = schedule?.weapons?[i] {
+                            Image("weapon-\(weapon.id)")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
+                            }
                         }
                     }
                 }
