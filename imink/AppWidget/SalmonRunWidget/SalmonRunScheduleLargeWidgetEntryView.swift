@@ -165,7 +165,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
     func makeContent() -> some View {
         let now = Date()
         return ZStack {
-            GrayscaleTextureView.salmonRunBubble.unredacted()
+            GrayscaleTextureView.salmonRunBubble
             
             VStack(spacing: topBarSpacing) {
                 ZStack {

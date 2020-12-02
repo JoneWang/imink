@@ -22,6 +22,7 @@ struct GrayscaleTextureView: View {
         )
         .foregroundColor(forgroundColor)
         .background(backgroundColor)
+        .unredacted()
     }
 }
 
