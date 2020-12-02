@@ -53,7 +53,7 @@
 		EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */; };
 		EC606045251CD5B200DCF35E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
-		EC68D1B32573933F0024C994 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68D1B22573933F0024C994 /* BubbleView.swift */; };
+		EC68D1B32573933F0024C994 /* GrayscaleTextureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B8274251F088800B25307 /* CompactBattlePage.swift */; };
 		EC767D24257279C000D26D8C /* Splatfont 1 v1.004.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC767D1F25726C3500D26D8C /* Splatfont 1 v1.004.otf */; };
@@ -243,7 +243,7 @@
 		EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoAccountLoginViewModel.swift; sourceTree = "<group>"; };
 		EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoLoginInfo.swift; sourceTree = "<group>"; };
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
-		EC68D1B22573933F0024C994 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
 		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		EC6B8274251F088800B25307 /* CompactBattlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactBattlePage.swift; sourceTree = "<group>"; };
 		EC767D1F25726C3500D26D8C /* Splatfont 1 v1.004.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.004.otf"; sourceTree = "<group>"; };
@@ -444,7 +444,7 @@
 		EC68D1B1257393360024C994 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EC68D1B22573933F0024C994 /* BubbleView.swift */,
+				EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -854,7 +854,7 @@
 				EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */,
 				EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */,
-				EC68D1B32573933F0024C994 /* BubbleView.swift in Sources */,
+				EC68D1B32573933F0024C994 /* GrayscaleTextureView.swift in Sources */,
 				EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */,
 				EC98422D253AE3B40079D739 /* BattleScheduleMediumWidgetEntryView.swift in Sources */,
 				EC86123E253AC6ED003BA67A /* Operator.swift in Sources */,

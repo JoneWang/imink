@@ -165,17 +165,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
     func makeContent() -> some View {
         let now = Date()
         return ZStack {
-            Rectangle()
-                .overlay(
-                    GeometryReader { geo in
-                        BubbleView(size: geo.size, add: 1)
-                            .background(Color("SalmonRunBubbleBackgroundColor"))
-                            .foregroundColor(Color("SalmonRunBubbleForegroundColor"))
-                            .scaleEffect(geo.size.width / 360, anchor: .topLeading)
-                    },
-                    alignment: .topLeading
-                )
-                .unredacted()
+            GrayscaleTextureView.salmonRunBubble.unredacted()
             
             VStack(spacing: topBarSpacing) {
                 ZStack {

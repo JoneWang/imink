@@ -99,17 +99,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     
     func makeContent() -> some View {
         ZStack {
-            Rectangle()
-                .overlay(
-                    GeometryReader { geo in
-                        BubbleView(size: geo.size)
-                            .background(Color("SalmonRunBubbleBackgroundColor"))
-                            .foregroundColor(Color("SalmonRunBubbleForegroundColor"))
-                            .scaleEffect(geo.size.width / 360, anchor: .topLeading)
-                    },
-                    alignment: .topLeading
-                )
-                .unredacted()
+            GrayscaleTextureView.salmonRunBubble.unredacted()
             
             VStack(spacing: vSpacing) {
                 let schedule = entry.schedules?.details.first
