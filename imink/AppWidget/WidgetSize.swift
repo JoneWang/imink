@@ -21,7 +21,9 @@ enum WidgetSize {
 extension WidgetSize {
     
     static func with(_ size: CGSize) -> WidgetSize {
-        if size.width == 360 {
+        if size.width == 364 {
+            return .size364
+        } else if size.width == 360 {
             return .size360
         } else if size.width == 348 {
             return .size348
