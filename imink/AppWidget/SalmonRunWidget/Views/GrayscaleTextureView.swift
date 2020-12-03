@@ -11,7 +11,7 @@ import WidgetKit
 struct GrayscaleTextureView: View {
     
     let textureName: String
-    let forgroundColor: Color
+    let foregroundColor: Color
     let backgroundColor: Color
     
     var body: some View {
@@ -20,7 +20,7 @@ struct GrayscaleTextureView: View {
                 .resizable(resizingMode: .tile)
                 .luminanceToAlpha()
         )
-        .foregroundColor(forgroundColor)
+        .foregroundColor(foregroundColor)
         .background(backgroundColor)
         .unredacted()
     }
@@ -30,7 +30,7 @@ extension GrayscaleTextureView {
     
     static let salmonRunBubble = GrayscaleTextureView(
         textureName: "BubbleTexture",
-        forgroundColor: Color("SalmonRunBubbleForegroundColor"),
+        foregroundColor: Color("SalmonRunBubbleForegroundColor"),
         backgroundColor: Color("SalmonRunBubbleBackgroundColor"))
 }
 
