@@ -44,28 +44,28 @@ extension WidgetSize {
     
     func cgSize(with widgetFamily: WidgetFamily) -> CGSize {
         let largeSizes = [
-            CGSize(width: 364, height: 0),
+            CGSize(width: 364, height: 382),
             CGSize(width: 360, height: 376),
             CGSize(width: 348, height: 357),
-            CGSize(width: 338, height: 0),
+            CGSize(width: 338, height: 354),
             CGSize(width: 329, height: 345),
             CGSize(width: 322, height: 324),
             CGSize(width: 291, height: 299),
         ]
         let mediumSizes = [
-            CGSize(width: 364, height: 0),
+            CGSize(width: 364, height: 170),
             CGSize(width: 360, height: 169),
             CGSize(width: 348, height: 159),
-            CGSize(width: 338, height: 0),
+            CGSize(width: 338, height: 158),
             CGSize(width: 329, height: 155),
             CGSize(width: 322, height: 148),
             CGSize(width: 291, height: 141),
         ]
         let smallSizes = [
-            CGSize(width: 364, height: 0),
+            CGSize(width: 170, height: 170),
             CGSize(width: 169, height: 169),
             CGSize(width: 159, height: 159),
-            CGSize(width: 338, height: 0),
+            CGSize(width: 158, height: 158),
             CGSize(width: 155, height: 155),
             CGSize(width: 148, height: 148),
             CGSize(width: 141, height: 141),
