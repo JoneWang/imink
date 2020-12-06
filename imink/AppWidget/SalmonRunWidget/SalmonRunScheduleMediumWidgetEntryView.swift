@@ -105,7 +105,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
                 let schedule = entry.schedules?.details.first
                 let nextSchedule = entry.schedules?.details.last
                 
-                makeScheduleView(schedule: schedule)
+                makeScheduleView(schedule: schedule, isFirst: true)
                 
                 GeometryReader { geo in
                     Path { path in
@@ -123,22 +123,24 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
         }
     }
     
-    func makeScheduleView(schedule: SalmonRunSchedules.Schedule?) -> some View {
+    func makeScheduleView(schedule: SalmonRunSchedules.Schedule?, isFirst: Bool = false) -> some View {
         var title: LocalizedStringKey = ""
         if let schedule = schedule {
             let now = Date()
-            let nextDate = Calendar.current.date(byAdding: .hour, value: 2, to: Date())!
-            if now < schedule.startTime {
-                title = "Soon!"
-            } else if now > schedule.startTime, now < schedule.endTime {
-                title = "Open!"
-            } else if now > schedule.startTime, nextDate > schedule.endTime {
+            
+            if isFirst {
+                if now < schedule.startTime {
+                    title = "Soon!"
+                } else {
+                    title = "Open!"
+                }
+            } else {
                 title = "Next_salmonrun"
             }
         }
         
         return GeometryReader() { geo in
-            VStack(spacing: titleAndStageSpacing) {
+            VStack(spacing: 0) {
                 HStack(alignment: .center, spacing: 10 + firstWeaponleading) {
                     Text(title)
                         .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
@@ -152,6 +154,8 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                 }
+                
+                Spacer()
                 
                 HStack(spacing: 10 + firstWeaponleading) {
                     makeStageImage(

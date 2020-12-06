@@ -147,6 +147,25 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
         }
     }
     
+    var futureAreaHeight: CGFloat {
+        switch entry.size {
+        case .size364:
+            return 110
+        case .size360:
+            return 106
+        case .size348:
+            return 103
+        case .size338:
+            return 101
+        case .size329:
+            return 96
+        case .size322:
+            return 92
+        case .size291:
+            return 77
+        }
+    }
+    
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd HH:mm"
@@ -188,7 +207,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                     let schedule = entry.schedules?.details.first
                     let nextSchedule = entry.schedules?.details.last
                     
-                    makeScheduleView(schedule: schedule)
+                    makeScheduleView(schedule: schedule, isFirst: true)
                     
                     makeLine()
                     
@@ -206,14 +225,15 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                             Spacer()
                         }
                         
-                        VStack(spacing: futureSpacing) {
+                        VStack(alignment: .center, spacing: 0) {
                             ForEach(2..<5) { i in
                                 let schedule = entry.schedules?.schedules[i]
                                 
                                 if i != 2 {
-                                    makeLine()
-                                        .padding(.bottom, 1)
+                                    makeLine().padding(.bottom, 1)
                                 }
+                                
+                                Spacer()
                                 
                                 HStack(alignment: .center) {
                                     Text(schedule != nil ? "\(schedule!.startTime, formatter: scheduleTimeFormat) – \(schedule!.endTime, formatter: scheduleTimeFormat)" : "          ")
@@ -227,9 +247,12 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                                         .sp1Font(size: futureInHoursFontSize, color: Color(white: 0.8))
                                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                 }
+                                
+                                Spacer()
                             }
                         }
-                        .padding(futurePadding)
+                        .padding([.leading, .trailing], futurePadding)
+                        .frame(height: futureAreaHeight)
                         .background(Color.black.opacity(0.6))
                         .cornerRadius(10)
                     }
@@ -239,22 +262,24 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
         }
     }
     
-    func makeScheduleView(schedule: SalmonRunSchedules.Schedule?) -> some View {
+    func makeScheduleView(schedule: SalmonRunSchedules.Schedule?, isFirst: Bool = false) -> some View {
         var title: LocalizedStringKey = ""
         if let schedule = schedule {
             let now = Date()
-            let nextDate = Calendar.current.date(byAdding: .hour, value: 2, to: Date())!
-            if now < schedule.startTime {
-                title = "Soon!"
-            } else if now > schedule.startTime, now < schedule.endTime {
-                title = "Open!"
-            } else if now > schedule.startTime, nextDate > schedule.endTime {
+            
+            if isFirst {
+                if now < schedule.startTime {
+                    title = "Soon!"
+                } else {
+                    title = "Open!"
+                }
+            } else {
                 title = "Next_salmonrun"
             }
         }
         
         return GeometryReader() { geo in
-            VStack(spacing: titleAndStageSpacing) {
+            VStack(spacing: 0) {
                 HStack(alignment: .center, spacing: 10 + firstWeaponleading) {
                     Text(title)
                         .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
@@ -268,6 +293,8 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                 }
+                
+                Spacer()
                 
                 HStack(spacing: 10 + firstWeaponleading) {
                     makeStageImage(
