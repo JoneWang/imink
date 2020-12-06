@@ -31,6 +31,7 @@
 		EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */; };
 		EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */; };
 		EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */; };
+		EC2C1597257CB7EF00528D80 /* WidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C1596257CB7EF00528D80 /* WidgetBackgroundView.swift */; };
 		EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2F19DA2543306E00CE9B34 /* AboutPage.swift */; };
 		EC344FE525330312004A7AF1 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE425330312004A7AF1 /* MeViewController.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
@@ -223,6 +224,7 @@
 		EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleProvider.swift; sourceTree = "<group>"; };
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC2C1596257CB7EF00528D80 /* WidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundView.swift; sourceTree = "<group>"; };
 		EC2F19DA2543306E00CE9B34 /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
 		EC344FE425330312004A7AF1 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		EC344FE825330351004A7AF1 /* MePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePage.swift; sourceTree = "<group>"; };
@@ -425,7 +427,6 @@
 		EC11F1D925558C3E00E10F5F /* SalmonRunWidget */ = {
 			isa = PBXGroup;
 			children = (
-				EC68D1B1257393360024C994 /* Views */,
 				EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */,
 				EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */,
 				EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */,
@@ -445,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */,
+				EC2C1596257CB7EF00528D80 /* WidgetBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -461,8 +463,9 @@
 		EC8611C8253AB9C9003BA67A /* AppWidget */ = {
 			isa = PBXGroup;
 			children = (
-				EC11F1D925558C3E00E10F5F /* SalmonRunWidget */,
 				EC9440D925406C2F00060E46 /* Providers */,
+				EC68D1B1257393360024C994 /* Views */,
+				EC11F1D925558C3E00E10F5F /* SalmonRunWidget */,
 				EC9440D625406BB900060E46 /* BattleWidget */,
 				EC861262253ACFE2003BA67A /* UserDefaults.swift */,
 				EC8611D7253ABA31003BA67A /* AppWidget.swift */,
@@ -868,6 +871,7 @@
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
 				EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */,
 				EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */,
+				EC2C1597257CB7EF00528D80 /* WidgetBackgroundView.swift in Sources */,
 				EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */,
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
 				EC861225253AC656003BA67A /* APITargetType.swift in Sources */,

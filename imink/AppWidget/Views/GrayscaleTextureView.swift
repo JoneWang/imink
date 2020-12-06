@@ -26,17 +26,12 @@ struct GrayscaleTextureView: View {
     }
 }
 
-extension GrayscaleTextureView {
-    
-    static let salmonRunBubble = GrayscaleTextureView(
-        textureName: "BubbleTexture",
-        foregroundColor: Color("SalmonRunBubbleForegroundColor"),
-        backgroundColor: Color("SalmonRunBubbleBackgroundColor"))
-}
-
 struct GrayscaleTextureView_Previews: PreviewProvider {
     static var previews: some View {
-        GrayscaleTextureView.salmonRunBubble
+        GrayscaleTextureView(
+            textureName: "BubbleTexture",
+            foregroundColor: Color("SalmonRunBubbleForegroundColor"),
+            backgroundColor: Color("SalmonRunBubbleBackgroundColor"))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

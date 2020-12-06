@@ -13,6 +13,7 @@ struct SalmonRunScheduleEntry: TimelineEntry {
     let date: Date
     let schedules: SalmonRunSchedules?
     let size: WidgetSize
+    let family: WidgetFamily
 }
 
 class SalmonRunScheduleProvider: TimelineProvider {
@@ -23,7 +24,8 @@ class SalmonRunScheduleProvider: TimelineProvider {
         SalmonRunScheduleEntry(
             date: Date(),
             schedules: nil,
-            size: .with(context.displaySize)
+            size: .with(context.displaySize),
+            family: context.family
         )
     }
     
@@ -32,14 +34,16 @@ class SalmonRunScheduleProvider: TimelineProvider {
             let entry = SalmonRunScheduleEntry(
                 date: Date(),
                 schedules: schedules,
-                size: .with(context.displaySize))
+                size: .with(context.displaySize),
+                family: context.family)
             completion(entry)
         } failure: {
             let refreshDate = Calendar.current.date(byAdding: .second, value: 10, to: Date())!
             let entry = SalmonRunScheduleEntry(
                 date: refreshDate,
                 schedules: nil,
-                size: .with(context.displaySize))
+                size: .with(context.displaySize),
+                family: context.family)
             completion(entry)
         }
     }
@@ -54,7 +58,8 @@ class SalmonRunScheduleProvider: TimelineProvider {
             let entry = SalmonRunScheduleEntry(
                 date: firstSchedule.startTime,
                 schedules: schedules,
-                size: .with(context.displaySize)
+                size: .with(context.displaySize),
+                family: context.family
             )
             
             let timeline = Timeline(entries: [entry], policy: .after(firstSchedule.endTime))
@@ -65,7 +70,8 @@ class SalmonRunScheduleProvider: TimelineProvider {
                 entries: [SalmonRunScheduleEntry(
                             date: refreshDate,
                             schedules: nil,
-                            size: .with(context.displaySize))],
+                            size: .with(context.displaySize),
+                            family: context.family)],
                 policy: .after(refreshDate))
             completion(timeline)
         }

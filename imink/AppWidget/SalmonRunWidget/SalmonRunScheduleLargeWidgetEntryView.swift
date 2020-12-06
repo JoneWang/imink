@@ -165,17 +165,11 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
     func makeContent() -> some View {
         let now = Date()
         return ZStack {
-            GrayscaleTextureView.salmonRunBubble
-            
+            WidgetBackground(family: entry.family, widgetSize: entry.size).salmonRunBubble
+
             VStack(spacing: topBarSpacing) {
                 ZStack {
-                    Rectangle()
-                        .overlay(
-                            Image("Topbar")
-                                .resizable()
-                                .scaledToFill(),
-                            alignment: .top
-                        )
+                    WidgetBackground(family: entry.family, widgetSize: entry.size).topbarBubble
                     
                     HStack(alignment: .center) {
                         Spacer()

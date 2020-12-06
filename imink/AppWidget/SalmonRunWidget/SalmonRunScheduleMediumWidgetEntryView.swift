@@ -99,8 +99,8 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     
     func makeContent() -> some View {
         ZStack {
-            GrayscaleTextureView.salmonRunBubble
-            
+            WidgetBackground(family: entry.family, widgetSize: entry.size).salmonRunBubble
+
             VStack(spacing: vSpacing) {
                 let schedule = entry.schedules?.details.first
                 let nextSchedule = entry.schedules?.details.last

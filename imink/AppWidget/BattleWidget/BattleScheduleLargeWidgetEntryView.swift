@@ -113,14 +113,15 @@ struct BattleScheduleLargeWidgetEntryView : View {
         return size
     }
     
-    var backgroundName: String {
+    var background: some View {
+        let bg = WidgetBackground(family: entry.family, widgetSize: entry.size)
         switch gameMode {
         case .regular:
-            return "RegularBattleBackground"
+            return bg.regularStreak
         case .gachi:
-            return "RankedBattleBackground"
+            return bg.rankStreak
         case .league:
-            return "LeagueBattleBackground"
+            return bg.leagueStreak
         }
     }
     
@@ -168,24 +169,11 @@ struct BattleScheduleLargeWidgetEntryView : View {
     
     func makeContent() -> some View {
         ZStack {
-            Rectangle()
-                .overlay(
-                    Image(backgroundName)
-                        .resizable()
-                        .scaledToFill(),
-                    alignment: .top
-                )
-                .unredacted()
+            background
             
             VStack(spacing: topBarSpacing) {
                 ZStack {
-                    Rectangle()
-                        .overlay(
-                            Image("Topbar")
-                                .resizable()
-                                .scaledToFill(),
-                            alignment: .top
-                        )
+                    WidgetBackground(family: entry.family, widgetSize: entry.size).topbarStreak
                     
                     HStack(alignment: .center) {
                         Spacer()
