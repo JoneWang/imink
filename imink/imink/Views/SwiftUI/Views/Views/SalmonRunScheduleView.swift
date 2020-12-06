@@ -2,7 +2,7 @@
 //  SalmonRunScheduleView.swift
 //  imink
 //
-//  Created by 王强 on 2020/10/6.
+//  Created by Jone Wang on 2020/10/6.
 //
 
 import SwiftUI

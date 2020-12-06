@@ -2,7 +2,7 @@
 //  NSLayoutConstraint+Mutiplier.swift
 //  imink
 //
-//  Created by 王强 on 2020/10/2.
+//  Created by Jone Wang on 2020/10/2.
 //
 //  From: https://stackoverflow.com/questions/19593641/can-i-change-multiplier-property-for-nslayoutconstraint
 

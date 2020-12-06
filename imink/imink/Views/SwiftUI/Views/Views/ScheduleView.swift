@@ -2,7 +2,7 @@
 //  ScheduleView.swift
 //  imink
 //
-//  Created by 王强 on 2020/10/2.
+//  Created by Jone Wang on 2020/10/2.
 //
 
 import SwiftUI
