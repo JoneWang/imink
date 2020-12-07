@@ -34,6 +34,15 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
         }
     }
     
+    var topbarTitleOffset: CGFloat {
+        switch entry.size {
+        case .size364, .size338:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
     var vSpacing: CGFloat {
         switch entry.size {
         case .size364:
@@ -195,6 +204,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                         Image("SalmonRunMono")
                         Text("Salmon Run")
                             .sp1Font(size: 17)
+                            .padding(.bottom, topbarTitleOffset)
                         Spacer()
                     }
                     .offset(x: 0, y: 2)

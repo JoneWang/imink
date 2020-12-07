@@ -40,6 +40,15 @@ struct BattleScheduleLargeWidgetEntryView : View {
         return spacing
     }
     
+    var topbarTitleOffset: CGFloat {
+        switch entry.size {
+        case .size364, .size338:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
     var vSpacing: CGFloat {
         var vSpacing: CGFloat = 18
         if entry.size == .size338 {
@@ -180,6 +189,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                         Image(titleIconName)
                         Text(gameMode.name)
                             .sp1Font(size: 17)
+                            .padding(.bottom, topbarTitleOffset)
                         Spacer()
                     }
                     .offset(x: 0, y: 2)
