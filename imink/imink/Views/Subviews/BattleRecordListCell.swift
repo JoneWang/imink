@@ -18,15 +18,20 @@ class BattleRecordListCell: UICollectionViewCell {
     @IBOutlet weak var battleNumberLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var ruleNameLabel: UILabel!
-    @IBOutlet weak var gameModeNameLabel: UILabel!
-    @IBOutlet weak var killInfoLabel: UILabel!
-    @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var rightBarView: UIView!
     @IBOutlet weak var leftBarView: UIView!
     @IBOutlet weak var barWidth: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var gameModeImageView: UIImageView!
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var subrankLabel: UILabel!
+    @IBOutlet weak var powerLabel: UILabel!
+    @IBOutlet weak var killLabel: UILabel!
+    @IBOutlet weak var assistLabel: UILabel!
+    @IBOutlet weak var deathLabel: UILabel!
+    @IBOutlet weak var kdLabel: UILabel!
+    @IBOutlet weak var rankAndSubrankSpacingConstraint: NSLayoutConstraint!
     
     var record: DBRecord? {
         didSet {
@@ -43,45 +48,38 @@ class BattleRecordListCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 10
         containerView.clipsToBounds = true
         
-        rightBarView.backgroundColor = UIColor.gray
-        rightBarView.layer.cornerRadius = 4
+        rightBarView.backgroundColor = UIColor.systemGray3
+        rightBarView.layer.cornerRadius = 2.5
         rightBarView.clipsToBounds = true
         
-        battleNumberLabel.font = AppTheme.sp2Font?.withSize(10)
-        resultLabel.font = AppTheme.spFont?.withSize(17)
-        stageNameLabel.font = AppTheme.spFont?.withSize(14)
-        gameModeNameLabel.font = AppTheme.spFont?.withSize(10)
-        killInfoLabel.font = AppTheme.sp2Font?.withSize(14)
-        ruleNameLabel.font = AppTheme.sp2Font?.withSize(10)
+        resultLabel.font = AppTheme.spFont?.withSize(14)
+        ruleNameLabel.font = AppTheme.spFont?.withSize(12)
+        rankLabel.font = AppTheme.spFont?.withSize(12)
+        subrankLabel.font = AppTheme.spFont?.withSize(8)
         
+        killLabel.font = AppTheme.sp2Font?.withSize(10)
+        assistLabel.font = AppTheme.sp2Font?.withSize(7)
+        deathLabel.font = AppTheme.sp2Font?.withSize(10)
+        kdLabel.font = AppTheme.sp2Font?.withSize(10)
     }
     
     override var isSelected: Bool {
         didSet {
             containerView.backgroundColor = isSelected ?
-                UIColor.systemBlue :
+                UIColor.systemGray5 :
                 AppUIColor.listItemBackgroundColor
-            killInfoLabel.textColor = isSelected ?
-                AppUIColor.recordRowTitleSelectedColor :
-                AppUIColor.recordRowTitleNormalColor
-            stageNameLabel.textColor = isSelected ?
-                AppUIColor.recordRowTitleSelectedColor :
-                AppUIColor.recordRowTitleNormalColor
         }
     }
     
     private func configure(with record: DBRecord) {
-        battleNumberLabel.text = record.battleNumber
+        battleNumberLabel.text = "#\(record.battleNumber) · \(record.stageName.localized)"
         resultLabel.text = "\(record.victory ? NSLocalizedString("VICTORY", comment: "") : NSLocalizedString("DEFEAT", comment: ""))"
         resultLabel.textColor = record.victory ?
             AppUIColor.spPink :
             AppUIColor.spLightGreen
-        ruleNameLabel.text = record.stageName.localized
+        ruleNameLabel.text = record.rule.localized
+        ruleNameLabel.textColor = record.gameModeColor
         gameModeImageView.image = UIImage(named: record.gameModeImageName)
-        gameModeNameLabel.text = record.gameMode.localized
-        gameModeNameLabel.textColor = record.gameModeColor
-        killInfoLabel.text = "\(record.killTotalCount) k  \(record.deathCount) d"
-        stageNameLabel.text = record.rule.localized
         leftBarView.backgroundColor = record.victory ?
             AppUIColor.spPink :
             AppUIColor.spLightGreen
@@ -90,6 +88,36 @@ class BattleRecordListCell: UICollectionViewCell {
         weaponImageView.image = nil
         weaponImageView.sd_setImage(with: record.weaponImageURL)
         
+        let playerResult = record.battle?.playerResult
+        
+        let udemae = playerResult?.player.udemae
+        rankLabel.text = udemae?.name ?? "C-"
+        subrankLabel.isHidden = udemae?.sPlusNumber == nil
+        if let sPlusNumber = udemae?.sPlusNumber {
+            subrankLabel.text = "\(sPlusNumber)"
+            rankAndSubrankSpacingConstraint.constant = 0.5
+        } else {
+            subrankLabel.text = ""
+            rankAndSubrankSpacingConstraint.constant = 0
+        }
+
+        if record.battle?.type == .league {
+            if let power = record.battle?.leaguePoint, power > 0 {
+                powerLabel.text = String(format: "%@ power".localized, "\(power, places: 0)")
+            } else {
+                powerLabel.text = String(format: "%@ power".localized, "---")
+            }
+        } else {
+            powerLabel.text = ""
+        }
+        
+        if let player = playerResult {
+            killLabel.text = "\(player.killCount + player.assistCount)"
+            assistLabel.text = " (\(player.assistCount))"
+            deathLabel.text = "\(player.deathCount)"
+            kdLabel.text = "\(Double(player.killCount) &/ Double(player.deathCount), places: 1)"
+        }
+
         activityIndicatorView.isHidden = record.isDetail
         if !record.isDetail {
             activityIndicatorView.startAnimating()

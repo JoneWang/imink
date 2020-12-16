@@ -49,11 +49,8 @@ class BattleRecordListRealTimeCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             containerView.backgroundColor = isSelected ?
-                UIColor.systemBlue :
+                UIColor.systemGray5 :
                 AppUIColor.listItemBackgroundColor
-            realTimeLabel.textColor = isSelected ?
-                AppUIColor.recordRowTitleSelectedColor :
-                AppUIColor.recordRowTitleNormalColor
         }
     }
     

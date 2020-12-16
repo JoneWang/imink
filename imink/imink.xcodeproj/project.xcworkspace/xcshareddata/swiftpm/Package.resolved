@@ -36,15 +36,6 @@
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
         }
-      },
-      {
-        "package": "SplatNet2",
-        "repositoryURL": "https://github.com/ddddxxx/SplatNet2",
-        "state": {
-          "branch": null,
-          "revision": "8852332ac1e4489cc31b0dc3a8368d028604b09c",
-          "version": "0.1.1"
-        }
       }
     ]
   },

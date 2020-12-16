@@ -5,20 +5,20 @@
 //  Created by Jone Wang on 2020/9/6.
 //
 
-import SplatNet2
+//import SplatNet2
 
-typealias ActiveFestivals = SplatNet2.ActiveFestivals
-typealias Battle = SplatNet2.Battle
-typealias BattleOverview = SplatNet2.BattleOverview
-typealias GameMode = SplatNet2.GameMode
-typealias NicknameAndIcon = SplatNet2.NicknameAndIcon
-typealias Player = SplatNet2.Player
-typealias Records = SplatNet2.Records
-typealias SalmonRunSchedules = SplatNet2.SalmonRunSchedules
-typealias Schedules = SplatNet2.Schedules
-typealias Stage = SplatNet2.Stage
-typealias TeamMember = SplatNet2.TeamMember
-typealias TeamResult = SplatNet2.TeamResult
+//typealias ActiveFestivals = SplatNet2.ActiveFestivals
+//typealias Battle = SplatNet2.Battle
+//typealias BattleOverview = SplatNet2.BattleOverview
+//typealias GameMode = SplatNet2.GameMode
+//typealias NicknameAndIcon = SplatNet2.NicknameAndIcon
+//typealias Player = SplatNet2.Player
+//typealias Records = SplatNet2.Records
+//typealias SalmonRunSchedules = SplatNet2.SalmonRunSchedules
+//typealias Schedules = SplatNet2.Schedules
+//typealias Stage = SplatNet2.Stage
+//typealias TeamMember = SplatNet2.TeamMember
+//typealias TeamResult = SplatNet2.TeamResult
 
 extension GameMode {
     

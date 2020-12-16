@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct AppColor {
+    static let appLabelColor = Color("AppLabelColor")
+    
     static let spText = Color.white
     
     static let spGreen = Color("SPGreenColor")
+    
+    static let spGreenLimeColor = Color("SPGreenLimeColor")
     
     static let spPurple = Color("SPPurpleColor")
     
@@ -25,7 +29,7 @@ struct AppColor {
     static let spYellow = Color("SPYellowColor")
     
     static let spOrange = Color("SPOrangeColor")
-        
+
     static let recordRowTitleNormalColor = Color("RecordRowTitleNormalColor")
     
     static let recordRowTitleSelectedColor = Color("RecordRowTitleSelectedColor")
@@ -38,9 +42,13 @@ struct AppColor {
 }
 
 struct AppUIColor {
+    static let appLabelColor = UIColor(named: "AppLabelColor")
+    
     static let spText = UIColor.white
     
     static let spGreen = UIColor(named: "SPGreenColor")!
+    
+    static let spGreenLimeColor = Color("SPGreenLimeColor")
     
     static let spPurple = UIColor(named: "SPPurpleColor")!
     

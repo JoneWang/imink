@@ -36,6 +36,11 @@
 	<true/>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Save pictures to album.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>/Frameworks/InkCore.framework/Splatfont 1 v1.005.1.otf</string>
+		<string>/Frameworks/InkCore.framework/Splatfont 2 v1.005.1.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -79,11 +84,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>/Frameworks/InkCore.framework/Splatfont 1 v1.004.otf</string>
-		<string>/Frameworks/InkCore.framework/Splatfont 2 v1.005.otf</string>
 	</array>
 </dict>
 </plist>
