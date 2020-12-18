@@ -123,14 +123,13 @@ struct BattleScheduleLargeWidgetEntryView : View {
     }
     
     var background: some View {
-        let bg = WidgetBackground(family: entry.family, widgetSize: entry.size)
         switch gameMode {
         case .regular:
-            return bg.regularStreak
+            return WidgetBackgroundView(texture: .regularStreak, widgetFamily: entry.family, widgetSize: entry.size)
         case .gachi:
-            return bg.rankStreak
+            return WidgetBackgroundView(texture: .rankStreak, widgetFamily: entry.family, widgetSize: entry.size)
         case .league:
-            return bg.leagueStreak
+            return WidgetBackgroundView(texture: .leagueStreak, widgetFamily: entry.family, widgetSize: entry.size)
         }
     }
     
@@ -182,7 +181,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
             
             VStack(spacing: topBarSpacing) {
                 ZStack {
-                    WidgetBackground(family: entry.family, widgetSize: entry.size).topbarStreak
+                    WidgetBackgroundView(texture: .topbarStreak, widgetFamily: entry.family, widgetSize: entry.size)
                     
                     HStack(alignment: .center) {
                         Spacer()
