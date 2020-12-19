@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import os
+import CXMoya
 
 extension Date {
     func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
@@ -91,9 +92,8 @@ class HomeViewModel: ObservableObject {
     func updateSchedules() {
         isLoading = true
         
-        let battleSchedules = Splatoon2API.schedules
-            .request()
-            .decode(type: Schedules.self)
+        let battleSchedules = sn2Provider.requestPublisher(.schedules)
+            .map(Schedules.self)
             .receive(on: DispatchQueue.main)
             .map { schedules -> Schedules? in schedules }
             .catch { error -> Just<Schedules?> in
@@ -104,9 +104,8 @@ class HomeViewModel: ObservableObject {
         battleSchedules
             .assign(to: &$schedules)
         
-        let salmonRunSchedules = Splatoon2API.salmonRunSchedules
-            .request()
-            .decode(type: SalmonRunSchedules.self)
+        let salmonRunSchedules = sn2Provider.requestPublisher(.salmonRunSchedules)
+            .map(SalmonRunSchedules.self)
             .receive(on: DispatchQueue.main)
             .map { schedules -> SalmonRunSchedules? in schedules }
             .catch { error -> Just<SalmonRunSchedules?> in
@@ -117,9 +116,8 @@ class HomeViewModel: ObservableObject {
         salmonRunSchedules
             .assign(to: &$salmonRunSchedules)
         
-        let activeFestivals = Splatoon2API.activeFestivals
-            .request()
-            .decode(type: ActiveFestivals.self)
+        let activeFestivals = sn2Provider.requestPublisher(.activeFestivals)
+            .map(ActiveFestivals.self)
             .receive(on: DispatchQueue.main)
             .map { festivals -> ActiveFestivals? in festivals }
             .catch { error -> Just<ActiveFestivals?> in

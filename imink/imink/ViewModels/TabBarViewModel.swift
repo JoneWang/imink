@@ -9,6 +9,8 @@ import Foundation
 import Combine
 import os
 import WidgetKit
+import Moya
+import CXMoya
 
 class TabBarViewModel: ObservableObject {
     
@@ -90,13 +92,13 @@ extension TabBarViewModel {
                 case .finished:
                     break
                 case .failure(let error):
-                    if case APIError.authorizationError = error {
+//                    if case APIError.authorizationError = error {
                         // iksm_session invalid
                         // TODO: Recapture iksm_session
-                    } else {
+//                    } else {
                         // TODO: Other errors
                         os_log("API Error: [splatoon2/results] \(error.localizedDescription)")
-                    }
+//                    }
                 }
             } receiveValue: { data in
                 // Save original records json to database
@@ -164,16 +166,16 @@ extension TabBarViewModel {
 
 extension TabBarViewModel {
     
-    func requestBattleOverview() -> AnyPublisher<Data, APIError>  {
-        Splatoon2API.battleInformation
-            .request() // Not decode
+    func requestBattleOverview() -> AnyPublisher<Data, MoyaError>  {
+        sn2Provider.requestPublisher(.battleInformation)
             .receive(on: DispatchQueue.main)
+            .map(\.data)
             .eraseToAnyPublisher()
     }
     
-    func requestBattleDetail(battleNumber: String) -> AnyPublisher<Data, APIError>  {
-        Splatoon2API.result(battleNumber: battleNumber)
-            .request() // Not decode
+    func requestBattleDetail(battleNumber: String) -> AnyPublisher<Data, MoyaError>  {
+        sn2Provider.requestPublisher(.result(battleNumber: battleNumber))
+            .map(\.data)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

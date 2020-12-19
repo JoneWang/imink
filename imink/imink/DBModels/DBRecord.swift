@@ -9,6 +9,7 @@ import Foundation
 import GRDB
 import Combine
 import os
+import SplatNet2
 
 struct DBRecord: Identifiable {
     
@@ -406,7 +407,7 @@ extension DBRecord {
 
 extension DBRecord {
     var weaponImageURL: URL {
-        Splatoon2API.host.appendingPathComponent(weaponImage)
+        IndirectAccessors.SN2Host.host.appendingPathComponent(weaponImage)
     }
     
     var battle: Battle? {

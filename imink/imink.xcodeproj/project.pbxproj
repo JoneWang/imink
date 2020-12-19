@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB4ED734258DF35700D6A33D /* CXMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BB4ED733258DF35700D6A33D /* CXMoya */; };
 		BBC15A22256B9CD300B67514 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = BBC15A21256B9CD300B67514 /* SplatNet2 */; };
 		BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
 		BBC15A24256B9CE200B67514 /* InkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -313,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC15A22256B9CD300B67514 /* SplatNet2 in Frameworks */,
+				BB4ED734258DF35700D6A33D /* CXMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,6 +697,7 @@
 			name = InkCore;
 			packageProductDependencies = (
 				BBC15A21256B9CD300B67514 /* SplatNet2 */,
+				BB4ED733258DF35700D6A33D /* CXMoya */,
 			);
 			productName = InkCore;
 			productReference = EC17CB0C256B995900E34247 /* InkCore.framework */;
@@ -786,6 +789,7 @@
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BBC15A20256B9CD300B67514 /* XCRemoteSwiftPackageReference "SplatNet2" */,
+				BB4ED72C258DF33500D6A33D /* XCRemoteSwiftPackageReference "CXMoya" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1349,12 +1353,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BB4ED72C258DF33500D6A33D /* XCRemoteSwiftPackageReference "CXMoya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cx-community/CXMoya";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 		BBC15A20256B9CD300B67514 /* XCRemoteSwiftPackageReference "SplatNet2" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ddddxxx/SplatNet2";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.1.1;
+				branch = master;
+				kind = branch;
 			};
 		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
@@ -1392,6 +1404,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BB4ED733258DF35700D6A33D /* CXMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB4ED72C258DF33500D6A33D /* XCRemoteSwiftPackageReference "CXMoya" */;
+			productName = CXMoya;
+		};
 		BBC15A21256B9CD300B67514 /* SplatNet2 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BBC15A20256B9CD300B67514 /* XCRemoteSwiftPackageReference "SplatNet2" */;

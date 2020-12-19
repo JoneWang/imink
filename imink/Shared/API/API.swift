@@ -129,10 +129,7 @@ extension APITargetType {
         API.shared.request(self)
             .mapError { error -> APIError in
                 if case APIError.authorizationError = error {
-                    if type(of: self) is Splatoon2API.Type {
-                        os_log("API Error: [splatoon2] iksm_session error")
-                        return .iksmSessionInvalid
-                    } else if type(of: self) is AppAPI.Type {
+                    if type(of: self) is AppAPI.Type {
                         os_log("API Error: client_token error")
                         AppUserDefaults.shared.clientToken = nil
                         AppUserDefaults.shared.user = nil

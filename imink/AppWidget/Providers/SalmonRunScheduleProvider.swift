@@ -8,6 +8,7 @@
 import Foundation
 import WidgetKit
 import Combine
+import CXMoya
 
 struct SalmonRunScheduleEntry: TimelineEntry {
     let date: Date
@@ -96,8 +97,8 @@ extension SalmonRunScheduleProvider {
             }
         }
         
-        Splatoon2API.salmonRunSchedules
-            .request()
+        sn2Provider.requestPublisher(.salmonRunSchedules)
+            .map(\.data)
             .compactMap { data -> SalmonRunSchedules? in
                 // Cache
                 AppUserDefaults.shared.splatoon2SalmonRunScheduleData = data

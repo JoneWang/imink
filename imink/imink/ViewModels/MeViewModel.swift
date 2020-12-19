@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import Moya
+import CXMoya
 
 class MeViewModel: ObservableObject {
     
@@ -20,21 +22,21 @@ class MeViewModel: ObservableObject {
         
         isLoading = true
         
-        Splatoon2API.records
-            .request()
+        sn2Provider.requestPublisher(.records)
             .receive(on: DispatchQueue.main)
+            .map(\.data)
             .compactMap { data -> Records? in
                 // Cache
                 AppUserDefaults.shared.splatoon2RecordsData = data
                 return data.decode(Records.self)
             }
-            .flatMap { [weak self] records -> AnyPublisher<Data, APIError> in
+            .flatMap { [weak self] records -> AnyPublisher<Response, MoyaError> in
                 self?.records = records
-                return Splatoon2API.nicknameAndIcon(id: records.records.player.principalId)
-                    .request()
+                return sn2Provider.requestPublisher(.nicknameAndIcon(id: records.records.player.principalId))
                     .receive(on: DispatchQueue.main)
                     .eraseToAnyPublisher()
             }
+            .map(\.data)
             .compactMap { data -> NicknameAndIcon? in
                 // Cache
                 AppUserDefaults.shared.splatoon2NicknameAndIconData = data
