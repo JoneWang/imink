@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 import os
+import Moya
 
 class NintendoAccountLoginViewModel: ObservableObject {
     
@@ -19,9 +20,8 @@ class NintendoAccountLoginViewModel: ObservableObject {
     var cancelBag = Set<AnyCancellable>()
     
     init() {
-        AppAPI.loginURL
-            .request()
-            .decode(type: NintendoLoginInfo.self)
+        iminkAPIProvider.requestPublisher(.loginURL)
+            .map(NintendoLoginInfo.self)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -36,16 +36,15 @@ class NintendoAccountLoginViewModel: ObservableObject {
             .store(in: &cancelBag)
     }
     
-    func signIn(_ info: String) -> AnyPublisher<User, Error> {
+    func signIn(_ info: String) -> AnyPublisher<User, MoyaError> {
         isLoading = true
         
-        return AppAPI.signIn(
+        let target = AppAPI.signIn(
             authCodeVerifier: loginInfo!.authCodeVerifier,
-            loginInfo: info
-        )
-        .request()
-        .decode(type: User.self)
-        .eraseToAnyPublisher()
+            loginInfo: info)
+        return iminkAPIProvider.requestPublisher(target)
+            .map(User.self)
+            .eraseToAnyPublisher()
     }
     
 }

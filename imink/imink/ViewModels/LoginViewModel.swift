@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 import os
+import Moya
 
 class LoginViewModel: ObservableObject {
     enum Status {
@@ -44,9 +45,8 @@ class LoginViewModel: ObservableObject {
     func login() {
         status = .loading
         
-        AppAPI.me(clientToken: clientToken)
-            .request()
-            .decode(type: User.self)
+        iminkAPIProvider.requestPublisher(.me(clientToken: clientToken))
+            .map(User.self)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let `self` = self else { return }
@@ -78,9 +78,8 @@ class LoginViewModel: ObservableObject {
 extension LoginViewModel {
     
     func requestNintendoLoginURL() {
-        AppAPI.loginURL
-            .request()
-            .decode(type: NintendoLoginInfo.self)
+        iminkAPIProvider.requestPublisher(.loginURL)
+            .map(NintendoLoginInfo.self)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -95,17 +94,16 @@ extension LoginViewModel {
             .store(in: &cancelBag)
     }
     
-    func signIn(_ info: String) -> AnyPublisher<User, Error> {
+    func signIn(_ info: String) -> AnyPublisher<User, MoyaError> {
         isLoading = true
         
-        let signIn = AppAPI.signIn(
+        let target = AppAPI.signIn(
             authCodeVerifier: loginInfo!.authCodeVerifier,
-            loginInfo: info
-        )
-        .request()
-        .decode(type: User.self)
-        .receive(on: DispatchQueue.main)
-        .eraseToAnyPublisher()
+            loginInfo: info)
+        let signIn = iminkAPIProvider.requestPublisher(target)
+            .map(User.self)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
         
         signIn.sink { _ in } receiveValue: { [weak self] user in
             guard let `self` = self else { return }

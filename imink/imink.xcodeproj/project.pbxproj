@@ -65,7 +65,6 @@
 		EC861222253AC656003BA67A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
 		EC861223253AC656003BA67A /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
 		EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
-		EC861225253AC656003BA67A /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA0251C8EF600AA0B20 /* APITargetType.swift */; };
 		EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
 		EC86122C253AC6D0003BA67A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
 		EC861231253AC6D4003BA67A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* Models.swift */; };
@@ -99,7 +98,6 @@
 		EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */; };
 		EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */; };
 		EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
-		EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA0251C8EF600AA0B20 /* APITargetType.swift */; };
 		EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
 		EC900ECE251C8EF700AA0B20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
 		EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
@@ -276,7 +274,6 @@
 		EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringInterpolation.swift; sourceTree = "<group>"; };
 		EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPlayAnimation.swift; sourceTree = "<group>"; };
 		EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splatoon2API.swift; sourceTree = "<group>"; };
-		EC900EA0251C8EF600AA0B20 /* APITargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
 		EC900EA1251C8EF600AA0B20 /* AppAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
 		EC900EA2251C8EF600AA0B20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EC900EA4251C8EF600AA0B20 /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -575,7 +572,6 @@
 			children = (
 				EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */,
 				EC900EA1251C8EF600AA0B20 /* AppAPI.swift */,
-				EC900EA0251C8EF600AA0B20 /* APITargetType.swift */,
 				EC900EA2251C8EF600AA0B20 /* API.swift */,
 			);
 			path = API;
@@ -874,7 +870,6 @@
 				EC2C1597257CB7EF00528D80 /* WidgetBackgroundView.swift in Sources */,
 				EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */,
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
-				EC861225253AC656003BA67A /* APITargetType.swift in Sources */,
 				EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */,
 				EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
@@ -940,7 +935,6 @@
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
 				EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */,
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
-				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
 				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
 				ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */,
 				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,

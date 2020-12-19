@@ -181,21 +181,21 @@ extension TabBarViewModel {
     }
     
     func requestUserInfo() {
-        AppAPI.me()
-            .request()
-            .decode(type: User.self)
+        iminkAPIProvider.requestPublisher(.me())
+            .map(User.self)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    if case APIError.clientTokenInvalid = error {
-                        self.isLogin = false
-                    } else {
+                    // FIXME: token invalid
+//                    if case APIError.clientTokenInvalid = error {
+//                        self.isLogin = false
+//                    } else {
                         // TODO: Popping error view
                         os_log("API Error: [/me] \(error.localizedDescription)")
-                    }
+//                    }
                 }
             } receiveValue: { user in
                 // Save new user information

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import Moya
+
+var iminkAPIProvider = MoyaProvider<AppAPI>()
 
 enum AppAPI {
     case loginURL
@@ -13,7 +16,8 @@ enum AppAPI {
     case me(clientToken: String? = nil)
 }
 
-extension AppAPI: APITargetType {
+extension AppAPI: TargetType {
+    
     var baseURL: URL { URL(string: "https://api.imink.jone.wang")! }
     
     var path: String {
@@ -27,7 +31,7 @@ extension AppAPI: APITargetType {
         }
     }
     
-    var method: APIMethod {
+    var method: Moya.Method {
         switch self {
         case .loginURL, .me:
             return .get
@@ -49,21 +53,21 @@ extension AppAPI: APITargetType {
         return nil
     }
     
-    var querys: [(String, String?)]? {
-        return nil
+    var task: Task {
+        switch self {
+        case let .signIn(authCodeVerifier, loginInfo):
+            let parameters = [
+                "auth_code_verifier": authCodeVerifier,
+                "login_info": loginInfo,
+            ]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        default:
+            return .requestPlain
+        }
     }
     
-    var data: MediaType? {
-        switch self {
-        case .signIn(let authCodeVerifier, let loginInfo):
-            return .jsonData(
-                [
-                    "auth_code_verifier": authCodeVerifier,
-                    "login_info": loginInfo
-                ]
-            )
-        default:
-            return nil
-        }
+    var sampleData: Data {
+        // TODO: sample data
+        return Data()
     }
 }
