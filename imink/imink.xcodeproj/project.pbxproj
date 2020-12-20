@@ -62,7 +62,6 @@
 		EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8611CB253AB9CB003BA67A /* Assets.xcassets */; };
 		EC8611D0253AB9CB003BA67A /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8611D7253ABA31003BA67A /* AppWidget.swift */; };
-		EC861222253AC656003BA67A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
 		EC861223253AC656003BA67A /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
 		EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
 		EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
@@ -99,7 +98,6 @@
 		EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */; };
 		EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
 		EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
-		EC900ECE251C8EF700AA0B20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
 		EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
 		EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA5251C8EF600AA0B20 /* AppTheme.swift */; };
 		EC900ED1251C8EF700AA0B20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
@@ -275,7 +273,6 @@
 		EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPlayAnimation.swift; sourceTree = "<group>"; };
 		EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splatoon2API.swift; sourceTree = "<group>"; };
 		EC900EA1251C8EF600AA0B20 /* AppAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
-		EC900EA2251C8EF600AA0B20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EC900EA4251C8EF600AA0B20 /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		EC900EA5251C8EF600AA0B20 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		EC900EA7251C8EF600AA0B20 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -572,7 +569,6 @@
 			children = (
 				EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */,
 				EC900EA1251C8EF600AA0B20 /* AppAPI.swift */,
-				EC900EA2251C8EF600AA0B20 /* API.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -849,7 +845,6 @@
 			files = (
 				EC861245253AC6ED003BA67A /* UserDefaultsWrapper.swift in Sources */,
 				EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */,
-				EC861222253AC656003BA67A /* API.swift in Sources */,
 				EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */,
 				EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */,
@@ -952,7 +947,6 @@
 				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
 				EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */,
-				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
 				EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,

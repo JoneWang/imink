@@ -189,13 +189,14 @@ extension TabBarViewModel {
                 case .finished:
                     break
                 case .failure(let error):
-                    // FIXME: token invalid
-//                    if case APIError.clientTokenInvalid = error {
-//                        self.isLogin = false
-//                    } else {
-                        // TODO: Popping error view
-                        os_log("API Error: [/me] \(error.localizedDescription)")
-//                    }
+                    // Token invalid
+                    if case MoyaError.objectMapping(_, let res) = error {
+                        if 401...403 ~= res.statusCode {
+                            self.isLogin = false
+                        }
+                    }
+                    // TODO: Popping error view
+                    os_log("API Error: [/me] \(error.localizedDescription)")
                 }
             } receiveValue: { user in
                 // Save new user information
