@@ -108,7 +108,6 @@
 		EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB8251C8EF700AA0B20 /* Sample.swift */; };
 		EC900EDD251C8EF700AA0B20 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = EC900EB9251C8EF700AA0B20 /* results.json */; };
 		EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */; };
-		EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */; };
 		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
 		EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* DBRecord.swift */; };
 		EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */; };
@@ -283,7 +282,6 @@
 		EC900EB8251C8EF700AA0B20 /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		EC900EB9251C8EF700AA0B20 /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
 		EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
 		EC900EBF251C8EF700AA0B20 /* DBRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRecord.swift; sourceTree = "<group>"; };
 		EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleProvider.swift; sourceTree = "<group>"; };
@@ -626,7 +624,6 @@
 				EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */,
 				EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */,
 				EC5362472525D68E0037BD12 /* HomeViewModel.swift */,
-				EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */,
 				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
 				EC62E77225360B2B0028428C /* MeViewModel.swift */,
 			);
@@ -952,7 +949,6 @@
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
 				EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */,
-				EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
