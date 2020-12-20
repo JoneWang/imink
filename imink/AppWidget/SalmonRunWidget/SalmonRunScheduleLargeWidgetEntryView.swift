@@ -193,11 +193,11 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
     func makeContent() -> some View {
         let now = Date()
         return ZStack {
-            WidgetBackground(family: entry.family, widgetSize: entry.size).salmonRunBubble
+            WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: entry.family, widgetSize: entry.size)
 
             VStack(spacing: topBarSpacing) {
                 ZStack {
-                    WidgetBackground(family: entry.family, widgetSize: entry.size).topbarBubble
+                    WidgetBackgroundView(texture: .topbarBubble, widgetFamily: entry.family, widgetSize: entry.size)
                     
                     HStack(alignment: .center) {
                         Spacer()

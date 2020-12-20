@@ -26,6 +26,39 @@ struct GrayscaleTextureView: View {
     }
 }
 
+extension GrayscaleTextureView {
+    
+    static let salmonRunBubble = GrayscaleTextureView(
+        textureName: "BubbleTexture",
+        foregroundColor: Color("SalmonRunBubbleForegroundColor"),
+        backgroundColor: Color("SalmonRunBubbleBackgroundColor"))
+    
+    static let regularStreak = GrayscaleTextureView(
+        textureName: "StreakTexture",
+        foregroundColor: Color("RegularStreakForegroundColor"),
+        backgroundColor: Color("RegularStreakBackgroundColor"))
+    
+    static let rankStreak = GrayscaleTextureView(
+        textureName: "StreakTexture",
+        foregroundColor: Color("RankStreakForegroundColor"),
+        backgroundColor: Color("RankStreakBackgroundColor"))
+    
+    static let leagueStreak = GrayscaleTextureView(
+        textureName: "StreakTexture",
+        foregroundColor: Color("LeagueStreakForegroundColor"),
+        backgroundColor: Color("LeagueStreakBackgroundColor"))
+    
+    static let topbarStreak = GrayscaleTextureView(
+        textureName: "StreakTexture",
+        foregroundColor: Color("TopbarStreakForegroundColor"),
+        backgroundColor: Color("TopbarStreakBackgroundColor"))
+    
+    static let topbarBubble = GrayscaleTextureView(
+        textureName: "BubbleTexture",
+        foregroundColor: Color("TopbarStreakForegroundColor"),
+        backgroundColor: Color("TopbarStreakBackgroundColor"))
+}
+
 struct GrayscaleTextureView_Previews: PreviewProvider {
     static var previews: some View {
         GrayscaleTextureView(
