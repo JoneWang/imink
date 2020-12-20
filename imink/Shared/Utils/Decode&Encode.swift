@@ -26,8 +26,7 @@ extension String {
 extension Data {
     
     func decode<T>(_ type: T.Type) -> T? where T : Decodable {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let decoder = JSONDecoder.convertFromSnakeCase
 
         do {
             return try decoder.decode(type.self, from: self)
@@ -35,6 +34,16 @@ extension Data {
             os_log("Decode Error: \(error.localizedDescription)")
             return nil
         }
+    }
+    
+}
+
+extension JSONDecoder {
+    
+    static var convertFromSnakeCase: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
     }
     
 }

@@ -21,7 +21,7 @@ class NintendoAccountLoginViewModel: ObservableObject {
     
     init() {
         iminkAPIProvider.requestPublisher(.loginURL)
-            .map(NintendoLoginInfo.self)
+            .map(NintendoLoginInfo.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -43,7 +43,7 @@ class NintendoAccountLoginViewModel: ObservableObject {
             authCodeVerifier: loginInfo!.authCodeVerifier,
             loginInfo: info)
         return iminkAPIProvider.requestPublisher(target)
-            .map(User.self)
+            .map(User.self, using: JSONDecoder.convertFromSnakeCase)
             .eraseToAnyPublisher()
     }
     

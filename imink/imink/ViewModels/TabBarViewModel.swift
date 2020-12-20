@@ -182,7 +182,7 @@ extension TabBarViewModel {
     
     func requestUserInfo() {
         iminkAPIProvider.requestPublisher(.me())
-            .map(User.self)
+            .map(User.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

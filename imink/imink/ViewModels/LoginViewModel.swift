@@ -46,7 +46,7 @@ class LoginViewModel: ObservableObject {
         status = .loading
         
         iminkAPIProvider.requestPublisher(.me(clientToken: clientToken))
-            .map(User.self)
+            .map(User.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let `self` = self else { return }
@@ -79,7 +79,7 @@ extension LoginViewModel {
     
     func requestNintendoLoginURL() {
         iminkAPIProvider.requestPublisher(.loginURL)
-            .map(NintendoLoginInfo.self)
+            .map(NintendoLoginInfo.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -101,7 +101,7 @@ extension LoginViewModel {
             authCodeVerifier: loginInfo!.authCodeVerifier,
             loginInfo: info)
         let signIn = iminkAPIProvider.requestPublisher(target)
-            .map(User.self)
+            .map(User.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
         
