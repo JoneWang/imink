@@ -93,7 +93,7 @@ class HomeViewModel: ObservableObject {
         isLoading = true
         
         let battleSchedules = sn2Provider.requestPublisher(.schedules)
-            .map(Schedules.self)
+            .map(Schedules.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .map { schedules -> Schedules? in schedules }
             .catch { error -> Just<Schedules?> in
@@ -105,7 +105,7 @@ class HomeViewModel: ObservableObject {
             .assign(to: &$schedules)
         
         let salmonRunSchedules = sn2Provider.requestPublisher(.salmonRunSchedules)
-            .map(SalmonRunSchedules.self)
+            .map(SalmonRunSchedules.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .map { schedules -> SalmonRunSchedules? in schedules }
             .catch { error -> Just<SalmonRunSchedules?> in
@@ -117,7 +117,7 @@ class HomeViewModel: ObservableObject {
             .assign(to: &$salmonRunSchedules)
         
         let activeFestivals = sn2Provider.requestPublisher(.activeFestivals)
-            .map(ActiveFestivals.self)
+            .map(ActiveFestivals.self, using: JSONDecoder.convertFromSnakeCase)
             .receive(on: DispatchQueue.main)
             .map { festivals -> ActiveFestivals? in festivals }
             .catch { error -> Just<ActiveFestivals?> in
