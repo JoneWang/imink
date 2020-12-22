@@ -118,6 +118,18 @@ struct MePage: View {
                     }
                 }
                 
+                #if DEBUG
+                Section {
+                    ZStack {
+                        makeDetailRow(image: "textformat.size", text: "Font Test", detail: "", color: .accentColor)
+                        NavigationLink(destination: TestFontView()) {
+                            EmptyView()
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                }
+                #endif
+                
                 Section {
                     HStack {
                         Spacer()

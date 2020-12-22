@@ -1,12 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Ika_k:d.pdf",
+      "filename" : "Tako_k:d.pdf",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

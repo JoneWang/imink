@@ -28,10 +28,12 @@ class BattleRecordListCell: UICollectionViewCell {
     @IBOutlet weak var subrankLabel: UILabel!
     @IBOutlet weak var powerLabel: UILabel!
     @IBOutlet weak var killLabel: UILabel!
+    @IBOutlet weak var killImageView: UIImageView!
     @IBOutlet weak var assistLabel: UILabel!
     @IBOutlet weak var deathLabel: UILabel!
+    @IBOutlet weak var deathImageView: UIImageView!
     @IBOutlet weak var kdLabel: UILabel!
-    @IBOutlet weak var rankAndSubrankSpacingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var kdImageView: UIImageView!
     
     var record: DBRecord? {
         didSet {
@@ -89,16 +91,17 @@ class BattleRecordListCell: UICollectionViewCell {
         weaponImageView.sd_setImage(with: record.weaponImageURL)
         
         let playerResult = record.battle?.playerResult
+        let battleType = record.battle?.type
         
-        let udemae = playerResult?.player.udemae
-        rankLabel.text = udemae?.name ?? "C-"
-        subrankLabel.isHidden = udemae?.sPlusNumber == nil
-        if let sPlusNumber = udemae?.sPlusNumber {
-            subrankLabel.text = "\(sPlusNumber)"
-            rankAndSubrankSpacingConstraint.constant = 0.5
-        } else {
-            subrankLabel.text = ""
-            rankAndSubrankSpacingConstraint.constant = 0
+        if battleType == .gachi || battleType == .league {
+            let udemae = playerResult?.player.udemae
+            rankLabel.text = udemae?.name ?? "C-"
+            subrankLabel.isHidden = udemae?.sPlusNumber == nil
+            if let sPlusNumber = udemae?.sPlusNumber {
+                subrankLabel.text = "\(sPlusNumber)"
+            } else {
+                subrankLabel.text = ""
+            }
         }
 
         if record.battle?.type == .league {
@@ -107,15 +110,23 @@ class BattleRecordListCell: UICollectionViewCell {
             } else {
                 powerLabel.text = String(format: "%@ power".localized, "---")
             }
+        } else if record.battle?.type == .gachi, let power = record.battle?.estimateGachiPower {
+            powerLabel.text = String(format: "%@ power".localized, "\(power)")
         } else {
             powerLabel.text = ""
         }
         
-        if let player = playerResult {
-            killLabel.text = "\(player.killCount + player.assistCount)"
-            assistLabel.text = " (\(player.assistCount))"
-            deathLabel.text = "\(player.deathCount)"
-            kdLabel.text = "\(Double(player.killCount) &/ Double(player.deathCount), places: 1)"
+        if let playerResult = playerResult {
+            killLabel.text = "\(playerResult.killCount + playerResult.assistCount)"
+            assistLabel.text = " (\(playerResult.assistCount))"
+            deathLabel.text = "\(playerResult.deathCount)"
+            kdLabel.text = "\(Double(playerResult.killCount) &/ Double(playerResult.deathCount), places: 1)"
+        
+            let playerType = playerResult.player.playerType
+            
+            self.killImageView.image = UIImage(named: playerType.species == .octolings ? "Tako_k" : "Ika_k")
+            self.deathImageView.image = UIImage(named: playerType.species == .octolings ? "Tako_d" : "Ika_d")
+            self.kdImageView.image = UIImage(named: playerType.species == .octolings ? "Tako_kd" : "Ika_kd")
         }
 
         activityIndicatorView.isHidden = record.isDetail

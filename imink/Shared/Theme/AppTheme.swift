@@ -11,9 +11,9 @@ import SwiftUI
 struct AppTheme {
     static let defaultTextureSize = CGSize(width: 256, height: 128)
     
-    static let spFontName = "Splatfont 1 v1.005.1"
+    static let spFontName = "Splatfont 1 v1.005"
     
-    static let sp2FontName = "Splatfont 2 v1.005.1"
+    static let sp2FontName = "Splatfont 2 v1.007"
     
     static let spFont = UIFont(name: spFontName, size: 12)
     
