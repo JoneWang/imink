@@ -178,7 +178,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-PG-g98">
                                                         <rect key="frame" x="75.5" y="0.0" width="31" height="14"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tako_k:d" translatesAutoresizingMaskIntoConstraints="NO" id="7F7-PH-urn">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tako_kd" translatesAutoresizingMaskIntoConstraints="NO" id="7F7-PH-urn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
                                                                 <color key="tintColor" systemColor="systemGray3Color"/>
                                                                 <constraints>
@@ -314,7 +314,7 @@
         <image name="RegularBattle" width="32" height="32"/>
         <image name="Tako_d" width="16" height="16"/>
         <image name="Tako_k" width="16" height="16"/>
-        <image name="Tako_k:d" width="16" height="16"/>
+        <image name="Tako_kd" width="16" height="16"/>
         <namedColor name="AppLabelColor">
             <color red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

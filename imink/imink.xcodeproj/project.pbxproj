@@ -54,6 +54,7 @@
 		EC68D1B32573933F0024C994 /* GrayscaleTextureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B8274251F088800B25307 /* CompactBattlePage.swift */; };
+		EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC7652DF259200890098FD22 /* SplatNet2 */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
 		EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611AA253AA873003BA67A /* SwiftUI.framework */; };
 		EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8611CB253AB9CB003BA67A /* Assets.xcassets */; };
@@ -137,40 +138,6 @@
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785D2585F79C00D750DB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
-		ECE6787C2586748F00D750DB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786A2586748F00D750DB /* Utilities.swift */; };
-		ECE6787D2586748F00D750DB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786A2586748F00D750DB /* Utilities.swift */; };
-		ECE6787E2586748F00D750DB /* TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786C2586748F00D750DB /* TeamResult.swift */; };
-		ECE6787F2586748F00D750DB /* TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786C2586748F00D750DB /* TeamResult.swift */; };
-		ECE678802586748F00D750DB /* SalmonRunSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786D2586748F00D750DB /* SalmonRunSchedules.swift */; };
-		ECE678812586748F00D750DB /* SalmonRunSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786D2586748F00D750DB /* SalmonRunSchedules.swift */; };
-		ECE678822586748F00D750DB /* SN2Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786E2586748F00D750DB /* SN2Color.swift */; };
-		ECE678832586748F00D750DB /* SN2Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786E2586748F00D750DB /* SN2Color.swift */; };
-		ECE678842586748F00D750DB /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786F2586748F00D750DB /* Weapon.swift */; };
-		ECE678852586748F00D750DB /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6786F2586748F00D750DB /* Weapon.swift */; };
-		ECE678862586748F00D750DB /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678702586748F00D750DB /* TeamMember.swift */; };
-		ECE678872586748F00D750DB /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678702586748F00D750DB /* TeamMember.swift */; };
-		ECE678882586748F00D750DB /* NicknameAndIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678712586748F00D750DB /* NicknameAndIcon.swift */; };
-		ECE678892586748F00D750DB /* NicknameAndIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678712586748F00D750DB /* NicknameAndIcon.swift */; };
-		ECE6788A2586748F00D750DB /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678722586748F00D750DB /* GameMode.swift */; };
-		ECE6788B2586748F00D750DB /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678722586748F00D750DB /* GameMode.swift */; };
-		ECE6788C2586748F00D750DB /* ActiveFestivals.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678732586748F00D750DB /* ActiveFestivals.swift */; };
-		ECE6788D2586748F00D750DB /* ActiveFestivals.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678732586748F00D750DB /* ActiveFestivals.swift */; };
-		ECE6788E2586748F00D750DB /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678742586748F00D750DB /* Battle.swift */; };
-		ECE6788F2586748F00D750DB /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678742586748F00D750DB /* Battle.swift */; };
-		ECE678902586748F00D750DB /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678752586748F00D750DB /* Schedules.swift */; };
-		ECE678912586748F00D750DB /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678752586748F00D750DB /* Schedules.swift */; };
-		ECE678922586748F00D750DB /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678762586748F00D750DB /* Records.swift */; };
-		ECE678932586748F00D750DB /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678762586748F00D750DB /* Records.swift */; };
-		ECE678942586748F00D750DB /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678772586748F00D750DB /* Stage.swift */; };
-		ECE678952586748F00D750DB /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678772586748F00D750DB /* Stage.swift */; };
-		ECE678962586748F00D750DB /* BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678782586748F00D750DB /* BattleOverview.swift */; };
-		ECE678972586748F00D750DB /* BattleOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678782586748F00D750DB /* BattleOverview.swift */; };
-		ECE678982586748F00D750DB /* GameRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678792586748F00D750DB /* GameRule.swift */; };
-		ECE678992586748F00D750DB /* GameRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE678792586748F00D750DB /* GameRule.swift */; };
-		ECE6789A2586748F00D750DB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6787A2586748F00D750DB /* Player.swift */; };
-		ECE6789B2586748F00D750DB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6787A2586748F00D750DB /* Player.swift */; };
-		ECE6789C2586748F00D750DB /* IndirectAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6787B2586748F00D750DB /* IndirectAccess.swift */; };
-		ECE6789D2586748F00D750DB /* IndirectAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6787B2586748F00D750DB /* IndirectAccess.swift */; };
 		ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -339,23 +306,6 @@
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
 		ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSplitViewController.swift; sourceTree = "<group>"; };
-		ECE6786A2586748F00D750DB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		ECE6786C2586748F00D750DB /* TeamResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamResult.swift; sourceTree = "<group>"; };
-		ECE6786D2586748F00D750DB /* SalmonRunSchedules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalmonRunSchedules.swift; sourceTree = "<group>"; };
-		ECE6786E2586748F00D750DB /* SN2Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SN2Color.swift; sourceTree = "<group>"; };
-		ECE6786F2586748F00D750DB /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		ECE678702586748F00D750DB /* TeamMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
-		ECE678712586748F00D750DB /* NicknameAndIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameAndIcon.swift; sourceTree = "<group>"; };
-		ECE678722586748F00D750DB /* GameMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
-		ECE678732586748F00D750DB /* ActiveFestivals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveFestivals.swift; sourceTree = "<group>"; };
-		ECE678742586748F00D750DB /* Battle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battle.swift; sourceTree = "<group>"; };
-		ECE678752586748F00D750DB /* Schedules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedules.swift; sourceTree = "<group>"; };
-		ECE678762586748F00D750DB /* Records.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
-		ECE678772586748F00D750DB /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
-		ECE678782586748F00D750DB /* BattleOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleOverview.swift; sourceTree = "<group>"; };
-		ECE678792586748F00D750DB /* GameRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRule.swift; sourceTree = "<group>"; };
-		ECE6787A2586748F00D750DB /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		ECE6787B2586748F00D750DB /* IndirectAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndirectAccess.swift; sourceTree = "<group>"; };
 		ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -364,6 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +481,6 @@
 		EC861216253AC61E003BA67A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				ECE678692586748F00D750DB /* SplatNet2 */,
 				EC565B5A251D882900CCAC9A /* NotificationName.swift */,
 				EC900E94251C8EF600AA0B20 /* Utils */,
 				EC900EA3251C8EF600AA0B20 /* Theme */,
@@ -719,39 +669,6 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
-		ECE678692586748F00D750DB /* SplatNet2 */ = {
-			isa = PBXGroup;
-			children = (
-				ECE6786A2586748F00D750DB /* Utilities.swift */,
-				ECE6786B2586748F00D750DB /* Models */,
-				ECE6787B2586748F00D750DB /* IndirectAccess.swift */,
-			);
-			name = SplatNet2;
-			path = ../../../SplatNet2/Sources/SplatNet2;
-			sourceTree = "<group>";
-		};
-		ECE6786B2586748F00D750DB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				ECE6786C2586748F00D750DB /* TeamResult.swift */,
-				ECE6786D2586748F00D750DB /* SalmonRunSchedules.swift */,
-				ECE6786E2586748F00D750DB /* SN2Color.swift */,
-				ECE6786F2586748F00D750DB /* Weapon.swift */,
-				ECE678702586748F00D750DB /* TeamMember.swift */,
-				ECE678712586748F00D750DB /* NicknameAndIcon.swift */,
-				ECE678722586748F00D750DB /* GameMode.swift */,
-				ECE678732586748F00D750DB /* ActiveFestivals.swift */,
-				ECE678742586748F00D750DB /* Battle.swift */,
-				ECE678752586748F00D750DB /* Schedules.swift */,
-				ECE678762586748F00D750DB /* Records.swift */,
-				ECE678772586748F00D750DB /* Stage.swift */,
-				ECE678782586748F00D750DB /* BattleOverview.swift */,
-				ECE678792586748F00D750DB /* GameRule.swift */,
-				ECE6787A2586748F00D750DB /* Player.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -780,6 +697,7 @@
 			);
 			name = InkCore;
 			packageProductDependencies = (
+				EC7652DF259200890098FD22 /* SplatNet2 */,
 			);
 			productName = InkCore;
 			productReference = EC17CB0C256B995900E34247 /* InkCore.framework */;
@@ -870,6 +788,7 @@
 				EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -935,32 +854,22 @@
 				EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */,
 				EC861222253AC656003BA67A /* API.swift in Sources */,
 				EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */,
-				ECE6789B2586748F00D750DB /* Player.swift in Sources */,
 				EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */,
 				EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */,
 				EC68D1B32573933F0024C994 /* GrayscaleTextureView.swift in Sources */,
-				ECE678832586748F00D750DB /* SN2Color.swift in Sources */,
-				ECE6788B2586748F00D750DB /* GameMode.swift in Sources */,
 				EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */,
-				ECE6787D2586748F00D750DB /* Utilities.swift in Sources */,
 				EC98422D253AE3B40079D739 /* BattleScheduleMediumWidgetEntryView.swift in Sources */,
 				EC86123E253AC6ED003BA67A /* Operator.swift in Sources */,
-				ECE678812586748F00D750DB /* SalmonRunSchedules.swift in Sources */,
-				ECE6789D2586748F00D750DB /* IndirectAccess.swift in Sources */,
 				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
 				EC861241253AC6ED003BA67A /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
-				ECE6788D2586748F00D750DB /* ActiveFestivals.swift in Sources */,
-				ECE678972586748F00D750DB /* BattleOverview.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
 				EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */,
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
-				ECE678912586748F00D750DB /* Schedules.swift in Sources */,
 				EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */,
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
 				EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */,
 				EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */,
-				ECE678932586748F00D750DB /* Records.swift in Sources */,
 				EC2C1597257CB7EF00528D80 /* WidgetBackgroundView.swift in Sources */,
 				EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */,
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
@@ -969,25 +878,18 @@
 				EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
 				ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */,
-				ECE6788F2586748F00D750DB /* Battle.swift in Sources */,
 				EC861244253AC6ED003BA67A /* Collection.swift in Sources */,
-				ECE678952586748F00D750DB /* Stage.swift in Sources */,
-				ECE678892586748F00D750DB /* NicknameAndIcon.swift in Sources */,
 				EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */,
-				ECE6787F2586748F00D750DB /* TeamResult.swift in Sources */,
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
-				ECE678852586748F00D750DB /* Weapon.swift in Sources */,
 				EC861231253AC6D4003BA67A /* Models.swift in Sources */,
 				EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */,
 				EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */,
 				EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */,
-				ECE678872586748F00D750DB /* TeamMember.swift in Sources */,
 				EC984217253ADE880079D739 /* AppColor.swift in Sources */,
 				EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */,
 				EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861223253AC656003BA67A /* AppAPI.swift in Sources */,
 				EC86122C253AC6D0003BA67A /* User.swift in Sources */,
-				ECE678992586748F00D750DB /* GameRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,42 +900,33 @@
 				EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */,
 				EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */,
 				EC00DC0B251CD8770010366A /* TeamView.swift in Sources */,
-				ECE6789C2586748F00D750DB /* IndirectAccess.swift in Sources */,
 				EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */,
 				ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */,
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
 				EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */,
 				EC00DC09251CD8770010366A /* BattleDataView.swift in Sources */,
-				ECE6788E2586748F00D750DB /* Battle.swift in Sources */,
 				EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */,
 				EC861258253ACACA003BA67A /* UserDefaults.swift in Sources */,
-				ECE6787C2586748F00D750DB /* Utilities.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
-				ECE678862586748F00D750DB /* TeamMember.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */,
 				EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */,
 				ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */,
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
-				ECE678842586748F00D750DB /* Weapon.swift in Sources */,
 				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
 				EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */,
-				ECE678822586748F00D750DB /* SN2Color.swift in Sources */,
 				EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */,
 				EC00DBD0251C9D5B0010366A /* BattleDetailViewController.swift in Sources */,
 				EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */,
 				EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */,
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
 				EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */,
-				ECE6788C2586748F00D750DB /* ActiveFestivals.swift in Sources */,
-				ECE678982586748F00D750DB /* GameRule.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				EC900ED1251C8EF700AA0B20 /* User.swift in Sources */,
 				EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */,
 				EC6B8275251F088800B25307 /* CompactBattlePage.swift in Sources */,
-				ECE6789A2586748F00D750DB /* Player.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,
 				EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */,
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
@@ -1044,11 +937,9 @@
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
-				ECE678962586748F00D750DB /* BattleOverview.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
 				EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */,
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
-				ECE678902586748F00D750DB /* Schedules.swift in Sources */,
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
 				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
 				ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */,
@@ -1057,24 +948,18 @@
 				EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */,
 				EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */,
 				EC5362502525DB1D0037BD12 /* HomeViewController.swift in Sources */,
-				ECE678882586748F00D750DB /* NicknameAndIcon.swift in Sources */,
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
 				EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */,
-				ECE678922586748F00D750DB /* Records.swift in Sources */,
 				EC344FE925330351004A7AF1 /* MePage.swift in Sources */,
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				EC00DC0F251CD8770010366A /* MemberView.swift in Sources */,
-				ECE6787E2586748F00D750DB /* TeamResult.swift in Sources */,
 				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
-				ECE6788A2586748F00D750DB /* GameMode.swift in Sources */,
 				EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */,
-				ECE678802586748F00D750DB /* SalmonRunSchedules.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
 				EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */,
-				ECE678942586748F00D750DB /* Stage.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
@@ -1502,6 +1387,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ddddxxx/SplatNet2.git";
+			requirement = {
+				branch = addfields;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1524,6 +1417,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EC7652DF259200890098FD22 /* SplatNet2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */;
+			productName = SplatNet2;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
