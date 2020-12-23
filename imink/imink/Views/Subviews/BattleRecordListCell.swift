@@ -102,6 +102,9 @@ class BattleRecordListCell: UICollectionViewCell {
             } else {
                 subrankLabel.text = ""
             }
+        } else {
+            rankLabel.text = ""
+            subrankLabel.isHidden = true;
         }
 
         if record.battle?.type == .league {
@@ -120,7 +123,7 @@ class BattleRecordListCell: UICollectionViewCell {
             killLabel.text = "\(playerResult.killCount + playerResult.assistCount)"
             assistLabel.text = " (\(playerResult.assistCount))"
             deathLabel.text = "\(playerResult.deathCount)"
-            kdLabel.text = "\(Double(playerResult.killCount) &/ Double(playerResult.deathCount), places: 1)"
+            kdLabel.text = "\(Double(playerResult.killCount) -/ Double(playerResult.deathCount), places: 1)"
         
             let playerType = playerResult.player.playerType
             

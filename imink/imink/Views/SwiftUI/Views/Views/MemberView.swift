@@ -143,7 +143,7 @@ struct MemberView: View {
                             .background(AppColor.spLime)
                             .cornerRadius(5)
                         
-                        Text("\(Double(member.killCount) &/ Double(member.deathCount), places: 1)")
+                        Text("\(Double(member.killCount) -/ Double(member.deathCount), places: 1)")
                             .sp2Font(size: 17)
                     }
                     .frame(width: 35)
