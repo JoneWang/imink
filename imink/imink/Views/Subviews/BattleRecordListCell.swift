@@ -90,14 +90,10 @@ class BattleRecordListCell: UICollectionViewCell {
         weaponImageView.image = nil
         weaponImageView.sd_setImage(with: record.weaponImageURL)
         
-        let playerResult = record.battle?.playerResult
-        let battleType = record.battle?.type
-        
-        if battleType == .gachi || battleType == .league {
-            let udemae = playerResult?.player.udemae
-            rankLabel.text = udemae?.name ?? "C-"
-            subrankLabel.isHidden = udemae?.sPlusNumber == nil
-            if let sPlusNumber = udemae?.sPlusNumber {
+        if record.type == .gachi || record.type == .league {
+            rankLabel.text = record.udemaeName ?? "C-"
+            subrankLabel.isHidden = record.udemaeSPlusNumber == nil
+            if let sPlusNumber = record.udemaeSPlusNumber {
                 subrankLabel.text = "\(sPlusNumber)"
             } else {
                 subrankLabel.text = ""
@@ -106,32 +102,29 @@ class BattleRecordListCell: UICollectionViewCell {
             rankLabel.text = ""
             subrankLabel.isHidden = true;
         }
-
-        if record.battle?.type == .league {
-            if let power = record.battle?.leaguePoint, power > 0 {
+        
+        if record.type == .league {
+            if let power = record.leaguePoint, power > 0 {
                 powerLabel.text = String(format: "%@ power".localized, "\(power, places: 0)")
             } else {
                 powerLabel.text = String(format: "%@ power".localized, "---")
             }
-        } else if record.battle?.type == .gachi, let power = record.battle?.estimateGachiPower {
+        } else if record.type == .gachi, let power = record.estimateGachiPower {
             powerLabel.text = String(format: "%@ power".localized, "\(power)")
         } else {
             powerLabel.text = ""
         }
         
-        if let playerResult = playerResult {
-            killLabel.text = "\(playerResult.killCount + playerResult.assistCount)"
-            assistLabel.text = " (\(playerResult.assistCount))"
-            deathLabel.text = "\(playerResult.deathCount)"
-            kdLabel.text = "\(Double(playerResult.killCount) -/ Double(playerResult.deathCount), places: 1)"
+        killLabel.text = "\(record.killCount + record.assistCount)"
+        assistLabel.text = " (\(record.assistCount))"
+        deathLabel.text = "\(record.deathCount)"
+        kdLabel.text = "\(Double(record.killCount) -/ Double(record.deathCount), places: 1)"
         
-            let playerType = playerResult.player.playerType
-            
-            self.killImageView.image = UIImage(named: playerType.species == .octolings ? "Tako_k" : "Ika_k")
-            self.deathImageView.image = UIImage(named: playerType.species == .octolings ? "Tako_d" : "Ika_d")
-            self.kdImageView.image = UIImage(named: playerType.species == .octolings ? "Tako_kd" : "Ika_kd")
-        }
-
+        let species = record.playerTypeSpecies
+        self.killImageView.image = UIImage(named: species == .octolings ? "Tako_k" : "Ika_k")
+        self.deathImageView.image = UIImage(named: species == .octolings ? "Tako_d" : "Ika_d")
+        self.kdImageView.image = UIImage(named: species == .octolings ? "Tako_kd" : "Ika_kd")
+        
         activityIndicatorView.isHidden = record.isDetail
         if !record.isDetail {
             activityIndicatorView.startAnimating()

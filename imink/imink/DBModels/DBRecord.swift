@@ -17,7 +17,7 @@ struct DBRecord: Identifiable {
     var id: Int64?
     var sp2PrincipalId: String?
     var battleNumber: String
-    var json: String
+    var json: String?
     
     // If the json from /results/<id> then isDetail is ture.
     var isDetail: Bool
@@ -39,7 +39,16 @@ struct DBRecord: Identifiable {
     var otherPoint: Double
     var syncDetailTime: Date?
     var startDateTime: Date
+    var udemaeName: String?
+    var udemaeSPlusNumber: Int?
+    var type: Battle.BattleType
+    var leaguePoint: Double?
+    var estimateGachiPower: Int?
+    var playerTypeSpecies: Player.PlayerType.Species
 }
+
+extension Battle.BattleType: DatabaseValueConvertible { }
+extension Player.PlayerType.Species: DatabaseValueConvertible { }
 
 extension DBRecord: Codable, FetchableRecord, MutablePersistableRecord {
     
@@ -173,7 +182,13 @@ extension AppDatabase {
                         deathCount: battle.playerResult.deathCount,
                         myPoint: battle.myPoint,
                         otherPoint: battle.otherPoint,
-                        startDateTime: battle.startTime)
+                        startDateTime: battle.startTime,
+                        udemaeName: battle.playerResult.player.udemae?.name,
+                        udemaeSPlusNumber: battle.playerResult.player.udemae?.sPlusNumber,
+                        type: battle.type,
+                        leaguePoint: battle.leaguePoint,
+                        estimateGachiPower: battle.estimateGachiPower,
+                        playerTypeSpecies: battle.playerResult.player.playerType.species)
                 )
             }
             
@@ -219,15 +234,41 @@ extension AppDatabase {
                 .eraseToAnyPublisher()
         }
         
-        return ValueObservation
-            .tracking(
-                DBRecord
-                    .filter(DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId)
+        return ValueObservation.tracking { db in
+            // exclude json
+            try Row
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [currentUser.sp2PrincipalId])
+                .map { row in
+                    DBRecord(row: row)
+                }
+        }
+        .publisher(in: dbQueue, scheduling: .immediate)
+        .eraseToAnyPublisher()
+    }
+    
+    func records(start battleNumber: String? = nil, count: Int) -> [DBRecord] {
+        return dbQueue.read { db in
+            if let battleNumber = battleNumber {
+                return try! DBRecord
+                    .filter(DBRecord.Columns.battleNumber < battleNumber)
                     .order(DBRecord.Columns.battleNumber.desc)
-                    .fetchAll
-            )
-            .publisher(in: dbQueue, scheduling: .immediate)
-            .eraseToAnyPublisher()
+                    .limit(count)
+                    .fetchAll(db)
+            } else {
+                return try! DBRecord
+                    .order(DBRecord.Columns.battleNumber.desc)
+                    .limit(count)
+                    .fetchAll(db)
+            }
+        }
+    }
+    
+    func record(with id: Int64) -> DBRecord? {
+        return dbQueue.read { db in
+            return try? DBRecord
+                .filter(DBRecord.Columns.id == id)
+                .fetchOne(db)
+        }
     }
     
     func totalCount() -> AnyPublisher<Int, Error> {
@@ -398,7 +439,13 @@ extension DBRecord {
             deathCount: deathCount,
             myPoint: myPoint,
             otherPoint: otherPoint,
-            startDateTime: startDateTime
+            startDateTime: startDateTime,
+            udemaeName: udemaeName,
+            udemaeSPlusNumber: udemaeSPlusNumber,
+            type: type,
+            leaguePoint: leaguePoint,
+            estimateGachiPower: estimateGachiPower,
+            playerTypeSpecies: playerTypeSpecies
         )
         return copy
     }
@@ -410,6 +457,6 @@ extension DBRecord {
     }
     
     var battle: Battle? {
-        json.decode(Battle.self)
+        json?.decode(Battle.self)
     }
 }

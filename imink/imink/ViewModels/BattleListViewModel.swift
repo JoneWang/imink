@@ -9,9 +9,22 @@ import Foundation
 import Combine
 import os
 
+struct BattleListRowModel {
+    let type: RowType
+    let record: DBRecord?
+    
+    enum RowType {
+        case realtime, record
+    }
+}
+
+extension BattleListRowModel: Hashable {
+    
+}
+
 class BattleListViewModel: ObservableObject {
     
-    @Published var records: [DBRecord] = []
+    @Published var rows: [BattleListRowModel] = []
     @Published var databaseRecords: [DBRecord] = []
     
     private var cancelBag = Set<AnyCancellable>()
@@ -29,38 +42,31 @@ class BattleListViewModel: ObservableObject {
         
         // Handle data source of list
         $databaseRecords
-            .map { records in
-                if let firstRecord = records.first {
-                    var firstRecord = firstRecord.copy()
-                    firstRecord.id = nil
-                    return [firstRecord] + records
+            .map { $0.map { record in BattleListRowModel(type: .record, record: record) } }
+            .map { rows in
+                if let firstRow = rows.first {
+                    return [BattleListRowModel(type: .realtime, record: firstRow.record)] + rows
                 } else {
-                    return [
-                        DBRecord(
-                            battleNumber: "",
-                            json: "",
-                            isDetail: false,
-                            victory: false,
-                            weaponImage: "",
-                            rule: "",
-                            gameMode: "",
-                            gameModeKey: "",
-                            stageName: "",
-                            killTotalCount: 0,
-                            killCount: 0,
-                            assistCount: 0,
-                            specialCount: 0,
-                            gamePaintPoint: 0,
-                            deathCount: 0,
-                            myPoint: 0,
-                            otherPoint: 0,
-                            startDateTime: Date()
-                        )
-                    ]
+                    return [BattleListRowModel(type: .realtime, record: nil)]
                 }
             }
             .filter { _ in AppUserDefaults.shared.user != nil }
-            .assign(to: &$records)
+            .assign(to: &$rows)
+    }
+    
+    
+    let numberOfPage = 20
+        
+    func nextPage() {
+        // TODO: Pagination
+        return
+        var battleNumber: String? = nil
+        if let lastRecord = databaseRecords.last {
+            battleNumber = lastRecord.battleNumber
+        }
+        
+        let loadedRecords = AppDatabase.shared.records(start: battleNumber, count: numberOfPage)
+        databaseRecords += loadedRecords
     }
     
 }

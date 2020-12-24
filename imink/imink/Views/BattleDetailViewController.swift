@@ -24,10 +24,12 @@ class BattleDetailViewController: UIViewController {
     
     var record: DBRecord? {
         didSet {
-            updateModel.record = record
-            
-            if let record = record {
+            if let record = record, let recordId = record.id {
                 title = "ID:\(record.battleNumber)"
+                
+                updateModel.record = AppDatabase.shared.record(with: recordId)
+            } else {
+                updateModel.record = nil
             }
         }
     }

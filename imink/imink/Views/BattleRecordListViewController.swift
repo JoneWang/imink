@@ -22,17 +22,17 @@ class BattleRecordListViewController: UIViewController {
 
     private var cancelBag = Set<AnyCancellable>()
 
-    private var dataSource: UICollectionViewDiffableDataSource<Section, DBRecord>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, BattleListRowModel>!
 
     private var battleListViewModel: BattleListViewModel!
-    private var selectedRecord: DBRecord? {
+    private var selectedRow: BattleListRowModel? {
         guard
             let indexPathsForSelectedItems = collectionView.indexPathsForSelectedItems,
             let selectedIndexPath = indexPathsForSelectedItems.first,
-            let selectedRecord = dataSource.itemIdentifier(for: selectedIndexPath)
+            let selectedRow = dataSource.itemIdentifier(for: selectedIndexPath)
             else { return nil }
 
-        return selectedRecord
+        return selectedRow
     }
 
     private var selectEnabled = true
@@ -50,28 +50,33 @@ class BattleRecordListViewController: UIViewController {
         configureDataSource()
 
         // Listen for record changes in the data store.
-        battleListViewModel.$records
-            .sink { [weak self] records in
+        battleListViewModel.$rows
+            .sink { [weak self] rows in
                 guard let `self` = self else { return }
+                
+                // TODO: Pagination
+                let animated = true
 
+                let selectedRecord = self.selectedRow?.record
+                
                 // Update real time
                 if let indexPathsForSelectedItems = self.collectionView.indexPathsForSelectedItems,
                    let selectedIndexPath = indexPathsForSelectedItems.first,
                    selectedIndexPath.row == 0,
-                   let firstRecord = records.first,
-                   (firstRecord.battleNumber != self.selectedRecord?.battleNumber) ||
-                        self.selectedRecord == nil ||
-                        (firstRecord.battleNumber == self.selectedRecord?.battleNumber && firstRecord.isDetail != self.selectedRecord?.isDetail) {
+                   let firstRecord = rows.first?.record,
+                   (firstRecord.battleNumber != selectedRecord?.battleNumber) ||
+                        self.selectedRow == nil ||
+                        (firstRecord.battleNumber == selectedRecord?.battleNumber && firstRecord.isDetail != selectedRecord?.isDetail) {
                     // Update list
-                    self.apply(records) {
+                    self.apply(rows, animated: animated) {
                         let indexPath = IndexPath(item: 0, section: 0)
                         self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
                         self.collectionView(self.collectionView, didSelectItemAt: indexPath)
                     }
                 } else {
                     // Update list
-                    self.apply(records) {
-                        if self.selectedRecord == nil {
+                    self.apply(rows, animated: animated) {
+                        if self.selectedRow == nil {
                             if self.traitCollection.userInterfaceIdiom == .pad ||
                                 self.traitCollection.userInterfaceIdiom == .mac {
                                 let indexPath = IndexPath(item: 0, section: 0)
@@ -126,18 +131,18 @@ class BattleRecordListViewController: UIViewController {
 extension BattleRecordListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let record = dataSource.itemIdentifier(for: indexPath)
+        let row = dataSource.itemIdentifier(for: indexPath)
 
         if let splitVC = splitViewController,
            let battleDetailViewController = splitVC.viewControllers.last as? BattleDetailViewController {
-            battleDetailViewController.record = record
+            battleDetailViewController.record = row?.record
         } else if let navVC = navigationController,
                   let detailNavVC = navVC.viewControllers.last as? UINavigationController,
                   let battleDetailViewController = detailNavVC.viewControllers.last as? BattleDetailViewController {
-            battleDetailViewController.record = record
+            battleDetailViewController.record = row?.record
         } else {
             guard let battleDetailViewController = BattleDetailViewController.instantiateFromStoryboard() else { return }
-            battleDetailViewController.record = record
+            battleDetailViewController.record = row?.record
             let navigationController = UINavigationController(rootViewController: battleDetailViewController)
             showDetailViewController(navigationController, sender: self)
         }
@@ -149,12 +154,28 @@ extension BattleRecordListViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        guard let record = dataSource.itemIdentifier(for: indexPath) else {
+        guard let row = dataSource.itemIdentifier(for: indexPath),
+              let record = row.record else {
             return false
         }
 
         return record.isDetail && selectEnabled
     }
+    
+    // TODO: Pagination
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if let battleRecordListCell = cell as? BattleRecordListCell {
+//            let record = battleRecordListCell.record
+//
+//            if battleListViewModel.records.count >= 3,
+//               record == battleListViewModel.records[battleListViewModel.records.count - 3] {
+//                battleListViewModel.nextPage()
+//            }
+//            else if record == battleListViewModel.records.last {
+//                battleListViewModel.nextPage()
+//            }
+//        }
+//    }
 
 }
 
@@ -196,26 +217,26 @@ extension BattleRecordListViewController {
         }
 
         // Create a diffable data source, and configure the cell with record data.
-        dataSource = UICollectionViewDiffableDataSource<Section, DBRecord>(collectionView: collectionView) { (
+        dataSource = UICollectionViewDiffableDataSource<Section, BattleListRowModel>(collectionView: collectionView) { (
             collectionView: UICollectionView,
             indexPath: IndexPath,
-            record: DBRecord) -> UICollectionViewCell? in
-            if record.id != nil {
-                return collectionView.dequeueConfiguredReusableCell(using: recordCell, for: indexPath, item: record)
+            row: BattleListRowModel) -> UICollectionViewCell? in
+            if row.type == .realtime {
+                return collectionView.dequeueConfiguredReusableCell(using: realTimeCell, for: indexPath, item: row.record)
             } else {
-                return collectionView.dequeueConfiguredReusableCell(using: realTimeCell, for: indexPath, item: record)
+                return collectionView.dequeueConfiguredReusableCell(using: recordCell, for: indexPath, item: row.record)
             }
         }
     }
 
-    func apply(_ records: [DBRecord], completed: @escaping (() -> Void)) {
-        DispatchQueue.global(qos: .background).async { [weak self] in
+    func apply(_ rows: [BattleListRowModel], animated: Bool = true, completed: @escaping (() -> Void)) {
+        DispatchQueue.global(qos: .default).async { [weak self] in
             guard let `self` = self else { return }
             
-            var snapshot = NSDiffableDataSourceSnapshot<Section, DBRecord>()
+            var snapshot = NSDiffableDataSourceSnapshot<Section, BattleListRowModel>()
             snapshot.appendSections([.main])
-            snapshot.appendItems(records)
-            self.dataSource.apply(snapshot, animatingDifferences: true) {
+            snapshot.appendItems(rows)
+            self.dataSource.apply(snapshot, animatingDifferences: animated) {
                 completed()
             }
         }

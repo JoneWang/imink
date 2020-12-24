@@ -125,6 +125,48 @@ class AppDatabase {
             }
         }
         
+        migrator.registerMigration("V4") { db in
+            try db.alter(table: "record", body: { tableAlteration in
+                tableAlteration.add(column: "udemaeName", .text)
+                tableAlteration.add(column: "udemaeSPlusNumber", .integer)
+                tableAlteration.add(column: "type", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "leaguePoint", .double)
+                tableAlteration.add(column: "estimateGachiPower", .integer)
+                tableAlteration.add(column: "playerTypeSpecies", .text).defaults(to: "").notNull()
+            })
+            
+            let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
+            while let row = try? rows.next() {
+                guard let id = row["id"] as? Int64,
+                      let json = row["json"] as? String else {
+                    continue
+                }
+                
+                guard let battle = json.decode(Battle.self) else {
+                    continue
+                }
+                                
+                try db.execute(
+                    sql: "UPDATE record SET " +
+                        "udemaeName = ?, " +
+                        "udemaeSPlusNumber = ?, " +
+                        "type = ?, " +
+                        "leaguePoint = ?, " +
+                        "estimateGachiPower = ?, " +
+                        "playerTypeSpecies = ? " +
+                        "WHERE id = ?",
+                    arguments: [
+                        battle.playerResult.player.udemae?.name,
+                        battle.playerResult.player.udemae?.sPlusNumber,
+                        battle.type,
+                        battle.leaguePoint,
+                        battle.estimateGachiPower,
+                        battle.playerResult.player.playerType.species,
+                        id
+                    ])
+            }
+        }
+        
         return migrator
     }
 }
