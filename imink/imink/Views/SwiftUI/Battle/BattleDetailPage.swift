@@ -146,7 +146,16 @@ struct BattleDetailPage: View {
 
                     VStack(spacing: 6) {
                         ForEach(0..<members.count) { j in
-                            BattleDetailMemberView(victory: victory, member: members[j])
+                            let member = members[j]
+                            ZStack {
+                                BattleDetailMemberView(victory: victory, member: member)
+                                
+                                if member.player.principalId == battle.playerResult.player.principalId {
+                                    Image("MemberArrow")
+                                        .foregroundColor(AppColor.memberArrowColor)
+                                        .position(x: 1, y: 18.5)
+                                }
+                            }
                         }
                     }
                 }
