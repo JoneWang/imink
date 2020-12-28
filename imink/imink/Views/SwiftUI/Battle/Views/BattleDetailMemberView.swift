@@ -66,7 +66,7 @@ struct BattleDetailMemberView: View {
                         .foregroundColor(.systemGray3)
                         .frame(width: 16, height: 16)
                     
-                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                    HStack(alignment: .firstTextBaseline, spacing: 1.9) {
                         Text("\(member.killCount + member.assistCount)")
                             .sp2Font(size: 11, color: AppColor.appLabelColor)
                         

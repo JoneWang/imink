@@ -24,8 +24,8 @@ struct BattleDetailPage: View {
                     ZStack {
                         GrayscaleTextureView(
                             texture: .streak,
-                            foregroundColor: .init(.sRGB, white: 249/255),
-                            backgroundColor: .white
+                            foregroundColor: AppColor.battleDetailStreakForegroundColor,
+                            backgroundColor: AppColor.listItemBackgroundColor
                         )
                         
                         VStack {
@@ -36,13 +36,13 @@ struct BattleDetailPage: View {
                         }
                         
                         HStack(spacing: 10) {
-                            Image(battle.type.imageName)
+                            Image(battle.battleType.imageName)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                             
                             HStack(alignment: .bottom) {
                                 Text(battle.rule.name.localizedKey)
-                                    .sp1Font(size: 14, color: battle.type.color)
+                                    .sp1Font(size: 14, color: battle.battleType.color)
                                 
                                 Spacer()
                                 
@@ -85,7 +85,7 @@ struct BattleDetailPage: View {
                         .padding([.leading, .bottom, .trailing], 10)
                     }
                     
-                    if battle.type == .league {
+                    if battle.battleType == .league {
                         HStack(spacing: 0) {
                             let data = [
                                 ("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
@@ -114,7 +114,7 @@ struct BattleDetailPage: View {
                             }
                         }
                         .padding([.top, .bottom], 9.5)
-                    } else if battle.type == .gachi {
+                    } else if battle.battleType == .gachi {
                         HStack {
                             if let power = battle.estimateXPower {
                                 Text("8-Squid \(battle.rule.name) X Power".localizedKey)
@@ -143,7 +143,7 @@ struct BattleDetailPage: View {
                 .continuousCornerRadius([.topLeft, .topRight], 18)
                 .continuousCornerRadius(
                     [.bottomLeft, .bottomRight],
-                    (battle.type != .league && battle.type != .gachi) ? 22 : 18
+                    (battle.battleType != .league && battle.battleType != .gachi) ? 22 : 18
                 )
                 
                 let teams = [battle.victoryTeamMembersSorted, battle.defeatTeamMembersSorted]

@@ -34,7 +34,7 @@ class BattleDetailViewController: UIViewController {
                 return
             }
             
-            title = "ID:\(battle.battleNumber)"
+            title = "ID: \(battle.battleNumber)"
             
             if updateModel == nil {
                 updateModel = UpdateModel(battle: battle)

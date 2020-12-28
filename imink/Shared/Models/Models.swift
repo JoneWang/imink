@@ -21,6 +21,25 @@ typealias Stage = SplatNet2.Stage
 typealias TeamMember = SplatNet2.TeamMember
 typealias TeamResult = SplatNet2.TeamResult
 
+extension Battle {
+    
+    var battleType: Battle.BattleType {
+        switch self.gameMode.key {
+        case .regular:
+            return .regular
+        case .gachi:
+            return .gachi
+        case .leaguePair, .leagueTeam:
+            return .league
+        case .fesSolo, .fesTeam:
+            return .fes
+        case .private:
+            return .private
+        }
+    }
+    
+}
+
 extension Battle.BattleType {
     
     var imageName: String {
@@ -35,6 +54,21 @@ extension Battle.BattleType {
             return "SplatfestBattle"
         case .private:
             return "PrivateBattle"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .regular:
+            return AppColor.spLightGreen
+        case .gachi:
+            return AppColor.spOrange
+        case .league:
+            return AppColor.spPink
+        case .fes:
+            return AppColor.spYellow
+        case .private:
+            return AppColor.spPurple
         }
     }
     
@@ -80,27 +114,6 @@ extension Battle {
             return Double(otherTeamCount!)
         }
     }
-}
-
-extension Battle.BattleType {
-    
-    var color: Color {
-        switch self {
-        case .regular:
-            return AppColor.spLightGreen
-        case .gachi:
-            return AppColor.spOrange
-        case .league:
-            return AppColor.spPink
-        case .fes:
-            return AppColor.spYellow
-        case .private:
-            return AppColor.spPurple
-        default:
-            return Color.black
-        }
-    }
-    
 }
 
 import SwiftUI

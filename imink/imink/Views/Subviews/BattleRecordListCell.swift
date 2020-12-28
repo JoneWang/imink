@@ -90,7 +90,9 @@ class BattleRecordListCell: UICollectionViewCell {
         weaponImageView.image = nil
         weaponImageView.sd_setImage(with: record.weaponImageURL)
         
-        if record.type == .gachi || record.type == .league {
+        if record.gameMode == "gachi" ||
+            record.gameMode == "league_pair" ||
+            record.gameMode == "league_team" {
             rankLabel.text = record.udemaeName ?? "C-"
             subrankLabel.isHidden = record.udemaeSPlusNumber == nil
             if let sPlusNumber = record.udemaeSPlusNumber {
@@ -103,13 +105,14 @@ class BattleRecordListCell: UICollectionViewCell {
             subrankLabel.isHidden = true;
         }
         
-        if record.type == .league {
+        if record.gameMode == "league_pair" ||
+            record.gameMode == "league_team" {
             if let power = record.leaguePoint, power > 0 {
                 powerLabel.text = String(format: "%@ power".localized, "\(power, places: 0)")
             } else {
                 powerLabel.text = String(format: "%@ power".localized, "---")
             }
-        } else if record.type == .gachi, let power = record.estimateGachiPower {
+        } else if record.gameMode == "gachi", let power = record.estimateGachiPower {
             powerLabel.text = String(format: "%@ power".localized, "\(power)")
         } else {
             powerLabel.text = ""
