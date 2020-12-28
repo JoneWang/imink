@@ -12,6 +12,8 @@ import os
 
 class BattleDetailViewController: UIViewController {
     
+    let regularViewMinWidth: CGFloat = 428
+    
     static let storyboardID = "BattleDetail"
     static func instantiateFromStoryboard() -> BattleDetailViewController? {
         let storyboard = UIStoryboard(name: "BattleDetail", bundle: .main)
@@ -43,71 +45,27 @@ class BattleDetailViewController: UIViewController {
     }
     
     @IBOutlet weak var fullScreenSwitchButton: UIBarButtonItem!
-    @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    private var cancelBag = Set<AnyCancellable>()
     private var updateModel: UpdateModel!
     private var battleDetailView: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let hostingController = UIHostingController(rootView: BattleDetailPage(model: updateModel))
-        addChild(hostingController)
-        
-        battleDetailView = hostingController.view
-
-        view.addSubview(battleDetailView)
-        battleDetailView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    private var isCompact: Bool {
+        let width = self.view.frame.size.width - (self.view.safeAreaInsets.left + self.view.safeAreaInsets.right)
+        let height = self.view.frame.size.height - (self.view.safeAreaInsets.top + self.view.safeAreaInsets.bottom)
+        return traitCollection.horizontalSizeClass == .compact ||
+            traitCollection.verticalSizeClass == .compact ||
+            width <= regularViewMinWidth ||
+            width <= height
     }
-}
-
-class IPadBattleDetailViewController: UIViewController {
-    
-    static let storyboardID = "BattleDetail"
-    static func instantiateFromStoryboard() -> BattleDetailViewController? {
-        let storyboard = UIStoryboard(name: "BattleDetail", bundle: .main)
-        return storyboard.instantiateViewController(identifier: storyboardID) as? BattleDetailViewController
-    }
-    
-    class UpdateModel: ObservableObject {
-        @Published var record: DBRecord?
-    }
-    
-    var record: DBRecord? {
-        didSet {
-            if let record = record, let recordId = record.id {
-                title = "ID:\(record.battleNumber)"
-                
-                updateModel.record = AppDatabase.shared.record(with: recordId)
-            } else {
-                updateModel.record = nil
-            }
-        }
-    }
-    
-    @IBOutlet weak var fullScreenSwitchButton: UIBarButtonItem!
-    @IBOutlet weak var shareButton: UIBarButtonItem!
-    
-    var allBarButtonItems: [UIBarButtonItem] = []
-    
-    var scrollView: UIScrollView?
-    var battleDetailView: UIView!
-    
-    private var cancelBag = Set<AnyCancellable>()
-    
-    private var updateModel = UpdateModel()
-    
-    private var isInitLayout = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allBarButtonItems = navigationItem.rightBarButtonItems ?? []
+        self.view.backgroundColor = AppUIColor.listBackgroundColor
         
         // Detail
-        if traitCollection.horizontalSizeClass == .compact {
+        if isCompact {
             configureCompactView()
         } else {
             configureRegularView()
@@ -117,10 +75,10 @@ class IPadBattleDetailViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         
         notificationCenter
-            .publisher(for: .share)
+            .publisher(for: UIDevice.orientationDidChangeNotification)
             .receive(on: RunLoop.main)
             .sink { [weak self] notification in
-                self?.shareBattle(notification.object)
+                self?.traitCollectionDidChange(nil)
             }
             .store(in: &cancelBag)
     }
@@ -139,61 +97,51 @@ class IPadBattleDetailViewController: UIViewController {
         #endif
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if !isInitLayout, let scrollView = scrollView {
-            self.battleDetailView.snp.remakeConstraints {
-                $0.edges.equalToSuperview()
-                $0.width.equalTo(self.view)
-                $0.width.equalTo(self.battleDetailView.snp.height).multipliedBy(375.0 / (812.0 - scrollView.safeAreaInsets.top))
-            }
-                        
-            isInitLayout = true
-        }
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        if previousTraitCollection?.horizontalSizeClass == traitCollection.horizontalSizeClass {
-            return
-        }
-        
-        if traitCollection.horizontalSizeClass == .compact {
-            configureCompactView()
-        } else {
-            configureRegularView()
-        }
-    }
-    
     func configureCompactView() {
         if let battleDetailView = battleDetailView {
             battleDetailView.removeFromSuperview()
         }
-                
-        let hostingController = UIHostingController(rootView: CompactBattlePage(model: updateModel))
+        
+        let hostingController = UIHostingController(rootView: BattleDetailPage(model: updateModel))
         addChild(hostingController)
         
-        let scrollView = UIScrollView()
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints {
+        battleDetailView = hostingController.view
+        battleDetailView.backgroundColor = AppUIColor.listBackgroundColor
+
+        view.addSubview(battleDetailView)
+        battleDetailView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
-        battleDetailView = hostingController.view
-        scrollView.addSubview(battleDetailView)
-        
-        self.scrollView = scrollView
     }
+    
+//    func configureRegularView() {
+//        if let battleDetailView = battleDetailView {
+//            battleDetailView.removeFromSuperview()
+//        }
+//
+//        let hostingController = UIHostingController(rootView: BattleDetailPage(model: updateModel))
+//        addChild(hostingController)
+//
+//        battleDetailView = hostingController.view
+//
+//        view.addSubview(battleDetailView)
+//        battleDetailView.snp.makeConstraints {
+//            $0.top.bottom.equalToSuperview()
+//            $0.centerX.equalToSuperview()
+//            let viewWidth = self.view.frame.size.width
+//            if viewWidth > 428 {
+//                $0.width.equalTo(428)
+//            } else {
+//                $0.width.equalTo(viewWidth)
+//            }
+//        }
+//    }
     
     func configureRegularView() {
         if let battleDetailView = battleDetailView {
             battleDetailView.removeFromSuperview()
         }
         
-        if let scrollView = scrollView {
-            scrollView.removeFromSuperview()
-        }
-                
         let hostingController = UIHostingController(rootView: RegularBattlePage(model: updateModel))
         addChild(hostingController)
         battleDetailView = hostingController.view
@@ -205,70 +153,12 @@ class IPadBattleDetailViewController: UIViewController {
         }
     }
     
-}
-
-// MARK: - Actions
-
-extension IPadBattleDetailViewController {
-    
-    @IBAction func shareBattle(_ sender: Any?) {
-        // Add share icon
-        var shareIconImageView: UIImageView?
-        if let shareIcon = UIImage(named: "Share") {
-            let imageView = UIImageView(image: shareIcon)
-            battleDetailView.addSubview(imageView)
-
-            imageView.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
-                $0.bottom.equalToSuperview().offset(-18)
-            }
-            battleDetailView.layoutIfNeeded()
-
-            shareIconImageView = imageView
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if isCompact {
+            configureCompactView()
+        } else {
+            configureRegularView()
         }
-
-        // Snapshot
-        let image = battleDetailView.snapshot()
-
-        // Remove share icon
-        shareIconImageView?.removeFromSuperview()
-        
-//        guard let shareSnapshotView = battleDetailView.snapshotView(afterScreenUpdates: true) else { return }
-//
-//        // Add share icon
-//        if let shareIcon = UIImage(named: "Share") {
-//            let imageView = UIImageView(image: shareIcon)
-//            shareSnapshotView.addSubview(imageView)
-//
-//            imageView.snp.makeConstraints {
-//                $0.centerX.equalToSuperview()
-//                $0.bottom.equalToSuperview().offset(-18)
-//            }375.0 / 812.0
-//            shareSnapshotView.layoutIfNeeded()
-//        }
-//
-//        // Snapshot to image
-//        let image = shareSnapshotView.snapshot()
-        
-        let items: [Any] = [image]
-        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        activityViewController.completionWithItemsHandler = { activity, completed, items, error in
-            os_log("Activity completed: %s", completed ? "true" : "false")
-        }
-        
-        if traitCollection.userInterfaceIdiom == .pad {
-            if let popover = activityViewController.popoverPresentationController {
-                if let barButtonItem = sender as? UIBarButtonItem {
-                    popover.barButtonItem = barButtonItem
-                    popover.canOverlapSourceViewRect = true
-                }
-            }
-        } else if traitCollection.userInterfaceIdiom == .mac {
-            // TODO:
-            activityViewController.popoverPresentationController?.sourceView = view
-        }
-        
-        present(activityViewController, animated: true, completion: nil)
     }
     
 }

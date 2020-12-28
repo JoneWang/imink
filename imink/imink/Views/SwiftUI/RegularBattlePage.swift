@@ -10,15 +10,15 @@ import SDWebImageSwiftUI
 
 struct RegularBattlePage: View {
     
-    @ObservedObject var model: IPadBattleDetailViewController.UpdateModel
+    @ObservedObject var model: BattleDetailViewController.UpdateModel
     
-    var record: DBRecord? {
-        model.record
+    var battle: Battle? {
+        model.battle
     }
     
     var body: some View {
         let contentView = Group {
-            if let battle = record?.battle {
+            if let battle = battle {
                 GeometryReader { geo in
                     ZStack {
                         // Stage as background
