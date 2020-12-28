@@ -45,6 +45,24 @@
 "Schedule" = "日程";
 "Battle" = "对战";
 
+// MARK: Battles
+
+"%@ power" = "%@ 分";
+"Current" = "当前";
+"Highest" = "最高";
+"Crew" = "队友";
+"Rival" = "对手";
+"8-Squid Towel Control Power" = "8人真格推塔平均分";
+"8-Squid Rainmaker Power" = "8人真格运鯱平均分";
+"8-Squid Clam Blitz Power" = "8人真格蛤蜊平均分";
+"8-Squid Splat Zones Power" = "8人真格区域平均分";
+"8-Squid Splat Zones X Power" = "8人X段区域平均分";
+"8-Squid Towel Control X Power" = "8人X段推塔平均分";
+"8-Squid Rainmaker X Power" = "8人X段运鯱平均分";
+"8-Squid Clam Blitz X Power" = "8人X段蛤蜊平均分";
+" count" = " 分";
+"KO BONUS!" = "KO  完胜！";
+
 // MARK: Me
 
 "Language" = "语言";

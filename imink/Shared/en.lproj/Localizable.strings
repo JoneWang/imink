@@ -45,6 +45,24 @@
 "Schedule" = "Schedule";
 "Battle" = "Battle";
 
+// MARK: Battles
+
+"%@ power" = "%@ power";
+"Current" = "Current";
+"Highest" = "Highest";
+"Crew" = "Crew";
+"Rival" = "Rival";
+"8-Squid Towel Control Power" = "8-Squid Towel Control Power";
+"8-Squid Rainmaker Power" = "8-Squid Rainmaker Power";
+"8-Squid Clam Blitz Power" = "8-Squid Clam Blitz Power";
+"8-Squid Splat Zones Power" = "8-Squid Splat Zones Power";
+"8-Squid Splat Zones X Power" = "8-Squid Splat Zones X Power";
+"8-Squid Towel Control X Power" = "8-Squid Towel Control X Power";
+"8-Squid Rainmaker X Power" = "8-Squid Rainmaker X Power";
+"8-Squid Clam Blitz X Power" = "8-Squid Clam Blitz X Power";
+" count" = " count";
+"KO BONUS!" = "KO BONUS!";
+
 // MARK: Me
 
 "Language" = "Language";

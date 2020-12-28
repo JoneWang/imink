@@ -41,7 +41,7 @@ struct BattleDetailPage: View {
                                 .frame(width: 20, height: 20)
                             
                             HStack(alignment: .bottom) {
-                                Text(battle.rule.name)
+                                Text(battle.rule.name.localizedKey)
                                     .sp1Font(size: 14, color: battle.type.color)
                                 
                                 Spacer()
@@ -87,15 +87,17 @@ struct BattleDetailPage: View {
                     
                     if battle.type == .league {
                         HStack {
-                            let data = [("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
-                                        ("Highest", (battle.maxLeaguePoint ?? 0 > 0) ? "\(battle.maxLeaguePoint!)" : "-"),
-                                        ("Crew", (battle.myEstimateLeaguePoint ?? 0 > 0) ? "\(battle.myEstimateLeaguePoint!)" : "-"),
-                                        ("Rival", (battle.otherEstimateLeaguePoint ?? 0 > 0) ? "\(battle.otherEstimateLeaguePoint!)" : "-")]
+                            let data = [
+                                ("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
+                                ("Highest", (battle.maxLeaguePoint ?? 0 > 0) ? "\(battle.maxLeaguePoint!)" : "-"),
+                                ("Crew", (battle.myEstimateLeaguePoint ?? 0 > 0) ? "\(battle.myEstimateLeaguePoint!)" : "-"),
+                                ("Rival", (battle.otherEstimateLeaguePoint ?? 0 > 0) ? "\(battle.otherEstimateLeaguePoint!)" : "-")
+                            ]
                             ForEach(data, id: \.0) { item in
                                 HStack {
                                     Spacer()
                                     VStack(spacing: 7) {
-                                        Text(item.0)
+                                        Text(item.0.localizedKey)
                                             .sp2Font(size: 12, color: .systemGray)
                                         Text(item.1)
                                             .sp2Font(size: 12, color: AppColor.appLabelColor)
@@ -114,7 +116,7 @@ struct BattleDetailPage: View {
                     } else if battle.type == .gachi {
                         HStack {
                             if let power = battle.estimateXPower {
-                                Text("8-Squid \(battle.rule.name.localized) X Power")
+                                Text("8-Squid \(battle.rule.name) X Power".localizedKey)
                                     .sp2Font(size: 12, color: .systemGray)
                                 
                                 Spacer()
@@ -123,7 +125,7 @@ struct BattleDetailPage: View {
                                     .sp2Font(size: 12, color: AppColor.appLabelColor)
                             }
                             if let power = battle.estimateGachiPower {
-                                Text("8-Squid \(battle.rule.name.localized) Power")
+                                Text("8-Squid \(battle.rule.name) Power".localizedKey)
                                     .sp2Font(size: 12, color: .systemGray)
                                 
                                 Spacer()
