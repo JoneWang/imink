@@ -173,7 +173,7 @@ extension Battle {
     
     var startTimeText: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY/mm/DD HH:MM:SS"
+        formatter.dateFormat = "YYYY/MM/dd HH:mm:ss"
         return formatter.string(from: startTime)
     }
     
