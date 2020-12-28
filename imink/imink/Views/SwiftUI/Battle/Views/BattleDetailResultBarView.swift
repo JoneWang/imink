@@ -14,7 +14,7 @@ struct BattleDetailResultBarView: View {
     let otherTeamPoint: Double
     let value: CGFloat
     
-    private let maskArcOffset: CGPoint = CGPoint(x: 90, y: -10)
+    private let maskArcOffset: CGPoint = CGPoint(x: 90, y: 10)
     private let maskCircleSize: CGFloat = 100
     private let maskArcFixOffset: CGFloat = 1.5
     
@@ -102,8 +102,16 @@ struct BattleDetailResultBarView_Previews: PreviewProvider {
             .frame(width: 414)
             .previewLayout(.sizeThatFits)
         
+        BattleDetailResultBarView(gameRule: .turfWar, myTeamPoint: 55, otherTeamPoint: 45, value: 0.2)
+            .frame(width: 323)
+            .previewLayout(.sizeThatFits)
+        
         BattleDetailResultBarView(gameRule: .turfWar, myTeamPoint: 55, otherTeamPoint: 45, value: 0.55)
-            .frame(width: 414)
+            .frame(width: 323)
+            .previewLayout(.sizeThatFits)
+        
+        BattleDetailResultBarView(gameRule: .turfWar, myTeamPoint: 55, otherTeamPoint: 45, value: 0.8)
+            .frame(width: 323)
             .previewLayout(.sizeThatFits)
         
         BattleDetailResultBarView(gameRule: .turfWar, myTeamPoint: 1, otherTeamPoint: 99, value: 0.00)
