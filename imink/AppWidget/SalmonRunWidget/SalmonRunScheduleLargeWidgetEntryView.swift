@@ -264,7 +264,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                         .padding([.leading, .trailing], futurePadding)
                         .frame(height: futureAreaHeight)
                         .background(Color.black.opacity(0.6))
-                        .cornerRadius(10)
+                        .continuousCornerRadius(10)
                     }
                 }
                 .padding([.leading, .trailing, .bottom], 16)
@@ -345,7 +345,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                     .opacity(0.4)
             )
             .overlay(Text(stageName).sp2Font(), alignment: .center)
-            .cornerRadius(6)
+            .continuousCornerRadius(6)
             .clipped()
     }
     

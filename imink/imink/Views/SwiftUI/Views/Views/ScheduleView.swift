@@ -92,7 +92,7 @@ struct ScheduleView: View {
                                     WebImage(url: stage.image)
                                         .resizable()
                                         .aspectRatio(640 / 360, contentMode: .fill)
-                                        .cornerRadius(8)
+                                        .continuousCornerRadius(8)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 8)
                                                 .stroke(Color.primary, lineWidth: 1)
@@ -105,7 +105,7 @@ struct ScheduleView: View {
                 }
                 .padding()
                 .background(AppColor.listItemBackgroundColor)
-                .cornerRadius(10)
+                .continuousCornerRadius(10)
             }
             .padding(0)
         }

@@ -55,7 +55,7 @@ struct SalmonRunScheduleView: View {
                                 .resizable()
                                 .aspectRatio(640 / 360, contentMode: .fill)
                                 .frame(minWidth: 100)
-                                .cornerRadius(8)
+                                .continuousCornerRadius(8)
                                 .padding(.top)
                             
                         }
@@ -77,14 +77,14 @@ struct SalmonRunScheduleView: View {
                                                 .resizable()
                                                 .aspectRatio(1, contentMode: .fit)
                                                 .frame(minWidth: 40)
-                                                .cornerRadius(8)
+                                                .continuousCornerRadius(8)
                                         }
                                         else if let imageURL = weapon.coopSpecialWeapon?.image {
                                             WebImage(url: imageURL)
                                                 .resizable()
                                                 .aspectRatio(1, contentMode: .fit)
                                                 .frame(minWidth: 40)
-                                                .cornerRadius(8)
+                                                .continuousCornerRadius(8)
                                         }
                                     }
                                     
@@ -105,7 +105,7 @@ struct SalmonRunScheduleView: View {
             .frame(maxWidth: .infinity)
             .padding()
             .background(AppColor.listItemBackgroundColor)
-            .cornerRadius(10)
+            .continuousCornerRadius(10)
             
         }
     }

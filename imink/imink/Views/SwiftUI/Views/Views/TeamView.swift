@@ -17,7 +17,7 @@ struct TeamView: View {
         ZStack {
             // Background color
             color
-                .cornerRadius(40)
+                .continuousCornerRadius(40)
 
             VStack(spacing: 5) {
                 // Team title

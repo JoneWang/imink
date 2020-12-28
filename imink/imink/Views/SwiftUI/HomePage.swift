@@ -101,7 +101,7 @@ struct HomePage: View {
                             }
                             .padding()
                             .background(AppColor.listItemBackgroundColor)
-                            .cornerRadius(10)
+                            .continuousCornerRadius(10)
                             
                             ZStack {
                                 VStack {
@@ -174,7 +174,7 @@ struct HomePage: View {
                                 }
                                 .padding()
                                 .background(AppColor.listItemBackgroundColor)
-                                .cornerRadius(10)
+                                .continuousCornerRadius(10)
                                 
                                 VStack {
                                     HStack {
@@ -272,7 +272,7 @@ struct HomePage: View {
                             }
                             .frame(height: 50)
                             .background(AppColor.listItemBackgroundColor)
-                            .cornerRadius(10)
+                            .continuousCornerRadius(10)
                             .padding(.top)
                         }
                         .padding(.horizontal)
@@ -346,7 +346,7 @@ struct HomePage: View {
         }
         .padding()
         .background(AppColor.listItemBackgroundColor)
-        .cornerRadius(10)
+        .continuousCornerRadius(10)
         .padding(.top)
     }
     

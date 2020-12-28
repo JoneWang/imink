@@ -251,7 +251,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                 }
                             }
                             .background(Color.black.opacity(0.6))
-                            .cornerRadius(10)
+                            .continuousCornerRadius(10)
                         }
                     }
                 }
@@ -280,7 +280,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                 RoundedRectangle(cornerRadius: 6)
                     .strokeBorder(borderColor.opacity(0.4), lineWidth: 1)
             )
-            .cornerRadius(6)
+            .continuousCornerRadius(6)
             .clipped()
     }
 }

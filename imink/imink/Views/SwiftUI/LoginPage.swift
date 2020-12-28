@@ -18,7 +18,7 @@ struct LoginPage: View {
                         Text("Sign in with Telegram Bot")
                             .font(.title)
                             .padding()
-                            .cornerRadius(10)
+                            .continuousCornerRadius(10)
                         
                         Spacer()
                         
@@ -54,7 +54,7 @@ struct LoginPage: View {
                                     .frame(width: 100)
                                     .padding(5)
                                     .background(Color.secondary)
-                                    .cornerRadius(10)
+                                    .continuousCornerRadius(10)
                             }
                             .padding()
                             
@@ -66,7 +66,7 @@ struct LoginPage: View {
                                     .frame(width: 100)
                                     .padding(5)
                                     .background(Color.accentColor)
-                                    .cornerRadius(10)
+                                    .continuousCornerRadius(10)
                             }
                             .disabled(loginViewModel.clientToken == "")
                             .opacity(loginViewModel.clientToken == "" ? 0.5 : 1)

@@ -69,7 +69,7 @@ struct AboutPage: View {
                             }
                             .padding()
                             .background(Color.accentColor)
-                            .cornerRadius(10)
+                            .continuousCornerRadius(10)
                         }
                     }
                 }

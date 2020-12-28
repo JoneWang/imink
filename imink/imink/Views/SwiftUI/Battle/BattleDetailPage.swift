@@ -86,7 +86,7 @@ struct BattleDetailPage: View {
                     }
                     
                     if battle.type == .league {
-                        HStack {
+                        HStack(spacing: 0) {
                             let data = [
                                 ("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
                                 ("Highest", (battle.maxLeaguePoint ?? 0 > 0) ? "\(battle.maxLeaguePoint!)" : "-"),
@@ -107,8 +107,9 @@ struct BattleDetailPage: View {
                                 
                                 if item.0 != data.last?.0 {
                                     Rectangle()
-                                        .frame(width: 0.5)
+                                        .frame(width: 0.7, height: 27)
                                         .foregroundColor(.opaqueSeparator)
+                                        .padding(.top, 1)
                                 }
                             }
                         }
@@ -139,7 +140,11 @@ struct BattleDetailPage: View {
                     }
                 }
                 .background(AppColor.listItemBackgroundColor)
-                .cornerRadius(18)
+                .continuousCornerRadius([.topLeft, .topRight], 18)
+                .continuousCornerRadius(
+                    [.bottomLeft, .bottomRight],
+                    (battle.type != .league && battle.type != .gachi) ? 22 : 18
+                )
                 
                 let teams = [battle.victoryTeamMembersSorted, battle.defeatTeamMembersSorted]
                 ForEach(0..<teams.count) { i in

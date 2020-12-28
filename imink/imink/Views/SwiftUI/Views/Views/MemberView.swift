@@ -67,7 +67,7 @@ struct MemberView: View {
                                 .padding(1)
                             }
                             .frame(width: 18, height: 18)
-                            .cornerRadius(4)
+                            .continuousCornerRadius(4)
                             .padding(.bottom, 1),
                             alignment: .bottomLeading
                         )
@@ -111,7 +111,7 @@ struct MemberView: View {
                             .sp2Font(color: Color.white.opacity(0.7))
                             .padding(2)
                             .background(AppColor.spRed)
-                            .cornerRadius(5)
+                            .continuousCornerRadius(5)
                         
                         HStack(alignment: .bottom, spacing: 0) {
                             Text("\(member.killCount + member.assistCount)")
@@ -129,7 +129,7 @@ struct MemberView: View {
                             .sp2Font(color: Color.white.opacity(0.7))
                             .padding(2)
                             .background(AppColor.spPurple)
-                            .cornerRadius(5)
+                            .continuousCornerRadius(5)
                         
                         Text("\(member.deathCount)")
                             .sp2Font(size: 17)
@@ -141,7 +141,7 @@ struct MemberView: View {
                             .sp2Font(color: Color.white.opacity(0.7))
                             .padding(2)
                             .background(AppColor.spLime)
-                            .cornerRadius(5)
+                            .continuousCornerRadius(5)
                         
                         Text("\(Double(member.killCount) -/ Double(member.deathCount), places: 1)")
                             .sp2Font(size: 17)

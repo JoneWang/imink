@@ -194,7 +194,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     .opacity(0.4)
             )
             .overlay(Text(stageName).sp2Font(), alignment: .center)
-            .cornerRadius(6)
+            .continuousCornerRadius(6)
             .clipped()
     }
 }
