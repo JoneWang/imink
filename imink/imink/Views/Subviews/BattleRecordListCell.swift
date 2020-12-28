@@ -117,6 +117,7 @@ class BattleRecordListCell: UICollectionViewCell {
         
         killLabel.text = "\(record.killCount + record.assistCount)"
         assistLabel.text = " (\(record.assistCount))"
+        assistLabel.isHidden = record.assistCount == 0
         deathLabel.text = "\(record.deathCount)"
         kdLabel.text = "\(Double(record.killCount) -/ Double(record.deathCount), places: 1)"
         

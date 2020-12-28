@@ -133,16 +133,22 @@ extension BattleRecordListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let row = dataSource.itemIdentifier(for: indexPath)
 
+        guard let recordId = row?.record?.id,
+              let record = AppDatabase.shared.record(with: recordId),
+              let battle = record.battle else {
+            return
+        }
+        
         if let splitVC = splitViewController,
            let battleDetailViewController = splitVC.viewControllers.last as? BattleDetailViewController {
-            battleDetailViewController.record = row?.record
+            battleDetailViewController.battle = battle
         } else if let navVC = navigationController,
                   let detailNavVC = navVC.viewControllers.last as? UINavigationController,
                   let battleDetailViewController = detailNavVC.viewControllers.last as? BattleDetailViewController {
-            battleDetailViewController.record = row?.record
+            battleDetailViewController.battle = battle
         } else {
             guard let battleDetailViewController = BattleDetailViewController.instantiateFromStoryboard() else { return }
-            battleDetailViewController.record = row?.record
+            battleDetailViewController.battle = battle
             let navigationController = UINavigationController(rootViewController: battleDetailViewController)
             showDetailViewController(navigationController, sender: self)
         }

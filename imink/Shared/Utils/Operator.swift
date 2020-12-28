@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 infix operator &/
 infix operator -/
@@ -23,6 +24,17 @@ extension Double {
         var rhs = rhs
         if rhs == 0 {
             rhs = 1
+        }
+        return lhs / rhs
+    }
+    
+}
+
+extension CGFloat {
+    
+    public static func &/(lhs: CGFloat, rhs: CGFloat) -> CGFloat {
+        if rhs == 0 {
+            return 0
         }
         return lhs / rhs
     }

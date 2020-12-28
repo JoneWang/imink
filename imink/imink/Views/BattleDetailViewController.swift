@@ -19,6 +19,59 @@ class BattleDetailViewController: UIViewController {
     }
     
     class UpdateModel: ObservableObject {
+        @Published var battle: Battle
+        
+        init(battle: Battle) {
+            self.battle = battle
+        }
+    }
+    
+    var battle: Battle? {
+        didSet {
+            guard let battle = battle else {
+                return
+            }
+            
+            title = "ID:\(battle.battleNumber)"
+            
+            if updateModel == nil {
+                updateModel = UpdateModel(battle: battle)
+            } else {
+                updateModel.battle = battle
+            }
+        }
+    }
+    
+    @IBOutlet weak var fullScreenSwitchButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    private var updateModel: UpdateModel!
+    private var battleDetailView: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let hostingController = UIHostingController(rootView: BattleDetailPage(model: updateModel))
+        addChild(hostingController)
+        
+        battleDetailView = hostingController.view
+
+        view.addSubview(battleDetailView)
+        battleDetailView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+}
+
+class IPadBattleDetailViewController: UIViewController {
+    
+    static let storyboardID = "BattleDetail"
+    static func instantiateFromStoryboard() -> BattleDetailViewController? {
+        let storyboard = UIStoryboard(name: "BattleDetail", bundle: .main)
+        return storyboard.instantiateViewController(identifier: storyboardID) as? BattleDetailViewController
+    }
+    
+    class UpdateModel: ObservableObject {
         @Published var record: DBRecord?
     }
     
@@ -156,7 +209,7 @@ class BattleDetailViewController: UIViewController {
 
 // MARK: - Actions
 
-extension BattleDetailViewController {
+extension IPadBattleDetailViewController {
     
     @IBAction func shareBattle(_ sender: Any?) {
         // Add share icon

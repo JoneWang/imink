@@ -61,5 +61,6 @@ struct SP2FontModifier: ViewModifier {
             .font(.custom(AppTheme.sp2FontName, size: size))
             .foregroundColor(color)
             .lineLimit(lineLimit)
+            .frame(height: lineLimit == 1 ? size : .infinity)
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import WidgetKit
 import SwiftUI
+import InkCore
 
 struct BattleScheduleMediumWidgetEntryView : View {
     var entry: BattleScheduleProvider.Entry

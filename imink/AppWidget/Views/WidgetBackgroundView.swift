@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WidgetKit
+import InkCore
 
 struct WidgetBackgroundView: View {
     
@@ -30,6 +31,39 @@ struct WidgetBackgroundView: View {
                 alignment: .top
             )
     }
+}
+
+extension GrayscaleTextureView {
+    
+    static let salmonRunBubble = GrayscaleTextureView(
+        texture: .bubble,
+        foregroundColor: Color("SalmonRunBubbleForegroundColor"),
+        backgroundColor: Color("SalmonRunBubbleBackgroundColor"))
+    
+    static let regularStreak = GrayscaleTextureView(
+        texture: .streak,
+        foregroundColor: Color("RegularStreakForegroundColor"),
+        backgroundColor: Color("RegularStreakBackgroundColor"))
+    
+    static let rankStreak = GrayscaleTextureView(
+        texture: .streak,
+        foregroundColor: Color("RankStreakForegroundColor"),
+        backgroundColor: Color("RankStreakBackgroundColor"))
+    
+    static let leagueStreak = GrayscaleTextureView(
+        texture: .streak,
+        foregroundColor: Color("LeagueStreakForegroundColor"),
+        backgroundColor: Color("LeagueStreakBackgroundColor"))
+    
+    static let topbarStreak = GrayscaleTextureView(
+        texture: .streak,
+        foregroundColor: Color("TopbarStreakForegroundColor"),
+        backgroundColor: Color("TopbarStreakBackgroundColor"))
+    
+    static let topbarBubble = GrayscaleTextureView(
+        texture: .streak,
+        foregroundColor: Color("TopbarStreakForegroundColor"),
+        backgroundColor: Color("TopbarStreakBackgroundColor"))
 }
 
 struct WidgetBackgroundView_Previews: PreviewProvider {

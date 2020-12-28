@@ -39,6 +39,11 @@ struct AppColor {
     static let listItemBackgroundColor = Color("ListItemBackgroundColor")
     
     static let nintendoRedColor = Color("NintendoRedColor")
+    
+    
+    static let playerResultSpecialVictoryBackgroundColor = Color("PlayerResultSpecialVictoryBackgroundColor")
+    
+    static let playerResultSpecialDefeatBackgroundColor = Color("PlayerResultSpecialDefeatBackgroundColor")
 }
 
 struct AppUIColor {
@@ -75,4 +80,8 @@ struct AppUIColor {
     static let listItemBackgroundColor = UIColor(named: "ListItemBackgroundColor")!
     
     static let nintendoRedColor = UIColor(named: "NintendoRedColor")
+    
+    static let playerResultSpecialVictoryBackgroundColor = UIColor(named: "PlayerResultSpecialVictoryBackgroundColor")
+    
+    static let playerResultSpecialDefeatBackgroundColor = UIColor(named: "PlayerResultSpecialDefeatBackgroundColor")
 }

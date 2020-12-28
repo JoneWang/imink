@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct RegularBattlePage: View {
     
-    @ObservedObject var model: BattleDetailViewController.UpdateModel
+    @ObservedObject var model: IPadBattleDetailViewController.UpdateModel
     
     var record: DBRecord? {
         model.record
