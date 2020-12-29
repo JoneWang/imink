@@ -64,18 +64,8 @@ class AppDatabase {
                 tableAlteration.add(column: "gamePaintPoint", .integer).defaults(to: 0).notNull()
                 tableAlteration.add(column: "syncDetailTime", .datetime)
             })
-                
-            let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
-            while let row = try? rows.next() {
-                guard let id = row["id"] as? Int64,
-                      let json = row["json"] as? String else {
-                    continue
-                }
-                
-                guard let battle = json.decode(Battle.self) else {
-                    continue
-                }
-                
+            
+            try self.eachBattles(db: db) { (id, battle) in
                 try db.execute(
                     sql: "UPDATE record SET " +
                         "killCount = :killCount, " +
@@ -101,17 +91,7 @@ class AppDatabase {
                 tableAlteration.add(column: "startDateTime", .datetime).defaults(to: Date()).notNull()
             })
             
-            let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
-            while let row = try? rows.next() {
-                guard let id = row["id"] as? Int64,
-                      let json = row["json"] as? String else {
-                    continue
-                }
-                
-                guard let battle = json.decode(Battle.self) else {
-                    continue
-                }
-                
+            try self.eachBattles(db: db) { (id, battle) in
                 try db.execute(
                     sql: "UPDATE record SET " +
                         "gameModeKey = :gameModeKey, " +
@@ -135,17 +115,7 @@ class AppDatabase {
                 tableAlteration.add(column: "playerTypeSpecies", .text).defaults(to: "").notNull()
             })
             
-            let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
-            while let row = try? rows.next() {
-                guard let id = row["id"] as? Int64,
-                      let json = row["json"] as? String else {
-                    continue
-                }
-                
-                guard let battle = json.decode(Battle.self) else {
-                    continue
-                }
-                                
+            try self.eachBattles(db: db) { (id, battle) in
                 try db.execute(
                     sql: "UPDATE record SET " +
                         "udemaeName = ?, " +
@@ -156,8 +126,8 @@ class AppDatabase {
                         "playerTypeSpecies = ? " +
                         "WHERE id = ?",
                     arguments: [
-                        battle.playerResult.player.udemae?.name,
-                        battle.playerResult.player.udemae?.sPlusNumber,
+                        battle.udemae?.name,
+                        battle.udemae?.sPlusNumber,
                         battle.type,
                         battle.leaguePoint,
                         battle.estimateGachiPower,
@@ -167,7 +137,41 @@ class AppDatabase {
             }
         }
         
+        migrator.registerMigration("V5") { db in
+            try self.eachBattles(db: db) { (id, battle) in
+                try db.execute(
+                    sql: "UPDATE record SET " +
+                        "udemaeName = ?, " +
+                        "udemaeSPlusNumber = ? " +
+                        "WHERE id = ?",
+                    arguments: [
+                        battle.udemae?.name,
+                        battle.udemae?.sPlusNumber,
+                        id
+                    ])
+            }
+        }
+        
         return migrator
     }
 }
 
+extension AppDatabase {
+    
+    func eachBattles(db: Database, _ block: (Int64, Battle) throws -> Void) throws {
+        let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
+        while let row = try? rows.next() {
+            guard let id = row["id"] as? Int64,
+                  let json = row["json"] as? String else {
+                continue
+            }
+            
+            guard let battle = json.decode(Battle.self) else {
+                continue
+            }
+            
+            try block(id, battle)
+        }
+    }
+    
+}

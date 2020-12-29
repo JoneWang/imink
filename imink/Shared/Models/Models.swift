@@ -12,6 +12,7 @@ typealias Battle = SplatNet2.Battle
 typealias BattleOverview = SplatNet2.BattleOverview
 typealias GameRule = SplatNet2.GameRule
 typealias GameMode = SplatNet2.GameMode
+typealias Udemae = SplatNet2.Udemae
 typealias NicknameAndIcon = SplatNet2.NicknameAndIcon
 typealias Player = SplatNet2.Player
 typealias Records = SplatNet2.Records

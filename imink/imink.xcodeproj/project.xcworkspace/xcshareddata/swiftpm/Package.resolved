@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {
           "branch": null,
-          "revision": "7a21432a370a34925046244462281bd36ebab73d",
-          "version": "5.9.1"
+          "revision": "564d238f8814c4a82502336fd80b28a9d321ff47",
+          "version": "5.10.2"
         }
       },
       {
@@ -78,7 +78,7 @@
         "repositoryURL": "https://github.com/ddddxxx/SplatNet2.git",
         "state": {
           "branch": "addfields",
-          "revision": "09b2fc0dcd1edc7df73489fd1bcdf9f068d9b46d",
+          "revision": "12023f2b4bda44750cd89e6677d90cc1d8eeb7ab",
           "version": null
         }
       }
