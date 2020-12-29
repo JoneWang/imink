@@ -140,7 +140,7 @@ struct HomePage: View {
                                             if showKD {
                                                 Text("KILL")
                                                     .sp2Font(size: 10, color: Color.secondary)
-                                            
+                                                
                                                 Text("\(todayKillCount)")
                                                     .sp1Font(size: 24, color: .red)
                                                     .minimumScaleFactor(0.5)
@@ -239,38 +239,42 @@ struct HomePage: View {
                             Text("Splatfest")
                                 .sp1Font(size: 22, color: AppColor.appLabelColor)
                             
-                            VStack {
-                                ZStack {
+                            ZStack {
                                 HStack(spacing: 0) {
+                                    Rectangle()
+                                        .fill(festival.colors.alpha.color)
+                                    Rectangle()
+                                        .fill(festival.colors.bravo.color)
+                                }
+                                
+                                VStack {
                                     HStack(spacing: 0) {
                                         WebImage(url: festival.images.alpha)
                                             .resizable()
-                                            .scaledToFit()
+                                            .frame(width: 32, height: 32)
+                                            .padding(.trailing, 8)
+                                        
                                         Text(festival.names.alphaShort)
                                             .sp1Font(size: 14)
+                                        
                                         Spacer()
-                                    }
-                                    .padding(5)
-                                    .background(festival.colors.alpha.color)
-                                    HStack(spacing: 0) {
-                                        Spacer()
+                                        
                                         Text(festival.names.bravoShort)
                                             .sp1Font(size: 14)
+                                        
                                         WebImage(url: festival.images.bravo)
                                             .resizable()
-                                            .scaledToFit()
+                                            .frame(width: 32, height: 32)
+                                            .padding(.leading, 8)
                                     }
-                                    .padding(5)
-                                    .background(festival.colors.bravo.color)
-                                }
-                                    
+                                                                        
                                     Text("\(festival.times.start, formatter: scheduleTimeFormat) - \(festival.times.end, formatter: scheduleTimeFormat)")
                                         .sp2Font()
-                                        .padding(.horizontal)
-                                        .minimumScaleFactor(0.5)
+                                        .padding(.bottom, 4)
                                 }
+                                .padding(8)
                             }
-                            .frame(height: 50)
+                            .frame(height: 70)
                             .background(AppColor.listItemBackgroundColor)
                             .continuousCornerRadius(10)
                             .padding(.top)
