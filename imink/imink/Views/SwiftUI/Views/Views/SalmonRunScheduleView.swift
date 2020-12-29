@@ -34,7 +34,7 @@ struct SalmonRunScheduleView: View {
                 
                 VStack {
                     Text("\(schedule.startTime, formatter: scheduleTimeFormat) - \(schedule.endTime, formatter: scheduleTimeFormat)")
-                        .sp2Font(size: 15, color: Color.primary)
+                        .sp2Font(size: 15, color: AppColor.appLabelColor)
                         .colorInvert()
                 }
                 .padding(3)
@@ -49,7 +49,7 @@ struct SalmonRunScheduleView: View {
                         VStack(spacing: 0) {
                             
                             Text(stage.name.localizedKey)
-                                .sp2Font(color: Color.primary)
+                                .sp2Font(color: AppColor.appLabelColor)
                             
                             WebImage(url: stage.image)
                                 .resizable()
@@ -63,7 +63,7 @@ struct SalmonRunScheduleView: View {
                         VStack(spacing: 0) {
                             
                             Text("Supplied Weapons")
-                                .sp2Font(color: Color.primary)
+                                .sp2Font(color: AppColor.appLabelColor)
                             
                             VStack {
                                 

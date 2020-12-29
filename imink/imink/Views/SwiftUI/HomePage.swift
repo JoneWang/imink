@@ -42,7 +42,7 @@ struct HomePage: View {
                         HStack(alignment: .firstTextBaseline) {
                             
                             Text("Today")
-                                .sp1Font(size: 22, color: Color.primary)
+                                .sp1Font(size: 22, color: AppColor.appLabelColor)
                             
                             Text("(3:00 \("reset".localized))")
                                 .sp2Font(color: Color.secondary)
@@ -59,7 +59,7 @@ struct HomePage: View {
                                         .frame(width: 25, height: 25)
                                     
                                     Text("Victory rate:")
-                                        .sp2Font(size: 16, color: Color.primary)
+                                        .sp2Font(size: 16, color: AppColor.appLabelColor)
                                         .minimumScaleFactor(0.5)
                                     
                                     Text("\((Double(todayVictoryCount) &/ Double(todayVictoryCount + todayDefeatCount)) * 100)%")
@@ -113,7 +113,7 @@ struct HomePage: View {
                                                 .frame(width: 25, height: 25)
                                             
                                             Text("K/D:")
-                                                .sp2Font(size: 16, color: Color.primary)
+                                                .sp2Font(size: 16, color: AppColor.appLabelColor)
                                             
                                             Text("\(Double(todayKillCount) &/ Double(todayDeathCount), places: 1)")
                                                 .sp2Font(size: 16, color: Color.secondary)
@@ -123,7 +123,7 @@ struct HomePage: View {
                                                 .frame(width: 25, height: 25)
                                             
                                             Text("KA/D:")
-                                                .sp2Font(size: 16, color: Color.primary)
+                                                .sp2Font(size: 16, color: AppColor.appLabelColor)
                                             
                                             Text("\(Double(todayKillCount + todayAssistCount) &/ Double(todayDeathCount), places: 1)")
                                                 .sp2Font(size: 16, color: Color.secondary)
@@ -207,7 +207,7 @@ struct HomePage: View {
                         HStack(alignment: .firstTextBaseline) {
                             
                             Text("Results")
-                                .sp1Font(size: 22, color: Color.primary)
+                                .sp1Font(size: 22, color: AppColor.appLabelColor)
                             
                             Text("(\(NSLocalizedString("Last 500", comment: "")))")
                                 .sp2Font(color: Color.secondary)
@@ -237,7 +237,7 @@ struct HomePage: View {
                         VStack(alignment: .leading, spacing: 0) {
                             
                             Text("Splatfest")
-                                .sp1Font(size: 22, color: Color.primary)
+                                .sp1Font(size: 22, color: AppColor.appLabelColor)
                             
                             VStack {
                                 ZStack {
@@ -282,7 +282,7 @@ struct HomePage: View {
                     VStack(alignment: .leading, spacing: 0) {
                         
                         Text("Schedule")
-                            .sp1Font(size: 22, color: Color.primary)
+                            .sp1Font(size: 22, color: AppColor.appLabelColor)
                         
                         VStack {
                             Picker(selection: $scheduleType, label: Text("Picker"), content: {

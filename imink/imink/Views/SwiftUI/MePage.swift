@@ -55,7 +55,7 @@ struct MePage: View {
                                     VStack(alignment: .leading, spacing: 8) {
                                         HStack(alignment: .lastTextBaseline) {
                                             Text(player.nickname)
-                                                .sp2Font(size: 20, color: Color.primary)
+                                                .sp2Font(size: 20, color: AppColor.appLabelColor)
                                                 .minimumScaleFactor(0.5)
                                             
                                             Text("\(player.playerRank)")
@@ -66,7 +66,7 @@ struct MePage: View {
                                                 .sp1Font(size: 18, color: AppColor.spYellow)
                                             
                                                 Text("\(player.starRank)")
-                                                .sp2Font(size: 16, color: Color.primary)
+                                                .sp2Font(size: 16, color: AppColor.appLabelColor)
                                             }
                                         }
                                         
@@ -76,7 +76,7 @@ struct MePage: View {
                                                 
                                                 HStack {
                                                     Text(gameMode)
-                                                        .sp2Font(size: 13, color: Color.primary)
+                                                        .sp2Font(size: 13, color: AppColor.appLabelColor)
                                                     
                                                     HStack(alignment: .lastTextBaseline, spacing: 0) {
                                                         Text(udemae.name!)
@@ -175,7 +175,7 @@ struct MePage: View {
             Group {
                 if let link = link {
                     Link(text, destination: link)
-                        .foregroundColor(.primary)
+                        .foregroundColor(AppColor.appLabelColor)
                 } else {
                     Text(text)
                 }

@@ -41,7 +41,7 @@ struct ScheduleView: View {
                             Text(index == 0 ?
                                     LocalizedStringKey("Now") :
                                     "\(calendar.isDateInToday(scheduleTime) ? "" : "\(NSLocalizedString("Next Day", comment: "")) ")\(scheduleTime, formatter: scheduleTimeFormat)")
-                                .sp2Font(size: 15, color: Color.primary)
+                                .sp2Font(size: 15, color: AppColor.appLabelColor)
                                 .colorInvert()
                         }
                         .padding(3)
@@ -86,7 +86,7 @@ struct ScheduleView: View {
                                     let stage = [schedule.stageA, schedule.stageB][k]
                                     
                                     Text(stage.name.localizedKey)
-                                        .sp2Font(color: Color.primary)
+                                        .sp2Font(color: AppColor.appLabelColor)
                                         .minimumScaleFactor(0.5)
                                     
                                     WebImage(url: stage.image)
