@@ -25,6 +25,8 @@
 		EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC04251CD8770010366A /* TeamsDataView.swift */; };
 		EC00DC0F251CD8770010366A /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC06251CD8770010366A /* MemberView.swift */; };
 		EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DC18251CD90B0010366A /* RegularBattlePage.swift */; };
+		EC0C1EF4259B73600062D5A8 /* Splatfont 2 v1.008.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0C1EF3259B73600062D5A8 /* Splatfont 2 v1.008.otf */; };
+		EC0C1EF8259B73690062D5A8 /* Splatfont 1 v1.006.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0C1EF7259B73690062D5A8 /* Splatfont 1 v1.006.otf */; };
 		EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */; };
 		EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */; };
 		EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */; };
@@ -58,8 +60,6 @@
 		EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */; };
 		EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */; };
 		EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D2628258FA02F004E7B3A /* TestFontView.swift */; };
-		EC5D263425905B2E004E7B3A /* Splatfont 2 v1.007.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC5D263225905B2E004E7B3A /* Splatfont 2 v1.007.otf */; };
-		EC5D263525905B2E004E7B3A /* Splatfont 1 v1.005.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC5D263325905B2E004E7B3A /* Splatfont 1 v1.005.otf */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC7652DF259200890098FD22 /* SplatNet2 */; };
@@ -225,6 +225,8 @@
 		EC00DC04251CD8770010366A /* TeamsDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsDataView.swift; sourceTree = "<group>"; };
 		EC00DC06251CD8770010366A /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		EC00DC18251CD90B0010366A /* RegularBattlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularBattlePage.swift; sourceTree = "<group>"; };
+		EC0C1EF3259B73600062D5A8 /* Splatfont 2 v1.008.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 2 v1.008.otf"; sourceTree = "<group>"; };
+		EC0C1EF7259B73690062D5A8 /* Splatfont 1 v1.006.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.006.otf"; sourceTree = "<group>"; };
 		EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
 		EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
@@ -259,8 +261,6 @@
 		EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoAccountLoginViewModel.swift; sourceTree = "<group>"; };
 		EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoLoginInfo.swift; sourceTree = "<group>"; };
 		EC5D2628258FA02F004E7B3A /* TestFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFontView.swift; sourceTree = "<group>"; };
-		EC5D263225905B2E004E7B3A /* Splatfont 2 v1.007.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 2 v1.007.otf"; sourceTree = "<group>"; };
-		EC5D263325905B2E004E7B3A /* Splatfont 1 v1.005.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.005.otf"; sourceTree = "<group>"; };
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
 		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
@@ -587,8 +587,8 @@
 		EC900E91251C8EF600AA0B20 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				EC5D263325905B2E004E7B3A /* Splatfont 1 v1.005.otf */,
-				EC5D263225905B2E004E7B3A /* Splatfont 2 v1.007.otf */,
+				EC0C1EF7259B73690062D5A8 /* Splatfont 1 v1.006.otf */,
+				EC0C1EF3259B73600062D5A8 /* Splatfont 2 v1.008.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -850,9 +850,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC5D263425905B2E004E7B3A /* Splatfont 2 v1.007.otf in Resources */,
+				EC0C1EF8259B73690062D5A8 /* Splatfont 1 v1.006.otf in Resources */,
 				EC2C34BA2598D7210007BA4D /* Assets.xcassets in Resources */,
-				EC5D263525905B2E004E7B3A /* Splatfont 1 v1.005.otf in Resources */,
+				EC0C1EF4259B73600062D5A8 /* Splatfont 2 v1.008.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,7 +1076,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1105,7 +1105,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1138,7 +1138,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1169,7 +1169,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1319,7 +1319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1346,7 +1346,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

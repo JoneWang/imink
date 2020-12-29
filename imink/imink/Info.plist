@@ -38,8 +38,8 @@
 	<string>Save pictures to album.</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>/Frameworks/InkCore.framework/Splatfont 1 v1.005.otf</string>
-		<string>/Frameworks/InkCore.framework/Splatfont 2 v1.007.otf</string>
+		<string>/Frameworks/InkCore.framework/Splatfont 1 v1.006.otf</string>
+		<string>/Frameworks/InkCore.framework/Splatfont 2 v1.008.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
