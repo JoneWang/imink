@@ -143,7 +143,7 @@ struct BattleDetailPage: View {
                 .continuousCornerRadius([.topLeft, .topRight], 18)
                 .continuousCornerRadius(
                     [.bottomLeft, .bottomRight],
-                    (battle.battleType != .league && battle.battleType != .gachi) ? 22 : 18
+                    (battle.battleType != .league && battle.battleType != .gachi) ? 24 : 18
                 )
                 
                 let teams = [battle.victoryTeamMembersSorted, battle.defeatTeamMembersSorted]
