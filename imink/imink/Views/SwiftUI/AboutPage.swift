@@ -9,74 +9,63 @@ import SwiftUI
 
 struct AboutPage: View {
     var body: some View {
+        let contributions = [
+            "Jone Wang", "Ryan Lau", "Shaw",
+            "Key山", "小傘Emp", "米雪", "ai",
+            "ddddxxx"
+        ]
         ScrollView {
-            
-            VStack(spacing: 48) {
-                Text(String("About imink"))
-                    .sp1Font(size: 30, color: .primary)
-                
-                VStack(spacing: 28) {
-                    VStack(spacing: 12) {
-                        Text("Developer")
-                            .sp1Font(size: 22, color: .primary)
-                        Text("Jone Wang")
-                            .sp2Font(size: 18, color: Color.primary.opacity(0.8))
+            HStack {
+                VStack(alignment: .leading, spacing: 32) {
+                    Text(String("About imink"))
+                        .sp1Font(size: 30, color: AppColor.appLabelColor)
+                    
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Disclaimer")
+                            .sp1Font(size: 22, color: AppColor.appLabelColor)
+                        
+                        Text("This app is an unofficial companion app that uses the information of SplatNet 2, and is not affiliated or associated with Nintendo.")
+                            .sp2Font(size: 14, color: Color.primary.opacity(0.8), lineLimit: 9)
                     }
                     
-                    VStack(spacing: 12) {
-                        Text("Designer")
-                            .sp1Font(size: 22, color: .primary)
-                        Text("Ryan Lau & Shaw")
-                            .sp2Font(size: 18, color: Color.primary.opacity(0.8))
-                    }
-                    
-                    VStack(spacing: 12) {
-                        Text("Thanks")
-                            .sp1Font(size: 22, color: .primary)
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Contributions")
+                            .sp1Font(size: 22, color: AppColor.appLabelColor)
                         
-                        Text("Key山")
-                            .sp2Font(size: 16, color: Color.primary.opacity(0.8))
-                        
-                        HStack {
-                            Text("俐吟")
-                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
-                            Text("小傘Emp")
-                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
-                            Text("米雪")
-                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
-                            Text("ai")
-                                .sp2Font(size: 16, color: Color.primary.opacity(0.8))
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(contributions, id: \.self) { name in
+                                Text(name)
+                                    .sp2Font(size: 14, color: Color.primary.opacity(0.8))
+                            }
                         }
-                        
-                        Text("ddddxxx")
-                            .sp2Font(size: 16, color: Color.primary.opacity(0.8))
                     }
-                }
-                
-                VStack(spacing: 28) {
-                    VStack(spacing: 12) {
+                    
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("User Group")
-                            .sp1Font(size: 22, color: .primary)
+                            .sp1Font(size: 22, color: AppColor.appLabelColor)
                         
                         Link(destination: URL(string: "https://t.me/iminkUserGroup")!) {
                             VStack(spacing: 4) {
                                 Text("Telegram")
-                                    .sp2Font(size: 18, color: .white)
+                                    .sp2Font(size: 16, color: .white)
                                 Text("https://t.me/iminkUserGroup")
                                     .font(.system(size: 10, weight: .bold))
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.white)
                             }
-                            .padding()
-                            .background(Color.accentColor)
+                            .padding(12)
+                            .background(AppColor.listItemBackgroundColor)
                             .continuousCornerRadius(10)
                         }
                     }
+                    
                 }
+                .padding(.top, 48)
                 
+                Spacer()
             }
             .padding()
-            .padding(.top, 48)
+            .padding(.leading, 12)
         }
     }
 }
@@ -84,6 +73,7 @@ struct AboutPage: View {
 struct AboutPage_Previews: PreviewProvider {
     static var previews: some View {
         AboutPage()
+        
         AboutPage()
             .preferredColorScheme(.dark)
     }
