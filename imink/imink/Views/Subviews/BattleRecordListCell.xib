@@ -271,22 +271,16 @@
                             <constraint firstItem="nbW-tg-t4F" firstAttribute="top" secondItem="cco-PG-d8b" secondAttribute="top" constant="14" id="rIC-qb-eey"/>
                         </constraints>
                     </view>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="okd-V8-T2a">
-                        <rect key="frame" x="169" y="15.5" width="37" height="37"/>
-                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="cco-PG-d8b" firstAttribute="top" secondItem="u0p-9b-4ze" secondAttribute="top" id="1Wh-MB-rCl"/>
                     <constraint firstAttribute="bottom" secondItem="cco-PG-d8b" secondAttribute="bottom" id="9T5-tZ-hRL"/>
                     <constraint firstAttribute="trailing" secondItem="cco-PG-d8b" secondAttribute="trailing" id="QoU-x0-1wQ"/>
-                    <constraint firstItem="okd-V8-T2a" firstAttribute="centerY" secondItem="nbW-tg-t4F" secondAttribute="centerY" id="cc7-u2-CaO"/>
-                    <constraint firstItem="okd-V8-T2a" firstAttribute="centerX" secondItem="nbW-tg-t4F" secondAttribute="centerX" id="oxn-zV-IR8"/>
                     <constraint firstItem="cco-PG-d8b" firstAttribute="leading" secondItem="u0p-9b-4ze" secondAttribute="leading" id="teg-cn-GDL"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="394" height="114"/>
             <connections>
-                <outlet property="activityIndicatorView" destination="okd-V8-T2a" id="DBL-ZI-bd5"/>
                 <outlet property="assistLabel" destination="NIu-qX-y53" id="mmy-Io-nnl"/>
                 <outlet property="barWidth" destination="8zH-tq-ydd" id="Gyj-q8-bA3"/>
                 <outlet property="battleNumberLabel" destination="hc4-c1-JCN" id="BHV-Sm-yp0"/>

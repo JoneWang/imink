@@ -19,7 +19,9 @@ struct BattleListRowModel {
 }
 
 extension BattleListRowModel: Hashable {
-    
+    public static func == (lhs: BattleListRowModel, rhs: BattleListRowModel) -> Bool {
+        lhs.record?.id == rhs.record?.id && lhs.type == rhs.type
+    }
 }
 
 class BattleListViewModel: ObservableObject {

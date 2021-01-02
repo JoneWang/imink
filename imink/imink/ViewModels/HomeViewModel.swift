@@ -22,7 +22,6 @@ extension Date {
 class HomeViewModel: ObservableObject {
     
     @Published var syncTotalCount = 0
-    @Published var synchronizedCount = 0
     @Published var recordTotalCount = 0
     @Published var schedules: Schedules?
     @Published var salmonRunSchedules: SalmonRunSchedules?
@@ -146,16 +145,6 @@ class HomeViewModel: ObservableObject {
             }
             .sink { [weak self] count in
                 self?.syncTotalCount = count
-            }
-            .store(in: &syncCancelBag)
-        
-        AppDatabase.shared.currentSynchronizedCount(lastSyncTime: lastSyncTime)
-            .catch { error -> Just<Int> in
-                os_log("Database Error: [currentSynchronizedCount] \(error.localizedDescription)")
-                return Just<Int>(0)
-            }
-            .sink { [weak self] count in
-                self?.synchronizedCount = count
             }
             .store(in: &syncCancelBag)
     }

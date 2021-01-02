@@ -22,7 +22,6 @@ class BattleRecordListCell: UICollectionViewCell {
     @IBOutlet weak var leftBarView: UIView!
     @IBOutlet weak var barWidth: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var gameModeImageView: UIImageView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var subrankLabel: UILabel!
@@ -128,12 +127,6 @@ class BattleRecordListCell: UICollectionViewCell {
         self.killImageView.image = UIImage(named: species == .octolings ? "Tako_k" : "Ika_k")
         self.deathImageView.image = UIImage(named: species == .octolings ? "Tako_d" : "Ika_d")
         self.kdImageView.image = UIImage(named: species == .octolings ? "Tako_kd" : "Ika_kd")
-        
-        activityIndicatorView.isHidden = record.isDetail
-        if !record.isDetail {
-            activityIndicatorView.startAnimating()
-        }
-        containerView.alpha = record.isDetail ? 1 : 0.5
     }
     
 }

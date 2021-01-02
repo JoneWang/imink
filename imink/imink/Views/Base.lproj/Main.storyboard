@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O1Z-0P-dM4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O1Z-0P-dM4">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="-3697" y="-1613"/>
         </scene>
-        <!--Battle Record List View Controller-->
+        <!--Battles-->
         <scene sceneID="Yz9-db-Ume">
             <objects>
                 <viewController storyboardIdentifier="BattleRecordList" id="doR-nx-heV" customClass="BattleRecordListViewController" customModule="imink" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,7 +103,7 @@
                             <constraint firstAttribute="bottom" secondItem="mPf-Hc-GDg" secondAttribute="bottom" id="wWi-NZ-CdH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uZT-0d-b14"/>
+                    <navigationItem key="navigationItem" title="Battles" id="uZT-0d-b14"/>
                     <connections>
                         <outlet property="collectionView" destination="mPf-Hc-GDg" id="UvH-cu-jPF"/>
                     </connections>

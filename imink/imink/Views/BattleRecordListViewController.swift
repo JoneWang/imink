@@ -44,6 +44,8 @@ class BattleRecordListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Battles".localized
+        
         battleListViewModel = BattleListViewModel()
 
         configureCollectionView()
@@ -64,9 +66,9 @@ class BattleRecordListViewController: UIViewController {
                    let selectedIndexPath = indexPathsForSelectedItems.first,
                    selectedIndexPath.row == 0,
                    let firstRecord = rows.first?.record,
-                   (firstRecord.battleNumber != selectedRecord?.battleNumber) ||
+                   (firstRecord.battleNumber != selectedRecord?.battleNumber ||
                         self.selectedRow == nil ||
-                        (firstRecord.battleNumber == selectedRecord?.battleNumber && firstRecord.isDetail != selectedRecord?.isDetail) {
+                        firstRecord.battleNumber == selectedRecord?.battleNumber) {
                     // Update list
                     self.apply(rows, animated: animated) {
                         let indexPath = IndexPath(item: 0, section: 0)
@@ -87,20 +89,6 @@ class BattleRecordListViewController: UIViewController {
                     }
                 }
 
-            }
-            .store(in: &cancelBag)
-
-        // Title
-        battleListViewModel.$databaseRecords
-            .sink { records in
-                // Title
-                let allRecordCount = records.count
-                let synchronizedDetailRecordCount = records.filter { $0.isDetail }.count
-                if (allRecordCount == synchronizedDetailRecordCount) {
-                    self.title = "Battles".localized
-                } else {
-                    self.title = "\(synchronizedDetailRecordCount)/\(allRecordCount)"
-                }
             }
             .store(in: &cancelBag)
     }
@@ -165,7 +153,7 @@ extension BattleRecordListViewController: UICollectionViewDelegate {
             return false
         }
 
-        return record.isDetail && selectEnabled
+        return selectEnabled
     }
     
     // TODO: Pagination
@@ -214,12 +202,12 @@ extension BattleRecordListViewController {
 extension BattleRecordListViewController {
 
     func configureDataSource() {
-        let recordCell = UICollectionView.CellRegistration<BattleRecordListCell, DBRecord>(cellNib: BattleRecordListCell.nib) { (cell, _, record) in
-            cell.record = record
+        let recordCell = UICollectionView.CellRegistration<BattleRecordListCell, BattleListRowModel>(cellNib: BattleRecordListCell.nib) { (cell, _, row) in
+            cell.record = row.record
         }
         
-        let realTimeCell = UICollectionView.CellRegistration<BattleRecordListRealTimeCell, DBRecord>(cellNib: BattleRecordListRealTimeCell.nib) { (cell, _, record) in
-            cell.record = record
+        let realTimeCell = UICollectionView.CellRegistration<BattleRecordListRealTimeCell, BattleListRowModel>(cellNib: BattleRecordListRealTimeCell.nib) { (cell, _, row) in
+            cell.record = row.record
         }
 
         // Create a diffable data source, and configure the cell with record data.
@@ -228,9 +216,9 @@ extension BattleRecordListViewController {
             indexPath: IndexPath,
             row: BattleListRowModel) -> UICollectionViewCell? in
             if row.type == .realtime {
-                return collectionView.dequeueConfiguredReusableCell(using: realTimeCell, for: indexPath, item: row.record)
+                return collectionView.dequeueConfiguredReusableCell(using: realTimeCell, for: indexPath, item: row)
             } else {
-                return collectionView.dequeueConfiguredReusableCell(using: recordCell, for: indexPath, item: row.record)
+                return collectionView.dequeueConfiguredReusableCell(using: recordCell, for: indexPath, item: row)
             }
         }
     }

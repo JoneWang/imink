@@ -19,8 +19,8 @@ struct DBRecord: Identifiable {
     var battleNumber: String
     var json: String?
     
-    // If the json from /results/<id> then isDetail is ture.
-    var isDetail: Bool
+    @available(*, deprecated, message: "deprecated")
+    var isDetail: Bool = true
     
     // List item information
     var victory: Bool
@@ -97,130 +97,79 @@ extension AppDatabase {
     
     // MARK: Writes
     
-    /// Save a full battle record, from /results/<id>
-    func saveDetail(_ battleObject: Dictionary<String, AnyObject>) throws {
-        dbQueue.asyncWrite { db in
-            guard let currentUser = AppUserDefaults.shared.user else {
-                return
-            }
-            
-            guard let battleNumber = battleObject["battle_number"] as? String else {
-                return
-            }
-            
-            guard let data = try? JSONSerialization.data(
-                withJSONObject: battleObject,
-                options: .sortedKeys
-            ) else {
-                return
-            }
-            
-            guard let battleJson = String(data: data, encoding: .utf8) else {
-                return
-            }
-            
-            if var record = try DBRecord.filter(
+    func unsynchronizedBattleIds(with battleIds: [String]) -> [String] {
+        guard let currentUser = AppUserDefaults.shared.user else {
+            return []
+        }
+        
+        return dbQueue.read { db in
+            let alreadyExistsRecords = try! DBRecord.filter(
                 DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
-                    DBRecord.Columns.battleNumber == battleNumber
-            ).fetchOne(db) {
-                record.json = battleJson
-                record.isDetail = true
-                record.syncDetailTime = Date()
-                try record.update(db)
+                battleIds.contains(DBRecord.Columns.battleNumber)
+            )
+            .fetchAll(db)
+            
+            let alreadyExistsIds = alreadyExistsRecords.map { $0.battleNumber }
+            let unsynchronizedIds = Array(Set(battleIds).subtracting(Set(alreadyExistsIds)))
+            
+            return unsynchronizedIds
+        }
+    }
+    
+    func saveBattle(data: Data) {
+        guard let currentUser = AppUserDefaults.shared.user,
+              let jsonString = String(data: data, encoding: .utf8),
+              let battle = jsonString.decode(Battle.self) else {
+            return
+        }
+        
+        dbQueue.asyncWrite { db in
+            if try DBRecord.filter(
+                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                    DBRecord.Columns.battleNumber == battle.battleNumber
+            ).fetchCount(db) > 0 {
+                return
             }
+            
+            var record = DBRecord(
+                sp2PrincipalId: currentUser.sp2PrincipalId,
+                battleNumber: battle.battleNumber,
+                json: jsonString,
+                victory: battle.myTeamResult.key == .victory,
+                weaponImage: battle.playerResult.player.weapon.$image,
+                rule: battle.rule.name,
+                gameMode: battle.gameMode.name,
+                gameModeKey: battle.gameMode.key.rawValue,
+                stageName: battle.stage.name,
+                killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
+                killCount: battle.playerResult.killCount,
+                assistCount: battle.playerResult.assistCount,
+                specialCount: battle.playerResult.specialCount,
+                gamePaintPoint: battle.playerResult.gamePaintPoint,
+                deathCount: battle.playerResult.deathCount,
+                myPoint: battle.myPoint,
+                otherPoint: battle.otherPoint,
+                startDateTime: battle.startTime,
+                udemaeName: battle.playerResult.player.udemae?.name,
+                udemaeSPlusNumber: battle.playerResult.player.udemae?.sPlusNumber,
+                type: battle.type,
+                leaguePoint: battle.leaguePoint,
+                estimateGachiPower: battle.estimateGachiPower,
+                playerTypeSpecies: battle.playerResult.player.playerType.species)
+            try record.insert(db)
         } completion: { _, error in
             if case let .failure(error) = error {
-                os_log("Database Error: [saveFullBattle] \(error.localizedDescription)")
+                os_log("Database Error: [saveBattle] \(error.localizedDescription)")
             }
         }
     }
     
-    /// Save data from /results
-    func saveSampleBattlesData(_ data: Data, completed: @escaping (_ haveNewRecord: Bool) -> Void) throws {
-        guard let currentUser = AppUserDefaults.shared.user else {
-            return
-        }
-        
-        guard let json = try? JSONSerialization.jsonObject(
-            with: data,
-            options: .mutableContainers
-        ) as? [String: AnyObject],
-        let results = json["results"] as? [Dictionary<String, AnyObject>] else {
-            return
-        }
-        
+    func removeAllRecords() {
         dbQueue.asyncWrite { db in
-            
-            var records = [DBRecord]()
-            for index in results.indices {
-                guard let data = try? JSONSerialization.data(withJSONObject: results[index], options: .sortedKeys),
-                      let jsonString = String(data: data, encoding: .utf8) else {
-                    continue
-                }
-                
-                guard let battle = jsonString.decode(Battle.self) else {
-                    continue
-                }
-                
-                records.append(
-                    DBRecord(
-                        sp2PrincipalId: currentUser.sp2PrincipalId,
-                        battleNumber: battle.battleNumber,
-                        json: jsonString,
-                        isDetail: false,
-                        victory: battle.myTeamResult.key == .victory,
-                        weaponImage: battle.playerResult.player.weapon.$image,
-                        rule: battle.rule.name,
-                        gameMode: battle.gameMode.name,
-                        gameModeKey: battle.gameMode.key.rawValue,
-                        stageName: battle.stage.name,
-                        killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
-                        killCount: battle.playerResult.killCount,
-                        assistCount: battle.playerResult.assistCount,
-                        specialCount: battle.playerResult.specialCount,
-                        gamePaintPoint: battle.playerResult.gamePaintPoint,
-                        deathCount: battle.playerResult.deathCount,
-                        myPoint: battle.myPoint,
-                        otherPoint: battle.otherPoint,
-                        startDateTime: battle.startTime,
-                        udemaeName: battle.playerResult.player.udemae?.name,
-                        udemaeSPlusNumber: battle.playerResult.player.udemae?.sPlusNumber,
-                        type: battle.type,
-                        leaguePoint: battle.leaguePoint,
-                        estimateGachiPower: battle.estimateGachiPower,
-                        playerTypeSpecies: battle.playerResult.player.playerType.species)
-                )
-            }
-            
-            let battleNumbers = records.map { $0.battleNumber }
-            
-            let existRecords = try DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
-                    battleNumbers.contains(DBRecord.Columns.battleNumber)
-            ).fetchAll(db)
-            
-            let existBattleNumbers = existRecords.map { $0.battleNumber }
-            
-            let nonexistentRecords = records.filter {
-                !existBattleNumbers.contains($0.battleNumber)
-            }
-            
-            if nonexistentRecords.count > 0 {
-                for record in nonexistentRecords.reversed() {
-                    var record = record
-                    try record.insert(db)
-                }
-                DispatchQueue.main.async {
-                    completed(true)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    completed(false)
-                }
-            }
+            try DBRecord.deleteAll(db)
         } completion: { _, error in
             if case let .failure(error) = error {
-                os_log("Database Error: [saveSampleBattles] \(error.localizedDescription)")
+                os_log("Database Error: [saveBattle] \(error.localizedDescription)")
             }
         }
     }
@@ -357,8 +306,7 @@ extension AppDatabase {
         
         return ValueObservation
             .tracking(DBRecord.filter(
-                DBRecord.Columns.isDetail &&
-                    DBRecord.Columns.syncDetailTime > lastSyncTime &&
+                DBRecord.Columns.syncDetailTime > lastSyncTime &&
                     DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
             ).fetchCount)
             .publisher(in: dbQueue, scheduling: .immediate)
@@ -424,7 +372,6 @@ extension DBRecord {
             sp2PrincipalId: sp2PrincipalId,
             battleNumber: battleNumber,
             json: json,
-            isDetail: isDetail,
             victory: victory,
             weaponImage: weaponImage,
             rule: rule,
