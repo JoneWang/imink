@@ -103,7 +103,7 @@ class HomeViewModel: ObservableObject {
         battleSchedules
             .assign(to: &$schedules)
         
-        let salmonRunSchedules = Splatoon2API.salmonRunSchedules
+        let salmonRunSchedules = AppAPI.salmonRunSchedules
             .request()
             .decode(type: SalmonRunSchedules.self)
             .receive(on: DispatchQueue.main)

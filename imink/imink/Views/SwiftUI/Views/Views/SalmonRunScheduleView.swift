@@ -18,13 +18,8 @@ struct SalmonRunScheduleView: View {
     }()
     
     private var dataSource: [SalmonRunSchedules.Schedule] {
-        schedules.schedules.map { schedule in
-            if let schedule = schedules.details.first(where: { $0.startTime == schedule.startTime }) {
-                return schedule
-            }
-            
-            return schedule
-        }
+        schedules.details +
+            schedules.schedules.filter { s in !schedules.details.contains { $0.$startTime == s.$startTime } }
     }
     
     var body: some View {
