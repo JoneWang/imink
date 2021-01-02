@@ -61,7 +61,7 @@ extension GrayscaleTextureView {
         backgroundColor: Color("TopbarStreakBackgroundColor"))
     
     static let topbarBubble = GrayscaleTextureView(
-        texture: .streak,
+        texture: .bubble,
         foregroundColor: Color("TopbarStreakForegroundColor"),
         backgroundColor: Color("TopbarStreakBackgroundColor"))
 }
