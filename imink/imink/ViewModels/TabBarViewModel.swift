@@ -21,7 +21,6 @@ class TabBarViewModel: ObservableObject {
     private var syncCancelBag = Set<AnyCancellable>()
     
     init() {
-        AppDatabase.shared.removeAllRecords()
         $autoRefresh
             .filter { $0 }
             .sink { [weak self] _ in
