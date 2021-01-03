@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import InkCore
 
 struct BattleDetailMemberView: View {
     let victory: Bool
@@ -40,8 +41,9 @@ struct BattleDetailMemberView: View {
             .padding(.bottom, 1)
             .padding(.trailing, 7)
             
-            WebImage(url: member.player.weapon.image)
-                .resizable()
+            WeaponImageView(
+                id: member.player.weapon.id,
+                imageURL: member.player.weapon.image)
                 .frame(width: 22, height: 22)
                 .foregroundColor(.clear)
                 .padding(.trailing, 7)

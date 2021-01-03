@@ -8,6 +8,7 @@
 import Foundation
 import WidgetKit
 import SwiftUI
+import InkCore
 
 struct SalmonRunScheduleMediumWidgetEntryView : View {
     
@@ -170,8 +171,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
                                 Spacer()
                             }
                             let weapon = schedule?.weapons?[i]
-                            Image("weapon-\(weapon?.id ?? "")")
-                                .resizable()
+                            WeaponImageView(id: weapon?.id ?? "")
                                 .aspectRatio(contentMode: .fit)
                         }
                     }
@@ -181,8 +181,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     }
     
     func makeStageImage(stageImageName: String, stageName: LocalizedStringKey) -> some View {
-        Image(stageImageName)
-            .resizable()
+        SalomonRunStageImageView(name: stageImageName)
             .aspectRatio(contentMode: .fill)
             .frame(minHeight: 0, maxHeight: .infinity)
             .overlay(

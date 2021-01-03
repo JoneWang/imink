@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import InkCore
 
 struct SalmonRunScheduleView: View {
     let schedules: SalmonRunSchedules
@@ -46,8 +46,7 @@ struct SalmonRunScheduleView: View {
                             Text(stage.name.localizedKey)
                                 .sp2Font(color: AppColor.appLabelColor)
                             
-                            WebImage(url: stage.image)
-                                .resizable()
+                            SalomonRunStageImageView(name: stage.name)
                                 .aspectRatio(640 / 360, contentMode: .fill)
                                 .frame(minWidth: 100)
                                 .continuousCornerRadius(8)
@@ -67,20 +66,10 @@ struct SalmonRunScheduleView: View {
                                 HStack(alignment: .center) {
                                     
                                     ForEach(weapons, id: \.id) { weapon in
-                                        if let thumbnailURL = weapon.weapon?.thumbnail {
-                                            WebImage(url: thumbnailURL)
-                                                .resizable()
-                                                .aspectRatio(1, contentMode: .fit)
-                                                .frame(minWidth: 40)
-                                                .continuousCornerRadius(8)
-                                        }
-                                        else if let imageURL = weapon.coopSpecialWeapon?.image {
-                                            WebImage(url: imageURL)
-                                                .resizable()
-                                                .aspectRatio(1, contentMode: .fit)
-                                                .frame(minWidth: 40)
-                                                .continuousCornerRadius(8)
-                                        }
+                                        WeaponImageView(id: weapon.id)
+                                            .aspectRatio(1, contentMode: .fit)
+                                            .frame(minWidth: 40, minHeight: 40)
+                                            .continuousCornerRadius(8)
                                     }
                                     
                                 }

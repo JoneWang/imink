@@ -8,6 +8,7 @@
 import Foundation
 import WidgetKit
 import SwiftUI
+import InkCore
 
 struct BattleScheduleLargeWidgetEntryView : View {
     var entry: BattleScheduleProvider.Entry
@@ -272,8 +273,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
             borderColor = Color("RegularScheduleStageBorderColor")
         }
         
-        return Image("stage-\(stageId)")
-            .resizable()
+        return StageImageView(id: stageId)
             //            .aspectRatio(contentMode: .fill)
             .frame(minHeight: 0, maxHeight: .infinity)
             .overlay(

@@ -59,12 +59,13 @@ struct BattleDetailPage: View {
                     ZStack {
                         Rectangle()
                             .overlay(
-                                WebImage(url: battle.stage.image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .transition(.opacity)
-                                
-                                ,
+                                StageImageView(
+                                    id: battle.stage.id,
+                                    imageURL: battle.stage.image,
+                                    imageURLBehaviour: .replace
+                                )
+                                .aspectRatio(contentMode: .fill)
+                                .transition(.opacity),
                                 alignment: .center
                             )
                             .foregroundColor(.systemGray3)

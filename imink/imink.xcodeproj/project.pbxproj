@@ -135,6 +135,13 @@
 		EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */; };
 		EC9A90492527851C00390573 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90482527851C00390573 /* ScheduleView.swift */; };
+		EC9D0A5125A1747C00E8FF89 /* WeaponImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */; };
+		EC9D0A5525A174A300E8FF89 /* StageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A5425A174A300E8FF89 /* StageImageView.swift */; };
+		EC9D0A5925A1761900E8FF89 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5825A1761900E8FF89 /* SDWebImage */; };
+		EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */; };
+		EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */; };
+		EC9D0A6925A18E2300E8FF89 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A6825A18E2300E8FF89 /* ImageView.swift */; };
+		EC9D0A7325A1929400E8FF89 /* SalomonRunStageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */; };
 		ECA695092531AC9D00376D95 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA695082531AC9D00376D95 /* PieView.swift */; };
 		ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
@@ -142,9 +149,7 @@
 		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
 		ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */; };
-		ECE6785B2585F79C00D750DB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA53251C95DE00283D28 /* SDWebImage */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
-		ECE6785D2585F79C00D750DB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
 		ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */; };
 /* End PBXBuildFile section */
@@ -315,6 +320,10 @@
 		EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
 		EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Mutiplier.swift"; sourceTree = "<group>"; };
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponImageView.swift; sourceTree = "<group>"; };
+		EC9D0A5425A174A300E8FF89 /* StageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageImageView.swift; sourceTree = "<group>"; };
+		EC9D0A6825A18E2300E8FF89 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalomonRunStageImageView.swift; sourceTree = "<group>"; };
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		ECAE8DC325209BB6003D7EDC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -328,6 +337,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */,
+				EC9D0A5925A1761900E8FF89 /* SDWebImage in Frameworks */,
+				EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */,
 				EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,9 +358,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE6785D2585F79C00D750DB /* SDWebImageSwiftUI in Frameworks */,
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
-				ECE6785B2585F79C00D750DB /* SDWebImage in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
 			);
@@ -484,6 +494,10 @@
 			isa = PBXGroup;
 			children = (
 				EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */,
+				EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */,
+				EC9D0A5425A174A300E8FF89 /* StageImageView.swift */,
+				EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */,
+				EC9D0A6825A18E2300E8FF89 /* ImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -742,6 +756,9 @@
 			name = InkCore;
 			packageProductDependencies = (
 				EC7652DF259200890098FD22 /* SplatNet2 */,
+				EC9D0A5825A1761900E8FF89 /* SDWebImage */,
+				EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */,
+				EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */,
 			);
 			productName = InkCore;
 			productReference = EC17CB0C256B995900E34247 /* InkCore.framework */;
@@ -786,9 +803,7 @@
 			);
 			name = imink;
 			packageProductDependencies = (
-				EC43AA53251C95DE00283D28 /* SDWebImage */,
 				EC43AA57251C9A7100283D28 /* GRDB */,
-				EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
 			);
 			productName = imink;
@@ -888,7 +903,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9D0A7325A1929400E8FF89 /* SalomonRunStageImageView.swift in Sources */,
+				EC9D0A6925A18E2300E8FF89 /* ImageView.swift in Sources */,
 				EC2C34C12598D9440007BA4D /* GrayscaleTextureView.swift in Sources */,
+				EC9D0A5525A174A300E8FF89 /* StageImageView.swift in Sources */,
+				EC9D0A5125A1747C00E8FF89 /* WeaponImageView.swift in Sources */,
 				EC2C34CB2598E8940007BA4D /* Bundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1450,20 +1469,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC43AA53251C95DE00283D28 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
 		EC43AA57251C9A7100283D28 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		EC43AA5B251CCDF000283D28 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
 		};
 		EC606044251CD5B200DCF35E /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1474,6 +1483,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */;
 			productName = SplatNet2;
+		};
+		EC9D0A5825A1761900E8FF89 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

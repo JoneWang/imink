@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import InkCore
 
 struct MemberView: View {
     let isMe: Bool
@@ -53,8 +54,9 @@ struct MemberView: View {
                     }
                     
                     // Weapon
-                    WebImage(url: member.player.weapon.image)
-                        .resizable()
+                    WeaponImageView(
+                        id: member.player.weapon.id,
+                        imageURL: member.player.weapon.image)
                         .aspectRatio(1, contentMode: .fit)
                         .overlay(
                             ZStack {

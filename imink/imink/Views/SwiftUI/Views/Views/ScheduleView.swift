@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import InkCore
 
 struct ScheduleView: View {
     
@@ -89,8 +90,7 @@ struct ScheduleView: View {
                                         .sp2Font(color: AppColor.appLabelColor)
                                         .minimumScaleFactor(0.5)
                                     
-                                    WebImage(url: stage.image)
-                                        .resizable()
+                                    StageImageView(id: stage.id)
                                         .aspectRatio(640 / 360, contentMode: .fill)
                                         .continuousCornerRadius(8)
                                         .overlay(
