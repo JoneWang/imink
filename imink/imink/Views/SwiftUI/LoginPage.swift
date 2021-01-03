@@ -46,7 +46,7 @@ struct LoginPage: View {
                         HStack {
                             Button(action: {
                                 withAnimation {
-                                    self.loginViewModel.useNintendoAccount = false
+                                    self.loginViewModel.useClientToken = false
                                 }
                             }) {
                                 Text("Back")
