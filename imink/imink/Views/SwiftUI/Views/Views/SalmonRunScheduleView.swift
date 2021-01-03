@@ -29,7 +29,7 @@ struct SalmonRunScheduleView: View {
                 
                 VStack {
                     Text("\(schedule.startTime, formatter: scheduleTimeFormat) - \(schedule.endTime, formatter: scheduleTimeFormat)")
-                        .sp2Font(size: 15, color: AppColor.appLabelColor)
+                        .sp2Font(size: 15, color: Color.primary)
                         .colorInvert()
                 }
                 .padding(3)

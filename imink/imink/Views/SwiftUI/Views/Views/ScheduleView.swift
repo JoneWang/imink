@@ -42,7 +42,7 @@ struct ScheduleView: View {
                             Text(index == 0 ?
                                     LocalizedStringKey("Now") :
                                     "\(calendar.isDateInToday(scheduleTime) ? "" : "\(NSLocalizedString("Next Day", comment: "")) ")\(scheduleTime, formatter: scheduleTimeFormat)")
-                                .sp2Font(size: 15, color: AppColor.appLabelColor)
+                                .sp2Font(size: 15, color: Color.primary)
                                 .colorInvert()
                         }
                         .padding(3)
