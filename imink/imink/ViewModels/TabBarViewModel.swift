@@ -67,6 +67,13 @@ extension TabBarViewModel {
         requestResults {
             if !self.autoRefresh { return }
             
+            if self.unsynchronizedBattleIds.count == 0 {
+                NotificationCenter.default.post(
+                    name: .isLoadingRealTimeBattleResult,
+                    object: false
+                )
+            }
+            
             // Next request after delayed for 7 seconds
             DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                 self.startRealTimeDataLoop()
@@ -140,14 +147,16 @@ extension TabBarViewModel {
                 guard let `self` = self else { return }
                 AppDatabase.shared.saveBattle(data: data)
                 
+                if self.unsynchronizedBattleIds.count > 0 {
+                    self.unsynchronizedBattleIds.removeFirst()
+                }
+                
                 if self.unsynchronizedBattleIds.count == 0 {
                     NotificationCenter.default.post(name: .recordSyncDetailFinished, object: nil)
                     NotificationCenter.default.post(
                         name: .isLoadingRealTimeBattleResult,
                         object: false
                     )
-                } else {
-                    self.unsynchronizedBattleIds.removeFirst()
                 }
             }
             .store(in: &syncCancelBag)
