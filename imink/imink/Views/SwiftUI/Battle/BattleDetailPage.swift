@@ -66,7 +66,7 @@ struct BattleDetailPage: View {
                                 )
                                 .aspectRatio(contentMode: .fill)
                                 .transition(.opacity),
-                                alignment: .center
+                                alignment: .bottom
                             )
                             .foregroundColor(.systemGray3)
                             .aspectRatio(343/143, contentMode: .fill)
