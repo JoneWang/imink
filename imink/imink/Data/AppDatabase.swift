@@ -152,6 +152,11 @@ class AppDatabase {
             }
         }
         
+        migrator.registerMigration("V6") { db in
+            try DBRecord.filter(DBRecord.Columns.isDetail == false)
+                .deleteAll(db)
+        }
+        
         return migrator
     }
 }

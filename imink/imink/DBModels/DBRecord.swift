@@ -56,7 +56,7 @@ extension DBRecord: Codable, FetchableRecord, MutablePersistableRecord {
     static let databaseTableName = "record"
     
     // Define database columns from CodingKeys
-    fileprivate enum Columns {
+    enum Columns {
         static let id = Column(CodingKeys.id)
         static let sp2PrincipalId = Column(CodingKeys.sp2PrincipalId)
         static let battleNumber = Column(CodingKeys.battleNumber)
