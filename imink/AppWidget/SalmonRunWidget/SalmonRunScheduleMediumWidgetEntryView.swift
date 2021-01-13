@@ -103,8 +103,8 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
             WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: entry.family, widgetSize: entry.size)
 
             VStack(spacing: vSpacing) {
-                let schedule = entry.schedules?.details.first
-                let nextSchedule = entry.schedules?.details.last
+                let schedule = entry.schedules?[0]
+                let nextSchedule = entry.schedules?[1]
                 
                 makeScheduleView(schedule: schedule, isFirst: true)
                 
@@ -127,7 +127,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     func makeScheduleView(schedule: SalmonRunSchedules.Schedule?, isFirst: Bool = false) -> some View {
         var title: LocalizedStringKey = ""
         if let schedule = schedule {
-            let now = Date()
+            let now = self.entry.date
             
             if isFirst {
                 if now < schedule.startTime {
@@ -144,7 +144,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
             VStack(spacing: 0) {
                 HStack(alignment: .center, spacing: 10 + firstWeaponleading) {
                     Text(title)
-                        .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
+                        .sp1Font(size: titleFontSize, color: Color.white)
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                     

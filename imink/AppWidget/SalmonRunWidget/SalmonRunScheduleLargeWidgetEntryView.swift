@@ -192,7 +192,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
     }
     
     func makeContent() -> some View {
-        let now = Date()
+        let now = self.entry.date
         return ZStack {
             WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: entry.family, widgetSize: entry.size)
 
@@ -215,8 +215,8 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                 .unredacted()
                 
                 VStack(spacing: vSpacing) {
-                    let schedule = entry.schedules?.details.first
-                    let nextSchedule = entry.schedules?.details.last
+                    let schedule = entry.schedules?[0]
+                    let nextSchedule = entry.schedules?[1]
                     
                     makeScheduleView(schedule: schedule, isFirst: true)
                     
@@ -229,7 +229,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                     VStack(spacing: titleAndStageSpacing) {
                         HStack(alignment: .bottom) {
                             Text("Future")
-                                .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
+                                .sp1Font(size: titleFontSize, color: Color.white)
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                 .unredacted()
                             
@@ -238,7 +238,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                         
                         VStack(alignment: .center, spacing: 0) {
                             ForEach(2..<5) { i in
-                                let schedule = entry.schedules?.schedules[i]
+                                let schedule = entry.schedules?[i]
                                 
                                 if i != 2 {
                                     makeLine().padding(.bottom, 1)
@@ -276,7 +276,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
     func makeScheduleView(schedule: SalmonRunSchedules.Schedule?, isFirst: Bool = false) -> some View {
         var title: LocalizedStringKey = ""
         if let schedule = schedule {
-            let now = Date()
+            let now = self.entry.date
             
             if isFirst {
                 if now < schedule.startTime {
@@ -293,7 +293,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
             VStack(spacing: 0) {
                 HStack(alignment: .center, spacing: 10 + firstWeaponleading) {
                     Text(title)
-                        .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
+                        .sp1Font(size: titleFontSize, color: Color.white)
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                     

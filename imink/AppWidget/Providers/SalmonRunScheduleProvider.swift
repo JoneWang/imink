@@ -11,7 +11,7 @@ import Combine
 
 struct SalmonRunScheduleEntry: TimelineEntry {
     let date: Date
-    let schedules: SalmonRunSchedules?
+    let schedules: [SalmonRunSchedules.Schedule]?
     let size: WidgetSize
     let family: WidgetFamily
 }
@@ -49,20 +49,40 @@ class SalmonRunScheduleProvider: TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SalmonRunScheduleEntry>) -> ()) {
-        
         updateSchedule(mustLoading: true) { schedules in
-            guard let firstSchedule = schedules.details.first else {
-                return
+            if schedules.count < 4 { return }
+                        
+            var entries: [SalmonRunScheduleEntry] = []
+            
+            for i in 0..<schedules.count {
+                if schedules.count - 5 < i { continue }
+
+                let showSchedules = Array(schedules[i..<i+5])
+
+                let startTime = showSchedules.first!.startTime
+                print("start: \(startTime)")
+                let endTime = showSchedules.first!.endTime
+                let hours = Calendar.current.dateComponents([.hour], from: startTime, to: endTime).hour!
+                for j in 0..<hours {
+                    let refreshTime = Calendar.current.date(byAdding: .hour, value: j, to: startTime)!
+                    
+                    if refreshTime < Date() { continue }
+                    print(refreshTime)
+
+                    let entry = SalmonRunScheduleEntry(
+                        date: refreshTime,
+                        schedules: showSchedules,
+                        size: .with(context.displaySize),
+                        family: context.family
+                    )
+                    entries.append(entry)
+                }
             }
             
-            let entry = SalmonRunScheduleEntry(
-                date: firstSchedule.startTime,
-                schedules: schedules,
-                size: .with(context.displaySize),
-                family: context.family
-            )
+            // entries not too long
+            entries = Array(entries[0..<48])
             
-            let timeline = Timeline(entries: [entry], policy: .after(firstSchedule.endTime))
+            let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
         } failure: {
             let refreshDate = Calendar.current.date(byAdding: .minute, value: 5, to: Date())!
@@ -72,7 +92,7 @@ class SalmonRunScheduleProvider: TimelineProvider {
                             schedules: nil,
                             size: .with(context.displaySize),
                             family: context.family)],
-                policy: .after(refreshDate))
+                policy: .atEnd)
             completion(timeline)
         }
     }
@@ -82,34 +102,19 @@ extension SalmonRunScheduleProvider {
     
     func updateSchedule(
         mustLoading: Bool = false,
-        success: @escaping (SalmonRunSchedules) -> Void,
+        success: @escaping ([SalmonRunSchedules.Schedule]) -> Void,
         failure: @escaping () -> Void
     ) {
-        if let data = AppUserDefaults.shared.splatoon2SalmonRunScheduleData,
-           let schedules = data.decode(SalmonRunSchedules.self) {
-            
-            if let firstSchedule = schedules.details.first {
-                if firstSchedule.endTime < Date() {
-                    success(schedules)
-                    if !mustLoading { return }
-                }
-            }
-        }
-        
-        Splatoon2API.salmonRunSchedules
+        AppAPI.salmonRunSchedules
             .request()
-            .compactMap { data -> SalmonRunSchedules? in
-                // Cache
-                AppUserDefaults.shared.splatoon2SalmonRunScheduleData = data
-                return data.decode(SalmonRunSchedules.self)
-            }
+            .decode(type: SalmonRunSchedules.self)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { result in
                 if case .failure(_) = result {
                     failure()
                 }
             }, receiveValue: { schedules in
-                success(schedules)
+                success(schedules.details)
             })
             .store(in: &cancelBag)
     }

@@ -37,7 +37,7 @@ public struct ImageView: View {
             } else if let imageURL = imageURL {
                 return AnyView(WebImage(url: imageURL).resizable())
             } else {
-                return AnyView(Image(imageName).resizable())
+                return AnyView(Image(imageName, bundle: Bundle.inkCore).resizable())
             }
         }
     }

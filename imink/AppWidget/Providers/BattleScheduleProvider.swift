@@ -70,7 +70,7 @@ class BattleScheduleProvider: TimelineProvider {
                 
                 let entry = ScheduleEntry(
                     date: i == 0 ? Date() : schedule.startTime,
-                    schedules: [schedule, schedules[i + 1], schedules[i + 2]],
+                    schedules: Array(schedules[i..<i+3]),
                     size: .with(context.displaySize),
                     family: context.family
                 )
