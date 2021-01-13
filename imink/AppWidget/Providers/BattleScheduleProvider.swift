@@ -113,7 +113,7 @@ extension BattleScheduleProvider {
             }
         }
         
-        Splatoon2API.schedules
+        AppAPI.schedules
             .request()
             .compactMap { data -> Schedules? in
                 // Cache

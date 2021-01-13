@@ -11,6 +11,7 @@ enum AppAPI {
     case loginURL
     case signIn(authCodeVerifier: String, loginInfo: String)
     case me(clientToken: String? = nil)
+    case schedules
     case salmonRunSchedules
 }
 
@@ -25,6 +26,8 @@ extension AppAPI: APITargetType {
             return "/account/sign_in"
         case .me:
             return "/me"
+        case .schedules:
+            return "/schedules"
         case .salmonRunSchedules:
             return "/salmonrun_schedules"
         }
@@ -34,6 +37,7 @@ extension AppAPI: APITargetType {
         switch self {
         case .loginURL,
              .me,
+             .schedules,
              .salmonRunSchedules:
             return .get
         case .signIn:

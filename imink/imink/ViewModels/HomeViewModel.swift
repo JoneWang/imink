@@ -90,7 +90,7 @@ class HomeViewModel: ObservableObject {
     func updateSchedules() {
         isLoading = true
         
-        let battleSchedules = Splatoon2API.schedules
+        let battleSchedules = AppAPI.schedules
             .request()
             .decode(type: Schedules.self)
             .receive(on: DispatchQueue.main)
