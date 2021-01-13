@@ -24,29 +24,15 @@ $success_msg_chat_id = "-1001299629318"
 # lane
 default_platform(:ios)
 
-platform :ios do |options|
+platform :ios do
   desc "Push a new beta build to TestFlight"
-  lane :beta do
+  lane :beta do |options|
     begin
         increment_build_number(xcodeproj: $xcodeproj)
-        build_app(scheme: $project_name)
-        ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t Aspera"
-        upload_to_testflight(
-            distribute_external: true,
-            changelog: "",
-            groups: ["beta test"]
-        )
-    rescue => ex
-        error_message = "!!! Deliver failed !!!\n#{$project_name}\n#{ex.message}"
-        send_message($failure_msg_chat_id, error_message)
-        UI.important(error_message)
 
-        raise ex unless ex.message.include?('Error message of interest')
-    end
-
-    if $tg_token
-        version_number = get_version_number(xcodeproj: $xcodeproj)
-        build_number = get_build_number(xcodeproj: $xcodeproj)
+        # changelog
+        version_number = get_version_number(xcodeproj: $xcodeproj, target: $project_name)
+        build_number = lane_context[SharedValues::BUILD_NUMBER]
 
         features = options[:features]
         improvements = options[:improvements]
@@ -57,7 +43,25 @@ platform :ios do |options|
             features,
             improvements,
         )
-        send_message($success_msg_chat_id, "#{$project_name} is updated.\nVersion: #{version_number} (#{build_number})")
+        UI.important("\n" + changelog)
+
+        # build and upload
+        build_app(scheme: $project_name)
+        ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t Aspera"
+        upload_to_testflight(
+            distribute_external: true,
+            changelog: "",
+            groups: ["beta test"]
+        )
+
+        # telegram
+        send_message($success_msg_chat_id, changelog)
+    rescue => ex
+        error_message = "!!! Deliver failed !!!\n#{$project_name}\n#{ex.message}"
+        send_message($failure_msg_chat_id, error_message)
+        UI.important(error_message)
+
+        raise ex unless ex.message.include?('Error message of interest')
     end
   end
 end
@@ -80,13 +84,15 @@ $tg_token = environment_variable(get: "FASTLANE_TG_TOKEN")
 $tg_proxy = environment_variable(get: "FASTLANE_TG_PROXY")
 
 def send_message(chat_id, content)
-    telegram(
-        token: $tg_token,
-        chat_id: chat_id,
-        text: content,
-        proxy: $tg_proxy,
-        parse_mode: "markdown"
-        )
+    if $tg_token
+        telegram(
+            token: $tg_token,
+            chat_id: chat_id,
+            text: content,
+            proxy: $tg_proxy,
+            parse_mode: "markdown"
+            )
+    end
 end
 
 def get_changelog(type, version_number, features, improvements)
