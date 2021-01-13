@@ -47,14 +47,14 @@ struct AboutPage: View {
                         Link(destination: URL(string: "https://t.me/iminkUserGroup")!) {
                             VStack(spacing: 4) {
                                 Text("Telegram")
-                                    .sp2Font(size: 16, color: .white)
+                                    .sp2Font(size: 16, color: AppColor.appLabelColor)
                                 Text("https://t.me/iminkUserGroup")
                                     .font(.system(size: 10, weight: .bold))
                                     .multilineTextAlignment(.center)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(AppColor.appLabelColor)
                             }
                             .padding(12)
-                            .background(AppColor.listItemBackgroundColor)
+                            .background(Color.secondarySystemBackground)
                             .continuousCornerRadius(10)
                         }
                     }
