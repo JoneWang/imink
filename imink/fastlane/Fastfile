@@ -1,0 +1,135 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+# project constant
+$project_name = "imink"
+$xcodeproj = "#{$project_name}.xcodeproj"
+$workspace = "#{$project_name}.xcworkspace"
+
+# tg constant
+$failure_msg_chat_id = "306421802"
+$success_msg_chat_id = "-1001299629318"
+
+# lane
+default_platform(:ios)
+
+platform :ios do |options|
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    begin
+        increment_build_number(xcodeproj: $xcodeproj)
+        build_app(workspace: $workspace, scheme: $project_name)
+        ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t Aspera"
+        upload_to_testflight(
+            distribute_external: true,
+            changelog: "",
+            groups: ["beta test"]
+        )
+    rescue => ex
+        error_message = "!!! Deliver failed !!!\n#{$project_name}\n#{ex.message}"
+        send_message($failure_msg_chat_id, error_message)
+        UI.important(error_message)
+
+        raise ex unless ex.message.include?('Error message of interest')
+    end
+
+    if $tg_token
+        version_number = get_version_number(xcodeproj: $xcodeproj)
+        build_number = get_build_number(xcodeproj: $xcodeproj)
+
+        features = options[:features]
+        improvements = options[:improvements]
+
+        changelog = get_changelog(
+            "testflight",
+            "#{version_number} (#{build_number})",
+            features,
+            improvements,
+        )
+        send_message($success_msg_chat_id, "#{$project_name} is updated.\nVersion: #{version_number} (#{build_number})")
+    end
+  end
+end
+
+lane :tg_test do |options|
+    features = options[:features]
+    improvements = options[:improvements]
+
+    changelog = get_changelog(
+        "testflight",
+        "1.1.1 (50)",
+        features,
+        improvements,
+    )
+    send_message("306421802", changelog)
+end
+
+# Telegram
+$tg_token = environment_variable(get: "FASTLANE_TG_TOKEN")
+$tg_proxy = environment_variable(get: "FASTLANE_TG_PROXY")
+
+def send_message(chat_id, content)
+    telegram(
+        token: $tg_token,
+        chat_id: chat_id,
+        text: content,
+        proxy: $tg_proxy,
+        parse_mode: "markdown"
+        )
+end
+
+def get_changelog(type, version_number, features, improvements)
+    if !features && !improvements
+        raise "Not changelog."
+    end
+
+    feature_array = Array[]
+    if features
+        feature_array = features.split("/")
+    end
+
+    improvement_array = Array[]
+    if improvements
+        improvement_array = improvements.split("/")
+    end
+
+    changelog = "#update ##{version_number} ##{type}\n\n"
+
+    if feature_array.length > 0
+        changelog += "*Features:*\n"
+
+        i = 0
+        while i < feature_array.length do
+            changelog += "*-* #{feature_array.at(i)}\n"
+            i +=1
+        end
+
+        if improvement_array.length > 0
+            changelog += "\n"
+        end
+    end
+
+    if improvement_array.length > 0
+        changelog += "*Improvements:*\n"
+    
+        i = 0
+        while i < improvement_array.length do
+            changelog += "*-* #{improvement_array.at(i)}\n"
+            i +=1
+        end
+    end
+
+    return changelog
+end
