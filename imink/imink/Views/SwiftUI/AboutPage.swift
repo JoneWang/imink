@@ -11,7 +11,7 @@ struct AboutPage: View {
     var body: some View {
         let contributions = [
             "Jone Wang", "Ryan Lau", "Shaw",
-            "Key山", "小傘Emp", "米雪", "ai",
+            "Key山", "俐吟", "小傘Emp", "米雪", "ai",
             "ddddxxx"
         ]
         ScrollView {
