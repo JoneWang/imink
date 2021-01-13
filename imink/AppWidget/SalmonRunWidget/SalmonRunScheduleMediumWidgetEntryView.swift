@@ -144,7 +144,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
             VStack(spacing: 0) {
                 HStack(alignment: .center, spacing: 10 + firstWeaponleading) {
                     Text(title)
-                        .sp1Font(size: titleFontSize, color: Color.white)
+                        .sp1Font(size: titleFontSize, color: Color("SalmonRunTitleColor"))
                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                         .unredacted()
                     
