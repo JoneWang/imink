@@ -20,8 +20,7 @@ public struct SalomonRunStageImageView: View {
     }
     
     public var body: some View {
-        let imageName = "\(name)_img"
-        ImageView(imageName: imageName, imageURL: imageURL, imageURLBehaviour: imageURLBehaviour)
+        ImageView(imageName: name, imageURL: imageURL, imageURLBehaviour: imageURLBehaviour)
     }
 }
 
