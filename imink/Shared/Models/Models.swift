@@ -21,6 +21,8 @@ typealias Schedules = SplatNet2.Schedules
 typealias Stage = SplatNet2.Stage
 typealias TeamMember = SplatNet2.TeamMember
 typealias TeamResult = SplatNet2.TeamResult
+typealias JobOverview = SplatNet2.JobOverview
+typealias Job = SplatNet2.Job
 
 extension Battle {
     

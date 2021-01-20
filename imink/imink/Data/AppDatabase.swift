@@ -157,6 +157,15 @@ class AppDatabase {
                 .deleteAll(db)
         }
         
+        migrator.registerMigration("createJob") { db in
+            try db.create(table: "job") { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("sp2PrincipalId", .text).notNull()
+                t.column("jobId", .integer).notNull()
+                t.column("json", .text).notNull()
+            }
+        }
+        
         return migrator
     }
 }

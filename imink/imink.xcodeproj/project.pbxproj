@@ -147,6 +147,10 @@
 		ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE8DC325209BB6003D7EDC /* LoginPage.swift */; };
 		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
+		ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */; };
+		ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */; };
+		ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */; };
+		ECB959B525B872BD0006E942 /* DBJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959B425B872BD0006E942 /* DBJob.swift */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
 		ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
@@ -327,6 +331,10 @@
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		ECAE8DC325209BB6003D7EDC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeJobViewModel.swift; sourceTree = "<group>"; };
+		ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeBattleViewModel.swift; sourceTree = "<group>"; };
+		ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizeViewModel.swift; sourceTree = "<group>"; };
+		ECB959B425B872BD0006E942 /* DBJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBJob.swift; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
 		ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSplitViewController.swift; sourceTree = "<group>"; };
 		ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunViewController.swift; sourceTree = "<group>"; };
@@ -690,6 +698,9 @@
 			isa = PBXGroup;
 			children = (
 				EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */,
+				ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */,
+				ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */,
+				ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */,
 				EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */,
 				EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */,
 				EC5362472525D68E0037BD12 /* HomeViewModel.swift */,
@@ -704,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				EC900EBF251C8EF700AA0B20 /* DBRecord.swift */,
+				ECB959B425B872BD0006E942 /* DBJob.swift */,
 			);
 			path = DBModels;
 			sourceTree = "<group>";
@@ -970,6 +982,7 @@
 				EC00DC0B251CD8770010366A /* TeamView.swift in Sources */,
 				EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */,
 				ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */,
+				ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */,
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
 				EC00DC19251CD90B0010366A /* RegularBattlePage.swift in Sources */,
 				EC00DC09251CD8770010366A /* BattleDataView.swift in Sources */,
@@ -1000,6 +1013,7 @@
 				EC344FE525330312004A7AF1 /* MeViewController.swift in Sources */,
 				EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */,
 				EC9A90492527851C00390573 /* ScheduleView.swift in Sources */,
+				ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */,
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
@@ -1025,10 +1039,12 @@
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				EC00DC0F251CD8770010366A /* MemberView.swift in Sources */,
+				ECB959B525B872BD0006E942 /* DBJob.swift in Sources */,
 				EC00DC0C251CD8770010366A /* BattleResultBar.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
 				EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
+				ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */,
 				EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,

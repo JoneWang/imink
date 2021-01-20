@@ -15,13 +15,18 @@ class TabBarController: UITabBarController {
     
     private var cancelBag = Set<AnyCancellable>()
     
-    private var tabBarViewModel: TabBarViewModel!
-    private var loginPageViewModel: LoginViewModel?
+    private var tabBarViewModel = TabBarViewModel()
+    private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
+    private var synchronizeJobViewModel = SynchronizeJobViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarViewModel = TabBarViewModel()
+        tabBarViewModel.$isLogin
+            .assign(to: &synchronizeBattleViewModel.$isLogin)
+        
+        tabBarViewModel.$isLogin
+            .assign(to: &synchronizeJobViewModel.$isLogin)
         
         NotificationCenter.default
             .publisher(for: .logout)

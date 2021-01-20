@@ -97,25 +97,6 @@ extension AppDatabase {
     
     // MARK: Writes
     
-    func unsynchronizedBattleIds(with battleIds: [String]) -> [String] {
-        guard let currentUser = AppUserDefaults.shared.user else {
-            return []
-        }
-        
-        return dbQueue.read { db in
-            let alreadyExistsRecords = try! DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
-                battleIds.contains(DBRecord.Columns.battleNumber)
-            )
-            .fetchAll(db)
-            
-            let alreadyExistsIds = alreadyExistsRecords.map { $0.battleNumber }
-            let unsynchronizedIds = Array(Set(battleIds).subtracting(Set(alreadyExistsIds)))
-            
-            return unsynchronizedIds
-        }
-    }
-    
     func saveBattle(data: Data) {
         guard let currentUser = AppUserDefaults.shared.user,
               let jsonString = String(data: data, encoding: .utf8),
@@ -175,6 +156,25 @@ extension AppDatabase {
     }
     
     // MARK: Reads
+    
+    func unsynchronizedBattleIds(with battleIds: [String]) -> [String] {
+        guard let currentUser = AppUserDefaults.shared.user else {
+            return []
+        }
+        
+        return dbQueue.read { db in
+            let alreadyExistsRecords = try! DBRecord.filter(
+                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                battleIds.contains(DBRecord.Columns.battleNumber)
+            )
+            .fetchAll(db)
+            
+            let alreadyExistsIds = alreadyExistsRecords.map { $0.battleNumber }
+            let unsynchronizedIds = Array(Set(battleIds).subtracting(Set(alreadyExistsIds)))
+            
+            return unsynchronizedIds
+        }
+    }
     
     func records() -> AnyPublisher<[DBRecord], Error> {
         guard let currentUser = AppUserDefaults.shared.user else {
