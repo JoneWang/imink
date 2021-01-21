@@ -35,7 +35,7 @@
 
 // MARK: Home
 
-"Today" = "Today";
+"つぎ" = "Today";
 "reset" = "reset";
 "Victory rate:" = "Victory:";
 "Results" = "Results";
@@ -62,6 +62,19 @@
 "8-Squid Clam Blitz X Power" = "8-Squid Clam Blitz X Power";
 " count" = " count";
 "KO BONUS!" = "KO BONUS!";
+
+// MARK: Salmon Run
+
+"grade_0" = "Intern";
+"grade_1" = "Apprentice";
+"grade_2" = "Part-Timer";
+"grade_3" = "Go-Getter";
+"grade_4" = "Overachiever";
+"grade_5" = "Profreshional";
+"Hazard Level" = "Hazard Level";
+"Clear!" = "Clear!";
+"Defeat_job" = "Defeat";
+"Wave %d" = "Wave %d";
 
 // MARK: Me
 

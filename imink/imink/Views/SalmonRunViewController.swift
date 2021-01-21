@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SalmonRunViewController: UIViewController {
     
@@ -17,6 +18,18 @@ class SalmonRunViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureContentView()
+    }
+    
+    func configureContentView() {
+        let hostingController = UIHostingController(rootView: JobListPage())
+        addChild(hostingController)
+        
+        view.addSubview(hostingController.view)
+        hostingController.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 
 }

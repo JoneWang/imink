@@ -35,7 +35,7 @@
 
 // MARK: Home
 
-"Today" = "今日";
+"つぎ" = "今日";
 "reset" = "リセット";
 "Victory rate:" = "しょうりつ：";
 "Results" = "きろく";
@@ -63,6 +63,19 @@
 " count" = "カウント";
 "KO BONUS!" = "ノックアウト！";
 
+// MARK: Salmon Run
+
+"grade_0" = "けんしゅう";
+"grade_1" = "かけだし";
+"grade_2" = "はんにんまえ";
+"grade_3" = "いちにんまえ";
+"grade_4" = "じゅくれん";
+"grade_5" = "たつじん";
+"Hazard Level" = "キケン度";
+"Clear!" = "Clear!!";
+"Defeat_job" = "Failure";
+"Wave %d" = "WAVE %d";
+
 // MARK: Me
 
 "Language" = "言語";
@@ -75,7 +88,7 @@
 // MARK: Schedule
 
 "Now" = "現在";
-"Next" = "つぎ";
+"Next" = "Next";
 "Next Day" = "そのつぎ";
 "Supplied Weapons" = "支給ブキ";
 "Open!" = "オープン！";

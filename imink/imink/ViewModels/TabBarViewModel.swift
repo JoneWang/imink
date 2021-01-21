@@ -21,8 +21,9 @@ class TabBarViewModel: ObservableObject {
     private var syncCancelBag = Set<AnyCancellable>()
     
     init() {
-        AppDatabase.shared.removeAllRecords()
-        AppDatabase.shared.removeAllJobs()
+        // DEBUG: Remove all data
+        // AppDatabase.shared.removeAllRecords()
+        // AppDatabase.shared.removeAllJobs()
         
         isLogin = AppUserDefaults.shared.user != nil
         

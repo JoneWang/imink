@@ -35,7 +35,7 @@
 
 // MARK: Home
 
-"Today" = "今日";
+"つぎ" = "今日";
 "reset" = "重置";
 "Victory rate:" = "胜率：";
 "Results" = "近期战况";
@@ -62,6 +62,19 @@
 "8-Squid Clam Blitz X Power" = "8人X段蛤蜊平均分";
 " count" = " 分";
 "KO BONUS!" = "KO  完胜！";
+
+// MARK: Salmon Run
+
+"grade_0" = "实习生";
+"grade_1" = "学徒";
+"grade_2" = "兼职员工";
+"grade_3" = "全职员工";
+"grade_4" = "熟练员工";
+"grade_5" = "捕鱼达人";
+"Hazard Level" = "危险度";
+"Clear!" = "通过！";
+"Defeat_job" = "失败";
+"Wave %d" = "第%d波";
 
 // MARK: Me
 

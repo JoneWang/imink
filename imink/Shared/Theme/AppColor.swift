@@ -51,6 +51,14 @@ struct AppColor {
     static var battleDetailStreakForegroundColor: Color {
         Color(AppUIColor.battleDetailStreakForegroundColor)
     }
+    
+    static var waveClearColor: Color {
+        Color(AppUIColor.waveClearColor)
+    }
+    
+    static var waveDefeatColor: Color {
+        Color(AppUIColor.waveDefeatColor)
+    }
 }
 
 struct AppUIColor {
@@ -95,4 +103,8 @@ struct AppUIColor {
     static let memberArrowColor = UIColor(named: "MemberArrowColor")!
     
     static let battleDetailStreakForegroundColor = UIColor(named: "BattleDetailStreakForegroundColor")!
+    
+    static let waveClearColor = UIColor(named: "WaveClearColor")!
+    
+    static let waveDefeatColor = UIColor(named: "WaveDefeatColor")!
 }

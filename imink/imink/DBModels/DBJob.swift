@@ -18,7 +18,13 @@ struct DBJob: Identifiable {
     var sp2PrincipalId: String
     var jobId: Int
     var json: String
+    
+    var job: Job {
+        json.decode(Job.self)!
+    }
 }
+
+extension DBJob: Equatable { }
 
 extension DBJob: Codable, FetchableRecord, MutablePersistableRecord {
     
@@ -80,6 +86,25 @@ extension AppDatabase {
     }
     
     // MARK: Reads
+    
+    func jobs() -> AnyPublisher<[DBJob], Error> {
+        guard let currentUser = AppUserDefaults.shared.user else {
+            return Just<[DBJob]>([])
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+        
+        return ValueObservation.tracking { db in
+            // exclude json
+            try Row
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, jobId, json FROM job WHERE sp2PrincipalId = ? ORDER BY jobId DESC", arguments: [currentUser.sp2PrincipalId])
+                .map { row in
+                    DBJob(row: row)
+                }
+        }
+        .publisher(in: dbQueue, scheduling: .immediate)
+        .eraseToAnyPublisher()
+    }
     
     func unsynchronizedJobIds(with jobIds: [Int]) -> [Int] {
         guard let currentUser = AppUserDefaults.shared.user else {
