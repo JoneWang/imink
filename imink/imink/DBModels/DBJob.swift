@@ -60,9 +60,9 @@ extension AppDatabase {
         }
         
         dbQueue.asyncWrite { db in
-            if try DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
-                    DBRecord.Columns.battleNumber == job.jobId
+            if try DBJob.filter(
+                DBJob.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                    DBJob.Columns.jobId == job.jobId
             ).fetchCount(db) > 0 {
                 return
             }

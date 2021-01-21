@@ -42,28 +42,19 @@ class SynchronizeBattleViewModel: SynchronizeViewModel<String> {
         AppDatabase.shared.unsynchronizedBattleIds(with: ids)
     }
     
-    override func requestDetail(id: String, finished: @escaping () -> Void) {
-        self.requestBattleDetail(battleNumber: id)
-        //            .breakpoint(receiveSubscription: { subscription in
-        //                return false
-        //            }, receiveOutput: { value in
-        //                print(value)
-        //                return false
-        //            }, receiveCompletion: { completion in
-        //                return false
-        //            })
+    override func requestDetail(id: String) -> AnyPublisher<Data, Never> {
+        Splatoon2API.result(battleNumber: id)
+            .request() // Not decode
+            .receive(on: DispatchQueue.main)
             .catch { error -> Just<Data> in
-                os_log("API Error: [splatoon2/battles/id] \(error.localizedDescription)")
+                os_log("API Error: [splatoon2/results/id] \(error.localizedDescription)")
                 return Just<Data>(Data())
             }
-            .sink { [weak self] data in
-                guard self != nil else { return }
-                
+            .map { data -> Data in
                 AppDatabase.shared.saveBattle(data: data)
-                
-                finished()
+                return data
             }
-            .store(in: &syncCancelBag)
+            .eraseToAnyPublisher()
     }
     
     override func loadingStatus(isLoading: Bool) {
@@ -75,15 +66,5 @@ class SynchronizeBattleViewModel: SynchronizeViewModel<String> {
     
     override func allFinished() {
         NotificationCenter.default.post(name: .recordSyncDetailFinished, object: nil)
-    }
-}
-
-extension SynchronizeBattleViewModel {
-    
-    func requestBattleDetail(battleNumber: String) -> AnyPublisher<Data, APIError>  {
-        Splatoon2API.result(battleNumber: battleNumber)
-            .request() // Not decode
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
     }
 }

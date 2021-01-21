@@ -42,41 +42,23 @@ class SynchronizeJobViewModel: SynchronizeViewModel<Int> {
         AppDatabase.shared.unsynchronizedJobIds(with: ids)
     }
     
-    override func requestDetail(id: Int, finished: @escaping () -> Void) {
-        self.requestBattleDetail(id: id)
-        //            .breakpoint(receiveSubscription: { subscription in
-        //                return false
-        //            }, receiveOutput: { value in
-        //                print(value)
-        //                return false
-        //            }, receiveCompletion: { completion in
-        //                return false
-        //            })
+    override func requestDetail(id: Int) -> AnyPublisher<Data, Never> {
+        Splatoon2API.job(id: id)
+            .request() // Not decode
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
             .catch { error -> Just<Data> in
                 os_log("API Error: [splatoon2/job/id] \(error.localizedDescription)")
                 return Just<Data>(Data())
             }
-            .sink { [weak self] data in
-                guard self != nil else { return }
-                
+            .map { data -> Data in
                 AppDatabase.shared.saveJob(data: data)
-                
-                finished()
+                return data
             }
-            .store(in: &syncCancelBag)
+            .eraseToAnyPublisher()
     }
     
     override func loadingStatus(isLoading: Bool) { }
     
     override func allFinished() { }
-}
-
-extension SynchronizeJobViewModel {
-    
-    func requestBattleDetail(id: Int) -> AnyPublisher<Data, APIError>  {
-        Splatoon2API.job(id: id)
-            .request() // Not decode
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
 }

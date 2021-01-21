@@ -42,7 +42,7 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
     
     func localUnsynchronizedIds(_ ids: [IdType]) -> [IdType] { [] }
     
-    func requestDetail(id: IdType, finished: @escaping () -> Void) { }
+    func requestDetail(id: IdType) -> AnyPublisher<Data, Never> { Just<Data>(Data()).eraseToAnyPublisher() }
     
     func loadingStatus(isLoading: Bool) { }
     
@@ -56,14 +56,19 @@ extension SynchronizeViewModel {
     func startRealTimeDataLoop() {
         loadingStatus(isLoading: true)
         
-        requestResults {
-            if !self.autoRefresh { return }
-            
-            if self.unsynchronizedIds.count == 0 {
-                self.loadingStatus(isLoading: false)
+        if self.unsynchronizedIds.count == 0 {
+            requestResults {
+                if !self.autoRefresh { return }
+                
+                if self.unsynchronizedIds.count == 0 {
+                    self.loadingStatus(isLoading: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                    self.startRealTimeDataLoop()
+                }
             }
-            
-            // Next request after delayed for 7 seconds
+        } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                 self.startRealTimeDataLoop()
             }
@@ -91,20 +96,17 @@ extension SynchronizeViewModel {
         
         $unsynchronizedIds
             .compactMap { $0.first }
+            .flatMap { self.requestDetail(id: $0) }
             .sink(receiveValue: { [weak self] id in
                 guard let `self` = self else { return }
                 
-                self.requestDetail(id: id) { [weak self] in
-                    guard let `self` = self else { return }
-                    
-                    if self.unsynchronizedIds.count > 0 {
-                        self.unsynchronizedIds.removeFirst()
-                    }
-                    
-                    if self.unsynchronizedIds.count == 0 {
-                        self.allFinished()
-                        self.loadingStatus(isLoading: false)
-                    }
+                if self.unsynchronizedIds.count > 0 {
+                    self.unsynchronizedIds.removeFirst()
+                }
+                
+                if self.unsynchronizedIds.count == 0 {
+                    self.allFinished()
+                    self.loadingStatus(isLoading: false)
                 }
             })
             .store(in: &syncCancelBag)
