@@ -37,6 +37,7 @@ struct JobListPage: View {
                     .buttonStyle(PlainButtonStyle())
                 }
                 .listSeparatorStyle(.none)
+                .ignoresSafeArea()
             }
             .navigationBarTitle("Salmon Run", displayMode: .inline)
             .navigationBarHidden(false)
