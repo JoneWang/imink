@@ -33,7 +33,6 @@
 		EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */; };
 		EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8A25B8A0C50085670D /* JobListPage.swift */; };
 		EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8E25B934640085670D /* JobListItemView.swift */; };
-		EC25FE9B25B95A4B0085670D /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = EC25FE9A25B95A4B0085670D /* SwiftUIX */; };
 		EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE9F25B960990085670D /* JobDetailPage.swift */; };
 		EC2C1597257CB7EF00528D80 /* WidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C1596257CB7EF00528D80 /* WidgetBackgroundView.swift */; };
 		EC2C34AC25984CE20007BA4D /* BattleDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C34AB25984CE20007BA4D /* BattleDetailMemberView.swift */; };
@@ -160,6 +159,8 @@
 		ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959CA25B896A80006E942 /* JobListViewModel.swift */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
 		ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */; };
+		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
+		ECD2BFD125BDACBA00AA11CA /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = ECD2BFD025BDACBA00AA11CA /* SwiftUIX */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
 		ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */; };
@@ -353,6 +354,7 @@
 		ECB959CA25B896A80006E942 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
 		ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSplitViewController.swift; sourceTree = "<group>"; };
+		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunViewController.swift; sourceTree = "<group>"; };
@@ -387,7 +389,7 @@
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
-				EC25FE9B25B95A4B0085670D /* SwiftUIX in Frameworks */,
+				ECD2BFD125BDACBA00AA11CA /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +751,7 @@
 				EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */,
 				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
 				ECB959CA25B896A80006E942 /* JobListViewModel.swift */,
+				ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */,
 				EC62E77225360B2B0028428C /* MeViewModel.swift */,
 			);
 			path = ViewModels;
@@ -868,7 +871,7 @@
 			packageProductDependencies = (
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
-				EC25FE9A25B95A4B0085670D /* SwiftUIX */,
+				ECD2BFD025BDACBA00AA11CA /* SwiftUIX */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -912,7 +915,7 @@
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */,
-				EC25FE9925B95A4B0085670D /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				ECD2BFC925BDACA800AA11CA /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1066,6 +1069,7 @@
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
 				EC900ED1251C8EF700AA0B20 /* User.swift in Sources */,
 				EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */,
+				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,
 				EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */,
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
@@ -1504,14 +1508,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EC25FE9925B95A4B0085670D /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.5;
-			};
-		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1552,14 +1548,17 @@
 				kind = branch;
 			};
 		};
+		ECD2BFC925BDACA800AA11CA /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JoneWang/SwiftUIX.git";
+			requirement = {
+				branch = contentInset;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC25FE9A25B95A4B0085670D /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC25FE9925B95A4B0085670D /* XCRemoteSwiftPackageReference "SwiftUIX" */;
-			productName = SwiftUIX;
-		};
 		EC43AA57251C9A7100283D28 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
@@ -1589,6 +1588,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		ECD2BFD025BDACBA00AA11CA /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECD2BFC925BDACA800AA11CA /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

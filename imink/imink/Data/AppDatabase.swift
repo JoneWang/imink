@@ -163,6 +163,16 @@ class AppDatabase {
                 t.column("sp2PrincipalId", .text).notNull()
                 t.column("jobId", .integer).notNull()
                 t.column("json", .text).notNull()
+                t.column("isClear", .boolean).notNull()
+                t.column("gradePoint", .integer).notNull()
+                t.column("gradePointDelta", .integer).notNull()
+                t.column("gradeId", .text).notNull()
+                t.column("helpCount", .integer).notNull()
+                t.column("deadCount", .integer).notNull()
+                t.column("goldenIkuraNum", .integer).notNull()
+                t.column("ikuraNum", .integer).notNull()
+                t.column("failureWave", .integer)
+                t.column("dangerRate", .double).notNull()
             }
         }
         

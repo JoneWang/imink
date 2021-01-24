@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
           "branch": null,
-          "revision": "7be7e1caded0f787e513d8f4311b20bcee97f262",
-          "version": "5.3.0"
+          "revision": "2a917823ed2511ec5cb21a83f8a4f389e45d7038",
+          "version": "5.2.0"
         }
       },
       {
@@ -84,11 +84,11 @@
       },
       {
         "package": "SwiftUIX",
-        "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX.git",
+        "repositoryURL": "https://github.com/JoneWang/SwiftUIX.git",
         "state": {
-          "branch": null,
-          "revision": "c2890b24e56e540b2c2fe00394b3826e4659c97b",
-          "version": "0.0.5"
+          "branch": "contentInset",
+          "revision": "25faa955c66731909b1c27747f47640f26c13263",
+          "version": null
         }
       }
     ]

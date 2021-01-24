@@ -9,39 +9,45 @@ import SwiftUI
 import InkCore
 
 struct JobDetailPage: View {
-    let job: Job
+    var viewModel: JobDetailViewModel!
+
+    init(id: Int64) {
+        viewModel = JobDetailViewModel(id: id)
+    }
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
-                JobDetailTopCardView(job: job)
-                
-                HStack(alignment: .top, spacing: 16) {
-                    ForEach(0..<3) { index in
-                        if index < job.waveDetails.count {
-                            JobDetailWaveView(waveIndex: index, job: job)
-                                .rotationEffect(.degrees(2))
+            if let job = viewModel.job {
+                VStack(spacing: 16) {
+                    JobDetailTopCardView(job: job)
+                    
+                    HStack(alignment: .top, spacing: 16) {
+                        ForEach(0..<3) { index in
+                            if index < job.waveDetails.count {
+                                JobDetailWaveView(waveIndex: index, job: job)
+                                    .rotationEffect(.degrees(2))
+                            }
+                        }
+                    }
+                    
+                    VStack(spacing: 6) {
+                        ForEach(job.results, id: \.pid) { playerResult in
+                            if playerResult.pid == job.myResult.pid {
+                                JobDetailMemberView(playerResult: playerResult)
+                                    .overlay(
+                                        Image("MemberArrow")
+                                            .foregroundColor(AppColor.memberArrowColor)
+                                            .position(x: 1, y: 18.5)
+                                    )
+                            } else {
+                                JobDetailMemberView(playerResult: playerResult)
+                            }
                         }
                     }
                 }
-                
-                VStack(spacing: 6) {
-                    ForEach(job.results, id: \.pid) { playerResult in
-                        if playerResult.pid == job.myResult.pid {
-                            JobDetailMemberView(playerResult: playerResult)
-                                .overlay(
-                                    Image("MemberArrow")
-                                        .foregroundColor(AppColor.memberArrowColor)
-                                        .position(x: 1, y: 18.5)
-                                )
-                        } else {
-                            JobDetailMemberView(playerResult: playerResult)
-                        }
-                    }
-                }
+                .padding([.leading, .trailing], 16)
+                .padding([.top, .bottom], 20)
             }
-            .padding([.leading, .trailing], 16)
-            .padding([.top, .bottom], 20)
         }
         .background(AppColor.listBackgroundColor)
     }
@@ -61,10 +67,11 @@ struct JobDetailPage_Previews: PreviewProvider {
         let json = String(data: sampleData, encoding: .utf8)!
         let jobOverview = json.decode(JobOverview.self)!
         
-        JobDetailPage(job: jobOverview.results[3])
-        JobDetailPage(job: jobOverview.results[0])
-            .previewDevice("iPhone 12 Pro Max")
-        JobDetailPage(job: jobOverview.results[0])
-            .previewDevice("iPad Pro (9.7-inch)")
+        let page = JobDetailPage(id: 0)
+        page.viewModel.job = jobOverview.results[0]
+        
+        return VStack {
+            page
+        }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct JobListItemView: View {
-    let job: Job
+    let job: DBJob
     
     var pointStatusImageName: String {
         if job.gradePointDelta > 0 {
@@ -22,10 +22,10 @@ struct JobListItemView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            let resultColor = job.jobResult.isClear ? AppColor.waveClearColor : AppColor.waveDefeatColor
+            let resultColor = job.isClear ? AppColor.waveClearColor : AppColor.waveDefeatColor
             
             HStack(spacing: 6) {
-                Text("\("grade_\(job.grade.id)".localized) \(job.gradePoint)")
+                Text("\("grade_\(job.gradeId)".localized) \(job.gradePoint)")
                     .sp1Font(size: 14, color: AppColor.appLabelColor)
                 
                 Rectangle()
@@ -41,7 +41,7 @@ struct JobListItemView: View {
             .padding(.bottom, 6.5)
             
             HStack {
-                Text(job.jobResult.isClear ? "Clear!" : "Defeat_job")
+                Text(job.isClear ? "Clear!" : "Defeat_job")
                     .sp1Font(size: 14, color: resultColor)
                 
                 Spacer()
@@ -49,25 +49,25 @@ struct JobListItemView: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image("JobHelp")
-                        Text("\(job.myResult.helpCount)")
+                        Text("\(job.helpCount)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobDead")
-                        Text("\(job.myResult.deadCount)")
+                        Text("\(job.deadCount)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobGoldenIkura")
-                        Text("\(job.myResult.goldenIkuraNum)")
+                        Text("\(job.goldenIkuraNum)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobIkura")
-                        Text("\(job.myResult.ikuraNum)")
+                        Text("\(job.ikuraNum)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                 }
@@ -77,7 +77,7 @@ struct JobListItemView: View {
             HStack {
                 ForEach(0..<3) { index in
                     Rectangle()
-                        .foregroundColor((job.jobResult.failureWave ?? 3 >= index + 1) ? resultColor : .systemGray3)
+                        .foregroundColor((job.failureWave ?? 3 >= index + 1) ? resultColor : .systemGray3)
                         .frame(height: 5)
                         .clipShape(Capsule())
                 }
@@ -105,21 +105,32 @@ import SplatNet2API
 
 struct JobListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        let sampleData = SplatNet2API.jobOverview.sampleData
-        let json = String(data: sampleData, encoding: .utf8)!
-        let jobOverview = json.decode(JobOverview.self)!
+        let dbJob = DBJob(
+            sp2PrincipalId: "123456789",
+            jobId: 222,
+            json: nil,
+            isClear: true,
+            gradePoint: 100,
+            gradePointDelta: 20,
+            gradeId: "4",
+            helpCount: 10,
+            deadCount: 9,
+            goldenIkuraNum: 22,
+            ikuraNum: 33,
+            failureWave: nil,
+            dangerRate: 152.2)
         
-        VStack(spacing: 0) {
-            JobListItemView(job: jobOverview.results[0])
-                .padding(.top, 8)
-                .padding([.leading, .trailing])
-            
-            JobListItemView(job: jobOverview.results[30])
-                .padding(.top, 8)
-                .padding([.leading, .trailing])
-        }
-        .frame(width: 375, height: 300)
-        .background(AppColor.listBackgroundColor)
-        .previewLayout(.sizeThatFits)
+        JobListItemView(job: dbJob)
+            .padding(.top, 8)
+            .padding([.leading, .trailing])
+            .background(AppColor.listBackgroundColor)
+            .previewLayout(.sizeThatFits)
+        
+        JobListItemView(job: dbJob)
+            .padding(.top, 8)
+            .padding([.leading, .trailing])
+            .background(AppColor.listBackgroundColor)
+            .previewLayout(.sizeThatFits)
+            .colorScheme(.dark)
     }
 }

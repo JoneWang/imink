@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUIX
 
 struct JobListPage: View {
-    @StateObject private var viewModel = JobListViewModel()
+    @StateObject var viewModel = JobListViewModel()
     
     var body: some View {
         NavigationView {
@@ -19,24 +19,16 @@ struct JobListPage: View {
                     .ignoresSafeArea()
                 
                 CocoaList(viewModel.rows) { job in
-                    NavigationLink(destination: JobDetailPage(job: job.job)) {
-                        ZStack {
-                            if viewModel.rows.first == job {
-                                JobListItemView(job: job.job)
-                                    .padding(.top, 8)
-                            } else if viewModel.rows.last == job {
-                                JobListItemView(job: job.job)
-                                    .padding(.bottom, 16)
-                            } else {
-                                JobListItemView(job: job.job)
-                            }
-                        }
-                        .padding(.top, 8)
-                        .padding([.leading, .trailing])
+                    NavigationLink(destination: JobDetailPage(id: job.id!)) {
+                        JobListItemView(job: job)
+                            .padding(.top, 8)
+                            .padding([.leading, .trailing])
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
                 .listSeparatorStyle(.none)
+                .contentInset(.top, 8)
+                .contentInset(.bottom, 16)
                 .ignoresSafeArea()
             }
             .navigationBarTitle("Salmon Run", displayMode: .inline)
@@ -48,6 +40,29 @@ struct JobListPage: View {
 
 struct JobListPage_Previews: PreviewProvider {
     static var previews: some View {
-        JobListPage()
+        var rows: [DBJob] = []
+        let dbJob = DBJob(
+            sp2PrincipalId: "123456789",
+            jobId: 222,
+            json: nil,
+            isClear: true,
+            gradePoint: 100,
+            gradePointDelta: 20,
+            gradeId: "4",
+            helpCount: 10,
+            deadCount: 9,
+            goldenIkuraNum: 22,
+            ikuraNum: 33,
+            failureWave: nil,
+            dangerRate: 152.2)
+        
+        for _ in 0..<10 {
+            rows.append(dbJob)
+        }
+        
+        let page = JobListPage()
+        page.viewModel.rows = rows
+        
+        return page
     }
 }
