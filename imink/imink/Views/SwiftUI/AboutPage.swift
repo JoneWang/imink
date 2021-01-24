@@ -12,7 +12,7 @@ struct AboutPage: View {
         let contributions = [
             "Jone Wang", "Ryan Lau", "Shaw",
             "Key山", "俐吟", "小傘Emp", "米雪", "ai",
-            "ddddxxx"
+            "ddddxxx", "柏汐"
         ]
         ScrollView {
             HStack {
