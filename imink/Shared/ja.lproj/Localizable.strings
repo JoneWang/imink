@@ -35,7 +35,7 @@
 
 // MARK: Home
 
-"つぎ" = "今日";
+"Today" = "今日";
 "reset" = "リセット";
 "Victory rate:" = "しょうりつ：";
 "Results" = "きろく";
@@ -75,6 +75,18 @@
 "Clear!" = "Clear!!";
 "Defeat_job" = "Failure";
 "Wave %d" = "WAVE %d";
+"JobWaveDefeat_img" = "JobWaveDefeat_ja";
+"JobWaveClear_img" = "JobWaveClear_ja";
+"low" = "干潮";
+"normal" = "普通";
+"high" = "満潮";
+"water-levels" = "-";
+"rush" = "ラッシュ";
+"fog" = "霧";
+"goldie-seeking" = "キンシャケ探し";
+"griller" = "グリル発進";
+"cohock-charge" = "ドスコイ大量発生";
+"the-mothership" = "ハコビヤ襲来";
 
 // MARK: Me
 
@@ -88,7 +100,7 @@
 // MARK: Schedule
 
 "Now" = "現在";
-"Next" = "Next";
+"Next" = "つぎ";
 "Next Day" = "そのつぎ";
 "Supplied Weapons" = "支給ブキ";
 "Open!" = "オープン！";

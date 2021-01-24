@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
           "branch": null,
-          "revision": "2a917823ed2511ec5cb21a83f8a4f389e45d7038",
-          "version": "5.2.0"
+          "revision": "7be7e1caded0f787e513d8f4311b20bcee97f262",
+          "version": "5.3.0"
         }
       },
       {
@@ -78,7 +78,7 @@
         "repositoryURL": "https://github.com/ddddxxx/SplatNet2.git",
         "state": {
           "branch": "addfields",
-          "revision": "2b54d1742d5d2720529699686249bd617a5d2bd8",
+          "revision": "fca583fb7f2bfe778c55a752771e3ecc4cfa6c3a",
           "version": null
         }
       },

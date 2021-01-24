@@ -49,6 +49,7 @@
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
 		EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
+		EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C70AB25B9CAFA00E6EF6E /* JobDetailWaveView.swift */; };
 		EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4CA1732595C6B900B5C8CF /* BattleDetailPage.swift */; };
 		EC4CA1782595DEAB00B5C8CF /* ConvenientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */; };
 		EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */; };
@@ -67,6 +68,7 @@
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC7652DF259200890098FD22 /* SplatNet2 */; };
+		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
 		EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611AA253AA873003BA67A /* SwiftUI.framework */; };
 		EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8611CB253AB9CB003BA67A /* Assets.xcassets */; };
@@ -160,6 +162,9 @@
 		ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
+		ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */; };
+		ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
+		ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
 		ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -264,6 +269,7 @@
 		EC39701D25480B9C00557BD4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC39703625482BE400557BD4 /* String+LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedString.swift"; sourceTree = "<group>"; };
 		EC3F74A125505FFA0061989B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EC4C70AB25B9CAFA00E6EF6E /* JobDetailWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailWaveView.swift; sourceTree = "<group>"; };
 		EC4CA1732595C6B900B5C8CF /* BattleDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailPage.swift; sourceTree = "<group>"; };
 		EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenientColors.swift; sourceTree = "<group>"; };
 		EC4DF4F5252EF1510020B234 /* VDGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDGridView.swift; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
 		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
+		EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTopCardView.swift; sourceTree = "<group>"; };
 		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EC8611AA253AA873003BA67A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -346,6 +353,8 @@
 		ECB959CA25B896A80006E942 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
 		ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSplitViewController.swift; sourceTree = "<group>"; };
+		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
+		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		ECF4D2AD253DD0C4002647D6 /* SalmonRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -505,6 +514,9 @@
 			isa = PBXGroup;
 			children = (
 				EC25FE8E25B934640085670D /* JobListItemView.swift */,
+				EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */,
+				EC4C70AB25B9CAFA00E6EF6E /* JobDetailWaveView.swift */,
+				ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -578,6 +590,7 @@
 				EC565B5A251D882900CCAC9A /* NotificationName.swift */,
 				EC900E94251C8EF600AA0B20 /* Utils */,
 				EC900EA3251C8EF600AA0B20 /* Theme */,
+				ECF26F0125BACBC600F1FBCA /* Shapes */,
 				EC00DBF1251CD29C0010366A /* ViewModifiers */,
 				EC861228253AC688003BA67A /* Data */,
 				EC900E9E251C8EF600AA0B20 /* API */,
@@ -767,6 +780,14 @@
 				EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		ECF26F0125BACBC600F1FBCA /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -976,6 +997,7 @@
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
 				EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */,
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
+				ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */,
 				EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */,
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
 				EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
@@ -1024,6 +1046,7 @@
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */,
 				EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */,
+				ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */,
 				ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */,
 				EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */,
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
@@ -1032,6 +1055,7 @@
 				EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */,
 				EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */,
 				EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */,
+				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
 				EC00DBD0251C9D5B0010366A /* BattleDetailViewController.swift in Sources */,
 				EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */,
 				EC00DC0D251CD8770010366A /* TeamsDataView.swift in Sources */,
@@ -1054,6 +1078,7 @@
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
+				EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
 				EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */,
 				EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */,
@@ -1063,6 +1088,7 @@
 				ECF4D2AE253DD0C4002647D6 /* SalmonRunViewController.swift in Sources */,
 				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,
 				EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */,
+				ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */,
 				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
 				EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */,
 				EC2C34AC25984CE20007BA4D /* BattleDetailMemberView.swift in Sources */,

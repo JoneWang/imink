@@ -59,6 +59,14 @@ struct AppColor {
     static var waveDefeatColor: Color {
         Color(AppUIColor.waveDefeatColor)
     }
+    
+    static var waveGradientStartColor: Color {
+        Color(AppUIColor.waveGradientStartColor)
+    }
+    
+    static var salmonRunSpecialBackgroundColor: Color {
+        Color(AppUIColor.salmonRunSpecialBackgroundColor)
+    }
 }
 
 struct AppUIColor {
@@ -107,4 +115,8 @@ struct AppUIColor {
     static let waveClearColor = UIColor(named: "WaveClearColor")!
     
     static let waveDefeatColor = UIColor(named: "WaveDefeatColor")!
+    
+    static let waveGradientStartColor = UIColor(named: "WaveGradientStartColor")!
+    
+    static let salmonRunSpecialBackgroundColor = UIColor(named: "SalmonRunSpecialBackgroundColor")!
 }

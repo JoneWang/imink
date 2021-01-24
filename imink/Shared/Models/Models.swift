@@ -23,6 +23,9 @@ typealias TeamMember = SplatNet2.TeamMember
 typealias TeamResult = SplatNet2.TeamResult
 typealias JobOverview = SplatNet2.JobOverview
 typealias Job = SplatNet2.Job
+typealias Weapon = SplatNet2.Weapon
+
+extension SalmonRunSchedules.Schedule.Weapon: Identifiable { }
 
 extension Battle {
     

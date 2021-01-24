@@ -19,7 +19,7 @@ struct JobListPage: View {
                     .ignoresSafeArea()
                 
                 CocoaList(viewModel.rows) { job in
-                    NavigationLink(destination: JobDetailPage()) {
+                    NavigationLink(destination: JobDetailPage(job: job.job)) {
                         ZStack {
                             if viewModel.rows.first == job {
                                 JobListItemView(job: job.job)

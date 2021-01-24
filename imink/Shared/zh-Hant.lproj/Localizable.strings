@@ -35,7 +35,7 @@
 
 // MARK: Home
 
-"つぎ" = "今日";
+"Today" = "今日";
 "reset" = "重置";
 "Victory rate:" = "勝率：";
 "Results" = "近期戰況";
@@ -74,7 +74,19 @@
 "Hazard Level" = "危險度";
 "Clear!" = "通過！";
 "Defeat_job" = "失敗";
-"Wave %d" = "第%d波";
+"Wave %d" = "WAVE %d";
+"JobWaveDefeat_img" = "JobWaveDefeat";
+"JobWaveClear_img" = "JobWaveClear";
+"low" = "干潮";
+"normal" = "普通";
+"high" = "満潮";
+"water-levels" = "-";
+"rush" = "軍團暴走";
+"fog" = "迷霧";
+"goldie-seeking" = "尋找金鮭魚";
+"griller" = "烤肉架出擊";
+"cohock-charge" = "胖鮭魚大量出沒";
+"the-mothership" = "運輸母艦來襲";
 
 // MARK: Me
 

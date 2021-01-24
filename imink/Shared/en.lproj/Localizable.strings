@@ -35,7 +35,7 @@
 
 // MARK: Home
 
-"つぎ" = "Today";
+"Today" = "Today";
 "reset" = "reset";
 "Victory rate:" = "Victory:";
 "Results" = "Results";
@@ -75,6 +75,18 @@
 "Clear!" = "Clear!";
 "Defeat_job" = "Defeat";
 "Wave %d" = "Wave %d";
+"JobWaveDefeat_img" = "JobWaveDefeat";
+"JobWaveClear_img" = "JobWaveClear";
+"low" = "Low tide";
+"normal" = "Normal";
+"high" = "High tide";
+"water-levels" = "-";
+"rush" = "Rush";
+"fog" = "Fog";
+"goldie-seeking" = "Goldie Seeking";
+"griller" = "The Griller";
+"cohock-charge" = "Cohock Charge";
+"the-mothership" = "The Mothership";
 
 // MARK: Me
 
