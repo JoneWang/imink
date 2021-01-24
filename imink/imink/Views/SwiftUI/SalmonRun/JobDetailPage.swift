@@ -47,8 +47,10 @@ struct JobDetailPage: View {
                 }
                 .padding([.leading, .trailing], 16)
                 .padding([.top, .bottom], 20)
+                .frame(maxWidth: 500)
             }
         }
+        .frame(maxWidth: .infinity)
         .background(AppColor.listBackgroundColor)
     }
 }

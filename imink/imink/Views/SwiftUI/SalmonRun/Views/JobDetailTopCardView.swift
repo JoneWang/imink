@@ -15,22 +15,25 @@ struct JobDetailTopCardView: View {
         job.schedule.stage!
     }
     
-    var width = UIScreen.main.bounds.size.width - 64
-    
+    var width: CGFloat {
+        var screentWidth = UIScreen.main.bounds.size.width
+        if screentWidth > 500 {
+            screentWidth = 500
+        }
+
+        return screentWidth - 64
+    }
+
     var inkOffsetScale: CGFloat {
         var scale = width / 311
-        if width > 400 {
-            scale = scale * 0.6
+        if width >= 436 {
+            scale = scale * 0.8
         }
         return scale
     }
-    
+
     var inkScale: CGFloat {
-        var scale = width / 311
-        if width > 400 {
-            scale = scale * 0.9
-        }
-        return scale
+        width / 311
     }
     
     var body: some View {
@@ -136,27 +139,27 @@ extension Job {
     }
 }
 
-import SplatNet2API
-
-struct JobTopCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        let sampleData = SplatNet2API.jobOverview.sampleData
-        let json = String(data: sampleData, encoding: .utf8)!
-        let jobOverview = json.decode(JobOverview.self)!
-        let job = jobOverview.results[31]
-        
-        makeContent(job: job, width: 350, height: 250)
-        makeContent(job: job, width: 375, height: 250)
-        makeContent(job: job, width: 414, height: 250)
-        makeContent(job: job, width: 800, height: 500)
-    }
-    
-    static func makeContent(job: Job, width: CGFloat, height: CGFloat) -> some View {
-        ScrollView {
-            JobDetailTopCardView(job: job, width: width - 64)
-                .padding([.leading, .trailing])
-        }
-        .background(AppColor.listBackgroundColor)
-        .previewLayout(.fixed(width: width, height: height))
-    }
-}
+//import SplatNet2API
+//
+//struct JobTopCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let sampleData = SplatNet2API.jobOverview.sampleData
+//        let json = String(data: sampleData, encoding: .utf8)!
+//        let jobOverview = json.decode(JobOverview.self)!
+//        let job = jobOverview.results[31]
+//
+//        makeContent(job: job, width: 350, height: 250)
+//        makeContent(job: job, width: 375, height: 250)
+//        makeContent(job: job, width: 414, height: 250)
+//        makeContent(job: job, width: 500, height: 500)
+//    }
+//
+//    static func makeContent(job: Job, width: CGFloat, height: CGFloat) -> some View {
+//        ScrollView {
+//            JobDetailTopCardView(job: job, width: width - 64)
+//                .padding([.leading, .trailing])
+//        }
+//        .background(AppColor.listBackgroundColor)
+//        .previewLayout(.fixed(width: width, height: height))
+//    }
+//}
