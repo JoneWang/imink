@@ -17,7 +17,6 @@ class LoginViewModel: ObservableObject {
         case loginSuccess
     }
     
-    @Published var useClientToken = false
     @Published var useNintendoAccount = false
     
     @Published var status: Status? = .waitTypeToken
@@ -31,14 +30,6 @@ class LoginViewModel: ObservableObject {
     
     init() {
         requestNintendoLoginURL()
-        
-        $useNintendoAccount
-            .sink { [weak self] use in
-                if !use {
-                    self?.requestNintendoLoginURL()
-                }
-            }
-            .store(in: &cancelBag)
     }
     
     func login() {
@@ -48,26 +39,32 @@ class LoginViewModel: ObservableObject {
             .request()
             .decode(type: User.self)
             .receive(on: DispatchQueue.main)
+            .flatMap { user -> AnyPublisher<User, Error> in
+                Splatoon2API.nicknameAndIcon(id: user.sp2PrincipalId, iksmSession: user.iksmSession)
+                    .request()
+                    .decode(type: NicknameAndIcon.self)
+                    .receive(on: DispatchQueue.main)
+                    .map { _ in user }
+                    .eraseToAnyPublisher()
+            }
             .sink { [weak self] completion in
                 guard let `self` = self else { return }
-                
+
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
                     // TODO: Popping error view
-                    os_log("API Error: [/me] \(error.localizedDescription)")
+                    os_log("API Error: (login) \(error.localizedDescription)")
                     self.status = .waitTypeToken
                 }
             } receiveValue: { [weak self] user in
                 guard let `self` = self else { return }
-                
+
                 // Save Client Token
-                print(self.clientToken)
-                
                 AppUserDefaults.shared.clientToken = self.clientToken
                 AppUserDefaults.shared.user = user
-                
+
                 self.status = .loginSuccess
             }
             .store(in: &cancelBag)
