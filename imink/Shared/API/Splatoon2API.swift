@@ -13,7 +13,7 @@ enum Splatoon2API {
     case schedules
     case salmonRunSchedules
     case records
-    case nicknameAndIcon(id: String)
+    case nicknameAndIcon(id: String, iksmSession: String? = nil)
     case activeFestivals
     case jobOverview
     case job(id: Int)
@@ -64,6 +64,11 @@ extension Splatoon2API: APITargetType {
     }
     
     var headers: [String : String]? {
+        if case let .nicknameAndIcon(_, iksmSession) = self,
+           let session = iksmSession {
+            return ["Cookie": "iksm_session=\(session)"]
+        }
+        
         if let user = AppUserDefaults.shared.user {
             return ["Cookie": "iksm_session=\(user.iksmSession)"]
         }
@@ -73,7 +78,7 @@ extension Splatoon2API: APITargetType {
     
     var querys: [(String, String?)]? {
         switch self {
-        case .nicknameAndIcon(let id):
+        case .nicknameAndIcon(let id, _):
             return [("id", id)]
         default:
             return nil
