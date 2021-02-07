@@ -21,30 +21,40 @@ struct JobDetailMemberView: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image("JobHelp")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(playerResult.helpCount)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobDead")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(playerResult.deadCount)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobGoldenIkura")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(playerResult.goldenIkuraNum)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobIkura")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(playerResult.ikuraNum)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobKillBoss")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(playerResult.bossKillCounts.values.reduce(0) { $0 + $1.count })")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }

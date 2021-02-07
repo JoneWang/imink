@@ -55,10 +55,10 @@ struct JobDetailWaveView: View {
                             .sp2Font(size: 14, color: AppColor.appLabelColor)
                         
                         Text(waveDetail.waterLevel.key.rawValue.localizedKey)
-                            .sp2Font(size: 10, color: .systemGray2)
+                            .sp2Font(size: 10, color: .systemGray)
                         
                         Text(waveDetail.eventType.key.localizedKey)
-                            .sp2Font(size: 10, color: .systemGray2)
+                            .sp2Font(size: 10, color: .systemGray)
                     }
                     .padding(.top, 14)
                     

@@ -26,7 +26,7 @@ struct JobListItemView: View {
             
             HStack(spacing: 6) {
                 Text("\("grade_\(job.gradeId)".localized) \(job.gradePoint)")
-                    .sp1Font(size: 14, color: AppColor.appLabelColor)
+                    .sp1Font(size: 12, color: AppColor.appLabelColor)
                 
                 Rectangle()
                     .foregroundColor(.clear)
@@ -49,24 +49,32 @@ struct JobListItemView: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image("JobHelp")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(job.helpCount)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobDead")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(job.deadCount)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobGoldenIkura")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(job.goldenIkuraNum)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                     
                     HStack(spacing: 3) {
                         Image("JobIkura")
+                            .foregroundColor(.systemGray3)
+                        
                         Text("\(job.ikuraNum)")
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
@@ -86,7 +94,7 @@ struct JobListItemView: View {
             
             HStack {
                 Text("\("Hazard Level".localized) \(job.dangerRate)%")
-                    .font(.system(size: 12))
+                    .font(.system(size: 10))
                     .foregroundColor(.systemGray2)
                 
                 Spacer()

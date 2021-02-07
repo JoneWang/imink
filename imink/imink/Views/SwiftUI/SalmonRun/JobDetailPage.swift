@@ -25,7 +25,7 @@ struct JobDetailPage: View {
                         ForEach(0..<3) { index in
                             if index < job.waveDetails.count {
                                 JobDetailWaveView(waveIndex: index, job: job)
-                                    .rotationEffect(.degrees(2))
+                                    .rotationEffect(.degrees(-2))
                             }
                         }
                     }
