@@ -34,7 +34,6 @@ struct JobListPage: View {
             .navigationBarTitle("Salmon Run", displayMode: .inline)
             .navigationBarHidden(false)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

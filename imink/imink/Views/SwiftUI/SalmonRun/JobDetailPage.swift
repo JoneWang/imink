@@ -10,48 +10,67 @@ import InkCore
 
 struct JobDetailPage: View {
     var viewModel: JobDetailViewModel!
-
+    
     init(id: Int64) {
         viewModel = JobDetailViewModel(id: id)
     }
     
     var body: some View {
-        ScrollView {
-            if let job = viewModel.job {
-                VStack(spacing: 16) {
-                    JobDetailTopCardView(job: job)
-                    
-                    HStack(alignment: .top, spacing: 16) {
-                        ForEach(0..<3) { index in
-                            if index < job.waveDetails.count {
-                                JobDetailWaveView(waveIndex: index, job: job)
-                                    .rotationEffect(.degrees(-2))
-                            }
-                        }
-                    }
-                    
-                    VStack(spacing: 6) {
-                        ForEach(job.results, id: \.pid) { playerResult in
-                            if playerResult.pid == job.myResult.pid {
-                                JobDetailMemberView(playerResult: playerResult)
-                                    .overlay(
-                                        Image("MemberArrow")
-                                            .foregroundColor(AppColor.memberArrowColor)
-                                            .position(x: 1, y: 18.5)
-                                    )
-                            } else {
-                                JobDetailMemberView(playerResult: playerResult)
-                            }
-                        }
-                    }
-                }
-                .padding([.leading, .trailing], 16)
-                .padding([.top, .bottom], 20)
-                .frame(maxWidth: 500)
+        ZStack {
+            // FIXME: Fix navigationBar background is white.
+            GeometryReader { geometry in
+                Rectangle()
+                    .fill(AppColor.listBackgroundColor)
+                    .frame(height: geometry.safeAreaInsets.top)
+                    .edgesIgnoringSafeArea(.top)
+                
+                Spacer()
             }
+            
+            ScrollView {
+                HStack {
+                    Spacer()
+                    
+                    if let job = viewModel.job {
+                        VStack(spacing: 16) {
+                            JobDetailTopCardView(job: job)
+                            
+                            HStack(alignment: .top, spacing: 16) {
+                                ForEach(0..<3) { index in
+                                    if index < job.waveDetails.count {
+                                        JobDetailWaveView(waveIndex: index, job: job)
+                                            .rotationEffect(.degrees(-2))
+                                    }
+                                }
+                            }
+                            
+                            VStack(spacing: 6) {
+                                ForEach(job.results, id: \.pid) { playerResult in
+                                    if playerResult.pid == job.myResult.pid {
+                                        JobDetailMemberView(playerResult: playerResult)
+                                            .overlay(
+                                                Image("MemberArrow")
+                                                    .foregroundColor(AppColor.memberArrowColor)
+                                                    .position(x: 1, y: 18.5)
+                                            )
+                                    } else {
+                                        JobDetailMemberView(playerResult: playerResult)
+                                    }
+                                }
+                            }
+                        }
+                        .padding([.leading, .trailing], 16)
+                        .padding([.top, .bottom], 20)
+                        .frame(maxWidth: 500)
+                    }
+                    
+                    Spacer()
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .background(AppColor.listBackgroundColor)
+            .navigationBarTitle(viewModel.job != nil ? "ID: \(viewModel.job!.jobId)" : "", displayMode: .inline)
         }
-        .frame(maxWidth: .infinity)
-        .background(AppColor.listBackgroundColor)
     }
 }
 
