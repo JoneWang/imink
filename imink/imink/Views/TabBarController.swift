@@ -22,6 +22,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.systemBackground
+        
         tabBarViewModel.$isLogin
             .assign(to: &synchronizeBattleViewModel.$isLogin)
         
