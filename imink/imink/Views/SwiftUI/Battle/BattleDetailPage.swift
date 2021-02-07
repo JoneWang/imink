@@ -11,7 +11,7 @@ import InkCore
 
 struct BattleDetailPage: View {
     
-    @ObservedObject var model: BattleDetailViewController.UpdateModel
+    @ObservedObject var model: BattleRecordListViewController.UpdateModel
     
     var battle: Battle {
         model.battle
@@ -170,8 +170,11 @@ struct BattleDetailPage: View {
             }
             .padding([.leading, .trailing], 16)
             .padding([.top, .bottom], 20)
+            .frame(maxWidth: 500)
         }
+        .frame(maxWidth: .infinity)
         .background(AppColor.listBackgroundColor)
+        .navigationBarTitle("ID: \(battle.battleNumber)", displayMode: .inline)
     }
 }
 
@@ -243,7 +246,7 @@ struct BattleDetailPage_Previews: PreviewProvider {
         let sampleData = SplatNet2API.result(battleNumber: "").sampleData
         let json = String(data: sampleData, encoding: .utf8)!
         let battle = json.decode(Battle.self)!
-        let updateModel = BattleDetailViewController.UpdateModel(battle: battle)
+        let updateModel = BattleRecordListViewController.UpdateModel(battle: battle)
         return BattleDetailPage(model: updateModel)
     }
 }

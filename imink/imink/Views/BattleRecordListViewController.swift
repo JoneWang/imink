@@ -10,6 +10,14 @@ import Combine
 import SwiftUI
 
 class BattleRecordListViewController: UIViewController {
+    
+    class UpdateModel: ObservableObject {
+        @Published var battle: Battle
+        
+        init(battle: Battle) {
+            self.battle = battle
+        }
+    }
 
     static let storyboardID = "BattleRecordList"
 
@@ -36,6 +44,8 @@ class BattleRecordListViewController: UIViewController {
     }
 
     private var selectEnabled = true
+    
+    private var updateModel: UpdateModel!
 
     enum Section: Int {
         case main
@@ -128,15 +138,15 @@ extension BattleRecordListViewController: UICollectionViewDelegate {
         }
         
         if let splitVC = splitViewController,
-           let battleDetailViewController = splitVC.viewControllers.last as? BattleDetailViewController {
-            battleDetailViewController.battle = battle
+           let _ = splitVC.viewControllers.last as? UIHostingController<BattleDetailPage> {
+            updateModel.battle = battle
         } else if let navVC = navigationController,
                   let detailNavVC = navVC.viewControllers.last as? UINavigationController,
-                  let battleDetailViewController = detailNavVC.viewControllers.last as? BattleDetailViewController {
-            battleDetailViewController.battle = battle
+                  let _ = detailNavVC.viewControllers.last as? UIHostingController<BattleDetailPage> {
+            updateModel.battle = battle
         } else {
-            guard let battleDetailViewController = BattleDetailViewController.instantiateFromStoryboard() else { return }
-            battleDetailViewController.battle = battle
+            updateModel = UpdateModel(battle: battle)
+            let battleDetailViewController = UIHostingController(rootView: BattleDetailPage(model: updateModel))
             let navigationController = UINavigationController(rootViewController: battleDetailViewController)
             showDetailViewController(navigationController, sender: self)
         }
