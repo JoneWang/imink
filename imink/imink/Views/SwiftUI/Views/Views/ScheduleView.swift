@@ -78,7 +78,7 @@ struct ScheduleView: View {
                     }
                     .frame(maxWidth: .infinity)
                     
-                    HStack {
+                    HStack(spacing: 9) {
                         ForEach(0..<3) { j in
                             let schedule = schedules[j][index]
                             
@@ -95,7 +95,7 @@ struct ScheduleView: View {
                                         .continuousCornerRadius(8)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 8)
-                                                .stroke(Color.primary, lineWidth: 1)
+                                                .stroke(Color(UIColor.separator), lineWidth: 1)
                                         )
                                     
                                 }
