@@ -109,9 +109,6 @@
 		EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* Models.swift */; };
 		EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */; };
 		EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
-		EC900EDB251C8EF700AA0B20 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = EC900EB7251C8EF700AA0B20 /* result.json */; };
-		EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB8251C8EF700AA0B20 /* Sample.swift */; };
-		EC900EDD251C8EF700AA0B20 /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = EC900EB9251C8EF700AA0B20 /* results.json */; };
 		EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */; };
 		EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */; };
 		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
@@ -304,9 +301,6 @@
 		EC900EA9251C8EF600AA0B20 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
-		EC900EB7251C8EF700AA0B20 /* result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
-		EC900EB8251C8EF700AA0B20 /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
-		EC900EB9251C8EF700AA0B20 /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
 		EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
@@ -605,7 +599,6 @@
 			children = (
 				EC900EAF251C8EF700AA0B20 /* Data */,
 				EC900EBE251C8EF700AA0B20 /* DBModels */,
-				EC900EB5251C8EF700AA0B20 /* Resources */,
 				EC900EBA251C8EF700AA0B20 /* ViewModels */,
 				EC00DBC2251C9AD90010366A /* Views */,
 				EC00DBC4251C9BD80010366A /* Delegates */,
@@ -685,24 +678,6 @@
 				EC861257253ACACA003BA67A /* UserDefaults.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		EC900EB5251C8EF700AA0B20 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				EC900EB6251C8EF700AA0B20 /* Samples */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		EC900EB6251C8EF700AA0B20 /* Samples */ = {
-			isa = PBXGroup;
-			children = (
-				EC900EB7251C8EF700AA0B20 /* result.json */,
-				EC900EB8251C8EF700AA0B20 /* Sample.swift */,
-				EC900EB9251C8EF700AA0B20 /* results.json */,
-			);
-			path = Samples;
 			sourceTree = "<group>";
 		};
 		EC900EBA251C8EF700AA0B20 /* ViewModels */ = {
@@ -923,9 +898,7 @@
 				EC00DBEA251CC5CE0010366A /* BattleRecordListCell.xib in Resources */,
 				ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */,
 				EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */,
-				EC900EDB251C8EF700AA0B20 /* result.json in Resources */,
 				EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */,
-				EC900EDD251C8EF700AA0B20 /* results.json in Resources */,
 				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1053,7 +1026,6 @@
 				EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */,
 				ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */,
 				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
-				EC900EDC251C8EF700AA0B20 /* Sample.swift in Sources */,
 				EC2C34AC25984CE20007BA4D /* BattleDetailMemberView.swift in Sources */,
 				EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */,
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
