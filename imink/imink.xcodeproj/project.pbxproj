@@ -143,7 +143,6 @@
 		ECB959B525B872BD0006E942 /* DBJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959B425B872BD0006E942 /* DBJob.swift */; };
 		ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959CA25B896A80006E942 /* JobListViewModel.swift */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
-		ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */; };
 		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
 		ECD2BFD125BDACBA00AA11CA /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = ECD2BFD025BDACBA00AA11CA /* SwiftUIX */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
@@ -322,7 +321,6 @@
 		ECB959B425B872BD0006E942 /* DBJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBJob.swift; sourceTree = "<group>"; };
 		ECB959CA25B896A80006E942 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
-		ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSplitViewController.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 				EC900E7A251C55FF00AA0B20 /* Main.storyboard */,
 				EC00DBD6251CA11D0010366A /* TabBarController.swift */,
 				EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */,
-				ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -969,7 +966,6 @@
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */,
-				ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */,
 				EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */,
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
 				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
