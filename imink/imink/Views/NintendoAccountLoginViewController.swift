@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 import WebKit
 import Combine
+import SnapKit
 
 struct NintendoAccountLoginPage: UIViewControllerRepresentable {
     typealias UIViewControllerType = UINavigationController

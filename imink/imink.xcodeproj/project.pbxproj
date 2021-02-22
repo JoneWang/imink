@@ -11,10 +11,7 @@
 		BBC15A24256B9CE200B67514 /* InkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBC15A2A256B9CEA00B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
 		EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */; };
-		EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */; };
 		EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBD6251CA11D0010366A /* TabBarController.swift */; };
-		EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBE3251CC57F0010366A /* BattleRecordListCell.swift */; };
-		EC00DBEA251CC5CE0010366A /* BattleRecordListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC00DBE9251CC5CE0010366A /* BattleRecordListCell.xib */; };
 		EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
 		EC0C1EF4259B73600062D5A8 /* Splatfont 2 v1.008.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0C1EF3259B73600062D5A8 /* Splatfont 2 v1.008.otf */; };
@@ -23,6 +20,9 @@
 		EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */; };
 		EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */; };
 		EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */; };
+		EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */; };
+		EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */; };
+		EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */; };
 		EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8A25B8A0C50085670D /* JobListPage.swift */; };
 		EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8E25B934640085670D /* JobListItemView.swift */; };
 		EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE9F25B960990085670D /* JobDetailPage.swift */; };
@@ -48,8 +48,6 @@
 		EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */; };
 		EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362522525DDDF0037BD12 /* HomePage.swift */; };
 		EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
-		EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */; };
-		EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */; };
 		EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */; };
 		EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */; };
 		EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */; };
@@ -216,10 +214,7 @@
 
 /* Begin PBXFileReference section */
 		EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
-		EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListViewController.swift; sourceTree = "<group>"; };
 		EC00DBD6251CA11D0010366A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		EC00DBE3251CC57F0010366A /* BattleRecordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListCell.swift; sourceTree = "<group>"; };
-		EC00DBE9251CC5CE0010366A /* BattleRecordListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleRecordListCell.xib; sourceTree = "<group>"; };
 		EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
 		EC00DBF3251CD29C0010366A /* TransitionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
 		EC00DBF4251CD29C0010366A /* FontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
@@ -231,6 +226,9 @@
 		EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleProvider.swift; sourceTree = "<group>"; };
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
+		EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailViewModel.swift; sourceTree = "<group>"; };
+		EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListItemView.swift; sourceTree = "<group>"; };
 		EC25FE8A25B8A0C50085670D /* JobListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListPage.swift; sourceTree = "<group>"; };
 		EC25FE8E25B934640085670D /* JobListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListItemView.swift; sourceTree = "<group>"; };
 		EC25FE9F25B960990085670D /* JobDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailPage.swift; sourceTree = "<group>"; };
@@ -255,8 +253,6 @@
 		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		EC5362522525DDDF0037BD12 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
-		EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleRecordListRealTimeCell.swift; sourceTree = "<group>"; };
-		EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleRecordListRealTimeCell.xib; sourceTree = "<group>"; };
 		EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NintendoAccountLoginViewController.swift; path = imink/Views/NintendoAccountLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoAccountLoginViewModel.swift; sourceTree = "<group>"; };
 		EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoLoginInfo.swift; sourceTree = "<group>"; };
@@ -372,11 +368,9 @@
 			isa = PBXGroup;
 			children = (
 				EC00DBEC251CCA710010366A /* SwiftUI */,
-				EC00DBE2251CC5440010366A /* Subviews */,
 				EC900E7A251C55FF00AA0B20 /* Main.storyboard */,
 				EC00DBD6251CA11D0010366A /* TabBarController.swift */,
 				EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */,
-				EC00DBCC251C9CAE0010366A /* BattleRecordListViewController.swift */,
 				ECC5CAB32525B2D2000E38DE /* BattleSplitViewController.swift */,
 			);
 			path = Views;
@@ -390,17 +384,6 @@
 				EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */,
 			);
 			path = Delegates;
-			sourceTree = "<group>";
-		};
-		EC00DBE2251CC5440010366A /* Subviews */ = {
-			isa = PBXGroup;
-			children = (
-				EC00DBE3251CC57F0010366A /* BattleRecordListCell.swift */,
-				EC00DBE9251CC5CE0010366A /* BattleRecordListCell.xib */,
-				EC565B61251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift */,
-				EC565B65251D980700CCAC9A /* BattleRecordListRealTimeCell.xib */,
-			);
-			path = Subviews;
 			sourceTree = "<group>";
 		};
 		EC00DBEC251CCA710010366A /* SwiftUI */ = {
@@ -488,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2C34AA25984CCF0007BA4D /* Views */,
+				EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */,
 				EC4CA1732595C6B900B5C8CF /* BattleDetailPage.swift */,
 			);
 			path = Battle;
@@ -496,6 +480,7 @@
 		EC2C34AA25984CCF0007BA4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */,
 				EC2C34AB25984CE20007BA4D /* BattleDetailMemberView.swift */,
 				EC2C34B1259899590007BA4D /* BattleDetailResultBarView.swift */,
 			);
@@ -692,6 +677,7 @@
 				EC5362472525D68E0037BD12 /* HomeViewModel.swift */,
 				EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */,
 				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
+				EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */,
 				ECB959CA25B896A80006E942 /* JobListViewModel.swift */,
 				ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */,
 				EC62E77225360B2B0028428C /* MeViewModel.swift */,
@@ -895,10 +881,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC900E81251C55FF00AA0B20 /* LaunchScreen.storyboard in Resources */,
-				EC00DBEA251CC5CE0010366A /* BattleRecordListCell.xib in Resources */,
 				ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */,
 				EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */,
-				EC565B66251D980700CCAC9A /* BattleRecordListRealTimeCell.xib in Resources */,
 				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -979,12 +963,11 @@
 				ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */,
 				ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */,
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
+				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */,
 				EC861258253ACACA003BA67A /* UserDefaults.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
-				EC565B62251D956C00CCAC9A /* BattleRecordListRealTimeCell.swift in Sources */,
-				EC00DBCD251C9CAE0010366A /* BattleRecordListViewController.swift in Sources */,
 				ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */,
 				ECC5CAB42525B2D2000E38DE /* BattleSplitViewController.swift in Sources */,
 				EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */,
@@ -993,7 +976,6 @@
 				EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */,
 				EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */,
-				EC00DBE4251CC57F0010366A /* BattleRecordListCell.swift in Sources */,
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
 				EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */,
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
@@ -1012,6 +994,7 @@
 				ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */,
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
+				EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */,
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
@@ -1044,6 +1027,7 @@
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,
 				EC4CA1782595DEAB00B5C8CF /* ConvenientColors.swift in Sources */,
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
+				EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */,
 				EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */,
 				EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */,
 			);

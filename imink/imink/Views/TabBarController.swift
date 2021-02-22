@@ -61,15 +61,16 @@ class TabBarController: UITabBarController {
         let jobListViewController = UIHostingController(rootView: JobListPage())
         jobListViewController.tabBarItem.title = NSLocalizedString("Salmon Run", comment: "")
         jobListViewController.tabBarItem.image = UIImage(named: "TabBarSalmonRun")
-
-        let battleSplitViewController = BattleSplitViewController.instantiateFromStoryboard()!
-        battleSplitViewController.tabBarItem.title = NSLocalizedString("Battles", comment: "")
+        
+        let battleListViewController = UIHostingController(rootView: BattleListPage())
+        battleListViewController.tabBarItem.title = NSLocalizedString("Battles", comment: "")
+        battleListViewController.tabBarItem.image = UIImage(named: "TabBarBattle")
         
         let meViewController = UIHostingController(rootView: MePage())
         meViewController.tabBarItem.title = NSLocalizedString("Me", comment: "")
         meViewController.tabBarItem.image = UIImage(named: "TabBarMe")
         
-        viewControllers = [homeViewController, battleSplitViewController, jobListViewController, meViewController]
+        viewControllers = [homeViewController, battleListViewController, jobListViewController, meViewController]
     }
     
     func showLogin() {

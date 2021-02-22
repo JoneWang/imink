@@ -11,170 +11,215 @@ import InkCore
 
 struct BattleDetailPage: View {
     
-    @ObservedObject var model: BattleRecordListViewController.UpdateModel
+    @StateObject private var viewModel = BattleDetailViewModel()
     
-    var battle: Battle {
-        model.battle
+    let id: Int64?
+    var rowType: BattleListRowModel.RowType
+    @Binding var selectedReocrdId: Int64?
+    
+    var navigationTitle: String {
+        let title = viewModel.battle?.battleNumber != nil ?
+            "ID: \(viewModel.battle!.battleNumber)" : ""
+        if rowType == .realtime {
+            return "Real-time \(title)"
+        } else {
+            return title
+        }
     }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                VStack(spacing: 0) {
-                    ZStack {
-                        GrayscaleTextureView(
-                            texture: .streak,
-                            foregroundColor: AppColor.battleDetailStreakForegroundColor,
-                            backgroundColor: AppColor.listItemBackgroundColor
-                        )
-                        
-                        VStack {
-                            Image("Hook")
-                                .foregroundColor(AppColor.listBackgroundColor)
-                            
-                            Spacer()
-                        }
-                        
-                        HStack(spacing: 10) {
-                            Image(battle.battleType.imageName)
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                            
-                            HStack(alignment: .bottom) {
-                                Text(battle.rule.name.localizedKey)
-                                    .sp1Font(size: 14, color: battle.battleType.color)
-                                
-                                Spacer()
-                                
-                                Text(battle.startTimeText)
-                                    .sp2Font(size: 12, color: .systemGray)
-                                    .padding(.bottom, 0.5)
-                            }
-                        }
-                        .padding([.leading, .trailing], 16)
-                        .padding(.top, 1)
-                        .frame(height: 43)
-                    }
-                    
-                    ZStack {
-                        Rectangle()
-                            .overlay(
-                                StageImageView(
-                                    id: battle.stage.id,
-                                    imageURL: battle.stage.image,
-                                    imageURLBehaviour: .replace
-                                )
-                                .aspectRatio(contentMode: .fill)
-                                .transition(.opacity),
-                                alignment: .bottom
-                            )
-                            .foregroundColor(.systemGray3)
-                            .aspectRatio(343/143, contentMode: .fill)
-                            .clipped()
-                        
-                        VStack {
-                            Spacer()
-                            
-                            BattleDetailResultBarView(
-                                gameRule: battle.rule.key,
-                                myTeamPoint: battle.myPoint,
-                                otherTeamPoint: battle.otherPoint,
-                                value: CGFloat(battle.myPoint) &/
-                                    CGFloat(battle.myPoint + battle.otherPoint)
-                            )
-                        }
-                        .padding([.leading, .bottom, .trailing], 10)
-                    }
-                    
-                    if battle.battleType == .league {
-                        HStack(spacing: 0) {
-                            let data = [
-                                ("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
-                                ("Highest", (battle.maxLeaguePoint ?? 0 > 0) ? "\(battle.maxLeaguePoint!)" : "-"),
-                                ("Crew", (battle.myEstimateLeaguePoint ?? 0 > 0) ? "\(battle.myEstimateLeaguePoint!)" : "-"),
-                                ("Rival", (battle.otherEstimateLeaguePoint ?? 0 > 0) ? "\(battle.otherEstimateLeaguePoint!)" : "-")
-                            ]
-                            ForEach(data, id: \.0) { item in
-                                HStack {
-                                    Spacer()
-                                    VStack(spacing: 7) {
-                                        Text(item.0.localizedKey)
-                                            .sp2Font(size: 12, color: .systemGray)
-                                        Text(item.1)
-                                            .sp2Font(size: 12, color: AppColor.appLabelColor)
-                                    }
-                                    Spacer()
-                                }
-                                
-                                if item.0 != data.last?.0 {
-                                    Rectangle()
-                                        .frame(width: 0.7, height: 27)
-                                        .foregroundColor(.opaqueSeparator)
-                                        .padding(.top, 1)
-                                }
-                            }
-                        }
-                        .padding([.top, .bottom], 9.5)
-                    } else if battle.battleType == .gachi {
-                        HStack {
-                            if let power = battle.estimateXPower {
-                                Text("8-Squid \(battle.rule.name) X Power".localizedKey)
-                                    .sp2Font(size: 12, color: .systemGray)
-                                
-                                Spacer()
-                                
-                                Text("\(power)")
-                                    .sp2Font(size: 12, color: AppColor.appLabelColor)
-                            }
-                            if let power = battle.estimateGachiPower {
-                                Text("8-Squid \(battle.rule.name) Power".localizedKey)
-                                    .sp2Font(size: 12, color: .systemGray)
-                                
-                                Spacer()
-                                
-                                Text("\(power)")
-                                    .sp2Font(size: 12, color: AppColor.appLabelColor)
-                            }
-                        }
-                        .padding([.leading, .trailing], 16)
-                        .frame(height: 37)
-                    }
-                }
-                .background(AppColor.listItemBackgroundColor)
-                .continuousCornerRadius([.topLeft, .topRight], 18)
-                .continuousCornerRadius(
-                    [.bottomLeft, .bottomRight],
-                    (battle.battleType != .league && battle.battleType != .gachi) ? 24 : 18
-                )
+        ZStack {
+            // FIXME: Fix navigationBar background is white.
+            GeometryReader { geometry in
+                Rectangle()
+                    .fill(AppColor.listBackgroundColor)
+                    .frame(height: geometry.safeAreaInsets.top)
+                    .edgesIgnoringSafeArea(.top)
                 
-                let teams = [battle.victoryTeamMembersSorted, battle.defeatTeamMembersSorted]
-                ForEach(0..<teams.count) { i in
-                    let victory = i == 0
-                    let members = teams[i]
-
-                    VStack(spacing: 6) {
-                        ForEach(0..<members.count) { j in
-                            let member = members[j]
-                            ZStack {
-                                BattleDetailMemberView(victory: victory, member: member)
-                                
-                                if member.player.principalId == battle.playerResult.player.principalId {
-                                    Image("MemberArrow")
-                                        .foregroundColor(AppColor.memberArrowColor)
-                                        .position(x: 1, y: 18.5)
+                Spacer()
+            }
+            
+            ScrollView {
+                HStack {
+                    Spacer()
+                    
+                    if let battle = viewModel.battle {
+                        makeContent(battle: battle)
+                            .padding([.leading, .trailing], 16)
+                            .padding([.top, .bottom], 20)
+                            .frame(maxWidth: 500)
+                    }
+                    
+                    Spacer()
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .background(AppColor.listBackgroundColor)
+            .navigationBarTitle(navigationTitle, displayMode: .inline)
+            .onAppear {
+                viewModel.load(id: id)
+                
+                selectedReocrdId = rowType == .realtime ?
+                    BattleListItemView.RealtimeRecordId : id
+            }
+            .onDisappear {
+                if selectedReocrdId == id {
+                    selectedReocrdId = nil
+                }
+            }
+        }
+    }
+    
+    func makeContent(battle: Battle) -> some View {
+        VStack(spacing: 20) {
+            VStack(spacing: 0) {
+                ZStack {
+                    GrayscaleTextureView(
+                        texture: .streak,
+                        foregroundColor: AppColor.battleDetailStreakForegroundColor,
+                        backgroundColor: AppColor.listItemBackgroundColor
+                    )
+                    
+                    VStack {
+                        Image("Hook")
+                            .foregroundColor(AppColor.listBackgroundColor)
+                        
+                        Spacer()
+                    }
+                    
+                    HStack(spacing: 10) {
+                        Image(battle.battleType.imageName)
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        
+                        HStack(alignment: .bottom) {
+                            Text(battle.rule.name.localizedKey)
+                                .sp1Font(size: 14, color: battle.battleType.color)
+                            
+                            Spacer()
+                            
+                            Text(battle.startTimeText)
+                                .sp2Font(size: 12, color: .systemGray)
+                                .padding(.bottom, 0.5)
+                        }
+                    }
+                    .padding([.leading, .trailing], 16)
+                    .padding(.top, 1)
+                    .frame(height: 43)
+                }
+                
+                ZStack {
+                    Rectangle()
+                        .overlay(
+                            StageImageView(
+                                id: battle.stage.id,
+                                imageURL: battle.stage.image,
+                                imageURLBehaviour: .replace
+                            )
+                            .aspectRatio(contentMode: .fill)
+                            .transition(.opacity),
+                            alignment: .bottom
+                        )
+                        .foregroundColor(.systemGray3)
+                        .aspectRatio(343/143, contentMode: .fill)
+                        .clipped()
+                    
+                    VStack {
+                        Spacer()
+                        
+                        BattleDetailResultBarView(
+                            gameRule: battle.rule.key,
+                            myTeamPoint: battle.myPoint,
+                            otherTeamPoint: battle.otherPoint,
+                            value: CGFloat(battle.myPoint) &/
+                                CGFloat(battle.myPoint + battle.otherPoint)
+                        )
+                    }
+                    .padding([.leading, .bottom, .trailing], 10)
+                }
+                
+                if battle.battleType == .league {
+                    HStack(spacing: 0) {
+                        let data = [
+                            ("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
+                            ("Highest", (battle.maxLeaguePoint ?? 0 > 0) ? "\(battle.maxLeaguePoint!)" : "-"),
+                            ("Crew", (battle.myEstimateLeaguePoint ?? 0 > 0) ? "\(battle.myEstimateLeaguePoint!)" : "-"),
+                            ("Rival", (battle.otherEstimateLeaguePoint ?? 0 > 0) ? "\(battle.otherEstimateLeaguePoint!)" : "-")
+                        ]
+                        ForEach(data, id: \.0) { item in
+                            HStack {
+                                Spacer()
+                                VStack(spacing: 7) {
+                                    Text(item.0.localizedKey)
+                                        .sp2Font(size: 12, color: .systemGray)
+                                    Text(item.1)
+                                        .sp2Font(size: 12, color: AppColor.appLabelColor)
                                 }
+                                Spacer()
+                            }
+                            
+                            if item.0 != data.last?.0 {
+                                Rectangle()
+                                    .frame(width: 0.7, height: 27)
+                                    .foregroundColor(.opaqueSeparator)
+                                    .padding(.top, 1)
+                            }
+                        }
+                    }
+                    .padding([.top, .bottom], 9.5)
+                } else if battle.battleType == .gachi {
+                    HStack {
+                        if let power = battle.estimateXPower {
+                            Text("8-Squid \(battle.rule.name) X Power".localizedKey)
+                                .sp2Font(size: 12, color: .systemGray)
+                            
+                            Spacer()
+                            
+                            Text("\(power)")
+                                .sp2Font(size: 12, color: AppColor.appLabelColor)
+                        }
+                        if let power = battle.estimateGachiPower {
+                            Text("8-Squid \(battle.rule.name) Power".localizedKey)
+                                .sp2Font(size: 12, color: .systemGray)
+                            
+                            Spacer()
+                            
+                            Text("\(power)")
+                                .sp2Font(size: 12, color: AppColor.appLabelColor)
+                        }
+                    }
+                    .padding([.leading, .trailing], 16)
+                    .frame(height: 37)
+                }
+            }
+            .background(AppColor.listItemBackgroundColor)
+            .continuousCornerRadius([.topLeft, .topRight], 18)
+            .continuousCornerRadius(
+                [.bottomLeft, .bottomRight],
+                (battle.battleType != .league && battle.battleType != .gachi) ? 24 : 18
+            )
+            
+            let teams = [battle.victoryTeamMembersSorted, battle.defeatTeamMembersSorted]
+            ForEach(0..<teams.count) { i in
+                let victory = i == 0
+                let members = teams[i]
+                
+                VStack(spacing: 6) {
+                    ForEach(0..<members.count) { j in
+                        let member = members[j]
+                        ZStack {
+                            BattleDetailMemberView(victory: victory, member: member)
+                            
+                            if member.player.principalId == battle.playerResult.player.principalId {
+                                Image("MemberArrow")
+                                    .foregroundColor(AppColor.memberArrowColor)
+                                    .position(x: 1, y: 18.5)
                             }
                         }
                     }
                 }
             }
-            .padding([.leading, .trailing], 16)
-            .padding([.top, .bottom], 20)
-            .frame(maxWidth: 500)
         }
-        .frame(maxWidth: .infinity)
-        .background(AppColor.listBackgroundColor)
-        .navigationBarTitle("ID: \(battle.battleNumber)", displayMode: .inline)
     }
 }
 
@@ -246,7 +291,6 @@ struct BattleDetailPage_Previews: PreviewProvider {
         let sampleData = SplatNet2API.result(battleNumber: "").sampleData
         let json = String(data: sampleData, encoding: .utf8)!
         let battle = json.decode(Battle.self)!
-        let updateModel = BattleRecordListViewController.UpdateModel(battle: battle)
-        return BattleDetailPage(model: updateModel)
+        // return BattleDetailPage(id: )
     }
 }
