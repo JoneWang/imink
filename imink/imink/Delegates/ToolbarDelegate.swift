@@ -14,7 +14,6 @@ class ToolbarDelegate: NSObject {
 #if targetEnvironment(macCatalyst)
 extension NSToolbarItem.Identifier {
     static let share = NSToolbarItem.Identifier("jone.wang.imink.shareBattle")
-//    static let toggleRecipeIsFavorite = NSToolbarItem.Identifier("jone.wang.imink.toggleRecipeIsFavorite")
 }
 
 extension ToolbarDelegate {
@@ -22,11 +21,6 @@ extension ToolbarDelegate {
     @objc
     func shareBattle(_ sender: Any) {
         NotificationCenter.default.post(name: .share, object: sender)
-    }
-    
-    @objc
-    func toggleRecipeIsFavorite(_ sender: Any) {
-//        NotificationCenter.default.post(name: .toggleRecipeIsFavorite, object: self)
     }
     
 }
@@ -37,8 +31,7 @@ extension ToolbarDelegate: NSToolbarDelegate {
         let identifiers: [NSToolbarItem.Identifier] = [
             .toggleSidebar,
             .flexibleSpace,
-            .share,
-//            .toggleRecipeIsFavorite
+            .share
         ]
         return identifiers
     }

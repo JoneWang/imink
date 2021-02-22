@@ -35,6 +35,7 @@ struct JobListItemView: View {
                         alignment: .leading
                     )
                     .frame(width: 13, height:13)
+                    .padding([.top, .bottom], 0.5)
                 
                 Spacer()
             }
