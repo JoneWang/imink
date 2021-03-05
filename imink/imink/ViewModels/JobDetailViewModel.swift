@@ -7,7 +7,8 @@
 
 import Foundation
 
-class JobDetailViewModel {
+class JobDetailViewModel: ObservableObject {
+    
     @Published var job: Job? = nil
     
     init(id: Int64) {

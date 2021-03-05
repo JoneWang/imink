@@ -12,14 +12,9 @@ struct BattleListItemView: View {
     static let RealtimeRecordId: Int64 = -1
     
     let row: BattleListRowModel
-    @State var realtimeLoading: Bool
+    var isSelected: Bool = false
     
-    @State private var isAnimating = false
-    
-    var realTimeForeverAnimation: Animation {
-        Animation.linear(duration: 2.0)
-            .repeatForever(autoreverses: false)
-    }
+    @State private var realtimeLoading: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -28,7 +23,7 @@ struct BattleListItemView: View {
                     .padding(.top, 16)
                     .padding(.bottom)
                     .padding([.leading, .trailing], 8)
-                    .background(row.isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
+                    .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
                     .frame(height: 79)
                     .continuousCornerRadius(10)
                     .onReceive(
@@ -42,11 +37,12 @@ struct BattleListItemView: View {
                     .padding(.top, 7.5)
                     .padding(.bottom, 7)
                     .padding([.leading, .trailing], 8)
-                    .background(row.isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
+                    .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
                     .frame(height: 79)
                     .continuousCornerRadius(10)
             }
         }
+        .animation(.easeOut)
     }
     
     func makeRealtimeContent() -> some View {
@@ -59,12 +55,9 @@ struct BattleListItemView: View {
                         .sp1Font(size: 18, color: Color.secondaryLabel)
                         .frame(height: 24)
                 } else {
-                    Image(systemName: "arrow.triangle.2.circlepath").rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0.0))
-                        .animation(self.isAnimating ? realTimeForeverAnimation : .default)
-                        .foregroundColor(.accentColor)
+                    ProgressView()
+                        .scaleEffect(1.3)
                         .frame(height: 24)
-                        .onAppear { self.isAnimating = true }
-                        .onDisappear { self.isAnimating = false }
                 }
                 
                 Text("Real-time data")
@@ -253,19 +246,19 @@ struct BattleListItemView_Previews: PreviewProvider {
         let realtimeRow = BattleListRowModel(type: .realtime, record: dbRecord)
         let row = BattleListRowModel(type: .record, record: dbRecord)
         
-        BattleListItemView(row: realtimeRow, realtimeLoading: false)
+        BattleListItemView(row: realtimeRow)
             .padding(.top, 8)
             .padding([.leading, .trailing])
             .background(AppColor.listBackgroundColor)
             .previewLayout(.sizeThatFits)
         
-        BattleListItemView(row: row, realtimeLoading: false)
+        BattleListItemView(row: row)
             .padding(.top, 8)
             .padding([.leading, .trailing])
             .background(AppColor.listBackgroundColor)
             .previewLayout(.sizeThatFits)
         
-        BattleListItemView(row: row, realtimeLoading: false)
+        BattleListItemView(row: row)
             .padding(.top, 8)
             .padding([.leading, .trailing])
             .background(AppColor.listBackgroundColor)

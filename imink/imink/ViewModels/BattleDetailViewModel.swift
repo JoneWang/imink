@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 class BattleDetailViewModel: ObservableObject {
     @Published var battle: Battle? = nil
+    
+    private var cancelBag = Set<AnyCancellable>()
     
     func load(id: Int64?) {
         guard let id = id else {

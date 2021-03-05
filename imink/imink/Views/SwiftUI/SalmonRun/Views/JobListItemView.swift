@@ -9,6 +9,7 @@ import SwiftUI
 
 struct JobListItemView: View {
     let job: DBJob
+    var isSelected: Bool = false
     
     var pointStatusImageName: String {
         if job.gradePointDelta > 0 {
@@ -104,9 +105,10 @@ struct JobListItemView: View {
         .padding(.top, 7.5)
         .padding(.bottom, 7)
         .padding([.leading, .trailing], 8)
-        .background(AppColor.listItemBackgroundColor)
+        .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
         .frame(height: 79)
         .continuousCornerRadius(10)
+        .animation(.easeOut)
     }
 }
 
@@ -134,7 +136,7 @@ struct JobListItemView_Previews: PreviewProvider {
             .padding([.leading, .trailing])
             .background(AppColor.listBackgroundColor)
             .previewLayout(.sizeThatFits)
-        
+
         JobListItemView(job: dbJob)
             .padding(.top, 8)
             .padding([.leading, .trailing])

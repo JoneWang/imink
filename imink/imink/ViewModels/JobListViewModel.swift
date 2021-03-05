@@ -12,11 +12,8 @@ import os
 class JobListViewModel: ObservableObject {
     
     @Published var rows: [DBJob] = []
-    
-    private var cancelBag = Set<AnyCancellable>()
-    
-    private var requestDetailCancellable: AnyCancellable!
-    
+    @Published var selectedId: Int64?
+        
     init() {
         // Database records publisher
         AppDatabase.shared.jobs()

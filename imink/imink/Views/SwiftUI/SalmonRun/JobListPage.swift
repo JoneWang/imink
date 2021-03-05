@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
-import SwiftUIX
 
 struct JobListPage: View {
     @StateObject var viewModel = JobListViewModel()
+    
+    @State var selectedJob: DBJob?
     
     var body: some View {
         NavigationView {
@@ -18,18 +19,26 @@ struct JobListPage: View {
                     .foregroundColor(AppColor.listBackgroundColor)
                     .ignoresSafeArea()
                 
-                CocoaList(viewModel.rows) { job in
-                    NavigationLink(destination: JobDetailPage(id: job.id!)) {
-                        JobListItemView(job: job)
-                            .padding(.top, 8)
-                            .padding([.leading, .trailing])
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.rows) { job in
+                            JobListItemView(job: job, isSelected: viewModel.selectedId == job.id)
+                                .padding([.leading, .trailing])
+                                .onTapGesture {
+                                    self.viewModel.selectedId = job.id
+                                }
+                                .background(
+                                    NavigationLink(
+                                        destination: JobDetailPage(id: job.id!),
+                                        tag: job.id!,
+                                        selection: $viewModel.selectedId
+                                    ) { EmptyView() }
+                                    .buttonStyle(PlainButtonStyle())
+                                )
+                        }
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .padding([.top, .bottom], 16)
                 }
-                .listSeparatorStyle(.none)
-                .contentInset(.top, 8)
-                .contentInset(.bottom, 16)
-                .ignoresSafeArea()
             }
             .navigationBarTitle("Salmon Run", displayMode: .inline)
             .navigationBarHidden(false)

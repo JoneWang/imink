@@ -9,6 +9,7 @@ import SwiftUI
 import InkCore
 
 struct JobDetailPage: View {
+    
     var viewModel: JobDetailViewModel!
     
     init(id: Int64) {
@@ -90,7 +91,7 @@ struct JobDetailPage_Previews: PreviewProvider {
         
         let page = JobDetailPage(id: 0)
         page.viewModel.job = jobOverview.results[0]
-        
+
         return VStack {
             page
         }

@@ -81,15 +81,6 @@
           "revision": "fca583fb7f2bfe778c55a752771e3ecc4cfa6c3a",
           "version": null
         }
-      },
-      {
-        "package": "SwiftUIX",
-        "repositoryURL": "https://github.com/JoneWang/SwiftUIX.git",
-        "state": {
-          "branch": "contentInset",
-          "revision": "25faa955c66731909b1c27747f47640f26c13263",
-          "version": null
-        }
       }
     ]
   },

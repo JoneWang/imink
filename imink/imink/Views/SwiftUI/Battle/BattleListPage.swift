@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIX
 
 struct BattleListPage: View {
     @StateObject var viewModel = BattleListViewModel()
@@ -18,29 +17,34 @@ struct BattleListPage: View {
                     .foregroundColor(AppColor.listBackgroundColor)
                     .ignoresSafeArea()
                 
-                CocoaList(viewModel.rows) { row in
-                    NavigationLink(
-                        destination: BattleDetailPage(
-                            id: row.record?.id,
-                            rowType: row.type,
-                            selectedReocrdId: $viewModel.selectedReocrdId
-                        )
-                    ) {
-                        BattleListItemView(
-                            row: row,
-                            realtimeLoading: viewModel.isLoadingRealTimeData
-                        )
-                        .padding(.top, 8)
-                        .padding([.leading, .trailing])
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.rows, id: \.id) { row in
+                            BattleListItemView(
+                                row: row,
+                                isSelected: viewModel.selectedId == row.id
+                            )
+                            .padding([.leading, .trailing])
+                            .onTapGesture {
+                                self.viewModel.selectedId = row.id
+                            }
+                            .background(
+                                NavigationLink(
+                                    destination: BattleDetailPage(
+                                        row: row,
+                                        realtimeRow: $viewModel.realtimeRow
+                                    ),
+                                    tag: row.id,
+                                    selection: $viewModel.selectedId
+                                ) { EmptyView() }
+                                .buttonStyle(PlainButtonStyle())
+                            )
+                        }
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .padding([.top, .bottom], 16)
                 }
-                .listSeparatorStyle(.none)
-                .contentInset(.top, 8)
-                .contentInset(.bottom, 16)
-                .ignoresSafeArea()
             }
-            .navigationBarTitle("Salmon Run", displayMode: .inline)
+            .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
         }
     }

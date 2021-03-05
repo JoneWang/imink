@@ -10,17 +10,15 @@ import SDWebImageSwiftUI
 import InkCore
 
 struct BattleDetailPage: View {
-    
     @StateObject private var viewModel = BattleDetailViewModel()
     
-    let id: Int64?
-    var rowType: BattleListRowModel.RowType
-    @Binding var selectedReocrdId: Int64?
+    let row: BattleListRowModel
+    @Binding var realtimeRow: BattleListRowModel?
     
     var navigationTitle: String {
         let title = viewModel.battle?.battleNumber != nil ?
             "ID: \(viewModel.battle!.battleNumber)" : ""
-        if rowType == .realtime {
+        if row.type == .realtime {
             return "Real-time \(title)"
         } else {
             return title
@@ -57,14 +55,11 @@ struct BattleDetailPage: View {
             .background(AppColor.listBackgroundColor)
             .navigationBarTitle(navigationTitle, displayMode: .inline)
             .onAppear {
-                viewModel.load(id: id)
-                
-                selectedReocrdId = rowType == .realtime ?
-                    BattleListItemView.RealtimeRecordId : id
+                viewModel.load(id: row.record?.id)
             }
-            .onDisappear {
-                if selectedReocrdId == id {
-                    selectedReocrdId = nil
+            .onChange(of: realtimeRow) { row in
+                if let row = row {
+                    viewModel.load(id: row.record?.id)
                 }
             }
         }
@@ -284,13 +279,13 @@ extension Battle {
     }
 }
 
-import SplatNet2API
-
-struct BattleDetailPage_Previews: PreviewProvider {
-    static var previews: some View {
-        let sampleData = SplatNet2API.result(battleNumber: "").sampleData
-        let json = String(data: sampleData, encoding: .utf8)!
-        let battle = json.decode(Battle.self)!
-        // return BattleDetailPage(id: )
-    }
-}
+//import SplatNet2API
+//
+//struct BattleDetailPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let sampleData = SplatNet2API.result(battleNumber: "").sampleData
+//        let json = String(data: sampleData, encoding: .utf8)!
+//        let battle = json.decode(Battle.self)!
+//        return BattleDetailPage(row: <#T##BattleListRowModel#>, realtimeRow: <#T##Binding<BattleListRowModel?>#>)
+//    }
+//}

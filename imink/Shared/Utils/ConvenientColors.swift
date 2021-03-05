@@ -23,6 +23,14 @@ extension Color {
         Color(.systemGray3)
     }
     
+    static var systemGray5: Color {
+        Color(.systemGray5)
+    }
+    
+    static var secondaryLabel: Color {
+        Color(.secondaryLabel)
+    }
+    
     static var secondarySystemBackground: Color {
         Color(.secondarySystemBackground)
     }

@@ -144,7 +144,6 @@
 		ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959CA25B896A80006E942 /* JobListViewModel.swift */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
 		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
-		ECD2BFD125BDACBA00AA11CA /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = ECD2BFD025BDACBA00AA11CA /* SwiftUIX */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
 		ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */; };
@@ -355,7 +354,6 @@
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
-				ECD2BFD125BDACBA00AA11CA /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,7 +794,6 @@
 			packageProductDependencies = (
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
-				ECD2BFD025BDACBA00AA11CA /* SwiftUIX */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -840,7 +837,6 @@
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */,
-				ECD2BFC925BDACA800AA11CA /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1456,14 +1452,6 @@
 				kind = branch;
 			};
 		};
-		ECD2BFC925BDACA800AA11CA /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JoneWang/SwiftUIX.git";
-			requirement = {
-				branch = contentInset;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1496,11 +1484,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
-		};
-		ECD2BFD025BDACBA00AA11CA /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ECD2BFC925BDACA800AA11CA /* XCRemoteSwiftPackageReference "SwiftUIX" */;
-			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
