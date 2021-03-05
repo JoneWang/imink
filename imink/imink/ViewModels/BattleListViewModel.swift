@@ -43,7 +43,6 @@ class BattleListViewModel: ObservableObject {
     private var requestDetailCancellable: AnyCancellable!
     
     init() {
-        AppDatabase.shared.removeAllRecords()
         // Database records publisher
         AppDatabase.shared.records()
             .catch { error -> Just<[DBRecord]> in
