@@ -193,6 +193,53 @@ class AppDatabase {
             }
         }
         
+        migrator.registerMigration("V71") { db in
+            try db.alter(table: "job", body: { tableAlteration in
+                tableAlteration.add(column: "scheduleStartTime", .datetime).defaults(to: Date()).notNull()
+                tableAlteration.add(column: "scheduleEndTime", .datetime).defaults(to: Date()).notNull()
+                tableAlteration.add(column: "scheduleStageName", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon1Id", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon1Image", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon2Id", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon2Image", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon3Id", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon3Image", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon4Id", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "scheduleWeapon4Image", .text).defaults(to: "").notNull()
+            })
+            
+            try self.eachJobs(db: db) { (id, job) in
+                try db.execute(
+                    sql: "UPDATE job SET " +
+                        "scheduleStartTime = ?, " +
+                        "scheduleEndTime = ?, " +
+                        "scheduleStageName = ?, " +
+                        "scheduleWeapon1Id = ?, " +
+                        "scheduleWeapon1Image = ?, " +
+                        "scheduleWeapon2Id = ?, " +
+                        "scheduleWeapon2Image = ?, " +
+                        "scheduleWeapon3Id = ?, " +
+                        "scheduleWeapon3Image = ?, " +
+                        "scheduleWeapon4Id = ?, " +
+                        "scheduleWeapon4Image = ? " +
+                        "WHERE id = ?",
+                    arguments: [
+                        job.schedule.startTime,
+                        job.schedule.endTime,
+                        job.schedule.stage?.name ?? "",
+                        job.schedule.weapons?[0].id ?? "",
+                        job.schedule.weapons?[0].weapon?.$image ?? "",
+                        job.schedule.weapons?[1].id ?? "",
+                        job.schedule.weapons?[1].weapon?.$image ?? "",
+                        job.schedule.weapons?[2].id ?? "",
+                        job.schedule.weapons?[2].weapon?.$image ?? "",
+                        job.schedule.weapons?[3].id ?? "",
+                        job.schedule.weapons?[3].weapon?.$image ?? "",
+                        id
+                    ])
+            }
+        }
+        
         return migrator
     }
 }
@@ -212,6 +259,22 @@ extension AppDatabase {
             }
             
             try block(id, battle)
+        }
+    }
+    
+    func eachJobs(db: Database, _ block: (Int64, Job) throws -> Void) throws {
+        let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM job")
+        while let row = try? rows.next() {
+            guard let id = row["id"] as? Int64,
+                  let json = row["json"] as? String else {
+                continue
+            }
+            
+            guard let job = json.decode(Job.self) else {
+                continue
+            }
+            
+            try block(id, job)
         }
     }
     

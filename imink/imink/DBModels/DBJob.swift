@@ -29,6 +29,18 @@ struct DBJob: Identifiable {
     var ikuraNum: Int
     var failureWave: Int?
     var dangerRate: Double
+    
+    var scheduleStartTime: Date
+    var scheduleEndTime: Date
+    var scheduleStageName: String
+    var scheduleWeapon1Id: String
+    var scheduleWeapon1Image: String
+    var scheduleWeapon2Id: String
+    var scheduleWeapon2Image: String
+    var scheduleWeapon3Id: String
+    var scheduleWeapon3Image: String
+    var scheduleWeapon4Id: String
+    var scheduleWeapon4Image: String
 }
 
 extension DBJob: Equatable { }
@@ -54,6 +66,17 @@ extension DBJob: Codable, FetchableRecord, MutablePersistableRecord {
         static let ikuraNum = Column(CodingKeys.ikuraNum)
         static let failureWave = Column(CodingKeys.failureWave)
         static let dangerRate = Column(CodingKeys.dangerRate)
+        static let scheduleStartTime = Column(CodingKeys.scheduleStartTime)
+        static let scheduleEndTime = Column(CodingKeys.scheduleEndTime)
+        static let scheduleStageName = Column(CodingKeys.scheduleStageName)
+        static let scheduleWeapon1Id = Column(CodingKeys.scheduleWeapon1Id)
+        static let scheduleWeapon1Image = Column(CodingKeys.scheduleWeapon1Image)
+        static let scheduleWeapon2Id = Column(CodingKeys.scheduleWeapon2Id)
+        static let scheduleWeapon2Image = Column(CodingKeys.scheduleWeapon2Image)
+        static let scheduleWeapon3Id = Column(CodingKeys.scheduleWeapon3Id)
+        static let scheduleWeapon3Image = Column(CodingKeys.scheduleWeapon3Image)
+        static let scheduleWeapon4Id = Column(CodingKeys.scheduleWeapon4Id)
+        static let scheduleWeapon4Image = Column(CodingKeys.scheduleWeapon4Image)
     }
     
     mutating func didInsert(with rowID: Int64, for column: String?) {
@@ -103,7 +126,18 @@ extension AppDatabase {
                 goldenIkuraNum: job.myResult.goldenIkuraNum,
                 ikuraNum: job.myResult.ikuraNum,
                 failureWave: job.jobResult.failureWave,
-                dangerRate: job.dangerRate
+                dangerRate: job.dangerRate,
+                scheduleStartTime: job.schedule.startTime,
+                scheduleEndTime: job.schedule.endTime,
+                scheduleStageName: job.schedule.stage?.name ?? "",
+                scheduleWeapon1Id: job.schedule.weapons?[0].id ?? "",
+                scheduleWeapon1Image: job.schedule.weapons?[0].weapon?.$image ?? "",
+                scheduleWeapon2Id: job.schedule.weapons?[1].id ?? "",
+                scheduleWeapon2Image: job.schedule.weapons?[1].weapon?.$image ?? "",
+                scheduleWeapon3Id: job.schedule.weapons?[2].id ?? "",
+                scheduleWeapon3Image: job.schedule.weapons?[2].weapon?.$image ?? "",
+                scheduleWeapon4Id: job.schedule.weapons?[3].id ?? "",
+                scheduleWeapon4Image: job.schedule.weapons?[3].weapon?.$image ?? ""
                 )
             try record.insert(db)
         } completion: { _, error in
@@ -125,7 +159,7 @@ extension AppDatabase {
         return ValueObservation.tracking { db in
             // exclude json
             try Row
-                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, jobId, isClear, gradePoint, gradePointDelta, gradeId, helpCount, deadCount, goldenIkuraNum, ikuraNum, failureWave, dangerRate  FROM job WHERE sp2PrincipalId = ? ORDER BY jobId DESC", arguments: [currentUser.sp2PrincipalId])
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, jobId, isClear, gradePoint, gradePointDelta, gradeId, helpCount, deadCount, goldenIkuraNum, ikuraNum, failureWave, dangerRate, scheduleStartTime, scheduleEndTime, scheduleStageName, scheduleWeapon1Id, scheduleWeapon1Image, scheduleWeapon2Id, scheduleWeapon2Image, scheduleWeapon3Id, scheduleWeapon3Image, scheduleWeapon4Id, scheduleWeapon4Image FROM job WHERE sp2PrincipalId = ? ORDER BY jobId DESC", arguments: [currentUser.sp2PrincipalId])
                 .map { row in
                     DBJob(row: row)
                 }

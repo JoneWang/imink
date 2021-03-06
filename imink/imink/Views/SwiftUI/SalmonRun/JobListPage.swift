@@ -21,23 +21,33 @@ struct JobListPage: View {
                 
                 ScrollView {
                     LazyVStack {
-                        ForEach(viewModel.rows) { job in
-                            JobListItemView(job: job, isSelected: viewModel.selectedId == job.id)
-                                .padding([.leading, .trailing])
-                                .onTapGesture {
-                                    self.viewModel.selectedId = job.id
-                                }
-                                .background(
-                                    NavigationLink(
-                                        destination: JobDetailPage(id: job.id!),
-                                        tag: job.id!,
-                                        selection: $viewModel.selectedId
-                                    ) { EmptyView() }
-                                    .buttonStyle(PlainButtonStyle())
-                                )
+                        ForEach(viewModel.rows, id: \.id) { row in
+                            if let shiftCard = row.shiftCard {
+                                JobShiftCardView(shiftCard: shiftCard)
+                                    .rotationEffect(.degrees(-1))
+                                    .clipped(antialiased: true)
+                                    .padding([.leading, .trailing], 26)
+                                    .padding(.top, 20)
+                                    // FIXME:
+                                    .padding(.bottom, 0.1)
+                            } else if let job = row.job {
+                                JobListItemView(job: job, isSelected: viewModel.selectedId == job.id)
+                                    .padding([.leading, .trailing])
+                                    .onTapGesture {
+                                        self.viewModel.selectedId = job.id
+                                    }
+                                    .background(
+                                        NavigationLink(
+                                            destination: JobDetailPage(id: job.id!),
+                                            tag: job.id!,
+                                            selection: $viewModel.selectedId
+                                        ) { EmptyView() }
+                                        .buttonStyle(PlainButtonStyle())
+                                    )
+                            }
                         }
                     }
-                    .padding([.top, .bottom], 16)
+                    .padding(.bottom, 16)
                 }
             }
             .navigationBarTitle("Salmon Run", displayMode: .inline)
@@ -48,7 +58,7 @@ struct JobListPage: View {
 
 struct JobListPage_Previews: PreviewProvider {
     static var previews: some View {
-        var rows: [DBJob] = []
+        var rows: [JobListRowModel] = []
         let dbJob = DBJob(
             sp2PrincipalId: "123456789",
             jobId: 222,
@@ -62,10 +72,22 @@ struct JobListPage_Previews: PreviewProvider {
             goldenIkuraNum: 22,
             ikuraNum: 33,
             failureWave: nil,
-            dangerRate: 152.2)
+            dangerRate: 152.2,
+            scheduleStartTime: Date(),
+            scheduleEndTime: Date(),
+            scheduleStageName: "Stage Name",
+            scheduleWeapon1Id: "0",
+            scheduleWeapon1Image: "",
+            scheduleWeapon2Id: "0",
+            scheduleWeapon2Image: "",
+            scheduleWeapon3Id: "0",
+            scheduleWeapon3Image: "",
+            scheduleWeapon4Id: "0",
+            scheduleWeapon4Image: ""
+            )
         
         for _ in 0..<10 {
-            rows.append(dbJob)
+            rows.append(JobListRowModel(type: .job, job: dbJob))
         }
         
         let page = JobListPage()

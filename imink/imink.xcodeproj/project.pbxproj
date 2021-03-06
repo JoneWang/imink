@@ -54,6 +54,7 @@
 		EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D2628258FA02F004E7B3A /* TestFontView.swift */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
+		EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */; };
 		EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC7652DF259200890098FD22 /* SplatNet2 */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
@@ -258,6 +259,7 @@
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
 		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
+		EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobShiftCardView.swift; sourceTree = "<group>"; };
 		EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTopCardView.swift; sourceTree = "<group>"; };
 		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EC8611AA253AA873003BA67A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -455,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				EC25FE8E25B934640085670D /* JobListItemView.swift */,
+				EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */,
 				EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */,
 				EC4C70AB25B9CAFA00E6EF6E /* JobDetailWaveView.swift */,
 				ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */,
@@ -966,6 +969,7 @@
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
 				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
 				EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */,
+				EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */,
 				EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */,
 				EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */,
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,

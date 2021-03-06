@@ -129,7 +129,19 @@ struct JobListItemView_Previews: PreviewProvider {
             goldenIkuraNum: 22,
             ikuraNum: 33,
             failureWave: nil,
-            dangerRate: 152.2)
+            dangerRate: 152.2,
+            scheduleStartTime: Date(),
+            scheduleEndTime: Date(),
+            scheduleStageName: "Stage Name",
+            scheduleWeapon1Id: "0",
+            scheduleWeapon1Image: "",
+            scheduleWeapon2Id: "0",
+            scheduleWeapon2Image: "",
+            scheduleWeapon3Id: "0",
+            scheduleWeapon3Image: "",
+            scheduleWeapon4Id: "0",
+            scheduleWeapon4Image: ""
+            )
         
         JobListItemView(job: dbJob)
             .padding(.top, 8)

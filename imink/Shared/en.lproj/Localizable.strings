@@ -25,11 +25,6 @@
 
 "Welcome to imink!" = "Welcome to imink!";
 "Sign in with Nintendo Account" = "Sign in with Nintendo Account";
-"Sign in with Telegram Bot" = "Sign in with Telegram Bot";
-"sign_in_client_token_tip_1" = "Sending /clienttoken to ";
-"sign_in_client_token_tip_2" = " bot in Telegram to get Client Token.";
-"Client Token" = "Client Token";
-"Sign In" = "Sign In";
 "Failure" = "Failure";
 "Login error occurred, please try again." = "Login error occurred, please try again.";
 
@@ -77,6 +72,7 @@
 "Wave %d" = "Wave %d";
 "JobWaveDefeat_img" = "JobWaveDefeat";
 "JobWaveClear_img" = "JobWaveClear";
+"JobShiftCardClear_img" = "JobShiftCardClear";
 "low" = "Low tide";
 "normal" = "Normal";
 "high" = "High tide";

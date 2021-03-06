@@ -25,11 +25,6 @@
 
 "Welcome to imink!" = "欢迎来到 imink！";
 "Sign in with Nintendo Account" = "任天堂账号登录";
-"Sign in with Telegram Bot" = "Telegram Bot 登录";
-"sign_in_client_token_tip_1" = "获取 Client Token 需要给 Telegram 机器人 ";
-"sign_in_client_token_tip_2" = "发送 /clienttoken 。";
-"Client Token" = "Client Token";
-"Sign In" = "登录";
 "Failure" = "失败";
 "Login error occurred, please try again." = "登录过程中发生了错误，请重试。";
 
@@ -77,6 +72,7 @@
 "Wave %d" = "WAVE %d";
 "JobWaveDefeat_img" = "JobWaveDefeat";
 "JobWaveClear_img" = "JobWaveClear";
+"JobShiftCardClear_img" = "JobShiftCardClear";
 "low" = "低潮";
 "normal" = "普通";
 "high" = "高潮";
