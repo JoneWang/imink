@@ -24,6 +24,7 @@ struct DBRecord: Identifiable {
     
     // List item information
     var victory: Bool
+    var weaponId: String
     var weaponImage: String
     var rule: String
     var gameMode: String
@@ -63,6 +64,7 @@ extension DBRecord: Codable, FetchableRecord, MutablePersistableRecord {
         static let json = Column(CodingKeys.json)
         static let isDetail = Column(CodingKeys.isDetail)
         static let victory = Column(CodingKeys.victory)
+        static let weaponId = Column(CodingKeys.weaponId)
         static let weaponImage = Column(CodingKeys.weaponImage)
         static let rule = Column(CodingKeys.rule)
         static let gameMode = Column(CodingKeys.gameMode)
@@ -117,6 +119,7 @@ extension AppDatabase {
                 battleNumber: battle.battleNumber,
                 json: jsonString,
                 victory: battle.myTeamResult.key == .victory,
+                weaponId: battle.playerResult.player.weapon.id,
                 weaponImage: battle.playerResult.player.weapon.$image,
                 rule: battle.rule.name,
                 gameMode: battle.gameMode.name,
@@ -186,7 +189,7 @@ extension AppDatabase {
         return ValueObservation.tracking { db in
             // exclude json
             try Row
-                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [currentUser.sp2PrincipalId])
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [currentUser.sp2PrincipalId])
                 .map { row in
                     DBRecord(row: row)
                 }
@@ -373,6 +376,7 @@ extension DBRecord {
             battleNumber: battleNumber,
             json: json,
             victory: victory,
+            weaponId: weaponId,
             weaponImage: weaponImage,
             rule: rule,
             gameMode: gameMode,

@@ -176,6 +176,23 @@ class AppDatabase {
             }
         }
         
+        migrator.registerMigration("V7") { db in
+            try db.alter(table: "record", body: { tableAlteration in
+                tableAlteration.add(column: "weaponId", .text).defaults(to: "0").notNull()
+            })
+            
+            try self.eachBattles(db: db) { (id, battle) in
+                try db.execute(
+                    sql: "UPDATE record SET " +
+                        "weaponId = ? " +
+                        "WHERE id = ?",
+                    arguments: [
+                        battle.playerResult.player.weapon.id,
+                        id
+                    ])
+            }
+        }
+        
         return migrator
     }
 }

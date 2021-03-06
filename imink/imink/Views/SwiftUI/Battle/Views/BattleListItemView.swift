@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import InkCore
 
 struct BattleListItemView: View {
     
@@ -71,104 +72,117 @@ struct BattleListItemView: View {
     func makeRecordContent(record: DBRecord) -> some View {
         let gameMode = GameMode.Key(rawValue: record.gameModeKey)!
         
-        return VStack(spacing: 0) {
-            HStack(spacing: 6) {
-                Image(record.gameModeImageName)
-                    .resizable()
-                    .frame(width: 16, height: 16)
-                    .padding(.top, -0.5)
-                    .padding(.bottom, -1.5)
-                
-                Text(record.rule.localizedKey)
-                    .sp1Font(size: 12, color: record.gameModeColor)
-                
-                Spacer()
-                
-                if gameMode == .gachi ||
-                    gameMode == .leaguePair ||
-                    gameMode == .leagueTeam {
-                    HStack(alignment: .firstTextBaseline, spacing: 0) {
-                        Text(record.udemaeName ?? "C-")
-                            .sp1Font(size: 12, color: AppColor.appLabelColor)
-                        
-                        if let sPlusNumber = record.udemaeSPlusNumber {
-                            Text("\(sPlusNumber)")
-                                .sp1Font(size: 8, color: AppColor.spGreenLimeColor)
-                                .padding(.leading, 0.6)
-                                .padding(.bottom, 0)
+        return ZStack {
+            VStack(spacing: 0) {
+                HStack(spacing: 6) {
+                    Image(record.gameModeImageName)
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                        .padding(.top, -0.5)
+                        .padding(.bottom, -1.5)
+                    
+                    Text(record.rule.localizedKey)
+                        .sp1Font(size: 12, color: record.gameModeColor)
+                    
+                    Spacer()
+                    
+                    if gameMode == .gachi ||
+                        gameMode == .leaguePair ||
+                        gameMode == .leagueTeam {
+                        HStack(alignment: .firstTextBaseline, spacing: 0) {
+                            Text(record.udemaeName ?? "C-")
+                                .sp1Font(size: 12, color: AppColor.appLabelColor)
+                            
+                            if let sPlusNumber = record.udemaeSPlusNumber {
+                                Text("\(sPlusNumber)")
+                                    .sp1Font(size: 8, color: AppColor.spGreenLimeColor)
+                                    .padding(.leading, 0.6)
+                                    .padding(.bottom, 0)
+                            }
                         }
                     }
                 }
-            }
-            .padding(.bottom, 6.5)
-            
-            HStack {
-                Text(record.victory ? "VICTORY" : "DEFEAT")
-                    .sp1Font(size: 14, color: record.resultColor)
-                
-                Spacer()
+                .padding(.bottom, 6.5)
                 
                 HStack {
-                    let speciesName = record.playerTypeSpecies == .inklings ? "Ika" : "Tako"
+                    Text(record.victory ? "VICTORY" : "DEFEAT")
+                        .sp1Font(size: 14, color: record.resultColor)
                     
-                    HStack(spacing: 3) {
-                        Image("\(speciesName)_k")
-                            .resizable()
-                            .frame(width: 14, height: 14)
-                            .foregroundColor(.systemGray3)
-
-                        HStack(alignment: .firstTextBaseline, spacing: 0) {
-                            Text("\(record.killCount)")
+                    Spacer()
+                    
+                    HStack {
+                        let speciesName = record.playerTypeSpecies == .inklings ? "Ika" : "Tako"
+                        
+                        HStack(spacing: 3) {
+                            Image("\(speciesName)_k")
+                                .resizable()
+                                .frame(width: 14, height: 14)
+                                .foregroundColor(.systemGray3)
+                            
+                            HStack(alignment: .firstTextBaseline, spacing: 0) {
+                                Text("\(record.killCount)")
+                                    .sp2Font(size: 10, color: AppColor.appLabelColor)
+                                Text(" (\(record.assistCount))")
+                                    .sp2Font(size: 7, color: AppColor.appLabelColor)
+                            }
+                        }
+                        
+                        HStack(spacing: 3) {
+                            Image("\(speciesName)_d")
+                                .resizable()
+                                .frame(width: 14, height: 14)
+                                .foregroundColor(.systemGray3)
+                            
+                            Text("\(record.deathCount)")
                                 .sp2Font(size: 10, color: AppColor.appLabelColor)
-                            Text(" (\(record.assistCount))")
-                                .sp2Font(size: 7, color: AppColor.appLabelColor)
+                        }
+                        
+                        HStack(spacing: 3) {
+                            Image("\(speciesName)_kd")
+                                .resizable()
+                                .frame(width: 14, height: 14)
+                                .foregroundColor(.systemGray3)
+                            
+                            Text("\(Double(record.killCount) -/ Double(record.deathCount), places: 1)")
+                                .sp2Font(size: 10, color: AppColor.appLabelColor)
                         }
                     }
-
-                    HStack(spacing: 3) {
-                        Image("\(speciesName)_d")
-                            .resizable()
-                            .frame(width: 14, height: 14)
-                            .foregroundColor(.systemGray3)
-
-                        Text("\(record.deathCount)")
-                            .sp2Font(size: 10, color: AppColor.appLabelColor)
-                    }
-
-                    HStack(spacing: 3) {
-                        Image("\(speciesName)_kd")
-                            .resizable()
-                            .frame(width: 14, height: 14)
-                            .foregroundColor(.systemGray3)
-
-                        Text("\(Double(record.killCount) -/ Double(record.deathCount), places: 1)")
-                            .sp2Font(size: 10, color: AppColor.appLabelColor)
+                }
+                .padding(.bottom, 7)
+                
+                HStack(spacing: 0) {
+                    GeometryReader { geo in
+                        Rectangle()
+                            .foregroundColor(Color.systemGray3)
+                        
+                        Rectangle()
+                            .foregroundColor(record.resultColor)
+                            .frame(width: geo.size.width * CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint)))
                     }
                 }
-            }
-            .padding(.bottom, 7)
-            
-            HStack(spacing: 0) {
-                GeometryReader { geo in
-                    Rectangle()
-                        .foregroundColor(Color.systemGray3)
+                .frame(height: 5)
+                .clipShape(Capsule())
+                .padding(.bottom, 6)
+                
+                HStack {
+                    Text("#\(record.battleNumber) · \(record.stageName.localized)")
+                        .font(.system(size: 10))
+                        .foregroundColor(.systemGray2)
                     
-                    Rectangle()
-                        .foregroundColor(record.resultColor)
-                        .frame(width: geo.size.width * CGFloat(record.myPoint &/ (record.myPoint + record.otherPoint)))
+                    Spacer()
                 }
             }
-            .frame(height: 5)
-            .clipShape(Capsule())
-            .padding(.bottom, 6)
             
-            HStack {
-                Text("#\(record.battleNumber) · \(record.stageName.localized)")
-                    .font(.system(size: 10))
-                    .foregroundColor(.systemGray2)
+            VStack {
+                WeaponImageView(
+                    id: record.weaponId,
+                    imageURL: record.weaponImageURL
+                )
+                .frame(width: 40, height: 40)
                 
                 Spacer()
             }
+            .padding(.top, 6.5)
         }
     }
 }
@@ -221,6 +235,7 @@ struct BattleListItemView_Previews: PreviewProvider {
         let dbRecord = DBRecord(
             battleNumber: "12345",
             victory: true,
+            weaponId: "11",
             weaponImage: "",
             rule: "Turf War",
             gameMode: "Regular",
