@@ -14,8 +14,6 @@
 		EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBD6251CA11D0010366A /* TabBarController.swift */; };
 		EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
-		EC0C1EF4259B73600062D5A8 /* Splatfont 2 v1.008.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0C1EF3259B73600062D5A8 /* Splatfont 2 v1.008.otf */; };
-		EC0C1EF8259B73690062D5A8 /* Splatfont 1 v1.006.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0C1EF7259B73690062D5A8 /* Splatfont 1 v1.006.otf */; };
 		EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */; };
 		EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */; };
 		EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */; };
@@ -55,6 +53,8 @@
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */; };
+		EC6CF3FE25F3F698005427B5 /* Splatfont 1 v1.008.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC6CF3FC25F3F698005427B5 /* Splatfont 1 v1.008.otf */; };
+		EC6CF3FF25F3F698005427B5 /* Splatfont 2 v1.009.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC6CF3FD25F3F698005427B5 /* Splatfont 2 v1.009.otf */; };
 		EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC7652DF259200890098FD22 /* SplatNet2 */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
@@ -217,8 +217,6 @@
 		EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
 		EC00DBF3251CD29C0010366A /* TransitionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
 		EC00DBF4251CD29C0010366A /* FontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
-		EC0C1EF3259B73600062D5A8 /* Splatfont 2 v1.008.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 2 v1.008.otf"; sourceTree = "<group>"; };
-		EC0C1EF7259B73690062D5A8 /* Splatfont 1 v1.006.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.006.otf"; sourceTree = "<group>"; };
 		EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
 		EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
@@ -260,6 +258,9 @@
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
 		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobShiftCardView.swift; sourceTree = "<group>"; };
+		EC6CF3F925F3F540005427B5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EC6CF3FC25F3F698005427B5 /* Splatfont 1 v1.008.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.008.otf"; sourceTree = "<group>"; };
+		EC6CF3FD25F3F698005427B5 /* Splatfont 2 v1.009.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 2 v1.009.otf"; sourceTree = "<group>"; };
 		EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTopCardView.swift; sourceTree = "<group>"; };
 		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EC8611AA253AA873003BA67A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -596,8 +597,8 @@
 		EC900E91251C8EF600AA0B20 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				EC0C1EF7259B73690062D5A8 /* Splatfont 1 v1.006.otf */,
-				EC0C1EF3259B73600062D5A8 /* Splatfont 2 v1.008.otf */,
+				EC6CF3FC25F3F698005427B5 /* Splatfont 1 v1.008.otf */,
+				EC6CF3FD25F3F698005427B5 /* Splatfont 2 v1.009.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -832,6 +833,7 @@
 				"zh-Hans",
 				ja,
 				"zh-Hant",
+				ko,
 			);
 			mainGroup = EC900E68251C55FE00AA0B20;
 			packageReferences = (
@@ -857,9 +859,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC0C1EF8259B73690062D5A8 /* Splatfont 1 v1.006.otf in Resources */,
+				EC6CF3FF25F3F698005427B5 /* Splatfont 2 v1.009.otf in Resources */,
 				EC2C34BA2598D7210007BA4D /* Assets.xcassets in Resources */,
-				EC0C1EF4259B73600062D5A8 /* Splatfont 2 v1.008.otf in Resources */,
+				EC6CF3FE25F3F698005427B5 /* Splatfont 1 v1.008.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,6 +1075,7 @@
 				EC39701A2548028100557BD4 /* zh-Hans */,
 				EC39701D25480B9C00557BD4 /* ja */,
 				EC3F74A125505FFA0061989B /* zh-Hant */,
+				EC6CF3F925F3F540005427B5 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
