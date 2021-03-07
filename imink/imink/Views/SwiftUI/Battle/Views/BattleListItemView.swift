@@ -125,7 +125,7 @@ struct BattleListItemView: View {
                                 .foregroundColor(.systemGray3)
                             
                             HStack(alignment: .firstTextBaseline, spacing: 0) {
-                                Text("\(record.killCount)")
+                                Text("\(record.killCount + record.assistCount)")
                                     .sp2Font(size: 10, color: AppColor.appLabelColor)
                                 Text(" (\(record.assistCount))")
                                     .sp2Font(size: 7, color: AppColor.appLabelColor)
