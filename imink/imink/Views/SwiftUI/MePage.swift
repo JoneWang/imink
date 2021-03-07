@@ -69,6 +69,7 @@ struct MePage: View {
                                                 .sp2Font(size: 16, color: AppColor.appLabelColor)
                                             }
                                         }
+                                        .padding(.leading, 4)
                                         
                                         VStack(alignment: .leading, spacing: 0) {
                                             ForEach(udemaeData.indices) { index in
