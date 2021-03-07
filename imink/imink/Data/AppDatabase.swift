@@ -184,16 +184,18 @@ class AppDatabase {
             try self.eachBattles(db: db) { (id, battle) in
                 try db.execute(
                     sql: "UPDATE record SET " +
-                        "weaponId = ? " +
+                        "weaponId = ?, " +
+                        "udemaeName = ?, " +
+                        "udemaeSPlusNumber = ? " +
                         "WHERE id = ?",
                     arguments: [
                         battle.playerResult.player.weapon.id,
+                        battle.udemae?.name,
+                        battle.udemae?.sPlusNumber,
                         id
                     ])
             }
-        }
-        
-        migrator.registerMigration("V71") { db in
+            
             try db.alter(table: "job", body: { tableAlteration in
                 tableAlteration.add(column: "scheduleStartTime", .datetime).defaults(to: Date()).notNull()
                 tableAlteration.add(column: "scheduleEndTime", .datetime).defaults(to: Date()).notNull()
