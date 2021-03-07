@@ -27,6 +27,7 @@ class HomeViewModel: ObservableObject {
     @Published var salmonRunSchedules: SalmonRunSchedules?
     @Published var activeFestivals: ActiveFestivals?
     @Published var isLoading: Bool = false
+    @Published var resetHour: Int
     
     var vdWithLast500: [Bool] {
         AppDatabase.shared.vdWithLast500()
@@ -45,11 +46,11 @@ class HomeViewModel: ObservableObject {
     private var todayStartTime: Date? {
         let now = Date()
         
-        guard var startTime = Calendar.current.date(bySettingHour: 3, minute: 0, second: 0, of: now) else {
+        guard var startTime = Calendar.current.date(bySettingHour: resetHour, minute: 0, second: 0, of: now) else {
             return nil
         }
         
-        if now.get(.hour) < 3 {
+        if now.get(.hour) < resetHour {
             guard let tomorrow3Clock = Calendar.current.date(byAdding: .day, value: -1, to: startTime) else {
                 return nil
             }
@@ -66,6 +67,9 @@ class HomeViewModel: ObservableObject {
     private var lastSyncTime = Date()
     
     init() {
+        let currentTimeZone = (TimeZone.current.secondsFromGMT() / 3600)
+        resetHour = (currentTimeZone % 2 == 0) ? 2 : 3
+        
         NotificationCenter.default
             .publisher(for: .recordSyncDetailFinished)
             .sink { [weak self] _ in

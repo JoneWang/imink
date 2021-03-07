@@ -46,7 +46,7 @@ struct HomePage: View {
                                 Text("Today")
                                     .sp1Font(size: 22, color: AppColor.appLabelColor)
                                 
-                                Text("(3:00 \("reset".localized))")
+                                Text("(\(homeViewModel.resetHour):00 \("reset".localized))")
                                     .sp2Font(color: Color.secondary)
                                 
                             }
