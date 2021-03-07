@@ -31,7 +31,7 @@ struct JobListPage: View {
                                     // FIXME:
                                     .padding(.bottom, 0.1)
                             } else if let job = row.job {
-                                JobListItemView(job: job, isSelected: viewModel.selectedId == job.id)
+                                JobListItemView(job: job, selectedId: $viewModel.selectedId)
                                     .padding([.leading, .trailing])
                                     .onTapGesture {
                                         self.viewModel.selectedId = job.id

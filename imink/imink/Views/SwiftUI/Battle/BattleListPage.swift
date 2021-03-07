@@ -22,7 +22,7 @@ struct BattleListPage: View {
                         ForEach(viewModel.rows, id: \.id) { row in
                             BattleListItemView(
                                 row: row,
-                                isSelected: viewModel.selectedId == row.id
+                                selectedId: $viewModel.selectedId
                             )
                             .padding([.leading, .trailing])
                             .onTapGesture {

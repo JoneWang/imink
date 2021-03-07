@@ -9,7 +9,9 @@ import SwiftUI
 
 struct JobListItemView: View {
     let job: DBJob
-    var isSelected: Bool = false
+    @Binding var selectedId: Int64?
+    
+    @State private var isSelected: Bool = false
     
     var pointStatusImageName: String {
         if job.gradePointDelta > 0 {
@@ -108,7 +110,11 @@ struct JobListItemView: View {
         .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
         .frame(height: 79)
         .continuousCornerRadius(10)
-        .animation(.easeOut)
+        .onChange(of: selectedId) { value in
+            withAnimation {
+                self.isSelected = selectedId == job.id
+            }
+        }
     }
 }
 
@@ -143,17 +149,21 @@ struct JobListItemView_Previews: PreviewProvider {
             scheduleWeapon4Image: ""
             )
         
-        JobListItemView(job: dbJob)
-            .padding(.top, 8)
-            .padding([.leading, .trailing])
-            .background(AppColor.listBackgroundColor)
-            .previewLayout(.sizeThatFits)
-
-        JobListItemView(job: dbJob)
-            .padding(.top, 8)
-            .padding([.leading, .trailing])
-            .background(AppColor.listBackgroundColor)
-            .previewLayout(.sizeThatFits)
-            .colorScheme(.dark)
+        StatefulPreviewWrapper(0) { selectedId in
+            JobListItemView(job: dbJob, selectedId: selectedId)
+                .padding(.top, 8)
+                .padding([.leading, .trailing])
+                .background(AppColor.listBackgroundColor)
+                .previewLayout(.sizeThatFits)
+        }
+        
+        StatefulPreviewWrapper(0) { selectedId in
+            JobListItemView(job: dbJob, selectedId: selectedId)
+                .padding(.top, 8)
+                .padding([.leading, .trailing])
+                .background(AppColor.listBackgroundColor)
+                .previewLayout(.sizeThatFits)
+                .colorScheme(.dark)
+        }
     }
 }

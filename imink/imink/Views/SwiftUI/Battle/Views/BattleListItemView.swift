@@ -13,8 +13,9 @@ struct BattleListItemView: View {
     static let RealtimeRecordId: Int64 = -1
     
     let row: BattleListRowModel
-    var isSelected: Bool = false
+    @Binding var selectedId: String?
     
+    @State private var isSelected: Bool = false
     @State private var realtimeLoading: Bool = false
     
     var body: some View {
@@ -43,7 +44,11 @@ struct BattleListItemView: View {
                     .continuousCornerRadius(10)
             }
         }
-        .animation(.easeOut)
+        .onChange(of: selectedId) { value in
+            withAnimation {
+                self.isSelected = selectedId == row.id
+            }
+        }
     }
     
     func makeRealtimeContent() -> some View {
@@ -261,23 +266,29 @@ struct BattleListItemView_Previews: PreviewProvider {
         let realtimeRow = BattleListRowModel(type: .realtime, record: dbRecord)
         let row = BattleListRowModel(type: .record, record: dbRecord)
         
-        BattleListItemView(row: realtimeRow)
-            .padding(.top, 8)
-            .padding([.leading, .trailing])
-            .background(AppColor.listBackgroundColor)
-            .previewLayout(.sizeThatFits)
+        StatefulPreviewWrapper("") { selectedId in
+            BattleListItemView(row: realtimeRow, selectedId: selectedId)
+                .padding(.top, 8)
+                .padding([.leading, .trailing])
+                .background(AppColor.listBackgroundColor)
+                .previewLayout(.sizeThatFits)
+        }
         
-        BattleListItemView(row: row)
-            .padding(.top, 8)
-            .padding([.leading, .trailing])
-            .background(AppColor.listBackgroundColor)
-            .previewLayout(.sizeThatFits)
-        
-        BattleListItemView(row: row)
-            .padding(.top, 8)
-            .padding([.leading, .trailing])
-            .background(AppColor.listBackgroundColor)
-            .previewLayout(.sizeThatFits)
-            .colorScheme(.dark)
+        StatefulPreviewWrapper("") { selectedId in
+            BattleListItemView(row: row, selectedId: selectedId)
+                .padding(.top, 8)
+                .padding([.leading, .trailing])
+                .background(AppColor.listBackgroundColor)
+                .previewLayout(.sizeThatFits)
+        }
+            
+        StatefulPreviewWrapper("") { selectedId in
+            BattleListItemView(row: row, selectedId: selectedId)
+                .padding(.top, 8)
+                .padding([.leading, .trailing])
+                .background(AppColor.listBackgroundColor)
+                .previewLayout(.sizeThatFits)
+                .colorScheme(.dark)
+        }
     }
 }
