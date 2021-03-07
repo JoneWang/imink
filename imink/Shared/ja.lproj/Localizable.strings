@@ -47,14 +47,22 @@
 "Highest" = "最高";
 "Crew" = "味方";
 "Rival" = "相手";
-"8-Squid Towel Control Power" = "8人のガチヤグラパワー";
+"8-Squid Tower Control Power" = "8人のガチヤグラパワー";
 "8-Squid Rainmaker Power" = "8人のガチホコバトルパワー";
 "8-Squid Clam Blitz Power" = "8人のガチアサリパワー";
 "8-Squid Splat Zones Power" = "8人のガチエリアパワー";
 "8-Squid Splat Zones X Power" = "8人のガチエリアXパワー";
-"8-Squid Towel Control X Power" = "8人のガチヤグラXパワー";
+"8-Squid Tower Control X Power" = "8人のガチヤグラXパワー";
 "8-Squid Rainmaker X Power" = "8人のガチホコバトルXパワー";
 "8-Squid Clam Blitz X Power" = "8人のガチアサリXパワー";
+"8-Squid ガチヤグラ Power" = "8人のガチヤグラパワー";
+"8-Squid ガチホコバトル Power" = "8人のガチホコバトルパワー";
+"8-Squid ガチアサリ Power" = "8人のガチアサリパワー";
+"8-Squid ガチエリア Power" = "8人のガチエリアパワー";
+"8-Squid ガチエリア X Power" = "8人のガチエリアXパワー";
+"8-Squid ガチヤグラ X Power" = "8人のガチヤグラXパワー";
+"8-Squid ガチホコバトル X Power" = "8人のガチホコバトルXパワー";
+"8-Squid ガチアサリ X Power" = "8人のガチアサリXパワー";
 " count" = "カウント";
 "KO BONUS!" = "ノックアウト！";
 
