@@ -24,7 +24,7 @@
 // MARK: Sign in
 
 "Welcome to imink!" = "Welcome to imink!";
-"Sign in with Nintendo Account" = "Sign in with Nintendo Account";
+"Log in with Nintendo Account" = "Log in with Nintendo Account";
 "Failure" = "Failure";
 "Login error occurred, please try again." = "Login error occurred, please try again.";
 

@@ -24,7 +24,7 @@
 // MARK: Sign in
 
 "Welcome to imink!" = "imink에 어서오세요!";
-"Sign in with Nintendo Account" = "Nintendo Account로 로그인";
+"Log in with Nintendo Account" = "Nintendo Account로 로그인";
 "Failure" = "실패";
 "Login error occurred, please try again." = "에러가 발생했습니다. 다시 시도해 주세요.";
 

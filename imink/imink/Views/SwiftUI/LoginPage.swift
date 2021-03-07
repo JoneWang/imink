@@ -23,7 +23,7 @@ struct LoginPage: View {
                     Button(action: {
                         loginViewModel.useNintendoAccount = true
                     }) {
-                        Text("Sign in with Nintendo Account")
+                        Text("Log in with Nintendo Account")
                             .foregroundColor(.white)
                             .frame(width: 250)
                             .padding()
