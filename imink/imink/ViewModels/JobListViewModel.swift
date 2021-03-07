@@ -74,7 +74,7 @@ class JobListViewModel: ObservableObject {
                         if var rowModel = lastRowModel {
                             
                             if jobs.last == job {
-                                rowModel.shiftCard!.totalClearCount += job.deadCount
+                                rowModel.shiftCard!.totalClearCount += (job.failureWave ?? 4) - 1
                                 rowModel.shiftCard!.totalHelpCount += job.helpCount
                                 rowModel.shiftCard!.totalGoldenIkuraCount += job.goldenIkuraNum
                                 rowModel.shiftCard!.totalDeadCount += job.deadCount
@@ -103,7 +103,7 @@ class JobListViewModel: ObservableObject {
                         }
                     }
                     
-                    lastRowModel!.shiftCard!.totalClearCount += job.deadCount
+                    lastRowModel!.shiftCard!.totalClearCount += (job.failureWave ?? 4) - 1
                     lastRowModel!.shiftCard!.totalHelpCount += job.helpCount
                     lastRowModel!.shiftCard!.totalGoldenIkuraCount += job.goldenIkuraNum
                     lastRowModel!.shiftCard!.totalDeadCount += job.deadCount
