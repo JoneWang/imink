@@ -51,7 +51,7 @@ struct HomePage: View {
                                 
                             }
                             
-                            HStack {
+                            HStack(spacing: 8) {
                                 
                                 VStack {
                                     HStack {
@@ -101,7 +101,7 @@ struct HomePage: View {
                                         
                                     }
                                 }
-                                .padding()
+                                .padding([.top, .bottom])
                                 .background(AppColor.listItemBackgroundColor)
                                 .continuousCornerRadius(10)
                                 
@@ -174,7 +174,7 @@ struct HomePage: View {
                                             
                                         }
                                     }
-                                    .padding()
+                                    .padding([.top, .bottom])
                                     .background(AppColor.listItemBackgroundColor)
                                     .continuousCornerRadius(10)
                                     
@@ -201,7 +201,6 @@ struct HomePage: View {
                             .padding(.top)
                             
                         }
-                        .padding(.horizontal)
                         .padding(.top)
                         
                         VStack(alignment: .leading, spacing: 0) {
@@ -232,7 +231,6 @@ struct HomePage: View {
                                 .frame(height: vdChartViewHeight)
                             
                         }
-                        .padding(.horizontal)
                         .padding(.top)
                         
                         if let festival = homeViewModel.activeFestivals?.festivals.first {
@@ -281,7 +279,6 @@ struct HomePage: View {
                                 .continuousCornerRadius(10)
                                 .padding(.top)
                             }
-                            .padding(.horizontal)
                             .padding(.top)
                         }
                         
@@ -324,7 +321,7 @@ struct HomePage: View {
                             }
                             
                         }
-                        .padding()
+                        .padding([.top, .bottom])
                         .animation(.default)
                         
                         Spacer()
@@ -333,6 +330,7 @@ struct HomePage: View {
                     
                     Spacer()
                 }
+                .padding(.horizontal)
             }
             .background(AppColor.listBackgroundColor)
             .navigationBarTitle("Home", displayMode: .inline)
