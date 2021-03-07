@@ -175,6 +175,10 @@ struct BattleListItemView: View {
                         .foregroundColor(.systemGray2)
                     
                     Spacer()
+                    
+                    Text(record.powerText)
+                        .font(.system(size: 10))
+                        .foregroundColor(.systemGray2)
                 }
             }
             
@@ -231,6 +235,23 @@ extension DBRecord {
             return AppColor.spPurple
         default:
             return AppColor.appLabelColor
+        }
+    }
+    
+    var powerText: String {
+        let gameMode = GameMode.Key(rawValue: gameModeKey)!
+        
+        if gameMode == .leaguePair ||
+            gameMode == .leagueTeam {
+            if let power = leaguePoint, power > 0 {
+                return String(format: "%@ power".localized, "\(power, places: 0)")
+            } else {
+                return String(format: "%@ power".localized, "---")
+            }
+        } else if gameMode == .gachi, let power = estimateGachiPower {
+            return String(format: "%@ power".localized, "\(power)")
+        } else {
+            return ""
         }
     }
 }
