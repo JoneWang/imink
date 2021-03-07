@@ -27,7 +27,7 @@ class TabBarViewModel: ObservableObject {
         
         isLogin = AppUserDefaults.shared.user != nil
         
-        if !isLogin {
+        if isLogin {
             // If logined update user
             requestUserInfo()
         }
