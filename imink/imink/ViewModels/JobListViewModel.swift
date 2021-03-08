@@ -79,9 +79,13 @@ class JobListViewModel: ObservableObject {
                                 rowModel.shiftCard!.totalGoldenIkuraCount += job.goldenIkuraNum
                                 rowModel.shiftCard!.totalDeadCount += job.deadCount
                                 rowModel.shiftCard!.gameCount += 1
+                                rows.insert(rowModel, at: rows.count - rowModel.shiftCard!.gameCount)
+                                
+                                break
+                            } else {
+                                rows.insert(rowModel, at: rows.count - (rowModel.shiftCard!.gameCount + 1))
                             }
                             
-                            rows.insert(rowModel, at: rows.count - (rowModel.shiftCard!.gameCount + 1))
                             lastRowModel = nil
                         }
                         
