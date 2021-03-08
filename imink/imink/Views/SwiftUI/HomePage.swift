@@ -330,7 +330,7 @@ struct HomePage: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 8)
             }
             .background(AppColor.listBackgroundColor)
             .navigationBarTitle("Home", displayMode: .inline)
