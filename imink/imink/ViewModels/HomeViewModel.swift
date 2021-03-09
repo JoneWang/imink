@@ -19,6 +19,14 @@ extension Date {
     }
 }
 
+struct Today {
+    var victoryCount: Int = 0
+    var defeatCount: Int = 0
+    var killCount: Int = 0
+    var assistCount: Int = 0
+    var deathCount: Int = 0
+}
+
 class HomeViewModel: ObservableObject {
     
     @Published var syncTotalCount = 0
@@ -28,20 +36,8 @@ class HomeViewModel: ObservableObject {
     @Published var activeFestivals: ActiveFestivals?
     @Published var isLoading: Bool = false
     @Published var resetHour: Int
-    
-    var vdWithLast500: [Bool] {
-        AppDatabase.shared.vdWithLast500()
-    }
-    
-    var todayVictoryAndDefeatCount: (Int, Int) {
-        guard let todayStartTime = todayStartTime else { return (0, 0)}
-        return AppDatabase.shared.victoryAndDefeatCount(startTime: todayStartTime)
-    }
-    
-    var todayKillAssistAndDeathCount: (Int, Int, Int) {
-        guard let todayStartTime = todayStartTime else { return (0, 0, 0)}
-        return AppDatabase.shared.killAssistAndDeathCount(startTime: todayStartTime)
-    }
+    @Published var today: Today = Today()
+    @Published var vdWithLast500: [Bool] = []
     
     private var todayStartTime: Date? {
         let now = Date()
@@ -49,12 +45,12 @@ class HomeViewModel: ObservableObject {
         guard var startTime = Calendar.current.date(bySettingHour: resetHour, minute: 0, second: 0, of: now) else {
             return nil
         }
-        
+
         if now.get(.hour) < resetHour {
             guard let tomorrow3Clock = Calendar.current.date(byAdding: .day, value: -1, to: startTime) else {
                 return nil
             }
-            
+
             startTime = tomorrow3Clock
         }
         
@@ -84,6 +80,28 @@ class HomeViewModel: ObservableObject {
                 return Just<Int>(0)
             }
             .assign(to: &$recordTotalCount)
+        
+        $recordTotalCount
+            .map { _ in
+                guard let todayStartTime = self.todayStartTime else {
+                    return Today()
+                }
+                
+                let (todayVictoryCount, todayDefeatCount) = AppDatabase.shared.victoryAndDefeatCount(startTime: todayStartTime)
+                let (todayKillCount, todayAssistCount, todayDeathCount) = AppDatabase.shared.killAssistAndDeathCount(startTime: todayStartTime)
+                return Today(
+                    victoryCount: todayVictoryCount,
+                    defeatCount: todayDefeatCount,
+                    killCount: todayKillCount,
+                    assistCount: todayAssistCount,
+                    deathCount: todayDeathCount
+                )
+            }
+            .assign(to: &$today)
+        
+        $recordTotalCount
+            .map { _ in AppDatabase.shared.vdWithLast500() }
+            .assign(to: &$vdWithLast500)
         
         updateSchedules()
         

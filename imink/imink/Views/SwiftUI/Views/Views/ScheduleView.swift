@@ -21,16 +21,15 @@ struct ScheduleView: View {
         return formatter
     }()
     
+    private let calendar = NSCalendar.current
+    private let gameModeColors: [Color] = [AppColor.spLightGreen, AppColor.spOrange, AppColor.spPink]
+    private let gameModeImageNames: [String] = ["RegularBattle", "RankedBattle", "LeagueBattle"]
+    private var schedules: [[Schedules.Schedule]] {
+        [regularSchedules, gachiSchedules, leagueSchedules]
+    }
+    
     var body: some View {
-        let schedules = [regularSchedules, gachiSchedules, leagueSchedules]
-        let gameModeColors: [Color] = [AppColor.spLightGreen, AppColor.spOrange, AppColor.spPink]
-        let gameModeImageNames: [String] = ["RegularBattle", "RankedBattle", "LeagueBattle"]
-        let calendar = NSCalendar.current
-        
-        LazyVGrid(
-            columns: [GridItem(.flexible())]
-        ) {
-            
+        VStack {
             ForEach(0..<regularSchedules.count, id: \.self) { (index: Int) in
                 
                 VStack {

@@ -13,14 +13,8 @@ struct HomePage: View {
     @StateObject private var homeViewModel = HomeViewModel()
     
     @State private var scheduleType = 0
-    @State private var chartType = 0
-    @State private var vdChartData = [Bool]()
     @State private var vdChartViewHeight: CGFloat = 0
-    @State private var todayVictoryCount: Int = 0
-    @State private var todayDefeatCount: Int = 0
-    @State private var todayKillCount: Int = 0
-    @State private var todayAssistCount: Int = 0
-    @State private var todayDeathCount: Int = 0
+    @State private var vdChartLastBlockWidth: CGFloat = 0
     
     @AppStorage("showKDInHome")
     var showKD: Bool = false
@@ -40,166 +34,19 @@ struct HomePage: View {
                     VStack {
                         
                         VStack(alignment: .leading, spacing: 0) {
-                            
+
                             HStack(alignment: .firstTextBaseline) {
-                                
+
                                 Text("Today")
                                     .sp1Font(size: 22, color: AppColor.appLabelColor)
-                                
+
                                 Text("(\(homeViewModel.resetHour):00 \("reset".localized))")
                                     .sp2Font(color: Color.secondary)
-                                
+
                             }
                             
-                            HStack(spacing: 8) {
-                                
-                                VStack {
-                                    HStack {
-                                        
-                                        PieView(values: [Double(todayVictoryCount), Double(todayDefeatCount)], colors: [AppColor.spPink, AppColor.spLightGreen])
-                                            .opacity(0.9)
-                                            .frame(width: 25, height: 25)
-                                        
-                                        Text("Victory rate:")
-                                            .sp2Font(size: 16, color: AppColor.appLabelColor)
-                                            .minimumScaleFactor(0.5)
-                                        
-                                        Text("\((Double(todayVictoryCount) &/ Double(todayVictoryCount + todayDefeatCount)) * 100)%")
-                                            .sp2Font(size: 16, color: Color.secondary)
-                                        
-                                    }
-                                    
-                                    HStack {
-                                        
-                                        Spacer()
-                                        
-                                        VStack(spacing: 4) {
-                                            
-                                            Text("VICTORY")
-                                                .sp2Font(size: 10, color: Color.secondary)
-                                            
-                                            Text("\(todayVictoryCount)")
-                                                .sp1Font(size: 24, color: AppColor.spPink)
-                                                .minimumScaleFactor(0.5)
-                                            
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        VStack(spacing: 4) {
-                                            
-                                            Text("DEFEAT")
-                                                .sp2Font(size: 10, color: Color.secondary)
-                                            
-                                            Text("\(todayDefeatCount)")
-                                                .sp1Font(size: 24, color: AppColor.spLightGreen)
-                                                .minimumScaleFactor(0.5)
-                                            
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                    }
-                                }
-                                .padding([.top, .bottom])
-                                .background(AppColor.listItemBackgroundColor)
-                                .continuousCornerRadius(10)
-                                
-                                ZStack {
-                                    VStack {
-                                        HStack {
-                                            
-                                            if showKD {
-                                                PieView(values: [Double(todayKillCount), Double(todayDeathCount)], colors: [.red, Color.gray.opacity(0.5)])
-                                                    .opacity(0.9)
-                                                    .frame(width: 25, height: 25)
-                                                
-                                                Text("K/D:")
-                                                    .sp2Font(size: 16, color: AppColor.appLabelColor)
-                                                
-                                                Text("\(Double(todayKillCount) &/ Double(todayDeathCount), places: 1)")
-                                                    .sp2Font(size: 16, color: Color.secondary)
-                                            } else {
-                                                PieView(values: [Double(todayKillCount), Double(todayAssistCount), Double(todayDeathCount)], colors: [.red, Color.red.opacity(0.8), Color.gray.opacity(0.5)])
-                                                    .opacity(0.9)
-                                                    .frame(width: 25, height: 25)
-                                                
-                                                Text("KA/D:")
-                                                    .sp2Font(size: 16, color: AppColor.appLabelColor)
-                                                
-                                                Text("\(Double(todayKillCount + todayAssistCount) &/ Double(todayDeathCount), places: 1)")
-                                                    .sp2Font(size: 16, color: Color.secondary)
-                                            }
-                                            
-                                        }
-                                        
-                                        HStack {
-                                            
-                                            Spacer()
-                                            
-                                            VStack(spacing: 4) {
-                                                
-                                                if showKD {
-                                                    Text("KILL")
-                                                        .sp2Font(size: 10, color: Color.secondary)
-                                                    
-                                                    Text("\(todayKillCount)")
-                                                        .sp1Font(size: 24, color: .red)
-                                                        .minimumScaleFactor(0.5)
-                                                } else {
-                                                    Text("KILL+ASSIST")
-                                                        .sp2Font(size: 10, color: Color.secondary)
-                                                    
-                                                    Text("\(todayKillCount + todayAssistCount)")
-                                                        .sp1Font(size: 24, color: .red)
-                                                        .minimumScaleFactor(0.5)
-                                                }
-                                                
-                                            }
-                                            
-                                            Spacer()
-                                            
-                                            VStack(spacing: 4) {
-                                                
-                                                Text("DEATH")
-                                                    .sp2Font(size: 10, color: Color.secondary)
-                                                
-                                                Text("\(todayDeathCount)")
-                                                    .sp1Font(size: 24, color: Color.gray.opacity(0.5))
-                                                    .minimumScaleFactor(0.5)
-                                                
-                                            }
-                                            
-                                            Spacer()
-                                            
-                                        }
-                                    }
-                                    .padding([.top, .bottom])
-                                    .background(AppColor.listItemBackgroundColor)
-                                    .continuousCornerRadius(10)
-                                    
-                                    VStack {
-                                        HStack {
-                                            Spacer()
-                                            
-                                            Image(systemName: showKD ? "circle" : "largecircle.fill.circle")
-                                                .resizable()
-                                                .frame(width: 14, height: 14)
-                                                .foregroundColor(Color.gray.opacity(0.3))
-                                                .padding([.trailing, .top], 6)
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                }
-                                .onTapGesture {
-                                    showKD.toggle()
-                                }
-                                
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.top)
-                            
+                            TodayView(today: homeViewModel.today)
+
                         }
                         .padding(.top)
                         
@@ -215,20 +62,22 @@ struct HomePage: View {
                                 
                             }
                             
-                            GeometryReader { geo in
-                                HStack {
-                                    Spacer()
-                                    
-                                    Text("Last 50")
-                                        .sp2Font(size: 16, color: Color.secondary)
-                                        .minimumScaleFactor(0.5)
-                                        .frame(width: geo.size.width / 10 - 2)
-                                }
+                            HStack {
+                                Spacer()
+                                
+                                Text("Last 50")
+                                    .sp2Font(size: 8, color: Color.secondary)
+                                    .minimumScaleFactor(0.5)
+                                    .frame(width: vdChartLastBlockWidth)
                             }
                             .frame(height: 20)
                             
-                            VDGridView(data: vdChartData, height: $vdChartViewHeight)
-                                .frame(height: vdChartViewHeight)
+                            VDGridView(
+                                data: homeViewModel.vdWithLast500,
+                                height: $vdChartViewHeight,
+                                lastBlockWidth: $vdChartLastBlockWidth
+                            )
+                            .frame(height: vdChartViewHeight)
                             
                         }
                         .padding(.top)
@@ -336,11 +185,6 @@ struct HomePage: View {
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
             .navigationBarHidden(false)
-            .onReceive(homeViewModel.$recordTotalCount) { _ in
-                vdChartData = homeViewModel.vdWithLast500
-                (todayVictoryCount, todayDefeatCount) = homeViewModel.todayVictoryAndDefeatCount
-                (todayKillCount, todayAssistCount, todayDeathCount) = homeViewModel.todayKillAssistAndDeathCount
-            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

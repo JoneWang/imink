@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VDGridView: View {
     
-    enum ItemStatus: Int, CaseIterable {
+    enum VDResult: Int, CaseIterable {
         case victory
         case defeat
         case none
@@ -17,18 +17,19 @@ struct VDGridView: View {
     
     var data: [Bool]
     @Binding var height: CGFloat
+    @Binding var lastBlockWidth: CGFloat
     
-    private var dataSource: [(Double, ItemStatus)] {
+    private var dataSource: [VDResult] {
         let data = Array(self.data.reversed())
         let haveResultStartIndex = Int(count) - data.count
         let indexs = (0..<Int(count))
         return indexs.map { i in
-            var itemStatus = ItemStatus.none
+            var itemStatus = VDResult.none
             if i >= haveResultStartIndex {
                 itemStatus = data[i - haveResultStartIndex] ? .victory : .defeat
             }
             
-            return (Double(i), itemStatus)
+            return itemStatus
         }
     }
     
@@ -36,9 +37,16 @@ struct VDGridView: View {
         (0..<10).map { _ in GridItem(.adaptive(minimum: 6), spacing: 1) }
     }
     
-    private let count: Double = 500
-    private let rowCount: Double = 10
-    private let itemMargin: Double = 1
+    private let count: Int = 500
+    
+    private let rowCount: Int = 10
+    
+    private let blockCount: Int = 10
+    private let blockMargin: CGFloat = 2
+    
+    private var columnCount: Int {
+        count / rowCount
+    }
     
     var body: some View {
         GeometryReader { geo in
@@ -46,32 +54,47 @@ struct VDGridView: View {
         }
     }
     
-    func makeGrid(geo: GeometryProxy) -> some View {
-        let size = Double(geo.size.width - 18.0) / (count / rowCount) - itemMargin
-        height = CGFloat(size * rowCount + (rowCount - 1))
+    private func makeGrid(geo: GeometryProxy) -> some View {
+        let width = geo.size.width
+        let itemSize = (width - CGFloat(columnCount - 1) - CGFloat(blockCount - 1) * blockMargin) / CGFloat(columnCount)
+        self.height = itemSize * CGFloat(rowCount) + CGFloat((rowCount - 1))
         
-        return LazyHGrid(rows: [GridItem(.adaptive(minimum: CGFloat(size)), spacing: CGFloat(itemMargin))], spacing: CGFloat(itemMargin)) {
-            
-            ForEach(dataSource, id: \.0) { (index, itemStatus) in
-                
-                if index / rowCount > 1, Int(index / rowCount) % 5 == 0 {
-                    Rectangle()
-                        .foregroundColor(itemStatus.color)
-                        .aspectRatio(1, contentMode: .fill)
-                        .padding(.leading, 2)
-                } else {
-                    Rectangle()
-                        .foregroundColor(itemStatus.color)
-                        .aspectRatio(1, contentMode: .fill)
+        let numberOfRectanglesInEachBlock = CGFloat(count / rowCount / blockCount)
+        self.lastBlockWidth = itemSize * numberOfRectanglesInEachBlock + (numberOfRectanglesInEachBlock - 1)
+        
+        return ZStack {
+            drawRects(geo: geo, drawResult: .none, itemSize: itemSize)
+                .foregroundColor(VDResult.none.color)
+            drawRects(geo: geo, drawResult: .defeat, itemSize: itemSize)
+                .foregroundColor(VDResult.defeat.color)
+            drawRects(geo: geo, drawResult: .victory, itemSize: itemSize)
+                .foregroundColor(VDResult.victory.color)
+        }
+    }
+    
+    private func drawRects(geo: GeometryProxy, drawResult: VDResult, itemSize: CGFloat) -> Path {
+        Path { path in
+            var itemIndex = 0
+            for column in 0..<columnCount {
+                for row in 0..<rowCount {
+                    let result = dataSource[itemIndex]
+                    
+                    if result == drawResult {
+                        let startX = itemSize * CGFloat(column) + CGFloat(column) + CGFloat(column / 5) * blockMargin
+                        let startY = itemSize * CGFloat(row) + CGFloat(row)
+                        
+                        let rect = CGRect(x: startX, y: startY, width: itemSize, height: itemSize)
+                        path.addRect(rect)
+                    }
+                    
+                    itemIndex += 1
                 }
             }
-            
         }
-        .frame(width: geo.size.width, height: height)
     }
 }
 
-extension VDGridView.ItemStatus {
+extension VDGridView.VDResult {
     
     var color: Color {
         switch self {
