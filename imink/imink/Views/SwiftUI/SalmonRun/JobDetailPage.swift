@@ -60,13 +60,13 @@ struct JobDetailPage: View {
                                 }
                             }
                         }
-                        .padding([.leading, .trailing], 16)
                         .padding([.top, .bottom], 20)
                         .frame(maxWidth: 500)
                     }
                     
                     Spacer()
                 }
+                .padding(.horizontal, 8)
             }
             .frame(maxWidth: .infinity)
             .background(AppColor.listBackgroundColor)
