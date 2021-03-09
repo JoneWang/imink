@@ -83,6 +83,7 @@ struct JobListItemView: View {
                             .sp2Font(size: 10, color: AppColor.appLabelColor)
                     }
                 }
+                .layoutPriority(1)
             }
             .padding(.bottom, 7)
             
@@ -133,7 +134,7 @@ struct JobListItemView_Previews: PreviewProvider {
             helpCount: 10,
             deadCount: 9,
             goldenIkuraNum: 22,
-            ikuraNum: 33,
+            ikuraNum: 334,
             failureWave: nil,
             dangerRate: 152.2,
             scheduleStartTime: Date(),
@@ -154,6 +155,7 @@ struct JobListItemView_Previews: PreviewProvider {
                 .padding(.top, 8)
                 .padding([.leading, .trailing])
                 .background(AppColor.listBackgroundColor)
+                .frame(width: 300)
                 .previewLayout(.sizeThatFits)
         }
         
