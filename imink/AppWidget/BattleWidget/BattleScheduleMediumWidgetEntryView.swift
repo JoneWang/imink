@@ -14,19 +14,6 @@ struct BattleScheduleMediumWidgetEntryView : View {
     var entry: BattleScheduleProvider.Entry
     var gameMode: BattleScheduleWidgetGameMode
     
-    var ruleNameColor: Color {
-        var color = Color("RegularScheduleRuleColor")
-        switch gameMode {
-        case .gachi:
-            color = Color("RankedScheduleRuleColor")
-        case .league:
-            color = Color("LeagueScheduleRuleColor")
-        case .regular:
-            color = Color("RegularScheduleRuleColor")
-        }
-        return color
-    }
-    
     var vSpacing: CGFloat {
         switch entry.size {
         case .size364:
@@ -107,12 +94,16 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     }
                     
                     VStack(spacing: titleAndStageSpacing) {
-                        HStack {
+                        HStack(spacing: 6) {
                             Spacer()
                             
                             Text(schedule?.rule.name.localizedKey ?? "      ")
-                                .sp1Font(size: 14, color: ruleNameColor)
-                                .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
+                                .sp1Font(size: 14, color: .white)
+                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                            
+                            if let imageName = schedule?.rule.imageName {
+                                Image(imageName)
+                            }
                         }
                         
                         makeStageImage(
@@ -154,8 +145,12 @@ struct BattleScheduleMediumWidgetEntryView : View {
                             Spacer()
                             
                             Text(nextSchedule?.rule.name.localizedKey ?? "      ")
-                                .sp1Font(size: 14, color: ruleNameColor)
-                                .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
+                                .sp1Font(size: 14, color: .white)
+                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                            
+                            if let imageName = nextSchedule?.rule.imageName {
+                                Image(imageName)
+                            }
                         }
                         
                         makeStageImage(
@@ -196,4 +191,23 @@ struct BattleScheduleMediumWidgetEntryView : View {
             .continuousCornerRadius(6)
             .clipped()
     }
+}
+
+extension GameRule {
+    
+    var imageName: String {
+        switch key {
+        case .clamBlitz:
+            return "ClamBlitz"
+        case .turfWar:
+            return "TurfWar"
+        case .splatZones:
+            return "SplatZones"
+        case .towerControl:
+            return "TowerControl"
+        case .rainmaker:
+            return "Rainmaker"
+        }
+    }
+    
 }

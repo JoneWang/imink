@@ -14,19 +14,6 @@ struct BattleScheduleLargeWidgetEntryView : View {
     var entry: BattleScheduleProvider.Entry
     var gameMode: BattleScheduleWidgetGameMode
     
-    var ruleNameColor: Color {
-        var color = Color("RegularScheduleRuleColor")
-        switch gameMode {
-        case .gachi:
-            color = Color("RankedScheduleRuleColor")
-        case .league:
-            color = Color("LeagueScheduleRuleColor")
-        case .regular:
-            color = Color("RegularScheduleRuleColor")
-        }
-        return color
-    }
-    
     var topBarSpacing: CGFloat {
         var spacing: CGFloat = 16
         if entry.size == .size360 {
@@ -216,8 +203,12 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                 Spacer()
                                 
                                 Text(schedule?.rule.name.localizedKey ?? "      ")
-                                    .sp1Font(size: 14, color: ruleNameColor)
-                                    .shadow(color: Color.black.opacity(0.2), radius: 0, x: 1, y: 1)
+                                    .sp1Font(size: 14)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                
+                                if let schedule = schedule, schedule.rule.key != .turfWar {
+                                    Image(schedule.rule.imageName)
+                                }
                             }
                             .padding(.top, 0)
                             
@@ -251,7 +242,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                         .padding(.trailing, stagePadding)
                                 }
                             }
-                            .background(Color.black.opacity(0.6))
+                            .background(Color.black.opacity(0.5))
                             .continuousCornerRadius(10)
                         }
                     }
