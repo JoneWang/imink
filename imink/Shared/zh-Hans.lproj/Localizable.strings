@@ -24,6 +24,7 @@
 // MARK: Sign in
 
 "Welcome to imink!" = "欢迎来到 imink！";
+"Log in to sync your data" = "立即登录同步数据";
 "Log in with Nintendo Account" = "任天堂账号登录";
 "Failure" = "失败";
 "Login error occurred, please try again." = "登录过程中发生了错误，请重试。";
