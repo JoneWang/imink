@@ -11,7 +11,7 @@ import SwiftUI
 
 class TabBarController: UITabBarController {
     
-    private var loginViewController: UIHostingController<LoginPage>?
+    private var loginViewController: UIHostingController<NintendoAccountLoginPage>?
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -24,49 +24,52 @@ class TabBarController: UITabBarController {
         
         self.view.backgroundColor = UIColor.systemBackground
         
-        tabBarViewModel.$isLogin
-            .assign(to: &synchronizeBattleViewModel.$isLogin)
+        tabBarViewModel.$isLogined
+            .assign(to: &synchronizeBattleViewModel.$isLogined)
         
-        tabBarViewModel.$isLogin
-            .assign(to: &synchronizeJobViewModel.$isLogin)
+        tabBarViewModel.$isLogined
+            .assign(to: &synchronizeJobViewModel.$isLogined)
         
         NotificationCenter.default
             .publisher(for: .logout)
             .receive(on: RunLoop.main)
             .map { _ in false }
-            .assign(to: &tabBarViewModel.$isLogin)
+            .assign(to: &tabBarViewModel.$isLogined)
+        
+        NotificationCenter.default
+            .publisher(for: .showLoginView)
+            .sink { [weak self] _ in
+                self?.showLogin()
+            }
+            .store(in: &cancelBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        tabBarViewModel.$isLogin
+        tabBarViewModel.$isLogined
             .removeDuplicates()
-            .sink { [weak self] isLogin in
-                if isLogin {
-                    self?.setupItems()
-                } else {
-                    self?.showLogin()
-                }
+            .sink { [weak self] logined in
+                self?.setupItems(isLogined: logined)
             }
             .store(in: &cancelBag)
     }
     
-    func setupItems() {
+    func setupItems(isLogined: Bool) {
         
-        let homeViewController = UIHostingController(rootView: HomePage())
+        let homeViewController = UIHostingController(rootView: HomePage(isLogined: isLogined))
         homeViewController.tabBarItem.title = NSLocalizedString("Home", comment: "")
         homeViewController.tabBarItem.image = UIImage(named: "TabBarHome")
         
-        let jobListViewController = UIHostingController(rootView: JobListPage())
+        let jobListViewController = UIHostingController(rootView: JobListPage(isLogined: isLogined))
         jobListViewController.tabBarItem.title = NSLocalizedString("Salmon Run", comment: "")
         jobListViewController.tabBarItem.image = UIImage(named: "TabBarSalmonRun")
         
-        let battleListViewController = UIHostingController(rootView: BattleListPage())
+        let battleListViewController = UIHostingController(rootView: BattleListPage(isLogined: isLogined))
         battleListViewController.tabBarItem.title = NSLocalizedString("Battles", comment: "")
         battleListViewController.tabBarItem.image = UIImage(named: "TabBarBattle")
         
-        let meViewController = UIHostingController(rootView: MePage())
+        let meViewController = UIHostingController(rootView: MePage(isLogined: isLogined))
         meViewController.tabBarItem.title = NSLocalizedString("Me", comment: "")
         meViewController.tabBarItem.image = UIImage(named: "TabBarMe")
         
@@ -74,11 +77,9 @@ class TabBarController: UITabBarController {
     }
     
     func showLogin() {
-        viewControllers = []
-        
         let viewModel = LoginViewModel()
-        
-        let loginPage = LoginPage(loginViewModel: viewModel)
+
+        let loginPage = NintendoAccountLoginPage(viewModel: viewModel)
         let loginViewController = UIHostingController(rootView: loginPage)
         loginViewController.modalPresentationStyle = .formSheet
         loginViewController.preferredContentSize = .init(width: 400, height: 250)
@@ -86,21 +87,14 @@ class TabBarController: UITabBarController {
         viewModel.$status
             .filter { $0 == .loginSuccess }
             .sink { [weak self] _ in
-                self?.tabBarViewModel.isLogin = true
+                self?.tabBarViewModel.isLogined = true
                 self?.loginViewController?.presentingViewController?.dismiss(animated: true)
             }
             .store(in: &viewModel.cancelBag)
         
         self.loginViewController = loginViewController
         
-        present(loginViewController, animated: true) {
-            // Disable dismiss gesture
-            loginViewController
-                .presentationController?
-                .presentedView?
-                .gestureRecognizers?[0]
-                .isEnabled = false
-        }
+        present(loginViewController, animated: true)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

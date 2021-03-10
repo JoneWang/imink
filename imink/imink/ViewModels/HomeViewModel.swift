@@ -13,7 +13,7 @@ extension Date {
     func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
         return calendar.dateComponents(Set(components), from: self)
     }
-
+    
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
     }
@@ -29,15 +29,21 @@ struct Today {
 
 class HomeViewModel: ObservableObject {
     
+    @Published var isLogined: Bool = false
+    
     @Published var syncTotalCount = 0
     @Published var recordTotalCount = 0
+    
+    @Published var today: Today = Today()
+    
+    @Published var resetHour: Int
+    @Published var vdWithLast500: [Bool] = []
+    
+    @Published var activeFestivals: ActiveFestivals?
+    
+    @Published var isLoading: Bool = false
     @Published var schedules: Schedules?
     @Published var salmonRunSchedules: SalmonRunSchedules?
-    @Published var activeFestivals: ActiveFestivals?
-    @Published var isLoading: Bool = false
-    @Published var resetHour: Int
-    @Published var today: Today = Today()
-    @Published var vdWithLast500: [Bool] = []
     
     private var todayStartTime: Date? {
         let now = Date()
@@ -45,12 +51,12 @@ class HomeViewModel: ObservableObject {
         guard var startTime = Calendar.current.date(bySettingHour: resetHour, minute: 0, second: 0, of: now) else {
             return nil
         }
-
+        
         if now.get(.hour) < resetHour {
             guard let tomorrow3Clock = Calendar.current.date(byAdding: .day, value: -1, to: startTime) else {
                 return nil
             }
-
+            
             startTime = tomorrow3Clock
         }
         
@@ -62,50 +68,55 @@ class HomeViewModel: ObservableObject {
     
     private var lastSyncTime = Date()
     
-    init() {
+    
+    init(isLogined: Bool) {
+        self.isLogined = isLogined
+        
         let currentTimeZone = (TimeZone.current.secondsFromGMT() / 3600)
         resetHour = (currentTimeZone % 2 == 0) ? 2 : 3
         
-        NotificationCenter.default
-            .publisher(for: .recordSyncDetailFinished)
-            .sink { [weak self] _ in
-                self?.lastSyncTime = Date()
-                self?.startSyncCountPublisher()
-            }
-            .store(in: &cancelBag)
-        
-        AppDatabase.shared.totalCount()
-            .catch { error -> Just<Int> in
-                os_log("Database Error: [totalCount] \(error.localizedDescription)")
-                return Just<Int>(0)
-            }
-            .assign(to: &$recordTotalCount)
-        
-        $recordTotalCount
-            .map { _ in
-                guard let todayStartTime = self.todayStartTime else {
-                    return Today()
+        if (isLogined) {
+            NotificationCenter.default
+                .publisher(for: .recordSyncDetailFinished)
+                .sink { [weak self] _ in
+                    self?.lastSyncTime = Date()
+                    self?.startSyncCountPublisher()
                 }
-                
-                let (todayVictoryCount, todayDefeatCount) = AppDatabase.shared.victoryAndDefeatCount(startTime: todayStartTime)
-                let (todayKillCount, todayAssistCount, todayDeathCount) = AppDatabase.shared.killAssistAndDeathCount(startTime: todayStartTime)
-                return Today(
-                    victoryCount: todayVictoryCount,
-                    defeatCount: todayDefeatCount,
-                    killCount: todayKillCount,
-                    assistCount: todayAssistCount,
-                    deathCount: todayDeathCount
-                )
-            }
-            .assign(to: &$today)
-        
-        $recordTotalCount
-            .map { _ in AppDatabase.shared.vdWithLast500() }
-            .assign(to: &$vdWithLast500)
+                .store(in: &cancelBag)
+            
+            AppDatabase.shared.totalCount()
+                .catch { error -> Just<Int> in
+                    os_log("Database Error: [totalCount] \(error.localizedDescription)")
+                    return Just<Int>(0)
+                }
+                .assign(to: &$recordTotalCount)
+            
+            $recordTotalCount
+                .map { _ in
+                    guard let todayStartTime = self.todayStartTime else {
+                        return Today()
+                    }
+                    
+                    let (todayVictoryCount, todayDefeatCount) = AppDatabase.shared.victoryAndDefeatCount(startTime: todayStartTime)
+                    let (todayKillCount, todayAssistCount, todayDeathCount) = AppDatabase.shared.killAssistAndDeathCount(startTime: todayStartTime)
+                    return Today(
+                        victoryCount: todayVictoryCount,
+                        defeatCount: todayDefeatCount,
+                        killCount: todayKillCount,
+                        assistCount: todayAssistCount,
+                        deathCount: todayDeathCount
+                    )
+                }
+                .assign(to: &$today)
+            
+            $recordTotalCount
+                .map { _ in AppDatabase.shared.vdWithLast500() }
+                .assign(to: &$vdWithLast500)
+            
+            startSyncCountPublisher()
+        }
         
         updateSchedules()
-        
-        startSyncCountPublisher()
     }
     
     /// Get schedules
@@ -121,7 +132,7 @@ class HomeViewModel: ObservableObject {
                 os_log("API Error: [schedules] \(error.localizedDescription)")
                 return Just<Schedules?>(nil)
             }
-            
+        
         battleSchedules
             .assign(to: &$schedules)
         
@@ -134,27 +145,34 @@ class HomeViewModel: ObservableObject {
                 os_log("API Error: [salmonRunSchedules] \(error.localizedDescription)")
                 return Just<SalmonRunSchedules?>(nil)
             }
-            
+        
         salmonRunSchedules
             .assign(to: &$salmonRunSchedules)
         
-        let activeFestivals = Splatoon2API.activeFestivals
-            .request()
-            .decode(type: ActiveFestivals.self)
-            .receive(on: DispatchQueue.main)
-            .map { festivals -> ActiveFestivals? in festivals }
-            .catch { error -> Just<ActiveFestivals?> in
-                os_log("API Error: [activeFestivals] \(error.localizedDescription)")
-                return Just<ActiveFestivals?>(nil)
-            }
+        if isLogined {
+            let activeFestivals = Splatoon2API.activeFestivals
+                .request()
+                .decode(type: ActiveFestivals.self)
+                .receive(on: DispatchQueue.main)
+                .map { festivals -> ActiveFestivals? in festivals }
+                .catch { error -> Just<ActiveFestivals?> in
+                    os_log("API Error: [activeFestivals] \(error.localizedDescription)")
+                    return Just<ActiveFestivals?>(nil)
+                }
             
-        activeFestivals
-            .assign(to: &$activeFestivals)
-        
-        // All finish
-        Publishers.Zip3(battleSchedules, salmonRunSchedules, activeFestivals)
-            .map { _ in false }
-            .assign(to: &$isLoading)
+            activeFestivals
+                .assign(to: &$activeFestivals)
+            
+            // All finish
+            Publishers.Zip3(battleSchedules, salmonRunSchedules, activeFestivals)
+                .map { _ in false }
+                .assign(to: &$isLoading)
+        } else {
+            // All finish
+            Publishers.Zip(battleSchedules, salmonRunSchedules)
+                .map { _ in false }
+                .assign(to: &$isLoading)
+        }
     }
     
     func startSyncCountPublisher() {

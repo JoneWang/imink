@@ -9,6 +9,8 @@ import Foundation
 
 extension Notification.Name {
     
+    static let showLoginView = NSNotification.Name("ShowLoginViewNSNotification")
+    
     static let logout = NSNotification.Name("logout")
     
     static let splitVCDisplayMode = NSNotification.Name("SplitVCDisplayModeNotification")

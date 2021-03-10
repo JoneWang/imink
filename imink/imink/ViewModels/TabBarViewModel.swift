@@ -14,7 +14,7 @@ class TabBarViewModel: ObservableObject {
         
     @Published var unsynchronizedBattleIds: [String] = []
         
-    @Published var isLogin = false
+    @Published var isLogined = false
     @Published var autoRefresh = true
     
     private var cancelBag = Set<AnyCancellable>()
@@ -25,9 +25,9 @@ class TabBarViewModel: ObservableObject {
         // AppDatabase.shared.removeAllRecords()
         // AppDatabase.shared.removeAllJobs()
         
-        isLogin = AppUserDefaults.shared.user != nil
+        isLogined = AppUserDefaults.shared.user != nil
         
-        if isLogin {
+        if isLogined {
             // If logined update user
             requestUserInfo()
         }
@@ -58,7 +58,7 @@ extension TabBarViewModel {
                     break
                 case .failure(let error):
                     if case APIError.clientTokenInvalid = error {
-                        self.isLogin = false
+                        self.isLogined = false
                     } else {
                         // TODO: Popping error view
                         os_log("API Error: [/me] \(error.localizedDescription)")

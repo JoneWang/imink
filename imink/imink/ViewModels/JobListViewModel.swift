@@ -50,10 +50,15 @@ struct JobListRowModel: Identifiable {
 
 class JobListViewModel: ObservableObject {
     
+    @Published var isLogined: Bool = false
     @Published var rows: [JobListRowModel] = []
     @Published var selectedId: Int64?
         
-    init() {
+    init(isLogined: Bool) {
+        self.isLogined = isLogined
+        
+        if !isLogined { return }
+        
         // Database records publisher
         AppDatabase.shared.jobs()
             .catch { error -> Just<[DBJob]> in

@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct JobListPage: View {
-    @StateObject var viewModel = JobListViewModel()
+            
+    @StateObject var viewModel: JobListViewModel
     
     @State var selectedJob: DBJob?
+    
+    init(isLogined: Bool) {
+        _viewModel = StateObject(wrappedValue: JobListViewModel(isLogined: isLogined))
+    }
     
     var body: some View {
         NavigationView {
@@ -49,6 +54,7 @@ struct JobListPage: View {
                     }
                     .padding(.bottom, 16)
                 }
+                .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarSalmonRun"))
             }
             .navigationBarTitle("Salmon Run", displayMode: .inline)
             .navigationBarHidden(false)
@@ -90,7 +96,7 @@ struct JobListPage_Previews: PreviewProvider {
             rows.append(JobListRowModel(type: .job, job: dbJob))
         }
         
-        let page = JobListPage()
+        let page = JobListPage(isLogined: true)
         page.viewModel.rows = rows
         
         return page

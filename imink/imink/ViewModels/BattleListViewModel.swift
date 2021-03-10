@@ -33,6 +33,7 @@ extension BattleListRowModel: Hashable {
 
 class BattleListViewModel: ObservableObject {
     
+    @Published var isLogined: Bool = false
     @Published var rows: [BattleListRowModel] = []
     @Published var databaseRecords: [DBRecord] = []
     @Published var selectedId: String?
@@ -42,7 +43,11 @@ class BattleListViewModel: ObservableObject {
     
     private var requestDetailCancellable: AnyCancellable!
     
-    init() {
+    init(isLogined: Bool) {
+        self.isLogined = isLogined
+        
+        if !isLogined { return }
+        
         // Database records publisher
         AppDatabase.shared.records()
             .catch { error -> Just<[DBRecord]> in

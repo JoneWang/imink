@@ -27,8 +27,6 @@ struct NintendoAccountLoginPage: UIViewControllerRepresentable {
     }
 }
 
-var myContext = 0
-
 class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
     
     var viewModel: LoginViewModel!

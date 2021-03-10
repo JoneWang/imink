@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct BattleListPage: View {
-    @StateObject var viewModel = BattleListViewModel()
+        
+    @StateObject var viewModel: BattleListViewModel
+    
+    init(isLogined: Bool) {
+        _viewModel = StateObject(wrappedValue: BattleListViewModel(isLogined: isLogined))
+    }
     
     var body: some View {
         NavigationView {
@@ -43,6 +48,7 @@ struct BattleListPage: View {
                     }
                     .padding([.top, .bottom], 16)
                 }
+                .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
             }
             .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
@@ -52,6 +58,6 @@ struct BattleListPage: View {
 
 struct BattleListPage_Previews: PreviewProvider {
     static var previews: some View {
-        BattleListPage()
+        BattleListPage(isLogined: true)
     }
 }

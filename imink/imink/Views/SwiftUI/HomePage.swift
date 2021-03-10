@@ -9,15 +9,16 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct HomePage: View {
-    
-    @StateObject private var homeViewModel = HomeViewModel()
+            
+    @StateObject private var viewModel: HomeViewModel
     
     @State private var scheduleType = 0
     @State private var vdChartViewHeight: CGFloat = 0
     @State private var vdChartLastBlockWidth: CGFloat = 0
     
-    @AppStorage("showKDInHome")
-    var showKD: Bool = false
+    init(isLogined: Bool) {
+        _viewModel = StateObject(wrappedValue: HomeViewModel(isLogined: isLogined))
+    }
     
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -32,57 +33,59 @@ struct HomePage: View {
                     Spacer()
                     
                     VStack {
-                        
-                        VStack(alignment: .leading, spacing: 0) {
-
-                            HStack(alignment: .firstTextBaseline) {
-
-                                Text("Today")
-                                    .sp1Font(size: 22, color: AppColor.appLabelColor)
-
-                                Text("(\(homeViewModel.resetHour):00 \("reset".localized))")
-                                    .sp2Font(color: Color.secondary)
-
+                        VStack {
+                            VStack(alignment: .leading, spacing: 0) {
+                                
+                                HStack(alignment: .firstTextBaseline) {
+                                    
+                                    Text("Today")
+                                        .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                    
+                                    Text("(\(viewModel.resetHour):00 \("reset".localized))")
+                                        .sp2Font(color: Color.secondary)
+                                    
+                                }
+                                
+                                TodayView(today: viewModel.today)
+                                
                             }
+                            .padding(.top)
                             
-                            TodayView(today: homeViewModel.today)
-
+                            VStack(alignment: .leading, spacing: 0) {
+                                
+                                HStack(alignment: .firstTextBaseline) {
+                                    
+                                    Text("Results")
+                                        .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                    
+                                    Text("(\(NSLocalizedString("Last 500", comment: "")))")
+                                        .sp2Font(color: Color.secondary)
+                                    
+                                }
+                                
+                                HStack {
+                                    Spacer()
+                                    
+                                    Text("Last 50")
+                                        .sp2Font(size: 8, color: Color.secondary)
+                                        .minimumScaleFactor(0.5)
+                                        .frame(width: vdChartLastBlockWidth)
+                                }
+                                .frame(height: 20)
+                                
+                                VDGridView(
+                                    data: viewModel.vdWithLast500,
+                                    height: $vdChartViewHeight,
+                                    lastBlockWidth: $vdChartLastBlockWidth
+                                )
+                                .frame(height: vdChartViewHeight)
+                                
+                            }
+                            .padding(.top)
                         }
-                        .padding(.top)
+                        .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarHome"))
                         
-                        VStack(alignment: .leading, spacing: 0) {
-                            
-                            HStack(alignment: .firstTextBaseline) {
-                                
-                                Text("Results")
-                                    .sp1Font(size: 22, color: AppColor.appLabelColor)
-                                
-                                Text("(\(NSLocalizedString("Last 500", comment: "")))")
-                                    .sp2Font(color: Color.secondary)
-                                
-                            }
-                            
-                            HStack {
-                                Spacer()
-                                
-                                Text("Last 50")
-                                    .sp2Font(size: 8, color: Color.secondary)
-                                    .minimumScaleFactor(0.5)
-                                    .frame(width: vdChartLastBlockWidth)
-                            }
-                            .frame(height: 20)
-                            
-                            VDGridView(
-                                data: homeViewModel.vdWithLast500,
-                                height: $vdChartViewHeight,
-                                lastBlockWidth: $vdChartLastBlockWidth
-                            )
-                            .frame(height: vdChartViewHeight)
-                            
-                        }
-                        .padding(.top)
-                        
-                        if let festival = homeViewModel.activeFestivals?.festivals.first {
+                        if let festival = viewModel.activeFestivals?.festivals.first {
                             VStack(alignment: .leading, spacing: 0) {
                                 
                                 Text("Splatfest")
@@ -148,7 +151,7 @@ struct HomePage: View {
                             .padding(.top)
                             
                             if scheduleType == 0 {
-                                if let schedules = homeViewModel.schedules {
+                                if let schedules = viewModel.schedules {
                                     ScheduleView(
                                         regularSchedules: schedules.regular,
                                         gachiSchedules: schedules.gachi,
@@ -159,7 +162,7 @@ struct HomePage: View {
                                     makeLoadingView()
                                 }
                             } else {
-                                if let salmonRunSchedules = homeViewModel.salmonRunSchedules {
+                                if let salmonRunSchedules = viewModel.salmonRunSchedules {
                                     SalmonRunScheduleView(
                                         schedules: salmonRunSchedules
                                     )
@@ -203,11 +206,11 @@ struct HomePage: View {
     
     func makeNavigationBarItems() -> some View {
         HStack {
-            if homeViewModel.isLoading {
+            if viewModel.isLoading {
                 ProgressView()
             } else {
                 Button(action: {
-                    homeViewModel.updateSchedules()
+                    viewModel.updateSchedules()
                 }) {
                     Image(systemName: "arrow.triangle.2.circlepath")
                 }
@@ -218,11 +221,11 @@ struct HomePage: View {
 
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
-        HomePage()
+        HomePage(isLogined: true)
             .previewLayout(.sizeThatFits)
             .frame(width: 1024, height: 768)
         
-        HomePage()
+        HomePage(isLogined: true)
             .previewLayout(.sizeThatFits)
             .frame(width: 400, height: 768)
     }

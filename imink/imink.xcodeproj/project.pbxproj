@@ -137,7 +137,6 @@
 		ECA695092531AC9D00376D95 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA695082531AC9D00376D95 /* PieView.swift */; };
 		ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
-		ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE8DC325209BB6003D7EDC /* LoginPage.swift */; };
 		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
 		ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */; };
 		ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */; };
@@ -145,6 +144,8 @@
 		ECB959B525B872BD0006E942 /* DBJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959B425B872BD0006E942 /* DBJob.swift */; };
 		ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959CA25B896A80006E942 /* JobListViewModel.swift */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
+		ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4125F87903002E36DD /* LoginView.swift */; };
+		ECD1FA5025F89EF8002E36DD /* FixVectorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */; };
 		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
@@ -317,7 +318,6 @@
 		EC9D0A6825A18E2300E8FF89 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalomonRunStageImageView.swift; sourceTree = "<group>"; };
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
-		ECAE8DC325209BB6003D7EDC /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeJobViewModel.swift; sourceTree = "<group>"; };
 		ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeBattleViewModel.swift; sourceTree = "<group>"; };
@@ -325,6 +325,8 @@
 		ECB959B425B872BD0006E942 /* DBJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBJob.swift; sourceTree = "<group>"; };
 		ECB959CA25B896A80006E942 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
+		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
@@ -392,7 +394,6 @@
 				EC25FE9E25B9607D0085670D /* SalmonRun */,
 				EC2C34A925984CAB0007BA4D /* Battle */,
 				EC00DBFF251CD8770010366A /* Views */,
-				ECAE8DC325209BB6003D7EDC /* LoginPage.swift */,
 				EC5362522525DDDF0037BD12 /* HomePage.swift */,
 				EC344FE825330351004A7AF1 /* MePage.swift */,
 				EC2F19DA2543306E00CE9B34 /* AboutPage.swift */,
@@ -420,6 +421,7 @@
 				EC4DF4F5252EF1510020B234 /* VDGridView.swift */,
 				ECA695082531AC9D00376D95 /* PieView.swift */,
 				EC807CA625F7385C003FC2E6 /* TodayView.swift */,
+				ECD1FA4125F87903002E36DD /* LoginView.swift */,
 			);
 			name = Views;
 			path = Views/Views;
@@ -497,6 +499,7 @@
 				EC9D0A5425A174A300E8FF89 /* StageImageView.swift */,
 				EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */,
 				EC9D0A6825A18E2300E8FF89 /* ImageView.swift */,
+				ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				EC2C34C12598D9440007BA4D /* GrayscaleTextureView.swift in Sources */,
 				EC9D0A5525A174A300E8FF89 /* StageImageView.swift in Sources */,
 				EC9D0A5125A1747C00E8FF89 /* WeaponImageView.swift in Sources */,
+				ECD1FA5025F89EF8002E36DD /* FixVectorImage.swift in Sources */,
 				EC2C34CB2598E8940007BA4D /* Bundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1009,8 +1013,8 @@
 				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,
 				EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */,
 				ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */,
-				ECAE8DC425209BB6003D7EDC /* LoginPage.swift in Sources */,
 				EC2C34AC25984CE20007BA4D /* BattleDetailMemberView.swift in Sources */,
+				ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */,
 				EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */,
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
@@ -1092,7 +1096,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 73;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1121,7 +1125,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 73;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1154,7 +1158,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 73;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1185,7 +1189,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 73;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1335,7 +1339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 73;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1362,7 +1366,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 73;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

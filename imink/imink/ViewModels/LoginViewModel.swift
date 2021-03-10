@@ -16,9 +16,7 @@ class LoginViewModel: ObservableObject {
         case loading
         case loginSuccess
     }
-    
-    @Published var useNintendoAccount = false
-    
+        
     @Published var status: Status? = .waitTypeToken
     @Published var clientToken: String = ""
     

@@ -14,7 +14,7 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
     
     @Published var unsynchronizedIds: [IdType] = []
     
-    @Published var isLogin: Bool = false
+    @Published var isLogined: Bool = false
     @Published var autoRefresh = false
         
     var cancelBag = Set<AnyCancellable>()
@@ -35,7 +35,7 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
             }
             .store(in: &cancelBag)
         
-        $isLogin.assign(to: &$autoRefresh)
+        $isLogined.assign(to: &$autoRefresh)
     }
     
     func needSynchronizedIds(value: @escaping  ([IdType]) -> Void, finished: (() -> Void)?) { }

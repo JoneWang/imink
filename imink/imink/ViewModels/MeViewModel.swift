@@ -10,14 +10,22 @@ import Combine
 
 class MeViewModel: ObservableObject {
     
+    @Published var isLogined: Bool = false
     @Published var isLoading: Bool = false
     @Published var records: Records?
     @Published var nicknameAndIcons: NicknameAndIcon?
     
     private var cancelBag = Set<AnyCancellable>()
     
-    init() {
+    init(isLogined: Bool) {
+        self.isLogined = isLogined
         
+        if (isLogined) {
+            self.loadUserInfo()
+        }
+    }
+    
+    func loadUserInfo() {
         isLoading = true
         
         Splatoon2API.records
