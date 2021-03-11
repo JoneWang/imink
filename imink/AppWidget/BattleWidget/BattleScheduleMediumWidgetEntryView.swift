@@ -103,6 +103,8 @@ struct BattleScheduleMediumWidgetEntryView : View {
                             
                             if let imageName = schedule?.rule.imageName {
                                 Image(imageName)
+                                     .fixedSize()
+                                     .frame(width: 20, height:14, alignment: .center)
                             }
                         }
                         
@@ -141,7 +143,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     }
                     
                     VStack(spacing: titleAndStageSpacing) {
-                        HStack {
+                        HStack(spacing: 6) {
                             Spacer()
                             
                             Text(nextSchedule?.rule.name.localizedKey ?? "      ")
@@ -150,6 +152,8 @@ struct BattleScheduleMediumWidgetEntryView : View {
                             
                             if let imageName = nextSchedule?.rule.imageName {
                                 Image(imageName)
+                                     .fixedSize()
+                                     .frame(width: 20, height:14, alignment: .center)
                             }
                         }
                         
