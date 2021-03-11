@@ -76,42 +76,44 @@ struct BattleScheduleMediumWidgetEntryView : View {
                 let schedule = entry.schedules?[0]
                 let nextSchedule = entry.schedules?[1]
                 
-                HStack(spacing: 10) {
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack {
-                            Text("Now")
-                                .sp1Font(size: 14)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                                .unredacted()
-                            
-                            Spacer()
-                        }
-                        
-                        makeStageImage(
-                            stageId: schedule?.stageA.id ?? "0",
-                            stageName: schedule?.stageA.name.localizedKey ?? "            "
-                        )
-                    }
-                    
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack(spacing: 6) {
-                            Spacer()
-                            
-                            Text(schedule?.rule.name.localizedKey ?? "      ")
-                                .sp1Font(size: 14, color: .white)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                            
-                            if let imageName = schedule?.rule.imageName {
-                                Image(imageName)
-                                     .fixedSize()
-                                     .frame(width: 20, height:14, alignment: .center)
+                GeometryReader { geo in
+                    HStack(spacing: 10) {
+                        VStack(spacing: titleAndStageSpacing) {
+                            HStack {
+                                Text("Now")
+                                    .sp1Font(size: 14)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    .unredacted()
+                                
+                                Spacer()
                             }
+                            
+                            makeStageImage(
+                                stageId: schedule?.stageA.id ?? "0",
+                                stageName: schedule?.stageA.name.localizedKey ?? "            "
+                            )
                         }
                         
-                        makeStageImage(
-                            stageId: schedule?.stageB.id ?? "0",
-                            stageName: schedule?.stageB.name.localizedKey ?? "            "
-                        )
+                        VStack(spacing: titleAndStageSpacing) {
+                            HStack(spacing: 6) {
+                                Text(schedule?.rule.name.localizedKey ?? "      ")
+                                    .sp1Font(size: 14, color: .white)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    .fixedSize(horizontal: true, vertical: false)
+                                    .frame(width: geo.size.width/2 - 31, alignment: .trailing)
+                                
+                                if let imageName = schedule?.rule.imageName {
+                                    Image(imageName)
+                                         .fixedSize()
+                                         .frame(width: 20, height:14, alignment: .center)
+                                }
+                            }
+                            
+                            makeStageImage(
+                                stageId: schedule?.stageB.id ?? "0",
+                                stageName: schedule?.stageB.name.localizedKey ?? "            "
+                            )
+                        }
                     }
                 }
                 
@@ -125,42 +127,44 @@ struct BattleScheduleMediumWidgetEntryView : View {
                 }
                 .frame(height: 1)
                 
-                HStack(spacing: 10) {
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack {
-                            Text(nextSchedule?.startTime != nil ? "\(nextSchedule!.startTime, formatter: scheduleTimeFormat)" : "     ")
-                                .sp1Font(size: 14)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                                .unredacted()
-                            
-                            Spacer()
-                        }
-                        
-                        makeStageImage(
-                            stageId: nextSchedule?.stageA.id ?? "0",
-                            stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
-                        )
-                    }
-                    
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack(spacing: 6) {
-                            Spacer()
-                            
-                            Text(nextSchedule?.rule.name.localizedKey ?? "      ")
-                                .sp1Font(size: 14, color: .white)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                            
-                            if let imageName = nextSchedule?.rule.imageName {
-                                Image(imageName)
-                                     .fixedSize()
-                                     .frame(width: 20, height:14, alignment: .center)
+                GeometryReader { geo in
+                    HStack(spacing: 10) {
+                        VStack(spacing: titleAndStageSpacing) {
+                            HStack {
+                                Text(nextSchedule?.startTime != nil ? "\(nextSchedule!.startTime, formatter: scheduleTimeFormat)" : "     ")
+                                    .sp1Font(size: 14)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    .unredacted()
+                                
+                                Spacer()
                             }
+                            
+                            makeStageImage(
+                                stageId: nextSchedule?.stageA.id ?? "0",
+                                stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
+                            )
                         }
                         
-                        makeStageImage(
-                            stageId: nextSchedule?.stageB.id ?? "0",
-                            stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
-                        )
+                        VStack(spacing: titleAndStageSpacing) {
+                            HStack(spacing: 6) {
+                                Text(nextSchedule?.rule.name.localizedKey ?? "      ")
+                                    .sp1Font(size: 14, color: .white)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    .fixedSize(horizontal: true, vertical: false)
+                                    .frame(width: geo.size.width/2 - 31, alignment: .trailing)
+                                
+                                if let imageName = nextSchedule?.rule.imageName {
+                                    Image(imageName)
+                                         .fixedSize()
+                                         .frame(width: 20, height:14, alignment: .center)
+                                }
+                            }
+                            
+                            makeStageImage(
+                                stageId: nextSchedule?.stageB.id ?? "0",
+                                stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
+                            )
+                        }
                     }
                 }
             }
