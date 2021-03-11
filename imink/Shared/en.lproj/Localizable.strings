@@ -123,8 +123,8 @@
 
 // MARK: Game
 
-"Victory" = "Victory";
-"Defeat" = "Defeat";
+"Victory" = "VICTORY";
+"Defeat" = "DEFEAT";
 "VICTORY" = "VICTORY";
 "DEFEAT" = "DEFEAT";
 "Salmon Run" = "Salmon Run";

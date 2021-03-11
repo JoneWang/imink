@@ -39,7 +39,7 @@ struct TodayView: View {
                     
                     VStack(spacing: 4) {
                         
-                        Text("VICTORY")
+                        Text("Victory")
                             .sp2Font(size: 10, color: Color.secondary)
                         
                         Text("\(today.victoryCount)")
@@ -52,7 +52,7 @@ struct TodayView: View {
                     
                     VStack(spacing: 4) {
                         
-                        Text("DEFEAT")
+                        Text("Defeat")
                             .sp2Font(size: 10, color: Color.secondary)
                         
                         Text("\(today.defeatCount)")
