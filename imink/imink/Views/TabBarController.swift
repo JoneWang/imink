@@ -82,7 +82,6 @@ class TabBarController: UITabBarController {
         let loginPage = NintendoAccountLoginPage(viewModel: viewModel)
         let loginViewController = UIHostingController(rootView: loginPage)
         loginViewController.modalPresentationStyle = .formSheet
-        loginViewController.preferredContentSize = .init(width: 400, height: 250)
         
         viewModel.$status
             .filter { $0 == .loginSuccess }
