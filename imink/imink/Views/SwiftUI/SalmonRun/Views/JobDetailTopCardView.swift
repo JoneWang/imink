@@ -69,8 +69,20 @@ struct JobDetailTopCardView: View {
                         }
                     }
                     .overlay(
-                        Image(job.jobResult.isClear ? "JobInkClear" : "JobInkDefeat")
+                        Image("JobInk")
                             .scaleEffect(inkScale, anchor: .topTrailing)
+                            .overlay(
+                                VStack {
+                                    Text(job.jobResult.isClear ? "Clear!" : "Defeat_job")
+                                        .sp1Font(
+                                            size: 14,
+                                            color: job.jobResult.isClear ? AppColor.waveClearColor : AppColor.waveDefeatColor
+                                        )
+                                }
+                                .frame(width: 100, height: 14)
+                                .padding(.top, 74 * inkOffsetScale - 7)
+                                .padding(.trailing, 69.9 * inkOffsetScale - 50),
+                                alignment: .topTrailing)
                             .padding(.top, -52 * inkOffsetScale)
                             .padding(.trailing, -32 * inkOffsetScale),
                         alignment: .topTrailing)
