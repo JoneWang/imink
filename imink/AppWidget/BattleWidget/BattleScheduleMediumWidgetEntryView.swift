@@ -85,17 +85,6 @@ struct BattleScheduleMediumWidgetEntryView : View {
                                 .unredacted()
                             
                             Spacer()
-                        }
-                        
-                        makeStageImage(
-                            stageId: schedule?.stageA.id ?? "0",
-                            stageName: schedule?.stageA.name.localizedKey ?? "            "
-                        )
-                    }
-                    
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack(spacing: 6) {
-                            Spacer()
                             
                             Text(schedule?.rule.name.localizedKey ?? "      ")
                                 .sp1Font(size: 14, color: .white)
@@ -108,10 +97,17 @@ struct BattleScheduleMediumWidgetEntryView : View {
                             }
                         }
                         
-                        makeStageImage(
-                            stageId: schedule?.stageB.id ?? "0",
-                            stageName: schedule?.stageB.name.localizedKey ?? "            "
-                        )
+                        HStack {
+                            makeStageImage(
+                                stageId: schedule?.stageA.id ?? "0",
+                                stageName: schedule?.stageA.name.localizedKey ?? "            "
+                            )
+                            
+                            makeStageImage(
+                                stageId: schedule?.stageB.id ?? "0",
+                                stageName: schedule?.stageB.name.localizedKey ?? "            "
+                            )
+                        }
                     }
                 }
                 
@@ -134,17 +130,6 @@ struct BattleScheduleMediumWidgetEntryView : View {
                                 .unredacted()
                             
                             Spacer()
-                        }
-                        
-                        makeStageImage(
-                            stageId: nextSchedule?.stageA.id ?? "0",
-                            stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
-                        )
-                    }
-                    
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack(spacing: 6) {
-                            Spacer()
                             
                             Text(nextSchedule?.rule.name.localizedKey ?? "      ")
                                 .sp1Font(size: 14, color: .white)
@@ -157,10 +142,17 @@ struct BattleScheduleMediumWidgetEntryView : View {
                             }
                         }
                         
-                        makeStageImage(
-                            stageId: nextSchedule?.stageB.id ?? "0",
-                            stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
-                        )
+                        HStack {
+                            makeStageImage(
+                                stageId: nextSchedule?.stageA.id ?? "0",
+                                stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
+                            )
+                            
+                            makeStageImage(
+                                stageId: nextSchedule?.stageB.id ?? "0",
+                                stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
+                            )
+                        }
                     }
                 }
             }
