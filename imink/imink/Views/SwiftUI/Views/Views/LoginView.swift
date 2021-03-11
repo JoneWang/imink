@@ -38,7 +38,7 @@ struct LoginView: View {
     var body: some View {
         VStack {
             if let iconName = iconName {
-                FixVectorImage(iconName)
+                FixVectorImage(iconName, tintColor: AppColor.appLabelColor)
                     .frame(width: 52, height: 47)
             }
             
