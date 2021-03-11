@@ -111,7 +111,7 @@ struct JobShiftCardView: View {
                 )
         }
         .frame(height: 97)
-        .animation(.easeOut)
+        .padding(.top, 5)
     }
 }
 

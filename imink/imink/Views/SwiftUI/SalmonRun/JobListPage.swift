@@ -32,7 +32,7 @@ struct JobListPage: View {
                                     .rotationEffect(.degrees(-1))
                                     .clipped(antialiased: true)
                                     .padding([.leading, .trailing], 26)
-                                    .padding(.top, 20)
+                                    .padding(.top, 15)
                                     // FIXME:
                                     .padding(.bottom, 0.1)
                             } else if let job = row.job {
