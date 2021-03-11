@@ -202,12 +202,18 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                 
                                 Spacer()
                                 
-                                Text(schedule?.rule.name.localizedKey ?? "      ")
-                                    .sp1Font(size: 14)
-                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                HStack(spacing: 6) {
                                 
-                                if let schedule = schedule, schedule.rule.key != .turfWar {
-                                    Image(schedule.rule.imageName)
+                                    Text(schedule?.rule.name.localizedKey ?? "      ")
+                                        .sp1Font(size: 14)
+                                        .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    
+                                    
+                                    if let schedule = schedule, schedule.rule.key != .turfWar {
+                                        Image(schedule.rule.imageName)
+                                             .fixedSize()
+                                             .frame(width: 20, height:14, alignment: .center)
+                                    }
                                 }
                             }
                             .padding(.top, 0)
