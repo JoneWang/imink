@@ -32,12 +32,14 @@ struct OnboardingPage: View {
     
     func makeContent(largeLayout: Bool, widthGreaterThan400: Bool, fullscreen: Bool) -> some View {
         let titlePaddingTop: CGFloat = largeLayout ? 66 : (fullscreen ? 80 : 60)
+        let titlePaddingBottom: CGFloat = largeLayout || fullscreen ? 57 : 37
         
         return VStack {
-            VStack(spacing: largeLayout || fullscreen ? 57 : 37) {
+            VStack(spacing: 0) {
                 Text(largeLayout ? "Welcome to imink" : "Welcome to imink_multi-line")
                     .font(.system(size: 34, weight: .semibold))
                     .multilineTextAlignment(.center)
+                    .padding(.bottom, titlePaddingBottom)
                 
                 VStack(alignment: .leading, spacing: widthGreaterThan400 ? 46 : 24) {
                     ForEach(
@@ -51,18 +53,19 @@ struct OnboardingPage: View {
                         HStack(spacing: 13) {
                             Image(iconName)
                             
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .leading, spacing: 2.5) {
                                 Text(title.localizedKey)
                                     .font(.system(size: 15, weight: .semibold))
                                 
                                 Text(description.localizedKey)
                                     .font(.system(size: 15))
+                                    .lineSpacing(5)
                                     .foregroundColor(.systemGray)
                             }
                         }
                     }
                 }
-                .padding(.horizontal, largeLayout ? 97 : (widthGreaterThan400 ? 53 : 34))
+                .padding(.horizontal, largeLayout ? 110 : (widthGreaterThan400 ? 53 : 34))
                 
                 Spacer()
                 
@@ -72,10 +75,10 @@ struct OnboardingPage: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 18)
                 }
-                .frame(height: 44)
+                .frame(height: 50)
                 .frame(maxWidth: 360)
                 .background(Color.accentColor)
-                .continuousCornerRadius(8)
+                .continuousCornerRadius(14)
                 .padding(.horizontal, widthGreaterThan400 ? 44 : 24)
                 .onTapGesture {
                     viewModel.dismiss = true
