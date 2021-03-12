@@ -46,4 +46,7 @@ class AppUserDefaults: ObservableObject {
     
     @AppStorage("currentLanguage", store: UserDefaults.appGroup)
     var currentLanguage: String?
+    
+    @AppStorage("firstLaunch", store: UserDefaults.appGroup)
+    var firstLaunch: Bool = true
 }

@@ -15,6 +15,8 @@ class TabBarController: UITabBarController {
     
     private var cancelBag = Set<AnyCancellable>()
     
+    private var onboardingCancellable: AnyCancellable?
+    
     private var tabBarViewModel = TabBarViewModel()
     private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
     private var synchronizeJobViewModel = SynchronizeJobViewModel()
@@ -53,6 +55,10 @@ class TabBarController: UITabBarController {
                 self?.setupItems(isLogined: logined)
             }
             .store(in: &cancelBag)
+        
+        if AppUserDefaults.shared.firstLaunch {
+            showOnboarding()
+        }
     }
     
     func setupItems(isLogined: Bool) {
@@ -94,6 +100,27 @@ class TabBarController: UITabBarController {
         self.loginViewController = loginViewController
         
         present(loginViewController, animated: true)
+    }
+    
+    func showOnboarding() {
+        let viewModel = OnboardingViewModel()
+        
+        let onboardingPage = OnboardingPage(viewModel: viewModel)
+        let onboardingViewController = UIHostingController(rootView: onboardingPage)
+        onboardingViewController.modalPresentationStyle = .formSheet
+        onboardingViewController.isModalInPresentation = true
+        onboardingViewController.preferredContentSize = .init(width: 624, height: 800)
+        
+        onboardingCancellable?.cancel()
+        onboardingCancellable = viewModel.$dismiss
+            .sink { dismiss in
+                if dismiss {
+                    onboardingViewController.dismiss(animated: true, completion: nil)
+                    AppUserDefaults.shared.firstLaunch = false
+                }
+            }
+
+        present(onboardingViewController, animated: true)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

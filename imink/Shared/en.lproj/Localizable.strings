@@ -286,3 +286,15 @@
 "Back" = "Back";
 "Yes" = "Yes";
 "No" = "No";
+
+// MARK: Onboarding
+
+"Welcome to imink" = "Welcome to imink";
+"Welcome to imink_multi-line" = "Welcome to\nimink";
+"Real-Time Syncing" = "Real-Time Syncing";
+"onboarding_description_1" = "Battle results auto synced and stored with no upper limit.";
+"Home Screen Widgets" = "Home Screen Widgets";
+"onboarding_description_2" = "Effortlessly view the game schedule on the Home screen.";
+"Salmon Run" = "Salmon Run";
+"onboarding_description_3" = "Check how good you perform as Grizzco’s loyal egg collector.";
+"Continue" = "Continue";

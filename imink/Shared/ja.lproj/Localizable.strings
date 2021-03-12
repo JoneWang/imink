@@ -286,3 +286,15 @@
 "Back" = "戻る";
 "Yes" = "はい";
 "No" = "いいえ";
+
+// MARK: Onboarding
+
+"Welcome to imink" = "imink へようこそ";
+"Welcome to imink_multi-line" = "imink\n へようこそ";
+"Real-Time Syncing" = "データ自動同期";
+"onboarding_description_1" = "リフレッシュせずに、回数制限なしでリアルタイムの戦績データを自動的に同期する。";
+"Home Screen Widgets" = "ウィジェット";
+"onboarding_description_2" = "ウィジェットを利用してホーム画面でゲームのステージとシフト表の確認ができる。";
+"Salmon Run" = "サーモンラン";
+"onboarding_description_3" = "シャケたちを倒し、イクラを集めてサーモンでの評価を上げよう。";
+"Continue" = "続ける";

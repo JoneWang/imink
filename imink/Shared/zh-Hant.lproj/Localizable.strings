@@ -286,3 +286,15 @@
 "Back" = "返回";
 "Yes" = "是";
 "No" = "否";
+
+// MARK: Onboarding
+
+"Welcome to imink" = "歡迎使用imink";
+"Welcome to imink_multi-line" = "歡迎使用\nimink";
+"Real-Time Syncing" = "即時同步";
+"onboarding_description_1" = "即時自動同步每條戰績，毋免手動更新，沒有數目上限。";
+"Home Screen Widgets" = "主畫面小工具";
+"onboarding_description_2" = "通过小工具在主畫面上一目了然地檢視遊戲日程和地圖。";
+"Salmon Run" = "熊商會打工";
+"onboarding_description_3" = "擊敗鮭魚，收集魚卵，提升你在熊商會的工作績效。";
+"Continue" = "繼續";

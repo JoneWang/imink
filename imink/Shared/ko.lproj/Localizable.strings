@@ -286,3 +286,15 @@
 "Back" = "돌아가기";
 "Yes" = "네";
 "No" = "아니오";
+
+// MARK: Onboarding
+
+"Welcome to imink" = "imink에 어서오세요";
+"Welcome to imink_multi-line" = "imink에\n어서오세요";
+"Real-Time Syncing" = "데이터 자동 동기화";
+"onboarding_description_1" = "새로고침 하지 않고 횟수 제한 없이실시간 전적 데이터를 자동으로 동기화";
+"Home Screen Widgets" = "위젯";
+"onboarding_description_2" = "위젯을 이용하여 홈 화면에서 게임스테이지와 시프트 표 확인 가능";
+"Salmon Run" = "새먼런";
+"onboarding_description_3" = "연어들을 물리치고 연어알을 모아서좋은 평가를 노리자";
+"Continue" = "계속하기";
