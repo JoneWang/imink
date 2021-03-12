@@ -53,13 +53,13 @@ struct OnboardingPage: View {
                         HStack(spacing: 13) {
                             Image(iconName)
                             
-                            VStack(alignment: .leading, spacing: 2.5) {
+                            VStack(alignment: .leading, spacing: 2) {
                                 Text(title.localizedKey)
                                     .font(.system(size: 15, weight: .semibold))
                                 
                                 Text(description.localizedKey)
                                     .font(.system(size: 15))
-                                    .lineSpacing(5)
+                                    .lineSpacing(2)
                                     .foregroundColor(.systemGray)
                             }
                         }
