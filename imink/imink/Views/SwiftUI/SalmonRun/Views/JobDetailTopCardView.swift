@@ -75,13 +75,13 @@ struct JobDetailTopCardView: View {
                                 VStack {
                                     Text(job.jobResult.isClear ? "Clear!" : "Defeat_job")
                                         .sp1Font(
-                                            size: 14,
+                                            size: 14 * inkScale,
                                             color: job.jobResult.isClear ? AppColor.waveClearColor : AppColor.waveDefeatColor
                                         )
                                 }
                                 .frame(width: 100, height: 14)
-                                .padding(.top, 74 * inkOffsetScale - 7)
-                                .padding(.trailing, 69.9 * inkOffsetScale - 50),
+                                .padding(.top, 74 * inkScale - 7)
+                                .padding(.trailing, 69.9 * inkScale - 50),
                                 alignment: .topTrailing)
                             .padding(.top, -52 * inkOffsetScale)
                             .padding(.trailing, -32 * inkOffsetScale),
