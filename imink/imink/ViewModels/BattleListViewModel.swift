@@ -77,7 +77,6 @@ class BattleListViewModel: ObservableObject {
                     return [realtimeRow]
                 }
             }
-            .filter { _ in AppUserDefaults.shared.user != nil }
             .assign(to: &$rows)
     }
 }

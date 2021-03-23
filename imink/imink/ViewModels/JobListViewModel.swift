@@ -65,7 +65,6 @@ class JobListViewModel: ObservableObject {
                 os_log("Database Error: [jobs] \(error.localizedDescription)")
                 return Just<[DBJob]>([])
             }
-            .filter { _ in AppUserDefaults.shared.user != nil }
             .map { jobs in
                 var rows = [JobListRowModel]()
                 var lastStartTime: Date?

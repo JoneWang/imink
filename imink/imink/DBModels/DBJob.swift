@@ -99,7 +99,7 @@ extension AppDatabase {
     }
     
     func saveJob(data: Data) {
-        guard let currentUser = AppUserDefaults.shared.user,
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
               let jsonString = String(data: data, encoding: .utf8),
               let job = jsonString.decode(Job.self) else {
             return
@@ -107,14 +107,14 @@ extension AppDatabase {
         
         dbQueue.asyncWrite { db in
             if try DBJob.filter(
-                DBJob.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                DBJob.Columns.sp2PrincipalId == sp2PrincipalId &&
                     DBJob.Columns.jobId == job.jobId
             ).fetchCount(db) > 0 {
                 return
             }
             
             var record = DBJob(
-                sp2PrincipalId: currentUser.sp2PrincipalId,
+                sp2PrincipalId: sp2PrincipalId,
                 jobId: job.jobId,
                 json: jsonString,
                 isClear: job.jobResult.isClear,
@@ -150,7 +150,7 @@ extension AppDatabase {
     // MARK: Reads
     
     func jobs() -> AnyPublisher<[DBJob], Error> {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return Just<[DBJob]>([])
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
@@ -159,7 +159,7 @@ extension AppDatabase {
         return ValueObservation.tracking { db in
             // exclude json
             try Row
-                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, jobId, isClear, gradePoint, gradePointDelta, gradeId, helpCount, deadCount, goldenIkuraNum, ikuraNum, failureWave, dangerRate, scheduleStartTime, scheduleEndTime, scheduleStageName, scheduleWeapon1Id, scheduleWeapon1Image, scheduleWeapon2Id, scheduleWeapon2Image, scheduleWeapon3Id, scheduleWeapon3Image, scheduleWeapon4Id, scheduleWeapon4Image FROM job WHERE sp2PrincipalId = ? ORDER BY jobId DESC", arguments: [currentUser.sp2PrincipalId])
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, jobId, isClear, gradePoint, gradePointDelta, gradeId, helpCount, deadCount, goldenIkuraNum, ikuraNum, failureWave, dangerRate, scheduleStartTime, scheduleEndTime, scheduleStageName, scheduleWeapon1Id, scheduleWeapon1Image, scheduleWeapon2Id, scheduleWeapon2Image, scheduleWeapon3Id, scheduleWeapon3Image, scheduleWeapon4Id, scheduleWeapon4Image FROM job WHERE sp2PrincipalId = ? ORDER BY jobId DESC", arguments: [sp2PrincipalId])
                 .map { row in
                     DBJob(row: row)
                 }
@@ -169,13 +169,13 @@ extension AppDatabase {
     }
     
     func unsynchronizedJobIds(with jobIds: [Int]) -> [Int] {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return []
         }
         
         return dbQueue.read { db in
             let alreadyExistsRecords = try! DBJob.filter(
-                DBJob.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                DBJob.Columns.sp2PrincipalId == sp2PrincipalId &&
                     jobIds.contains(DBJob.Columns.jobId)
             )
             .fetchAll(db)

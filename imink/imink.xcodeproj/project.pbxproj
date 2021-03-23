@@ -20,6 +20,8 @@
 		EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */; };
 		EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17177C25FB114500500D13 /* OnboardingPage.swift */; };
 		EC17178325FB38CF00500D13 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178225FB38CF00500D13 /* OnboardingViewModel.swift */; };
+		EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
+		EC17179325FBA98100500D13 /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
 		EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */; };
 		EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */; };
 		EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */; };
@@ -49,8 +51,6 @@
 		EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362522525DDDF0037BD12 /* HomePage.swift */; };
 		EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
 		EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */; };
-		EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */; };
-		EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */; };
 		EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D2628258FA02F004E7B3A /* TestFontView.swift */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
 		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
@@ -70,7 +70,6 @@
 		EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
 		EC861225253AC656003BA67A /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA0251C8EF600AA0B20 /* APITargetType.swift */; };
 		EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
-		EC86122C253AC6D0003BA67A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
 		EC861231253AC6D4003BA67A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* Models.swift */; };
 		EC86123E253AC6ED003BA67A /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E99251C8EF600AA0B20 /* Operator.swift */; };
 		EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9B251C8EF600AA0B20 /* AppBundle.swift */; };
@@ -87,6 +86,11 @@
 		EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
 		EC861258253ACACA003BA67A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC861257253ACACA003BA67A /* UserDefaults.swift */; };
 		EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC861262253ACFE2003BA67A /* UserDefaults.swift */; };
+		EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
+		EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1D26074E9700B645B5 /* NAUser.swift */; };
+		EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
+		EC8B6B2826074F2600B645B5 /* NAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1D26074E9700B645B5 /* NAUser.swift */; };
+		EC8B6B302607519900B645B5 /* NSOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B2F2607519900B645B5 /* NSOHelper.swift */; };
 		EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E74251C55FF00AA0B20 /* AppDelegate.swift */; };
 		EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */; };
 		EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7A251C55FF00AA0B20 /* Main.storyboard */; };
@@ -107,12 +111,10 @@
 		EC900ECE251C8EF700AA0B20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA2251C8EF600AA0B20 /* API.swift */; };
 		EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
 		EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA5251C8EF600AA0B20 /* AppTheme.swift */; };
-		EC900ED1251C8EF700AA0B20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA7251C8EF600AA0B20 /* User.swift */; };
 		EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* Models.swift */; };
 		EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */; };
 		EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */; };
 		EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */; };
-		EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */; };
 		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
 		EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* DBRecord.swift */; };
 		EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */; };
@@ -227,6 +229,8 @@
 		EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleProvider.swift; sourceTree = "<group>"; };
 		EC17177C25FB114500500D13 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		EC17178225FB38CF00500D13 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		EC17178A25FB653300500D13 /* NSOAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOAPI.swift; sourceTree = "<group>"; };
+		EC17179225FBA98100500D13 /* NSOHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOHash.swift; sourceTree = "<group>"; };
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
@@ -257,8 +261,6 @@
 		EC5362522525DDDF0037BD12 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NintendoAccountLoginViewController.swift; path = imink/Views/NintendoAccountLoginViewController.swift; sourceTree = SOURCE_ROOT; };
-		EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoAccountLoginViewModel.swift; sourceTree = "<group>"; };
-		EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NintendoLoginInfo.swift; sourceTree = "<group>"; };
 		EC5D2628258FA02F004E7B3A /* TestFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFontView.swift; sourceTree = "<group>"; };
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,9 @@
 		EC8611D7253ABA31003BA67A /* AppWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWidget.swift; sourceTree = "<group>"; };
 		EC861257253ACACA003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EC861262253ACFE2003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		EC8B6B1926074E8200B645B5 /* LoginToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToken.swift; sourceTree = "<group>"; };
+		EC8B6B1D26074E9700B645B5 /* NAUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAUser.swift; sourceTree = "<group>"; };
+		EC8B6B2F2607519900B645B5 /* NSOHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NSOHelper.swift; path = "../../../../../Nutstore Files/.symlinks/Nutstore/NSOHelper.swift"; sourceTree = "<group>"; };
 		EC900E71251C55FF00AA0B20 /* imink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC900E74251C55FF00AA0B20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -301,12 +306,10 @@
 		EC900EA2251C8EF600AA0B20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EC900EA4251C8EF600AA0B20 /* AppColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		EC900EA5251C8EF600AA0B20 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		EC900EA7251C8EF600AA0B20 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC900EA9251C8EF600AA0B20 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
 		EC900EBF251C8EF700AA0B20 /* DBRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRecord.swift; sourceTree = "<group>"; };
 		EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleProvider.swift; sourceTree = "<group>"; };
@@ -632,6 +635,7 @@
 				EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */,
 				EC39703625482BE400557BD4 /* String+LocalizedString.swift */,
 				EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */,
+				EC17179225FBA98100500D13 /* NSOHash.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -639,10 +643,12 @@
 		EC900E9E251C8EF600AA0B20 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EC17178A25FB653300500D13 /* NSOAPI.swift */,
 				EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */,
 				EC900EA1251C8EF600AA0B20 /* AppAPI.swift */,
 				EC900EA0251C8EF600AA0B20 /* APITargetType.swift */,
 				EC900EA2251C8EF600AA0B20 /* API.swift */,
+				EC8B6B2F2607519900B645B5 /* NSOHelper.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -660,8 +666,8 @@
 			isa = PBXGroup;
 			children = (
 				EC900EA9251C8EF600AA0B20 /* Models.swift */,
-				EC900EA7251C8EF600AA0B20 /* User.swift */,
-				EC571A3F254A9E7800D1BFC6 /* NintendoLoginInfo.swift */,
+				EC8B6B1926074E8200B645B5 /* LoginToken.swift */,
+				EC8B6B1D26074E9700B645B5 /* NAUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -683,9 +689,7 @@
 				ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */,
 				ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */,
 				EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */,
-				EC571A37254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift */,
 				EC5362472525D68E0037BD12 /* HomeViewModel.swift */,
-				EC900EBC251C8EF700AA0B20 /* MainViewModel.swift */,
 				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
 				EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */,
 				ECB959CA25B896A80006E942 /* JobListViewModel.swift */,
@@ -939,6 +943,7 @@
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
 				EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
 				EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */,
+				EC8B6B2826074F2600B645B5 /* NAUser.swift in Sources */,
 				EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */,
 				EC2C1597257CB7EF00528D80 /* WidgetBackgroundView.swift in Sources */,
 				EC984232253AF3F70079D739 /* AnimatableModifier.swift in Sources */,
@@ -956,10 +961,10 @@
 				EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */,
 				EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */,
 				EC984217253ADE880079D739 /* AppColor.swift in Sources */,
+				EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */,
 				EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */,
 				EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861223253AC656003BA67A /* AppAPI.swift in Sources */,
-				EC86122C253AC6D0003BA67A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,18 +992,16 @@
 				EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */,
 				EC17178325FB38CF00500D13 /* OnboardingViewModel.swift in Sources */,
-				EC571A38254A9B1B00D1BFC6 /* NintendoAccountLoginViewModel.swift in Sources */,
 				EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */,
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
-				EC571A40254A9E7800D1BFC6 /* NintendoLoginInfo.swift in Sources */,
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
 				EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
-				EC900ED1251C8EF700AA0B20 /* User.swift in Sources */,
 				EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */,
 				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,
+				EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,
 				EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */,
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
@@ -1009,11 +1012,13 @@
 				EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
 				EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */,
 				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
+				EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
 				EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
 				EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */,
+				EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */,
 				EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */,
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
@@ -1028,6 +1033,7 @@
 				EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */,
 				EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */,
 				EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */,
+				EC17179325FBA98100500D13 /* NSOHash.swift in Sources */,
 				EC344FE925330351004A7AF1 /* MePage.swift in Sources */,
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
@@ -1042,8 +1048,8 @@
 				EC4CA1782595DEAB00B5C8CF /* ConvenientColors.swift in Sources */,
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
 				EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */,
+				EC8B6B302607519900B645B5 /* NSOHelper.swift in Sources */,
 				EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */,
-				EC900EDF251C8EF700AA0B20 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

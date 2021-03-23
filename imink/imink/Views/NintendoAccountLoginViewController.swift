@@ -62,18 +62,34 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         configureWebView()
         
         viewModel.isLoading = true
+        
+        let (url, codeVerifier) = authorizeInfo()
+        let request = URLRequest(url: url)
+        
+        viewModel.codeVerifier = codeVerifier
 
-        viewModel.$loginInfo
-            .sink { [weak self] loginInfo in
-                if let loginInfo = loginInfo {
-                    self?.webView.load(URLRequest(url: URL(string: loginInfo.loginUrl)!))
-                }
-            }
-            .store(in: &cancelBag)
+        webView.load(request)
         
         viewModel.$isLoading
             .map { !$0 }
             .assign(to: \.isHidden, on: loadingView)
+            .store(in: &cancelBag)
+        
+        viewModel.$status
+            .filter { $0 == .loginFail }
+            .sink { [weak self] _ in
+                let alert = UIAlertController(
+                    title: "Failure".localized,
+                    message: "Login error occurred, please try again.".localized,
+                    preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                    alert.dismiss(animated: true) {
+                        self?.dismiss(animated: true)
+                    }
+                })
+                self?.present(alert, animated: true)
+            }
             .store(in: &cancelBag)
     }
     
@@ -87,24 +103,24 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         config.processPool = processPool
         
         config.setURLSchemeHandler(LoginSchemeHandler(start: { [weak self] request in
-            self?.viewModel.signIn(request.url!.absoluteString)
-                .sink { [weak self] completion in
-                    switch completion {
-                    case .failure(_):
-                        let alert = UIAlertController(title: "Failure".localized, message: "Login error occurred, please try again.".localized, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                            alert.dismiss(animated: true) {
-                                self?.dismiss(animated: true)
-                            }
-                        })
-                        self?.present(alert, animated: true)
-                    case .finished:
-                        break
-                    }
-                } receiveValue: { _ in
-                }
-                .store(in: &self!.viewModel.cancelBag)
-        }), forURLScheme: "npf71b963c1b7b6d119")
+            let jumpUrl = request.url!.absoluteString
+            
+            guard let regex = try? NSRegularExpression(
+                    pattern: "session_token_code=(.*)&",
+                    options: []),
+                  let match = regex.matches(
+                    in: jumpUrl,
+                    options: [],
+                    range: NSRange(location: 0, length: jumpUrl.count)).first
+            else {
+                return
+            }
+            
+            let sessionTokenCode = NSString(string: jumpUrl)
+                .substring(with: match.range(at: 1))
+            
+            self?.viewModel.loginFlow(sessionTokenCode: sessionTokenCode)
+        }), forURLScheme: NSOAPI.clientUrlScheme)
         
         config.applicationNameForUserAgent = "imink"
 
@@ -143,4 +159,24 @@ class LoginSchemeHandler: NSObject, WKURLSchemeHandler {
 
     }
     
+}
+
+extension NintendoAccountLoginViewController {
+    
+    func authorizeInfo() -> (URL, String) {
+        let codeVerifier = NSOHash.urandom(length: 32).base64EncodedString
+        let authorizeAPI = NSOAPI.authorize(codeVerifier: codeVerifier)
+        
+        let url = authorizeAPI.baseURL.appendingPathComponent(authorizeAPI.path)
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        
+        if let querys = authorizeAPI.querys {
+            let queryItems = querys.map { name, value in
+                URLQueryItem(name: name, value: value)
+            }
+            urlComponents.queryItems = queryItems
+        }
+        
+        return (urlComponents.url!, codeVerifier)
+    }
 }

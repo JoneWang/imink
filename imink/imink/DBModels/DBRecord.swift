@@ -100,7 +100,7 @@ extension AppDatabase {
     // MARK: Writes
     
     func saveBattle(data: Data) {
-        guard let currentUser = AppUserDefaults.shared.user,
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
               let jsonString = String(data: data, encoding: .utf8),
               let battle = jsonString.decode(Battle.self) else {
             return
@@ -108,14 +108,14 @@ extension AppDatabase {
         
         dbQueue.asyncWrite { db in
             if try DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
                     DBRecord.Columns.battleNumber == battle.battleNumber
             ).fetchCount(db) > 0 {
                 return
             }
             
             var record = DBRecord(
-                sp2PrincipalId: currentUser.sp2PrincipalId,
+                sp2PrincipalId: sp2PrincipalId,
                 battleNumber: battle.battleNumber,
                 json: jsonString,
                 victory: battle.myTeamResult.key == .victory,
@@ -161,13 +161,13 @@ extension AppDatabase {
     // MARK: Reads
     
     func unsynchronizedBattleIds(with battleIds: [String]) -> [String] {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return []
         }
         
         return dbQueue.read { db in
             let alreadyExistsRecords = try! DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId &&
+                DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
                 battleIds.contains(DBRecord.Columns.battleNumber)
             )
             .fetchAll(db)
@@ -180,7 +180,7 @@ extension AppDatabase {
     }
     
     func records() -> AnyPublisher<[DBRecord], Error> {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return Just<[DBRecord]>([])
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
@@ -189,7 +189,7 @@ extension AppDatabase {
         return ValueObservation.tracking { db in
             // exclude json
             try Row
-                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [currentUser.sp2PrincipalId])
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [sp2PrincipalId])
                 .map { row in
                     DBRecord(row: row)
                 }
@@ -224,7 +224,7 @@ extension AppDatabase {
     }
     
     func totalCount() -> AnyPublisher<Int, Error> {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return Just<Int>(0)
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
@@ -233,7 +233,7 @@ extension AppDatabase {
         return ValueObservation
             .tracking(
                 DBRecord
-                    .filter(DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId)
+                    .filter(DBRecord.Columns.sp2PrincipalId == sp2PrincipalId)
                     .fetchCount
             )
             .publisher(in: dbQueue, scheduling: .immediate)
@@ -241,13 +241,13 @@ extension AppDatabase {
     }
     
     func totalKillCount() -> Int {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return 0
         }
         
         return dbQueue.read { db in
             let request = DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+                DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             )
             .select(sum(DBRecord.Columns.killCount))
             return try! Int.fetchOne(db, request) ?? 0
@@ -255,7 +255,7 @@ extension AppDatabase {
     }
     
     func vdWithLast500() -> [Bool] {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return []
         }
         
@@ -263,19 +263,19 @@ extension AppDatabase {
             return try! Bool.fetchAll(
                 db,
                 sql: "SELECT victory FROM record WHERE sp2PrincipalId = ? ORDER BY startDateTime DESC LIMIT 0, 500",
-                arguments: [currentUser.sp2PrincipalId]
+                arguments: [sp2PrincipalId]
             )
         }
     }
     
     func totalKD() -> Int {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return 0
         }
         
         return dbQueue.read { db in
             let request = DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+                DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             )
             .select(sum(DBRecord.Columns.killCount))
             return try! Int.fetchOne(db, request) ?? 0
@@ -283,7 +283,7 @@ extension AppDatabase {
     }
     
     func currentSyncTotalCount(lastSyncTime: Date) -> AnyPublisher<Int, Error> {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return Just<Int>(0)
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
@@ -294,14 +294,14 @@ extension AppDatabase {
                 DBRecord.filter(
                 (DBRecord.Columns.syncDetailTime == nil || (DBRecord.Columns.syncDetailTime != nil &&
                                                             DBRecord.Columns.syncDetailTime > lastSyncTime)) &&
-                    DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+                    DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             ).fetchCount)
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
     
     func currentSynchronizedCount(lastSyncTime: Date) -> AnyPublisher<Int, Error> {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return Just<Int>(0)
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
@@ -310,14 +310,14 @@ extension AppDatabase {
         return ValueObservation
             .tracking(DBRecord.filter(
                 DBRecord.Columns.syncDetailTime > lastSyncTime &&
-                    DBRecord.Columns.sp2PrincipalId == currentUser.sp2PrincipalId
+                    DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             ).fetchCount)
             .publisher(in: dbQueue, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
     
     func victoryAndDefeatCount(startTime: Date, endTime: Date = Date()) -> (Int, Int) {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return (0, 0)
         }
         
@@ -325,12 +325,12 @@ extension AppDatabase {
             guard let victoryCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT COUNT(*) FROM record WHERE victory AND startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
-                arguments: [startTime, endTime, currentUser.sp2PrincipalId]
+                arguments: [startTime, endTime, sp2PrincipalId]
             ),
             let defeatCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT COUNT(*) FROM record WHERE NOT victory AND startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
-                arguments: [startTime, endTime, currentUser.sp2PrincipalId]
+                arguments: [startTime, endTime, sp2PrincipalId]
             ) else {
                 return (0, 0)
             }
@@ -340,7 +340,7 @@ extension AppDatabase {
     }
     
     func killAssistAndDeathCount(startTime: Date, endTime: Date = Date()) -> (Int, Int, Int) {
-        guard let currentUser = AppUserDefaults.shared.user else {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return (0, 0, 0)
         }
         
@@ -348,17 +348,17 @@ extension AppDatabase {
             guard let killCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT SUM(killCount) FROM record WHERE startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
-                arguments: [startTime, endTime, currentUser.sp2PrincipalId]
+                arguments: [startTime, endTime, sp2PrincipalId]
             ),
             let assistCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT SUM(assistCount) FROM record WHERE startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
-                arguments: [startTime, endTime, currentUser.sp2PrincipalId]
+                arguments: [startTime, endTime, sp2PrincipalId]
             ),
             let deathCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT SUM(deathCount) FROM record WHERE startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
-                arguments: [startTime, endTime, currentUser.sp2PrincipalId]
+                arguments: [startTime, endTime, sp2PrincipalId]
             ) else {
                 return (0, 0, 0)
             }

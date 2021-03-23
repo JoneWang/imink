@@ -172,8 +172,7 @@ struct MePage: View {
                                 title: Text("Logout"),
                                 message: Text("Are you sure you want to logout?"),
                                 primaryButton: .destructive(Text("Yes"), action: {
-                                    AppUserDefaults.shared.user = nil
-                                    AppUserDefaults.shared.clientToken = nil
+                                    viewModel.logOut()
                                 }),
                                 secondaryButton: .cancel(Text("No"))
                             )
@@ -184,7 +183,6 @@ struct MePage: View {
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Me", displayMode: .inline)
             .navigationBarHidden(false)
-            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

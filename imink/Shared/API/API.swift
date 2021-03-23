@@ -39,18 +39,7 @@ enum APIError: Error, LocalizedError {
 class API {
     static let shared = API()
     
-    var urlSession: URLSession {
-        let sessionConfiguration = URLSessionConfiguration.ephemeral
-
-//        let proxy = [kCFNetworkProxiesHTTPEnable: 1,
-//                      kCFNetworkProxiesHTTPProxy: "127.0.0.1",
-//                      kCFNetworkProxiesHTTPPort: 9090] as [String: Any]
-//
-//        sessionConfiguration.connectionProxyDictionary = proxy
-        return URLSession(configuration: sessionConfiguration)
-    }
-    
-    func request(_ api: APITargetType) -> AnyPublisher<Data, APIError> {
+    func request(_ api: APITargetType) -> AnyPublisher<(Data, HTTPURLResponse), APIError> {
         let url = api.baseURL.appendingPathComponent(api.path)
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         
@@ -76,10 +65,18 @@ class API {
             request.addValue(data.contentType, forHTTPHeaderField: "Content-Type")
             switch data {
             case .jsonData(let data):
-                let jsonEncoder = JSONEncoder()
-                request.httpBody = try! jsonEncoder.encode(data)
+                request.httpBody = data.toJSONData()
+            case .form(let form):
+                let queryItems = form.map { name, value in
+                    URLQueryItem(name: name, value: value)
+                }
+                urlComponents.queryItems = queryItems
+                request.httpBody = urlComponents.query?.data(using: .utf8)
             }
         }
+        
+        let sessionConfiguration = URLSessionConfiguration.default
+        let urlSession = URLSession(configuration: sessionConfiguration)
         
         return urlSession.dataTaskPublisher(for: request)
             .tryMap { data, response in
@@ -98,8 +95,8 @@ class API {
                 guard 200..<300 ~= httpResponse.statusCode else {
                     throw APIError.unknown
                 }
-
-                return data
+                
+                return (data, httpResponse)
             }
             .mapError { error in
                 if let error = error as? APIError {
@@ -112,12 +109,18 @@ class API {
     }
 }
 
+extension Encodable {
+    func toJSONData() -> Data? { try? JSONEncoder().encode(self) }
+}
+
 extension MediaType {
     
     var contentType: String {
         switch self {
         case .jsonData:
-            return "application/json"
+            return "application/json; charset=utf-8"
+        case .form:
+            return "application/x-www-form-urlencoded"
         }
     }
     
@@ -125,23 +128,25 @@ extension MediaType {
 
 /// Wrapping up request
 extension APITargetType {
-    func request() -> AnyPublisher<Data, APIError> {
+    func request() -> AnyPublisher<Data, Error> {
+        self.request()
+            .map { result in result.0 }
+            .eraseToAnyPublisher()
+    }
+    
+    func request() -> AnyPublisher<(Data, HTTPURLResponse), Error> {
         API.shared.request(self)
             .mapError { error -> APIError in
                 if case APIError.authorizationError = error {
                     if type(of: self) is Splatoon2API.Type {
                         os_log("API Error: [splatoon2] iksm_session error")
                         return .iksmSessionInvalid
-                    } else if type(of: self) is AppAPI.Type {
-                        os_log("API Error: client_token error")
-                        AppUserDefaults.shared.clientToken = nil
-                        AppUserDefaults.shared.user = nil
-                        return .clientTokenInvalid
                     }
                 }
 
-                return error
+                return .unknown
             }
+            .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
 }

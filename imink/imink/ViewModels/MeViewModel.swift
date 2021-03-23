@@ -31,12 +31,12 @@ class MeViewModel: ObservableObject {
         Splatoon2API.records
             .request()
             .receive(on: DispatchQueue.main)
-            .compactMap { data -> Records? in
+            .compactMap { (data: Data) -> Records? in
                 // Cache
                 AppUserDefaults.shared.splatoon2RecordsData = data
                 return data.decode(Records.self)
             }
-            .flatMap { [weak self] records -> AnyPublisher<Data, APIError> in
+            .flatMap { [weak self] records -> AnyPublisher<Data, Error> in
                 self?.records = records
                 return Splatoon2API.nicknameAndIcon(id: records.records.player.principalId)
                     .request()
@@ -69,4 +69,14 @@ class MeViewModel: ObservableObject {
         nicknameAndIcons = nicknameAndIconData.decode(NicknameAndIcon.self)
     }
     
+    func logOut() {
+        AppUserDefaults.shared.loginToken = nil
+        AppUserDefaults.shared.naUser = nil
+        AppUserDefaults.shared.sp2PrincipalId = nil
+        
+        let cookieStorage = HTTPCookieStorage.shared
+        for cookie in cookieStorage.cookies ?? [] {
+            cookieStorage.deleteCookie(cookie)
+        }
+    }
 }

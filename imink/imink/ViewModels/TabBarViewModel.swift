@@ -11,9 +11,9 @@ import os
 import WidgetKit
 
 class TabBarViewModel: ObservableObject {
-        
+    
     @Published var unsynchronizedBattleIds: [String] = []
-        
+    
     @Published var isLogined = false
     @Published var autoRefresh = true
     
@@ -21,14 +21,10 @@ class TabBarViewModel: ObservableObject {
     private var syncCancelBag = Set<AnyCancellable>()
     
     init() {
-        // DEBUG: Remove all data
-        // AppDatabase.shared.removeAllRecords()
-        // AppDatabase.shared.removeAllJobs()
-        
-        isLogined = AppUserDefaults.shared.user != nil
+        isLogined = AppUserDefaults.shared.loginToken != nil
         
         if isLogined {
-            // If logined update user
+            // Update user if logged in
             requestUserInfo()
         }
         
@@ -48,27 +44,48 @@ class TabBarViewModel: ObservableObject {
 extension TabBarViewModel {
     
     func requestUserInfo() {
-        AppAPI.me()
-            .request()
-            .decode(type: User.self)
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    if case APIError.clientTokenInvalid = error {
-                        self.isLogined = false
-                    } else {
-                        // TODO: Popping error view
-                        os_log("API Error: [/me] \(error.localizedDescription)")
-                    }
+        if Splatoon2API.sessionIsValid {
+            Splatoon2API.records
+                .request()
+                .receive(on: DispatchQueue.main)
+                .compactMap { (data: Data) -> Void in
+                    // Cache
+                    AppUserDefaults.shared.splatoon2RecordsData = data
+                    return Void()
                 }
-            } receiveValue: { user in
-                // Save new user information
-                AppUserDefaults.shared.user = user
+                .catch({ error -> AnyPublisher<Void, Error> in
+                    if case APIError.iksmSessionInvalid = error,
+                       let loginToken = AppUserDefaults.shared.loginToken,
+                       let naUser = AppUserDefaults.shared.naUser {
+                        return NSOHelper.getIksmSession(loginToken: loginToken, naUser: naUser)
+                            .map { _ in Void() }
+                            .eraseToAnyPublisher()
+                    } else {
+                        return Future<Void, Error> { promise in
+                            promise(.success(Void())) // dummy
+                        }
+                        .eraseToAnyPublisher()
+                    }
+                })
+                .sink { _ in
+                    // TODO:
+                } receiveValue: { _ in
+                    // TODO:
+                }
+                .store(in: &cancelBag)
+        } else {
+            guard let loginToken = AppUserDefaults.shared.loginToken,
+                  let naUser = AppUserDefaults.shared.naUser else {
+                return
             }
-            .store(in: &cancelBag)
+            
+            NSOHelper.getIksmSession(loginToken: loginToken, naUser: naUser)
+                .sink { _ in
+                    // TODO:
+                } receiveValue: { _ in
+                    // TODO:
+                }
+                .store(in: &cancelBag)
+        }
     }
-    
 }

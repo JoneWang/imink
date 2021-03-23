@@ -13,22 +13,6 @@ import WidgetKit
 class AppUserDefaults: ObservableObject {
     static let shared = AppUserDefaults()
     
-    @AppStorage("client_token", store: UserDefaults.appGroup)
-    var clientToken: String?
-
-    @StandardStorage(key: "user", store: UserDefaults.appGroup)
-    var user: User? {
-        didSet {
-            if oldValue != nil, user == nil {
-                NotificationCenter.default.post(
-                    name: .logout,
-                    object: nil
-                )
-            }
-            WidgetCenter.shared.reloadAllTimelines()
-        }
-    }
-    
     @StandardStorage(key: "last_battle", store: UserDefaults.appGroup)
     var lastBattle: Battle?
     
@@ -49,4 +33,23 @@ class AppUserDefaults: ObservableObject {
     
     @AppStorage("firstLaunch", store: UserDefaults.appGroup)
     var firstLaunch: Bool = true
+    
+    @AppStorage("sp2PrincipalId", store: UserDefaults.appGroup)
+    var sp2PrincipalId: String?
+    
+    @StandardStorage(key: "loginToken", store: UserDefaults.appGroup)
+    var loginToken: LoginToken? {
+        didSet {
+            if oldValue != nil, loginToken == nil {
+                NotificationCenter.default.post(
+                    name: .logout,
+                    object: nil
+                )
+            }
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
+    
+    @StandardStorage(key: "naUser", store: UserDefaults.appGroup)
+    var naUser: NAUser?
 }

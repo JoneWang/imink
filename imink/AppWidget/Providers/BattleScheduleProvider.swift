@@ -115,7 +115,7 @@ extension BattleScheduleProvider {
         
         AppAPI.schedules
             .request()
-            .compactMap { data -> Schedules? in
+            .compactMap { (data: Data) -> Schedules? in
                 // Cache
                 AppUserDefaults.shared.splatoon2BattleScheduleData = data
                 return data.decode(Schedules.self)
