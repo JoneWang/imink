@@ -99,7 +99,7 @@
 "Source code" = "ソースコード";
 "FAQ" = "よくある質問";
 "About imink" = "imink に関して";
-"Logout" = "ログアウト";
+"Log out" = "ログアウト";
 "Are you sure you want to logout?" = "ログアウトしますか？";
 
 // MARK: Schedule
@@ -290,7 +290,7 @@
 // MARK: Onboarding
 
 "Welcome to imink" = "imink へようこそ";
-"Welcome to imink_multi-line" = "imink\n へようこそ";
+"Welcome to imink_multi-line" = "imink\nへようこそ";
 "Real-Time Syncing" = "データ自動同期";
 "onboarding_description_1" = "リフレッシュせずに、回数制限なしでリアルタイムの戦績データを自動的に同期する。";
 "Home Screen Widgets" = "ウィジェット";

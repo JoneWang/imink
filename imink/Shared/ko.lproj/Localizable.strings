@@ -99,7 +99,7 @@
 "Source code" = "소스 코드";
 "FAQ" = "자주 있는 질문";
 "About imink" = "imink에 관하여";
-"Logout" = "로그아웃";
+"Log out" = "로그아웃";
 "Are you sure you want to logout?" = "로그아웃 하시겠습니까?";
 
 // MARK: Schedule

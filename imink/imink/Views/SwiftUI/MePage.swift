@@ -159,7 +159,7 @@ struct MePage: View {
                         HStack {
                             Spacer()
                             
-                            Text("Logout")
+                            Text("Log out")
                                 .foregroundColor(.red)
                             
                             Spacer()
