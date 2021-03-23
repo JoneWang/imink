@@ -38,6 +38,8 @@ Thanks to them for providing the API. Their app and project are great!
 
 * [splatnet2statink](https://github.com/frozenpandaman/splatnet2statink) ([@frozenpandaman](https://twitter.com/frozenpandaman))
 
-## FAQ
+## Wiki
 
-https://github.com/JoneWang/imink/wiki/FAQ
+[FAQ](https://github.com/JoneWang/imink/wiki/FAQ)
+
+[Privacy Policy](https://github.com/JoneWang/imink/wiki/Privacy-Policy)
