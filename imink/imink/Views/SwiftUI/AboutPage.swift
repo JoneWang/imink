@@ -68,7 +68,7 @@ struct AboutPage: View {
                         HStack {
                             Link(destination: URL(string: "https://t.me/iminkUserGroup")!) {
                                 VStack(spacing: 4) {
-                                    Text("User Group for Telegram")
+                                    Text("User Group on Telegram")
                                         .sp2Font(size: 12, color: AppColor.appLabelColor)
                                     Text("https://t.me/iminkUserGroup")
                                         .font(.system(size: 10, weight: .bold))
@@ -100,7 +100,7 @@ struct AboutPage: View {
                     }
                     
                 }
-                .padding(.top, 20)
+                .padding([.top, .bottom], 20)
                 
                 Spacer()
             }
