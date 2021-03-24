@@ -59,6 +59,8 @@
 		EC6CF3FF25F3F698005427B5 /* Splatfont 2 v1.009.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC6CF3FD25F3F698005427B5 /* Splatfont 2 v1.009.otf */; };
 		EC761295260B214C00C4D3AA /* NSOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC761294260B214C00C4D3AA /* NSOHelper.swift */; };
 		EC761296260B214C00C4D3AA /* NSOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC761294260B214C00C4D3AA /* NSOHelper.swift */; };
+		EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
+		EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
 		EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC7652DF259200890098FD22 /* SplatNet2 */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
 		EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC807CA625F7385C003FC2E6 /* TodayView.swift */; };
@@ -946,6 +948,7 @@
 				EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */,
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
 				EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
+				EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */,
 				EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */,
 				EC8B6B2826074F2600B645B5 /* NAUser.swift in Sources */,
 				EC761296260B214C00C4D3AA /* NSOHelper.swift in Sources */,
@@ -961,6 +964,7 @@
 				EC861244253AC6ED003BA67A /* Collection.swift in Sources */,
 				EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */,
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
+				EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */,
 				EC861231253AC6D4003BA67A /* Models.swift in Sources */,
 				EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */,
 				EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */,
