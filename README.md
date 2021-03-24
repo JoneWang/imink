@@ -2,33 +2,30 @@
 
 ## Download
 
-* [imink for iOS](https://testflight.apple.com/join/yMqfrizI) (Testflight, Supports iPhone and iPad)
-* ~~[imink for MacOS](https://github.com/JoneWang/imink/releases)~~
+* [Testflight](https://testflight.apple.com/join/yMqfrizI) (Testflight, Supports iPhone and iPad)
+
+## Supported Languages
+
+* English
+* Chinese, Simplified
+* Chinese, Traditional
+* Japanese
+* Korean
 
 
 ## Contributions
 
-Jone Wang
-
-[Ryan Lau](https://twitter.com/oueryan)
-
-Shaw
-
-[Key山](https://weibo.com/alicemegatron)
-
-俐吟
-
-小傘Emp
-
-米雪
-
-ai
-
-[ddddxxx](https://github.com/ddddxxx)
-
-柏汐
-
-[Padotagi](https://twitter.com/wonno68)
+* Jone Wang
+* [Ryan Lau](https://twitter.com/oueryan)
+* Shaw
+* [Key山](https://weibo.com/alicemegatron)
+* 俐吟
+* 小傘Emp
+* 米雪
+* ai
+* [ddddxxx](https://github.com/ddddxxx)
+* 柏汐
+* [Padotagi](https://twitter.com/wonno68)
 
 ## Thanks
 
