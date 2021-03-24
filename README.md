@@ -32,9 +32,9 @@ ai
 
 ## Thanks
 
-Thanks to them for providing the API. Their app and project are great!
+Thank them for providing the necessary algorithm API for account login.
 
-* ikaWidget2 ([Android](https://play.google.com/store/apps/details?id=com.flapg.ikawidget2) / [iOS](https://apps.apple.com/us/app/id1271025591)) ([@NexusMine](https://twitter.com/NexusMine)) 
+* [ikaWidget2](https://play.google.com/store/apps/details?id=com.flapg.ikawidget2) ([@NexusMine](https://twitter.com/NexusMine)) 
 
 * [splatnet2statink](https://github.com/frozenpandaman/splatnet2statink) ([@frozenpandaman](https://twitter.com/frozenpandaman))
 
