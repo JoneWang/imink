@@ -32,7 +32,7 @@ ai
 
 ## Thanks
 
-Thanks to them for providing the API. Their app and project are great!
+Thank them for providing the necessary algorithm API for account login.
 
 * [ikaWidget2](https://play.google.com/store/apps/details?id=com.flapg.ikawidget2) ([@NexusMine](https://twitter.com/NexusMine)) 
 
