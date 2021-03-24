@@ -156,6 +156,7 @@
 		ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */; };
 		ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
 		ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
+		ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF91ECE2609F58500FF7F55 /* MailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,6 +338,7 @@
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
+		ECF91ECE2609F58500FF7F55 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +432,7 @@
 				ECA695082531AC9D00376D95 /* PieView.swift */,
 				EC807CA625F7385C003FC2E6 /* TodayView.swift */,
 				ECD1FA4125F87903002E36DD /* LoginView.swift */,
+				ECF91ECE2609F58500FF7F55 /* MailView.swift */,
 			);
 			name = Views;
 			path = Views/Views;
@@ -1000,6 +1003,7 @@
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
 				EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */,
+				ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */,
 				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,
 				EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,

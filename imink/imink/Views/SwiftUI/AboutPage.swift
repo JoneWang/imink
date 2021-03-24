@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AboutPage: View {
+    
+    @State var isShowingMailView = false
+    
     var body: some View {
         let contributions = [
             "Jone Wang", "Ryan Lau", "Shaw",
@@ -41,14 +44,46 @@ struct AboutPage: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("User Group")
+                        Text("Thanks")
                             .sp1Font(size: 22, color: AppColor.appLabelColor)
                         
-                        Link(destination: URL(string: "https://t.me/iminkUserGroup")!) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("ikaWidget2 / @NexusMine")
+                                .sp2Font(size: 14, color: Color.primary.opacity(0.8))
+                            
+                            Text("splatnet2statink / @frozenpandaman")
+                                .sp2Font(size: 14, color: Color.primary.opacity(0.8))
+                        }
+                        
+                        Text("Thank them for providing the necessary algorithm API for account login.")
+                            .font(.system(size: 10))
+                            .foregroundColor(Color.primary.opacity(0.6))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Feedback")
+                            .sp1Font(size: 22, color: AppColor.appLabelColor)
+                        
+                        HStack {
+                            Link(destination: URL(string: "https://t.me/iminkUserGroup")!) {
+                                VStack(spacing: 4) {
+                                    Text("User Group for Telegram")
+                                        .sp2Font(size: 12, color: AppColor.appLabelColor)
+                                    Text("https://t.me/iminkUserGroup")
+                                        .font(.system(size: 10, weight: .bold))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(AppColor.appLabelColor)
+                                }
+                                .padding(12)
+                                .background(Color.secondarySystemBackground)
+                                .continuousCornerRadius(10)
+                            }
+                            
                             VStack(spacing: 4) {
-                                Text("Telegram")
-                                    .sp2Font(size: 16, color: AppColor.appLabelColor)
-                                Text("https://t.me/iminkUserGroup")
+                                Text("E-mail")
+                                    .sp2Font(size: 12, color: AppColor.appLabelColor)
+                                Text("i@jone.wang")
                                     .font(.system(size: 10, weight: .bold))
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(AppColor.appLabelColor)
@@ -56,16 +91,24 @@ struct AboutPage: View {
                             .padding(12)
                             .background(Color.secondarySystemBackground)
                             .continuousCornerRadius(10)
+                            .onTapGesture {
+                                if MailView.canSendMail() {
+                                    self.isShowingMailView.toggle()
+                                }
+                            }
                         }
                     }
                     
                 }
-                .padding(.top, 48)
+                .padding(.top, 20)
                 
                 Spacer()
             }
             .padding()
             .padding(.leading, 12)
+        }
+        .sheet(isPresented: $isShowingMailView) {
+            MailView(isShowing: self.$isShowingMailView, recipient: "i@jone.wang")
         }
     }
 }
