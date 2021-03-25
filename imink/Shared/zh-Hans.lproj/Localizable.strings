@@ -100,7 +100,7 @@
 "FAQ" = "常见问题";
 "About imink" = "关于 imink";
 "Log out" = "退出登录";
-"Are you sure you want to logout?" = "确定要退出登录吗？";
+"Are you sure you want to log out?" = "确定要退出登录吗？";
 
 // MARK: Schedule
 

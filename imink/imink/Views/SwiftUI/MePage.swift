@@ -169,8 +169,8 @@ struct MePage: View {
                         }
                         .alert(isPresented: $showLogoutAlert) {
                             Alert(
-                                title: Text("Logout"),
-                                message: Text("Are you sure you want to logout?"),
+                                title: Text("Log out"),
+                                message: Text("Are you sure you want to log out?"),
                                 primaryButton: .destructive(Text("Yes"), action: {
                                     viewModel.logOut()
                                 }),
