@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import WebKit
 
 class MeViewModel: ObservableObject {
     
@@ -74,9 +75,12 @@ class MeViewModel: ObservableObject {
         AppUserDefaults.shared.naUser = nil
         AppUserDefaults.shared.sp2PrincipalId = nil
         
-        let cookieStorage = HTTPCookieStorage.shared
-        for cookie in cookieStorage.cookies ?? [] {
-            cookieStorage.deleteCookie(cookie)
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            }
         }
     }
 }

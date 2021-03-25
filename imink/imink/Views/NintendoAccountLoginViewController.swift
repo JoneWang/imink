@@ -91,6 +91,13 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
                 self?.present(alert, animated: true)
             }
             .store(in: &cancelBag)
+        
+        NotificationCenter.default
+            .publisher(for: UIResponder.keyboardWillHideNotification)
+            .sink { [weak self] _ in
+                self?.scrollToTop()
+            }
+            .store(in: &cancelBag)
     }
     
     func configureWebView() {
@@ -125,6 +132,9 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         config.applicationNameForUserAgent = "imink"
 
         webView = WKWebView(frame: view.bounds, configuration: config)
+        webView.allowsLinkPreview = false
+        webView.scrollView.isScrollEnabled = false
+        webView.scrollView.bounces = false
         
         view.insertSubview(webView, belowSubview: loadingView)
         webView.snp.makeConstraints { (make) -> Void in
@@ -137,8 +147,12 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
             .sink { [weak self] title in
                 self?.viewModel.isLoading = false
                 self?.navigationItem.title = title
+                
+                self?.scrollToTop()
             }
             .store(in: &cancelBag)
+        
+        webView.navigationDelegate = self
     }
 
 }
@@ -161,6 +175,13 @@ class LoginSchemeHandler: NSObject, WKURLSchemeHandler {
     
 }
 
+extension NintendoAccountLoginViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.perform(#selector(scrollToTop), with: nil, afterDelay: 0.5)
+    }
+}
+
 extension NintendoAccountLoginViewController {
     
     func authorizeInfo() -> (URL, String) {
@@ -178,5 +199,17 @@ extension NintendoAccountLoginViewController {
         }
         
         return (urlComponents.url!, codeVerifier)
+    }
+}
+
+extension NintendoAccountLoginViewController {
+    
+    @objc func scrollToTop() {
+        self.webView
+            .scrollView
+            .setContentOffset(
+                .init(x: 0, y: 0),
+                animated: true
+            )
     }
 }
