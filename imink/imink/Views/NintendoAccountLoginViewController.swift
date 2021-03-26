@@ -56,6 +56,10 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         return loadingView
     }()
     
+    let hideHeader = "var h = document.getElementsByClassName(\"c-header\")[0];h.setAttribute(\"style\", \"visibility: hidden;\");h.parentElement.setAttribute(\"style\", \"height: 0px;\");"
+    let hideFooter = "var h = document.getElementsByClassName(\"c-footer\")[0];h.setAttribute(\"style\", \"visibility: hidden;\");h.parentElement.setAttribute(\"style\", \"height: 0px;\");"
+    let hideForgotPassword = "document.getElementsByClassName(\"LoginForm_forgotPassword\")[0].setAttribute(\"style\", \"visibility: hidden;\");"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,10 +96,11 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
             }
             .store(in: &cancelBag)
         
-        NotificationCenter.default
-            .publisher(for: UIResponder.keyboardWillHideNotification)
-            .sink { [weak self] _ in
-                self?.scrollToTop()
+        Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+            .sink { _ in
+                self.webView.evaluateJavaScript(self.hideHeader, completionHandler: nil)
+                self.webView.evaluateJavaScript(self.hideFooter, completionHandler: nil)
+                self.webView.evaluateJavaScript(self.hideForgotPassword, completionHandler: nil)
             }
             .store(in: &cancelBag)
     }
@@ -133,26 +138,20 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
 
         webView = WKWebView(frame: view.bounds, configuration: config)
         webView.allowsLinkPreview = false
-        webView.scrollView.isScrollEnabled = false
-        webView.scrollView.bounces = false
         
         view.insertSubview(webView, belowSubview: loadingView)
         webView.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(view)
             make.top.equalTo(view)
-            make.bottom.equalTo(view)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         webView.publisher(for: \.title)
             .sink { [weak self] title in
                 self?.viewModel.isLoading = false
                 self?.navigationItem.title = title
-                
-                self?.scrollToTop()
             }
             .store(in: &cancelBag)
-        
-        webView.navigationDelegate = self
     }
 
 }
@@ -175,13 +174,6 @@ class LoginSchemeHandler: NSObject, WKURLSchemeHandler {
     
 }
 
-extension NintendoAccountLoginViewController: WKNavigationDelegate {
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.perform(#selector(scrollToTop), with: nil, afterDelay: 0.5)
-    }
-}
-
 extension NintendoAccountLoginViewController {
     
     func authorizeInfo() -> (URL, String) {
@@ -199,17 +191,5 @@ extension NintendoAccountLoginViewController {
         }
         
         return (urlComponents.url!, codeVerifier)
-    }
-}
-
-extension NintendoAccountLoginViewController {
-    
-    @objc func scrollToTop() {
-        self.webView
-            .scrollView
-            .setContentOffset(
-                .init(x: 0, y: 0),
-                animated: true
-            )
     }
 }
