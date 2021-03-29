@@ -61,7 +61,6 @@
 		EC761296260B214C00C4D3AA /* NSOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC761294260B214C00C4D3AA /* NSOHelper.swift */; };
 		EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
 		EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
-		EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC7652DF259200890098FD22 /* SplatNet2 */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
 		EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC807CA625F7385C003FC2E6 /* TodayView.swift */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
@@ -154,6 +153,7 @@
 		ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4125F87903002E36DD /* LoginView.swift */; };
 		ECD1FA5025F89EF8002E36DD /* FixVectorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */; };
 		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
+		ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = ECD777E3261178EC0067A51B /* SplatNet2 */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
 		ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */; };
@@ -351,8 +351,8 @@
 			files = (
 				EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */,
 				EC9D0A5925A1761900E8FF89 /* SDWebImage in Frameworks */,
+				ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */,
 				EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */,
-				EC7652E0259200890098FD22 /* SplatNet2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,10 +770,10 @@
 			);
 			name = InkCore;
 			packageProductDependencies = (
-				EC7652DF259200890098FD22 /* SplatNet2 */,
 				EC9D0A5825A1761900E8FF89 /* SDWebImage */,
 				EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */,
 				EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */,
+				ECD777E3261178EC0067A51B /* SplatNet2 */,
 			);
 			productName = InkCore;
 			productReference = EC17CB0C256B995900E34247 /* InkCore.framework */;
@@ -863,7 +863,7 @@
 				EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
-				EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */,
+				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1483,12 +1483,12 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */ = {
+		ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ddddxxx/SplatNet2.git";
 			requirement = {
-				branch = addfields;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1504,11 +1504,6 @@
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		EC7652DF259200890098FD22 /* SplatNet2 */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC7652DE259200880098FD22 /* XCRemoteSwiftPackageReference "SplatNet2" */;
-			productName = SplatNet2;
-		};
 		EC9D0A5825A1761900E8FF89 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */;
@@ -1523,6 +1518,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		ECD777E3261178EC0067A51B /* SplatNet2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */;
+			productName = SplatNet2;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

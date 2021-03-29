@@ -77,9 +77,9 @@
         "package": "SplatNet2",
         "repositoryURL": "https://github.com/ddddxxx/SplatNet2.git",
         "state": {
-          "branch": "addfields",
-          "revision": "fca583fb7f2bfe778c55a752771e3ecc4cfa6c3a",
-          "version": null
+          "branch": null,
+          "revision": "3b765d0d300df94db7634518578a69292d97e148",
+          "version": "0.2.0"
         }
       }
     ]
