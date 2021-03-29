@@ -241,18 +241,25 @@ extension DBRecord {
     var powerText: String {
         let gameMode = GameMode.Key(rawValue: gameModeKey)!
         
-        if gameMode == .leaguePair ||
-            gameMode == .leagueTeam {
+        if gameMode == .leaguePair || gameMode == .leagueTeam {
             if let power = leaguePoint, power > 0 {
                 return String(format: "%@ power".localized, "\(power, places: 0)")
             } else {
                 return String(format: "%@ power".localized, "---")
             }
-        } else if gameMode == .gachi, let power = estimateGachiPower {
-            return String(format: "%@ power".localized, "\(power)")
-        } else {
-            return ""
+        } else if gameMode == .gachi {
+            if isX {
+                if let power = xPower, power > 0 {
+                    return String(format: "%@ power".localized, "\(power, places: 0)")
+                } else {
+                    return String(format: "%@ power".localized, "---")
+                }
+            } else if let power = estimateGachiPower {
+                return String(format: "%@ power".localized, "\(power)")
+            }
         }
+        
+        return ""
     }
 }
 
@@ -282,7 +289,9 @@ struct BattleListItemView_Previews: PreviewProvider {
             type: .regular,
             leaguePoint: 1234.0,
             estimateGachiPower: 1234,
-            playerTypeSpecies: .inklings
+            playerTypeSpecies: .inklings,
+            isX: false,
+            xPower: 0
         )
         let realtimeRow = BattleListRowModel(type: .realtime, record: dbRecord)
         let row = BattleListRowModel(type: .record, record: dbRecord)

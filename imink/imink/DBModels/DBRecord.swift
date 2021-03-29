@@ -46,6 +46,8 @@ struct DBRecord: Identifiable {
     var leaguePoint: Double?
     var estimateGachiPower: Int?
     var playerTypeSpecies: Player.PlayerType.Species
+    var isX: Bool
+    var xPower: Double?
 }
 
 extension Battle.BattleType: DatabaseValueConvertible { }
@@ -139,7 +141,9 @@ extension AppDatabase {
                 type: battle.type,
                 leaguePoint: battle.leaguePoint,
                 estimateGachiPower: battle.estimateGachiPower,
-                playerTypeSpecies: battle.playerResult.player.playerType.species)
+                playerTypeSpecies: battle.playerResult.player.playerType.species,
+                isX: battle.udemae?.isX ?? false,
+                xPower: battle.xPower)
             try record.insert(db)
         } completion: { _, error in
             if case let .failure(error) = error {
@@ -189,7 +193,7 @@ extension AppDatabase {
         return ValueObservation.tracking { db in
             // exclude json
             try Row
-                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [sp2PrincipalId])
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies, isX, xPower FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [sp2PrincipalId])
                 .map { row in
                     DBRecord(row: row)
                 }
@@ -396,7 +400,9 @@ extension DBRecord {
             type: type,
             leaguePoint: leaguePoint,
             estimateGachiPower: estimateGachiPower,
-            playerTypeSpecies: playerTypeSpecies
+            playerTypeSpecies: playerTypeSpecies,
+            isX: isX,
+            xPower: xPower
         )
         return copy
     }

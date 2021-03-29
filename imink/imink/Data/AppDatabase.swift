@@ -242,6 +242,26 @@ class AppDatabase {
             }
         }
         
+        migrator.registerMigration("V8") { db in
+            try db.alter(table: "record", body: { tableAlteration in
+                tableAlteration.add(column: "isX", .boolean)
+                tableAlteration.add(column: "xPower", .double)
+            })
+            
+            try self.eachBattles(db: db) { (id, battle) in
+                try db.execute(
+                    sql: "UPDATE record SET " +
+                        "isX = ?, " +
+                        "xPower = ? " +
+                        "WHERE id = ?",
+                    arguments: [
+                        battle.udemae?.isX ?? false,
+                        battle.xPower,
+                        id
+                    ])
+            }
+        }
+        
         return migrator
     }
 }

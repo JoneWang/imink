@@ -66,7 +66,24 @@ struct BattleDetailPage: View {
     }
     
     func makeContent(battle: Battle) -> some View {
-        VStack(spacing: 20) {
+        let isGachiX = battle.battleType == .gachi && battle.playerResult.player.udemae?.isX ?? false
+        var battleTopDatas: [(String, String)]?
+        
+        if isGachiX {
+            battleTopDatas = [
+                ("My X Power", (battle.xPower ?? 0 > 0) ? "\(battle.xPower!)" : "-"),
+                ("Average", (battle.estimateXPower ?? 0 > 0) ? "\(battle.estimateXPower!)" : "-")
+            ]
+        } else if battle.battleType == .league {
+            battleTopDatas = [
+                ("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
+                ("Highest", (battle.maxLeaguePoint ?? 0 > 0) ? "\(battle.maxLeaguePoint!)" : "-"),
+                ("Crew", (battle.myEstimateLeaguePoint ?? 0 > 0) ? "\(battle.myEstimateLeaguePoint!)" : "-"),
+                ("Rival", (battle.otherEstimateLeaguePoint ?? 0 > 0) ? "\(battle.otherEstimateLeaguePoint!)" : "-")
+            ]
+        }
+        
+        return VStack(spacing: 20) {
             VStack(spacing: 0) {
                 ZStack {
                     GrayscaleTextureView(
@@ -133,15 +150,9 @@ struct BattleDetailPage: View {
                     .padding([.leading, .bottom, .trailing], 10)
                 }
                 
-                if battle.battleType == .league {
+                if let battleDatas = battleTopDatas {
                     HStack(spacing: 0) {
-                        let data = [
-                            ("Current", (battle.leaguePoint ?? 0 > 0) ? "\(battle.leaguePoint!)" : "-"),
-                            ("Highest", (battle.maxLeaguePoint ?? 0 > 0) ? "\(battle.maxLeaguePoint!)" : "-"),
-                            ("Crew", (battle.myEstimateLeaguePoint ?? 0 > 0) ? "\(battle.myEstimateLeaguePoint!)" : "-"),
-                            ("Rival", (battle.otherEstimateLeaguePoint ?? 0 > 0) ? "\(battle.otherEstimateLeaguePoint!)" : "-")
-                        ]
-                        ForEach(data, id: \.0) { item in
+                        ForEach(battleDatas, id: \.0) { item in
                             HStack {
                                 Spacer()
                                 VStack(spacing: 7) {
@@ -152,8 +163,8 @@ struct BattleDetailPage: View {
                                 }
                                 Spacer()
                             }
-                            
-                            if item.0 != data.last?.0 {
+
+                            if item.0 != battleDatas.last?.0 {
                                 Rectangle()
                                     .frame(width: 0.7, height: 27)
                                     .foregroundColor(.opaqueSeparator)
