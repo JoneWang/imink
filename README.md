@@ -2,7 +2,7 @@
 
 ## Download
 
-* [Testflight](https://testflight.apple.com/join/yMqfrizI) (Testflight, Supports iPhone and iPad)
+* [App Store](https://apps.apple.com/app/id1530006671)
 
 ## Supported Languages
 
