@@ -41,7 +41,7 @@ struct NSOHelper {
     
     static func getIksmSession(loginToken: LoginToken, naUser: NAUser) -> AnyPublisher<Records, Error> {
         let requestId = UUID().uuidString.lowercased()
-        let timestamp = "\(Int(Date().timeIntervalSince1970 * 1000.0))"
+        let timestamp = "\(Int(Date().timeIntervalSince1970))"
         return self.requestLogin(
             requestId: requestId,
             accessToken: loginToken.accessToken,
@@ -118,7 +118,7 @@ struct NSOHelper {
                                 accessToken: String,
                                 naUser: NAUser) -> AnyPublisher<WebServiceToken, Error> {
         let requestId = UUID().uuidString.lowercased()
-        let timestamp = "\(Int(Date().timeIntervalSince1970 * 1000.0))"
+        let timestamp = "\(Int(Date().timeIntervalSince1970))"
         return self.requestF(
             requestId: requestId,
             accessToken: webApiServerToken,
