@@ -106,7 +106,7 @@ extension Splatoon2API {
         let sessionCookie = HTTPCookieStorage.shared.cookies?
             .first(where: { $0.name == "iksm_session" })
         if let expiresDate = sessionCookie?.expiresDate {
-            return expiresDate < Date()
+            return expiresDate > Date()
         } else {
             return false
         }
