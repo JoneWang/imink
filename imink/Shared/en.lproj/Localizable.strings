@@ -65,9 +65,6 @@
 "Clear!" = "Clear!";
 "Defeat_job" = "Defeat";
 "Wave %d" = "Wave %d";
-"JobWaveDefeat_img" = "JobWaveDefeat";
-"JobWaveClear_img" = "JobWaveClear";
-"JobShiftCardClear_img" = "JobShiftCardClear";
 "low" = "Low tide";
 "normal" = "Normal";
 "high" = "High tide";

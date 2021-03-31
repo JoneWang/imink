@@ -21,7 +21,7 @@ struct JobShiftCardView: View {
                     VStack(alignment: .leading, spacing: 6) {
                         HStack {
                             HStack(spacing: 3) {
-                                Image("JobShiftCardClear_img".localized)
+                                Image("JobShiftCardClear")
                                 Text("\(shiftCard.avgClearCount, places: 1)")
                                     .sp2Font(size: 10, color: AppColor.appLabelColor)
                             }

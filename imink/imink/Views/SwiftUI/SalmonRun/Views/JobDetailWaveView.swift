@@ -77,7 +77,7 @@ struct JobDetailWaveView: View {
                 alignment: .top
             )
             .overlay(
-                Image((job.jobResult.failureWave ?? 9) <= (waveIndex + 1) ? "JobWaveDefeat_img".localized : "JobWaveClear_img".localized)
+                Image((job.jobResult.failureWave ?? 9) <= (waveIndex + 1) ? "JobWaveDefeat" : "JobWaveClear")
                     .position(x: 86, y: 11)
             )
             

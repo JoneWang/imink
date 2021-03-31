@@ -65,9 +65,6 @@
 "Clear!" = "通過！";
 "Defeat_job" = "失敗";
 "Wave %d" = "WAVE %d";
-"JobWaveDefeat_img" = "JobWaveDefeat";
-"JobWaveClear_img" = "JobWaveClear";
-"JobShiftCardClear_img" = "JobShiftCardClear";
 "low" = "干潮";
 "normal" = "普通";
 "high" = "満潮";

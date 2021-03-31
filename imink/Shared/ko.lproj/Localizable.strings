@@ -65,9 +65,6 @@
 "Clear!" = "클리어!";
 "Defeat_job" = "실패";
 "Wave %d" = "WAVE %d";
-"JobWaveDefeat_img" = "JobWaveDefeat";
-"JobWaveClear_img" = "JobWaveClear";
-"JobShiftCardClear_img" = "JobShiftCardClear";
 "low" = "간조";
 "normal" = "보통";
 "high" = "만조";
