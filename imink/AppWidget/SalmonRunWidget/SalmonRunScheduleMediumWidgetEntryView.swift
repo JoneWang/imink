@@ -160,7 +160,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
                 
                 HStack(spacing: 10 + firstWeaponleading) {
                     makeStageImage(
-                        stageImageName: "\(schedule?.stage?.name ?? "")_img".localized,
+                        stageImageName: schedule?.stage?.imageName ?? "",
                         stageName: schedule?.stage?.name.localizedKey ?? "            "
                     )
                     .frame(width: (geo.size.width - (10 + firstWeaponleading)) / 2)

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BB520C1326146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
 		BB520C1426146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
+		BB520C1E26146C06006454FB /* StageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB520C1D26146C05006454FB /* StageImage.swift */; };
+		BB520C1F26146C06006454FB /* StageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB520C1D26146C05006454FB /* StageImage.swift */; };
 		BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
 		BBC15A24256B9CE200B67514 /* InkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBC15A2A256B9CEA00B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
@@ -229,6 +231,7 @@
 		BB520C1A2614668A006454FB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
 		BB520C1B2614668A006454FB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SplatNet2.strings; sourceTree = "<group>"; };
 		BB520C1C2614668B006454FB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/SplatNet2.strings; sourceTree = "<group>"; };
+		BB520C1D26146C05006454FB /* StageImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageImage.swift; sourceTree = "<group>"; };
 		EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		EC00DBD6251CA11D0010366A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
@@ -650,6 +653,7 @@
 				EC39703625482BE400557BD4 /* String+LocalizedString.swift */,
 				EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */,
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
+				BB520C1D26146C05006454FB /* StageImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -968,6 +972,7 @@
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
 				EC861225253AC656003BA67A /* APITargetType.swift in Sources */,
 				EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */,
+				BB520C1F26146C06006454FB /* StageImage.swift in Sources */,
 				EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
 				ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */,
@@ -1009,6 +1014,7 @@
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
 				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
 				EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */,
+				BB520C1E26146C06006454FB /* StageImage.swift in Sources */,
 				EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */,
 				EC17178325FB38CF00500D13 /* OnboardingViewModel.swift in Sources */,

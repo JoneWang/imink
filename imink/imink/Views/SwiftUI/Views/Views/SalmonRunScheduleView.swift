@@ -46,7 +46,7 @@ struct SalmonRunScheduleView: View {
                             Text(stage.name.localizedKey)
                                 .sp2Font(color: AppColor.appLabelColor)
                             
-                            SalomonRunStageImageView(name: "\(stage.name)_img".localized, imageURL: stage.image)
+                            SalomonRunStageImageView(name: stage.imageName ?? "", imageURL: stage.image)
                                 .aspectRatio(640 / 360, contentMode: .fill)
                                 .frame(minWidth: 100)
                                 .continuousCornerRadius(8)
