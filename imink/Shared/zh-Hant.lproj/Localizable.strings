@@ -1,4 +1,3 @@
-
 /*
   Localizable.strings
   imink
@@ -6,8 +5,8 @@
   Created by Jone Wang on 2020/9/4.
   
 */
-
 // MARK: API error
+
 
 "Error connecting to the server" = "Error connecting to the server";
 "Authorization error" = "Authorization error";
@@ -297,6 +296,6 @@
 "onboarding_description_1" = "即時自動同步每條戰績，毋免手動更新，沒有數目上限。";
 "Home Screen Widgets" = "主畫面小工具";
 "onboarding_description_2" = "通过小工具在主畫面上一目了然地檢視遊戲日程和地圖。";
-"Salmon Run" = "熊商會打工";
+"Salmon Run" = "Salmon Run";
 "onboarding_description_3" = "擊敗鮭魚，收集魚卵，提升你在熊商會的工作績效。";
 "Continue" = "繼續";
