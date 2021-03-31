@@ -54,7 +54,7 @@ struct JobShiftCardView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 10) {
-                    Text(shiftCard.scheduleStageName.localizedKey)
+                    Text(shiftCard.scheduleStageName.localizedKey, tableName: splatNet2L10nTable)
                         .sp2Font(size: 10, color: .systemGray2)
                     
                     HStack {

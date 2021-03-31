@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+let splatNet2L10nTable = "SplatNet2"
+
 extension String {
     
     var localizedKey: LocalizedStringKey {
