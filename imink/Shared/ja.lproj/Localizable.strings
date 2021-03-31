@@ -1,4 +1,3 @@
-
 /*
   Localizable.strings
   imink
@@ -6,8 +5,8 @@
   Created by Jone Wang on 2020/9/4.
   
 */
-
 // MARK: API error
+
 
 "Error connecting to the server" = "Error connecting to the server";
 "Authorization error" = "Authorization error";
@@ -297,6 +296,6 @@
 "onboarding_description_1" = "リフレッシュせずに、回数制限なしでリアルタイムの戦績データを自動的に同期する。";
 "Home Screen Widgets" = "ウィジェット";
 "onboarding_description_2" = "ウィジェットを利用してホーム画面でゲームのステージとシフト表の確認ができる。";
-"Salmon Run" = "サーモンラン";
+"Salmon Run" = "Salmon Run";
 "onboarding_description_3" = "シャケたちを倒し、イクラを集めてサーモンでの評価を上げよう。";
 "Continue" = "続ける";
