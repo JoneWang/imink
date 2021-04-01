@@ -26,7 +26,7 @@
 * [ddddxxx](https://github.com/ddddxxx)
 * 柏汐
 * [Padotagi](https://twitter.com/wonno68)
-* [issei_m](https://twitter.com/Issei_M)
+* [issei-m](https://twitter.com/Issei_M)
 
 ## Thanks
 
