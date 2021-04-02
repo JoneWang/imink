@@ -48,9 +48,8 @@ extension LoginViewModel {
                     self.status = .loginFail
                     os_log("API [Login] Error: \(error.localizedDescription)")
                 }
-            } receiveValue: { loginToken, user, records in
-                AppUserDefaults.shared.loginToken = loginToken
-                AppUserDefaults.shared.naUser = user
+            } receiveValue: { sessionToken, records in
+                AppUserDefaults.shared.sessionToken = sessionToken
                 AppUserDefaults.shared.sp2PrincipalId = records.records.player.principalId
                 self.status = .loginSuccess
             }

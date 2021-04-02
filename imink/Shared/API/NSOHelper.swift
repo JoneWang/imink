@@ -8,21 +8,37 @@
 import Foundation
 import Combine
 
+enum NSOError: Error {
+    case sessionTokenInvalid
+}
+
 struct NSOHelper {
     
-    static func logIn(codeVerifier: String, sessionTokenCode: String) -> AnyPublisher<(LoginToken, NAUser, Records), Error> {
+    static func logIn(codeVerifier: String, sessionTokenCode: String) -> AnyPublisher<(String, Records), Error> {
         NSOAPI.sessionToken(codeVerifier: codeVerifier, sessionTokenCode: sessionTokenCode)
             .request()
             .decode(type: SessionTokenInfo.self)
             .receive(on: DispatchQueue.main)
             .map { $0.sessionToken }
-            .flatMap { sessionToken -> AnyPublisher<LoginToken, Error> in
-                NSOAPI.token(sessionToken: sessionToken)
-                    .request()
-                    .decode(type: LoginToken.self)
-                    .receive(on: DispatchQueue.main)
-                    .eraseToAnyPublisher()
+            .flatMap { sessionToken -> AnyPublisher<(String, Records), Error> in
+                self.getIKsmSession(sessionToken: sessionToken)
             }
+            .eraseToAnyPublisher()
+    }
+    
+    static func getIKsmSession(sessionToken: String) -> AnyPublisher<(String, Records), Error> {
+        NSOAPI.token(sessionToken: sessionToken)
+            .request()
+            .decode(type: LoginToken.self)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+            .mapError({ error -> Error in
+                if error is DecodingError {
+                    return NSOError.sessionTokenInvalid
+                } else {
+                    return error
+                }
+            })
             .flatMap { loginToken -> AnyPublisher<(LoginToken, NAUser), Error> in
                 NSOAPI.me(accessToken: loginToken.accessToken)
                     .request()
@@ -31,9 +47,9 @@ struct NSOHelper {
                     .map { (loginToken, $0) }
                     .eraseToAnyPublisher()
             }
-            .flatMap { (loginToken, naUser) -> AnyPublisher<(LoginToken, NAUser, Records), Error> in
+            .flatMap { (loginToken, naUser) -> AnyPublisher<(String, Records), Error> in
                 self.getIksmSession(loginToken: loginToken, naUser: naUser)
-                    .map { (loginToken, naUser, $0) }
+                    .map { (sessionToken, $0) }
                     .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
@@ -66,7 +82,7 @@ struct NSOHelper {
             )
             .request()
             .receive(on: DispatchQueue.main)
-            .map { (_: Data) in Void() }
+            .map { (_: Data) in () }
             .eraseToAnyPublisher()
         }
         .flatMap { _ -> AnyPublisher<Records, Error> in

@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 import WidgetKit
+import WebKit
 
 class AppUserDefaults: ObservableObject {
     static let shared = AppUserDefaults()
@@ -37,15 +38,26 @@ class AppUserDefaults: ObservableObject {
     @AppStorage("sp2PrincipalId", store: UserDefaults.appGroup)
     var sp2PrincipalId: String?
     
-    @StandardStorage(key: "loginToken", store: UserDefaults.appGroup)
-    var loginToken: LoginToken? {
+    @StandardStorage(key: "sessionToken", store: UserDefaults.appGroup)
+    var sessionToken: String? {
         didSet {
-            if oldValue != nil, loginToken == nil {
+            if oldValue != nil, sessionToken == nil {
                 NotificationCenter.default.post(
                     name: .logout,
                     object: nil
                 )
+                
+                AppUserDefaults.shared.sp2PrincipalId = nil
+                
+                HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+                
+                WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+                    records.forEach { record in
+                        WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                    }
+                }
             }
+            
             WidgetCenter.shared.reloadAllTimelines()
         }
     }

@@ -32,6 +32,23 @@ class TabBarController: UITabBarController {
         tabBarViewModel.$isLogined
             .assign(to: &synchronizeJobViewModel.$isLogined)
         
+        tabBarViewModel.$error
+            .sink { error in
+                guard let error = error else { return }
+                if case NSOError.sessionTokenInvalid = error {
+                    let alert = UIAlertController(
+                        title: "Tip".localized,
+                        message: "Because imink has not been used for a long time, the login information has expired, please log in again.".localized,
+                        preferredStyle: .alert
+                    )
+                    alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                        alert.dismiss(animated: true)
+                    })
+                    self.present(alert, animated: true)
+                }
+            }
+            .store(in: &cancelBag)
+        
         NotificationCenter.default
             .publisher(for: .logout)
             .receive(on: RunLoop.main)
