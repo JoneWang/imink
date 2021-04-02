@@ -173,7 +173,7 @@ extension AppDatabase {
             return []
         }
         
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             let alreadyExistsRecords = try! DBJob.filter(
                 DBJob.Columns.sp2PrincipalId == sp2PrincipalId &&
                     jobIds.contains(DBJob.Columns.jobId)
@@ -188,7 +188,7 @@ extension AppDatabase {
     }
     
     func job(with id: Int64) -> DBJob? {
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             return try? DBJob
                 .filter(DBJob.Columns.id == id)
                 .fetchOne(db)

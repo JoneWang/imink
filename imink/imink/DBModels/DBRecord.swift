@@ -169,7 +169,7 @@ extension AppDatabase {
             return []
         }
         
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             let alreadyExistsRecords = try! DBRecord.filter(
                 DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
                 battleIds.contains(DBRecord.Columns.battleNumber)
@@ -203,7 +203,7 @@ extension AppDatabase {
     }
     
     func records(start battleNumber: String? = nil, count: Int) -> [DBRecord] {
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             if let battleNumber = battleNumber {
                 return try! DBRecord
                     .filter(DBRecord.Columns.battleNumber < battleNumber)
@@ -220,7 +220,7 @@ extension AppDatabase {
     }
     
     func record(with id: Int64) -> DBRecord? {
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             return try? DBRecord
                 .filter(DBRecord.Columns.id == id)
                 .fetchOne(db)
@@ -249,7 +249,7 @@ extension AppDatabase {
             return 0
         }
         
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             let request = DBRecord.filter(
                 DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             )
@@ -263,7 +263,7 @@ extension AppDatabase {
             return []
         }
         
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             return try! Bool.fetchAll(
                 db,
                 sql: "SELECT victory FROM record WHERE sp2PrincipalId = ? ORDER BY startDateTime DESC LIMIT 0, 500",
@@ -277,7 +277,7 @@ extension AppDatabase {
             return 0
         }
         
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             let request = DBRecord.filter(
                 DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             )
@@ -325,7 +325,7 @@ extension AppDatabase {
             return (0, 0)
         }
         
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             guard let victoryCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT COUNT(*) FROM record WHERE victory AND startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
@@ -348,7 +348,7 @@ extension AppDatabase {
             return (0, 0, 0)
         }
         
-        return dbQueue.read { db in
+        return try! dbQueue.read { db in
             guard let killCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT SUM(killCount) FROM record WHERE startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
