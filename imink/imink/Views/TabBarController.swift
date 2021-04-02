@@ -76,6 +76,11 @@ class TabBarController: UITabBarController {
         if AppUserDefaults.shared.firstLaunch {
             showOnboarding()
         }
+        
+        if AppUserDefaults.shared.naUser != nil {
+            AppUserDefaults.shared.sessionToken = nil            
+            UIAlertController.show(with: self, title: "Tip", message: "Why do I need to log in again?")
+        }
     }
     
     func setupItems(isLogined: Bool) {

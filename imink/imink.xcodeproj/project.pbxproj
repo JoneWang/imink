@@ -93,6 +93,8 @@
 		EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1D26074E9700B645B5 /* NAUser.swift */; };
 		EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
 		EC8B6B2826074F2600B645B5 /* NAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1D26074E9700B645B5 /* NAUser.swift */; };
+		EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */; };
+		EC8C34E126177B32006E9D0B /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */; };
 		EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E74251C55FF00AA0B20 /* AppDelegate.swift */; };
 		EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */; };
 		EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7A251C55FF00AA0B20 /* Main.storyboard */; };
@@ -287,6 +289,7 @@
 		EC861262253ACFE2003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EC8B6B1926074E8200B645B5 /* LoginToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToken.swift; sourceTree = "<group>"; };
 		EC8B6B1D26074E9700B645B5 /* NAUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAUser.swift; sourceTree = "<group>"; };
+		EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		EC900E71251C55FF00AA0B20 /* imink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC900E74251C55FF00AA0B20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -642,6 +645,7 @@
 				EC39703625482BE400557BD4 /* String+LocalizedString.swift */,
 				EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */,
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
+				EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -970,6 +974,7 @@
 				EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */,
 				EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */,
 				EC984217253ADE880079D739 /* AppColor.swift in Sources */,
+				EC8C34E126177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */,
 				EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */,
 				EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */,
@@ -1007,6 +1012,7 @@
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
 				EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
+				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
 				EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */,

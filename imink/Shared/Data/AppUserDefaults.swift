@@ -41,12 +41,13 @@ class AppUserDefaults: ObservableObject {
     @StandardStorage(key: "sessionToken", store: UserDefaults.appGroup)
     var sessionToken: String? {
         didSet {
-            if oldValue != nil, sessionToken == nil {
+            if (oldValue != nil || naUser != nil), sessionToken == nil {
                 NotificationCenter.default.post(
                     name: .logout,
                     object: nil
                 )
                 
+                AppUserDefaults.shared.naUser = nil
                 AppUserDefaults.shared.sp2PrincipalId = nil
                 
                 HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
