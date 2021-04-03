@@ -144,7 +144,7 @@ extension APITargetType {
                     }
                 }
 
-                return .unknown
+                return error
             }
             .mapError { $0 as Error }
             .eraseToAnyPublisher()

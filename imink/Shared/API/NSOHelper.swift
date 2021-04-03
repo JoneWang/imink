@@ -33,7 +33,7 @@ struct NSOHelper {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
             .mapError({ error -> Error in
-                if error is DecodingError {
+                if case APIError.requestParameterError = error {
                     return NSOError.sessionTokenInvalid
                 } else {
                     return error
