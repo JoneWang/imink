@@ -85,7 +85,7 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
                 if case NSOError.userGameDataNotExist = error {
                     UIAlertController.show(
                         with: self,
-                        title: "user_game_data_not_exist_title".localized,
+                        title: "login_error_title".localized,
                         message: "user_game_data_not_exist_message".localized
                     ) {
                         self.dismiss(animated: true)

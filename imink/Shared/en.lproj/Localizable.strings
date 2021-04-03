@@ -32,6 +32,7 @@
 "session_token_invalid_message" = "Your login information has expired due to long-term inactivity, please log in again.";
 "relogin_title" = "Update Notice";
 "relogin_message" = "This update fixed a bug that could potentially prevent battle results from syncing, which will require you to re-log with your account. This is a one-time event and you won’t need to log in periodically in the future. Sorry for the inconvenience.";
+"user_game_data_not_exist_message" = "Please make sure your account has Splatoon 2 gameplay data and an active Nintendo Switch Online membership.";
 
 // MARK: Home
 

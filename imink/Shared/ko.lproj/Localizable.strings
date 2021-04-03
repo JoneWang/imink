@@ -27,11 +27,12 @@
 "Log in to sync your data" = "로그인으로 데이터 동기화";
 "Log in with Nintendo Account" = "Nintendo Account로 로그인";
 "login_error_title" = "실패";
-"login_error_message" = "에러가 발생했습니다. 다시 시도해 주세요.";
-"session_token_invalid_title" = "Login Expired";
-"session_token_invalid_message" = "Your login information has expired due to long-term inactivity, please log in again.";
-"relogin_title" = "Update Notice";
-"relogin_message" = "This update fixed a bug that could potentially prevent battle results from syncing, which will require you to re-log with your account. This is a one-time event and you won’t need to log in periodically in the future. Sorry for the inconvenience.";
+"login_error_message" = "현재 서버가 혼잡합니다. 잠시 후 다시 시도해 주세요.";
+"session_token_invalid_title" = "자동 로그아웃";
+"session_token_invalid_message" = "장시간 미사용으로 인해 로그인 정보가 끊어졌습니다. 다시 로그인해 주세요.";
+"relogin_title" = "업데이트 안내";
+"relogin_message" = "배틀 결과가 동기화되지 않았던 문제를 해결했습니다. 업데이트를 적용하기 위해 다시 닌텐도 어카운트를 로그인할 필요가 있습니다. (그 후 로그인 상태는 지속됩니다) 번거롭게 해드려 죄송합니다.";
+"user_game_data_not_exist_message" = "어카운트에 스플래툰 2 저장 데이터가 있는지, Nintendo Switch Online에 가입되어 있는지 확인해 주세요.";
 
 // MARK: Home
 
