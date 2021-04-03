@@ -51,8 +51,9 @@ class AppUserDefaults: ObservableObject {
                 AppUserDefaults.shared.sp2PrincipalId = nil
                 
                 let cookieStorage = HTTPCookieStorage.shared
-                for cookie in cookieStorage.cookies ?? [] {
-                    cookieStorage.deleteCookie(cookie)
+                if let sessionCookie = cookieStorage.cookies?
+                    .first(where: { $0.name == "iksm_session" }) {
+                    cookieStorage.deleteCookie(sessionCookie)
                 }
             }
             
