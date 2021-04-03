@@ -83,7 +83,7 @@ struct AboutPage: View {
                             VStack(spacing: 4) {
                                 Text("E-mail")
                                     .sp2Font(size: 12, color: AppColor.appLabelColor)
-                                Text("i@jone.wang")
+                                Text("imink@jone.wang")
                                     .font(.system(size: 10, weight: .bold))
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(AppColor.appLabelColor)
@@ -108,7 +108,7 @@ struct AboutPage: View {
             .padding(.leading, 12)
         }
         .sheet(isPresented: $isShowingMailView) {
-            MailView(isShowing: self.$isShowingMailView, recipient: "i@jone.wang")
+            MailView(isShowing: self.$isShowingMailView, recipient: "imink@jone.wang")
         }
     }
 }
