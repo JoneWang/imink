@@ -25,8 +25,13 @@
 "Welcome to imink!" = "歡迎使用 imink！";
 "Log in to sync your data" = "立即登入同步資料";
 "Log in with Nintendo Account" = "任天堂帳號登入";
-"Failure" = "失敗";
-"Login error occurred, please try again." = "登入過程中發生了錯誤，請重試。";
+"login_error_title" = "Failure";
+"login_error_message" = "The login authentication server is busy, please try again later.";
+"session_token_invalid_title" = "Login Expired";
+"session_token_invalid_message" = "Your login information has expired due to long-term inactivity, please log in again.";
+"relogin_title" = "Update Notice";
+"relogin_message" = "This update fixed a bug that could potentially prevent battle results from syncing, which will require you to re-log with your account. This is a one-time event and you won’t need to log in periodically in the future. Sorry for the inconvenience.";
+"user_game_data_not_exist_message" = "Please make sure your account has Splatoon 2 gameplay data and an active Nintendo Switch Online membership.";
 
 // MARK: Home
 
