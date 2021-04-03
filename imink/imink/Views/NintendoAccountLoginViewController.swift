@@ -36,7 +36,7 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
     
     lazy var loadingView: UIView = {
         let loadingView = UIView()
-        loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         view.addSubview(loadingView)
         loadingView.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(view)
