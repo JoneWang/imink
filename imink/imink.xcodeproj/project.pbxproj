@@ -53,7 +53,6 @@
 		EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */; };
 		EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D2628258FA02F004E7B3A /* TestFontView.swift */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
-		EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */; };
 		EC6CF3FE25F3F698005427B5 /* Splatfont 1 v1.008.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC6CF3FC25F3F698005427B5 /* Splatfont 1 v1.008.otf */; };
 		EC6CF3FF25F3F698005427B5 /* Splatfont 2 v1.009.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC6CF3FD25F3F698005427B5 /* Splatfont 2 v1.009.otf */; };
@@ -76,19 +75,13 @@
 		EC861231253AC6D4003BA67A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA9251C8EF600AA0B20 /* Models.swift */; };
 		EC86123E253AC6ED003BA67A /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E99251C8EF600AA0B20 /* Operator.swift */; };
 		EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9B251C8EF600AA0B20 /* AppBundle.swift */; };
-		EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */; };
-		EC861241253AC6ED003BA67A /* NSLayoutConstraint+Mutiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */; };
 		EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */; };
-		EC861244253AC6ED003BA67A /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E97251C8EF600AA0B20 /* Collection.swift */; };
 		EC861245253AC6ED003BA67A /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */; };
 		EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */; };
 		EC861247253AC6ED003BA67A /* Easeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E98251C8EF600AA0B20 /* Easeing.swift */; };
-		EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */; };
 		EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */; };
 		EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
-		EC861258253ACACA003BA67A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC861257253ACACA003BA67A /* UserDefaults.swift */; };
-		EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC861262253ACFE2003BA67A /* UserDefaults.swift */; };
 		EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
 		EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1D26074E9700B645B5 /* NAUser.swift */; };
 		EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
@@ -102,13 +95,11 @@
 		EC900E81251C55FF00AA0B20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7F251C55FF00AA0B20 /* LaunchScreen.storyboard */; };
 		EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */; };
 		EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */; };
-		EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E97251C8EF600AA0B20 /* Collection.swift */; };
 		EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E98251C8EF600AA0B20 /* Easeing.swift */; };
 		EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E99251C8EF600AA0B20 /* Operator.swift */; };
 		EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */; };
 		EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9B251C8EF600AA0B20 /* AppBundle.swift */; };
 		EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */; };
-		EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */; };
 		EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */; };
 		EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA0251C8EF600AA0B20 /* APITargetType.swift */; };
 		EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA1251C8EF600AA0B20 /* AppAPI.swift */; };
@@ -133,7 +124,6 @@
 		EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
 		EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
-		EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */; };
 		EC9A90492527851C00390573 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90482527851C00390573 /* ScheduleView.swift */; };
 		EC9D0A5125A1747C00E8FF89 /* WeaponImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */; };
 		EC9D0A5525A174A300E8FF89 /* StageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A5425A174A300E8FF89 /* StageImageView.swift */; };
@@ -270,7 +260,6 @@
 		EC5D2628258FA02F004E7B3A /* TestFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFontView.swift; sourceTree = "<group>"; };
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
-		EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobShiftCardView.swift; sourceTree = "<group>"; };
 		EC6CF3F925F3F540005427B5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC6CF3FC25F3F698005427B5 /* Splatfont 1 v1.008.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.008.otf"; sourceTree = "<group>"; };
@@ -285,8 +274,6 @@
 		EC8611CD253AB9CB003BA67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC8611D1253AB9CB003BA67A /* AppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppWidgetExtension.entitlements; sourceTree = "<group>"; };
 		EC8611D7253ABA31003BA67A /* AppWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWidget.swift; sourceTree = "<group>"; };
-		EC861257253ACACA003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		EC861262253ACFE2003BA67A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EC8B6B1926074E8200B645B5 /* LoginToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToken.swift; sourceTree = "<group>"; };
 		EC8B6B1D26074E9700B645B5 /* NAUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAUser.swift; sourceTree = "<group>"; };
 		EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
@@ -300,13 +287,11 @@
 		EC900E89251C560C00AA0B20 /* imink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = imink.entitlements; sourceTree = "<group>"; };
 		EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decode&Encode.swift"; sourceTree = "<group>"; };
 		EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
-		EC900E97251C8EF600AA0B20 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		EC900E98251C8EF600AA0B20 /* Easeing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easeing.swift; sourceTree = "<group>"; };
 		EC900E99251C8EF600AA0B20 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		EC900E9B251C8EF600AA0B20 /* AppBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBundle.swift; sourceTree = "<group>"; };
 		EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringInterpolation.swift; sourceTree = "<group>"; };
-		EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPlayAnimation.swift; sourceTree = "<group>"; };
 		EC900E9F251C8EF600AA0B20 /* Splatoon2API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splatoon2API.swift; sourceTree = "<group>"; };
 		EC900EA0251C8EF600AA0B20 /* APITargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
 		EC900EA1251C8EF600AA0B20 /* AppAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
@@ -325,7 +310,6 @@
 		EC9440F025407ACA00060E46 /* BattleScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleWidget.swift; sourceTree = "<group>"; };
 		EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
-		EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Mutiplier.swift"; sourceTree = "<group>"; };
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponImageView.swift; sourceTree = "<group>"; };
 		EC9D0A5425A174A300E8FF89 /* StageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageImageView.swift; sourceTree = "<group>"; };
@@ -545,7 +529,6 @@
 				EC68D1B1257393360024C994 /* Views */,
 				EC11F1D925558C3E00E10F5F /* SalmonRunWidget */,
 				EC9440D625406BB900060E46 /* BattleWidget */,
-				EC861262253ACFE2003BA67A /* UserDefaults.swift */,
 				EC8611D7253ABA31003BA67A /* AppWidget.swift */,
 				EC8611CB253AB9CB003BA67A /* Assets.xcassets */,
 				EC8611CD253AB9CB003BA67A /* Info.plist */,
@@ -631,15 +614,11 @@
 			children = (
 				EC900E95251C8EF600AA0B20 /* Decode&Encode.swift */,
 				EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */,
-				EC900E97251C8EF600AA0B20 /* Collection.swift */,
 				EC900E98251C8EF600AA0B20 /* Easeing.swift */,
 				EC900E99251C8EF600AA0B20 /* Operator.swift */,
 				EC900E9A251C8EF600AA0B20 /* UserDefaultsWrapper.swift */,
 				EC900E9B251C8EF600AA0B20 /* AppBundle.swift */,
 				EC900E9C251C8EF600AA0B20 /* StringInterpolation.swift */,
-				EC900E9D251C8EF600AA0B20 /* AutoPlayAnimation.swift */,
-				EC6B826F251EF9E000B25307 /* UIView+Snapshot.swift */,
-				EC9A90352527437000390573 /* NSLayoutConstraint+Mutiplier.swift */,
 				EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */,
 				EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */,
 				EC39703625482BE400557BD4 /* String+LocalizedString.swift */,
@@ -686,7 +665,6 @@
 			isa = PBXGroup;
 			children = (
 				EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */,
-				EC861257253ACACA003BA67A /* UserDefaults.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -938,15 +916,12 @@
 				EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */,
 				EC861242253AC6ED003BA67A /* Bundle+Extension.swift in Sources */,
-				EC861240253AC6ED003BA67A /* AutoPlayAnimation.swift in Sources */,
 				EC98422D253AE3B40079D739 /* BattleScheduleMediumWidgetEntryView.swift in Sources */,
 				EC86123E253AC6ED003BA67A /* Operator.swift in Sources */,
 				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
-				EC861241253AC6ED003BA67A /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
 				EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
-				EC86126A253AD53D003BA67A /* UserDefaults.swift in Sources */,
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
 				ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */,
 				EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */,
@@ -962,10 +937,8 @@
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
 				EC861225253AC656003BA67A /* APITargetType.swift in Sources */,
 				EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */,
-				EC861248253AC6ED003BA67A /* UIView+Snapshot.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
 				ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */,
-				EC861244253AC6ED003BA67A /* Collection.swift in Sources */,
 				EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */,
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */,
@@ -995,7 +968,6 @@
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
 				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */,
-				EC861258253ACACA003BA67A /* UserDefaults.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */,
@@ -1004,13 +976,11 @@
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
 				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
 				EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */,
-				EC9A90362527437000390573 /* NSLayoutConstraint+Mutiplier.swift in Sources */,
 				EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */,
 				EC17178325FB38CF00500D13 /* OnboardingViewModel.swift in Sources */,
 				EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */,
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
-				EC900ECA251C8EF700AA0B20 /* AutoPlayAnimation.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
@@ -1028,13 +998,11 @@
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
 				EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */,
-				EC900EC4251C8EF700AA0B20 /* Collection.swift in Sources */,
 				EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
 				EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
-				EC6B8270251EF9E000B25307 /* UIView+Snapshot.swift in Sources */,
 				EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */,
 				EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */,
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
@@ -1126,7 +1094,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1140,7 +1108,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.InkCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1156,7 +1124,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1170,7 +1138,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.InkCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1190,7 +1158,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1200,7 +1168,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1221,7 +1189,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1231,7 +1199,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1371,7 +1339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1380,7 +1348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -1398,7 +1366,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1407,7 +1375,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
