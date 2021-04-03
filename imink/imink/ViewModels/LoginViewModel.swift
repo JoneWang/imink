@@ -15,7 +15,6 @@ class LoginViewModel: ObservableObject {
         case waitTypeToken
         case loading
         case loginSuccess
-        case loginFail
     }
     
     @Published var status: Status? = .waitTypeToken
@@ -24,6 +23,7 @@ class LoginViewModel: ObservableObject {
     // Nintendo account login
     @Published var codeVerifier: String?
     @Published var isLoading = false
+    @Published var loginError: Error? = nil
     
     var cancelBag = Set<AnyCancellable>()
 }
@@ -44,8 +44,7 @@ extension LoginViewModel {
                 case .finished:
                     break
                 case .failure(let error):
-                    // TODO: Need to handle more errors
-                    self.status = .loginFail
+                    self.loginError = error
                     os_log("API [Login] Error: \(error.localizedDescription)")
                 }
             } receiveValue: { sessionToken, records in

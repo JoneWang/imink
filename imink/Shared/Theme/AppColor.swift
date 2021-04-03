@@ -43,80 +43,16 @@ struct AppColor {
     static let playerResultSpecialVictoryBackgroundColor = Color("PlayerResultSpecialVictoryBackgroundColor")
     
     static let playerResultSpecialDefeatBackgroundColor = Color("PlayerResultSpecialDefeatBackgroundColor")
-        
-    static var memberArrowColor: Color {
-        Color(AppUIColor.memberArrowColor)
-    }
     
-    static var battleDetailStreakForegroundColor: Color {
-        Color(AppUIColor.battleDetailStreakForegroundColor)
-    }
+    static let memberArrowColor = Color("MemberArrowColor")
     
-    static var waveClearColor: Color {
-        Color(AppUIColor.waveClearColor)
-    }
+    static let battleDetailStreakForegroundColor = Color("BattleDetailStreakForegroundColor")
     
-    static var waveDefeatColor: Color {
-        Color(AppUIColor.waveDefeatColor)
-    }
+    static let waveClearColor = Color("WaveClearColor")
     
-    static var waveGradientStartColor: Color {
-        Color(AppUIColor.waveGradientStartColor)
-    }
+    static let waveDefeatColor = Color("WaveDefeatColor")
     
-    static var salmonRunSpecialBackgroundColor: Color {
-        Color(AppUIColor.salmonRunSpecialBackgroundColor)
-    }
-}
-
-struct AppUIColor {
-    static let appLabelColor = UIColor(named: "AppLabelColor")
+    static let waveGradientStartColor = Color("WaveGradientStartColor")
     
-    static let spText = UIColor.white
-    
-    static let spGreen = UIColor(named: "SPGreenColor")!
-    
-    static let spGreenLimeColor = Color("SPGreenLimeColor")
-    
-    static let spPurple = UIColor(named: "SPPurpleColor")!
-    
-    static let spLime = UIColor(named: "SPLimeColor")!
-    
-    static let spRed = UIColor(named: "SPRedColor")!
-    
-    static let spLightGreen = UIColor(named: "SPLightGreenColor")!
-    
-    static let spPink = UIColor(named: "SPPinkColor")!
-    
-    static let spYellow = UIColor(named: "SPYellowColor")!
-    
-    static let spOrange = UIColor(named: "SPOrangeColor")!
-    
-    static let spBlue = UIColor.blue
-        
-    static let recordRowTitleNormalColor = UIColor(named: "RecordRowTitleNormalColor")!
-    
-    static let recordRowTitleSelectedColor = UIColor(named: "RecordRowTitleSelectedColor")!
-    
-    static let listBackgroundColor = UIColor(named: "ListBackgroundColor")!
-    
-    static let listItemBackgroundColor = UIColor(named: "ListItemBackgroundColor")!
-    
-    static let nintendoRedColor = UIColor(named: "NintendoRedColor")
-    
-    static let playerResultSpecialVictoryBackgroundColor = UIColor(named: "PlayerResultSpecialVictoryBackgroundColor")
-    
-    static let playerResultSpecialDefeatBackgroundColor = UIColor(named: "PlayerResultSpecialDefeatBackgroundColor")
-    
-    static let memberArrowColor = UIColor(named: "MemberArrowColor")!
-    
-    static let battleDetailStreakForegroundColor = UIColor(named: "BattleDetailStreakForegroundColor")!
-    
-    static let waveClearColor = UIColor(named: "WaveClearColor")!
-    
-    static let waveDefeatColor = UIColor(named: "WaveDefeatColor")!
-    
-    static let waveGradientStartColor = UIColor(named: "WaveGradientStartColor")!
-    
-    static let salmonRunSpecialBackgroundColor = UIColor(named: "SalmonRunSpecialBackgroundColor")!
+    static let salmonRunSpecialBackgroundColor = Color("SalmonRunSpecialBackgroundColor")
 }

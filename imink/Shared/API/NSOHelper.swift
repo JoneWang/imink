@@ -10,6 +10,7 @@ import Combine
 
 enum NSOError: Error {
     case sessionTokenInvalid
+    case userGameDataNotExist
 }
 
 struct NSOHelper {
@@ -33,7 +34,7 @@ struct NSOHelper {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
             .mapError({ error -> Error in
-                if error is DecodingError {
+                if case APIError.requestParameterError = error {
                     return NSOError.sessionTokenInvalid
                 } else {
                     return error
@@ -89,6 +90,13 @@ struct NSOHelper {
             Splatoon2API.records
                 .request()
                 .receive(on: DispatchQueue.main)
+                .mapError({ error -> Error in
+                    if case APIError.internalServerError = error {
+                        return NSOError.userGameDataNotExist
+                    } else {
+                        return error
+                    }
+                })
                 .compactMap { (data: Data) -> Records? in
                     // Cache
                     AppUserDefaults.shared.splatoon2RecordsData = data

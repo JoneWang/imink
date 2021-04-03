@@ -26,8 +26,7 @@ class TabBarViewModel: ObservableObject {
         isLogined = AppUserDefaults.shared.sessionToken != nil
         
         if isLogined {
-            // Update user if logged in
-            requestUserInfo()
+            checkIksmSession()
         }
         
         // Check language and refresh widget
@@ -45,7 +44,7 @@ class TabBarViewModel: ObservableObject {
 
 extension TabBarViewModel {
     
-    func requestUserInfo() {
+    func checkIksmSession() {
         if Splatoon2API.sessionIsValid {
             Splatoon2API.records
                 .request()

@@ -14,47 +14,45 @@ import WebKit
 class AppUserDefaults: ObservableObject {
     static let shared = AppUserDefaults()
     
-    @StandardStorage(key: "last_battle", store: UserDefaults.appGroup)
+    @StandardStorage(key: "last_battle", store: .appGroup)
     var lastBattle: Battle?
     
-    @AppStorage("splatoon2_records", store: UserDefaults.appGroup)
+    @AppStorage("splatoon2_records", store: .appGroup)
     var splatoon2RecordsData: Data?
     
-    @AppStorage("splatoon2_nickname_and_icon", store: UserDefaults.appGroup)
+    @AppStorage("splatoon2_nickname_and_icon", store: .appGroup)
     var splatoon2NicknameAndIconData: Data?
     
-    @AppStorage("splatoon2_battle_schedule", store: UserDefaults.appGroup)
+    @AppStorage("splatoon2_battle_schedule", store: .appGroup)
     var splatoon2BattleScheduleData: Data?
     
-    @AppStorage("splatoon2_salmon_run_schedule", store: UserDefaults.appGroup)
+    @AppStorage("splatoon2_salmon_run_schedule", store: .appGroup)
     var splatoon2SalmonRunScheduleData: Data?
     
-    @AppStorage("currentLanguage", store: UserDefaults.appGroup)
+    @AppStorage("currentLanguage", store: .appGroup)
     var currentLanguage: String?
     
-    @AppStorage("firstLaunch", store: UserDefaults.appGroup)
+    @AppStorage("firstLaunch", store: .appGroup)
     var firstLaunch: Bool = true
     
-    @AppStorage("sp2PrincipalId", store: UserDefaults.appGroup)
+    @AppStorage("sp2PrincipalId", store: .appGroup)
     var sp2PrincipalId: String?
     
-    @StandardStorage(key: "sessionToken", store: UserDefaults.appGroup)
+    @StandardStorage(key: "sessionToken", store: .appGroup)
     var sessionToken: String? {
         didSet {
-            if oldValue != nil, sessionToken == nil {
+            if (oldValue != nil || naUser != nil), sessionToken == nil {
                 NotificationCenter.default.post(
                     name: .logout,
                     object: nil
                 )
                 
+                AppUserDefaults.shared.naUser = nil
                 AppUserDefaults.shared.sp2PrincipalId = nil
                 
-                HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-                
-                WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-                    records.forEach { record in
-                        WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-                    }
+                let cookieStorage = HTTPCookieStorage.shared
+                for cookie in cookieStorage.cookies ?? [] {
+                    cookieStorage.deleteCookie(cookie)
                 }
             }
             
@@ -62,6 +60,12 @@ class AppUserDefaults: ObservableObject {
         }
     }
     
-    @StandardStorage(key: "naUser", store: UserDefaults.appGroup)
+    @StandardStorage(key: "naUser", store: .appGroup)
     var naUser: NAUser?
+}
+
+extension UserDefaults {
+    static let appGroup: UserDefaults = {
+        return UserDefaults(suiteName: "group.wang.jone.imink")!
+    }()
 }

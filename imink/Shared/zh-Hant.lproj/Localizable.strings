@@ -26,8 +26,13 @@
 "Welcome to imink!" = "歡迎使用 imink！";
 "Log in to sync your data" = "立即登入同步資料";
 "Log in with Nintendo Account" = "任天堂帳號登入";
-"Failure" = "失敗";
-"Login error occurred, please try again." = "登入過程中發生了錯誤，請重試。";
+"login_error_title" = "失敗";
+"login_error_message" = "登入驗證伺服器正忙，請稍後重試。";
+"session_token_invalid_title" = "登入已过期";
+"session_token_invalid_message" = "由於長時間未使用imink，您的登入訊息已過期，請重新登入。";
+"relogin_title" = "更新告示";
+"relogin_message" = "本次更新修正了可能致使戰績停止同步的 bug。本修正需要您重新登入賬號，以更新登入資料，在此之後，您將不需要頻繁重新登錄。當下給您帶來不便，敬請諒解。";
+"user_game_data_not_exist_message" = "請確認您的賬號下持有 Splatoon 2 遊戲資料和有效的 Nintendo Switch Online 會員資格。";
 
 // MARK: Home
 
