@@ -83,8 +83,8 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
             .filter { $0 == .loginFail }
             .sink { [weak self] _ in
                 let alert = UIAlertController(
-                    title: "Failure".localized,
-                    message: "The login authentication server is busy, please try again later.".localized,
+                    title: "login_error_title".localized,
+                    message: "login_error_message".localized,
                     preferredStyle: .alert
                 )
                 alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in

@@ -19,15 +19,19 @@
 
 "Home" = "ホーム";
 "Battles" = "バトル";
-"Me" = "わたし";
+"Me" = "マイページ";
 
 // MARK: Sign in
 
 "Welcome to imink!" = "imink へようこそ！";
 "Log in to sync your data" = "ログインでデータを同期";
 "Log in with Nintendo Account" = "Nintendo Account でサインイン";
-"Failure" = "失敗";
-"Login error occurred, please try again." = "エラーが発生しました、もう一度お試しください";
+"login_error_title" = "失敗";
+"login_error_message" = "エラーが発生しました、もう一度お試しください";
+"session_token_invalid_title" = "ログイン期限切れ";
+"session_token_invalid_message" = "長い間使われなかったのでログイン情報の期限が切れました。再度ログインし直して下さい。";
+"relogin_title" = "更新のお知らせ";
+"relogin_message" = "バトル結果が更新されない事がある問題を解消しました。この更新では再度ニンテンドーアカウントでのログインが必要となります。（その後、ログイン状態は維持されます）お手数をお掛けし申し訳ございません。";
 
 // MARK: Home
 

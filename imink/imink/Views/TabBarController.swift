@@ -37,8 +37,8 @@ class TabBarController: UITabBarController {
                 guard let error = error else { return }
                 if case NSOError.sessionTokenInvalid = error {
                     let alert = UIAlertController(
-                        title: "Tip".localized,
-                        message: "Because imink has not been used for a long time, the login information has expired, please log in again.".localized,
+                        title: "session_token_invalid_title".localized,
+                        message: "session_token_invalid".localized,
                         preferredStyle: .alert
                     )
                     alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
@@ -79,7 +79,11 @@ class TabBarController: UITabBarController {
         
         if AppUserDefaults.shared.naUser != nil {
             AppUserDefaults.shared.sessionToken = nil            
-            UIAlertController.show(with: self, title: "Tip", message: "Why do I need to log in again?")
+            UIAlertController.show(
+                with: self,
+                title: "relogin_title".localized,
+                message: "relogin_message".localized
+            )
         }
     }
     
