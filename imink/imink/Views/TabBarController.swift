@@ -36,15 +36,11 @@ class TabBarController: UITabBarController {
             .sink { error in
                 guard let error = error else { return }
                 if case NSOError.sessionTokenInvalid = error {
-                    let alert = UIAlertController(
+                    UIAlertController.show(
+                        with: self,
                         title: "session_token_invalid_title".localized,
-                        message: "session_token_invalid_message".localized,
-                        preferredStyle: .alert
+                        message: "session_token_invalid_message".localized
                     )
-                    alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                        alert.dismiss(animated: true)
-                    })
-                    self.present(alert, animated: true)
                 }
             }
             .store(in: &cancelBag)

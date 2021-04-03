@@ -10,7 +10,7 @@ import UIKit
 
 extension UIAlertController {
     
-    static func show(with vc: UIViewController, title: String, message: String) {
+    static func show(with vc: UIViewController, title: String, message: String, okAction: (() -> Void)? = nil) {
         let alert = UIAlertController(
             title: title,
             message: message,
@@ -18,6 +18,7 @@ extension UIAlertController {
         )
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
             alert.dismiss(animated: true)
+            okAction?()
         })
         vc.present(alert, animated: true)
     }

@@ -79,20 +79,26 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
             .assign(to: \.isHidden, on: loadingView)
             .store(in: &cancelBag)
         
-        viewModel.$status
-            .filter { $0 == .loginFail }
-            .sink { [weak self] _ in
-                let alert = UIAlertController(
-                    title: "login_error_title".localized,
-                    message: "login_error_message".localized,
-                    preferredStyle: .alert
-                )
-                alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                    alert.dismiss(animated: true) {
-                        self?.dismiss(animated: true)
+        viewModel.$loginError
+            .sink { [weak self] error in
+                guard let error = error, let `self` = self else { return }
+                if case NSOError.userGameDataNotExist = error {
+                    UIAlertController.show(
+                        with: self,
+                        title: "user_game_data_not_exist_title".localized,
+                        message: "user_game_data_not_exist_message".localized
+                    ) {
+                        self.dismiss(animated: true)
                     }
-                })
-                self?.present(alert, animated: true)
+                } else {
+                    UIAlertController.show(
+                        with: self,
+                        title: "login_error_title".localized,
+                        message: "login_error_message".localized
+                    ) {
+                        self.dismiss(animated: true)
+                    }
+                }
             }
             .store(in: &cancelBag)
         
