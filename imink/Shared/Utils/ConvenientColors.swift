@@ -27,6 +27,10 @@ extension Color {
         Color(.systemGray5)
     }
     
+    static var label: Color {
+        Color(.label)
+    }
+    
     static var secondaryLabel: Color {
         Color(.secondaryLabel)
     }
