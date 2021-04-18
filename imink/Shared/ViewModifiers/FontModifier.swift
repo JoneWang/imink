@@ -46,36 +46,37 @@ struct SP2FontModifier: ViewModifier {
 
 struct FontModifiers_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            Text("System Text")
-                .font(.system(size: 24))
-            
-            Text("SplaFont1, S")
-                .sp1Font(size: 24, color: Color.label)
-                .environment(\.sizeCategory, ContentSizeCategory.small)
+        VStack {
+            Group {
+                Text("System Text")
+                    .font(.system(size: 24))
+                
+                Text("SplaFont1, S")
+                    .sp1Font(size: 24, color: Color.label)
+                    .environment(\.sizeCategory, ContentSizeCategory.small)
 
-            Text("SplaFont1, XXL")
-                .sp1Font(size: 24, color: Color.label)
-                .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
-            
-            Text("SplaFont1,\nNewLine")
-                .sp1Font(size: 24, color: Color.label, lineLimit: nil)
-                .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
-            
-            Text("SplaFont2, S")
-                .sp2Font(size: 24, color: Color.label)
-                .environment(\.sizeCategory, ContentSizeCategory.small)
+                Text("SplaFont1, XXL")
+                    .sp1Font(size: 24, color: Color.label)
+                    .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
+                
+                Text("SplaFont1,\nNewLine")
+                    .sp1Font(size: 24, color: Color.label, lineLimit: nil)
+                    .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
+                
+                Text("SplaFont2, S")
+                    .sp2Font(size: 24, color: Color.label)
+                    .environment(\.sizeCategory, ContentSizeCategory.small)
 
-            Text("SplaFont2, XXL")
-                .sp2Font(size: 24, color: Color.label)
-                .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
-            
-            Text("SplaFont2,\nNewLine")
-                .sp2Font(size: 24, color: Color.label, lineLimit: nil)
-                .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
+                Text("SplaFont2, XXL")
+                    .sp2Font(size: 24, color: Color.label)
+                    .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
+                
+                Text("SplaFont2,\nNewLine")
+                    .sp2Font(size: 24, color: Color.label, lineLimit: nil)
+                    .environment(\.sizeCategory, ContentSizeCategory.extraExtraLarge)
+            }
+            .border(Color.blue)
+            .padding(4)
         }
-        .border(Color.blue)
-        .previewLayout(.sizeThatFits)
-        .padding()
     }
 }
