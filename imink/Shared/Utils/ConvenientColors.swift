@@ -27,6 +27,10 @@ extension Color {
         Color(.systemGray5)
     }
     
+    static var systemGray6: Color {
+        Color(.systemGray6)
+    }
+    
     static var secondaryLabel: Color {
         Color(.secondaryLabel)
     }
@@ -43,5 +47,9 @@ extension Color {
         Color(.opaqueSeparator)
     }
     
+    static var quaternaryLabel: Color {
+        Color(.quaternaryLabel)
+    }
+
     #endif
 }

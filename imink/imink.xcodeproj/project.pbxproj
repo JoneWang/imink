@@ -14,10 +14,13 @@
 		EC00DBD7251CA11D0010366A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBD6251CA11D0010366A /* TabBarController.swift */; };
 		EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
+		EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
+		EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */; };
 		EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */; };
 		EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */; };
 		EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */; };
+		EC16CED8261990D800663DC1 /* AvatarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16CED7261990D800663DC1 /* AvatarViewModel.swift */; };
 		EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17177C25FB114500500D13 /* OnboardingPage.swift */; };
 		EC17178325FB38CF00500D13 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178225FB38CF00500D13 /* OnboardingViewModel.swift */; };
 		EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
@@ -38,6 +41,8 @@
 		EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
+		EC3696DD262C44E700CC2734 /* NetworkImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC3696DC262C44E700CC2734 /* NetworkImage */; };
+		EC3696E2262C462200CC2734 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC3696E1262C462200CC2734 /* FetchImage */; };
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
 		EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
@@ -49,6 +54,7 @@
 		EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362472525D68E0037BD12 /* HomeViewModel.swift */; };
 		EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */; };
 		EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362522525DDDF0037BD12 /* HomePage.swift */; };
+		EC54C0862618BBE900EA3A9E /* PlayerSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC54C0852618BBE900EA3A9E /* PlayerSkillView.swift */; };
 		EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
 		EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */; };
 		EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D2628258FA02F004E7B3A /* TestFontView.swift */; };
@@ -219,10 +225,12 @@
 		EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
 		EC00DBF3251CD29C0010366A /* TransitionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
 		EC00DBF4251CD29C0010366A /* FontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
+		EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModifier.swift; sourceTree = "<group>"; };
 		EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
 		EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleProvider.swift; sourceTree = "<group>"; };
+		EC16CED7261990D800663DC1 /* AvatarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewModel.swift; sourceTree = "<group>"; };
 		EC17177C25FB114500500D13 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		EC17178225FB38CF00500D13 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		EC17178A25FB653300500D13 /* NSOAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOAPI.swift; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 		EC5362472525D68E0037BD12 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		EC5362522525DDDF0037BD12 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		EC54C0852618BBE900EA3A9E /* PlayerSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSkillView.swift; sourceTree = "<group>"; };
 		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NintendoAccountLoginViewController.swift; path = imink/Views/NintendoAccountLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		EC5D2628258FA02F004E7B3A /* TestFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFontView.swift; sourceTree = "<group>"; };
@@ -357,7 +366,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3696E2262C462200CC2734 /* FetchImage in Frameworks */,
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
+				EC3696DD262C44E700CC2734 /* NetworkImage in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
 			);
@@ -409,6 +420,7 @@
 				EC00DBF3251CD29C0010366A /* TransitionModifier.swift */,
 				EC00DBF4251CD29C0010366A /* FontModifier.swift */,
 				EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */,
+				EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -488,6 +500,7 @@
 				EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */,
 				EC2C34AB25984CE20007BA4D /* BattleDetailMemberView.swift */,
 				EC2C34B1259899590007BA4D /* BattleDetailResultBarView.swift */,
+				EC54C0852618BBE900EA3A9E /* PlayerSkillView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -684,6 +697,7 @@
 				ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */,
 				EC62E77225360B2B0028428C /* MeViewModel.swift */,
 				EC17178225FB38CF00500D13 /* OnboardingViewModel.swift */,
+				EC16CED7261990D800663DC1 /* AvatarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -802,6 +816,8 @@
 			packageProductDependencies = (
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
+				EC3696DC262C44E700CC2734 /* NetworkImage */,
+				EC3696E1262C462200CC2734 /* FetchImage */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -846,6 +862,8 @@
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
+				EC3696DB262C44E700CC2734 /* XCRemoteSwiftPackageReference "NetworkImage" */,
+				EC3696E0262C462200CC2734 /* XCRemoteSwiftPackageReference "FetchImage" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -922,6 +940,7 @@
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
 				EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
+				EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */,
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
 				ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */,
 				EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */,
@@ -966,6 +985,7 @@
 				ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */,
 				ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */,
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
+				EC16CED8261990D800663DC1 /* AvatarViewModel.swift in Sources */,
 				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
@@ -985,6 +1005,7 @@
 				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
+				EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */,
 				EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */,
 				ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */,
 				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,
@@ -998,6 +1019,7 @@
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
 				EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */,
+				EC54C0862618BBE900EA3A9E /* PlayerSkillView.swift in Sources */,
 				EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
@@ -1427,6 +1449,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC3696DB262C44E700CC2734 /* XCRemoteSwiftPackageReference "NetworkImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/NetworkImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+		EC3696E0262C462200CC2734 /* XCRemoteSwiftPackageReference "FetchImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/FetchImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1463,13 +1501,23 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ddddxxx/SplatNet2.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				kind = revision;
+				revision = 84bbbe49954bc4390d4c1b49283490b724b988ae;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC3696DC262C44E700CC2734 /* NetworkImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC3696DB262C44E700CC2734 /* XCRemoteSwiftPackageReference "NetworkImage" */;
+			productName = NetworkImage;
+		};
+		EC3696E1262C462200CC2734 /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC3696E0262C462200CC2734 /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
+		};
 		EC43AA57251C9A7100283D28 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */;

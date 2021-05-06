@@ -11,6 +11,24 @@
         }
       },
       {
+        "package": "combine-schedulers",
+        "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
+        "state": {
+          "branch": null,
+          "revision": "c37e5ae8012fb654af776cc556ff8ae64398c841",
+          "version": "0.5.0"
+        }
+      },
+      {
+        "package": "FetchImage",
+        "repositoryURL": "https://github.com/kean/FetchImage.git",
+        "state": {
+          "branch": null,
+          "revision": "cac844a0dea908c6e068fc8c6a0f949179c7f876",
+          "version": "0.4.0"
+        }
+      },
+      {
         "package": "GRDB",
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
@@ -38,12 +56,30 @@
         }
       },
       {
+        "package": "NetworkImage",
+        "repositoryURL": "https://github.com/gonzalezreal/NetworkImage.git",
+        "state": {
+          "branch": null,
+          "revision": "15582b821cb097012b41b83d6219717926ec4ed6",
+          "version": "2.1.0"
+        }
+      },
+      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
           "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
           "version": "8.1.2"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "200016df418ed8dc70ba918d52c29634f434541c",
+          "version": "9.5.0"
         }
       },
       {
@@ -132,8 +168,8 @@
         "repositoryURL": "https://github.com/ddddxxx/SplatNet2.git",
         "state": {
           "branch": null,
-          "revision": "3b765d0d300df94db7634518578a69292d97e148",
-          "version": "0.2.0"
+          "revision": "84bbbe49954bc4390d4c1b49283490b724b988ae",
+          "version": null
         }
       },
       {
@@ -143,6 +179,15 @@
           "branch": null,
           "revision": "a6014fe94c3dbff0ad500e8da4f251a5d336530b",
           "version": "5.1.0-beta.1"
+        }
+      },
+      {
+        "package": "xctest-dynamic-overlay",
+        "repositoryURL": "https://github.com/pointfreeco/xctest-dynamic-overlay",
+        "state": {
+          "branch": null,
+          "revision": "603974e3909ad4b48ba04aad7e0ceee4f077a518",
+          "version": "0.1.0"
         }
       },
       {

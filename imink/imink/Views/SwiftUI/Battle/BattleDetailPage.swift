@@ -15,6 +15,10 @@ struct BattleDetailPage: View {
     let row: BattleListRowModel
     @Binding var realtimeRow: BattleListRowModel?
     
+    @State private var showPlayerSkill: Bool = false
+    @State private var activePlayer: Player? = nil
+    @State private var activePlayerVictory: Bool = false
+    
     var navigationTitle: String {
         let title = viewModel.battle?.battleNumber != nil ?
             "ID: \(viewModel.battle!.battleNumber)" : ""
@@ -63,6 +67,14 @@ struct BattleDetailPage: View {
                 }
             }
         }
+        .modifier(Popup(isPresented: showPlayerSkill,
+                        onDismiss: {
+                            showPlayerSkill = false
+                        }, content: {
+                            PlayerSkillView(victory: $activePlayerVictory, player: $activePlayer) {
+                                showPlayerSkill = false
+                            }
+                        }))
     }
     
     func makeContent(battle: Battle) -> some View {
@@ -215,6 +227,13 @@ struct BattleDetailPage: View {
                         let member = members[j]
                         ZStack {
                             BattleDetailMemberView(victory: victory, member: member)
+                                .onTapGesture {
+                                    activePlayer = member.player
+                                    activePlayerVictory = victory
+//                                    withAnimation {
+                                        showPlayerSkill = true
+//                                    }
+                                }
                             
                             if member.player.principalId == battle.playerResult.player.principalId {
                                 Image("MemberArrow")
@@ -289,6 +308,13 @@ extension Battle {
         return false
     }
 }
+
+extension Player: Identifiable {
+    public var id: String {
+        principalId
+    }
+}
+
 
 //import SplatNet2API
 //
