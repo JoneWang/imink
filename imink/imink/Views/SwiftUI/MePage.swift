@@ -101,7 +101,7 @@ struct MePage: View {
                                                             .sp1Font(size: 16, color: AppColor.spPink)
                                                         if let sPlusNumber = udemae?.sPlusNumber {
                                                             Text("\(sPlusNumber)")
-                                                                .sp1Font(size: 12)
+                                                                .sp1Font(size: 12, color: AppColor.spGreenLimeColor)
                                                         }
                                                     }
                                                 }
