@@ -32,6 +32,19 @@ class TabBarController: UITabBarController {
         tabBarViewModel.$isLogined
             .assign(to: &synchronizeJobViewModel.$isLogined)
         
+        tabBarViewModel.$error
+            .sink { error in
+                guard let error = error else { return }
+                if case NSOError.sessionTokenInvalid = error {
+                    UIAlertController.show(
+                        with: self,
+                        title: "session_token_invalid_title".localized,
+                        message: "session_token_invalid_message".localized
+                    )
+                }
+            }
+            .store(in: &cancelBag)
+        
         NotificationCenter.default
             .publisher(for: .logout)
             .receive(on: RunLoop.main)
@@ -58,6 +71,15 @@ class TabBarController: UITabBarController {
         
         if AppUserDefaults.shared.firstLaunch {
             showOnboarding()
+        }
+        
+        if AppUserDefaults.shared.naUser != nil {
+            AppUserDefaults.shared.sessionToken = nil            
+            UIAlertController.show(
+                with: self,
+                title: "relogin_title".localized,
+                message: "relogin_message".localized
+            )
         }
     }
     

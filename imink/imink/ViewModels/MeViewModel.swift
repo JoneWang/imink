@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import WebKit
 
 class MeViewModel: ObservableObject {
     
@@ -71,16 +70,6 @@ class MeViewModel: ObservableObject {
     }
     
     func logOut() {
-        AppUserDefaults.shared.loginToken = nil
-        AppUserDefaults.shared.naUser = nil
-        AppUserDefaults.shared.sp2PrincipalId = nil
-        
-        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-        
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            records.forEach { record in
-                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-            }
-        }
+        AppUserDefaults.shared.sessionToken = nil
     }
 }

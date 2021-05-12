@@ -36,7 +36,7 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
     
     lazy var loadingView: UIView = {
         let loadingView = UIView()
-        loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         view.addSubview(loadingView)
         loadingView.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(view)
@@ -79,20 +79,26 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
             .assign(to: \.isHidden, on: loadingView)
             .store(in: &cancelBag)
         
-        viewModel.$status
-            .filter { $0 == .loginFail }
-            .sink { [weak self] _ in
-                let alert = UIAlertController(
-                    title: "Failure".localized,
-                    message: "Login error occurred, please try again.".localized,
-                    preferredStyle: .alert
-                )
-                alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                    alert.dismiss(animated: true) {
-                        self?.dismiss(animated: true)
+        viewModel.$loginError
+            .sink { [weak self] error in
+                guard let error = error, let `self` = self else { return }
+                if case NSOError.userGameDataNotExist = error {
+                    UIAlertController.show(
+                        with: self,
+                        title: "login_error_title".localized,
+                        message: "user_game_data_not_exist_message".localized
+                    ) {
+                        self.dismiss(animated: true)
                     }
-                })
-                self?.present(alert, animated: true)
+                } else {
+                    UIAlertController.show(
+                        with: self,
+                        title: "login_error_title".localized,
+                        message: "login_error_message".localized
+                    ) {
+                        self.dismiss(animated: true)
+                    }
+                }
             }
             .store(in: &cancelBag)
         

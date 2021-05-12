@@ -17,6 +17,7 @@ enum APIError: Error, LocalizedError {
     case clientTokenInvalid
     case iksmSessionInvalid
     case requestParameterError
+    case internalServerError
     
     var errorDescription: String? {
         switch self {
@@ -32,6 +33,8 @@ enum APIError: Error, LocalizedError {
             return "The iksm_session is invalid"
         case .requestParameterError:
             return "Request paraemter error"
+        case .internalServerError:
+            return "internal server error"
         }
     }
 }
@@ -92,6 +95,10 @@ class API {
                     throw APIError.requestParameterError
                 }
                 
+                if httpResponse.statusCode == 500 {
+                    throw APIError.internalServerError
+                }
+                
                 guard 200..<300 ~= httpResponse.statusCode else {
                     throw APIError.unknown
                 }
@@ -144,7 +151,7 @@ extension APITargetType {
                     }
                 }
 
-                return .unknown
+                return error
             }
             .mapError { $0 as Error }
             .eraseToAnyPublisher()

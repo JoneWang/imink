@@ -15,7 +15,7 @@ struct AboutPage: View {
         let contributions = [
             "Jone Wang", "Ryan Lau", "Shaw",
             "Key山", "俐吟", "小傘Emp", "米雪", "ai",
-            "ddddxxx", "柏汐", "Padotagi"
+            "ddddxxx", "柏汐", "Padotagi", "issei-m"
         ]
         ScrollView {
             HStack {
@@ -66,11 +66,11 @@ struct AboutPage: View {
                             .sp1Font(size: 22, color: AppColor.appLabelColor)
                         
                         HStack {
-                            Link(destination: URL(string: "https://t.me/iminkUserGroup")!) {
+                            Link(destination: socialLink) {
                                 VStack(spacing: 4) {
-                                    Text("User Group on Telegram")
+                                    Text(socialName)
                                         .sp2Font(size: 12, color: AppColor.appLabelColor)
-                                    Text("https://t.me/iminkUserGroup")
+                                    Text("@imink_splatoon")
                                         .font(.system(size: 10, weight: .bold))
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(AppColor.appLabelColor)
@@ -83,7 +83,7 @@ struct AboutPage: View {
                             VStack(spacing: 4) {
                                 Text("E-mail")
                                     .sp2Font(size: 12, color: AppColor.appLabelColor)
-                                Text("i@jone.wang")
+                                Text("imink@jone.wang")
                                     .font(.system(size: 10, weight: .bold))
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(AppColor.appLabelColor)
@@ -108,7 +108,26 @@ struct AboutPage: View {
             .padding(.leading, 12)
         }
         .sheet(isPresented: $isShowingMailView) {
-            MailView(isShowing: self.$isShowingMailView, recipient: "i@jone.wang")
+            MailView(isShowing: self.$isShowingMailView, recipient: "imink@jone.wang")
+        }
+    }
+}
+
+extension AboutPage {
+    
+    var socialName: String {
+        if AppUserDefaults.shared.currentLanguage == "zh-Hans" {
+            return "Weibo"
+        } else {
+            return "Twitter"
+        }
+    }
+    
+    var socialLink: URL {
+        if AppUserDefaults.shared.currentLanguage == "zh-Hans" {
+            return URL(string: "https://weibo.com/7582779251")!
+        } else {
+            return URL(string: "https://Twitter.com/imink_splatoon")!
         }
     }
 }

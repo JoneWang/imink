@@ -17,15 +17,16 @@ class TabBarViewModel: ObservableObject {
     @Published var isLogined = false
     @Published var autoRefresh = true
     
+    @Published var error: Error? = nil
+    
     private var cancelBag = Set<AnyCancellable>()
     private var syncCancelBag = Set<AnyCancellable>()
     
     init() {
-        isLogined = AppUserDefaults.shared.loginToken != nil
+        isLogined = AppUserDefaults.shared.sessionToken != nil
         
         if isLogined {
-            // Update user if logged in
-            requestUserInfo()
+            checkIksmSession()
         }
         
         // Check language and refresh widget
@@ -43,7 +44,7 @@ class TabBarViewModel: ObservableObject {
 
 extension TabBarViewModel {
     
-    func requestUserInfo() {
+    func checkIksmSession() {
         if Splatoon2API.sessionIsValid {
             Splatoon2API.records
                 .request()
@@ -55,9 +56,8 @@ extension TabBarViewModel {
                 }
                 .catch({ error -> AnyPublisher<Void, Error> in
                     if case APIError.iksmSessionInvalid = error,
-                       let loginToken = AppUserDefaults.shared.loginToken,
-                       let naUser = AppUserDefaults.shared.naUser {
-                        return NSOHelper.getIksmSession(loginToken: loginToken, naUser: naUser)
+                       let sessionToken = AppUserDefaults.shared.sessionToken {
+                        return NSOHelper.getIKsmSession(sessionToken: sessionToken)
                             .map { _ in Void() }
                             .eraseToAnyPublisher()
                     } else {
@@ -67,21 +67,42 @@ extension TabBarViewModel {
                         .eraseToAnyPublisher()
                     }
                 })
-                .sink { _ in
-                    // TODO:
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        if case NSOError.sessionTokenInvalid = error {
+                            AppUserDefaults.shared.sessionToken = nil
+                            self.error = error
+                        } else {
+                            // TODO: Other errors
+                            os_log("API Error: [records or getIKsmSession] \(error.localizedDescription)")
+                        }
+                    }
                 } receiveValue: { _ in
                     // TODO:
                 }
                 .store(in: &cancelBag)
         } else {
-            guard let loginToken = AppUserDefaults.shared.loginToken,
-                  let naUser = AppUserDefaults.shared.naUser else {
+            guard let sessionToken = AppUserDefaults.shared.sessionToken else {
                 return
             }
             
-            NSOHelper.getIksmSession(loginToken: loginToken, naUser: naUser)
-                .sink { _ in
-                    // TODO:
+            NSOHelper.getIKsmSession(sessionToken: sessionToken)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        if case NSOError.sessionTokenInvalid = error {
+                            AppUserDefaults.shared.sessionToken = nil
+                            self.error = error
+                        } else {
+                            // TODO: Other errors
+                            os_log("API Error: [records or getIKsmSession] \(error.localizedDescription)")
+                        }
+                    }
                 } receiveValue: { _ in
                     // TODO:
                 }
