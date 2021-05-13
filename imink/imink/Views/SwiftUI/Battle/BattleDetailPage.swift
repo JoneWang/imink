@@ -105,7 +105,7 @@ struct BattleDetailPage: View {
                             .frame(width: 20, height: 20)
                         
                         HStack(alignment: .bottom) {
-                            Text(battle.rule.name.localizedKey)
+                            Text(battle.rule.localizedName)
                                 .sp1Font(size: 14, color: battle.battleType.color)
                             
                             Spacer()

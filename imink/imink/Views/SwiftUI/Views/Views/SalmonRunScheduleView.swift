@@ -43,7 +43,7 @@ struct SalmonRunScheduleView: View {
                         
                         VStack(spacing: 0) {
                             
-                            Text(stage.name.localizedKey)
+                            Text(stage.localizedName)
                                 .sp2Font(color: AppColor.appLabelColor)
                             
                             SalomonRunStageImageView(name: stage.imageName ?? "", imageURL: stage.image)

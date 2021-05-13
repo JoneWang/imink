@@ -1,25 +1,18 @@
 // MARK: Battles
 
-"8-Squid Tower Control Power" = "8명의 가치야구라 파워";
-"8-Squid Rainmaker Power" = "8명의 가치호코배틀 파워";
-"8-Squid Clam Blitz Power" = "8명의 가치아사리 파워";
-"8-Squid Splat Zones Power" = "8명의 가치에리어 파워";
-"8-Squid Splat Zones X Power" = "8명의 가치에리어 X파워";
-"8-Squid Tower Control X Power" = "8명의 가치야구라 X파워";
-"8-Squid Rainmaker X Power" = "8명의 가치호코배틀 X파워";
-"8-Squid Clam Blitz X Power" = "8명의 가치아사리 X파워";
-"8-Squid ガチヤグラ Power" = "8명의 가치야구라 파워";
-"8-Squid ガチホコバトル Power" = "8명의 가치호코배틀 파워";
-"8-Squid ガチアサリ Power" = "8명의 가치아사리 파워";
-"8-Squid ガチエリア Power" = "8명의 가치에리어 파워";
-"8-Squid ガチエリア X Power" = "8명의 가치에리어 X파워";
-"8-Squid ガチヤグラ X Power" = "8명의 가치야구라 X파워";
-"8-Squid ガチホコバトル X Power" = "8명의 가치호코배틀 X파워";
-"8-Squid ガチアサリ X Power" = "8명의 가치아사리 X파워";
+"low" = "간조";
+"normal" = "보통";
+"high" = "만조";
+"water-levels" = "-";
+"rush" = "러시";
+"fog" = "안개";
+"goldie-seeking" = "금연어 찾기";
+"griller" = "그릴 발진";
+"cohock-charge" = "도스코이 대량발생";
+"the-mothership" = "하코비야 내습";
 
 // MARK: Game
 
-"Salmon Run" = "새먼런";
 "Regular Battle" = "레귤러 매치";
 "レギュラーマッチ" = "레귤러 매치";
 "Ranked Battle" = "가치 매치";

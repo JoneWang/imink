@@ -1,25 +1,18 @@
-// MARK: Battles
+// MARK: Salmon Run
 
-"8-Squid Tower Control Power" = "8-Squid Tower Control Power";
-"8-Squid Rainmaker Power" = "8-Squid Rainmaker Power";
-"8-Squid Clam Blitz Power" = "8-Squid Clam Blitz Power";
-"8-Squid Splat Zones Power" = "8-Squid Splat Zones Power";
-"8-Squid Splat Zones X Power" = "8-Squid Splat Zones X Power";
-"8-Squid Tower Control X Power" = "8-Squid Tower Control X Power";
-"8-Squid Rainmaker X Power" = "8-Squid Rainmaker X Power";
-"8-Squid Clam Blitz X Power" = "8-Squid Clam Blitz X Power";
-"8-Squid ガチヤグラ Power" = "8-Squid Tower Control Power";
-"8-Squid ガチホコバトル Power" = "8-Squid Rainmaker Power";
-"8-Squid ガチアサリ Power" = "8-Squid Clam Blitz Power";
-"8-Squid ガチエリア Power" = "8-Squid Splat Zones Power";
-"8-Squid ガチエリア X Power" = "8-Squid Splat Zones X Power";
-"8-Squid ガチヤグラ X Power" = "8-Squid Tower Control X Power";
-"8-Squid ガチホコバトル X Power" = "8-Squid Rainmaker X Power";
-"8-Squid ガチアサリ X Power" = "8-Squid Clam Blitz X Power";
+"low" = "Low tide";
+"normal" = "Normal";
+"high" = "High tide";
+"water-levels" = "-";
+"rush" = "Rush";
+"fog" = "Fog";
+"goldie-seeking" = "Goldie Seeking";
+"griller" = "The Griller";
+"cohock-charge" = "Cohock Charge";
+"the-mothership" = "The Mothership";
 
 // MARK: Game
 
-"Salmon Run" = "Salmon Run";
 "Regular Battle" = "Regular Battle";
 "レギュラーマッチ" = "Regular Battle";
 "Ranked Battle" = "Ranked Battle";

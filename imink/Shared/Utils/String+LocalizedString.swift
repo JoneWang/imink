@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-let splatNet2L10nTable = "SplatNet2"
-
 extension String {
     
     var localizedKey: LocalizedStringKey {
@@ -19,6 +17,10 @@ extension String {
     var localized: String {
         let language = AppUserDefaults.shared.currentLanguage
         return NSLocalizedString(self, language: language)
+    }
+    
+    func localized(with tableName: String) -> String {
+        NSLocalizedString(self, tableName: tableName, bundle: Bundle.main, value: "", comment: "")
     }
 
 }

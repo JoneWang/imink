@@ -54,7 +54,7 @@ struct JobShiftCardView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 10) {
-                    Text(shiftCard.scheduleStageName.localizedKey, tableName: splatNet2L10nTable)
+                    Text(shiftCard.localizedScheduleStageName)
                         .sp2Font(size: 10, color: .systemGray2)
                     
                     HStack {
@@ -116,6 +116,10 @@ struct JobShiftCardView: View {
 }
 
 extension JobListRowModel.ShiftCard {
+    
+    var localizedScheduleStageName: String {
+        scheduleStageName.splatNet2Localized
+    }
     
     var timeIntervalText: String {
         let formatter = DateFormatter()

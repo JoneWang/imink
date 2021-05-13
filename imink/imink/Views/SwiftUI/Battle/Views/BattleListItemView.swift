@@ -86,7 +86,7 @@ struct BattleListItemView: View {
                         .padding(.top, -0.5)
                         .padding(.bottom, -1.5)
                     
-                    Text(record.rule.localizedKey)
+                    Text(record.localizedRule)
                         .sp1Font(size: 12, color: record.gameModeColor)
                     
                     Spacer()
@@ -170,7 +170,7 @@ struct BattleListItemView: View {
                 .padding(.bottom, 6)
                 
                 HStack {
-                    Text("#\(record.battleNumber) · \(record.stageName.localized)")
+                    Text("#\(record.battleNumber) · \(record.localizedStageName)")
                         .font(.system(size: 10))
                         .foregroundColor(.systemGray2)
                     
@@ -197,6 +197,14 @@ struct BattleListItemView: View {
 }
 
 extension DBRecord {
+    
+    var localizedRule: String {
+        rule.splatNet2Localized
+    }
+    
+    var localizedStageName: String {
+        stageName.splatNet2Localized
+    }
     
     var resultColor: Color {
         victory ?

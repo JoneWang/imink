@@ -204,7 +204,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                 
                                 HStack(spacing: 6) {
                                 
-                                    Text(schedule?.rule.name.localizedKey ?? "      ")
+                                    Text(schedule?.rule.localizedName ?? "      ")
                                         .sp1Font(size: 14)
                                         .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                                     
@@ -225,7 +225,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                     )
                                     .padding([.leading, .top, .bottom], stagePadding)
                                     
-                                    Text(schedule?.stageA.nameLocalizedStringKey ?? "      \n      ")
+                                    Text(schedule?.stageA.localizedMultilineName ?? "      \n      ")
                                         .sp2Font(size: stageNameFontSize, lineLimit: 2)
                                         .lineSpacing(stageNameLineSpacing)
                                         .multilineTextAlignment(.leading)
@@ -239,7 +239,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                                     )
                                     .padding([.top, .bottom], stagePadding)
                                     
-                                    Text(schedule?.stageB.nameLocalizedStringKey ?? "      \n      ")
+                                    Text(schedule?.stageB.localizedMultilineName ?? "      \n      ")
                                         .sp2Font(size: stageNameFontSize, lineLimit: 2)
                                         .lineSpacing(stageNameLineSpacing)
                                         .multilineTextAlignment(.leading)
@@ -282,12 +282,11 @@ struct BattleScheduleLargeWidgetEntryView : View {
     }
 }
 
-private extension Stage {
+fileprivate extension Stage {
     
-    var nameLocalizedStringKey: LocalizedStringKey {
-        "\(name)_multi-line".localizedKey
+    var localizedMultilineName: String {
+        "\(name)_multi-line".splatNet2Localized
     }
-    
 }
 
 extension BattleScheduleWidgetGameMode {

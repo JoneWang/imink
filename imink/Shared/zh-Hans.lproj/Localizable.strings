@@ -58,6 +58,23 @@
 " count" = " 分";
 "KO BONUS!" = "KO  完胜！";
 
+"8-Squid Tower Control Power" = "8人真格推塔平均分";
+"8-Squid Rainmaker Power" = "8人真格运鯱平均分";
+"8-Squid Clam Blitz Power" = "8人真格蛤蜊平均分";
+"8-Squid Splat Zones Power" = "8人真格区域平均分";
+"8-Squid Splat Zones X Power" = "8人X段区域平均分";
+"8-Squid Tower Control X Power" = "8人X段推塔平均分";
+"8-Squid Rainmaker X Power" = "8人X段运鯱平均分";
+"8-Squid Clam Blitz X Power" = "8人X段蛤蜊平均分";
+"8-Squid ガチヤグラ Power" = "8人真格推塔平均分";
+"8-Squid ガチホコバトル Power" = "8人真格运鯱平均分";
+"8-Squid ガチアサリ Power" = "8人真格蛤蜊平均分";
+"8-Squid ガチエリア Power" = "8人真格区域平均分";
+"8-Squid ガチエリア X Power" = "8人X段区域平均分";
+"8-Squid ガチヤグラ X Power" = "8人X段推塔平均分";
+"8-Squid ガチホコバトル X Power" = "8人X段运鯱平均分";
+"8-Squid ガチアサリ X Power" = "8人X段蛤蜊平均分";
+
 // MARK: Salmon Run
 
 "grade_0" = "实习生";
@@ -70,16 +87,6 @@
 "Clear!" = "通过！";
 "Defeat_job" = "失败";
 "Wave %d" = "WAVE %d";
-"low" = "低潮";
-"normal" = "普通";
-"high" = "高潮";
-"water-levels" = "-";
-"rush" = "军团暴走";
-"fog" = "迷雾";
-"goldie-seeking" = "寻找金鲑鱼";
-"griller" = "烤肉架出击";
-"cohock-charge" = "胖鲑鱼大量出没";
-"the-mothership" = "运输母舰来袭";
 
 // MARK: Me
 

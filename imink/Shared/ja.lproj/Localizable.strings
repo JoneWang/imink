@@ -58,6 +58,23 @@
 " count" = "カウント";
 "KO BONUS!" = "ノックアウト！";
 
+"8-Squid Tower Control Power" = "8人のガチヤグラパワー";
+"8-Squid Rainmaker Power" = "8人のガチホコバトルパワー";
+"8-Squid Clam Blitz Power" = "8人のガチアサリパワー";
+"8-Squid Splat Zones Power" = "8人のガチエリアパワー";
+"8-Squid Splat Zones X Power" = "8人のガチエリアXパワー";
+"8-Squid Tower Control X Power" = "8人のガチヤグラXパワー";
+"8-Squid Rainmaker X Power" = "8人のガチホコバトルXパワー";
+"8-Squid Clam Blitz X Power" = "8人のガチアサリXパワー";
+"8-Squid ガチヤグラ Power" = "8人のガチヤグラパワー";
+"8-Squid ガチホコバトル Power" = "8人のガチホコバトルパワー";
+"8-Squid ガチアサリ Power" = "8人のガチアサリパワー";
+"8-Squid ガチエリア Power" = "8人のガチエリアパワー";
+"8-Squid ガチエリア X Power" = "8人のガチエリアXパワー";
+"8-Squid ガチヤグラ X Power" = "8人のガチヤグラXパワー";
+"8-Squid ガチホコバトル X Power" = "8人のガチホコバトルXパワー";
+"8-Squid ガチアサリ X Power" = "8人のガチアサリXパワー";
+
 // MARK: Salmon Run
 
 "grade_0" = "けんしゅう";
@@ -70,16 +87,6 @@
 "Clear!" = "Clear!!";
 "Defeat_job" = "Failure";
 "Wave %d" = "WAVE %d";
-"low" = "干潮";
-"normal" = "普通";
-"high" = "満潮";
-"water-levels" = "-";
-"rush" = "ラッシュ";
-"fog" = "霧";
-"goldie-seeking" = "キンシャケ探し";
-"griller" = "グリル発進";
-"cohock-charge" = "ドスコイ大量発生";
-"the-mothership" = "ハコビヤ襲来";
 
 // MARK: Me
 

@@ -90,7 +90,7 @@ struct JobDetailTopCardView: View {
                 .padding(.bottom, 11.5)
                 
                 HStack {
-                    Text(stage.name.localizedKey)
+                    Text(stage.localizedName)
                         .sp2Font(size: 12, color: .systemGray)
                     
                     Spacer()

@@ -54,10 +54,10 @@ struct JobDetailWaveView: View {
                         Text("\(waveDetail.goldenIkuraNum)/\(waveDetail.quotaNum)")
                             .sp2Font(size: 14, color: AppColor.appLabelColor)
                         
-                        Text(waveDetail.waterLevel.key.rawValue.localizedKey)
+                        Text(waveDetail.waterLevel.localizedName)
                             .sp2Font(size: 10, color: .systemGray)
                         
-                        Text(waveDetail.eventType.key.localizedKey)
+                        Text(waveDetail.eventType.localizedName)
                             .sp2Font(size: 10, color: .systemGray)
                     }
                     .padding(.top, 14)

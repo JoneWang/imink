@@ -86,7 +86,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
                             
                             Spacer()
                             
-                            Text(schedule?.rule.name.localizedKey ?? "      ")
+                            Text(schedule?.rule.localizedName ?? "      ")
                                 .sp1Font(size: 14, color: .white)
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                             
@@ -100,12 +100,12 @@ struct BattleScheduleMediumWidgetEntryView : View {
                         HStack {
                             makeStageImage(
                                 stageId: schedule?.stageA.id ?? "0",
-                                stageName: schedule?.stageA.name.localizedKey ?? "            "
+                                stageName: schedule?.stageA.localizedName ?? "            "
                             )
                             
                             makeStageImage(
                                 stageId: schedule?.stageB.id ?? "0",
-                                stageName: schedule?.stageB.name.localizedKey ?? "            "
+                                stageName: schedule?.stageB.localizedName ?? "            "
                             )
                         }
                     }
@@ -131,7 +131,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
                             
                             Spacer()
                             
-                            Text(nextSchedule?.rule.name.localizedKey ?? "      ")
+                            Text(nextSchedule?.rule.localizedName ?? "      ")
                                 .sp1Font(size: 14, color: .white)
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                             
@@ -145,12 +145,12 @@ struct BattleScheduleMediumWidgetEntryView : View {
                         HStack {
                             makeStageImage(
                                 stageId: nextSchedule?.stageA.id ?? "0",
-                                stageName: nextSchedule?.stageA.name.localizedKey ?? "            "
+                                stageName: nextSchedule?.stageA.localizedName ?? "            "
                             )
                             
                             makeStageImage(
                                 stageId: nextSchedule?.stageB.id ?? "0",
-                                stageName: nextSchedule?.stageB.name.localizedKey ?? "            "
+                                stageName: nextSchedule?.stageB.localizedName ?? "            "
                             )
                         }
                     }
@@ -160,7 +160,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
         }
     }
     
-    func makeStageImage(stageId: String, stageName: LocalizedStringKey) -> some View {
+    func makeStageImage(stageId: String, stageName: String) -> some View {
         var borderColor = Color("RegularScheduleStageBorderColor")
         switch gameMode {
         case .gachi:
