@@ -17,4 +17,5 @@ extension Notification.Name {
         
     static let recordSyncDetailFinished = NSNotification.Name("RecordSyncDetailFinished")
     
+    static let exportData = NSNotification.Name("ExportData")
 }

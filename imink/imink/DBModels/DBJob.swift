@@ -168,6 +168,23 @@ extension AppDatabase {
         .eraseToAnyPublisher()
     }
     
+    func jobs(start jobId: Int? = nil, count: Int) -> [DBJob] {
+        return try! dbQueue.read { db in
+            if let jobId = jobId {
+                return try! DBJob
+                    .filter(DBJob.Columns.jobId < jobId)
+                    .order(DBJob.Columns.jobId.desc)
+                    .limit(count)
+                    .fetchAll(db)
+            } else {
+                return try! DBJob
+                    .order(DBJob.Columns.jobId.desc)
+                    .limit(count)
+                    .fetchAll(db)
+            }
+        }
+    }
+    
     func unsynchronizedJobIds(with jobIds: [Int]) -> [Int] {
         guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return []

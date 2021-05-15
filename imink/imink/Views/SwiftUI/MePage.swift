@@ -154,6 +154,30 @@ struct MePage: View {
                 }
                 #endif
                 
+                Section {
+                    HStack {
+                        Image(systemName: "tray.and.arrow.up")
+                            .imageScale(.medium)
+                            .foregroundColor(.accentColor)
+                            .frame(width: 30)
+                        
+                        Text("Export")
+                        
+                        if viewModel.exporting {
+                            ProgressView(value: viewModel.packingProgress)
+                        } else {
+                            Spacer()
+                        }
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.packingData { exportPath in
+                            guard let exportPath = exportPath else { return }
+                            NotificationCenter.default.post(name: .exportData, object: exportPath)
+                        }
+                    }
+                }
+                
                 if viewModel.isLogined {
                     Section {
                         HStack {

@@ -57,6 +57,15 @@ class TabBarController: UITabBarController {
                 self?.showLogin()
             }
             .store(in: &cancelBag)
+        
+        NotificationCenter.default
+            .publisher(for: .exportData)
+            .sink { [weak self] output in
+                guard let exportPath = output.object else { return }
+                let activityViewController = UIActivityViewController(activityItems: [exportPath], applicationActivities: nil)
+                self?.present(activityViewController, animated: true, completion: nil)
+            }
+            .store(in: &cancelBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
