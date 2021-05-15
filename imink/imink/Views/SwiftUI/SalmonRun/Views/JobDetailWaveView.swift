@@ -54,10 +54,10 @@ struct JobDetailWaveView: View {
                         Text("\(waveDetail.goldenIkuraNum)/\(waveDetail.quotaNum)")
                             .sp2Font(size: 14, color: AppColor.appLabelColor)
                         
-                        Text(waveDetail.waterLevel.key.rawValue.localizedKey)
+                        Text(waveDetail.waterLevel.localizedName)
                             .sp2Font(size: 10, color: .systemGray)
                         
-                        Text(waveDetail.eventType.key.localizedKey)
+                        Text(waveDetail.eventType.localizedName)
                             .sp2Font(size: 10, color: .systemGray)
                     }
                     .padding(.top, 14)
@@ -77,7 +77,7 @@ struct JobDetailWaveView: View {
                 alignment: .top
             )
             .overlay(
-                Image((job.jobResult.failureWave ?? 9) <= (waveIndex + 1) ? "JobWaveDefeat_img".localized : "JobWaveClear_img".localized)
+                Image((job.jobResult.failureWave ?? 9) <= (waveIndex + 1) ? "JobWaveDefeat" : "JobWaveClear")
                     .position(x: 86, y: 11)
             )
             

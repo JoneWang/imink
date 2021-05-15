@@ -21,7 +21,7 @@ struct JobShiftCardView: View {
                     VStack(alignment: .leading, spacing: 6) {
                         HStack {
                             HStack(spacing: 3) {
-                                Image("JobShiftCardClear_img".localized)
+                                Image("JobShiftCardClear")
                                 Text("\(shiftCard.avgClearCount, places: 1)")
                                     .sp2Font(size: 10, color: AppColor.appLabelColor)
                             }
@@ -54,7 +54,7 @@ struct JobShiftCardView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 10) {
-                    Text(shiftCard.scheduleStageName.localizedKey)
+                    Text(shiftCard.localizedScheduleStageName)
                         .sp2Font(size: 10, color: .systemGray2)
                     
                     HStack {
@@ -116,6 +116,10 @@ struct JobShiftCardView: View {
 }
 
 extension JobListRowModel.ShiftCard {
+    
+    var localizedScheduleStageName: String {
+        scheduleStageName.splatNet2Localized
+    }
     
     var timeIntervalText: String {
         let formatter = DateFormatter()

@@ -53,6 +53,11 @@
 "Highest" = "最高";
 "Crew" = "味方";
 "Rival" = "相手";
+"My X Power" = "自分のXパワー";
+"Average" = "8人のXパワー";
+" count" = "カウント";
+"KO BONUS!" = "ノックアウト！";
+
 "8-Squid Tower Control Power" = "8人のガチヤグラパワー";
 "8-Squid Rainmaker Power" = "8人のガチホコバトルパワー";
 "8-Squid Clam Blitz Power" = "8人のガチアサリパワー";
@@ -69,10 +74,6 @@
 "8-Squid ガチヤグラ X Power" = "8人のガチヤグラXパワー";
 "8-Squid ガチホコバトル X Power" = "8人のガチホコバトルXパワー";
 "8-Squid ガチアサリ X Power" = "8人のガチアサリXパワー";
-"My X Power" = "自分のXパワー";
-"Average" = "8人のXパワー";
-" count" = "カウント";
-"KO BONUS!" = "ノックアウト！";
 
 // MARK: Salmon Run
 
@@ -86,19 +87,6 @@
 "Clear!" = "Clear!!";
 "Defeat_job" = "Failure";
 "Wave %d" = "WAVE %d";
-"JobWaveDefeat_img" = "JobWaveDefeat_ja";
-"JobWaveClear_img" = "JobWaveClear_ja";
-"JobShiftCardClear_img" = "JobShiftCardClear_ja";
-"low" = "干潮";
-"normal" = "普通";
-"high" = "満潮";
-"water-levels" = "-";
-"rush" = "ラッシュ";
-"fog" = "霧";
-"goldie-seeking" = "キンシャケ探し";
-"griller" = "グリル発進";
-"cohock-charge" = "ドスコイ大量発生";
-"the-mothership" = "ハコビヤ襲来";
 
 // MARK: Me
 
@@ -134,159 +122,6 @@
 "Defeat" = "LOSE";
 "VICTORY" = "WIN！";
 "DEFEAT" = "LOSE...";
-"Salmon Run" = "サーモンラン";
-"Regular Battle" = "レギュラーマッチ";
-"レギュラーマッチ" = "レギュラーマッチ";
-"Ranked Battle" = "ガチマッチ";
-"ガチマッチ" = "ガチマッチ";
-"League Battle" = "リーグマッチ";
-"リーグマッチ" = "リーグマッチ";
-"Splatfest Battle" = "フェスマッチ";
-"フェスマッチ" = "フェスマッチ";
-"Private Battle" = "プライベートマッチ";
-"プライベートマッチ" = "プライベートマッチ";
-"Turf War" = "ナワバリバトル";
-"ナワバリバトル" = "ナワバリバトル";
-"Splat Zones" = "ガチエリア";
-"ガチエリア" = "ガチエリア";
-"Tower Control" = "ガチヤグラ";
-"ガチヤグラ" = "ガチヤグラ";
-"Rainmaker" = "ガチホコバトル";
-"ガチホコバトル" = "ガチホコバトル";
-"Clam Blitz" = "ガチアサリ";
-"ガチアサリ" = "ガチアサリ";
-
-// MARK: Battle Stages
-
-"The Reef" = "バッテラストリート";
-"バッテラストリート" = "バッテラストリート";
-"The Reef_multi-line" = "バッテラ\nストリート";
-"バッテラストリート_multi-line" = "バッテラ\nストリート";
-"Musselforge Fitness" = "フジツボスポーツクラブ";
-"フジツボスポーツクラブ" = "フジツボスポーツクラブ";
-"Musselforge Fitness_multi-line" = "フジツボ\nスポーツクラブ";
-"フジツボスポーツクラブ_multi-line" = "フジツボ\nスポーツクラブ";
-"Starfish Mainstage" = "ガンガゼ野外音楽堂";
-"ガンガゼ野外音楽堂" = "ガンガゼ野外音楽堂";
-"Starfish Mainstage_multi-line" = "ガンガゼ\n野外音楽堂";
-"ガンガゼ野外音楽堂_multi-line" = "ガンガゼ\n野外音楽堂";
-"Humpback Pump Track" = "コンブトラック";
-"コンブトラック" = "コンブトラック";
-"Humpback Pump Track_multi-line" = "コンブトラック";
-"コンブトラック_multi-line" = "コンブトラック";
-"Inkblot Art Academy" = "海女美術大学";
-"海女美術大学" = "海女美術大学";
-"Inkblot Art Academy_multi-line" = "海女美術大学";
-"海女美術大学_multi-line" = "海女美術大学";
-"Sturgeon Shipyard" = "チョウザメ造船";
-"チョウザメ造船" = "チョウザメ造船";
-"Sturgeon Shipyard_multi-line" = "チョウザメ造船";
-"チョウザメ造船_multi-line" = "チョウザメ造船";
-"Moray Towers" = "タチウオパーキング";
-"タチウオパーキング" = "タチウオパーキング";
-"Moray Towers_multi-line" = "タチウオ\nパーキング";
-"タチウオパーキング_multi-line" = "タチウオ\nパーキング";
-"Port Mackerel" = "ホッケふ頭";
-"ホッケふ頭" = "ホッケふ頭";
-"Port Mackerel_multi-line" = "ホッケふ頭";
-"ホッケふ頭_multi-line" = "ホッケふ頭";
-"Manta Maria" = "マンタマリア号";
-"マンタマリア号" = "マンタマリア号";
-"Manta Maria_multi-line" = "マンタマリア号";
-"マンタマリア号_multi-line" = "マンタマリア号";
-"Kelp Dome" = "モズク農園";
-"モズク農園" = "モズク農園";
-"Kelp Dome_multi-line" = "モズク農園";
-"モズク農園_multi-line" = "モズク農園";
-"Snapper Canal" = "エンガワ河川敷";
-"エンガワ河川敷" = "エンガワ河川敷";
-"Snapper Canal_multi-line" = "エンガワ河川敷";
-"エンガワ河川敷_multi-line" = "エンガワ河川敷";
-"Blackbelly Skatepark" = "Ｂバスパーク";
-"Ｂバスパーク" = "Ｂバスパーク";
-"Blackbelly Skatepark_multi-line" = "Ｂバスパーク";
-"Ｂバスパーク_multi-line" = "Ｂバスパーク";
-"MakoMart" = "ザトウマーケット";
-"ザトウマーケット" = "ザトウマーケット";
-"MakoMart_multi-line" = "ザトウマーケット";
-"ザトウマーケット_multi-line" = "ザトウマーケット";
-"Walleye Warehouse" = "ハコフグ倉庫";
-"ハコフグ倉庫" = "ハコフグ倉庫";
-"Walleye Warehouse_multi-line" = "ハコフグ倉庫";
-"ハコフグ倉庫_multi-line" = "ハコフグ倉庫";
-"Shellendorf Institute" = "デボン海洋博物館";
-"デボン海洋博物館" = "デボン海洋博物館";
-"Shellendorf Institute_multi-line" = "デボン\n海洋博物館";
-"デボン海洋博物館_multi-line" = "デボン\n海洋博物館";
-"Arowana Mall" = "アロワナモール";
-"アロワナモール" = "アロワナモール";
-"Arowana Mall_multi-line" = "アロワナモール";
-"アロワナモール_multi-line" = "アロワナモール";
-"Goby Arena" = "アジフライスタジアム";
-"アジフライスタジアム" = "アジフライスタジアム";
-"Goby Arena_multi-line" = "アジフライ\nスタジアム";
-"アジフライスタジアム_multi-line" = "アジフライ\nスタジアム";
-"Piranha Pit" = "ショッツル鉱山";
-"ショッツル鉱山" = "ショッツル鉱山";
-"Piranha Pit_multi-line" = "ショッツル鉱山";
-"ショッツル鉱山_multi-line" = "ショッツル鉱山";
-"Camp Triggerfish" = "モンガラキャンプ場";
-"モンガラキャンプ場" = "モンガラキャンプ場";
-"Camp Triggerfish_multi-line" = "モンガラ\nキャンプ場";
-"モンガラキャンプ場_multi-line" = "モンガラ\nキャンプ場";
-"Wahoo World" = "スメーシーワールド";
-"スメーシーワールド" = "スメーシーワールド";
-"Wahoo World_multi-line" = "スメーシー\nワールド";
-"スメーシーワールド_multi-line" = "スメーシー\nワールド";
-"New Albacore Hotel" = "ホテルニューオートロ";
-"ホテルニューオートロ" = "ホテルニューオートロ";
-"New Albacore Hotel_multi-line" = "ホテル\nニューオートロ";
-"ホテルニューオートロ_multi-line" = "ホテル\nニューオートロ";
-"Ancho-V Games" = "アンチョビットゲームズ";
-"アンチョビットゲームズ" = "アンチョビットゲームズ";
-"Ancho-V Games_multi-line" = "アンチョビット\nゲームズ";
-"アンチョビットゲームズ_multi-line" = "アンチョビット\nゲームズ";
-"Skipper Pavilion" = "ムツゴ楼";
-"ムツゴ楼" = "ムツゴ楼";
-"Skipper Pavilion_multi-line" = "ムツゴ楼";
-"ムツゴ楼_multi-line" = "ムツゴ楼";
-"Shifty Station" = "ミステリーゾーン";
-"ミステリーゾーン" = "ミステリーゾーン";
-"Shifty Station_multi-line" = "ミステリーゾーン";
-"ミステリーゾーン_multi-line" = "ミステリーゾーン";
-
-// MARK: Salmon Run Stages
-
-"Spawning Grounds" = "シェケナダム";
-"シェケナダム" = "シェケナダム";
-"Spawning Grounds_multi-line" = "シェケナダム";
-"シェケナダム_multi-line" = "シェケナダム";
-"Marooner's Bay" = "難破船ドン・ブラコ";
-"難破船ドン・ブラコ" = "難破船ドン・ブラコ";
-"Marooner's Bay_multi-line" = "難破船\nドン・ブラコ";
-"難破船ドン・ブラコ_multi-line" = "難破船\nドン・ブラコ";
-"Lost Outpost" = "海上集落シャケト場";
-"海上集落シャケト場" = "海上集落シャケト場";
-"Lost Outpost_multi-line" = "海上集落\nシャケト場";
-"海上集落シャケト場_multi-line" = "海上集落\nシャケト場";
-"Salmonid Smokeyard" = "トキシラズいぶし工房";
-"トキシラズいぶし工房" = "トキシラズいぶし工房";
-"Salmonid Smokeyard_multi-line" = "トキシラズ\nいぶし工房";
-"トキシラズいぶし工房_multi-line" = "トキシラズ\nいぶし工房";
-"Ruins of Ark Polaris" = "朽ちた箱舟 ポラリス";
-"朽ちた箱舟 ポラリス" = "朽ちた箱舟 ポラリス";
-"Ruins of Ark Polaris_multi-line" = "朽ちた箱舟\nポラリス";
-"朽ちた箱舟 ポラリス_multi-line" = "朽ちた箱舟\nポラリス";
-"Spawning Grounds_img" = "Spawning Grounds";
-"シェケナダム_img" = "Spawning Grounds";
-"Marooner's Bay_img" = "Marooner's Bay";
-"難破船ドン・ブラコ_img" = "Marooner's Bay";
-"Lost Outpost_img" = "Lost Outpost";
-"海上集落シャケト場_img" = "Lost Outpost";
-"Salmonid Smokeyard_img" = "Salmonid Smokeyard";
-"トキシラズいぶし工房_img" = "Salmonid Smokeyard";
-"Ruins of Ark Polaris_img" = "Ruins of Ark Polaris";
-"朽ちた箱舟 ポラリス_img" = "Ruins of Ark Polaris";
 
 // MARK: Common
 

@@ -193,7 +193,7 @@ extension AppDatabase {
         return ValueObservation.tracking { db in
             // exclude json
             try Row
-                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies, isX, xPower FROM record WHERE sp2PrincipalId = ? ORDER BY battleNumber DESC", arguments: [sp2PrincipalId])
+                .fetchAll(db, sql: "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies, isX, xPower FROM record WHERE sp2PrincipalId = ? ORDER BY cast(battleNumber as integer) DESC", arguments: [sp2PrincipalId])
                 .map { row in
                     DBRecord(row: row)
                 }

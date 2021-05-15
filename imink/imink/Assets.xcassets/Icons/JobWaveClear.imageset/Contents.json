@@ -3,10 +3,18 @@
     {
       "filename" : "JobWaveClear.pdf",
       "idiom" : "universal"
+    },
+    {
+      "filename" : "JobWaveClear_ja.pdf",
+      "idiom" : "universal",
+      "locale" : "ja"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }

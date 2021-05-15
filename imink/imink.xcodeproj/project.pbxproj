@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB520C1326146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
+		BB520C1426146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
+		BB520C1E26146C06006454FB /* StageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB520C1D26146C05006454FB /* StageImage.swift */; };
+		BB520C1F26146C06006454FB /* StageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB520C1D26146C05006454FB /* StageImage.swift */; };
 		BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
 		BBC15A24256B9CE200B67514 /* InkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBC15A2A256B9CEA00B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
@@ -68,6 +72,8 @@
 		EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
 		EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC807CA625F7385C003FC2E6 /* TodayView.swift */; };
+		EC809F28264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
+		EC809F29264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
 		EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611AA253AA873003BA67A /* SwiftUI.framework */; };
 		EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8611CB253AB9CB003BA67A /* Assets.xcassets */; };
@@ -220,6 +226,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB520C1526146683006454FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SplatNet2.strings; sourceTree = "<group>"; };
+		BB520C1926146686006454FB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
+		BB520C1A2614668A006454FB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
+		BB520C1B2614668A006454FB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SplatNet2.strings; sourceTree = "<group>"; };
+		BB520C1C2614668B006454FB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/SplatNet2.strings; sourceTree = "<group>"; };
+		BB520C1D26146C05006454FB /* StageImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageImage.swift; sourceTree = "<group>"; };
 		EC00DBC9251C9C0C0010366A /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		EC00DBD6251CA11D0010366A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
@@ -276,6 +288,7 @@
 		EC761294260B214C00C4D3AA /* NSOHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOHelper.swift; sourceTree = "<group>"; };
 		EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTopCardView.swift; sourceTree = "<group>"; };
 		EC807CA625F7385C003FC2E6 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplatNet2+Localized.swift"; sourceTree = "<group>"; };
 		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EC8611AA253AA873003BA67A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		EC8611C5253AB9C9003BA67A /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -562,6 +575,8 @@
 				EC900E9E251C8EF600AA0B20 /* API */,
 				EC900EA6251C8EF600AA0B20 /* Models */,
 				ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */,
+				BB520C1626146683006454FB /* SplatNet2.strings */,
+				EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -637,6 +652,7 @@
 				EC39703625482BE400557BD4 /* String+LocalizedString.swift */,
 				EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */,
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
+				BB520C1D26146C05006454FB /* StageImage.swift */,
 				EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */,
 			);
 			path = Utils;
@@ -891,6 +907,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB520C1426146683006454FB /* SplatNet2.strings in Resources */,
 				EC98421B253ADE970079D739 /* Localizable.strings in Resources */,
 				EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */,
 			);
@@ -901,6 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC900E81251C55FF00AA0B20 /* LaunchScreen.storyboard in Resources */,
+				BB520C1326146683006454FB /* SplatNet2.strings in Resources */,
 				ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */,
 				EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */,
 				EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */,
@@ -956,6 +974,7 @@
 				EC984218253ADE880079D739 /* AppTheme.swift in Sources */,
 				EC861225253AC656003BA67A /* APITargetType.swift in Sources */,
 				EC984234253AF3F70079D739 /* TransitionModifier.swift in Sources */,
+				BB520C1F26146C06006454FB /* StageImage.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
 				ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */,
 				EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */,
@@ -971,6 +990,7 @@
 				EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */,
 				EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */,
 				EC861223253AC656003BA67A /* AppAPI.swift in Sources */,
+				EC809F29264C196D00F125AA /* SplatNet2+Localized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,9 +1016,11 @@
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
 				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
 				EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */,
+				BB520C1E26146C06006454FB /* StageImage.swift in Sources */,
 				EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */,
 				EC17178325FB38CF00500D13 /* OnboardingViewModel.swift in Sources */,
 				EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */,
+				EC809F28264C196D00F125AA /* SplatNet2+Localized.swift in Sources */,
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
@@ -1080,6 +1102,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BB520C1626146683006454FB /* SplatNet2.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB520C1526146683006454FB /* en */,
+				BB520C1926146686006454FB /* zh-Hans */,
+				BB520C1A2614668A006454FB /* zh-Hant */,
+				BB520C1B2614668A006454FB /* ja */,
+				BB520C1C2614668B006454FB /* ko */,
+			);
+			name = SplatNet2.strings;
+			sourceTree = "<group>";
+		};
 		EC900E7A251C55FF00AA0B20 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1116,7 +1150,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 83;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1130,7 +1164,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.InkCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1146,7 +1180,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 83;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1160,7 +1194,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = jone.wang.InkCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1180,7 +1214,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 83;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1190,7 +1224,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1211,7 +1245,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 83;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = AppWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1221,7 +1255,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink.AppWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1361,7 +1395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 83;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1370,7 +1404,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -1388,7 +1422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = imink/imink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 83;
 				DEVELOPMENT_TEAM = SRT8ZNLRFZ;
 				INFOPLIST_FILE = imink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1397,7 +1431,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = wang.jone.imink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;

@@ -56,7 +56,7 @@ struct JobDetailTopCardView: View {
                 
                 HStack(spacing: 0) {
                     
-                    SalomonRunStageImageView(name: "\(stage.name)_img".localized, imageURL: stage.image)
+                    SalomonRunStageImageView(name: stage.imageName ?? "", imageURL: stage.image)
                         .aspectRatio(1000 / 519, contentMode: .fit)
                         .continuousCornerRadius(6)
                         .frame(width: width * 0.5723)
@@ -90,7 +90,7 @@ struct JobDetailTopCardView: View {
                 .padding(.bottom, 11.5)
                 
                 HStack {
-                    Text(stage.name.localizedKey)
+                    Text(stage.localizedName)
                         .sp2Font(size: 12, color: .systemGray)
                     
                     Spacer()

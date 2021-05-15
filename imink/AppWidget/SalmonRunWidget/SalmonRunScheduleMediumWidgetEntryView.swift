@@ -160,8 +160,8 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
                 
                 HStack(spacing: 10 + firstWeaponleading) {
                     makeStageImage(
-                        stageImageName: "\(schedule?.stage?.name ?? "")_img".localized,
-                        stageName: schedule?.stage?.name.localizedKey ?? "            "
+                        stageImageName: schedule?.stage?.imageName ?? "",
+                        stageName: schedule?.stage?.localizedName ?? "            "
                     )
                     .frame(width: (geo.size.width - (10 + firstWeaponleading)) / 2)
                     
@@ -180,7 +180,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
         }
     }
     
-    func makeStageImage(stageImageName: String, stageName: LocalizedStringKey) -> some View {
+    func makeStageImage(stageImageName: String, stageName: String) -> some View {
         SalomonRunStageImageView(name: stageImageName)
             .aspectRatio(contentMode: .fill)
             .frame(minHeight: 0, maxHeight: .infinity)

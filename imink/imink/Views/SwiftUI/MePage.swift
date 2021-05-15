@@ -18,7 +18,7 @@ struct MePage: View {
         _viewModel = StateObject(wrappedValue: MeViewModel(isLogined: isLogined))
     }
     
-    var udemaeData: [(LocalizedStringKey, Udemae?)] {
+    var udemaeData: [(String, Udemae?)] {
         guard let player = viewModel.records?.records.player else {
             return [
                 ("Splat Zones", nil),
@@ -28,7 +28,7 @@ struct MePage: View {
             ]
         }
         
-        var data = [(LocalizedStringKey, Udemae?)]()
+        var data = [(String, Udemae?)]()
         if let udemaeZones = player.udemaeZones, udemaeZones.name != nil {
             data.append(("Splat Zones", udemaeZones))
         }
@@ -93,7 +93,7 @@ struct MePage: View {
                                                 let (gameMode, udemae) = udemaeData[index]
                                                 
                                                 HStack {
-                                                    Text(gameMode)
+                                                    Text(gameMode.splatNet2Localized)
                                                         .sp2Font(size: 13, color: AppColor.appLabelColor)
                                                     
                                                     HStack(alignment: .lastTextBaseline, spacing: 0) {
@@ -101,7 +101,7 @@ struct MePage: View {
                                                             .sp1Font(size: 16, color: AppColor.spPink)
                                                         if let sPlusNumber = udemae?.sPlusNumber {
                                                             Text("\(sPlusNumber)")
-                                                                .sp1Font(size: 12)
+                                                                .sp1Font(size: 12, color: AppColor.spGreenLimeColor)
                                                         }
                                                     }
                                                 }
