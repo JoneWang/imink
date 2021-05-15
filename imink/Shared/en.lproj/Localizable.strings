@@ -1,4 +1,3 @@
-
 /*
   Localizable.strings
   imink
@@ -6,8 +5,8 @@
   Created by Jone Wang on 2020/9/4.
   
 */
-
 // MARK: API error
+
 
 "Error connecting to the server" = "Error connecting to the server";
 "Authorization error" = "Authorization error";
