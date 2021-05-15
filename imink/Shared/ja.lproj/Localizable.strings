@@ -16,15 +16,15 @@
 
 // MARK: Tab bar
 
-"Home" = "ホーム";
-"Battles" = "バトル";
-"Me" = "わたし";
+"Home" = "Home";
+"Battles" = "Battles";
+"Me" = "Me";
 
 // MARK: Sign in
 
-"Welcome to imink!" = "imink へようこそ！";
-"Log in to sync your data" = "ログインでデータを同期";
-"Log in with Nintendo Account" = "Nintendo Account でサインイン";
+"Welcome to imink!" = "Welcome to imink!";
+"Log in to sync your data" = "Log in to sync your data";
+"Log in with Nintendo Account" = "Log in with Nintendo Account";
 "login_error_title" = "Failure";
 "login_error_message" = "The login authentication server is busy, please try again later.";
 "session_token_invalid_title" = "Login Expired";
@@ -35,107 +35,107 @@
 
 // MARK: Home
 
-"Today" = "今日";
-"reset" = "リセット";
-"Victory rate:" = "しょうりつ：";
-"Results" = "きろく";
-"Last 500" = "最近の500回";
-"Last 50" = "最近の50回";
-"Splatfest" = "フェスマッチ";
-"Schedule" = "ステージ情報";
-"Battle" = "バトル";
+"Today" = "Today";
+"reset" = "reset";
+"Victory rate:" = "Victory:";
+"Results" = "Results";
+"Last 500" = "Last 500";
+"Last 50" = "Last 50";
+"Splatfest" = "Splatfest";
+"Schedule" = "Schedule";
+"Battle" = "Battle";
 
 // MARK: Battles
 
-"%@ power" = "%@ パワー";
-"Current" = "現在";
-"Highest" = "最高";
-"Crew" = "味方";
-"Rival" = "相手";
-"My X Power" = "自分のXパワー";
-"Average" = "8人のXパワー";
-" count" = "カウント";
-"KO BONUS!" = "ノックアウト！";
+"%@ power" = "%@ power";
+"Current" = "Current";
+"Highest" = "Highest";
+"Crew" = "Crew";
+"Rival" = "Rival";
+"My X Power" = "My X Power";
+"Average" = "Average";
+" count" = " count";
+"KO BONUS!" = "KO BONUS!";
 
-"8-Squid Tower Control Power" = "8人のガチヤグラパワー";
-"8-Squid Rainmaker Power" = "8人のガチホコバトルパワー";
-"8-Squid Clam Blitz Power" = "8人のガチアサリパワー";
-"8-Squid Splat Zones Power" = "8人のガチエリアパワー";
-"8-Squid Splat Zones X Power" = "8人のガチエリアXパワー";
-"8-Squid Tower Control X Power" = "8人のガチヤグラXパワー";
-"8-Squid Rainmaker X Power" = "8人のガチホコバトルXパワー";
-"8-Squid Clam Blitz X Power" = "8人のガチアサリXパワー";
-"8-Squid ガチヤグラ Power" = "8人のガチヤグラパワー";
-"8-Squid ガチホコバトル Power" = "8人のガチホコバトルパワー";
-"8-Squid ガチアサリ Power" = "8人のガチアサリパワー";
-"8-Squid ガチエリア Power" = "8人のガチエリアパワー";
-"8-Squid ガチエリア X Power" = "8人のガチエリアXパワー";
-"8-Squid ガチヤグラ X Power" = "8人のガチヤグラXパワー";
-"8-Squid ガチホコバトル X Power" = "8人のガチホコバトルXパワー";
-"8-Squid ガチアサリ X Power" = "8人のガチアサリXパワー";
+"8-Squid Tower Control Power" = "8-Squid Tower Control Power";
+"8-Squid Rainmaker Power" = "8-Squid Rainmaker Power";
+"8-Squid Clam Blitz Power" = "8-Squid Clam Blitz Power";
+"8-Squid Splat Zones Power" = "8-Squid Splat Zones Power";
+"8-Squid Splat Zones X Power" = "8-Squid Splat Zones X Power";
+"8-Squid Tower Control X Power" = "8-Squid Tower Control X Power";
+"8-Squid Rainmaker X Power" = "8-Squid Rainmaker X Power";
+"8-Squid Clam Blitz X Power" = "8-Squid Clam Blitz X Power";
+"8-Squid ガチヤグラ Power" = "8-Squid Tower Control Power";
+"8-Squid ガチホコバトル Power" = "8-Squid Rainmaker Power";
+"8-Squid ガチアサリ Power" = "8-Squid Clam Blitz Power";
+"8-Squid ガチエリア Power" = "8-Squid Splat Zones Power";
+"8-Squid ガチエリア X Power" = "8-Squid Splat Zones X Power";
+"8-Squid ガチヤグラ X Power" = "8-Squid Tower Control X Power";
+"8-Squid ガチホコバトル X Power" = "8-Squid Rainmaker X Power";
+"8-Squid ガチアサリ X Power" = "8-Squid Clam Blitz X Power";
 
 // MARK: Salmon Run
 
-"grade_0" = "けんしゅう";
-"grade_1" = "かけだし";
-"grade_2" = "はんにんまえ";
-"grade_3" = "いちにんまえ";
-"grade_4" = "じゅくれん";
-"grade_5" = "たつじん";
-"Hazard Level" = "キケン度";
-"Clear!" = "Clear!!";
-"Defeat_job" = "Failure";
-"Wave %d" = "WAVE %d";
+"grade_0" = "Intern";
+"grade_1" = "Apprentice";
+"grade_2" = "Part-Timer";
+"grade_3" = "Go-Getter";
+"grade_4" = "Overachiever";
+"grade_5" = "Profreshional";
+"Hazard Level" = "Hazard Level";
+"Clear!" = "Clear!";
+"Defeat_job" = "Defeat";
+"Wave %d" = "Wave %d";
 
 // MARK: Me
 
-"Language" = "言語";
-"Source code" = "ソースコード";
-"FAQ" = "よくある質問";
-"About imink" = "imink に関して";
-"Log out" = "ログアウト";
-"Are you sure you want to log out?" = "ログアウトしますか？";
+"Language" = "Language";
+"Source code" = "Source code";
+"FAQ" = "FAQ";
+"About imink" = "About imink";
+"Log out" = "Log out";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
 
 // MARK: Schedule
 
-"Now" = "現在";
-"Next" = "つぎ";
-"Next Day" = "そのつぎ";
-"Supplied Weapons" = "支給ブキ";
-"Open!" = "オープン！";
-"Soon!" = "もうすぐ";
-"Next_salmonrun" = "つぎ";
-"Future" = "そのっぎ";
-"In %d hours" = "%d時間後";
+"Now" = "Now";
+"Next" = "Next";
+"Next Day" = "Next Day";
+"Supplied Weapons" = "Supplied Weapons";
+"Open!" = "Open!";
+"Soon!" = "Soon!";
+"Next_salmonrun" = "Next";
+"Future" = "Future";
+"In %d hours" = "In %d hours";
 
 // MARK: Widget
 
-"widget_regular_schedule_preview_description" = "レギュラーマッチステージ情報";
-"widget_ranked_schedule_preview_description" = "ガチマッチステージ情報";
-"widget_league_schedule_preview_description" = "リーグマッチセテージ情報";
-"widget_salmon_run_schedule_preview_description" = "サーモンランシフト表";
+"widget_regular_schedule_preview_description" = "View the current and upcoming Regular Battle stages.";
+"widget_ranked_schedule_preview_description" = "View the current and upcoming Ranked Battle stages.";
+"widget_league_schedule_preview_description" = "View the current and upcoming League Battle stages.";
+"widget_salmon_run_schedule_preview_description" = "View the latest Salmon Run shift schedule.";
 
 // MARK: Game
 
-"Victory" = "WIN";
-"Defeat" = "LOSE";
-"VICTORY" = "WIN！";
-"DEFEAT" = "LOSE...";
+"Victory" = "VICTORY";
+"Defeat" = "DEFEAT";
+"VICTORY" = "VICTORY";
+"DEFEAT" = "DEFEAT";
 
 // MARK: Common
 
-"Back" = "戻る";
-"Yes" = "はい";
-"No" = "いいえ";
+"Back" = "Back";
+"Yes" = "Yes";
+"No" = "No";
 
 // MARK: Onboarding
 
-"Welcome to imink" = "imink へようこそ";
-"Welcome to imink_multi-line" = "imink\nへようこそ";
-"Real-Time Syncing" = "データ自動同期";
-"onboarding_description_1" = "リフレッシュせずに、回数制限なしでリアルタイムの戦績データを自動的に同期する。";
-"Home Screen Widgets" = "ウィジェット";
-"onboarding_description_2" = "ウィジェットを利用してホーム画面でゲームのステージとシフト表の確認ができる。";
-"Salmon Run" = "サーモンラン";
-"onboarding_description_3" = "シャケたちを倒し、イクラを集めてサーモンでの評価を上げよう。";
-"Continue" = "続ける";
+"Welcome to imink" = "Welcome to imink";
+"Welcome to imink_multi-line" = "Welcome to\nimink";
+"Real-Time Syncing" = "Real-Time Syncing";
+"onboarding_description_1" = "Battle results auto synced and stored with no upper limit.";
+"Home Screen Widgets" = "Home Screen Widgets";
+"onboarding_description_2" = "Effortlessly view the game schedule on the Home screen.";
+"Salmon Run" = "Salmon Run";
+"onboarding_description_3" = "Check how good you perform as Grizzco’s loyal egg collector.";
+"Continue" = "Continue";
