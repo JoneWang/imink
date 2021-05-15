@@ -169,6 +169,7 @@ struct MePage: View {
                             Spacer()
                         }
                     }
+                    .animation(.default)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         viewModel.packingData { exportPath in
