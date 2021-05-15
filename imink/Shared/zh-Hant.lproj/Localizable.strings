@@ -1,4 +1,3 @@
-
 /*
   Localizable.strings
   imink
@@ -6,8 +5,8 @@
   Created by Jone Wang on 2020/9/4.
   
 */
-
 // MARK: API error
+
 
 "Error connecting to the server" = "Error connecting to the server";
 "Authorization error" = "Authorization error";
@@ -17,126 +16,126 @@
 
 // MARK: Tab bar
 
-"Home" = "首頁";
-"Battles" = "對戰";
-"Me" = "我";
+"Home" = "Home";
+"Battles" = "Battles";
+"Me" = "Me";
 
 // MARK: Sign in
 
-"Welcome to imink!" = "歡迎使用 imink！";
-"Log in to sync your data" = "立即登入同步資料";
-"Log in with Nintendo Account" = "任天堂帳號登入";
-"login_error_title" = "失敗";
-"login_error_message" = "登入驗證伺服器正忙，請稍後重試。";
-"session_token_invalid_title" = "登入已過期";
-"session_token_invalid_message" = "由於長時間未使用imink，您的登入資料已過期，請重新登入。";
-"relogin_title" = "更新告示";
-"relogin_message" = "本次更新修正了可能致使戰績停止同步的 bug。本修正需要您重新登入賬號，以更新登入資料，在此之後，您將不需要頻繁重新登錄。當下給您帶來不便，敬請諒解。";
-"user_game_data_not_exist_message" = "請確認您的賬號下持有 Splatoon 2 遊戲資料和有效的 Nintendo Switch Online 會員資格。";
+"Welcome to imink!" = "Welcome to imink!";
+"Log in to sync your data" = "Log in to sync your data";
+"Log in with Nintendo Account" = "Log in with Nintendo Account";
+"login_error_title" = "Failure";
+"login_error_message" = "The login authentication server is busy, please try again later.";
+"session_token_invalid_title" = "Login Expired";
+"session_token_invalid_message" = "Your login information has expired due to long-term inactivity, please log in again.";
+"relogin_title" = "Update Notice";
+"relogin_message" = "This update fixed a bug that could potentially prevent battle results from syncing, which will require you to re-log with your account. This is a one-time event and you won’t need to log in periodically in the future. Sorry for the inconvenience.";
+"user_game_data_not_exist_message" = "Please make sure your account has Splatoon 2 gameplay data and an active Nintendo Switch Online membership.";
 
 // MARK: Home
 
-"Today" = "今日";
-"reset" = "重置";
-"Victory rate:" = "勝率：";
-"Results" = "近期戰況";
-"Last 500" = "最近500場";
-"Last 50" = "最近50場";
-"Splatfest" = "祭典";
-"Schedule" = "日程";
-"Battle" = "對戰";
+"Today" = "Today";
+"reset" = "reset";
+"Victory rate:" = "Victory:";
+"Results" = "Results";
+"Last 500" = "Last 500";
+"Last 50" = "Last 50";
+"Splatfest" = "Splatfest";
+"Schedule" = "Schedule";
+"Battle" = "Battle";
 
 // MARK: Battles
 
-"%@ power" = "%@ 分";
-"Current" = "現在";
-"Highest" = "最高";
-"Crew" = "隊友";
-"Rival" = "對手";
-"My X Power" = "我的X段分";
-"Average" = "8人平均分";
-" count" = " 分";
-"KO BONUS!" = "KO  完勝！";
+"%@ power" = "%@ power";
+"Current" = "Current";
+"Highest" = "Highest";
+"Crew" = "Crew";
+"Rival" = "Rival";
+"My X Power" = "My X Power";
+"Average" = "Average";
+" count" = " count";
+"KO BONUS!" = "KO BONUS!";
 
-"8-Squid Tower Control Power" = "8人真劍推塔平均分";
-"8-Squid Rainmaker Power" = "8人真劍運鯱平均分";
-"8-Squid Clam Blitz Power" = "8人真劍蛤蜊平均分";
-"8-Squid Splat Zones Power" = "8人真劍佔地平均分";
-"8-Squid Splat Zones X Power" = "8人X段佔地平均分";
-"8-Squid Tower Control X Power" = "8人X段推塔平均分";
-"8-Squid Rainmaker X Power" = "8人X段運鯱平均分";
-"8-Squid Clam Blitz X Power" = "8人X段蛤蜊平均分";
-"8-Squid ガチヤグラ Power" = "8人真劍推塔平均分";
-"8-Squid ガチホコバトル Power" = "8人真劍運鯱平均分";
-"8-Squid ガチアサリ Power" = "8人真劍蛤蜊平均分";
-"8-Squid ガチエリア Power" = "8人真劍佔地平均分";
-"8-Squid ガチエリア X Power" = "8人X段佔地平均分";
-"8-Squid ガチヤグラ X Power" = "8人X段推塔平均分";
-"8-Squid ガチホコバトル X Power" = "8人X段運鯱平均分";
-"8-Squid ガチアサリ X Power" = "8人X段蛤蜊平均分";
+"8-Squid Tower Control Power" = "8-Squid Tower Control Power";
+"8-Squid Rainmaker Power" = "8-Squid Rainmaker Power";
+"8-Squid Clam Blitz Power" = "8-Squid Clam Blitz Power";
+"8-Squid Splat Zones Power" = "8-Squid Splat Zones Power";
+"8-Squid Splat Zones X Power" = "8-Squid Splat Zones X Power";
+"8-Squid Tower Control X Power" = "8-Squid Tower Control X Power";
+"8-Squid Rainmaker X Power" = "8-Squid Rainmaker X Power";
+"8-Squid Clam Blitz X Power" = "8-Squid Clam Blitz X Power";
+"8-Squid ガチヤグラ Power" = "8-Squid Tower Control Power";
+"8-Squid ガチホコバトル Power" = "8-Squid Rainmaker Power";
+"8-Squid ガチアサリ Power" = "8-Squid Clam Blitz Power";
+"8-Squid ガチエリア Power" = "8-Squid Splat Zones Power";
+"8-Squid ガチエリア X Power" = "8-Squid Splat Zones X Power";
+"8-Squid ガチヤグラ X Power" = "8-Squid Tower Control X Power";
+"8-Squid ガチホコバトル X Power" = "8-Squid Rainmaker X Power";
+"8-Squid ガチアサリ X Power" = "8-Squid Clam Blitz X Power";
 
 // MARK: Salmon Run
 
-"grade_0" = "實習生";
-"grade_1" = "學徒";
-"grade_2" = "兼職員工";
-"grade_3" = "正職員工";
-"grade_4" = "熟練員工";
-"grade_5" = "捕魚達人";
-"Hazard Level" = "危險度";
-"Clear!" = "通過！";
-"Defeat_job" = "失敗";
-"Wave %d" = "WAVE %d";
+"grade_0" = "Intern";
+"grade_1" = "Apprentice";
+"grade_2" = "Part-Timer";
+"grade_3" = "Go-Getter";
+"grade_4" = "Overachiever";
+"grade_5" = "Profreshional";
+"Hazard Level" = "Hazard Level";
+"Clear!" = "Clear!";
+"Defeat_job" = "Defeat";
+"Wave %d" = "Wave %d";
 
 // MARK: Me
 
-"Language" = "語言";
-"Source code" = "原始碼";
-"FAQ" = "常見問題";
-"About imink" = "關於 inimk";
-"Log out" = "登出";
-"Are you sure you want to log out?" = "確定要登出嗎？";
+"Language" = "Language";
+"Source code" = "Source code";
+"FAQ" = "FAQ";
+"About imink" = "About imink";
+"Log out" = "Log out";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
 
 // MARK: Schedule
 
-"Now" = "現在";
-"Next" = "下一輪";
-"Next Day" = "明天";
-"Supplied Weapons" = "武器供應";
-"Open!" = "開工中！";
-"Soon!" = "待工中";
-"Next_salmonrun" = "下一班";
-"Future" = "已排班";
-"In %d hours" = "%d小時後";
+"Now" = "Now";
+"Next" = "Next";
+"Next Day" = "Next Day";
+"Supplied Weapons" = "Supplied Weapons";
+"Open!" = "Open!";
+"Soon!" = "Soon!";
+"Next_salmonrun" = "Next";
+"Future" = "Future";
+"In %d hours" = "In %d hours";
 
 // MARK: Widget
 
-"widget_regular_schedule_preview_description" = "檢視普通對戰的日程和地圖";
-"widget_ranked_schedule_preview_description" = "檢視真劍模式的日程和地圖";
-"widget_league_schedule_preview_description" = "檢視聯盟模式的日程和地圖";
-"widget_salmon_run_schedule_preview_description" = "檢視熊商會打工的日程和地圖";
+"widget_regular_schedule_preview_description" = "View the current and upcoming Regular Battle stages.";
+"widget_ranked_schedule_preview_description" = "View the current and upcoming Ranked Battle stages.";
+"widget_league_schedule_preview_description" = "View the current and upcoming League Battle stages.";
+"widget_salmon_run_schedule_preview_description" = "View the latest Salmon Run shift schedule.";
 
 // MARK: Game
 
-"Victory" = "勝利";
-"Defeat" = "失敗";
-"VICTORY" = "勝利";
-"DEFEAT" = "失敗";
+"Victory" = "VICTORY";
+"Defeat" = "DEFEAT";
+"VICTORY" = "VICTORY";
+"DEFEAT" = "DEFEAT";
 
 // MARK: Common
 
-"Back" = "返回";
-"Yes" = "是";
-"No" = "否";
+"Back" = "Back";
+"Yes" = "Yes";
+"No" = "No";
 
 // MARK: Onboarding
 
-"Welcome to imink" = "歡迎使用imink";
-"Welcome to imink_multi-line" = "歡迎使用\nimink";
-"Real-Time Syncing" = "即時同步";
-"onboarding_description_1" = "即時自動同步每條戰績，毋免手動更新，沒有數目上限。";
-"Home Screen Widgets" = "主畫面小工具";
-"onboarding_description_2" = "通过小工具在主畫面上一目了然地檢視遊戲日程和地圖。";
-"Salmon Run" = "熊商會打工";
-"onboarding_description_3" = "擊敗鮭魚，收集魚卵，提升你在熊商會的工作績效。";
-"Continue" = "繼續";
+"Welcome to imink" = "Welcome to imink";
+"Welcome to imink_multi-line" = "Welcome to\nimink";
+"Real-Time Syncing" = "Real-Time Syncing";
+"onboarding_description_1" = "Battle results auto synced and stored with no upper limit.";
+"Home Screen Widgets" = "Home Screen Widgets";
+"onboarding_description_2" = "Effortlessly view the game schedule on the Home screen.";
+"Salmon Run" = "Salmon Run";
+"onboarding_description_3" = "Check how good you perform as Grizzco’s loyal egg collector.";
+"Continue" = "Continue";
