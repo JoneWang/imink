@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-extension View {
-    func popup(isPresented: Bool, onDismiss: @escaping () -> Void, @ViewBuilder content: () -> Content) -> some View {
-        self.modifier(
-            Popup(isPresented: isPresented,
-                  onDismiss: onDismiss,
-                  content: content)
-        )
-    }
-}
+//extension View {
+//    func popup(isPresented: Bool, onDismiss: @escaping () -> Void, @ViewBuilder content: () -> Content) -> some View {
+//        self.modifier(
+//            Popup(isPresented: isPresented,
+//                  onDismiss: onDismiss,
+//                  content: content)
+//        )
+//    }
+//}
 
 struct Popup<T: View>: ViewModifier {
     let popup: T
