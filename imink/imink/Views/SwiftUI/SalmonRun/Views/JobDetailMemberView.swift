@@ -7,7 +7,6 @@
 
 import SwiftUI
 import InkCore
-import SDWebImageSwiftUI
 
 struct JobDetailMemberView: View {
     let playerResult: Job.PlayerResult
@@ -81,8 +80,7 @@ struct JobDetailMemberView: View {
                 
                 Rectangle()
                     .overlay(
-                        WebImage(url: playerResult.special.imageA)
-                            .resizable()
+                        ImageView.special(id: playerResult.special.id)
                             .frame(width: 14, height: 14)
                     )
                     .foregroundColor(AppColor.salmonRunSpecialBackgroundColor)

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import InkCore
 
 struct JobDetailWaveView: View {
     let waveIndex: Int
@@ -97,8 +97,7 @@ struct JobDetailWaveView: View {
                             let special = allSpecials[j]
                             Rectangle()
                                 .overlay(
-                                    WebImage(url: special.imageA)
-                                        .resizable()
+                                    ImageView.special(id: special.id)
                                         .frame(width: 10, height: 10)
                                 )
                                 .foregroundColor(AppColor.salmonRunSpecialBackgroundColor)

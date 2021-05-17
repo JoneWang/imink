@@ -111,12 +111,8 @@ struct BattleDetailMemberView: View {
                 VStack(spacing: 2.5) {
                     Rectangle()
                         .overlay(
-                            WebImage(url: victory ?
-                                        member.player.weapon.special.imageA :
-                                        member.player.weapon.special.imageB
-                            )
-                            .resizable()
-                            .frame(width: 10, height: 10)
+                            ImageView.special(id: member.player.weapon.special.id, isA: victory)
+                                .frame(width: 10, height: 10)
                         )
                         .foregroundColor(victory ? AppColor.playerResultSpecialVictoryBackgroundColor : AppColor.playerResultSpecialDefeatBackgroundColor)
                         .frame(width: 14, height: 14)
