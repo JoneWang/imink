@@ -60,6 +60,10 @@ public extension ImageView {
     static func ability(id: String, imageURL: URL? = nil) -> some View {
         ImageView(imageName: "ability-\(id)", imageURL: imageURL, imageURLBehaviour: .standby)
     }
+    
+    static func sub(id: String, isA: Bool) -> some View {
+        ImageView(imageName: "sub-\(isA ? "a" : "b")-\(id)", imageURLBehaviour: .standby)
+    }
 }
 
 struct ImageView_Previews: PreviewProvider {
