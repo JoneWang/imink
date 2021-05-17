@@ -56,6 +56,10 @@ public extension ImageView {
     static func salomonRunStage(name: String, imageURL: URL? = nil, imageURLBehaviour: ImageView.ImageURLBehaviour = .standby) -> some View {
         ImageView(imageName: name, imageURL: imageURL, imageURLBehaviour: imageURLBehaviour)
     }
+    
+    static func ability(id: String, imageURL: URL? = nil) -> some View {
+        ImageView(imageName: "ability-\(id)", imageURL: imageURL, imageURLBehaviour: .standby)
+    }
 }
 
 struct ImageView_Previews: PreviewProvider {
