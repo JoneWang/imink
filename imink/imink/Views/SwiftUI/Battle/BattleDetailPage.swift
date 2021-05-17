@@ -230,7 +230,11 @@ struct BattleDetailPage: View {
                     ForEach(0..<members.count) { j in
                         let member = members[j]
                         ZStack {
-                            BattleDetailMemberView(victory: victory, member: member)
+                            BattleDetailMemberView(
+                                victory: victory,
+                                member: member,
+                                isSelected: member.player == activePlayer && showPlayerSkill
+                            )
                                 .onTapGesture {
                                     activePlayer = member.player
                                     activePlayerVictory = victory

@@ -12,6 +12,7 @@ import InkCore
 struct BattleDetailMemberView: View {
     let victory: Bool
     let member: TeamMember
+    let isSelected: Bool
     
     var body: some View {
         HStack(spacing: 0) {
@@ -131,7 +132,7 @@ struct BattleDetailMemberView: View {
         .padding(.leading, 14)
         .padding(.trailing, 13)
         .frame(height: 37)
-        .background(AppColor.listItemBackgroundColor)
+        .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
         .clipShape(Capsule())
     }
 }
@@ -144,9 +145,9 @@ struct BattleDetailMemberView_Previews: PreviewProvider {
         let json = String(data: sampleData, encoding: .utf8)!
         let battle = json.decode(Battle.self)!
         
-        BattleDetailMemberView(victory: true, member: (battle.myTeamMembers?[0])!)
+        BattleDetailMemberView(victory: true, member: (battle.myTeamMembers?[0])!, isSelected: false)
             .previewLayout(.sizeThatFits)
-        BattleDetailMemberView(victory: false, member: (battle.otherTeamMembers?[0])!)
+        BattleDetailMemberView(victory: false, member: (battle.otherTeamMembers?[0])!, isSelected: false)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }
