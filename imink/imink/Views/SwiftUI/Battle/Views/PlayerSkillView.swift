@@ -24,10 +24,15 @@ struct PlayerSkillView: View {
             if let player = player {
                 VStack(spacing: 18) {
                     VStack(spacing: 8) {
-                        SkillImageView(url: viewModel.image)
-                            .frame(width: 40, height: 40)
-                            .background(Color.systemGray5)
-                            .clipShape(Circle())
+                        ZStack {
+                            Circle()
+                                .foregroundColor(.systemGray5)
+                            
+                            WebImage(url: viewModel.image)
+                                .resizable()
+                                .clipShape(Circle())
+                        }
+                        .frame(width: 40, height: 40)
                         
                         Text(player.nickname)
                             .sp2Font(size: 14, color: AppColor.appLabelColor)
@@ -42,32 +47,30 @@ struct PlayerSkillView: View {
                         ForEach(0..<skillData.count) { i in
                             let skill = skillData[i]
                             HStack(spacing: 14) {
-                                Rectangle()
-                                    .foregroundColor(.clear)
-                                    .overlay(
-                                        SkillImageView(url: skill.0.image)
-                                    )
+                                WebImage(url: skill.0.image)
+                                    .resizable()
                                     .frame(width: 32, height: 32)
-                                    .clipped()
                                 
                                 HStack(spacing: 6) {
-                                    Circle()
-                                        .foregroundColor(.black)
-                                        .overlay(
-                                            SkillImageView(url: skill.1.image)
-                                                .padding(2.5)
-                                        )
-                                        .frame(width: 30, height: 30)
+                                    ZStack {
+                                        Circle()
+                                            .foregroundColor(.black)
+                                        
+                                        ImageView.ability(id: skill.1.id, imageURL: skill.1.image)
+                                            .padding(2.5)
+                                    }
+                                    .frame(width: 30, height: 30)
                                     
                                     ForEach(0..<skill.2.count) { j in
                                         if let sub = skill.2[j] {
-                                            Circle()
-                                                .foregroundColor(.black)
-                                                .overlay(
-                                                    SkillImageView(url: sub.image)
-                                                        .padding(2)
-                                                )
-                                                .frame(width: 22, height: 22)
+                                            ZStack {
+                                                Circle()
+                                                    .foregroundColor(.black)
+                                                
+                                                ImageView.ability(id: sub.id, imageURL: sub.image)
+                                                    .padding(2)
+                                            }
+                                            .frame(width: 22, height: 22)
                                         }
                                     }
                                 }
@@ -86,26 +89,23 @@ struct PlayerSkillView: View {
                         
                         Spacer()
                         
-                        Circle()
-                            .foregroundColor(.black)
-                            .overlay(
-                                SkillImageView(url: victory ?
-                                            player.weapon.sub.imageA :
-                                            player.weapon.sub.imageB
-                                )
-                                .padding(4)
-                            )
+                        
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(.black)
+                                
+                                ImageView.sub(id: player.weapon.sub.id, isA: victory)
+                                    .padding(4)
+                            }
                             .frame(width: 24, height: 24)
                         
-                        Circle()
-                            .foregroundColor(.black)
-                            .overlay(
-                                SkillImageView(url: victory ?
-                                            player.weapon.special.imageA :
-                                            player.weapon.special.imageB
-                                )
-                                .padding(4)
-                            )
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(.black)
+                                
+                                ImageView.special(id: player.weapon.special.id, isA: victory)
+                                    .padding(4)
+                            }
                             .frame(width: 24, height: 24)
                     }
                     .padding(.leading, 14)
@@ -130,7 +130,7 @@ struct PlayerSkillView: View {
                         onDismiss()
                     }, alignment: .topTrailing)
                 .frame(height: 310)
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: 343)
                 .background(AppColor.listItemBackgroundColor)
                 .continuousCornerRadius(18)
                 .padding(16)
@@ -176,100 +176,5 @@ extension Player: Equatable {
 //                        }))
 //        .ignoresSafeArea()
 //        //        }
-//    }
-//}
-
-
-
-import FetchImage
-
-struct SkillImageView: View {
-    let url: URL?
-    
-    @StateObject private var image = FetchImage()
-    
-    var body: some View {
-        ZStack {
-            image.view?
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipped()
-        }
-        .onChange(of: url, perform: { url in
-            image.reset()
-            guard let url = url else {
-                return
-            }
-            image.load(url)
-        })
-        .onAppear {
-            guard let url = url else {
-                return
-            }
-            image.load(url)
-        }
-        .onDisappear(perform: image.reset)
-    }
-}
-
-//import NetworkImage
-//
-//struct ImageView: View {
-//
-//    let url: URL?
-//
-//    var body: some View {
-//        NetworkImage(url: url)
-//            .scaledToFit()
-//    }
-//}
-
-//struct ImageView: View {
-//
-//    let url: URL?
-//
-//    @State private var image: UIImage? = nil
-//
-//    var body: some View {
-//        ZStack {
-//            if let image = image {
-//                Image(uiImage: image)
-//                    .resizable()
-//            } else {
-//                Image("Empty")
-//                    .resizable()
-//            }
-//        }
-//        .transition(.fade)
-//        .onChange(of: url, perform: { url in
-//            image = nil
-//            self.load(url: url)
-//        })
-//        .onAppear(perform: {
-//            self.load(url: url)
-//        })
-//        .onDisappear(perform: {
-//            image = nil
-//        })
-//    }
-//
-//    private func load(url: URL?) {
-//        guard let url = url else {
-//            return
-//        }
-//
-//        if SDImageCache.shared.diskImageDataExists(withKey: url.absoluteString) {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
-//                image = SDImageCache.shared.imageFromCache(forKey: url.absoluteString)
-//            }
-//        } else {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
-//                SDWebImageDownloader.shared.downloadImage(with: url) { (downloadedImage, data, error, finished) in
-//                    if let downloadedImage = downloadedImage, finished {
-//                        image = downloadedImage
-//                    }
-//                }
-//            }
-//        }
 //    }
 //}

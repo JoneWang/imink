@@ -69,10 +69,14 @@ struct BattleDetailPage: View {
         }
         .modifier(Popup(isPresented: showPlayerSkill,
                         onDismiss: {
-                            showPlayerSkill = false
+                            withAnimation {
+                                showPlayerSkill = false
+                            }
                         }, content: {
                             PlayerSkillView(victory: $activePlayerVictory, player: $activePlayer) {
-                                showPlayerSkill = false
+                                withAnimation {
+                                    showPlayerSkill = false
+                                }
                             }
                         }))
     }
@@ -230,9 +234,9 @@ struct BattleDetailPage: View {
                                 .onTapGesture {
                                     activePlayer = member.player
                                     activePlayerVictory = victory
-//                                    withAnimation {
+                                    withAnimation {
                                         showPlayerSkill = true
-//                                    }
+                                    }
                                 }
                             
                             if member.player.principalId == battle.playerResult.player.principalId {
