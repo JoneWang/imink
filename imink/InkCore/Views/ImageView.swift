@@ -43,6 +43,21 @@ public struct ImageView: View {
     }
 }
 
+public extension ImageView {
+    
+    static func weapon(id: String, imageURL: URL? = nil) -> some View {
+        ImageView(imageName: "weapon-\(id)", imageURL: imageURL, imageURLBehaviour: .standby)
+    }
+    
+    static func stage(id: String, imageURL: URL? = nil, imageURLBehaviour: ImageView.ImageURLBehaviour = .standby) -> some View {
+        ImageView(imageName: "stage-\(id)", imageURL: imageURL, imageURLBehaviour: imageURLBehaviour)
+    }
+    
+    static func salomonRunStage(name: String, imageURL: URL? = nil, imageURLBehaviour: ImageView.ImageURLBehaviour = .standby) -> some View {
+        ImageView(imageName: name, imageURL: imageURL, imageURLBehaviour: imageURLBehaviour)
+    }
+}
+
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         ImageView(imageName: "weapon-0")

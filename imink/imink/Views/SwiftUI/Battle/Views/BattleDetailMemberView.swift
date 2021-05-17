@@ -41,7 +41,7 @@ struct BattleDetailMemberView: View {
             .padding(.bottom, 1)
             .padding(.trailing, 7)
             
-            WeaponImageView(
+            ImageView.weapon(
                 id: member.player.weapon.id,
                 imageURL: member.player.weapon.image)
                 .frame(width: 22, height: 22)

@@ -171,7 +171,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
                                 Spacer()
                             }
                             let weapon = schedule?.weapons?[i]
-                            WeaponImageView(id: weapon?.id ?? "")
+                            ImageView.weapon(id: weapon?.id ?? "")
                                 .aspectRatio(contentMode: .fit)
                         }
                     }
@@ -181,7 +181,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     }
     
     func makeStageImage(stageImageName: String, stageName: String) -> some View {
-        SalomonRunStageImageView(name: stageImageName)
+        ImageView.salomonRunStage(name: stageImageName)
             .aspectRatio(contentMode: .fill)
             .frame(minHeight: 0, maxHeight: .infinity)
             .overlay(

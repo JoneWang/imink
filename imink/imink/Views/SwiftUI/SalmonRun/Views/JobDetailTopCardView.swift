@@ -56,7 +56,7 @@ struct JobDetailTopCardView: View {
                 
                 HStack(spacing: 0) {
                     
-                    SalomonRunStageImageView(name: stage.imageName ?? "", imageURL: stage.image)
+                    ImageView.salomonRunStage(name: stage.imageName ?? "", imageURL: stage.image)
                         .aspectRatio(1000 / 519, contentMode: .fit)
                         .continuousCornerRadius(6)
                         .frame(width: width * 0.5723)
@@ -126,7 +126,7 @@ struct JobDetailTopCardView: View {
                 
                 HStack {
                     ForEach(job.schedule.weapons!) { weapon in
-                        WeaponImageView(id: weapon.id, imageURL: weapon.weapon?.image)
+                        ImageView.weapon(id: weapon.id, imageURL: weapon.weapon?.image)
                             .frame(width: 20, height: 20)
                     }
                     

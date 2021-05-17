@@ -89,7 +89,7 @@ struct ScheduleView: View {
                                         .sp2Font(color: AppColor.appLabelColor)
                                         .minimumScaleFactor(0.5)
                                     
-                                    StageImageView(id: stage.id)
+                                    ImageView.stage(id: stage.id)
                                         .aspectRatio(640 / 360, contentMode: .fill)
                                         .continuousCornerRadius(8)
                                         .overlay(

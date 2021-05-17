@@ -60,7 +60,7 @@ struct JobShiftCardView: View {
                     HStack {
                         ForEach(0..<4) { i in
                             let weapon = shiftCard.weapons[i]
-                            WeaponImageView(id: weapon.0, imageURL: weapon.1)
+                            ImageView.weapon(id: weapon.0, imageURL: weapon.1)
                                 .frame(width: 20, height: 20)
                         }
                     }

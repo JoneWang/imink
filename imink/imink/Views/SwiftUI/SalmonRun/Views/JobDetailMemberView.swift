@@ -69,7 +69,7 @@ struct JobDetailMemberView: View {
                 ForEach(playerResult.weaponList, id: \.id) { weapon in
                     Rectangle()
                         .overlay(
-                            WeaponImageView(id: weapon.id, imageURL: weapon.weapon?.image)
+                            ImageView.weapon(id: weapon.id, imageURL: weapon.weapon?.image)
                                 .frame(width: 22, height: 22)
                                 .padding(.leading, 2),
                             alignment: .leading

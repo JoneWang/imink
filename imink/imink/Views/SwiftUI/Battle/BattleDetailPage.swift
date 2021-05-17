@@ -135,7 +135,7 @@ struct BattleDetailPage: View {
                 ZStack {
                     Rectangle()
                         .overlay(
-                            StageImageView(
+                            ImageView.stage(
                                 id: battle.stage.id,
                                 imageURL: battle.stage.image,
                                 imageURLBehaviour: .replace

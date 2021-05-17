@@ -183,7 +183,7 @@ struct BattleListItemView: View {
             }
             
             VStack {
-                WeaponImageView(
+                ImageView.weapon(
                     id: record.weaponId,
                     imageURL: record.weaponImageURL
                 )

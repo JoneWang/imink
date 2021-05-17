@@ -46,7 +46,7 @@ struct SalmonRunScheduleView: View {
                             Text(stage.localizedName)
                                 .sp2Font(color: AppColor.appLabelColor)
                             
-                            SalomonRunStageImageView(name: stage.imageName ?? "", imageURL: stage.image)
+                            ImageView.salomonRunStage(name: stage.imageName ?? "", imageURL: stage.image)
                                 .aspectRatio(640 / 360, contentMode: .fill)
                                 .frame(minWidth: 100)
                                 .continuousCornerRadius(8)
@@ -66,7 +66,7 @@ struct SalmonRunScheduleView: View {
                                 HStack(alignment: .center) {
                                     
                                     ForEach(weapons, id: \.id) { weapon in
-                                        WeaponImageView(id: weapon.id)
+                                        ImageView.weapon(id: weapon.id)
                                             .aspectRatio(1, contentMode: .fit)
                                             .frame(minWidth: 40, minHeight: 40)
                                             .continuousCornerRadius(8)

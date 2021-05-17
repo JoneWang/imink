@@ -24,7 +24,7 @@ struct PlayerSkillView: View {
             if let player = player {
                 VStack(spacing: 18) {
                     VStack(spacing: 8) {
-                        ImageView(url: viewModel.image)
+                        SkillImageView(url: viewModel.image)
                             .frame(width: 40, height: 40)
                             .background(Color.systemGray5)
                             .clipShape(Circle())
@@ -45,7 +45,7 @@ struct PlayerSkillView: View {
                                 Rectangle()
                                     .foregroundColor(.clear)
                                     .overlay(
-                                        ImageView(url: skill.0.image)
+                                        SkillImageView(url: skill.0.image)
                                     )
                                     .frame(width: 32, height: 32)
                                     .clipped()
@@ -54,7 +54,7 @@ struct PlayerSkillView: View {
                                     Circle()
                                         .foregroundColor(.black)
                                         .overlay(
-                                            ImageView(url: skill.1.image)
+                                            SkillImageView(url: skill.1.image)
                                                 .padding(2.5)
                                         )
                                         .frame(width: 30, height: 30)
@@ -64,7 +64,7 @@ struct PlayerSkillView: View {
                                             Circle()
                                                 .foregroundColor(.black)
                                                 .overlay(
-                                                    ImageView(url: sub.image)
+                                                    SkillImageView(url: sub.image)
                                                         .padding(2)
                                                 )
                                                 .frame(width: 22, height: 22)
@@ -76,7 +76,7 @@ struct PlayerSkillView: View {
                     }
                     
                     HStack {
-                        WeaponImageView(
+                        ImageView.weapon(
                             id: player.weapon.id,
                             imageURL: player.weapon.image)
                             .frame(width: 32, height: 32)
@@ -89,7 +89,7 @@ struct PlayerSkillView: View {
                         Circle()
                             .foregroundColor(.black)
                             .overlay(
-                                ImageView(url: victory ?
+                                SkillImageView(url: victory ?
                                             player.weapon.sub.imageA :
                                             player.weapon.sub.imageB
                                 )
@@ -100,7 +100,7 @@ struct PlayerSkillView: View {
                         Circle()
                             .foregroundColor(.black)
                             .overlay(
-                                ImageView(url: victory ?
+                                SkillImageView(url: victory ?
                                             player.weapon.special.imageA :
                                             player.weapon.special.imageB
                                 )
@@ -183,7 +183,7 @@ extension Player: Equatable {
 
 import FetchImage
 
-struct ImageView: View {
+struct SkillImageView: View {
     let url: URL?
     
     @StateObject private var image = FetchImage()

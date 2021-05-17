@@ -137,13 +137,10 @@
 		EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC9A90492527851C00390573 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90482527851C00390573 /* ScheduleView.swift */; };
-		EC9D0A5125A1747C00E8FF89 /* WeaponImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */; };
-		EC9D0A5525A174A300E8FF89 /* StageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A5425A174A300E8FF89 /* StageImageView.swift */; };
 		EC9D0A5925A1761900E8FF89 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5825A1761900E8FF89 /* SDWebImage */; };
 		EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */; };
 		EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */; };
 		EC9D0A6925A18E2300E8FF89 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A6825A18E2300E8FF89 /* ImageView.swift */; };
-		EC9D0A7325A1929400E8FF89 /* SalomonRunStageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */; };
 		ECA695092531AC9D00376D95 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA695082531AC9D00376D95 /* PieView.swift */; };
 		ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
@@ -333,10 +330,7 @@
 		EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
-		EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponImageView.swift; sourceTree = "<group>"; };
-		EC9D0A5425A174A300E8FF89 /* StageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageImageView.swift; sourceTree = "<group>"; };
 		EC9D0A6825A18E2300E8FF89 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
-		EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalomonRunStageImageView.swift; sourceTree = "<group>"; };
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeJobViewModel.swift; sourceTree = "<group>"; };
@@ -522,9 +516,6 @@
 			isa = PBXGroup;
 			children = (
 				EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */,
-				EC9D0A5025A1747C00E8FF89 /* WeaponImageView.swift */,
-				EC9D0A5425A174A300E8FF89 /* StageImageView.swift */,
-				EC9D0A7225A1929400E8FF89 /* SalomonRunStageImageView.swift */,
 				EC9D0A6825A18E2300E8FF89 /* ImageView.swift */,
 				ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */,
 			);
@@ -932,11 +923,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC9D0A7325A1929400E8FF89 /* SalomonRunStageImageView.swift in Sources */,
 				EC9D0A6925A18E2300E8FF89 /* ImageView.swift in Sources */,
 				EC2C34C12598D9440007BA4D /* GrayscaleTextureView.swift in Sources */,
-				EC9D0A5525A174A300E8FF89 /* StageImageView.swift in Sources */,
-				EC9D0A5125A1747C00E8FF89 /* WeaponImageView.swift in Sources */,
 				ECD1FA5025F89EF8002E36DD /* FixVectorImage.swift in Sources */,
 				EC2C34CB2598E8940007BA4D /* Bundle.swift in Sources */,
 			);

@@ -171,7 +171,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
             borderColor = Color("RegularScheduleStageBorderColor")
         }
         
-        return StageImageView(id: stageId)
+        return ImageView.stage(id: stageId)
             .aspectRatio(contentMode: .fill)
             .frame(minHeight: 0, maxHeight: .infinity)
             .overlay(
