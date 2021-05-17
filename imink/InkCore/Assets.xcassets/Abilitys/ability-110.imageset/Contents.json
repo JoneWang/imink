@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ability-110.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
