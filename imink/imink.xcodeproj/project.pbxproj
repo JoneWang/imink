@@ -1530,7 +1530,7 @@
 			repositoryURL = "https://github.com/ddddxxx/SplatNet2.git";
 			requirement = {
 				kind = revision;
-				revision = 84bbbe49954bc4390d4c1b49283490b724b988ae;
+				revision = b45e098b349ed47699249fef5263677276513e5e;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

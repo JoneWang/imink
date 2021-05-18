@@ -234,6 +234,7 @@ struct BattleDetailPage: View {
                             BattleDetailMemberView(
                                 victory: victory,
                                 member: member,
+                                showCrown: battle.crownPlayers?.contains(member.player.principalId) ?? false,
                                 isSelected: member.player == activePlayer && (showPlayerSkill || hoveredMember)
                             )
                             .overlay(

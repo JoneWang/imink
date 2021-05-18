@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/kean/FetchImage.git",
         "state": {
           "branch": null,
-          "revision": "cac844a0dea908c6e068fc8c6a0f949179c7f876",
-          "version": "0.4.0"
+          "revision": "0980e4cd71a8e86cb4b297293677cffcabbc2dc3",
+          "version": "0.4.1"
         }
       },
       {
@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/kean/Nuke.git",
         "state": {
           "branch": null,
-          "revision": "200016df418ed8dc70ba918d52c29634f434541c",
-          "version": "9.5.0"
+          "revision": "8e0f42d1d9f30d816f3c565aa6193d9363325157",
+          "version": "9.6.0"
         }
       },
       {
@@ -168,7 +168,7 @@
         "repositoryURL": "https://github.com/ddddxxx/SplatNet2.git",
         "state": {
           "branch": null,
-          "revision": "84bbbe49954bc4390d4c1b49283490b724b988ae",
+          "revision": "b45e098b349ed47699249fef5263677276513e5e",
           "version": null
         }
       },

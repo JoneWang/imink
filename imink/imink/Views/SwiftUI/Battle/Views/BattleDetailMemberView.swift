@@ -12,6 +12,7 @@ import InkCore
 struct BattleDetailMemberView: View {
     let victory: Bool
     let member: TeamMember
+    let showCrown: Bool
     let isSelected: Bool
     
     var body: some View {
@@ -51,7 +52,9 @@ struct BattleDetailMemberView: View {
             
             VStack(alignment: .leading, spacing: 3.5) {
                 HStack(spacing: 3) {
-                    Image("Crown")
+                    if showCrown {
+                        Image("Crown")
+                    }
                     
                     Text(member.player.nickname)
                         .sp2Font(size: 13, color: AppColor.appLabelColor)
@@ -150,9 +153,9 @@ struct BattleDetailMemberView_Previews: PreviewProvider {
         let json = String(data: sampleData, encoding: .utf8)!
         let battle = json.decode(Battle.self)!
         
-        BattleDetailMemberView(victory: true, member: (battle.myTeamMembers?[0])!, isSelected: false)
+        BattleDetailMemberView(victory: true, member: (battle.myTeamMembers?[0])!, showCrown: false, isSelected: false)
             .previewLayout(.sizeThatFits)
-        BattleDetailMemberView(victory: false, member: (battle.otherTeamMembers?[0])!, isSelected: false)
+        BattleDetailMemberView(victory: false, member: (battle.otherTeamMembers?[0])!, showCrown: false, isSelected: false)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
     }
