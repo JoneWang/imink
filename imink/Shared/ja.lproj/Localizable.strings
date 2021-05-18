@@ -52,6 +52,7 @@
 "Highest" = "最高";
 "Crew" = "味方";
 "Rival" = "相手";
+"Position" = "Position";
 "My X Power" = "自分のXパワー";
 "Average" = "8人のXパワー";
 " count" = "カウント";
@@ -89,6 +90,7 @@
 
 // MARK: Me
 
+"Highest Power" = "Highest Power";
 "Language" = "言語";
 "Source code" = "ソースコード";
 "FAQ" = "よくある質問";
@@ -139,3 +141,14 @@
 "Salmon Run" = "サーモンラン";
 "onboarding_description_3" = "シャケたちを倒し、イクラを集めてサーモンでの評価を上げよう。";
 "Continue" = "続ける";
+
+// MARK: Update 1.0.7
+
+"What’s New in imink" = "What’s New in imink";
+"What’s New in imink_multi-line" = "What’s New in\nimink";
+"Gear Loadout" = "Gear Loadout";
+"League Battle Medals" = "League Battle Medals";
+"X Rank Improvements" = "X Rank Improvements";
+"update_1_0_7_description_1" = "Check the gear loadout of other squids in battle detail.";
+"update_1_0_7_description_2" = "All your shiny medals are now well displayed under your profile.";
+"update_1_0_7_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
