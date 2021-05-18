@@ -11,6 +11,7 @@ import InkCore
 
 struct BattleDetailPage: View {
     @StateObject private var viewModel = BattleDetailViewModel()
+    @StateObject private var avatarViewModel = AvatarViewModel()
     
     let row: BattleListRowModel
     @Binding var realtimeRow: BattleListRowModel?
@@ -74,12 +75,15 @@ struct BattleDetailPage: View {
                                 showPlayerSkill = false
                             }
                         }, content: {
-                            PlayerSkillView(victory: $activePlayerVictory, player: $activePlayer) {
+                            PlayerSkillView(victory: $activePlayerVictory, player: $activePlayer, viewModel: avatarViewModel) {
                                 withAnimation {
                                     showPlayerSkill = false
                                 }
                             }
                         }))
+        .onAppear {
+            activePlayer = row.record?.battle?.playerResult.player
+        }
     }
     
     func makeContent(battle: Battle) -> some View {
