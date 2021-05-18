@@ -34,7 +34,7 @@ struct Popup<T: View>: ViewModifier {
         GeometryReader { geometry in
             if isPresented {
                 popup
-                    .animation(.easeOut)
+                    .animation(.popupEaseOut())
                     .transition(.offset(x: 0, y: geometry.size.height))
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .bottom)
                     .offset(x: 0, y: offsetY)
@@ -51,5 +51,12 @@ struct Popup<T: View>: ViewModifier {
                     onDismiss()
                 }
         }
+    }
+}
+
+fileprivate extension Animation {
+    
+    static func popupEaseOut() -> Animation {
+        return .timingCurve(0.27, 0.8, 0.2, 1, duration: 0.55)
     }
 }
