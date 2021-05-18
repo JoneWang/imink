@@ -8,7 +8,7 @@
 // MARK: API error
 
 
-"Error connecting to the server" = "Error connecting to the server";
+"Error connecting to the server" = "連線到伺服器時發生錯誤";
 "Authorization error" = "Authorization error";
 "Client token is invalid" = "Client token is invalid";
 "The iksm_session is invalid" = "The iksm_session is invalid";
@@ -52,7 +52,7 @@
 "Highest" = "最高";
 "Crew" = "隊友";
 "Rival" = "對手";
-"Position" = "Position";
+"Position" = "排名";
 "My X Power" = "我的X段分";
 "Average" = "8人平均分";
 " count" = " 分";
@@ -90,7 +90,7 @@
 
 // MARK: Me
 
-"Highest Power" = "Highest Power";
+"Highest Power" = "最高分";
 "Language" = "語言";
 "Source code" = "原始碼";
 "FAQ" = "常見問題";
@@ -144,11 +144,11 @@
 
 // MARK: Update 1.0.7
 
-"What’s New in imink" = "What’s New in imink";
+"What’s New in imink" = "imink的新功能";
 "What’s New in imink_multi-line" = "What’s New in\nimink";
-"Gear Loadout" = "Gear Loadout";
-"League Battle Medals" = "League Battle Medals";
-"X Rank Improvements" = "X Rank Improvements";
-"update_1_0_7_description_1" = "Check the gear loadout of other squids in battle detail.";
-"update_1_0_7_description_2" = "All your shiny medals are now well displayed under your profile.";
-"update_1_0_7_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
+"Gear Loadout" = "武器配裝";
+"League Battle Medals" = "聯盟模式獎牌";
+"X Rank Improvements" = "真劍X段優化";
+"update_1_0_7_description_1" = "在戰績詳情頁面中檢視其他玩家的配裝，為打造完美裝備提供參考。";
+"update_1_0_7_description_2" = "屬於團隊的无上榮耀，現已悉心陳列在個人資料頁面中。";
+"update_1_0_7_description_3" = "戰績詳情頁面現可顯示X段排名和500強玩家的王冠。";
