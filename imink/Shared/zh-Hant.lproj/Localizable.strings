@@ -52,6 +52,7 @@
 "Highest" = "最高";
 "Crew" = "隊友";
 "Rival" = "對手";
+"Position" = "Position";
 "My X Power" = "我的X段分";
 "Average" = "8人平均分";
 " count" = " 分";
@@ -89,6 +90,7 @@
 
 // MARK: Me
 
+"Highest Power" = "Highest Power";
 "Language" = "語言";
 "Source code" = "原始碼";
 "FAQ" = "常見問題";
@@ -139,3 +141,14 @@
 "Salmon Run" = "熊商會打工";
 "onboarding_description_3" = "擊敗鮭魚，收集魚卵，提升你在熊商會的工作績效。";
 "Continue" = "繼續";
+
+// MARK: Update 1.0.7
+
+"What’s New in imink" = "What’s New in imink";
+"What’s New in imink_multi-line" = "What’s New in\nimink";
+"Gear Loadout" = "Gear Loadout";
+"League Battle Medals" = "League Battle Medals";
+"X Rank Improvements" = "X Rank Improvements";
+"update_1_0_7_description_1" = "Check the gear loadout of other squids in battle detail.";
+"update_1_0_7_description_2" = "All your shiny medals are now well displayed under your profile.";
+"update_1_0_7_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
