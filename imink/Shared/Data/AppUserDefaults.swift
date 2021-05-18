@@ -14,6 +14,18 @@ import WebKit
 class AppUserDefaults: ObservableObject {
     static let shared = AppUserDefaults()
     
+    @AppStorage("firstLaunch", store: .appGroup)
+    var firstLaunch: Bool = true {
+        didSet {
+            if !firstLaunch {
+                updatedFirstLaunch1_0_7 = false
+            }
+        }
+    }
+    
+    @AppStorage("updatedFirstLaunch1.0.7", store: .appGroup)
+    var updatedFirstLaunch1_0_7: Bool = true
+    
     @StandardStorage(key: "last_battle", store: .appGroup)
     var lastBattle: Battle?
     
@@ -31,9 +43,6 @@ class AppUserDefaults: ObservableObject {
     
     @AppStorage("currentLanguage", store: .appGroup)
     var currentLanguage: String?
-    
-    @AppStorage("firstLaunch", store: .appGroup)
-    var firstLaunch: Bool = true
     
     @AppStorage("sp2PrincipalId", store: .appGroup)
     var sp2PrincipalId: String?
