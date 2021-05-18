@@ -61,6 +61,8 @@
 		EC54C0862618BBE900EA3A9E /* PlayerSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC54C0852618BBE900EA3A9E /* PlayerSkillView.swift */; };
 		EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
 		EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */; };
+		EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */; };
+		EC5CBF7E2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */; };
 		EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D2628258FA02F004E7B3A /* TestFontView.swift */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
 		EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */; };
@@ -275,6 +277,7 @@
 		EC54C0852618BBE900EA3A9E /* PlayerSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSkillView.swift; sourceTree = "<group>"; };
 		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NintendoAccountLoginViewController.swift; path = imink/Views/NintendoAccountLoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchDownAndTouchUpGestureView.swift; sourceTree = "<group>"; };
 		EC5D2628258FA02F004E7B3A /* TestFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFontView.swift; sourceTree = "<group>"; };
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
@@ -645,6 +648,7 @@
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
 				BB520C1D26146C05006454FB /* StageImage.swift */,
 				EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */,
+				EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -969,6 +973,7 @@
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */,
 				EC861231253AC6D4003BA67A /* Models.swift in Sources */,
+				EC5CBF7E2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */,
 				EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */,
 				EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */,
@@ -1058,6 +1063,7 @@
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
 				EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
+				EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */,
 				EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,

@@ -50,8 +50,12 @@ struct BattleDetailMemberView: View {
                 .padding(.trailing, 7)
             
             VStack(alignment: .leading, spacing: 3.5) {
-                Text(member.player.nickname)
-                    .sp2Font(size: 13, color: AppColor.appLabelColor)
+                HStack(spacing: 3) {
+                    Image("Crown")
+                    
+                    Text(member.player.nickname)
+                        .sp2Font(size: 13, color: AppColor.appLabelColor)
+                }
                 
                 Text("\(member.gamePaintPoint)p")
                     .sp2Font(size: 11, color: .systemGray)
@@ -134,6 +138,7 @@ struct BattleDetailMemberView: View {
         .frame(height: 37)
         .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
         .clipShape(Capsule())
+        .animation(.linear(duration: 0.15))
     }
 }
 
