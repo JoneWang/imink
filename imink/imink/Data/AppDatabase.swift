@@ -262,6 +262,14 @@ class AppDatabase {
             }
         }
         
+        migrator.registerMigration("V9") { db in
+            try db.execute(
+                sql: "UPDATE record SET " +
+                    "isX = false " +
+                    "WHERE isX is null"
+            )
+        }
+        
         return migrator
     }
 }

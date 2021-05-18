@@ -55,4 +55,6 @@ struct AppColor {
     static let waveGradientStartColor = Color("WaveGradientStartColor")
     
     static let salmonRunSpecialBackgroundColor = Color("SalmonRunSpecialBackgroundColor")
+    
+    static let medalViewBackgroundColor = Color("MedalViewBackgroundColor")
 }

@@ -11,15 +11,16 @@ import SDWebImageSwiftUI
 import InkCore
 
 struct PlayerSkillView: View {
-    
-    @StateObject private var viewModel = AvatarViewModel()
-    
-    let maxScreenWidth: CGFloat = 190.0
-    
+        
     @Binding var victory: Bool
     @Binding var player: Player?
+    @StateObject var viewModel: AvatarViewModel
 
     let onDismiss: () -> Void
+    
+    var maxWidth: CGFloat {
+        (UIScreen.main.bounds.size.width > 428.0) ? 343 : .infinity
+    }
     
     var body: some View {
         ZStack {
@@ -124,15 +125,15 @@ struct PlayerSkillView: View {
                             .frame(width: 24, height: 24)
                         
                         Image(systemName: "multiply")
+                            .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(.systemGray)
-                            .frame(width: 9.42, height: 9.42)
                     }
                     .frame(width: 40, height: 40)
                     .onTapGesture {
                         onDismiss()
                     }, alignment: .topTrailing)
                 .frame(height: 310)
-                .frame(maxWidth: (UIScreen.main.bounds.size.width > maxScreenWidth) ? 343 : .infinity)
+                .frame(maxWidth: maxWidth)
                 .background(AppColor.listItemBackgroundColor)
                 .continuousCornerRadius(18)
                 .padding(16)

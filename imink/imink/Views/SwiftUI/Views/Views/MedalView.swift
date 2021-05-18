@@ -25,7 +25,7 @@ struct MedalView: View {
         .padding(.leading, 3)
         .padding(.trailing, 5)
         .frame(height: 22)
-        .background(Color.secondarySystemBackground)
+        .background(AppColor.medalViewBackgroundColor)
         .clipShape(Capsule())
     }
 }
