@@ -52,6 +52,7 @@
 "Highest" = "최고";
 "Crew" = "우리 팀";
 "Rival" = "상대 팀";
+"Position" = "Position";
 "My X Power" = "자신의 X파워";
 "Average" = "8명의 X파워";
 " count" = "카운트";
@@ -89,6 +90,7 @@
 
 // MARK: Me
 
+"Highest Power" = "Highest Power";
 "Language" = "언어";
 "Source code" = "소스 코드";
 "FAQ" = "자주 있는 질문";
@@ -139,3 +141,14 @@
 "Salmon Run" = "새먼런";
 "onboarding_description_3" = "연어들을 물리치고 연어알을 모아서좋은 평가를 노리자";
 "Continue" = "계속하기";
+
+// MARK: Update 1.0.7
+
+"What’s New in imink" = "What’s New in imink";
+"What’s New in imink_multi-line" = "What’s New in\nimink";
+"Gear Loadout" = "Gear Loadout";
+"League Battle Medals" = "League Battle Medals";
+"X Rank Improvements" = "X Rank Improvements";
+"update_1_0_7_description_1" = "Check the gear loadout of other squids in battle detail.";
+"update_1_0_7_description_2" = "All your shiny medals are now well displayed under your profile.";
+"update_1_0_7_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
