@@ -63,6 +63,7 @@
 		EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */; };
 		EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */; };
 		EC5CBF7E2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */; };
+		EC5CBF822653924100F1A063 /* MedalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5CBF812653924100F1A063 /* MedalView.swift */; };
 		EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D2628258FA02F004E7B3A /* TestFontView.swift */; };
 		EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62E77225360B2B0028428C /* MeViewModel.swift */; };
 		EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CF3F325F36937005427B5 /* JobShiftCardView.swift */; };
@@ -278,6 +279,7 @@
 		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		EC571A2F254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NintendoAccountLoginViewController.swift; path = imink/Views/NintendoAccountLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchDownAndTouchUpGestureView.swift; sourceTree = "<group>"; };
+		EC5CBF812653924100F1A063 /* MedalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalView.swift; sourceTree = "<group>"; };
 		EC5D2628258FA02F004E7B3A /* TestFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFontView.swift; sourceTree = "<group>"; };
 		EC62E77225360B2B0028428C /* MeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewModel.swift; sourceTree = "<group>"; };
 		EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleTextureView.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				EC807CA625F7385C003FC2E6 /* TodayView.swift */,
 				ECD1FA4125F87903002E36DD /* LoginView.swift */,
 				ECF91ECE2609F58500FF7F55 /* MailView.swift */,
+				EC5CBF812653924100F1A063 /* MedalView.swift */,
 			);
 			name = Views;
 			path = Views/Views;
@@ -999,6 +1002,7 @@
 				ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */,
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
 				EC16CED8261990D800663DC1 /* AvatarViewModel.swift in Sources */,
+				EC5CBF822653924100F1A063 /* MedalView.swift in Sources */,
 				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC571A30254A8DB400D1BFC6 /* NintendoAccountLoginViewController.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
@@ -1530,7 +1534,7 @@
 			repositoryURL = "https://github.com/ddddxxx/SplatNet2.git";
 			requirement = {
 				kind = revision;
-				revision = b45e098b349ed47699249fef5263677276513e5e;
+				revision = 91dd70278f185aa79607d31103fa1d00190747c7;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

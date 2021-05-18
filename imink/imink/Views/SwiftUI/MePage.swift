@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct MePage: View {
-        
+    
     @StateObject private var viewModel: MeViewModel
     
     @State var showLogoutAlert = false
@@ -46,6 +46,7 @@ struct MePage: View {
     }
     
     var body: some View {
+        let leagueStats = viewModel.records?.records.leagueStats
         let player = viewModel.records?.records.player
         let nicknameAndIcon = viewModel.nicknameAndIcons?.nicknameAndIcons.first
         
@@ -54,22 +55,22 @@ struct MePage: View {
             List {
                 Section {
                     HStack {
-                        if (player != nil && nicknameAndIcon != nil) || !viewModel.isLogined {
-                            VStack {
-                                HStack(alignment: .top) {
+                        if (leagueStats != nil && player != nil && nicknameAndIcon != nil) || !viewModel.isLogined {
+                            VStack(alignment: .leading, spacing: 0) {
+                                HStack(alignment: .top, spacing: 16) {
                                     if let thumbnailUrl = nicknameAndIcon?.thumbnailUrl {
                                         WebImage(url: thumbnailUrl)
                                             .resizable()
-                                            .frame(width: 60, height: 60)
-                                            .background(Color.secondary)
+                                            .frame(width: 56, height: 56)
+                                            .background(Color.systemGray5)
                                             .clipShape(Capsule())
                                     } else {
                                         Capsule()
                                             .foregroundColor(.secondary)
-                                            .frame(width: 60, height: 60)
+                                            .frame(width: 56, height: 56)
                                     }
                                     
-                                    VStack(alignment: .leading, spacing: 8) {
+                                    VStack(alignment: .leading, spacing: 0) {
                                         HStack(alignment: .lastTextBaseline) {
                                             Text(player?.nickname ?? "----")
                                                 .sp2Font(size: 20, color: AppColor.appLabelColor)
@@ -86,9 +87,9 @@ struct MePage: View {
                                                     .sp2Font(size: 16, color: AppColor.appLabelColor)
                                             }
                                         }
-                                        .padding(.leading, 4)
+                                        .padding(.bottom, 7)
                                         
-                                        VStack(alignment: .leading, spacing: 0) {
+                                        VStack(alignment: .leading, spacing: 2) {
                                             ForEach(udemaeData.indices) { index in
                                                 let (gameMode, udemae) = udemaeData[index]
                                                 
@@ -101,19 +102,23 @@ struct MePage: View {
                                                             .sp1Font(size: 16, color: AppColor.spPink)
                                                         if let sPlusNumber = udemae?.sPlusNumber {
                                                             Text("\(sPlusNumber)")
-                                                                .sp1Font(size: 12, color: AppColor.spGreenLimeColor)
+                                                                .sp1Font(size: 12, color: AppColor.appLabelColor)
                                                         }
                                                     }
                                                 }
                                             }
                                         }
-                                        .padding(.leading, 4)
                                     }
                                 }
-                                .padding(.vertical)
+                                .padding(.bottom, 16)
+                                
+                                makeLeague(leagueImageName: "4P", stat: leagueStats?.team, maxPower: player?.maxLeaguePointTeam)
+                                    .padding(.bottom, 11)
+
+                                makeLeague(leagueImageName: "2P", stat: leagueStats?.pair, maxPower: player?.maxLeaguePointPair)
                             }
-                            
-                            Spacer()
+                            .padding(.top, 10)
+                            .padding(.bottom, 6)
                         } else {
                             Spacer()
                             ProgressView()
@@ -185,6 +190,45 @@ struct MePage: View {
             .navigationBarHidden(false)
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    func makeLeague(leagueImageName: String, stat: Records.Records.LeagueStats.Stat?, maxPower: Double?) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Rectangle()
+                .frame(maxWidth: .infinity)
+                .frame(height: 1.0 / UIScreen.main.scale)
+                .foregroundColor(.opaqueSeparator)
+                .padding(.leading, 72)
+                .padding(.bottom, 12)
+            
+            HStack(alignment: .top) {
+                HStack {
+                    Image(leagueImageName)
+                    
+                    Spacer()
+                }
+                .frame(width: 72)
+                
+                VStack(alignment: .leading, spacing: 7) {
+                    HStack(spacing: 10) {
+                        MedalView(type: .gold, count: stat?.goldCount ?? 0)
+                        MedalView(type: .silver, count: stat?.silverCount ?? 0)
+                        MedalView(type: .bronze, count: stat?.bronzeCount ?? 0)
+                    }
+                    
+                    HStack(spacing: 5) {
+                        Text("Highest Power")
+                            .font(.system(size: 10))
+                            .foregroundColor(.secondaryLabel)
+                        
+                        Text(maxPower != nil ? "\(maxPower!)" : "----")
+                            .font(.system(size: 10, weight: .semibold, design: .monospaced))
+                            .foregroundColor(AppColor.appLabelColor)
+                    }
+                }
+            }
+        }
+        .padding(0)
     }
     
     func makeRow(image: String,
