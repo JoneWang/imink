@@ -124,8 +124,8 @@ struct PlayerSkillView: View {
                             .frame(width: 24, height: 24)
                         
                         Image(systemName: "multiply")
+                            .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(.systemGray)
-                            .frame(width: 9.42, height: 9.42)
                     }
                     .frame(width: 40, height: 40)
                     .onTapGesture {
