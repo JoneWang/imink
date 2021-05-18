@@ -88,6 +88,7 @@ struct BattleDetailPage: View {
         
         if isGachiX {
             battleTopDatas = [
+                ("Position", (battle.rank ?? 0 > 0) ? "\(battle.rank!)" : "-"),
                 ("My X Power", (battle.xPower ?? 0 > 0) ? "\(battle.xPower!)" : "-"),
                 ("Average", (battle.estimateXPower ?? 0 > 0) ? "\(battle.estimateXPower!)" : "-")
             ]
