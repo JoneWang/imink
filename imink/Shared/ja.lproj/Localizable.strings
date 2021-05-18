@@ -52,7 +52,7 @@
 "Highest" = "最高";
 "Crew" = "味方";
 "Rival" = "相手";
-"Position" = "Position";
+"Position" = "順位";
 "My X Power" = "自分のXパワー";
 "Average" = "8人のXパワー";
 " count" = "カウント";
@@ -90,7 +90,7 @@
 
 // MARK: Me
 
-"Highest Power" = "Highest Power";
+"Highest Power" = "最高リーグパワー";
 "Language" = "言語";
 "Source code" = "ソースコード";
 "FAQ" = "よくある質問";
@@ -144,11 +144,11 @@
 
 // MARK: Update 1.0.7
 
-"What’s New in imink" = "What’s New in imink";
+"What’s New in imink" = "新機能のお知らせ";
 "What’s New in imink_multi-line" = "What’s New in\nimink";
-"Gear Loadout" = "Gear Loadout";
-"League Battle Medals" = "League Battle Medals";
-"X Rank Improvements" = "X Rank Improvements";
-"update_1_0_7_description_1" = "Check the gear loadout of other squids in battle detail.";
-"update_1_0_7_description_2" = "All your shiny medals are now well displayed under your profile.";
-"update_1_0_7_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
+"Gear Loadout" = "ギアのチェック";
+"League Battle Medals" = "リーグマッチの記録";
+"X Rank Improvements" = "ガチマッチのリザルト改善";
+"update_1_0_7_description_1" = "バトルのリザルトで各プレイヤーのギアを確認できるようになりました。";
+"update_1_0_7_description_2" = "今までの最高リーグパワー、及び獲得メダルの一覧をプロフィール画面で確認できるようになりました。";
+"update_1_0_7_description_3" = "ウデマエXのガチマッチのリザルトで自分のXランキングの順位と、各プレイヤーの王冠の有無を確認できるようになりました。";
