@@ -81,9 +81,6 @@ struct BattleDetailPage: View {
                                 }
                             }
                         }))
-        .onAppear {
-            activePlayer = row.record?.battle?.playerResult.player
-        }
     }
     
     func makeContent(battle: Battle) -> some View {
