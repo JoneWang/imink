@@ -14,6 +14,8 @@ struct PlayerSkillView: View {
     
     @StateObject private var viewModel = AvatarViewModel()
     
+    let maxScreenWidth: CGFloat = 190.0
+    
     @Binding var victory: Bool
     @Binding var player: Player?
 
@@ -111,14 +113,14 @@ struct PlayerSkillView: View {
                     .padding(.leading, 14)
                     .padding(.trailing, 12)
                     .padding(.vertical, 8)
-                    .background(Color.quaternaryLabel)
+                    .background(Color.quaternarySystemFill)
                     .continuousCornerRadius(10)
                 }
                 .padding(16)
                 .overlay(
                     ZStack {
                         Circle()
-                            .foregroundColor(.quaternaryLabel)
+                            .foregroundColor(.quaternarySystemFill)
                             .frame(width: 24, height: 24)
                         
                         Image(systemName: "multiply")
@@ -130,7 +132,7 @@ struct PlayerSkillView: View {
                         onDismiss()
                     }, alignment: .topTrailing)
                 .frame(height: 310)
-                .frame(maxWidth: 343)
+                .frame(maxWidth: (UIScreen.main.bounds.size.width > maxScreenWidth) ? 343 : .infinity)
                 .background(AppColor.listItemBackgroundColor)
                 .continuousCornerRadius(18)
                 .padding(16)

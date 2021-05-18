@@ -47,8 +47,8 @@ extension Color {
         Color(.opaqueSeparator)
     }
     
-    static var quaternaryLabel: Color {
-        Color(.quaternaryLabel)
+    static var quaternarySystemFill: Color {
+        Color(.quaternarySystemFill)
     }
 
     #endif
