@@ -16,6 +16,7 @@ class TabBarController: UITabBarController {
     private var cancelBag = Set<AnyCancellable>()
     
     private var onboardingCancellable: AnyCancellable?
+    private var updatePageCancellable: AnyCancellable?
     
     private var tabBarViewModel = TabBarViewModel()
     private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
@@ -71,6 +72,8 @@ class TabBarController: UITabBarController {
         
         if AppUserDefaults.shared.firstLaunch {
             showOnboarding()
+        } else if AppUserDefaults.shared.updatedFirstLaunch1_0_7 {
+            showUpdatePage()
         }
         
         if AppUserDefaults.shared.naUser != nil {
@@ -125,7 +128,7 @@ class TabBarController: UITabBarController {
     }
     
     func showOnboarding() {
-        let viewModel = OnboardingViewModel()
+        let viewModel = PresentPageViewModel()
         
         let onboardingPage = OnboardingPage(viewModel: viewModel)
         let onboardingViewController = UIHostingController(rootView: onboardingPage)
@@ -143,6 +146,27 @@ class TabBarController: UITabBarController {
             }
 
         present(onboardingViewController, animated: true)
+    }
+    
+    func showUpdatePage() {
+        let viewModel = PresentPageViewModel()
+        
+        let updatePage = UpdatePage(viewModel: viewModel)
+        let updateViewController = UIHostingController(rootView: updatePage)
+        updateViewController.modalPresentationStyle = .formSheet
+        updateViewController.isModalInPresentation = true
+        updateViewController.preferredContentSize = .init(width: 624, height: 800)
+        
+        updatePageCancellable?.cancel()
+        updatePageCancellable = viewModel.$dismiss
+            .sink { dismiss in
+                if dismiss {
+                    updateViewController.dismiss(animated: true, completion: nil)
+                    AppUserDefaults.shared.updatedFirstLaunch1_0_7 = false
+                }
+            }
+
+        present(updateViewController, animated: true)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

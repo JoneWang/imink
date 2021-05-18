@@ -1,13 +1,13 @@
 //
-//  OnboardingPage.swift
+//  UpdatePage.swift
 //  imink
 //
-//  Created by Jone Wang on 2021/3/12.
+//  Created by Jone Wang on 2021/5/18.
 //
 
 import SwiftUI
 
-struct OnboardingPage: View {
+struct UpdatePage: View {
     
     let viewModel: PresentPageViewModel
 
@@ -34,7 +34,7 @@ struct OnboardingPage: View {
         
         return VStack {
             VStack(spacing: 0) {
-                Text(largeLayout ? "Welcome to imink" : "Welcome to imink_multi-line")
+                Text(largeLayout ? "What’s New in imink" : "What’s New in imink_multi-line")
                     .font(.system(size: 34, weight: .semibold))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, titlePaddingBottom)
@@ -42,9 +42,9 @@ struct OnboardingPage: View {
                 VStack(alignment: .leading, spacing: widthGreaterThan400 ? 46 : 24) {
                     ForEach(
                         [
-                            ("StartupSyncing", "Real-Time Syncing", "onboarding_description_1"),
-                            ("StartupWidget", "Home Screen Widgets", "onboarding_description_2"),
-                            ("StartupSalmonRun", "Salmon Run", "onboarding_description_3")
+                            ("UpdateLogLoadout", "Gear Loadout", "update_1_0_7_description_1"),
+                            ("UpdateLogMedal", "League Battle Medals", "update_1_0_7_description_2"),
+                            ("UpdateLogXRank", "X Rank Improvements", "update_1_0_7_description_3")
                         ],
                         id: \.0
                     ) { iconName, title, description in
@@ -89,17 +89,17 @@ struct OnboardingPage: View {
     }
 }
 
-struct FirstLaunchPage_Previews: PreviewProvider {
+struct UpdatePage_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = PresentPageViewModel()
         
-        OnboardingPage(viewModel: viewModel)
+        UpdatePage(viewModel: viewModel)
             .previewLayout(.sizeThatFits)
         
-        OnboardingPage(viewModel: viewModel)
+        UpdatePage(viewModel: viewModel)
             .previewLayout(.sizeThatFits)
         
-        OnboardingPage(viewModel: viewModel)
+        UpdatePage(viewModel: viewModel)
             .frame(width: 300, height: 1000)
             .previewLayout(.sizeThatFits)
     }
