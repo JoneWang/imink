@@ -45,8 +45,6 @@
 		EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
-		EC3696DD262C44E700CC2734 /* NetworkImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC3696DC262C44E700CC2734 /* NetworkImage */; };
-		EC3696E2262C462200CC2734 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC3696E1262C462200CC2734 /* FetchImage */; };
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
 		EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
@@ -380,9 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC3696E2262C462200CC2734 /* FetchImage in Frameworks */,
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
-				EC3696DD262C44E700CC2734 /* NetworkImage in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
 			);
@@ -833,8 +829,6 @@
 			packageProductDependencies = (
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
-				EC3696DC262C44E700CC2734 /* NetworkImage */,
-				EC3696E1262C462200CC2734 /* FetchImage */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -879,8 +873,6 @@
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
-				EC3696DB262C44E700CC2734 /* XCRemoteSwiftPackageReference "NetworkImage" */,
-				EC3696E0262C462200CC2734 /* XCRemoteSwiftPackageReference "FetchImage" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1485,22 +1477,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EC3696DB262C44E700CC2734 /* XCRemoteSwiftPackageReference "NetworkImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/gonzalezreal/NetworkImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
-			};
-		};
-		EC3696E0262C462200CC2734 /* XCRemoteSwiftPackageReference "FetchImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kean/FetchImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.0;
-			};
-		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1544,16 +1520,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC3696DC262C44E700CC2734 /* NetworkImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC3696DB262C44E700CC2734 /* XCRemoteSwiftPackageReference "NetworkImage" */;
-			productName = NetworkImage;
-		};
-		EC3696E1262C462200CC2734 /* FetchImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC3696E0262C462200CC2734 /* XCRemoteSwiftPackageReference "FetchImage" */;
-			productName = FetchImage;
-		};
 		EC43AA57251C9A7100283D28 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
