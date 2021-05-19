@@ -35,7 +35,7 @@ enum NSOAPI {
 extension NSOAPI: APITargetType {
     private static let clientId = "71b963c1b7b6d119"
     public static let clientUrlScheme = "npf\(NSOAPI.clientId)"
-    private static let clientVersion = "1.10.0"
+    private static let clientVersion = "1.11.0"
     private static let gameServiceId = "5741031244955648"
     private static let flapgAPIVersion = "3"
     
