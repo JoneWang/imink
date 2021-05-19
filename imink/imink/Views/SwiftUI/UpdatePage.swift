@@ -35,7 +35,7 @@ struct UpdatePage: View {
         return VStack {
             VStack(spacing: 0) {
                 Text(largeLayout ? "What’s New in imink" : "What’s New in imink_multi-line")
-                    .font(.system(size: 34, weight: .semibold))
+                    .font(.system(size: 34, weight: .bold))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, titlePaddingBottom)
                 

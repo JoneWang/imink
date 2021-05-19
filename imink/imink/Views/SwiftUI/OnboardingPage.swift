@@ -35,7 +35,7 @@ struct OnboardingPage: View {
         return VStack {
             VStack(spacing: 0) {
                 Text(largeLayout ? "Welcome to imink" : "Welcome to imink_multi-line")
-                    .font(.system(size: 34, weight: .semibold))
+                    .font(.system(size: 34, weight: .bold))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, titlePaddingBottom)
                 
