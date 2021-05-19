@@ -242,6 +242,7 @@ struct BattleDetailPage: View {
                             .overlay(
                                 TouchDownAndTouchUpGestureView{
                                     activePlayer = member.player
+                                    activePlayerVictory = victory
                                     hoveredMember = true
                                 } touchMovedCallBack: {distance in
                                     if distance > 10 {
@@ -249,8 +250,6 @@ struct BattleDetailPage: View {
                                     }
                                 } touchUpCallBack: {
                                     if hoveredMember {
-                                        activePlayer = member.player
-                                        activePlayerVictory = victory
                                         withAnimation {
                                             showPlayerSkill = true
                                         }
