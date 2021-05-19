@@ -9,10 +9,10 @@
 
 
 "Error connecting to the server" = "連線到伺服器時發生錯誤";
-"Authorization error" = "Authorization error";
-"Client token is invalid" = "Client token is invalid";
-"The iksm_session is invalid" = "The iksm_session is invalid";
-"Request paraemter error" = "Request paraemter error";
+"Authorization error" = "授權錯誤";
+"Client token is invalid" = "用戶端權杖無效";
+"The iksm_session is invalid" = "iksm_session 無效";
+"Request paraemter error" = "請求參數錯誤";
 
 // MARK: Tab bar
 
