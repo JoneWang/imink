@@ -24,9 +24,7 @@ struct SalmonRunScheduleView: View {
     
     var body: some View {
         ForEach(dataSource, id: \.startTime) { schedule in
-            
             VStack(spacing: 10) {
-                
                 VStack {
                     Text("\(schedule.startTime, formatter: scheduleTimeFormat) - \(schedule.endTime, formatter: scheduleTimeFormat)")
                         .sp2Font(size: 15, color: Color.primary)
@@ -39,58 +37,48 @@ struct SalmonRunScheduleView: View {
                 
                 if let stage = schedule.stage,
                    let weapons = schedule.weapons {
-                    HStack(alignment: .top) {
-                        
+                    HStack(spacing: 16) {
                         VStack(spacing: 0) {
-                            
                             Text(stage.localizedName)
                                 .sp2Font(color: AppColor.appLabelColor)
+                                .padding(.bottom)
                             
                             ImageView.salomonRunStage(name: stage.imageName ?? "", imageURL: stage.image)
-                                .aspectRatio(640 / 360, contentMode: .fill)
-                                .frame(minWidth: 100)
+                                .aspectRatio(640.0 / 360.0, contentMode: .fill)
+                                .clipped()
                                 .continuousCornerRadius(8)
-                                .padding(.top)
-                            
                         }
                         
                         VStack(spacing: 0) {
-                            
                             Text("Supplied Weapons")
                                 .sp2Font(color: AppColor.appLabelColor)
+                                .padding(.bottom)
+                            
+                            Spacer()
                             
                             VStack {
-                                
                                 Spacer()
                                 
                                 HStack(alignment: .center) {
-                                    
                                     ForEach(weapons, id: \.id) { weapon in
                                         ImageView.weapon(id: weapon.id)
                                             .aspectRatio(1, contentMode: .fit)
-                                            .frame(minWidth: 40, minHeight: 40)
-                                            .continuousCornerRadius(8)
+                                            .frame(width: 40, height: 40)
                                     }
-                                    
                                 }
                                 
                                 Spacer()
-                                
                             }
-                            .padding(.top)
                             
+                            Spacer()
                         }
-                        
                     }
-                    
                 }
-                
             }
             .frame(maxWidth: .infinity)
-            .padding()
+            .padding(16)
             .background(AppColor.listItemBackgroundColor)
             .continuousCornerRadius(10)
-            
         }
     }
 }
