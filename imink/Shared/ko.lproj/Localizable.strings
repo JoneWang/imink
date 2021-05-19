@@ -52,7 +52,7 @@
 "Highest" = "최고";
 "Crew" = "우리 팀";
 "Rival" = "상대 팀";
-"Position" = "Position";
+"Position" = "순위";
 "My X Power" = "자신의 X파워";
 "Average" = "8명의 X파워";
 " count" = "카운트";
@@ -90,7 +90,7 @@
 
 // MARK: Me
 
-"Highest Power" = "Highest Power";
+"Highest Power" = "최고 리그 파워";
 "Language" = "언어";
 "Source code" = "소스 코드";
 "FAQ" = "자주 있는 질문";
