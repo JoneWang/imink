@@ -144,11 +144,11 @@
 
 // MARK: Update 1.0.7
 
-"What’s New in imink" = "What’s New in imink";
-"What’s New in imink_multi-line" = "What’s New in\nimink";
-"Gear Loadout" = "Gear Loadout";
-"League Battle Medals" = "League Battle Medals";
-"X Rank Improvements" = "X Rank Improvements";
-"update_1_0_7_description_1" = "Check the gear loadout of other squids in battle detail.";
-"update_1_0_7_description_2" = "All your shiny medals are now well displayed under your profile.";
-"update_1_0_7_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
+"What’s New in imink" = "imink의 새로운 기능";
+"What’s New in imink_multi-line" = "imink의 새로운 기능";
+"Gear Loadout" = "기어 체크";
+"League Battle Medals" = "리그 매치 기록";
+"X Rank Improvements" = "가치 매치 결과 개선";
+"update_1_0_7_description_1" = "배틀 결과에서 플레이어의 기어를 확인할 수 있게 되었습니다.";
+"update_1_0_7_description_2" = "프로필 화면에서 지금까지의 최고 리그 파워 및 획득 메달 리스트를 확인할 수 있게 되었습니다.";
+"update_1_0_7_description_3" = "우데마에X의 가치 매치 결과에서 각 플레이어의 X랭킹 순위와 왕관 유무를 확인할 수 있게 되었습니다.";
