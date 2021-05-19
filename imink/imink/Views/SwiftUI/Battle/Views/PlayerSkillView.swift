@@ -33,9 +33,9 @@ struct PlayerSkillView: View {
                             
                             WebImage(url: viewModel.image)
                                 .resizable()
-                                .clipShape(Circle())
                         }
                         .frame(width: 40, height: 40)
+                        .clipShape(Circle())
                         
                         Text(player.nickname)
                             .sp2Font(size: 14, color: AppColor.appLabelColor)
@@ -50,9 +50,16 @@ struct PlayerSkillView: View {
                         ForEach(0..<skillData.count) { i in
                             let skill = skillData[i]
                             HStack(spacing: 14) {
-                                WebImage(url: skill.0.image)
-                                    .resizable()
-                                    .frame(width: 32, height: 32)
+                                if i == 0 {
+                                    ImageView.head(id: skill.0.id)
+                                        .frame(width: 32, height: 32)
+                                } else if i == 1 {
+                                    ImageView.clothes(id: skill.0.id)
+                                        .frame(width: 32, height: 32)
+                                } else if i == 2 {
+                                    ImageView.shoes(id: skill.0.id)
+                                        .frame(width: 32, height: 32)
+                                }
                                 
                                 HStack(spacing: 6) {
                                     ZStack {

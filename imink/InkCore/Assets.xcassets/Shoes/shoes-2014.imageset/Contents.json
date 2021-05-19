@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "shoes-2014.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

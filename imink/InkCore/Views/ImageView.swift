@@ -68,6 +68,18 @@ public extension ImageView {
     static func special(id: String, isA: Bool = true) -> some View {
         ImageView(imageName: "special-\(isA ? "a" : "b")-\(id)", imageURLBehaviour: .standby)
     }
+    
+    static func head(id: String) -> some View {
+        ImageView(imageName: "head-\(id)", imageURLBehaviour: .standby)
+    }
+    
+    static func clothes(id: String) -> some View {
+        ImageView(imageName: "clothes-\(id)", imageURLBehaviour: .standby)
+    }
+    
+    static func shoes(id: String) -> some View {
+        ImageView(imageName: "shoes-\(id)", imageURLBehaviour: .standby)
+    }
 }
 
 struct ImageView_Previews: PreviewProvider {

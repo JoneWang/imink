@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "shoes-8009.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
