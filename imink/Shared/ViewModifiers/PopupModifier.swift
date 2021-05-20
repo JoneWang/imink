@@ -33,7 +33,7 @@ struct Popup<T: View>: ViewModifier {
                     
                     makePopupContent()
                 }
-                .animation(.default)
+                .animation(.easeInOut(duration: 0.325))
             )
     }
     
@@ -52,6 +52,6 @@ struct Popup<T: View>: ViewModifier {
 fileprivate extension Animation {
     
     static func popupEaseOut() -> Animation {
-        .timingCurve(0.27, 0.8, 0.2, 1, duration: 0.55)
+        .timingCurve(0.25, 0.95, 0.15, 1, duration: 0.4)
     }
 }
