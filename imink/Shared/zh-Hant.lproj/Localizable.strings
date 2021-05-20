@@ -12,7 +12,7 @@
 "Authorization error" = "授權錯誤";
 "Client token is invalid" = "用戶端權杖無效";
 "The iksm_session is invalid" = "iksm_session 無效";
-"Request paraemter error" = "請求參數錯誤";
+"Request parameter error" = "請求參數錯誤";
 
 // MARK: Tab bar
 

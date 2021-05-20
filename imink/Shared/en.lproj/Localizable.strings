@@ -12,7 +12,7 @@
 "Authorization error" = "Authorization error";
 "Client token is invalid" = "Client token is invalid";
 "The iksm_session is invalid" = "The iksm_session is invalid";
-"Request paraemter error" = "Request paraemter error";
+"Request parameter error" = "Request parameter error";
 
 // MARK: Tab bar
 

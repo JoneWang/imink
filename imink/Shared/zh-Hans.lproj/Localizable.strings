@@ -12,7 +12,7 @@
 "Authorization error" = "授权错误";
 "Client token is invalid" = "客户端令牌无效";
 "The iksm_session is invalid" = "iksm_session 无效";
-"Request paraemter error" = "请求参数错误";
+"Request parameter error" = "请求参数错误";
 
 // MARK: Tab bar
 
