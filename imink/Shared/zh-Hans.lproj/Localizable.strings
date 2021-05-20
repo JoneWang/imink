@@ -12,7 +12,7 @@
 "Authorization error" = "授权错误";
 "Client token is invalid" = "客户端令牌无效";
 "The iksm_session is invalid" = "iksm_session 无效";
-"Request parameter error" = "请求参数错误";
+"Request parameter error" = "Request parameter error";
 
 // MARK: Tab bar
 
@@ -149,6 +149,6 @@
 "Gear Loadout" = "武器配装";
 "League Battle Medals" = "联盟对战奖牌";
 "X Rank Improvements" = "真格X段优化";
-"update_1_1_0_description_1" = "在战绩详情页面中查看其他玩家的配装，为打造完美装备提供参考。";
-"update_1_1_0_description_2" = "属于团队的至高荣誉，现已悉心陈列在个人资料页面中。";
-"update_1_1_0_description_3" = "战绩详情页面现可显示X段排名和500强玩家的王冠。";
+"update_1_1_0_description_1" = "Check the gear loadout of other squids in battle detail.";
+"update_1_1_0_description_2" = "All your shiny medals are now well displayed under your profile.";
+"update_1_1_0_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
