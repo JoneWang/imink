@@ -1,4 +1,3 @@
-
 /*
   Localizable.strings
   imink
@@ -6,8 +5,8 @@
   Created by Jone Wang on 2020/9/4.
   
 */
-
 // MARK: API error
+
 
 "Error connecting to the server" = "Error connecting to the server";
 "Authorization error" = "Authorization error";
@@ -53,6 +52,7 @@
 "Highest" = "最高";
 "Crew" = "味方";
 "Rival" = "相手";
+"Position" = "順位";
 "My X Power" = "自分のXパワー";
 "Average" = "8人のXパワー";
 " count" = "カウント";
@@ -90,6 +90,7 @@
 
 // MARK: Me
 
+"Highest Power" = "最高リーグパワー";
 "Language" = "言語";
 "Source code" = "ソースコード";
 "FAQ" = "よくある質問";
@@ -140,3 +141,14 @@
 "Salmon Run" = "サーモンラン";
 "onboarding_description_3" = "シャケたちを倒し、イクラを集めてサーモンでの評価を上げよう。";
 "Continue" = "続ける";
+
+// MARK: Update 1.0.7
+
+"What’s New in imink" = "新機能のお知らせ";
+"What’s New in imink_multi-line" = "新機能のお知らせ";
+"Gear Loadout" = "ギアのチェック";
+"League Battle Medals" = "リーグマッチの記録";
+"X Rank Improvements" = "ガチマッチのリザルト改善";
+"update_1_0_7_description_1" = "バトルのリザルトで各プレイヤーのギアを確認できるようになりました。";
+"update_1_0_7_description_2" = "今までの最高リーグパワー、及び獲得メダルの一覧をプロフィール画面で確認できるようになりました。";
+"update_1_0_7_description_3" = "ウデマエXのガチマッチのリザルトで自分のXランキングの順位と、各プレイヤーの王冠の有無を確認できるようになりました。";

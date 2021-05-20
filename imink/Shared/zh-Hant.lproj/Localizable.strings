@@ -1,4 +1,3 @@
-
 /*
   Localizable.strings
   imink
@@ -6,14 +5,14 @@
   Created by Jone Wang on 2020/9/4.
   
 */
-
 // MARK: API error
 
-"Error connecting to the server" = "Error connecting to the server";
-"Authorization error" = "Authorization error";
-"Client token is invalid" = "Client token is invalid";
-"The iksm_session is invalid" = "The iksm_session is invalid";
-"Request paraemter error" = "Request paraemter error";
+
+"Error connecting to the server" = "連線到伺服器時發生錯誤";
+"Authorization error" = "授權錯誤";
+"Client token is invalid" = "用戶端權杖無效";
+"The iksm_session is invalid" = "iksm_session 無效";
+"Request paraemter error" = "請求參數錯誤";
 
 // MARK: Tab bar
 
@@ -53,6 +52,7 @@
 "Highest" = "最高";
 "Crew" = "隊友";
 "Rival" = "對手";
+"Position" = "排名";
 "My X Power" = "我的X段分";
 "Average" = "8人平均分";
 " count" = " 分";
@@ -90,6 +90,7 @@
 
 // MARK: Me
 
+"Highest Power" = "最高分";
 "Language" = "語言";
 "Source code" = "原始碼";
 "FAQ" = "常見問題";
@@ -140,3 +141,14 @@
 "Salmon Run" = "熊商會打工";
 "onboarding_description_3" = "擊敗鮭魚，收集魚卵，提升你在熊商會的工作績效。";
 "Continue" = "繼續";
+
+// MARK: Update 1.0.7
+
+"What’s New in imink" = "imink的新功能";
+"What’s New in imink_multi-line" = "imink的新功能";
+"Gear Loadout" = "武器配裝";
+"League Battle Medals" = "聯盟模式獎牌";
+"X Rank Improvements" = "真劍X段改進";
+"update_1_0_7_description_1" = "在戰績詳情頁面中檢視其他玩家的配裝，為打造完美裝備提供參考。";
+"update_1_0_7_description_2" = "屬於團隊的无上榮耀，現已悉心陳列在個人資料頁面中。";
+"update_1_0_7_description_3" = "戰績詳情頁面現可顯示X段排名和500強玩家的王冠。";
