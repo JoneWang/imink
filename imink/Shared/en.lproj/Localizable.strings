@@ -142,13 +142,13 @@
 "onboarding_description_3" = "Check how good you perform as Grizzco’s loyal egg collector.";
 "Continue" = "Continue";
 
-// MARK: Update 1.0.7
+// MARK: Update 1.1.0
 
 "What’s New in imink" = "What’s New in imink";
 "What’s New in imink_multi-line" = "What’s New in\nimink";
 "Gear Loadout" = "Gear Loadout";
 "League Battle Medals" = "League Battle Medals";
 "X Rank Improvements" = "X Rank Improvements";
-"update_1_0_7_description_1" = "Check the gear loadout of other squids in battle detail.";
-"update_1_0_7_description_2" = "All your shiny medals are now well displayed under your profile.";
-"update_1_0_7_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
+"update_1_1_0_description_1" = "Check the gear loadout of other squids in battle detail.";
+"update_1_1_0_description_2" = "All your shiny medals are now well displayed under your profile.";
+"update_1_1_0_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";

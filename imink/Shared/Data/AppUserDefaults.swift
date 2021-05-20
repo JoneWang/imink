@@ -18,13 +18,13 @@ class AppUserDefaults: ObservableObject {
     var firstLaunch: Bool = true {
         didSet {
             if !firstLaunch {
-                updatedFirstLaunch1_0_7 = false
+                firstLaunchAfterUpdating1_1_0 = false
             }
         }
     }
     
-    @AppStorage("updatedFirstLaunch1.0.7", store: .appGroup)
-    var updatedFirstLaunch1_0_7: Bool = true
+    @AppStorage("firstLaunchAfterUpdating1.1.0", store: .appGroup)
+    var firstLaunchAfterUpdating1_1_0: Bool = true
     
     @StandardStorage(key: "last_battle", store: .appGroup)
     var lastBattle: Battle?

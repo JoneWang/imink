@@ -142,13 +142,13 @@
 "onboarding_description_3" = "击败鲑鱼，收集鱼卵，提升你在熊商会的工作绩效。";
 "Continue" = "继续";
 
-// MARK: Update 1.0.7
+// MARK: Update 1.1.0
 
 "What’s New in imink" = "imink的新功能";
 "What’s New in imink_multi-line" = "imink的新功能";
 "Gear Loadout" = "武器配装";
 "League Battle Medals" = "联盟对战奖牌";
 "X Rank Improvements" = "真格X段优化";
-"update_1_0_7_description_1" = "在战绩详情页面中查看其他玩家的配装，为打造完美装备提供参考。";
-"update_1_0_7_description_2" = "属于团队的至高荣誉，现已悉心陈列在个人资料页面中。";
-"update_1_0_7_description_3" = "战绩详情页面现可显示X段排名和500强玩家的王冠。";
+"update_1_1_0_description_1" = "在战绩详情页面中查看其他玩家的配装，为打造完美装备提供参考。";
+"update_1_1_0_description_2" = "属于团队的至高荣誉，现已悉心陈列在个人资料页面中。";
+"update_1_1_0_description_3" = "战绩详情页面现可显示X段排名和500强玩家的王冠。";

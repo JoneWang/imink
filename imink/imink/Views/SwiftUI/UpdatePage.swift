@@ -42,9 +42,9 @@ struct UpdatePage: View {
                 VStack(alignment: .leading, spacing: widthGreaterThan400 ? 46 : 24) {
                     ForEach(
                         [
-                            ("UpdateLogLoadout", "Gear Loadout", "update_1_0_7_description_1"),
-                            ("UpdateLogMedal", "League Battle Medals", "update_1_0_7_description_2"),
-                            ("UpdateLogXRank", "X Rank Improvements", "update_1_0_7_description_3")
+                            ("UpdateLogLoadout", "Gear Loadout", "update_1_1_0_description_1"),
+                            ("UpdateLogMedal", "League Battle Medals", "update_1_1_0_description_2"),
+                            ("UpdateLogXRank", "X Rank Improvements", "update_1_1_0_description_3")
                         ],
                         id: \.0
                     ) { iconName, title, description in

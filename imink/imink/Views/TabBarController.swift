@@ -72,7 +72,7 @@ class TabBarController: UITabBarController {
         
         if AppUserDefaults.shared.firstLaunch {
             showOnboarding()
-        } else if AppUserDefaults.shared.updatedFirstLaunch1_0_7 {
+        } else if AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 {
             showUpdatePage()
         }
         
@@ -162,7 +162,7 @@ class TabBarController: UITabBarController {
             .sink { dismiss in
                 if dismiss {
                     updateViewController.dismiss(animated: true, completion: nil)
-                    AppUserDefaults.shared.updatedFirstLaunch1_0_7 = false
+                    AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 = false
                 }
             }
 
