@@ -12,8 +12,6 @@ struct Popup<T: View>: ViewModifier {
     var isPresented: Bool
     let onDismiss: () -> Void
     
-    @State private var offsetY: CGFloat = 0
-    
     init(isPresented: Bool, onDismiss: @escaping () -> Void, @ViewBuilder content: () -> T) {
         self.isPresented = isPresented
         self.popup = content()
@@ -24,32 +22,29 @@ struct Popup<T: View>: ViewModifier {
         content
             .overlay(
                 ZStack {
-                    background()
-                    popupContent()
+                    if isPresented {
+                        Rectangle()
+                            .foregroundColor(.black.opacity(0.5))
+                            .transition(.opacity)
+                            .onTapGesture {
+                                onDismiss()
+                            }
+                    }
+                    
+                    makePopupContent()
                 }
+                .animation(.default)
             )
     }
     
-    @ViewBuilder private func popupContent() -> some View {
+    @ViewBuilder private func makePopupContent() -> some View {
         GeometryReader { geometry in
             if isPresented {
                 popup
-                    .animation(.popupEaseOut())
                     .transition(.offset(x: 0, y: geometry.size.height))
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .bottom)
-                    .offset(x: 0, y: offsetY)
+                    .animation(.popupEaseOut())
             }
-        }
-    }
-    
-    @ViewBuilder private func background() -> some View {
-        if isPresented {
-            Rectangle()
-                .foregroundColor(Color.black.opacity(0.5))
-                .transition(.opacity)
-                .onTapGesture {
-                    onDismiss()
-                }
         }
     }
 }
@@ -57,6 +52,6 @@ struct Popup<T: View>: ViewModifier {
 fileprivate extension Animation {
     
     static func popupEaseOut() -> Animation {
-        return .timingCurve(0.27, 0.8, 0.2, 1, duration: 0.55)
+        .timingCurve(0.27, 0.8, 0.2, 1, duration: 0.55)
     }
 }

@@ -153,8 +153,6 @@ struct PlayerSkillView: View {
             } else {
                 EmptyView()
             }
-            
-            
         }
     }
 }

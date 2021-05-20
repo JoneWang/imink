@@ -32,10 +32,12 @@ public struct ImageView: View {
                     .placeholder(Image(imageName, bundle: Bundle.inkCore))
             )
         } else {
-            if let uiImage = UIImage(named: imageName, in: Bundle.inkCore, with: nil) {
-                return AnyView(Image(uiImage: uiImage).resizable())
-            } else if let imageURL = imageURL {
-                return AnyView(WebImage(url: imageURL).resizable())
+            if let imageURL = imageURL {
+                if let uiImage = UIImage(named: imageName, in: Bundle.inkCore, with: nil) {
+                    return AnyView(Image(uiImage: uiImage).resizable())
+                } else {
+                    return AnyView(WebImage(url: imageURL).resizable())
+                }
             } else {
                 return AnyView(Image(imageName, bundle: Bundle.inkCore).resizable())
             }

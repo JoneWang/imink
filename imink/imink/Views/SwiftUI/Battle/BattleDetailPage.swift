@@ -71,14 +71,10 @@ struct BattleDetailPage: View {
         }
         .modifier(Popup(isPresented: showPlayerSkill,
                         onDismiss: {
-                            withAnimation {
-                                showPlayerSkill = false
-                            }
+                            showPlayerSkill = false
                         }, content: {
                             PlayerSkillView(victory: $activePlayerVictory, player: $activePlayer, viewModel: avatarViewModel) {
-                                withAnimation {
-                                    showPlayerSkill = false
-                                }
+                                showPlayerSkill = false
                             }
                         }))
     }
@@ -250,9 +246,7 @@ struct BattleDetailPage: View {
                                     }
                                 } touchUpCallBack: {
                                     if hoveredMember {
-                                        withAnimation {
-                                            showPlayerSkill = true
-                                        }
+                                        showPlayerSkill = true
                                         hoveredMember = false
                                     }
                                 }
