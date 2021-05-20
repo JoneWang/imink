@@ -67,7 +67,8 @@ struct BattleDetailResultBarView: View {
             }
             .padding([.leading, .trailing], 15)
         }
-        .frame(width: .infinity, height: 37)
+        .frame(height: 37)
+        .frame(maxWidth: .infinity)
         .background(Color(.sRGB, white: 0.1, opacity: 0.8))
         .clipShape(Capsule())
     }
