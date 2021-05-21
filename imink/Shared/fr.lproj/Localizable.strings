@@ -1,0 +1,154 @@
+/*
+  Localizable.strings
+  imink
+
+  Created by Jone Wang on 2020/9/4.
+  
+*/
+// MARK: API error
+
+
+"Error connecting to the server" = "Error connecting to the server";
+"Authorization error" = "Authorization error";
+"Client token is invalid" = "Client token is invalid";
+"The iksm_session is invalid" = "The iksm_session is invalid";
+"Request parameter error" = "Request parameter error";
+
+// MARK: Tab bar
+
+"Home" = "Home";
+"Battles" = "Battles";
+"Me" = "Me";
+
+// MARK: Sign in
+
+"Welcome to imink!" = "Welcome to imink!";
+"Log in to sync your data" = "Log in to sync your data";
+"Log in with Nintendo Account" = "Log in with Nintendo Account";
+"login_error_title" = "Failure";
+"login_error_message" = "The login authentication server is busy, please try again later.";
+"session_token_invalid_title" = "Login Expired";
+"session_token_invalid_message" = "Your login information has expired due to long-term inactivity, please log in again.";
+"relogin_title" = "Update Notice";
+"relogin_message" = "This update fixed a bug that could potentially prevent battle results from syncing, which will require you to re-log with your account. This is a one-time event and you won’t need to log in periodically in the future. Sorry for the inconvenience.";
+"user_game_data_not_exist_message" = "Please make sure your account has Splatoon 2 gameplay data and an active Nintendo Switch Online membership.";
+
+// MARK: Home
+
+"Today" = "Today";
+"reset" = "reset";
+"Victory rate:" = "Victory:";
+"Results" = "Results";
+"Last 500" = "Last 500";
+"Last 50" = "Last 50";
+"Splatfest" = "Splatfest";
+"Schedule" = "Schedule";
+"Battle" = "Battle";
+
+// MARK: Battles
+
+"%@ power" = "%@ power";
+"Current" = "Current";
+"Highest" = "Highest";
+"Crew" = "Crew";
+"Rival" = "Rival";
+"Position" = "Position";
+"My X Power" = "My X Power";
+"Average" = "Average";
+" count" = " count";
+"KO BONUS!" = "KO BONUS!";
+
+"8-Squid Tower Control Power" = "8-Squid Tower Control Power";
+"8-Squid Rainmaker Power" = "8-Squid Rainmaker Power";
+"8-Squid Clam Blitz Power" = "8-Squid Clam Blitz Power";
+"8-Squid Splat Zones Power" = "8-Squid Splat Zones Power";
+"8-Squid Splat Zones X Power" = "8-Squid Splat Zones X Power";
+"8-Squid Tower Control X Power" = "8-Squid Tower Control X Power";
+"8-Squid Rainmaker X Power" = "8-Squid Rainmaker X Power";
+"8-Squid Clam Blitz X Power" = "8-Squid Clam Blitz X Power";
+"8-Squid ガチヤグラ Power" = "8-Squid Tower Control Power";
+"8-Squid ガチホコバトル Power" = "8-Squid Rainmaker Power";
+"8-Squid ガチアサリ Power" = "8-Squid Clam Blitz Power";
+"8-Squid ガチエリア Power" = "8-Squid Splat Zones Power";
+"8-Squid ガチエリア X Power" = "8-Squid Splat Zones X Power";
+"8-Squid ガチヤグラ X Power" = "8-Squid Tower Control X Power";
+"8-Squid ガチホコバトル X Power" = "8-Squid Rainmaker X Power";
+"8-Squid ガチアサリ X Power" = "8-Squid Clam Blitz X Power";
+
+// MARK: Salmon Run
+
+"grade_0" = "Intern";
+"grade_1" = "Apprentice";
+"grade_2" = "Part-Timer";
+"grade_3" = "Go-Getter";
+"grade_4" = "Overachiever";
+"grade_5" = "Profreshional";
+"Hazard Level" = "Hazard Level";
+"Clear!" = "Clear!";
+"Defeat_job" = "Defeat";
+"Wave %d" = "Wave %d";
+
+// MARK: Me
+
+"Highest Power" = "Highest Power";
+"Language" = "Language";
+"Source code" = "Source code";
+"FAQ" = "FAQ";
+"About imink" = "About imink";
+"Log out" = "Log out";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+
+// MARK: Schedule
+
+"Now" = "Now";
+"Next" = "Next";
+"Next Day" = "Next Day";
+"Supplied Weapons" = "Supplied Weapons";
+"Open!" = "Open!";
+"Soon!" = "Soon!";
+"Next_salmonrun" = "Next";
+"Future" = "Future";
+"In %d hours" = "In %d hours";
+
+// MARK: Widget
+
+"widget_regular_schedule_preview_description" = "View the current and upcoming Regular Battle stages.";
+"widget_ranked_schedule_preview_description" = "View the current and upcoming Ranked Battle stages.";
+"widget_league_schedule_preview_description" = "View the current and upcoming League Battle stages.";
+"widget_salmon_run_schedule_preview_description" = "View the latest Salmon Run shift schedule.";
+
+// MARK: Game
+
+"Victory" = "VICTORY";
+"Defeat" = "DEFEAT";
+"VICTORY" = "VICTORY";
+"DEFEAT" = "DEFEAT";
+
+// MARK: Common
+
+"Back" = "Back";
+"Yes" = "Yes";
+"No" = "No";
+
+// MARK: Onboarding
+
+"Welcome to imink" = "Welcome to imink";
+"Welcome to imink_multi-line" = "Welcome to\nimink";
+"Real-Time Syncing" = "Real-Time Syncing";
+"onboarding_description_1" = "Battle results auto synced and stored with no upper limit.";
+"Home Screen Widgets" = "Home Screen Widgets";
+"onboarding_description_2" = "Effortlessly view the game schedule on the Home screen.";
+"Salmon Run" = "Salmon Run";
+"onboarding_description_3" = "Check how good you perform as Grizzco’s loyal egg collector.";
+"Continue" = "Continue";
+
+// MARK: Update 1.1.0
+
+"What’s New in imink" = "What’s New in imink";
+"What’s New in imink_multi-line" = "What’s New in\nimink";
+"Gear Loadout" = "Gear Loadout";
+"League Battle Medals" = "League Battle Medals";
+"X Rank Improvements" = "X Rank Improvements";
+"update_1_1_0_description_1" = "Check the gear loadout of other squids in battle detail.";
+"update_1_1_0_description_2" = "All your shiny medals are now well displayed under your profile.";
+"update_1_1_0_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
