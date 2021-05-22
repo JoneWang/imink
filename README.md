@@ -19,7 +19,7 @@
 
 ## Contributions
 
-* Jone Wang
+* [Jone Wang](https://twitter.com/JoneWang)
 * [Ryan Lau](https://twitter.com/oueryan)
 * Shaw
 * [Key山](https://weibo.com/alicemegatron)
