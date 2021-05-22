@@ -8,8 +8,8 @@
 // MARK: API error
 
 
-"Error connecting to the server" = "Error connecting to the server";
-"Authorization error" = "Authorization error";
+"Error connecting to the server" = "Erreur de connexion au serveur {}";
+"Authorization error" = "Erreur d'autorisation";
 "Client token is invalid" = "Client token is invalid";
 "The iksm_session is invalid" = "The iksm_session is invalid";
 "Request parameter error" = "Request parameter error";
