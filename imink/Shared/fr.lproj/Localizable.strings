@@ -10,32 +10,32 @@
 
 "Error connecting to the server" = "Erreur de connexion au serveur {}";
 "Authorization error" = "Erreur d'autorisation";
-"Client token is invalid" = "Client token is invalid";
-"The iksm_session is invalid" = "The iksm_session is invalid";
-"Request parameter error" = "Request parameter error";
+"Client token is invalid" = "Jeton de client est invalide";
+"The iksm_session is invalid" = "La session iksm_session est invalide";
+"Request parameter error" = "Erreur de requête paramètre";
 
 // MARK: Tab bar
 
-"Home" = "Home";
-"Battles" = "Battles";
-"Me" = "Me";
+"Home" = "Accueil";
+"Battles" = "Batailles";
+"Me" = "Moi";
 
 // MARK: Sign in
 
-"Welcome to imink!" = "Welcome to imink!";
-"Log in to sync your data" = "Log in to sync your data";
-"Log in with Nintendo Account" = "Log in with Nintendo Account";
-"login_error_title" = "Failure";
-"login_error_message" = "The login authentication server is busy, please try again later.";
-"session_token_invalid_title" = "Login Expired";
-"session_token_invalid_message" = "Your login information has expired due to long-term inactivity, please log in again.";
-"relogin_title" = "Update Notice";
-"relogin_message" = "This update fixed a bug that could potentially prevent battle results from syncing, which will require you to re-log with your account. This is a one-time event and you won’t need to log in periodically in the future. Sorry for the inconvenience.";
-"user_game_data_not_exist_message" = "Please make sure your account has Splatoon 2 gameplay data and an active Nintendo Switch Online membership.";
+"Welcome to imink!" = "Bienvenue sur imink!";
+"Log in to sync your data" = "Connectez-vous pour synchroniser vos données";
+"Log in with Nintendo Account" = "Connectez-vous avec votre compte Nintendo";
+"login_error_title" = "Échec";
+"login_error_message" = "Le serveur d'authentification de connexion est occupé, veuillez réessayer plus tard.";
+"session_token_invalid_title" = "Connexion expirée";
+"session_token_invalid_message" = "Votre connexion ont expiré en raison d'une inactivité pour une longue durée, veuillez vous reconnecter.";
+"relogin_title" = "Notifiaction de mise à jour";
+"relogin_message" = "Cette mise à jour a corrigé un bug qui pourrait potentiellement empêcher la synchronisation des résultats des batailles, ce qui vous obligera à vous reconnecter avec votre compte. C'est un événement unique et vous n'aurez pas besoin de vous connecter périodiquement dans le futur. Désolé pour la gêne occasionnée.";
+"user_game_data_not_exist_message" = "Veuillez vous assurer que votre compte possède des données de jeu Splatoon 2 et un abonnement active de Nintendo Switch Online.";
 
 // MARK: Home
 
-"Today" = "Today";
+"Today" = "Aujourd'hui";
 "reset" = "reset";
 "Victory rate:" = "Victory:";
 "Results" = "Results";
