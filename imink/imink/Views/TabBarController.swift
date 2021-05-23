@@ -58,6 +58,8 @@ class TabBarController: UITabBarController {
                 self?.showLogin()
             }
             .store(in: &cancelBag)
+
+        self.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -176,5 +178,30 @@ class TabBarController: UITabBarController {
             return .all
         }
     }
-    
+
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let viewControllers = viewControllers else {return false}
+
+        if viewController == viewControllers[selectedIndex] {
+            viewController.scrollToTop(view: viewController.view)
+        }
+        return true
+    }
+}
+
+extension UIViewController {
+    func scrollToTop(view: UIView)
+    {
+        if let scrollView = view as? UIScrollView {
+            scrollView.setContentOffset(CGPoint(x: 0.0, y: -scrollView.contentInset.top), animated: true)
+            return
+        }
+        
+        for subView in view.subviews {
+            scrollToTop(view: subView)
+        }
+    }
 }
