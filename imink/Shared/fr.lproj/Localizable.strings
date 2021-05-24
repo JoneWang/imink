@@ -48,13 +48,13 @@
 // MARK: Battles
 
 "%@ power" = "%@ power";
-"Current" = "Current";
-"Highest" = "Highest";
+"Current" = "Actuelle";
+"Highest" = "La plus haute";
 "Crew" = "Crew";
 "Rival" = "Rival";
 "Position" = "Position";
-"My X Power" = "My X Power";
-"Average" = "Average";
+"My X Power" = "Ma X Power";
+"Average" = "Moyen(ne)";
 " count" = " count";
 "KO BONUS!" = "KO BONUS!";
 
