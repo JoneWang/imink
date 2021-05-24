@@ -36,14 +36,14 @@
 // MARK: Home
 
 "Today" = "Aujourd'hui";
-"reset" = "reset";
-"Victory rate:" = "Victory:";
-"Results" = "Results";
-"Last 500" = "Last 500";
-"Last 50" = "Last 50";
-"Splatfest" = "Splatfest";
-"Schedule" = "Schedule";
-"Battle" = "Battle";
+"reset" = "remise à zéro";
+"Victory rate:" = "Victoire:";
+"Results" = "Résultats";
+"Last 500" = "Les 500 derniers";
+"Last 50" = "Les 50 derniers";
+"Splatfest" = "Festival";
+"Schedule" = "Agenda";
+"Battle" = "Bataille";
 
 // MARK: Battles
 
