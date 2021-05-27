@@ -93,14 +93,14 @@
 "Highest Power" = "Highest Power";
 "Language" = "Langue";
 "Source code" = "Code source";
-"FAQ" = "Foire aux questions";
-"About imink" = "À propos d'imink";
-"Log out" = "Log out";
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"FAQ" = "FAQ";
+"About imink" = "À propos d’imink";
+"Log out" = "Déconnexion";
+"Are you sure you want to log out?" = "Êtes-vous sûr de vouloir vous déconnecter ?";
 
 // MARK: Schedule
 
-"Now" = "Now";
+"Now" = "Maintenant";
 "Next" = "Next";
 "Next Day" = "Next Day";
 "Supplied Weapons" = "Supplied Weapons";
