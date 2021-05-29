@@ -174,7 +174,7 @@ struct BattleScheduleLargeWidgetEntryView : View {
                     HStack(alignment: .center) {
                         Spacer()
                         Image(titleIconName)
-                        Text(gameMode.name)
+                        Text(gameMode.localizedName)
                             .sp1Font(size: 17)
                             .padding(.bottom, topbarTitleOffset)
                         Spacer()
@@ -291,14 +291,14 @@ fileprivate extension Stage {
 
 extension BattleScheduleWidgetGameMode {
     
-    var name: LocalizedStringKey {
+    var localizedName: String {
         switch self {
         case .regular:
-            return "Regular Battle"
+            return "Regular Battle".splatNet2Localized
         case .gachi:
-            return "Ranked Battle"
+            return "Ranked Battle".splatNet2Localized
         case .league:
-            return "League Battle"
+            return "League Battle".splatNet2Localized
         }
     }
     
