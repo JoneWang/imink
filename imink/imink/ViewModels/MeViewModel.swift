@@ -68,8 +68,4 @@ class MeViewModel: ObservableObject {
         records = recordsData.decode(Records.self)
         nicknameAndIcons = nicknameAndIconData.decode(NicknameAndIcon.self)
     }
-    
-    func logOut() {
-        AppUserDefaults.shared.sessionToken = nil
-    }
 }

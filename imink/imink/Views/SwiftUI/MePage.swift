@@ -54,7 +54,17 @@ struct MePage: View {
         NavigationView {
             
             List {
-                Section {
+                Section(
+                    footer: VStack(alignment: .center) {
+                        Image("Ink")
+                        
+                        Text("Mysterious void under investigation…")
+                            .font(.system(size: 13))
+                            .foregroundColor(Color.tertiaryLabel)
+                    }
+                    .padding(.top, 27)
+                    .frame(maxWidth: .infinity)
+                ) {
                     HStack {
                         if (leagueStats != nil && player != nil && nicknameAndIcon != nil) || !viewModel.isLogined {
                             VStack(alignment: .leading, spacing: 0) {
@@ -131,60 +141,6 @@ struct MePage: View {
                     .listRowBackground(viewModel.isLogined ? .clear : AppColor.listBackgroundColor.opacity(0.8))
                     .modifier(LoginViewModifier(isLogined: viewModel.isLogined, backgroundColor: .clear))
                 }
-                
-                Section {
-                    makeRow(image: "globe", text: "Language", link: URL(string: UIApplication.openSettingsURLString), color: .accentColor)
-                }
-                
-                Section {
-                    makeRow(image: "chevron.left.slash.chevron.right", text: "Source code", link: URL(string: "https://github.com/JoneWang/imink"), color: .accentColor)
-                    makeRow(image: "questionmark.circle", text: "FAQ", link: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ"), color: .accentColor)
-                    ZStack {
-                        makeDetailRow(image: "tag", text: "About imink", detail: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))", color: .accentColor)
-                        NavigationLink(destination: AboutPage()) {
-                            EmptyView()
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                }
-                
-                #if DEBUG
-                Section {
-                    ZStack {
-                        makeDetailRow(image: "textformat.size", text: "Font Test", detail: "", color: .accentColor)
-                        NavigationLink(destination: TestFontView()) {
-                            EmptyView()
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                }
-                #endif
-                
-                if viewModel.isLogined {
-                    Section {
-                        HStack {
-                            Spacer()
-                            
-                            Text("Log out")
-                                .foregroundColor(.red)
-                            
-                            Spacer()
-                        }
-                        .onTapGesture {
-                            showLogoutAlert = true
-                        }
-                        .alert(isPresented: $showLogoutAlert) {
-                            Alert(
-                                title: Text("Log out"),
-                                message: Text("Are you sure you want to log out?"),
-                                primaryButton: .destructive(Text("Yes"), action: {
-                                    viewModel.logOut()
-                                }),
-                                secondaryButton: .cancel(Text("No"))
-                            )
-                        }
-                    }
-                }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Me", displayMode: .inline)
@@ -246,44 +202,6 @@ struct MePage: View {
             }
         }
         .padding(0)
-    }
-    
-    func makeRow(image: String,
-                 text: LocalizedStringKey,
-                 link: URL? = nil,
-                 color: Color) -> some View {
-        HStack {
-            Image(systemName: image)
-                .imageScale(.medium)
-                .foregroundColor(color)
-                .frame(width: 30)
-            Group {
-                if let link = link {
-                    Link(text, destination: link)
-                        .foregroundColor(AppColor.appLabelColor)
-                } else {
-                    Text(text)
-                }
-            }
-            
-            Spacer()
-            Image(systemName: "chevron.right").imageScale(.medium)
-        }
-    }
-    
-    func makeDetailRow(image: String, text: LocalizedStringKey, detail: String, color: Color) -> some View {
-        HStack {
-            Image(systemName: image)
-                .imageScale(.medium)
-                .foregroundColor(color)
-                .frame(width: 30)
-            Text(text)
-            Spacer()
-            Text(detail)
-                .foregroundColor(.gray)
-                .font(.callout)
-            Image(systemName: "chevron.right").imageScale(.medium)
-        }
     }
 }
 
