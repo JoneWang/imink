@@ -206,16 +206,21 @@ struct HomePage: View {
     
     func makeNavigationBarItems() -> some View {
         HStack {
+            Spacer()
+            
             if viewModel.isLoading {
                 ProgressView()
+                    .frame(width: 22, height: 22)
             } else {
                 Button(action: {
                     viewModel.updateSchedules()
                 }) {
                     Image(systemName: "arrow.triangle.2.circlepath")
+                        .frame(width: 22, height: 22)
                 }
             }
         }
+        .frame(width: 38, height: 40)
     }
 }
 
