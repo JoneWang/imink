@@ -11,11 +11,13 @@ import WidgetKit
 import StoreKit
 
 struct SettingPage: View {
-    
+    @StateObject private var viewModel = SettingViewModel()
+
     @Binding var showSettings: Bool
     
-    @State private var isShowingMailView = false
-    
+    @State private var showingMailView = false
+    @State private var showLogoutAlert = false
+
     var body: some View {
         NavigationView {
             List {
@@ -92,7 +94,7 @@ struct SettingPage: View {
                     
                     if MailView.canSendMail() {
                         Button(action: {
-                            self.isShowingMailView.toggle()
+                            showingMailView.toggle()
                         }) {
                             HStack {
                                 Text("Email")
@@ -186,14 +188,30 @@ struct SettingPage: View {
                     }
                 }
                 
-                Section {
-                    HStack {
-                        Spacer()
-                        
-                        Text("Log out")
-                            .foregroundColor(.red)
-                        
-                        Spacer()
+                if viewModel.isLogined {
+                    Section {
+                        Button(action: {
+                            showLogoutAlert = true
+                        }) {
+                            HStack {
+                                Spacer()
+                                
+                                Text("Log out")
+                                    .foregroundColor(.red)
+                                
+                                Spacer()
+                            }
+                        }
+                        .alert(isPresented: $showLogoutAlert) {
+                            Alert(
+                                title: Text("Log out"),
+                                message: Text("Are you sure you want to log out?"),
+                                primaryButton: .destructive(Text("Yes"), action: {
+                                    viewModel.logOut()
+                                }),
+                                secondaryButton: .cancel(Text("No"))
+                            )
+                        }
                     }
                 }
             }
@@ -210,8 +228,8 @@ struct SettingPage: View {
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $isShowingMailView) {
-            MailView(isShowing: self.$isShowingMailView, recipient: "imink@jone.wang")
+        .sheet(isPresented: $showingMailView) {
+            MailView(isShowing: $showingMailView, recipient: "imink@jone.wang")
         }
     }
 }
