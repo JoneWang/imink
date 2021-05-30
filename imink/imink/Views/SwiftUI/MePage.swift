@@ -13,6 +13,7 @@ struct MePage: View {
     @StateObject private var viewModel: MeViewModel
     
     @State var showLogoutAlert = false
+    @State var showSettings = false
     
     init(isLogined: Bool) {
         _viewModel = StateObject(wrappedValue: MeViewModel(isLogined: isLogined))
@@ -188,8 +189,24 @@ struct MePage: View {
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Me", displayMode: .inline)
             .navigationBarHidden(false)
+            .navigationBarItems(trailing:
+                Button(action: {
+                    showSettings = true
+                }) {
+                    HStack {
+                        Spacer()
+                        
+                        Image(systemName: "gear")
+                            .frame(width: 22, height: 22)
+                    }
+                    .frame(width: 38, height: 40)
+                }
+            )
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $showSettings) {
+            SettingPage(showSettings: $showSettings)
+        }
     }
     
     func makeLeague(leagueImageName: String, stat: Records.Records.LeagueStats.Stat?, maxPower: Double?) -> some View {

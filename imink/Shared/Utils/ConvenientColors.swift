@@ -50,6 +50,10 @@ extension Color {
     static var quaternarySystemFill: Color {
         Color(.quaternarySystemFill)
     }
+    
+    static var tertiaryLabel: Color {
+        Color(.tertiaryLabel)
+    }
 
     #endif
 }

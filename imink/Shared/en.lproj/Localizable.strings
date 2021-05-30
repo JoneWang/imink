@@ -91,10 +91,26 @@
 // MARK: Me
 
 "Highest Power" = "Highest Power";
+
+// MARK: Settings
+
+"Settings" = "Settings";
+"LOGIN STATUS" = "LOGIN STATUS";
+"Valid" = "Valid";
+"What is an iksm_session?" = "What is an iksm_session?";
+"GENERAL" = "GENERAL";
 "Language" = "Language";
-"Source code" = "Source code";
+"Reload Widgets" = "Reload Widgets";
+"CONTACT" = "CONTACT";
+"Email" = "Email";
+"ABOUT" = "ABOUT";
+"Send Kudos" = "Send Kudos";
+"Send Kudos_desc" = "We appreaciate your love and support. Please support imink by writing a review.";
 "FAQ" = "FAQ";
-"About imink" = "About imink";
+"Credits" = "Credits";
+"Version" = "Version";
+"Source code" = "Source code";
+"ABOUT_desc" = "imink is an unofficial app that uses the information of SplatNet 2, and is not affiliated with Nintendo.";
 "Log out" = "Log out";
 "Are you sure you want to log out?" = "Are you sure you want to log out?";
 

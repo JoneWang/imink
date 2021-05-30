@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B48C3D67D9191247553245D5 /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48C3995E77AAA8616FDC5D5 /* SettingPage.swift */; };
 		BB520C1326146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
 		BB520C1426146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
 		BB520C1E26146C06006454FB /* StageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB520C1D26146C05006454FB /* StageImage.swift */; };
@@ -225,6 +226,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B48C3995E77AAA8616FDC5D5 /* SettingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingPage.swift; path = Views/Views/SettingPage.swift; sourceTree = "<group>"; };
 		BB520C1526146683006454FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SplatNet2.strings; sourceTree = "<group>"; };
 		BB520C1926146686006454FB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
 		BB520C1A2614668A006454FB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				EC5D2628258FA02F004E7B3A /* TestFontView.swift */,
 				EC17177C25FB114500500D13 /* OnboardingPage.swift */,
 				EC5CBF832653ABA500F1A063 /* UpdatePage.swift */,
+				B48C3995E77AAA8616FDC5D5 /* SettingPage.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1072,6 +1075,7 @@
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
 				EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */,
 				EC00DBCA251C9C0C0010366A /* ToolbarDelegate.swift in Sources */,
+				B48C3D67D9191247553245D5 /* SettingPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
