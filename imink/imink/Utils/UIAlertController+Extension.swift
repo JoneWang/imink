@@ -10,16 +10,16 @@ import UIKit
 
 extension UIAlertController {
     
-    static func show(with vc: UIViewController, title: String, message: String, okAction: (() -> Void)? = nil) {
+    static func show(title: String, message: String, buttonTitle: String = "OK", okAction: (() -> Void)? = nil) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default) { _ in
             alert.dismiss(animated: true)
             okAction?()
         })
-        vc.present(alert, animated: true)
+        UIViewController.topmostController?.present(alert, animated: true)
     }
 }

@@ -21,6 +21,12 @@ class TabBarController: UITabBarController {
     private var tabBarViewModel = TabBarViewModel()
     private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
     private var synchronizeJobViewModel = SynchronizeJobViewModel()
+    
+    private var iksmSessionViewModel = IksmSessionViewModel()
+    private var homeViewModel: HomeViewModel!
+    private var battleListViewModel: BattleListViewModel!
+    private var jobListViewModel: JobListViewModel!
+    private var meViewModel: MeViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +44,19 @@ class TabBarController: UITabBarController {
                 guard let error = error else { return }
                 if case NSOError.sessionTokenInvalid = error {
                     UIAlertController.show(
-                        with: self,
                         title: "session_token_invalid_title".localized,
                         message: "session_token_invalid_message".localized
+                    )
+                }
+            }
+            .store(in: &cancelBag)
+            
+        iksmSessionViewModel.$renewAlert
+            .sink { show in
+                if show {
+                    UIAlertController.show(
+                        title: "Failure to renew".localized,
+                        message: "Failure to renew_desc".localized
                     )
                 }
             }
@@ -81,7 +97,6 @@ class TabBarController: UITabBarController {
         if AppUserDefaults.shared.naUser != nil {
             AppUserDefaults.shared.sessionToken = nil            
             UIAlertController.show(
-                with: self,
                 title: "relogin_title".localized,
                 message: "relogin_message".localized
             )
@@ -89,24 +104,38 @@ class TabBarController: UITabBarController {
     }
     
     func setupItems(isLogined: Bool) {
-        
-        let homeViewController = UIHostingController(rootView: HomePage(isLogined: isLogined))
-        homeViewController.tabBarItem.title = NSLocalizedString("Home", comment: "")
-        homeViewController.tabBarItem.image = UIImage(named: "TabBarHome")
-        
-        let jobListViewController = UIHostingController(rootView: JobListPage(isLogined: isLogined))
-        jobListViewController.tabBarItem.title = NSLocalizedString("Salmon Run", comment: "")
-        jobListViewController.tabBarItem.image = UIImage(named: "TabBarSalmonRun")
-        
-        let battleListViewController = UIHostingController(rootView: BattleListPage(isLogined: isLogined))
-        battleListViewController.tabBarItem.title = NSLocalizedString("Battles", comment: "")
-        battleListViewController.tabBarItem.image = UIImage(named: "TabBarBattle")
-        
-        let meViewController = UIHostingController(rootView: MePage(isLogined: isLogined))
-        meViewController.tabBarItem.title = NSLocalizedString("Me", comment: "")
-        meViewController.tabBarItem.image = UIImage(named: "TabBarMe")
-        
-        viewControllers = [homeViewController, battleListViewController, jobListViewController, meViewController]
+        if let homeViewModel = homeViewModel,
+           let battleListViewModel = battleListViewModel,
+           let jobListViewModel = jobListViewModel,
+           let meViewModel = meViewModel {
+            homeViewModel.updateLoginStatus(isLogined: isLogined)
+            battleListViewModel.updateLoginStatus(isLogined: isLogined)
+            jobListViewModel.updateLoginStatus(isLogined: isLogined)
+            meViewModel.updateLoginStatus(isLogined: isLogined)
+            iksmSessionViewModel.updateLoginStatus(isLogined: isLogined)
+        } else {
+            homeViewModel = HomeViewModel()
+            let homeViewController = UIHostingController(rootView: HomePage(viewModel: homeViewModel, iksmSessionViewModel: iksmSessionViewModel))
+            homeViewController.tabBarItem.title = NSLocalizedString("Home", comment: "")
+            homeViewController.tabBarItem.image = UIImage(named: "TabBarHome")
+            
+            battleListViewModel = BattleListViewModel()
+            let battleListViewController = UIHostingController(rootView: BattleListPage(viewModel: battleListViewModel))
+            battleListViewController.tabBarItem.title = NSLocalizedString("Battles", comment: "")
+            battleListViewController.tabBarItem.image = UIImage(named: "TabBarBattle")
+            
+            jobListViewModel = JobListViewModel()
+            let jobListViewController = UIHostingController(rootView: JobListPage(viewModel: jobListViewModel))
+            jobListViewController.tabBarItem.title = NSLocalizedString("Salmon Run", comment: "")
+            jobListViewController.tabBarItem.image = UIImage(named: "TabBarSalmonRun")
+            
+            meViewModel = MeViewModel()
+            let meViewController = UIHostingController(rootView: MePage(viewModel: meViewModel))
+            meViewController.tabBarItem.title = NSLocalizedString("Me", comment: "")
+            meViewController.tabBarItem.image = UIImage(named: "TabBarMe")
+            
+            viewControllers = [homeViewController, battleListViewController, jobListViewController, meViewController]
+        }
     }
     
     func showLogin() {

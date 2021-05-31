@@ -53,8 +53,17 @@ class JobListViewModel: ObservableObject {
     @Published var isLogined: Bool = false
     @Published var rows: [JobListRowModel] = []
     @Published var selectedId: Int64?
+    
+    private var cancelBag = Set<AnyCancellable>()
+
+    init() {
+        let isLogined = AppUserDefaults.shared.sessionToken != nil
+        updateLoginStatus(isLogined: isLogined)
+    }
+    
+    func updateLoginStatus(isLogined: Bool) {
+        cancelBag = Set<AnyCancellable>()
         
-    init(isLogined: Bool) {
         self.isLogined = isLogined
         
         if !isLogined { return }
@@ -121,6 +130,7 @@ class JobListViewModel: ObservableObject {
                 }
                 return rows
             }
-            .assign(to: &$rows)
+            .assign(to: \.rows, on: self)
+            .store(in: &cancelBag)
     }
 }

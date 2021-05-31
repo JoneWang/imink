@@ -59,11 +59,7 @@ class AppUserDefaults: ObservableObject {
                 AppUserDefaults.shared.naUser = nil
                 AppUserDefaults.shared.sp2PrincipalId = nil
                 
-                let cookieStorage = HTTPCookieStorage.shared
-                if let sessionCookie = cookieStorage.cookies?
-                    .first(where: { $0.name == "iksm_session" }) {
-                    cookieStorage.deleteCookie(sessionCookie)
-                }
+                IksmSessionManager.shared.clear()
             }
             
             WidgetCenter.shared.reloadAllTimelines()

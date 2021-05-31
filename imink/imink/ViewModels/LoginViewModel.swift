@@ -48,6 +48,7 @@ extension LoginViewModel {
                     os_log("API [Login] Error: \(error.localizedDescription)")
                 }
             } receiveValue: { sessionToken, records in
+                IksmSessionManager.shared.refresh()
                 AppUserDefaults.shared.sessionToken = sessionToken
                 AppUserDefaults.shared.sp2PrincipalId = records.records.player.principalId
                 self.status = .loginSuccess

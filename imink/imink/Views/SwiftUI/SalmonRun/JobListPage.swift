@@ -13,8 +13,8 @@ struct JobListPage: View {
     
     @State var selectedJob: DBJob?
     
-    init(isLogined: Bool) {
-        _viewModel = StateObject(wrappedValue: JobListViewModel(isLogined: isLogined))
+    init(viewModel: JobListViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
@@ -96,7 +96,8 @@ struct JobListPage_Previews: PreviewProvider {
             rows.append(JobListRowModel(type: .job, job: dbJob))
         }
         
-        let page = JobListPage(isLogined: true)
+        let viewModel = JobListViewModel()
+        let page = JobListPage(viewModel: viewModel)
         page.viewModel.rows = rows
         
         return page

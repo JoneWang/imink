@@ -11,8 +11,8 @@ struct BattleListPage: View {
         
     @StateObject var viewModel: BattleListViewModel
     
-    init(isLogined: Bool) {
-        _viewModel = StateObject(wrappedValue: BattleListViewModel(isLogined: isLogined))
+    init(viewModel: BattleListViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
@@ -58,6 +58,7 @@ struct BattleListPage: View {
 
 struct BattleListPage_Previews: PreviewProvider {
     static var previews: some View {
-        BattleListPage(isLogined: true)
+        let viewModel = BattleListViewModel()
+        BattleListPage(viewModel: viewModel)
     }
 }

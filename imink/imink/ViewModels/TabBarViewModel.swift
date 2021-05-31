@@ -44,8 +44,8 @@ class TabBarViewModel: ObservableObject {
 
 extension TabBarViewModel {
     
-    func checkIksmSession() {
-        if Splatoon2API.sessionIsValid {
+    func checkIksmSession() {        
+        if IksmSessionManager.shared.isValid {
             Splatoon2API.records
                 .request()
                 .receive(on: DispatchQueue.main)
@@ -85,28 +85,7 @@ extension TabBarViewModel {
                 }
                 .store(in: &cancelBag)
         } else {
-            guard let sessionToken = AppUserDefaults.shared.sessionToken else {
-                return
-            }
-            
-            NSOHelper.getIKsmSession(sessionToken: sessionToken)
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let error):
-                        if case NSOError.sessionTokenInvalid = error {
-                            AppUserDefaults.shared.sessionToken = nil
-                            self.error = error
-                        } else {
-                            // TODO: Other errors
-                            os_log("API Error: [records or getIKsmSession] \(error.localizedDescription)")
-                        }
-                    }
-                } receiveValue: { _ in
-                    // TODO:
-                }
-                .store(in: &cancelBag)
+            IksmSessionManager.shared.renew(launch: true)
         }
     }
 }

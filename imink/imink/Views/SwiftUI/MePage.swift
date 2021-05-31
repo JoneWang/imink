@@ -15,8 +15,8 @@ struct MePage: View {
     @State var showLogoutAlert = false
     @State var showSettings = false
     
-    init(isLogined: Bool) {
-        _viewModel = StateObject(wrappedValue: MeViewModel(isLogined: isLogined))
+    init(viewModel: MeViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var udemaeData: [(String, Udemae?)] {
@@ -205,10 +205,10 @@ struct MePage: View {
     }
 }
 
-struct MePage_Previews: PreviewProvider {
-    static var previews: some View {
-        MePage(isLogined: true)
-            .preferredColorScheme(.dark)
-        MePage(isLogined: true)
-    }
-}
+//struct MePage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MePage(isLogined: true)
+//            .preferredColorScheme(.dark)
+//        MePage(isLogined: true)
+//    }
+//}

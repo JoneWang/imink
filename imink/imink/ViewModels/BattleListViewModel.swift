@@ -43,7 +43,14 @@ class BattleListViewModel: ObservableObject {
     
     private var requestDetailCancellable: AnyCancellable!
     
-    init(isLogined: Bool) {
+    init() {
+        let isLogined = AppUserDefaults.shared.sessionToken != nil
+        updateLoginStatus(isLogined: isLogined)
+    }
+    
+    func updateLoginStatus(isLogined: Bool) {
+        cancelBag = Set<AnyCancellable>()
+        
         self.isLogined = isLogined
         
         if !isLogined { return }
@@ -54,8 +61,10 @@ class BattleListViewModel: ObservableObject {
                 os_log("Database Error: [records] \(error.localizedDescription)")
                 return Just<[DBRecord]>([])
             }
-            .assign(to: &$databaseRecords)
-        
+//            .assign(to: &$databaseRecords)
+            .assign(to: \.databaseRecords, on: self)
+            .store(in: &cancelBag)
+
         // Handle data source of list
         $databaseRecords
             .map { $0.map { BattleListRowModel(type: .record, record: $0) } }
@@ -77,6 +86,8 @@ class BattleListViewModel: ObservableObject {
                     return [realtimeRow]
                 }
             }
-            .assign(to: &$rows)
+//            .assign(to: &$rows)
+            .assign(to: \.rows, on: self)
+            .store(in: &cancelBag)
     }
 }

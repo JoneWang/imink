@@ -17,7 +17,14 @@ class MeViewModel: ObservableObject {
     
     private var cancelBag = Set<AnyCancellable>()
     
-    init(isLogined: Bool) {
+    init() {
+        let isLogined = AppUserDefaults.shared.sessionToken != nil
+        updateLoginStatus(isLogined: isLogined)
+    }
+    
+    func updateLoginStatus(isLogined: Bool) {
+        cancelBag = Set<AnyCancellable>()
+        
         self.isLogined = isLogined
         
         if (isLogined) {

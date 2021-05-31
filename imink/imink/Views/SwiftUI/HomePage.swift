@@ -9,15 +9,15 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct HomePage: View {
-            
-    @StateObject private var viewModel: HomeViewModel
+    @StateObject var viewModel: HomeViewModel
+    @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
     
     @State private var scheduleType = 0
     @State private var vdChartViewHeight: CGFloat = 0
     @State private var vdChartLastBlockWidth: CGFloat = 0
     
-    init(isLogined: Bool) {
-        _viewModel = StateObject(wrappedValue: HomeViewModel(isLogined: isLogined))
+    init(viewModel: HomeViewModel, iksmSessionViewModel: IksmSessionViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     private let scheduleTimeFormat: DateFormatter = {
@@ -33,6 +33,13 @@ struct HomePage: View {
                     Spacer()
                     
                     VStack {
+                        if viewModel.isLogined,
+                           !iksmSessionViewModel.iksmSessionIsValid,
+                           iksmSessionViewModel.needManualRenew {
+                            SessionStatusView(isRenewing: $iksmSessionViewModel.isRenewing)
+                                .padding(.top)
+                        }
+                        
                         VStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 
@@ -174,7 +181,6 @@ struct HomePage: View {
                             
                         }
                         .padding([.top, .bottom])
-                        .animation(.default)
                         
                         Spacer()
                     }
@@ -188,6 +194,7 @@ struct HomePage: View {
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
             .navigationBarHidden(false)
+            .animation(.default, value: iksmSessionViewModel.iksmSessionIsValid)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -224,14 +231,14 @@ struct HomePage: View {
     }
 }
 
-struct HomePage_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePage(isLogined: true)
-            .previewLayout(.sizeThatFits)
-            .frame(width: 1024, height: 768)
-        
-        HomePage(isLogined: true)
-            .previewLayout(.sizeThatFits)
-            .frame(width: 400, height: 768)
-    }
-}
+//struct HomePage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomePage(isLogined: true)
+//            .previewLayout(.sizeThatFits)
+//            .frame(width: 1024, height: 768)
+//
+//        HomePage(isLogined: true)
+//            .previewLayout(.sizeThatFits)
+//            .frame(width: 400, height: 768)
+//    }
+//}

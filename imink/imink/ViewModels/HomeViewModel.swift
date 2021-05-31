@@ -36,7 +36,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var today: Today = Today()
     
-    @Published var resetHour: Int
+    @Published var resetHour: Int = 2
     @Published var vdWithLast500: [Bool] = []
     
     @Published var activeFestivals: ActiveFestivals?
@@ -68,8 +68,15 @@ class HomeViewModel: ObservableObject {
     
     private var lastSyncTime = Date()
     
+    init() {
+        let isLogined = AppUserDefaults.shared.sessionToken != nil
+        updateLoginStatus(isLogined: isLogined)
+    }
     
-    init(isLogined: Bool) {
+    func updateLoginStatus(isLogined: Bool) {
+        cancelBag = Set<AnyCancellable>()
+        syncCancelBag = Set<AnyCancellable>()
+        
         self.isLogined = isLogined
         
         let currentTimeZone = (TimeZone.current.secondsFromGMT() / 3600)
@@ -89,7 +96,8 @@ class HomeViewModel: ObservableObject {
                     os_log("Database Error: [totalCount] \(error.localizedDescription)")
                     return Just<Int>(0)
                 }
-                .assign(to: &$recordTotalCount)
+                .assign(to: \.recordTotalCount, on: self)
+                .store(in: &cancelBag)
             
             $recordTotalCount
                 .map { _ in
@@ -107,11 +115,13 @@ class HomeViewModel: ObservableObject {
                         deathCount: todayDeathCount
                     )
                 }
-                .assign(to: &$today)
+                .assign(to: \.today, on: self)
+                .store(in: &cancelBag)
             
             $recordTotalCount
                 .map { _ in AppDatabase.shared.vdWithLast500() }
-                .assign(to: &$vdWithLast500)
+                .assign(to: \.vdWithLast500, on: self)
+                .store(in: &cancelBag)
             
             startSyncCountPublisher()
         }
@@ -134,7 +144,8 @@ class HomeViewModel: ObservableObject {
             }
         
         battleSchedules
-            .assign(to: &$schedules)
+            .assign(to: \.schedules, on: self)
+            .store(in: &cancelBag)
         
         let salmonRunSchedules = AppAPI.salmonRunSchedules
             .request()
@@ -147,7 +158,8 @@ class HomeViewModel: ObservableObject {
             }
         
         salmonRunSchedules
-            .assign(to: &$salmonRunSchedules)
+            .assign(to: \.salmonRunSchedules, on: self)
+            .store(in: &cancelBag)
         
         if isLogined {
             let activeFestivals = Splatoon2API.activeFestivals
@@ -161,17 +173,20 @@ class HomeViewModel: ObservableObject {
                 }
             
             activeFestivals
-                .assign(to: &$activeFestivals)
+                .assign(to: \.activeFestivals, on: self)
+                .store(in: &cancelBag)
             
             // All finish
             Publishers.Zip3(battleSchedules, salmonRunSchedules, activeFestivals)
                 .map { _ in false }
-                .assign(to: &$isLoading)
+                .assign(to: \.isLoading, on: self)
+                .store(in: &cancelBag)
         } else {
             // All finish
             Publishers.Zip(battleSchedules, salmonRunSchedules)
                 .map { _ in false }
-                .assign(to: &$isLoading)
+                .assign(to: \.isLoading, on: self)
+                .store(in: &cancelBag)
         }
     }
     

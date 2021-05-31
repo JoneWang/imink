@@ -35,6 +35,10 @@
 
 // MARK: Home
 
+"iksm_session is expired" = "iksm_session is expired";
+"iksm_session is expired_desc" = "You won’t be able to sync battles before the iksm_session is renewed.";
+"Renew in Settings" = "Renew in Settings";
+
 "Today" = "Today";
 "reset" = "reset";
 "Victory rate:" = "Victory:";
@@ -98,7 +102,13 @@
 "Settings" = "Settings";
 "LOGIN STATUS" = "LOGIN STATUS";
 "Valid" = "Valid";
+"Expired" = "Expired";
+"Renewing…" = "Renewing…";
+"Manual Renew" = "Manual Renew";
+"Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
 "What is an iksm_session?" = "What is an iksm_session?";
+"Failure to renew" = "Failure to renew";
+"Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
 "GENERAL" = "GENERAL";
 "Language" = "Language";
 "Reload Widgets" = "Reload Widgets";

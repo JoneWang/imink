@@ -56,7 +56,7 @@ extension SynchronizeViewModel {
     func startRealTimeDataLoop() {
         loadingStatus(isLoading: true)
         
-        if self.unsynchronizedIds.count == 0 {
+        if IksmSessionManager.shared.isValid, self.unsynchronizedIds.count == 0 {
             requestResults {
                 if !self.autoRefresh { return }
                 

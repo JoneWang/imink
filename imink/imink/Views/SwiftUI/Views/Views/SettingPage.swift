@@ -12,6 +12,7 @@ import StoreKit
 
 struct SettingPage: View {
     @StateObject private var viewModel = SettingViewModel()
+    @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
 
     @Binding var showSettings: Bool
     
@@ -21,26 +22,67 @@ struct SettingPage: View {
     var body: some View {
         NavigationView {
             List {
-                Section(
-                    header: Text("LOGIN STATUS")
-                        .font(.system(size: 13))
-                        .padding(.leading, 16)
-                        .padding(.top, 16),
-                    footer: Text("What is an iksm_session?")
-                        .font(.system(size: 13))
-                        .padding(.leading, 16)
-                        .foregroundColor(.accentColor)
-                ) {
-                    HStack {
-                        Text("iksm_session")
-                            .foregroundColor(AppColor.appLabelColor)
+                if viewModel.isLogined {
+                    Section(
+                        header: Text("LOGIN STATUS")
+                            .font(.system(size: 13))
+                            .padding(.leading, 16)
+                            .padding(.top, 16),
+                        footer: VStack(alignment: .leading, spacing: 8) {
+                            if !iksmSessionViewModel.iksmSessionIsValid {
+                                Text("Manual Renew_desc")
+                                    .font(.system(size: 13))
+                                    .padding(.horizontal, 16)
+                            }
+                            
+                            Text("What is an iksm_session?")
+                                .font(.system(size: 13))
+                                .padding(.leading, 16)
+                                .foregroundColor(.accentColor)
+                        }
+                    ) {
+                        HStack {
+                            Text("iksm_session")
+                                .foregroundColor(AppColor.appLabelColor)
+                            
+                            Spacer()
+                            
+                            if iksmSessionViewModel.iksmSessionIsValid {
+                                Text("Valid")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.green)
+                            } else {
+                                Text("Expired")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.red)
+                            }
+                        }
                         
-                        Spacer()
-                        
-                        Text("Valid")
-                            .font(.system(size: 16))
-                            .foregroundColor(.green)
+                        if !iksmSessionViewModel.iksmSessionIsValid {
+                            if iksmSessionViewModel.isRenewing {
+                                HStack {
+                                    Text("Renewing…")
+                                        .foregroundColor(AppColor.appLabelColor)
+                                    
+                                    Spacer()
+                                    
+                                    ProgressView()
+                                }
+                            } else {
+                                Button(action: {
+                                    iksmSessionViewModel.renew()
+                                }) {
+                                    HStack {
+                                        Text("Manual Renew")
+                                            .foregroundColor(.accentColor)
+                                        
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
                     }
+                    .animation(.default)
                 }
                 
                 Section(
@@ -207,6 +249,7 @@ struct SettingPage: View {
                                 title: Text("Log out"),
                                 message: Text("Are you sure you want to log out?"),
                                 primaryButton: .destructive(Text("Yes"), action: {
+                                    showSettings = false
                                     viewModel.logOut()
                                 }),
                                 secondaryButton: .cancel(Text("No"))

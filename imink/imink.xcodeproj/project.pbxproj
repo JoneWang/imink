@@ -102,7 +102,6 @@
 		EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
 		EC8B6B2826074F2600B645B5 /* NAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1D26074E9700B645B5 /* NAUser.swift */; };
 		EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */; };
-		EC8C34E126177B32006E9D0B /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */; };
 		EC900E75251C55FF00AA0B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E74251C55FF00AA0B20 /* AppDelegate.swift */; };
 		EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E76251C55FF00AA0B20 /* SceneDelegate.swift */; };
 		EC900E7C251C55FF00AA0B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC900E7A251C55FF00AA0B20 /* Main.storyboard */; };
@@ -128,6 +127,12 @@
 		EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */; };
 		EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EBF251C8EF700AA0B20 /* DBRecord.swift */; };
 		EC902D0E266395540014093C /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D0D266395540014093C /* SettingViewModel.swift */; };
+		EC902D102663AAE40014093C /* SessionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D0F2663AAE40014093C /* SessionStatusView.swift */; };
+		EC902D132663CA050014093C /* IksmSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D122663CA050014093C /* IksmSessionManager.swift */; };
+		EC902D142663CA050014093C /* IksmSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D122663CA050014093C /* IksmSessionManager.swift */; };
+		EC902D162663E9B90014093C /* IksmSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D152663E9B90014093C /* IksmSessionViewModel.swift */; };
+		EC902D172663E9B90014093C /* IksmSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D152663E9B90014093C /* IksmSessionViewModel.swift */; };
+		EC902D192663F3AE0014093C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D182663F3AE0014093C /* UIViewController+Extension.swift */; };
 		EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */; };
 		EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440E025406C8200060E46 /* WidgetSize.swift */; };
 		EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */; };
@@ -332,6 +337,10 @@
 		EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewModel.swift; sourceTree = "<group>"; };
 		EC900EBF251C8EF700AA0B20 /* DBRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRecord.swift; sourceTree = "<group>"; };
 		EC902D0D266395540014093C /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		EC902D0F2663AAE40014093C /* SessionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStatusView.swift; sourceTree = "<group>"; };
+		EC902D122663CA050014093C /* IksmSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmSessionManager.swift; sourceTree = "<group>"; };
+		EC902D152663E9B90014093C /* IksmSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmSessionViewModel.swift; sourceTree = "<group>"; };
+		EC902D182663F3AE0014093C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleProvider.swift; sourceTree = "<group>"; };
 		EC9440E025406C8200060E46 /* WidgetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSize.swift; sourceTree = "<group>"; };
 		EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
@@ -420,11 +429,11 @@
 				EC00DBFF251CD8770010366A /* Views */,
 				EC5362522525DDDF0037BD12 /* HomePage.swift */,
 				EC344FE825330351004A7AF1 /* MePage.swift */,
+				B48C3995E77AAA8616FDC5D5 /* SettingPage.swift */,
 				EC2F19DA2543306E00CE9B34 /* AboutPage.swift */,
 				EC5D2628258FA02F004E7B3A /* TestFontView.swift */,
 				EC17177C25FB114500500D13 /* OnboardingPage.swift */,
 				EC5CBF832653ABA500F1A063 /* UpdatePage.swift */,
-				B48C3995E77AAA8616FDC5D5 /* SettingPage.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -452,6 +461,7 @@
 				ECD1FA4125F87903002E36DD /* LoginView.swift */,
 				ECF91ECE2609F58500FF7F55 /* MailView.swift */,
 				EC5CBF812653924100F1A063 /* MedalView.swift */,
+				EC902D0F2663AAE40014093C /* SessionStatusView.swift */,
 			);
 			name = Views;
 			path = Views/Views;
@@ -575,6 +585,7 @@
 				EC861228253AC688003BA67A /* Data */,
 				EC900E9E251C8EF600AA0B20 /* API */,
 				EC900EA6251C8EF600AA0B20 /* Models */,
+				EC902D112663C9F30014093C /* Managers */,
 				ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */,
 				BB520C1626146683006454FB /* SplatNet2.strings */,
 				EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */,
@@ -616,6 +627,7 @@
 		EC900E73251C55FF00AA0B20 /* imink */ = {
 			isa = PBXGroup;
 			children = (
+				EC902D1B2663F6A10014093C /* Utils */,
 				EC900EAF251C8EF700AA0B20 /* Data */,
 				EC900EBE251C8EF700AA0B20 /* DBModels */,
 				EC900EBA251C8EF700AA0B20 /* ViewModels */,
@@ -654,7 +666,6 @@
 				EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */,
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
 				BB520C1D26146C05006454FB /* StageImage.swift */,
-				EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */,
 				EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */,
 			);
 			path = Utils;
@@ -717,6 +728,7 @@
 				EC17178225FB38CF00500D13 /* PresentPageViewModel.swift */,
 				EC16CED7261990D800663DC1 /* AvatarViewModel.swift */,
 				EC902D0D266395540014093C /* SettingViewModel.swift */,
+				EC902D152663E9B90014093C /* IksmSessionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -728,6 +740,23 @@
 				ECB959B425B872BD0006E942 /* DBJob.swift */,
 			);
 			path = DBModels;
+			sourceTree = "<group>";
+		};
+		EC902D112663C9F30014093C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EC902D122663CA050014093C /* IksmSessionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EC902D1B2663F6A10014093C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */,
+				EC902D182663F3AE0014093C /* UIViewController+Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		EC9440D625406BB900060E46 /* BattleWidget */ = {
@@ -951,6 +980,7 @@
 				EC98422D253AE3B40079D739 /* BattleScheduleMediumWidgetEntryView.swift in Sources */,
 				EC86123E253AC6ED003BA67A /* Operator.swift in Sources */,
 				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
+				EC902D172663E9B90014093C /* IksmSessionViewModel.swift in Sources */,
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
 				EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
@@ -962,6 +992,7 @@
 				EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
 				EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */,
 				EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */,
+				EC902D142663CA050014093C /* IksmSessionManager.swift in Sources */,
 				EC8B6B2826074F2600B645B5 /* NAUser.swift in Sources */,
 				EC761296260B214C00C4D3AA /* NSOHelper.swift in Sources */,
 				EC861243253AC6ED003BA67A /* Decode&Encode.swift in Sources */,
@@ -982,7 +1013,6 @@
 				EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */,
 				EC861229253AC68C003BA67A /* AppUserDefaults.swift in Sources */,
 				EC984217253ADE880079D739 /* AppColor.swift in Sources */,
-				EC8C34E126177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */,
 				EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */,
 				EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */,
@@ -1014,6 +1044,7 @@
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
 				EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */,
 				EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */,
+				EC902D132663CA050014093C /* IksmSessionManager.swift in Sources */,
 				BB520C1E26146C06006454FB /* StageImage.swift in Sources */,
 				EC6CF3F425F36937005427B5 /* JobShiftCardView.swift in Sources */,
 				EC17178325FB38CF00500D13 /* PresentPageViewModel.swift in Sources */,
@@ -1024,6 +1055,7 @@
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
+				EC902D192663F3AE0014093C /* UIViewController+Extension.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
 				EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */,
 				EC2F19DB2543306E00CE9B34 /* AboutPage.swift in Sources */,
@@ -1043,6 +1075,7 @@
 				EC54C0862618BBE900EA3A9E /* PlayerSkillView.swift in Sources */,
 				EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */,
 				EC900EC8251C8EF700AA0B20 /* AppBundle.swift in Sources */,
+				EC902D162663E9B90014093C /* IksmSessionViewModel.swift in Sources */,
 				EC900EE1251C8EF700AA0B20 /* DBRecord.swift in Sources */,
 				EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
@@ -1072,6 +1105,7 @@
 				EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */,
 				EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */,
+				EC902D102663AAE40014093C /* SessionStatusView.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
 				EC5CBF842653ABA500F1A063 /* UpdatePage.swift in Sources */,
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,

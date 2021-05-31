@@ -98,17 +98,3 @@ extension Splatoon2API: APITargetType {
         return nil
     }
 }
-
-extension Splatoon2API {
-    
-    static var sessionIsValid: Bool {
-        
-        let sessionCookie = HTTPCookieStorage.shared.cookies?
-            .first(where: { $0.name == "iksm_session" })
-        if let expiresDate = sessionCookie?.expiresDate {
-            return expiresDate > Date()
-        } else {
-            return false
-        }
-    }
-}

@@ -84,7 +84,6 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
                 guard let error = error, let `self` = self else { return }
                 if case NSOError.userGameDataNotExist = error {
                     UIAlertController.show(
-                        with: self,
                         title: "login_error_title".localized,
                         message: "user_game_data_not_exist_message".localized
                     ) {
@@ -92,7 +91,6 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
                     }
                 } else {
                     UIAlertController.show(
-                        with: self,
                         title: "login_error_title".localized,
                         message: "login_error_message".localized
                     ) {

@@ -13,7 +13,7 @@ import os
 enum APIError: Error, LocalizedError {
     case unknown
     case apiError(reason: String)
-    case authorizationError
+    case authorizationError(response: HTTPURLResponse)
     case clientTokenInvalid
     case iksmSessionInvalid
     case requestParameterError
@@ -88,7 +88,7 @@ class API {
                 }
                 
                 if 401...403 ~= httpResponse.statusCode {
-                    throw APIError.authorizationError
+                    throw APIError.authorizationError(response: httpResponse)
                 }
                 
                 if httpResponse.statusCode == 400 {
@@ -144,9 +144,18 @@ extension APITargetType {
     func request() -> AnyPublisher<(Data, HTTPURLResponse), Error> {
         API.shared.request(self)
             .mapError { error -> APIError in
-                if case APIError.authorizationError = error {
+                if case APIError.authorizationError(let response) = error {
                     if type(of: self) is Splatoon2API.Type {
                         os_log("API Error: [splatoon2] iksm_session error")
+                        
+                        // Remove invalid iksm_session
+                        if let fields = response.allHeaderFields as? [String: String],
+                           let url = response.url,
+                           let iksmSessionCookie = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
+                            .first(where: { $0.name == "iksm_session" }) {
+                            IksmSessionManager.shared.clear(iksmSession: iksmSessionCookie.value)
+                        }
+                        
                         return .iksmSessionInvalid
                     }
                 }
