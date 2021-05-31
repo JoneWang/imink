@@ -41,16 +41,16 @@ struct HomePage: View {
                         }
                         
                         VStack {
-                            VStack(alignment: .leading, spacing: 0) {
+                            VStack(spacing: 0) {
                                 
                                 HStack(alignment: .firstTextBaseline) {
-                                    
                                     Text("Today")
                                         .sp1Font(size: 22, color: AppColor.appLabelColor)
                                     
                                     Text("(\(viewModel.resetHour):00 \("reset".localized))")
                                         .sp2Font(color: Color.secondary)
                                     
+                                    Spacer()
                                 }
                                 
                                 TodayView(today: viewModel.today)
@@ -58,16 +58,15 @@ struct HomePage: View {
                             }
                             .padding(.top)
                             
-                            VStack(alignment: .leading, spacing: 0) {
-                                
+                            VStack(spacing: 0) {
                                 HStack(alignment: .firstTextBaseline) {
-                                    
                                     Text("Results")
                                         .sp1Font(size: 22, color: AppColor.appLabelColor)
                                     
                                     Text("(\(NSLocalizedString("Last 500", comment: "")))")
                                         .sp2Font(color: Color.secondary)
                                     
+                                    Spacer()
                                 }
                                 
                                 HStack {
@@ -93,10 +92,10 @@ struct HomePage: View {
                         .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarHome"))
                         
                         if let festival = viewModel.activeFestivals?.festivals.first {
-                            VStack(alignment: .leading, spacing: 0) {
-                                
+                            VStack(spacing: 0) {
                                 Text("Splatfest")
                                     .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 
                                 ZStack {
                                     HStack(spacing: 0) {
@@ -141,20 +140,17 @@ struct HomePage: View {
                             .padding(.top)
                         }
                         
-                        VStack(alignment: .leading, spacing: 0) {
-                            
+                        VStack(spacing: 0) {
                             Text("Schedule")
                                 .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            VStack {
                                 Picker(selection: $scheduleType, label: Text("Picker"), content: {
                                     Text("Battle").tag(0)
                                     Text("Salmon Run").tag(1)
                                 })
                                 .pickerStyle(SegmentedPickerStyle())
                                 .frame(width: 230)
-                            }
-                            .frame(maxWidth: .infinity)
                             .padding(.top)
                             
                             if scheduleType == 0 {
@@ -181,6 +177,7 @@ struct HomePage: View {
                             
                         }
                         .padding([.top, .bottom])
+                        .animation(.default)
                         
                         Spacer()
                     }

@@ -63,7 +63,7 @@ struct SalmonRunScheduleView: View {
                                     ForEach(weapons, id: \.id) { weapon in
                                         ImageView.weapon(id: weapon.id)
                                             .aspectRatio(1, contentMode: .fit)
-                                            .frame(width: 40, height: 40)
+                                            .frame(width: 35, height: 35)
                                     }
                                 }
                                 
@@ -75,7 +75,6 @@ struct SalmonRunScheduleView: View {
                     }
                 }
             }
-            .frame(maxWidth: .infinity)
             .padding(16)
             .background(AppColor.listItemBackgroundColor)
             .continuousCornerRadius(10)
