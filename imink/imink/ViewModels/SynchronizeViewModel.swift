@@ -35,7 +35,8 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
             }
             .store(in: &cancelBag)
         
-        $isLogined.assign(to: &$autoRefresh)
+        $isLogined.assign(to: \.autoRefresh, on: self)
+            .store(in: &cancelBag)
     }
     
     func needSynchronizedIds(value: @escaping  ([IdType]) -> Void, finished: (() -> Void)?) { }

@@ -142,6 +142,7 @@ class HomeViewModel: ObservableObject {
                 os_log("API Error: [schedules] \(error.localizedDescription)")
                 return Just<Schedules?>(nil)
             }
+            .share()
         
         battleSchedules
             .assign(to: \.schedules, on: self)
@@ -156,6 +157,7 @@ class HomeViewModel: ObservableObject {
                 os_log("API Error: [salmonRunSchedules] \(error.localizedDescription)")
                 return Just<SalmonRunSchedules?>(nil)
             }
+            .share()
         
         salmonRunSchedules
             .assign(to: \.salmonRunSchedules, on: self)
@@ -171,6 +173,7 @@ class HomeViewModel: ObservableObject {
                     os_log("API Error: [activeFestivals] \(error.localizedDescription)")
                     return Just<ActiveFestivals?>(nil)
                 }
+                .share()
             
             activeFestivals
                 .assign(to: \.activeFestivals, on: self)
