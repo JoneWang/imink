@@ -224,12 +224,23 @@ extension TabBarController: UITabBarControllerDelegate {
 extension UIViewController {
     func scrollToTop(view: UIView) {
         if let scrollView = view as? UIScrollView {
-            scrollView.setContentOffset(CGPoint(x: 0.0, y: -scrollView.adjustedContentInset.top), animated: true)
+            CATransaction.begin()
+            CATransaction.setAnimationTimingFunction(CAMediaTimingFunction.scrollToTop)
+            UIView.animate(withDuration: 1) {
+                scrollView.setContentOffset(CGPoint(x: 0.0, y: -scrollView.adjustedContentInset.top), animated: false)
+            }
+            CATransaction.commit()
             return
         }
         
         for subView in view.subviews {
             scrollToTop(view: subView)
         }
+    }
+}
+
+extension CAMediaTimingFunction {
+    static var scrollToTop: CAMediaTimingFunction {
+        .init(controlPoints: 0.25, 0.95, 0.15, 1)
     }
 }
