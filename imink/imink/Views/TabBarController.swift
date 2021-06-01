@@ -222,10 +222,9 @@ extension TabBarController: UITabBarControllerDelegate {
 }
 
 extension UIViewController {
-    func scrollToTop(view: UIView)
-    {
+    func scrollToTop(view: UIView) {
         if let scrollView = view as? UIScrollView {
-            scrollView.setContentOffset(CGPoint(x: 0.0, y: -scrollView.contentInset.top), animated: true)
+            scrollView.setContentOffset(CGPoint(x: 0.0, y: -scrollView.adjustedContentInset.top), animated: true)
             return
         }
         
