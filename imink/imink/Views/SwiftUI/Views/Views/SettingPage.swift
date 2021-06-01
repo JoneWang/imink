@@ -89,68 +89,37 @@ struct SettingPage: View {
                     header: Text("GENERAL")
                         .font(.system(size: 13))
                         .padding(.leading, 16)
+                        .padding(.top, viewModel.isLogined ? 0 : 16)
                 ) {
                     Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-                        HStack {
-                            Text("Language")
-                                .foregroundColor(AppColor.appLabelColor)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right").imageScale(.medium)
-                                .foregroundColor(.tertiaryLabel)
-                        }
+                        ListRow("Language")
                     }
-                    
+
                     Button(action: {
                         WidgetCenter.shared.reloadAllTimelines()
                     }) {
-                        HStack {
-                            Text("Reload Widgets")
-                                .foregroundColor(.accentColor)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right").imageScale(.medium)
-                                .foregroundColor(.tertiaryLabel)
-                        }
+                        ListRow("Reload Widgets", titleColor: .accentColor, showArrow: false)
                     }
                 }
-                
+
                 Section(
                     header: Text("CONTACT")
                         .font(.system(size: 13))
                         .padding(.leading, 16)
                 ) {
                     Link(destination: socialLink) {
-                        HStack {
-                            Text(socialName)
-                                .foregroundColor(AppColor.appLabelColor)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right").imageScale(.medium)
-                                .foregroundColor(.tertiaryLabel)
-                        }
+                        ListRow(socialName)
                     }
-                    
+
                     if MailView.canSendMail() {
                         Button(action: {
                             showingMailView.toggle()
                         }) {
-                            HStack {
-                                Text("Email")
-                                    .foregroundColor(AppColor.appLabelColor)
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right").imageScale(.medium)
-                                    .foregroundColor(.tertiaryLabel)
-                            }
+                            ListRow("Email")
                         }
                     }
                 }
-                
+
                 Section(
                     header: Text("ABOUT")
                         .font(.system(size: 13))
@@ -164,70 +133,32 @@ struct SettingPage: View {
                             SKStoreReviewController.requestReview(in: windowScene)
                         }
                     }) {
-                        HStack {
-                            Text("Send Kudos")
-                                .foregroundColor(AppColor.appLabelColor)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right").imageScale(.medium)
-                                .foregroundColor(.tertiaryLabel)
-                        }
+                        ListRow("Send Kudos")
                     }
                 }
-                
+
                 Section(
                     footer: Text("ABOUT_desc")
                         .font(.system(size: 13))
                         .padding(.horizontal, 16)
                 ) {
                     Link(destination: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ")!) {
-                        HStack {
-                            
-                            Text("FAQ")
-                                .foregroundColor(AppColor.appLabelColor)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right").imageScale(.medium)
-                                .foregroundColor(.tertiaryLabel)
-                        }
+                        ListRow("FAQ")
                     }
-                    
+
                     Button(action: {}) {
-                        HStack {
-                            Text("Credits")
-                                .foregroundColor(AppColor.appLabelColor)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right").imageScale(.medium)
-                                .foregroundColor(.tertiaryLabel)
-                        }
+                        ListRow("Credits")
                     }
-                    
+
                     Link(destination: URL(string: "https://github.com/JoneWang/imink")!) {
-                        HStack {
-                            Text("Source Code")
-                                .foregroundColor(AppColor.appLabelColor)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right").imageScale(.medium)
-                                .foregroundColor(.tertiaryLabel)
-                        }
+                        ListRow("Source Code")
                     }
-                    
-                    HStack {
-                        Text("Version")
-                            .foregroundColor(AppColor.appLabelColor)
-                        
-                        Spacer()
-                        
-                        Text("\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))")
-                            .font(.system(size: 16))
-                            .foregroundColor(.secondaryLabel)
-                    }
+
+                    ListRow(
+                        "Version",
+                        subtitle: "\(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))",
+                        showArrow: false
+                    )
                 }
                 
                 if viewModel.isLogined {
@@ -279,7 +210,7 @@ struct SettingPage: View {
 
 extension SettingPage {
     
-    var socialName: String {
+    var socialName: LocalizedStringKey {
         if AppUserDefaults.shared.currentLanguage == "zh-Hans" {
             return "微博"
         } else {

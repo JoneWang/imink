@@ -57,6 +57,7 @@ struct MePage: View {
                 Section(
                     footer: VStack(alignment: .center) {
                         Image("Ink")
+                            .foregroundColor(Color.tertiaryLabel)
                         
                         Text("Mysterious void under investigation…")
                             .font(.system(size: 13))

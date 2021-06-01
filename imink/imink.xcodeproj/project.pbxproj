@@ -73,6 +73,7 @@
 		EC761296260B214C00C4D3AA /* NSOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC761294260B214C00C4D3AA /* NSOHelper.swift */; };
 		EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
 		EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
+		EC76329B26665A34007FF9C4 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76329A26665A34007FF9C4 /* ListRow.swift */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
 		EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC807CA625F7385C003FC2E6 /* TodayView.swift */; };
 		EC809F28264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
@@ -296,6 +297,7 @@
 		EC6CF3FC25F3F698005427B5 /* Splatfont 1 v1.008.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 1 v1.008.otf"; sourceTree = "<group>"; };
 		EC6CF3FD25F3F698005427B5 /* Splatfont 2 v1.009.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Splatfont 2 v1.009.otf"; sourceTree = "<group>"; };
 		EC761294260B214C00C4D3AA /* NSOHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOHelper.swift; sourceTree = "<group>"; };
+		EC76329A26665A34007FF9C4 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTopCardView.swift; sourceTree = "<group>"; };
 		EC807CA625F7385C003FC2E6 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplatNet2+Localized.swift"; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				ECF91ECE2609F58500FF7F55 /* MailView.swift */,
 				EC5CBF812653924100F1A063 /* MedalView.swift */,
 				EC902D0F2663AAE40014093C /* SessionStatusView.swift */,
+				EC76329A26665A34007FF9C4 /* ListRow.swift */,
 			);
 			name = Views;
 			path = Views/Views;
@@ -1050,6 +1053,7 @@
 				EC17178325FB38CF00500D13 /* PresentPageViewModel.swift in Sources */,
 				EC25FEA025B960990085670D /* JobDetailPage.swift in Sources */,
 				EC809F28264C196D00F125AA /* SplatNet2+Localized.swift in Sources */,
+				EC76329B26665A34007FF9C4 /* ListRow.swift in Sources */,
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
 				EC900E77251C55FF00AA0B20 /* SceneDelegate.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
