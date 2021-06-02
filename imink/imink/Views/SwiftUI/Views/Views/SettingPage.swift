@@ -146,8 +146,8 @@ struct SettingPage: View {
                         ListRow("FAQ")
                     }
 
-                    Button(action: {}) {
-                        ListRow("Credits")
+                    NavigationLink(destination: CreditsPage()) {
+                        ListRow("Credits", showArrow: false)
                     }
 
                     Link(destination: URL(string: "https://github.com/JoneWang/imink")!) {

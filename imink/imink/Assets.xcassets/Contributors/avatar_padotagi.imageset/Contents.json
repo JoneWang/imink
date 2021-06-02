@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "avatar_padotagi.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

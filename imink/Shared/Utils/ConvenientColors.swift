@@ -35,6 +35,10 @@ extension Color {
         Color(.secondaryLabel)
     }
     
+    static var systemBackground: Color {
+        Color(UIColor.systemBackground)
+    }
+    
     static var secondarySystemBackground: Color {
         Color(.secondarySystemBackground)
     }
