@@ -142,6 +142,31 @@ struct MePage: View {
                     .listRowBackground(viewModel.isLogined ? .clear : AppColor.listBackgroundColor.opacity(0.8))
                     .modifier(LoginViewModifier(isLogined: viewModel.isLogined, backgroundColor: .clear))
                 }
+                
+                Section {
+                    HStack {
+                        Image(systemName: "tray.and.arrow.up")
+                            .imageScale(.medium)
+                            .foregroundColor(.accentColor)
+                            .frame(width: 30)
+                        
+                        Text("Export")
+                        
+                        if viewModel.exporting {
+                            ProgressView(value: viewModel.packingProgress)
+                        } else {
+                            Spacer()
+                        }
+                    }
+                    .animation(.default)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.packingData { exportPath in
+                            guard let exportPath = exportPath else { return }
+                            NotificationCenter.default.post(name: .exportData, object: exportPath)
+                        }
+                    }
+                }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Me", displayMode: .inline)

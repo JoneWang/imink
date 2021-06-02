@@ -79,6 +79,7 @@
 		EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC807CA625F7385C003FC2E6 /* TodayView.swift */; };
 		EC809F28264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
 		EC809F29264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
+		EC8136AC264FD3F100423D14 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = EC8136AB264FD3F100423D14 /* Zip */; };
 		EC8611C6253AB9C9003BA67A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611A8253AA873003BA67A /* WidgetKit.framework */; platformFilter = ios; };
 		EC8611C7253AB9C9003BA67A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8611AA253AA873003BA67A /* SwiftUI.framework */; };
 		EC8611CC253AB9CB003BA67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8611CB253AB9CB003BA67A /* Assets.xcassets */; };
@@ -398,6 +399,7 @@
 				EC0B098C266778E00011758C /* AlertToast in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
+				EC8136AC264FD3F100423D14 /* Zip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +872,7 @@
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
 				EC0B098B266778E00011758C /* AlertToast */,
+				EC8136AB264FD3F100423D14 /* Zip */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -915,6 +918,7 @@
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
 				EC0B098A266778E00011758C /* XCRemoteSwiftPackageReference "AlertToast" */,
+				EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1567,6 +1571,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 		ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ddddxxx/SplatNet2.git";
@@ -1592,6 +1604,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EC8136AB264FD3F100423D14 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		EC9D0A5825A1761900E8FF89 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
