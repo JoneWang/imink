@@ -35,6 +35,10 @@
 
 // MARK: Home
 
+"iksm_session is expired" = "iksm_session is expired";
+"iksm_session is expired_desc" = "You won’t be able to sync battles before the iksm_session is renewed.";
+"Renew in Settings" = "Renew in Settings";
+
 "Today" = "今日";
 "reset" = "重置";
 "Victory rate:" = "胜率：";
@@ -91,10 +95,33 @@
 // MARK: Me
 
 "Highest Power" = "最高分";
+"Mysterious void under investigation…" = "Mysterious void under investigation…";
+
+// MARK: Settings
+
+"Settings" = "Settings";
+"LOGIN STATUS" = "LOGIN STATUS";
+"Valid" = "Valid";
+"Expired" = "Expired";
+"Renewing…" = "Renewing…";
+"Manual Renew" = "Manual Renew";
+"Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
+"What is an iksm_session?" = "What is an iksm_session?";
+"Failure to renew" = "Failure to renew";
+"Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
+"GENERAL" = "GENERAL";
 "Language" = "语言";
-"Source code" = "源代码";
+"Reload Widgets" = "Reload Widgets";
+"CONTACT" = "CONTACT";
+"Email" = "Email";
+"ABOUT" = "ABOUT";
+"Send Kudos" = "Send Kudos";
+"Send Kudos_desc" = "We appreaciate your love and support. Please support imink by writing a review.";
 "FAQ" = "常见问题";
-"About imink" = "关于 imink";
+"Credits" = "Credits";
+"Version" = "Version";
+"Source code" = "源代码";
+"ABOUT_desc" = "imink is an unofficial app that uses the information of SplatNet 2, and is not affiliated with Nintendo.";
 "Log out" = "退出登录";
 "Are you sure you want to log out?" = "确定要退出登录吗？";
 
