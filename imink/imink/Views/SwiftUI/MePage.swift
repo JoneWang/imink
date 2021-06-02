@@ -171,7 +171,7 @@ struct MePage: View {
             Rectangle()
                 .frame(maxWidth: .infinity)
                 .frame(height: 1.0 / UIScreen.main.scale)
-                .foregroundColor(.opaqueSeparator)
+                .foregroundColor(.separator)
                 .padding(.leading, 72)
                 .padding(.bottom, 12)
             

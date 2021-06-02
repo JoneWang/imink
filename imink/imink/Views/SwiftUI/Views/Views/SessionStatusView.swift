@@ -33,7 +33,7 @@ struct SessionStatusView: View {
             Rectangle()
                 .frame(maxWidth: .infinity)
                 .frame(height: 1.0 / UIScreen.main.scale)
-                .foregroundColor(.opaqueSeparator)
+                .foregroundColor(.separator)
             
             Button(action: {
                 showSettings = true
