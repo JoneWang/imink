@@ -99,13 +99,34 @@ extension AppDatabase {
     }
     
     func saveJob(data: Data) {
-        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
-              let jsonString = String(data: data, encoding: .utf8),
-              let job = jsonString.decode(Job.self) else {
-            return
-        }
-        
         dbQueue.asyncWrite { db in
+            try self.saveJob(db: db, data: data)
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                os_log("Database Error: [saveJob] \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func saveJobs(datas: [Data]) {
+        dbQueue.asyncWrite { db in
+            for data in datas {
+                try self.saveJob(db: db, data: data)
+            }
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                os_log("Database Error: [saveJobs] \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func saveJob(db: Database, data: Data) throws {
+            guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
+                  let jsonString = String(data: data, encoding: .utf8),
+                  let job = jsonString.decode(Job.self) else {
+                return
+            }
+        
             if try DBJob.filter(
                 DBJob.Columns.sp2PrincipalId == sp2PrincipalId &&
                     DBJob.Columns.jobId == job.jobId
@@ -140,11 +161,6 @@ extension AppDatabase {
                 scheduleWeapon4Image: job.schedule.weapons?[3].weapon?.$image ?? ""
                 )
             try record.insert(db)
-        } completion: { _, error in
-            if case let .failure(error) = error {
-                os_log("Database Error: [saveJob] \(error.localizedDescription)")
-            }
-        }
     }
     
     // MARK: Reads

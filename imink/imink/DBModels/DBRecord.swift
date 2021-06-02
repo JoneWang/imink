@@ -102,54 +102,70 @@ extension AppDatabase {
     // MARK: Writes
     
     func saveBattle(data: Data) {
+        dbQueue.asyncWrite { db in
+            try self.saveBattle(db: db, data: data)
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                os_log("Database Error: [saveBattle] \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func saveBattles(datas: [Data]) {
+        dbQueue.asyncWrite { db in
+            for data in datas {
+                try self.saveBattle(db: db, data: data)
+            }
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                os_log("Database Error: [saveBattles] \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func saveBattle(db: Database, data: Data) throws {
         guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
               let jsonString = String(data: data, encoding: .utf8),
               let battle = jsonString.decode(Battle.self) else {
             return
         }
         
-        dbQueue.asyncWrite { db in
-            if try DBRecord.filter(
-                DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
-                    DBRecord.Columns.battleNumber == battle.battleNumber
-            ).fetchCount(db) > 0 {
-                return
-            }
-            
-            var record = DBRecord(
-                sp2PrincipalId: sp2PrincipalId,
-                battleNumber: battle.battleNumber,
-                json: jsonString,
-                victory: battle.myTeamResult.key == .victory,
-                weaponId: battle.playerResult.player.weapon.id,
-                weaponImage: battle.playerResult.player.weapon.$image,
-                rule: battle.rule.name,
-                gameMode: battle.gameMode.name,
-                gameModeKey: battle.gameMode.key.rawValue,
-                stageName: battle.stage.name,
-                killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
-                killCount: battle.playerResult.killCount,
-                assistCount: battle.playerResult.assistCount,
-                specialCount: battle.playerResult.specialCount,
-                gamePaintPoint: battle.playerResult.gamePaintPoint,
-                deathCount: battle.playerResult.deathCount,
-                myPoint: battle.myPoint,
-                otherPoint: battle.otherPoint,
-                startDateTime: battle.startTime,
-                udemaeName: battle.udemae?.name,
-                udemaeSPlusNumber: battle.udemae?.sPlusNumber,
-                type: battle.type,
-                leaguePoint: battle.leaguePoint,
-                estimateGachiPower: battle.estimateGachiPower,
-                playerTypeSpecies: battle.playerResult.player.playerType.species,
-                isX: battle.udemae?.isX ?? false,
-                xPower: battle.xPower)
-            try record.insert(db)
-        } completion: { _, error in
-            if case let .failure(error) = error {
-                os_log("Database Error: [saveBattle] \(error.localizedDescription)")
-            }
+        if try DBRecord.filter(
+            DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
+                DBRecord.Columns.battleNumber == battle.battleNumber
+        ).fetchCount(db) > 0 {
+            return
         }
+        
+        var record = DBRecord(
+            sp2PrincipalId: sp2PrincipalId,
+            battleNumber: battle.battleNumber,
+            json: jsonString,
+            victory: battle.myTeamResult.key == .victory,
+            weaponId: battle.playerResult.player.weapon.id,
+            weaponImage: battle.playerResult.player.weapon.$image,
+            rule: battle.rule.name,
+            gameMode: battle.gameMode.name,
+            gameModeKey: battle.gameMode.key.rawValue,
+            stageName: battle.stage.name,
+            killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
+            killCount: battle.playerResult.killCount,
+            assistCount: battle.playerResult.assistCount,
+            specialCount: battle.playerResult.specialCount,
+            gamePaintPoint: battle.playerResult.gamePaintPoint,
+            deathCount: battle.playerResult.deathCount,
+            myPoint: battle.myPoint,
+            otherPoint: battle.otherPoint,
+            startDateTime: battle.startTime,
+            udemaeName: battle.udemae?.name,
+            udemaeSPlusNumber: battle.udemae?.sPlusNumber,
+            type: battle.type,
+            leaguePoint: battle.leaguePoint,
+            estimateGachiPower: battle.estimateGachiPower,
+            playerTypeSpecies: battle.playerResult.player.playerType.species,
+            isX: battle.udemae?.isX ?? false,
+            xPower: battle.xPower)
+        try record.insert(db)
     }
     
     func removeAllRecords() {

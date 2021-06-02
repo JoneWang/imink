@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Zip
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -39,5 +40,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = tabBarController
     }
-
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url, url.isFileURL {
+            DataBackup.import(url: url)
+        }
+    }
 }

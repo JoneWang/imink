@@ -104,6 +104,31 @@ struct SettingPage: View {
                         ListRow("Reload Widgets", titleColor: .accentColor, showArrow: false)
                     }
                 }
+                
+                if viewModel.isLogined {
+                    Section(
+                        header: Text("USER DATA")
+                            .font(.system(size: 13))
+                            .padding(.leading, 16),
+                        footer: Text("导出数据为 SplatNet2 返回的原始数据，使用易于阅读和解析的 json 格式，可自由解压分析。")
+                            .padding(.leading, 16)
+                    ) {
+                        Button(action: {
+                            // TODO: Import data
+                        }) {
+                            ListRow("Import", titleColor: .accentColor, showArrow: false)
+                        }
+                        
+                        Button(action: {
+                            viewModel.exportData { exportPath in
+                                guard let exportPath = exportPath else { return }
+                                NotificationCenter.default.post(name: .exportData, object: exportPath)
+                            }
+                        }) {
+                            ListRow("Export", titleColor: .accentColor, showArrow: false)
+                        }
+                    }
+                }
 
                 Section(
                     header: Text("CONTACT")

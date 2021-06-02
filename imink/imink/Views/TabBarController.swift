@@ -77,10 +77,10 @@ class TabBarController: UITabBarController {
 
         NotificationCenter.default
             .publisher(for: .exportData)
-            .sink { [weak self] output in
+            .sink { output in
                 guard let exportPath = output.object else { return }
                 let activityViewController = UIActivityViewController(activityItems: [exportPath], applicationActivities: nil)
-                self?.present(activityViewController, animated: true, completion: nil)
+                UIViewController.topmostController?.present(activityViewController, animated: true, completion: nil)
             }
             .store(in: &cancelBag)
 

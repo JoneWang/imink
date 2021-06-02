@@ -21,6 +21,7 @@
 		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
 		EC0B0986266692640011758C /* CreditsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B0985266692640011758C /* CreditsPage.swift */; };
 		EC0B098C266778E00011758C /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EC0B098B266778E00011758C /* AlertToast */; };
+		EC0B098E2667FA790011758C /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B098D2667FA780011758C /* DataBackup.swift */; };
 		EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */; };
@@ -248,6 +249,7 @@
 		EC00DBF3251CD29C0010366A /* TransitionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
 		EC00DBF4251CD29C0010366A /* FontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
 		EC0B0985266692640011758C /* CreditsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsPage.swift; sourceTree = "<group>"; };
+		EC0B098D2667FA780011758C /* DataBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBackup.swift; sourceTree = "<group>"; };
 		EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModifier.swift; sourceTree = "<group>"; };
 		EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
 		EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
@@ -714,6 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				EC900EB0251C8EF700AA0B20 /* AppDatabase.swift */,
+				EC0B098D2667FA780011758C /* DataBackup.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1108,6 +1111,7 @@
 				EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */,
 				EC17179325FBA98100500D13 /* NSOHash.swift in Sources */,
 				EC344FE925330351004A7AF1 /* MePage.swift in Sources */,
+				EC0B098E2667FA790011758C /* DataBackup.swift in Sources */,
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				ECB959B525B872BD0006E942 /* DBJob.swift in Sources */,
