@@ -20,6 +20,7 @@
 		EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
 		EC0B0986266692640011758C /* CreditsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B0985266692640011758C /* CreditsPage.swift */; };
+		EC0B098C266778E00011758C /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EC0B098B266778E00011758C /* AlertToast */; };
 		EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */; };
@@ -396,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
+				EC0B098C266778E00011758C /* AlertToast in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
 			);
@@ -870,6 +872,7 @@
 			packageProductDependencies = (
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
+				EC0B098B266778E00011758C /* AlertToast */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -914,6 +917,7 @@
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
+				EC0B098A266778E00011758C /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1527,6 +1531,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC0B098A266778E00011758C /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1570,6 +1582,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC0B098B266778E00011758C /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC0B098A266778E00011758C /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
 		EC43AA57251C9A7100283D28 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC43AA56251C9A7100283D28 /* XCRemoteSwiftPackageReference "GRDB.swift" */;

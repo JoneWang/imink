@@ -9,6 +9,7 @@
 import SwiftUI
 import WidgetKit
 import StoreKit
+import AlertToast
 
 struct SettingPage: View {
     @StateObject private var viewModel = SettingViewModel()
@@ -18,6 +19,7 @@ struct SettingPage: View {
     
     @State private var showingMailView = false
     @State private var showLogoutAlert = false
+    @State private var showReloadWidgetsAlert = false
 
     var body: some View {
         NavigationView {
@@ -97,6 +99,7 @@ struct SettingPage: View {
 
                     Button(action: {
                         WidgetCenter.shared.reloadAllTimelines()
+                        showReloadWidgetsAlert = true
                     }) {
                         ListRow("Reload Widgets", titleColor: .accentColor, showArrow: false)
                     }
@@ -204,6 +207,9 @@ struct SettingPage: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showingMailView) {
             MailView(isShowing: $showingMailView, recipient: "imink@jone.wang")
+        }
+        .toast(isPresenting: $showReloadWidgetsAlert, duration: 1) {
+            AlertToast(type: .complete(.primary), title: "")
         }
     }
 }

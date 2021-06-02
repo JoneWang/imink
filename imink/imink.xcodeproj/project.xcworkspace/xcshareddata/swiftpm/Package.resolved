@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "AlertToast",
+        "repositoryURL": "https://github.com/elai950/AlertToast.git",
+        "state": {
+          "branch": null,
+          "revision": "c9f59ac4d187fc876fd778b28cad9f9fe94e4554",
+          "version": "1.2.7"
+        }
+      },
+      {
         "package": "GRDB",
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
