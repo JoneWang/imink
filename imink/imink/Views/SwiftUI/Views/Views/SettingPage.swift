@@ -111,7 +111,7 @@ struct SettingPage: View {
                             .font(.system(size: 13))
                             .padding(.leading, 16),
                         footer: Text("USER DATA_desc")
-                            .padding(.leading, 16)
+                            .padding(.horizontal, 16)
                     ) {
                         Button(action: {
                             // TODO: Import data
