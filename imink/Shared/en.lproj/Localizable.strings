@@ -112,6 +112,7 @@
 "GENERAL" = "GENERAL";
 "Language" = "Language";
 "Reload Widgets" = "Reload Widgets";
+"USER DATA" = "USER DATA";
 "USER DATA_desc" = "imink exports raw user data returned from SplatNet 2 in JSON format. You can uncompress for analysis at will.";
 "Import" = "Import";
 "Export" = "Export";
