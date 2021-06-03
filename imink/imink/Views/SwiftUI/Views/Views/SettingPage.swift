@@ -110,7 +110,7 @@ struct SettingPage: View {
                         header: Text("USER DATA")
                             .font(.system(size: 13))
                             .padding(.leading, 16),
-                        footer: Text("导出数据为 SplatNet2 返回的原始数据，使用易于阅读和解析的 json 格式，可自由解压分析。")
+                        footer: Text("USER DATA_desc")
                             .padding(.leading, 16)
                     ) {
                         Button(action: {
