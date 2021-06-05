@@ -25,24 +25,30 @@ class IksmSessionViewModel: ObservableObject {
     func updateLoginStatus(isLogined: Bool) {
         cancelBag = Set<AnyCancellable>()
         
-        if isLogined {
-            IksmSessionManager.shared.isValidPublisher
-                .assign(to: \.iksmSessionIsValid, on: self)
-                .store(in: &cancelBag)
-            
-            IksmSessionManager.shared.isRenewingPublisher
-                .assign(to: \.isRenewing, on: self)
-                .store(in: &cancelBag)
-            
-            IksmSessionManager.shared.renewResultPublisher
-                .map { $0 != nil }
-                .assign(to: \.renewAlert, on: self)
-                .store(in: &cancelBag)
-            
-            IksmSessionManager.shared.needManualRenewPublisher
-                .assign(to: \.needManualRenew, on: self)
-                .store(in: &cancelBag)
+        if !isLogined {
+            iksmSessionIsValid = false
+            isRenewing = false
+            renewAlert = false
+            needManualRenew = false
+            return
         }
+        
+        IksmSessionManager.shared.isValidPublisher
+            .assign(to: \.iksmSessionIsValid, on: self)
+            .store(in: &cancelBag)
+        
+        IksmSessionManager.shared.isRenewingPublisher
+            .assign(to: \.isRenewing, on: self)
+            .store(in: &cancelBag)
+        
+        IksmSessionManager.shared.renewResultPublisher
+            .map { $0 != nil }
+            .assign(to: \.renewAlert, on: self)
+            .store(in: &cancelBag)
+        
+        IksmSessionManager.shared.needManualRenewPublisher
+            .assign(to: \.needManualRenew, on: self)
+            .store(in: &cancelBag)
     }
     
     func renew() {

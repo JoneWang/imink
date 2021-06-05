@@ -9,16 +9,14 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct HomePage: View {
-    @StateObject var viewModel: HomeViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
+    
+    @StateObject private var viewModel = HomeViewModel()
     @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
     
     @State private var scheduleType = 0
     @State private var vdChartViewHeight: CGFloat = 0
     @State private var vdChartLastBlockWidth: CGFloat = 0
-    
-    init(viewModel: HomeViewModel, iksmSessionViewModel: IksmSessionViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
     
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -194,6 +192,17 @@ struct HomePage: View {
             .animation(.default, value: iksmSessionViewModel.iksmSessionIsValid)
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onReceive(mainViewModel.$isLogined) { isLogined in
+            iksmSessionViewModel.updateLoginStatus(isLogined: isLogined)
+            viewModel.updateLoginStatus(isLogined: isLogined)
+        }
+        .alert(isPresented: $iksmSessionViewModel.renewAlert) {
+            Alert(
+                title: Text("Failure to renew"),
+                message: Text("Failure to renew_desc"),
+                dismissButton: .cancel(Text("OK"))
+            )
+        }
     }
     
     func makeLoadingView() -> some View {

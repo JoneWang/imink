@@ -12,17 +12,16 @@ import os
 
 class LoginViewModel: ObservableObject {
     enum Status {
-        case waitTypeToken
+        case none
         case loading
         case loginSuccess
     }
     
-    @Published var status: Status? = .waitTypeToken
+    @Published var status: Status = .none
     @Published var clientToken: String = ""
     
     // Nintendo account login
     @Published var codeVerifier: String?
-    @Published var isLoading = false
     @Published var loginError: Error? = nil
     
     var cancelBag = Set<AnyCancellable>()
@@ -36,8 +35,7 @@ extension LoginViewModel {
             return
         }
         
-        isLoading = true
-        
+        status = .loading
         NSOHelper.logIn(codeVerifier: codeVerifier, sessionTokenCode: sessionTokenCode)
             .sink { (completion) in
                 switch completion {

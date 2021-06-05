@@ -9,15 +9,12 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct MePage: View {
+    @EnvironmentObject var mainViewModel: MainViewModel
     
-    @StateObject private var viewModel: MeViewModel
+    @StateObject private var viewModel = MeViewModel()
     
     @State var showLogoutAlert = false
     @State var showSettings = false
-    
-    init(viewModel: MeViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
     
     var udemaeData: [(String, Udemae?)] {
         guard let player = viewModel.records?.records.player else {
@@ -161,6 +158,9 @@ struct MePage: View {
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onReceive(mainViewModel.$isLogined) { isLogined in
+            viewModel.updateLoginStatus(isLogined: isLogined)
+        }
         .sheet(isPresented: $showSettings) {
             SettingPage(showSettings: $showSettings)
         }

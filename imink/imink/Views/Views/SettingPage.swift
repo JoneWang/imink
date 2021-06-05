@@ -12,14 +12,17 @@ import StoreKit
 import AlertToast
 
 struct SettingPage: View {
-    @StateObject private var viewModel = SettingViewModel()
     @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
+    @StateObject private var viewModel = SettingViewModel()
 
     @Binding var showSettings: Bool
     
     @State private var showingMailView = false
     @State private var showLogoutAlert = false
     @State private var showReloadWidgetsAlert = false
+
+    @State private var exportPath: Any = ""
+    @State private var showExportActivity = false
 
     var body: some View {
         NavigationView {
@@ -85,6 +88,13 @@ struct SettingPage: View {
                         }
                     }
                     .animation(.default)
+                    .alert(isPresented: $iksmSessionViewModel.renewAlert) {
+                        Alert(
+                            title: Text("Failure to renew"),
+                            message: Text("Failure to renew_desc"),
+                            dismissButton: .cancel(Text("OK"))
+                        )
+                    }
                 }
                 
                 Section(
@@ -122,11 +132,13 @@ struct SettingPage: View {
                         Button(action: {
                             viewModel.exportData { exportPath in
                                 guard let exportPath = exportPath else { return }
-                                NotificationCenter.default.post(name: .exportData, object: exportPath)
+                                self.exportPath = exportPath
+                                showExportActivity = true
                             }
                         }) {
                             ListRow("Export", titleColor: .accentColor, showArrow: false)
                         }
+                        .background(ActivityView(isPresented: $showExportActivity, item: $exportPath))
                     }
                 }
 

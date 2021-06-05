@@ -53,7 +53,12 @@ class BattleListViewModel: ObservableObject {
         
         self.isLogined = isLogined
         
-        if !isLogined { return }
+        if !isLogined {
+            databaseRecords = []
+            rows = []
+            selectedId = nil
+            return
+        }
         
         // Database records publisher
         AppDatabase.shared.records()
@@ -61,7 +66,6 @@ class BattleListViewModel: ObservableObject {
                 os_log("Database Error: [records] \(error.localizedDescription)")
                 return Just<[DBRecord]>([])
             }
-//            .assign(to: &$databaseRecords)
             .assign(to: \.databaseRecords, on: self)
             .store(in: &cancelBag)
 
@@ -86,7 +90,6 @@ class BattleListViewModel: ObservableObject {
                     return [realtimeRow]
                 }
             }
-//            .assign(to: &$rows)
             .assign(to: \.rows, on: self)
             .store(in: &cancelBag)
     }

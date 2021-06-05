@@ -1,15 +1,15 @@
 //
-//  UpdatePage.swift
+//  OnboardingPage.swift
 //  imink
 //
-//  Created by Jone Wang on 2021/5/18.
+//  Created by Jone Wang on 2021/3/12.
 //
 
 import SwiftUI
 
-struct UpdatePage: View {
+struct OnboardingPage: View {
     
-    let viewModel: PresentPageViewModel
+    @Binding var isPresented: Bool
 
     private let largeWidth: CGFloat = 500
     private let iPadMaxHeightPadding: CGFloat = 44 * 2
@@ -34,7 +34,7 @@ struct UpdatePage: View {
         
         return VStack {
             VStack(spacing: 0) {
-                Text(largeLayout ? "What’s New in imink" : "What’s New in imink_multi-line")
+                Text(largeLayout ? "Welcome to imink" : "Welcome to imink_multi-line")
                     .font(.system(size: 34, weight: .bold))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, titlePaddingBottom)
@@ -42,9 +42,9 @@ struct UpdatePage: View {
                 VStack(alignment: .leading, spacing: widthGreaterThan400 ? 46 : 24) {
                     ForEach(
                         [
-                            ("UpdateLogLoadout", "Gear Loadout", "update_1_1_0_description_1"),
-                            ("UpdateLogMedal", "League Battle Medals", "update_1_1_0_description_2"),
-                            ("UpdateLogXRank", "X Rank Improvements", "update_1_1_0_description_3")
+                            ("StartupSyncing", "Real-Time Syncing", "onboarding_description_1"),
+                            ("StartupWidget", "Home Screen Widgets", "onboarding_description_2"),
+                            ("StartupSalmonRun", "Salmon Run", "onboarding_description_3")
                         ],
                         id: \.0
                     ) { iconName, title, description in
@@ -79,7 +79,7 @@ struct UpdatePage: View {
                 .continuousCornerRadius(14)
                 .padding(.horizontal, widthGreaterThan400 ? 44 : 24)
                 .onTapGesture {
-                    viewModel.dismiss = true
+                    isPresented = false
                 }
             }
             .padding(.top, titlePaddingTop)
@@ -89,18 +89,22 @@ struct UpdatePage: View {
     }
 }
 
-struct UpdatePage_Previews: PreviewProvider {
+struct FirstLaunchPage_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = PresentPageViewModel()
+        StatefulPreviewWrapper(true) { show in
+            OnboardingPage(isPresented: show)
+                .previewLayout(.sizeThatFits)
+        }
         
-        UpdatePage(viewModel: viewModel)
-            .previewLayout(.sizeThatFits)
+        StatefulPreviewWrapper(true) { show in
+            OnboardingPage(isPresented: show)
+                .previewLayout(.sizeThatFits)
+        }
         
-        UpdatePage(viewModel: viewModel)
-            .previewLayout(.sizeThatFits)
-        
-        UpdatePage(viewModel: viewModel)
-            .frame(width: 300, height: 1000)
-            .previewLayout(.sizeThatFits)
+        StatefulPreviewWrapper(true) { show in
+            OnboardingPage(isPresented: show)
+                .frame(width: 300, height: 1000)
+                .previewLayout(.sizeThatFits)
+        }
     }
 }

@@ -124,6 +124,11 @@ class HomeViewModel: ObservableObject {
                 .store(in: &cancelBag)
             
             startSyncCountPublisher()
+        } else {
+            recordTotalCount = 0
+            recordTotalCount = 0
+            today = Today()
+            vdWithLast500 = []
         }
         
         updateSchedules()

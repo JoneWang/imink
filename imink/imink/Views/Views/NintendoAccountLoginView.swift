@@ -11,14 +11,16 @@ import WebKit
 import Combine
 import SnapKit
 
-struct NintendoAccountLoginPage: UIViewControllerRepresentable {
+struct NintendoAccountLoginView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UINavigationController
     
-    let viewModel: LoginViewModel
+    let viewModel = LoginViewModel()
+    let success: () -> Void
         
     func makeUIViewController(context: Context) -> UINavigationController {
         let vc = NintendoAccountLoginViewController()
         vc.viewModel = viewModel
+        vc.success = success
         return UINavigationController(rootViewController: vc)
     }
     
@@ -30,6 +32,7 @@ struct NintendoAccountLoginPage: UIViewControllerRepresentable {
 class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
     
     var viewModel: LoginViewModel!
+    var success: (() -> Void)!
     
     private var cancelBag = Set<AnyCancellable>()
     private var webView: WKWebView!
@@ -65,7 +68,7 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         
         configureWebView()
         
-        viewModel.isLoading = true
+        viewModel.status = .loading
         
         let (url, codeVerifier) = authorizeInfo()
         let request = URLRequest(url: url)
@@ -73,11 +76,6 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         viewModel.codeVerifier = codeVerifier
 
         webView.load(request)
-        
-        viewModel.$isLoading
-            .map { !$0 }
-            .assign(to: \.isHidden, on: loadingView)
-            .store(in: &cancelBag)
         
         viewModel.$loginError
             .sink { [weak self] error in
@@ -100,6 +98,17 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
             }
             .store(in: &cancelBag)
         
+        viewModel.$status
+            .sink { [weak self] status in
+                if status == .loginSuccess {
+                    self?.success()
+                    self?.dismiss(animated: true)
+                }
+                
+                self?.loadingView.isHidden = status != .loading
+            }
+            .store(in: &cancelBag)
+        
         Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
             .sink { _ in
                 self.webView.evaluateJavaScript(self.hideHeader, completionHandler: nil)
@@ -107,6 +116,12 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
                 self.webView.evaluateJavaScript(self.hideForgotPassword, completionHandler: nil)
             }
             .store(in: &cancelBag)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        viewModel.loginError = nil
     }
     
     func configureWebView() {
@@ -152,7 +167,7 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         
         webView.publisher(for: \.title)
             .sink { [weak self] title in
-                self?.viewModel.isLoading = false
+                self?.viewModel.status = .none
                 self?.navigationItem.title = title
             }
             .store(in: &cancelBag)

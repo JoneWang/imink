@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct BattleListPage: View {
+    @EnvironmentObject var mainViewModel: MainViewModel
         
-    @StateObject var viewModel: BattleListViewModel
-    
-    init(viewModel: BattleListViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
+    @StateObject var viewModel = BattleListViewModel()
     
     var body: some View {
         NavigationView {
@@ -52,6 +49,9 @@ struct BattleListPage: View {
             }
             .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
+        }
+        .onReceive(mainViewModel.$isLogined) { isLogined in
+            viewModel.updateLoginStatus(isLogined: isLogined)
         }
     }
 }

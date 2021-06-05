@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct JobListPage: View {
+    @EnvironmentObject var mainViewModel: MainViewModel
             
-    @StateObject var viewModel: JobListViewModel
+    @StateObject var viewModel = JobListViewModel()
     
     @State var selectedJob: DBJob?
-    
-    init(viewModel: JobListViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
     
     var body: some View {
         NavigationView {
@@ -58,6 +55,9 @@ struct JobListPage: View {
             }
             .navigationBarTitle("Salmon Run", displayMode: .inline)
             .navigationBarHidden(false)
+        }
+        .onReceive(mainViewModel.$isLogined) { isLogined in
+            viewModel.updateLoginStatus(isLogined: isLogined)
         }
     }
 }

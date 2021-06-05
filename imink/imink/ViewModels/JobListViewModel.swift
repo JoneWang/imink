@@ -66,7 +66,11 @@ class JobListViewModel: ObservableObject {
         
         self.isLogined = isLogined
         
-        if !isLogined { return }
+        if !isLogined {
+            rows = []
+            selectedId = nil
+            return
+        }
         
         // Database records publisher
         AppDatabase.shared.jobs()

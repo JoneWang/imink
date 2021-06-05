@@ -14,8 +14,14 @@ class SettingViewModel: ObservableObject {
     @Published var exporting: Bool = false
     @Published var packingProgress: Double = 1
     
+    @Published var showLogoutAlert: Bool = false
+    
     init() {
         self.isLogined = AppUserDefaults.shared.sessionToken != nil
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.showLogoutAlert = true
+        }
     }
     
     func logOut() {

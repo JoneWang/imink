@@ -27,9 +27,13 @@ class MeViewModel: ObservableObject {
         
         self.isLogined = isLogined
         
-        if (isLogined) {
-            self.loadUserInfo()
+        if !isLogined {
+            records = nil
+            nicknameAndIcons = nil
+            return
         }
+        
+        self.loadUserInfo()
     }
     
     func loadUserInfo() {
