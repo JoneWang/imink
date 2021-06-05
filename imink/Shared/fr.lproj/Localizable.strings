@@ -29,8 +29,6 @@
 "login_error_message" = "Le serveur d'authentification de connexion est occupé, veuillez réessayer plus tard.";
 "session_token_invalid_title" = "Connexion expirée";
 "session_token_invalid_message" = "Votre connexion ont expiré en raison d'une inactivité pour une longue durée, veuillez vous reconnecter.";
-"relogin_title" = "Notifiaction de mise à jour";
-"relogin_message" = "Cette mise à jour a corrigé un bug qui pourrait potentiellement empêcher la synchronisation des résultats des batailles, ce qui vous obligera à vous reconnecter avec votre compte. C'est un événement unique et vous n'aurez pas besoin de vous connecter périodiquement dans le futur. Désolé pour la gêne occasionnée.";
 "user_game_data_not_exist_message" = "Veuillez vous assurer que votre compte possède des données de jeu Splatoon 2 et un abonnement active de Nintendo Switch Online.";
 
 // MARK: Home
