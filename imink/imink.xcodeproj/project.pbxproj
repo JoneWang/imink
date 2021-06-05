@@ -53,7 +53,6 @@
 		EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */; };
 		EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4DF4F5252EF1510020B234 /* VDGridView.swift */; };
 		EC5362482525D68E0037BD12 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362472525D68E0037BD12 /* HomeViewModel.swift */; };
-		EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */; };
 		EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5362522525DDDF0037BD12 /* HomePage.swift */; };
 		EC54C0862618BBE900EA3A9E /* PlayerSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC54C0852618BBE900EA3A9E /* PlayerSkillView.swift */; };
 		EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
@@ -278,7 +277,6 @@
 		EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenientColors.swift; sourceTree = "<group>"; };
 		EC4DF4F5252EF1510020B234 /* VDGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDGridView.swift; sourceTree = "<group>"; };
 		EC5362472525D68E0037BD12 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		EC5362522525DDDF0037BD12 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		EC54C0852618BBE900EA3A9E /* PlayerSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSkillView.swift; sourceTree = "<group>"; };
 		EC565B5A251D882900CCAC9A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
@@ -698,7 +696,6 @@
 			isa = PBXGroup;
 			children = (
 				ECA9B3EF2669BAB900EE63FC /* MainViewModel.swift */,
-				EC53624A2525D7C70037BD12 /* TabBarViewModel.swift */,
 				ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */,
 				ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */,
 				ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */,
@@ -1097,7 +1094,6 @@
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				ECB959B525B872BD0006E942 /* DBJob.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
-				EC53624B2525D7C70037BD12 /* TabBarViewModel.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
 				EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */,

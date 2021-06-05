@@ -50,13 +50,12 @@ class AppUserDefaults: ObservableObject {
     @StandardStorage(key: "sessionToken", store: .appGroup)
     var sessionToken: String? {
         didSet {
-            if (oldValue != nil || naUser != nil), sessionToken == nil {
+            if oldValue != nil, sessionToken == nil {
                 NotificationCenter.default.post(
                     name: .logout,
                     object: nil
                 )
                 
-                AppUserDefaults.shared.naUser = nil
                 AppUserDefaults.shared.sp2PrincipalId = nil
                 
                 IksmSessionManager.shared.clear()
@@ -65,9 +64,6 @@ class AppUserDefaults: ObservableObject {
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
-    
-    @StandardStorage(key: "naUser", store: .appGroup)
-    var naUser: NAUser?
 }
 
 extension UserDefaults {
