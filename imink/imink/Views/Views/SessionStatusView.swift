@@ -13,19 +13,20 @@ struct SessionStatusView: View {
     @Binding var isRenewing: Bool
     
     var body: some View {
-        VStack(spacing: 11) {
-            HStack(alignment: .top) {
+        VStack(spacing: 12) {
+            HStack(alignment: .top, spacing: 12) {
                 Image(systemName: "exclamationmark.arrow.circlepath")
                     .foregroundColor(.accentColor)
                 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text("iksm_session is expired")
-                        .font(.system(size: 17, weight: .semibold))
+                        .font(.headline)
                         .foregroundColor(AppColor.appLabelColor)
                     
                     Text("iksm_session is expired_desc")
                         .font(.system(size: 15))
                         .foregroundColor(.secondaryLabel)
+                        .lineSpacing(2)
                 }
             }
             .padding(.trailing, 16)
@@ -52,7 +53,8 @@ struct SessionStatusView: View {
                         
                         Spacer()
                         
-                        Image(systemName: "chevron.right").imageScale(.medium)
+                        Text("\(Image(systemName: "chevron.right"))")
+                            .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(.tertiaryLabel)
                     }
                 }
@@ -60,7 +62,7 @@ struct SessionStatusView: View {
             }
         }
         .padding(.leading, 16)
-        .padding(.vertical, 11)
+        .padding(.vertical, 12)
         .background(AppColor.listItemBackgroundColor)
         .continuousCornerRadius(10)
         .sheet(isPresented: $showSettings) {
@@ -71,8 +73,13 @@ struct SessionStatusView: View {
 
 struct SessionStatusView_Previews: PreviewProvider {
     static var previews: some View {
-        StatefulPreviewWrapper(false) { isRenewing in
-            SessionStatusView(isRenewing: isRenewing)
+        VStack {
+            StatefulPreviewWrapper(false) { isRenewing in
+                SessionStatusView(isRenewing: isRenewing)
+            }
         }
+        .padding(.horizontal, 16)
+        .frame(maxHeight: .infinity)
+        .background(AppColor.listBackgroundColor)
     }
 }
