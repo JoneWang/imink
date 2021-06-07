@@ -13,7 +13,6 @@ struct MePage: View {
     
     @StateObject private var viewModel = MeViewModel()
     
-    @State var showLogoutAlert = false
     @State var showSettings = false
     
     var udemaeData: [(String, Udemae?)] {

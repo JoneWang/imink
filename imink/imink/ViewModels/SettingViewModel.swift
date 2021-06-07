@@ -11,31 +11,11 @@ class SettingViewModel: ObservableObject {
     
     @Published var isLogined: Bool = false
     
-    @Published var exporting: Bool = false
-    @Published var packingProgress: Double = 1
-    
-    @Published var showLogoutAlert: Bool = false
-    
     init() {
         self.isLogined = AppUserDefaults.shared.sessionToken != nil
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.showLogoutAlert = true
-        }
     }
     
     func logOut() {
         AppUserDefaults.shared.sessionToken = nil
-    }
-    
-    func exportData(completed: @escaping (URL?) -> Void) {
-        DataBackup.export { [weak self] finished, progress, exporting in
-            self?.exporting = !finished
-            self?.packingProgress = progress
-            
-            if (finished) {
-                completed(exporting)
-            }
-        }
     }
 }

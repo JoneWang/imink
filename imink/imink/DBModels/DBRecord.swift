@@ -111,13 +111,17 @@ extension AppDatabase {
         }
     }
     
-    func saveBattles(datas: [Data]) {
+    func saveBattles(datas: [Data], progress: ((Double, Error?) -> Void)? = nil) {
         dbQueue.asyncWrite { db in
-            for data in datas {
+            for (i, data) in datas.enumerated() {
                 try self.saveBattle(db: db, data: data)
+                if i % 10 == 0 || (datas.count - 1) == i {
+                    progress?(Double(i + 1) / Double(datas.count), nil)
+                }
             }
         } completion: { _, error in
             if case let .failure(error) = error {
+                progress?(0, error)
                 os_log("Database Error: [saveBattles] \(error.localizedDescription)")
             }
         }

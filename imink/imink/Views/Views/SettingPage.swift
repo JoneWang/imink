@@ -9,7 +9,7 @@
 import SwiftUI
 import WidgetKit
 import StoreKit
-import AlertToast
+import SPAlert
 
 struct SettingPage: View {
     @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
@@ -113,6 +113,7 @@ struct SettingPage: View {
                     }) {
                         ListRow("Reload Widgets", titleColor: .accentColor, showArrow: false)
                     }
+                    .spAlert(isPresent: $showReloadWidgetsAlert)
                 }
                 
                 if viewModel.isLogined {
@@ -130,10 +131,16 @@ struct SettingPage: View {
                         }
                         
                         Button(action: {
-                            viewModel.exportData { exportPath in
-                                guard let exportPath = exportPath else { return }
-                                self.exportPath = exportPath
-                                showExportActivity = true
+                            DataBackup.shared.export { finished, progress, exportPath in
+                                ProgressHUD.showProgress(CGFloat(progress))
+                                
+                                if (finished) {
+                                    ProgressHUD.dismiss()
+                                    
+                                    guard let exportPath = exportPath else { return }
+                                    self.exportPath = exportPath
+                                    showExportActivity = true
+                                }
                             }
                         }) {
                             ListRow("Export", titleColor: .accentColor, showArrow: false)
@@ -244,9 +251,6 @@ struct SettingPage: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showingMailView) {
             MailView(isShowing: $showingMailView, recipient: "imink@jone.wang")
-        }
-        .toast(isPresenting: $showReloadWidgetsAlert, duration: 1) {
-            AlertToast(type: .complete(.primary), title: "")
         }
     }
 }

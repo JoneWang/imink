@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "AlertToast",
-        "repositoryURL": "https://github.com/elai950/AlertToast.git",
-        "state": {
-          "branch": null,
-          "revision": "c9f59ac4d187fc876fd778b28cad9f9fe94e4554",
-          "version": "1.2.7"
-        }
-      },
-      {
         "package": "GRDB",
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
@@ -134,6 +125,15 @@
           "branch": null,
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SPAlert",
+        "repositoryURL": "https://github.com/ivanvorobei/SPAlert.git",
+        "state": {
+          "branch": null,
+          "revision": "e173d6a0a0ed43f869cb66f25183f1dd689cb046",
+          "version": "3.1.0"
         }
       },
       {

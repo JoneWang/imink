@@ -6,11 +6,49 @@
 //
 
 import Foundation
+import Combine
 import Zip
 
-struct DataBackup {
+enum DataBackupError: Error {
+    case unknownError
+    case databaseWriteError
+    case invalidDirectoryStructure
+}
+
+extension DataBackupError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .unknownError:
+            return "Unknown error"
+        case .databaseWriteError:
+            return "Database write error"
+        case .invalidDirectoryStructure:
+            return "Invalid directory tructure"
+        }
+    }
+}
+
+class DataBackup {
+    static let shared = DataBackup()
     
-    static func export(progress: @escaping (Bool, Double, URL?) -> Void) {
+    private let unzipProgressScale = 0.1
+    private var importBattlesProgressScale = 0.45
+    private var importJobsProgressScale = 0.45
+    
+    private var unzipProgress: Double = 0
+    private var importBattlesProgress: Double = 0
+    private var importJobsProgress: Double = 0
+    
+    private var importError: Error? = nil
+    
+    private var progressCancellable: AnyCancellable?
+}
+
+// MARK: Export
+
+extension DataBackup {
+    
+    func export(progress: @escaping (Bool, Double, URL?) -> Void) {
         progress(false, 0, nil)
         let queue = DispatchQueue(label: "PackingData")
         queue.async {
@@ -25,7 +63,7 @@ struct DataBackup {
         }
     }
     
-    private static func packingData(progress: @escaping (Double) -> Void) throws -> URL {
+    private func packingData(progress: @escaping (Double) -> Void) throws -> URL {
         
         let fileManager = FileManager()
         let temporaryPath = fileManager.temporaryDirectory
@@ -78,50 +116,130 @@ struct DataBackup {
         
         return zipPath
     }
+}
+
+// MARK: Import
+
+extension DataBackup {
     
-    static func `import`(url: URL) {
+    var progress: Double {
+        unzipProgress * unzipProgressScale +
+            importBattlesProgress * importBattlesProgressScale +
+            importJobsProgress * importJobsProgressScale
+    }
+    
+    func `import`(url: URL, progress: @escaping (Double, Error?) -> Void) {
+        unzipProgress = 0
+        importBattlesProgress = 0
+        importJobsProgress = 0
+        importError = nil
+        
+        progressCancellable = Timer.publish(every: 0.1, on: .main, in: .default)
+            .autoconnect()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let `self` = self else {
+                    return
+                }
+                
+                progress(self.progress, self.importError)
+                if self.progress == 1 || self.importError != nil {
+                    self.progressCancellable?.cancel()
+                }
+            }
+        
+        DispatchQueue(label: "import").async {
+            do {
+                try self.importData(url: url)
+            } catch {
+                self.importError = DataBackupError.unknownError
+            }
+        }
+    }
+    
+    private func importData(url: URL) throws {
         let fileManager = FileManager()
         let temporaryPath = fileManager.temporaryDirectory
         let importPath = temporaryPath.appendingPathComponent("import")
         
-        if fileManager.fileExists(atPath: importPath.path) {
-            try! fileManager.removeItem(at: importPath)
-        }
-        try! fileManager.createDirectory(at: importPath, withIntermediateDirectories: true, attributes: nil)
-        
-        try! Zip.unzipFile(url, destination: importPath, overwrite: true, password: nil)
-        
-        guard let unzipPath = try! fileManager.contentsOfDirectory(
-                at: importPath,
+        do {
+            if fileManager.fileExists(atPath: importPath.path) {
+                try fileManager.removeItem(at: importPath)
+            }
+            try fileManager.createDirectory(at: importPath, withIntermediateDirectories: true, attributes: nil)
+            
+            try Zip.unzipFile(url, destination: importPath, overwrite: true, password: nil, progress: { [weak self] value in
+                self?.unzipProgress = value
+            })
+            
+            guard let unzipPath = try fileManager.contentsOfDirectory(
+                    at: importPath,
+                    includingPropertiesForKeys: nil,
+                    options: [.skipsHiddenFiles]).first(where: { url in
+                        url.lastPathComponent != "__MACOSX" &&
+                            !url.lastPathComponent.hasPrefix(".")
+                    }) else {
+                throw DataBackupError.invalidDirectoryStructure
+            }
+            
+            let battlePath = unzipPath.appendingPathComponent("battle")
+            let battleFilePaths = try fileManager.contentsOfDirectory(
+                at: battlePath,
                 includingPropertiesForKeys: nil,
-                options: [.skipsHiddenFiles]).first(where: { url in
-                    url.lastPathComponent != "__MACOSX" &&
-                        !url.lastPathComponent.hasPrefix(".")
-                }) else {
-            return
+                options: [.skipsHiddenFiles])
+                .filter { $0.pathExtension == "json" }
+
+            let needImportBattleIds = AppDatabase.shared.unsynchronizedBattleIds(
+                with: battleFilePaths.map { $0.deletingPathExtension().lastPathComponent }
+            )
+
+            let battleDatas = battleFilePaths
+                .filter { needImportBattleIds.contains($0.deletingPathExtension().lastPathComponent) }
+                .map { try? Data(contentsOf: $0) }
+                .filter { $0 != nil }
+                .map { $0! }
+
+            AppDatabase.shared.saveBattles(datas: battleDatas) { [weak self] value, error in
+                self?.importBattlesProgress = value
+                if error != nil {
+                    self?.importError = DataBackupError.databaseWriteError
+                }
+            }
+            
+            let salmonRunPath = unzipPath.appendingPathComponent("salmonrun")
+            let salmonRunFilePaths = try fileManager.contentsOfDirectory(
+                at: salmonRunPath,
+                includingPropertiesForKeys: nil,
+                options: [.skipsHiddenFiles])
+                .filter { $0.pathExtension == "json" }
+            
+            let needImportJobIds = AppDatabase.shared.unsynchronizedJobIds(
+                with: salmonRunFilePaths.map { $0.deletingPathExtension().lastPathComponent }.filter { Int($0) != nil }.map { Int($0)! }
+            )
+            .map { "\($0)" }
+            
+            let salmonRunDatas = salmonRunFilePaths
+                .filter { needImportJobIds.contains($0.deletingPathExtension().lastPathComponent) }
+                .map { try? Data(contentsOf: $0) }
+                .filter { $0 != nil }
+                .map { $0! }
+            
+            AppDatabase.shared.saveJobs(datas: salmonRunDatas) { [weak self] value, error in
+                self?.importJobsProgress = value
+                if error != nil {
+                    self?.importError = DataBackupError.databaseWriteError
+                }
+            }
+            
+            // Progress
+            let allRecordsCount = battleDatas.count + salmonRunDatas.count
+            let allRecordsScale = 1 - unzipProgressScale
+            importBattlesProgressScale = (Double(battleDatas.count) / Double(allRecordsCount)) * allRecordsScale
+            importJobsProgressScale = allRecordsScale - importBattlesProgressScale
+        } catch is CocoaError {
+            self.importError = DataBackupError.invalidDirectoryStructure
+        } catch {
+            self.importError = DataBackupError.unknownError
         }
-        
-        let battlePath = unzipPath.appendingPathComponent("battle")
-        let battleDatas = try! fileManager.contentsOfDirectory(
-            at: battlePath,
-            includingPropertiesForKeys: nil,
-            options: [.skipsHiddenFiles])
-            .filter { $0.pathExtension == "json" }
-            .map { try? Data(contentsOf: $0) }
-            .filter { $0 != nil }
-            .map { $0! }
-        AppDatabase.shared.saveBattles(datas: battleDatas)
-        
-        
-        let salmonRunPath = unzipPath.appendingPathComponent("salmonrun")
-        let salmonRunDatas = try! fileManager.contentsOfDirectory(
-            at: salmonRunPath,
-            includingPropertiesForKeys: nil,
-            options: [.skipsHiddenFiles])
-            .filter { $0.pathExtension == "json" }
-            .map { try? Data(contentsOf: $0) }
-            .filter { $0 != nil }
-            .map { $0! }
-        AppDatabase.shared.saveJobs(datas: salmonRunDatas)
     }
 }

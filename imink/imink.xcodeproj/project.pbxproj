@@ -17,7 +17,6 @@
 		EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
 		EC0B0986266692640011758C /* CreditsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B0985266692640011758C /* CreditsPage.swift */; };
-		EC0B098C266778E00011758C /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EC0B098B266778E00011758C /* AlertToast */; };
 		EC0B098E2667FA790011758C /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B098D2667FA780011758C /* DataBackup.swift */; };
 		EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
@@ -41,6 +40,7 @@
 		EC2C34BA2598D7210007BA4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2C34B92598D7210007BA4D /* Assets.xcassets */; };
 		EC2C34C12598D9440007BA4D /* GrayscaleTextureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68D1B22573933F0024C994 /* GrayscaleTextureView.swift */; };
 		EC2C34CB2598E8940007BA4D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C34CA2598E8930007BA4D /* Bundle.swift */; };
+		EC2D2F96266E36FF008D1F51 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = EC2D2F95266E36FF008D1F51 /* SPAlert */; };
 		EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
@@ -147,6 +147,7 @@
 		ECA695092531AC9D00376D95 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA695082531AC9D00376D95 /* PieView.swift */; };
 		ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
+		ECA9B3E726686D5800EE63FC /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9B3E626686D5800EE63FC /* ProgressHUD.swift */; };
 		ECA9B3EE2669B8B500EE63FC /* InkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9B3ED2669B8B500EE63FC /* InkApp.swift */; };
 		ECA9B3F02669BAB900EE63FC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9B3EF2669BAB900EE63FC /* MainViewModel.swift */; };
 		ECA9B3F22669BD3E00EE63FC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9B3F12669BD3E00EE63FC /* MainView.swift */; };
@@ -342,6 +343,7 @@
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		EC9D0A6825A18E2300E8FF89 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
+		ECA9B3E626686D5800EE63FC /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		ECA9B3ED2669B8B500EE63FC /* InkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkApp.swift; sourceTree = "<group>"; };
 		ECA9B3EF2669BAB900EE63FC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		ECA9B3F12669BD3E00EE63FC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -389,8 +391,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2D2F96266E36FF008D1F51 /* SPAlert in Frameworks */,
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
-				EC0B098C266778E00011758C /* AlertToast in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
 				ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */,
 				EC8136AC264FD3F100423D14 /* Zip in Frameworks */,
@@ -609,6 +611,7 @@
 		EC900E73251C55FF00AA0B20 /* imink */ = {
 			isa = PBXGroup;
 			children = (
+				ECA9B3E82668971800EE63FC /* Thirdpartys */,
 				EC902D1B2663F6A10014093C /* Utils */,
 				EC900EAF251C8EF700AA0B20 /* Data */,
 				EC900EBE251C8EF700AA0B20 /* DBModels */,
@@ -758,6 +761,14 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		ECA9B3E82668971800EE63FC /* Thirdpartys */ = {
+			isa = PBXGroup;
+			children = (
+				ECA9B3E626686D5800EE63FC /* ProgressHUD.swift */,
+			);
+			path = Thirdpartys;
+			sourceTree = "<group>";
+		};
 		ECA9B3FC266B697000EE63FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -853,8 +864,8 @@
 			packageProductDependencies = (
 				EC43AA57251C9A7100283D28 /* GRDB */,
 				EC606044251CD5B200DCF35E /* SnapKit */,
-				EC0B098B266778E00011758C /* AlertToast */,
 				EC8136AB264FD3F100423D14 /* Zip */,
+				EC2D2F95266E36FF008D1F51 /* SPAlert */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -899,8 +910,8 @@
 				EC43AA5A251CCDF000283D28 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
-				EC0B098A266778E00011758C /* XCRemoteSwiftPackageReference "AlertToast" */,
 				EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */,
+				EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1044,6 +1055,7 @@
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
+				ECA9B3E726686D5800EE63FC /* ProgressHUD.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				EC902D192663F3AE0014093C /* UIViewController+Extension.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
@@ -1494,12 +1506,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EC0B098A266778E00011758C /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+		EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.7;
+				minimumVersion = 3.1.0;
 			};
 		};
 		EC43AA52251C95DE00283D28 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
@@ -1553,10 +1565,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC0B098B266778E00011758C /* AlertToast */ = {
+		EC2D2F95266E36FF008D1F51 /* SPAlert */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EC0B098A266778E00011758C /* XCRemoteSwiftPackageReference "AlertToast" */;
-			productName = AlertToast;
+			package = EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
 		};
 		EC43AA57251C9A7100283D28 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
