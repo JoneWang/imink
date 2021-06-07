@@ -33,9 +33,9 @@
 
 // MARK: Home
 
-"iksm_session is expired" = "iksm_session is expired";
-"iksm_session is expired_desc" = "You won’t be able to sync battles before the iksm_session is renewed.";
-"Renew in Settings" = "Renew in Settings";
+"iksm_session is expired" = "iksm_session已過期";
+"iksm_session is expired_desc" = "在iksm_session完成續期前，戰績同步將會中斷。";
+"Renew in Settings" = "立即續期";
 
 "Today" = "今日";
 "reset" = "重置";
@@ -93,35 +93,35 @@
 // MARK: Me
 
 "Highest Power" = "最高分";
-"Mysterious void under investigation…" = "Mysterious void under investigation…";
+"Mysterious void under investigation…" = "正在緊密調查中的神秘空白…";
 
 // MARK: Settings
 
-"Settings" = "Settings";
-"LOGIN STATUS" = "LOGIN STATUS";
-"Valid" = "Valid";
-"Expired" = "Expired";
-"Renewing…" = "Renewing…";
-"Manual Renew" = "Manual Renew";
-"Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
-"What is an iksm_session?" = "What is an iksm_session?";
-"Failure to renew" = "Failure to renew";
-"Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
-"GENERAL" = "GENERAL";
+"Settings" = "設定";
+"LOGIN STATUS" = "登入狀態";
+"Valid" = "有效";
+"Expired" = "過期";
+"Renewing…" = "續期中…";
+"Manual Renew" = "手動續期";
+"Manual Renew_desc" = "續期API在全球範圍內帶有每分鐘4次的請求次數限制。如遇續期失敗，請等待1–2分鐘後再次嘗試。";
+"What is an iksm_session?" = "什麼是iksm_session？";
+"Failure to renew" = "續期失敗";
+"Failure to renew_desc" = "請等待1–2分鐘後重試。";
+"GENERAL" = "一般";
 "Language" = "語言";
-"Reload Widgets" = "Reload Widgets";
-"USER DATA" = "USER DATA";
-"USER DATA_desc" = "imink exports raw user data returned from SplatNet 2 in JSON format. You can uncompress for analysis at will.";
-"Import" = "Import";
-"Export" = "Export";
-"CONTACT" = "CONTACT";
+"Reload Widgets" = "重新載入小工具";
+"USER DATA" = "遊戲資料";
+"USER DATA_desc" = "imink匯出SplatNet 2返回的原始資料，使用易於閱讀和解析的JSON格式，可自由解壓分析。";
+"Import" = "匯入";
+"Export" = "匯出";
+"CONTACT" = "聯絡";
 "Email" = "Email";
-"ABOUT" = "ABOUT";
-"Send Kudos" = "Send Kudos";
-"Send Kudos_desc" = "We appreaciate your love and support. Please support imink by writing a review.";
+"ABOUT" = "關於";
+"Send Kudos" = "支持我們";
+"Send Kudos_desc" = "我們對各位的喜愛和支持深表感謝。如果您喜歡imink，請給我們一個好評。";
 "FAQ" = "常見問題";
-"Credits" = "Credits";
-"Version" = "Version";
+"Credits" = "製作人員";
+"Version" = "版本";
 "Source code" = "原始碼";
 "ABOUT_desc" = "imink is an unofficial app that uses the information of SplatNet 2, and is not affiliated with Nintendo.";
 "Log out" = "登出";
