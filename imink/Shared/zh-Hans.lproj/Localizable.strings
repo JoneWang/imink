@@ -33,9 +33,9 @@
 
 // MARK: Home
 
-"iksm_session is expired" = "iksm_session is expired";
-"iksm_session is expired_desc" = "You won’t be able to sync battles before the iksm_session is renewed.";
-"Renew in Settings" = "Renew in Settings";
+"iksm_session is expired" = "iksm_session已过期";
+"iksm_session is expired_desc" = "在iksm_session完成续期前，战绩同步将会中断。";
+"Renew in Settings" = "立即续期";
 
 "Today" = "今日";
 "reset" = "重置";
@@ -97,13 +97,13 @@
 
 // MARK: Settings
 
-"Settings" = "Settings";
-"LOGIN STATUS" = "LOGIN STATUS";
-"Valid" = "Valid";
-"Expired" = "Expired";
-"Renewing…" = "Renewing…";
-"Manual Renew" = "Manual Renew";
-"Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
+"Settings" = "设置";
+"LOGIN STATUS" = "登录状态";
+"Valid" = "有效";
+"Expired" = "过期";
+"Renewing…" = "续期中…";
+"Manual Renew" = "手动续期";
+"Manual Renew_desc" = "续期API在全球范围内带有每分钟4次的请求次数限制。如遇续期失败，请等待1–2分钟后再次尝试。";
 "What is an iksm_session?" = "What is an iksm_session?";
 "Failure to renew" = "Failure to renew";
 "Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
