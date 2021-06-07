@@ -19,7 +19,7 @@ struct CreditsPage: View {
         Row(title: "米雪", avatarName: "avatar_michelc", subtitle: "Traditional Chinese Localization"),
         Row(title: "ai", avatarName: "avatar_ai", subtitle: "Traditional Chinese Localization"),
         Row(title: "ddddxxx", avatarName: "avatar_ddddxxx", subtitle: "Development"),
-        Row(title: "泊汐", avatarName: "avatar_", subtitle: "Japanese Localization"),
+        Row(title: "泊汐", avatarName: "avatar_boxi", subtitle: "Japanese Localization"),
         Row(title: "Padotagi", avatarName: "avatar_padotagi", subtitle: "Korean Localization, Type Design"),
         Row(title: "issei-m", avatarName: "avatar_isseim", subtitle: "Japanese Localization"),
     ]
