@@ -112,8 +112,8 @@
 "Reload Widgets" = "重新載入小工具";
 "USER DATA" = "遊戲資料";
 "USER DATA_desc" = "imink匯出SplatNet 2返回的原始資料，使用易於閱讀和解析的JSON格式，可自由解壓分析。";
-"Import" = "匯入";
-"Export" = "匯出";
+"Import" = "匯入資料";
+"Export" = "匯出資料";
 "CONTACT" = "聯絡";
 "Email" = "Email";
 "ABOUT" = "關於";
@@ -123,7 +123,7 @@
 "Credits" = "製作人員";
 "Version" = "版本";
 "Source code" = "原始碼";
-"ABOUT_desc" = "imink is an unofficial app that uses the information of SplatNet 2, and is not affiliated with Nintendo.";
+"ABOUT_desc" = "imink是使用SplatNet 2資料的非官方app，與任天堂株式會社無隸屬關係。";
 "Log out" = "登出";
 "Are you sure you want to log out?" = "確定要登出嗎？";
 
