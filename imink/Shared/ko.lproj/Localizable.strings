@@ -97,7 +97,7 @@
 
 // MARK: Settings
 
-"Settings" = "Settings";
+"Settings" = "설정";
 "LOGIN STATUS" = "LOGIN STATUS";
 "Valid" = "Valid";
 "Expired" = "Expired";
@@ -107,7 +107,7 @@
 "What is an iksm_session?" = "What is an iksm_session?";
 "Failure to renew" = "Failure to renew";
 "Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
-"GENERAL" = "GENERAL";
+"GENERAL" = "일반";
 "Language" = "언어";
 "Reload Widgets" = "Reload Widgets";
 "USER DATA" = "USER DATA";
