@@ -181,3 +181,10 @@
 "update_1_1_0_description_1" = "在战绩详情页面中查看其他玩家的配装，为打造完美装备提供参考。";
 "update_1_1_0_description_2" = "属于团队的至高荣誉，现已悉心陈列在个人资料页面中。";
 "update_1_1_0_description_3" = "战绩详情页面现可显示X段排名和500强玩家的王冠。";
+
+// MARK: Import
+
+"Import Error" = "Import Error";
+"Database write error" = "Database write error";
+"Invalid directory tructure" = "Invalid directory tructure";
+"Unknown error" = "Unknown error";
