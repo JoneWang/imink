@@ -181,3 +181,10 @@
 "update_1_1_0_description_1" = "Check the gear loadout of other squids in battle detail.";
 "update_1_1_0_description_2" = "All your shiny medals are now well displayed under your profile.";
 "update_1_1_0_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
+
+// MARK: Import
+
+"Import Error" = "Import Error";
+"Database write error" = "Database write error";
+"Invalid directory tructure" = "Invalid directory tructure";
+"Unknown error" = "Unknown error";
