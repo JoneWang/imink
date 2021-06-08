@@ -188,3 +188,21 @@
 "Database write error" = "Database write error";
 "Invalid directory tructure" = "Invalid directory tructure";
 "Unknown error" = "Unknown error";
+
+// MARK: Credits
+
+"credits_desc" = "Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.";
+"CONTRIBUTORS" = "CONTRIBUTORS";
+", " = ", ";
+"Development" = "Development";
+"Marketing" = "Marketing";
+"UI & Type Design" = "UI & Type Design";
+"UI & Icon Design" = "UI & Icon Design";
+"Type Design" = "Type Design";
+"Simplified Chinese Localization" = "Simplified Chinese Localization";
+"Traditional Chinese Localization" = "Traditional Chinese Localization";
+"Japanese Localization" = "Japanese Localization";
+"Korean Localization" = "Korean Localization";
+"Contribute to localization…" = "Contribute to localization…";
+"ACKNOWLEDGEMENTS" = "ACKNOWLEDGEMENTS";
+"aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
