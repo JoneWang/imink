@@ -48,6 +48,9 @@ struct MainView: View {
                 mainViewModel.checkIksmSession()
             }
             mainViewModel.isLogined = isLogined
+            
+            synchronizeBattleViewModel.isLogined = isLogined
+            synchronizeJobViewModel.isLogined = isLogined
         }
         .onReceive(NotificationCenter.default.publisher(for: .showLoginView)) { _ in
             showLoginView = true
