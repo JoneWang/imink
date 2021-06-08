@@ -191,7 +191,7 @@
 
 // MARK: Credits
 
-"credits_desc" = "Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.";
+"credits_desc" = "感謝以下來自世界各地的花枝和章魚，是無與倫比的你們讓imink成為現實。";
 "CONTRIBUTORS" = "貢獻者";
 ", " = "、";
 "Development" = "開發";
@@ -205,4 +205,4 @@
 "Korean Localization" = "韓文在地化";
 "Contribute to localization…" = "貢獻在地化翻譯…";
 "ACKNOWLEDGEMENTS" = "致謝";
-"aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
+"aknowledgements_desc" = "感謝以上作者提供用於賬號登入的必要API，及韓文客製字型。";
