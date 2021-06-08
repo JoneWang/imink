@@ -29,21 +29,22 @@ struct SettingPage: View {
             List {
                 if viewModel.isLogined {
                     Section(
-                        header: Text("LOGIN STATUS")
-                            .font(.system(size: 13))
-                            .padding(.leading, 16)
-                            .padding(.top, 16),
-                        footer: VStack(alignment: .leading, spacing: 8) {
-                            if !iksmSessionViewModel.iksmSessionIsValid {
-                                Text("Manual Renew_desc")
+                        header: SectionHeader {
+                            Text("LOGIN STATUS")
+                                .padding(.top, 16)
+                                .padding(.bottom, 3)
+                        },
+                        footer: SectionFooter {
+                            VStack(alignment: .leading, spacing: 8) {
+                                if !iksmSessionViewModel.iksmSessionIsValid {
+                                    Text("Manual Renew_desc")
+                                        .font(.system(size: 13))
+                                }
+                                
+                                Text("What is an iksm_session?")
                                     .font(.system(size: 13))
-                                    .padding(.horizontal, 16)
+                                    .foregroundColor(.accentColor)
                             }
-                            
-                            Text("What is an iksm_session?")
-                                .font(.system(size: 13))
-                                .padding(.leading, 16)
-                                .foregroundColor(.accentColor)
                         }
                     ) {
                         HStack {
@@ -98,10 +99,11 @@ struct SettingPage: View {
                 }
                 
                 Section(
-                    header: Text("GENERAL")
-                        .font(.system(size: 13))
-                        .padding(.leading, 16)
-                        .padding(.top, viewModel.isLogined ? 0 : 16)
+                    header: SectionHeader {
+                        Text("GENERAL")
+                            .padding(.top, viewModel.isLogined ? 0 : 16)
+                            .padding(.bottom,  viewModel.isLogined ? 0 : 3)
+                    }
                 ) {
                     Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
                         ListRow("Language")
@@ -118,11 +120,12 @@ struct SettingPage: View {
                 
                 if viewModel.isLogined {
                     Section(
-                        header: Text("USER DATA")
-                            .font(.system(size: 13))
-                            .padding(.leading, 16),
-                        footer: Text("USER DATA_desc")
-                            .padding(.horizontal, 16)
+                        header: SectionHeader {
+                            Text("USER DATA")
+                        },
+                        footer: SectionFooter {
+                            Text("USER DATA_desc")
+                        }
                     ) {
                         Button(action: {
                             // TODO: Import data
@@ -150,9 +153,9 @@ struct SettingPage: View {
                 }
 
                 Section(
-                    header: Text("CONTACT")
-                        .font(.system(size: 13))
-                        .padding(.leading, 16)
+                    header: SectionHeader {
+                        Text("CONTACT")
+                    }
                 ) {
                     Link(destination: socialLink) {
                         ListRow(socialName)
@@ -168,12 +171,13 @@ struct SettingPage: View {
                 }
 
                 Section(
-                    header: Text("ABOUT")
-                        .font(.system(size: 13))
-                        .padding(.leading, 16),
-                    footer: Text("Send Kudos_desc")
-                        .font(.system(size: 13))
-                        .padding(.horizontal, 16)
+                    header: SectionHeader {
+                        Text("ABOUT")
+                    },
+                    footer: SectionFooter {
+                        Text("Send Kudos_desc")
+                            .font(.system(size: 13))
+                    }
                 ) {
                     Button(action: {
                         if let windowScene = UIApplication.shared.windows.first?.windowScene {
@@ -185,9 +189,10 @@ struct SettingPage: View {
                 }
 
                 Section(
-                    footer: Text("ABOUT_desc")
-                        .font(.system(size: 13))
-                        .padding(.horizontal, 16)
+                    footer: SectionFooter {
+                        Text("ABOUT_desc")
+                            .font(.system(size: 13))
+                    }
                 ) {
                     Link(destination: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ")!) {
                         ListRow("FAQ")

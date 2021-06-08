@@ -35,18 +35,20 @@ struct CreditsPage: View {
     var body: some View {
         List {
             Section(
-                header: VStack(alignment: .leading, spacing: 22) {
-                    Text("Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.")
-                        .padding(.horizontal, 16)
-                        .padding(.top, 16)
-                    
-                    Text("CONTRIBUTORS")
-                        .padding(.leading, 16)
+                header: SectionHeader {
+                    VStack(alignment: .leading, spacing: 22) {
+                        Text("Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.")
+                            .padding(.top, 16)
+                        
+                        Text("CONTRIBUTORS")
+                    }
+                    .padding(.bottom, 3)
                 },
-                footer: Link(destination: crowdinURL) {
-                    Text("Contribute to localization…")
-                        .foregroundColor(.accentColor)
-                        .padding(.horizontal, 16)
+                footer: SectionFooter {
+                    Link(destination: crowdinURL) {
+                        Text("Contribute to localization…")
+                            .foregroundColor(.accentColor)
+                    }
                 }
             ) {
                 ForEach(0..<contributors.count) { index in
@@ -56,11 +58,13 @@ struct CreditsPage: View {
             .textCase(.none)
             
             Section(
-                header: Text("ACKNOWLEDGEMENTS")
-                    .padding(.horizontal, 16),
-                footer: Text("Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.")
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 22)
+                header: SectionHeader {
+                    Text("ACKNOWLEDGEMENTS")
+                },
+                footer: SectionFooter {
+                    Text("Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.")
+                        .padding(.bottom, 22)
+                }
             ) {
                 ForEach(0..<acknowledgements.count) { index in
                     Link(destination: acknowledgements[index].url!) {

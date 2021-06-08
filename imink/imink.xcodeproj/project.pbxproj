@@ -47,6 +47,7 @@
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
 		EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
+		EC4C038B266F63A100AA7ECE /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C038A266F63A100AA7ECE /* SectionHeader.swift */; };
 		EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C70AB25B9CAFA00E6EF6E /* JobDetailWaveView.swift */; };
 		EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4CA1732595C6B900B5C8CF /* BattleDetailPage.swift */; };
 		EC4CA1782595DEAB00B5C8CF /* ConvenientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */; };
@@ -273,6 +274,7 @@
 		EC39701D25480B9C00557BD4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC39703625482BE400557BD4 /* String+LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedString.swift"; sourceTree = "<group>"; };
 		EC3F74A125505FFA0061989B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EC4C038A266F63A100AA7ECE /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		EC4C70AB25B9CAFA00E6EF6E /* JobDetailWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailWaveView.swift; sourceTree = "<group>"; };
 		EC4CA1732595C6B900B5C8CF /* BattleDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailPage.swift; sourceTree = "<group>"; };
 		EC4CA1772595DEAB00B5C8CF /* ConvenientColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenientColors.swift; sourceTree = "<group>"; };
@@ -774,6 +776,7 @@
 			children = (
 				EC76329A26665A34007FF9C4 /* ListRow.swift */,
 				ECA9B3FD266B698200EE63FC /* ActivityView.swift */,
+				EC4C038A266F63A100AA7ECE /* SectionHeader.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 				EC344FE925330351004A7AF1 /* MePage.swift in Sources */,
 				EC0B098E2667FA790011758C /* DataBackup.swift in Sources */,
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
+				EC4C038B266F63A100AA7ECE /* SectionHeader.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				ECB959B525B872BD0006E942 /* DBJob.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
