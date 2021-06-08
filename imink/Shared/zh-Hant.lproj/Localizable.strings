@@ -192,17 +192,17 @@
 // MARK: Credits
 
 "credits_desc" = "Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.";
-"CONTRIBUTORS" = "CONTRIBUTORS";
-", " = ", ";
-"Development" = "Development";
-"Marketing" = "Marketing";
-"UI & Type Design" = "UI & Type Design";
-"UI & Icon Design" = "UI & Icon Design";
-"Type Design" = "Type Design";
-"Simplified Chinese Localization" = "Simplified Chinese Localization";
-"Traditional Chinese Localization" = "Traditional Chinese Localization";
-"Japanese Localization" = "Japanese Localization";
-"Korean Localization" = "Korean Localization";
-"Contribute to localization…" = "Contribute to localization…";
-"ACKNOWLEDGEMENTS" = "ACKNOWLEDGEMENTS";
+"CONTRIBUTORS" = "貢獻者";
+", " = "、";
+"Development" = "開發";
+"Marketing" = "市場行銷";
+"UI & Type Design" = "UI和字型設計";
+"UI & Icon Design" = "UI和圖標設計";
+"Type Design" = "字型設計";
+"Simplified Chinese Localization" = "簡體中文在地化";
+"Traditional Chinese Localization" = "繁體中文在地化";
+"Japanese Localization" = "日文在地化";
+"Korean Localization" = "韓文在地化";
+"Contribute to localization…" = "貢獻在地化翻譯…";
+"ACKNOWLEDGEMENTS" = "致謝";
 "aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
