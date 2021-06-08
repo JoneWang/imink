@@ -8,11 +8,11 @@
 // MARK: API error
 
 
-"Error connecting to the server" = "Error connecting to the server";
+"Error connecting to the server" = "接続エラー";
 "Authorization error" = "認証エラー";
 "Client token is invalid" = "クライアントトークンが無効です";
 "The iksm_session is invalid" = "iksm_sessionが無効です";
-"Request parameter error" = "Request parameter error";
+"Request parameter error" = "パラメーターエラー";
 
 // MARK: Tab bar
 
@@ -104,16 +104,16 @@
 "Renewing…" = "更新中…";
 "Manual Renew" = "手動で更新する";
 "Manual Renew_desc" = "リクエストは現在ユーザー全体で1分間に4回までとなっております。エラーの際はお手数ですが数分待ってから再度お試し下さい。";
-"What is an iksm_session?" = "What is an iksm_session?";
-"Failure to renew" = "Failure to renew";
-"Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
+"What is an iksm_session?" = "iksm_sessionについて";
+"Failure to renew" = "更新できませんでした";
+"Failure to renew_desc" = "数分おいてから再度お試し下さい。";
 "GENERAL" = "一般";
 "Language" = "言語";
 "Reload Widgets" = "Reload Widgets";
 "USER DATA" = "USER DATA";
 "USER DATA_desc" = "imink exports raw user data returned from SplatNet 2 in JSON format. You can uncompress for analysis at will.";
-"Import" = "Import";
-"Export" = "Export";
+"Import" = "インポート";
+"Export" = "エクスポート";
 "CONTACT" = "CONTACT";
 "Email" = "Email";
 "ABOUT" = "ABOUT";
@@ -121,9 +121,9 @@
 "Send Kudos_desc" = "We appreaciate your love and support. Please support imink by writing a review.";
 "FAQ" = "よくある質問";
 "Credits" = "Credits";
-"Version" = "Version";
+"Version" = "バージョン";
 "Source code" = "ソースコード";
-"ABOUT_desc" = "imink is an unofficial app that uses the information of SplatNet 2, and is not affiliated with Nintendo.";
+"ABOUT_desc" = "iminkはSplatNet 2から取得したデータを利用するユーティリティアプリです。任天堂株式会社 (Nintendo) 公式のアプリではございません。";
 "Log out" = "ログアウト";
 "Are you sure you want to log out?" = "ログアウトしますか？";
 
