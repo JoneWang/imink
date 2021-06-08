@@ -191,18 +191,18 @@
 
 // MARK: Credits
 
-"credits_desc" = "Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.";
-"CONTRIBUTORS" = "CONTRIBUTORS";
-", " = ", ";
-"Development" = "Development";
-"Marketing" = "Marketing";
-"UI & Type Design" = "UI & Type Design";
-"UI & Icon Design" = "UI & Icon Design";
-"Type Design" = "Type Design";
-"Simplified Chinese Localization" = "Simplified Chinese Localization";
-"Traditional Chinese Localization" = "Traditional Chinese Localization";
-"Japanese Localization" = "Japanese Localization";
-"Korean Localization" = "Korean Localization";
-"Contribute to localization…" = "Contribute to localization…";
-"ACKNOWLEDGEMENTS" = "ACKNOWLEDGEMENTS";
-"aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
+"credits_desc" = "感谢所有为imink添砖加瓦的乌贼和章鱼，是无与伦比的你们让imink照进现实。";
+"CONTRIBUTORS" = "贡献者";
+", " = "、";
+"Development" = "开发";
+"Marketing" = "市场营销";
+"UI & Type Design" = "UI和字体设计";
+"UI & Icon Design" = "UI和图标设计";
+"Type Design" = "字体设计";
+"Simplified Chinese Localization" = "简体中文本地化";
+"Traditional Chinese Localization" = "繁体中文本地化";
+"Japanese Localization" = "日语本地化";
+"Korean Localization" = "韩语本地化";
+"Contribute to localization…" = "贡献本地化翻译…";
+"ACKNOWLEDGEMENTS" = "致谢";
+"aknowledgements_desc" = "感谢以上作者提供用于账号登录的必要API，及韩文定制字体。";
