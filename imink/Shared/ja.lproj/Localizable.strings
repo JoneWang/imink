@@ -181,3 +181,10 @@
 "update_1_1_0_description_1" = "バトルのリザルトで各プレイヤーのギアを確認できるようになりました。";
 "update_1_1_0_description_2" = "今までの最高リーグパワー、及び獲得メダルの一覧をプロフィール画面で確認できるようになりました。";
 "update_1_1_0_description_3" = "ウデマエXのガチマッチのリザルトで自分のXランキングの順位と、各プレイヤーの王冠の有無を確認できるようになりました。";
+
+// MARK: Import
+
+"Import Error" = "Import Error";
+"Database write error" = "Database write error";
+"Invalid directory tructure" = "Invalid directory tructure";
+"Unknown error" = "Unknown error";
