@@ -181,3 +181,10 @@
 "update_1_1_0_description_1" = "배틀 결과에서 플레이어의 기어를 확인할 수 있게 되었습니다.";
 "update_1_1_0_description_2" = "프로필 화면에서 지금까지의 최고 리그 파워 및 획득 메달 리스트를 확인할 수 있게 되었습니다.";
 "update_1_1_0_description_3" = "우데마에X의 가치 매치 결과에서 각 플레이어의 X랭킹 순위와 왕관 유무를 확인할 수 있게 되었습니다.";
+
+// MARK: Import
+
+"Import Error" = "Import Error";
+"Database write error" = "Database write error";
+"Invalid directory tructure" = "Invalid directory tructure";
+"Unknown error" = "Unknown error";
