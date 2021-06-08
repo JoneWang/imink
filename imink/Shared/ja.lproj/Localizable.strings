@@ -11,7 +11,7 @@
 "Error connecting to the server" = "Error connecting to the server";
 "Authorization error" = "認証エラー";
 "Client token is invalid" = "クライアントトークンが無効です";
-"The iksm_session is invalid" = "iksm_session が無効です";
+"The iksm_session is invalid" = "iksm_sessionが無効です";
 "Request parameter error" = "Request parameter error";
 
 // MARK: Tab bar
@@ -33,8 +33,8 @@
 
 // MARK: Home
 
-"iksm_session is expired" = "iksm_session の期限が切れています";
-"iksm_session is expired_desc" = "バトル履歴を取得するには iksm_session を更新する必要があります。";
+"iksm_session is expired" = "iksm_sessionの期限が切れています";
+"iksm_session is expired_desc" = "バトル履歴を取得するにはiksm_sessionを更新する必要があります。";
 "Renew in Settings" = "Renew in Settings";
 
 "Today" = "今日";
