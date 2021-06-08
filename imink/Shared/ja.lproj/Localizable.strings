@@ -35,7 +35,7 @@
 
 "iksm_session is expired" = "iksm_sessionの期限が切れています";
 "iksm_session is expired_desc" = "バトル履歴を取得するにはiksm_sessionを更新する必要があります。";
-"Renew in Settings" = "Renew in Settings";
+"Renew in Settings" = "設定で更新する";
 
 "Today" = "今日";
 "reset" = "リセット";
@@ -99,10 +99,10 @@
 
 "Settings" = "設定";
 "LOGIN STATUS" = "ログイン状態";
-"Valid" = "Valid";
+"Valid" = "有効";
 "Expired" = "期限切れ";
 "Renewing…" = "更新中…";
-"Manual Renew" = "手動で更新";
+"Manual Renew" = "手動で更新する";
 "Manual Renew_desc" = "リクエストは現在ユーザー全体で1分間に4回までとなっております。エラーの際はお手数ですが数分待ってから再度お試し下さい。";
 "What is an iksm_session?" = "What is an iksm_session?";
 "Failure to renew" = "Failure to renew";
