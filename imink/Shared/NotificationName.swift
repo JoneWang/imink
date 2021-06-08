@@ -14,8 +14,6 @@ extension Notification.Name {
     static let logout = NSNotification.Name("logout")
         
     static let isLoadingRealTimeBattleResult = NSNotification.Name("IsLoadingRealTimeBattleResultNotification")
-        
-    static let recordSyncDetailFinished = NSNotification.Name("RecordSyncDetailFinished")
     
-    static let exportData = NSNotification.Name("ExportData")
+    static let recordSyncDetailFinished = NSNotification.Name("RecordSyncDetailFinished")
 }
