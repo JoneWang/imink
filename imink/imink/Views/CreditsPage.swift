@@ -37,7 +37,7 @@ struct CreditsPage: View {
             Section(
                 header: SectionHeader {
                     VStack(alignment: .leading, spacing: 22) {
-                        Text("Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.")
+                        Text("credits_desc")
                             .padding(.top, 16)
                         
                         Text("CONTRIBUTORS")
@@ -62,7 +62,7 @@ struct CreditsPage: View {
                     Text("ACKNOWLEDGEMENTS")
                 },
                 footer: SectionFooter {
-                    Text("Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.")
+                    Text("aknowledgements_desc")
                         .padding(.bottom, 22)
                 }
             ) {
@@ -91,7 +91,7 @@ struct CreditsPage: View {
                     .font(.system(size: 17))
                     .foregroundColor(AppColor.appLabelColor)
                 
-                Text(row.subtitle)
+                Text(genRoleLocalizedText(str: row.subtitle))
                     .font(.system(size: 13))
                     .foregroundColor(Color.secondaryLabel)
             }
@@ -114,6 +114,14 @@ extension CreditsPage {
         var avatarName: String? = nil
         let subtitle: String
         var url: URL? = nil
+    }
+}
+
+extension CreditsPage {
+    func genRoleLocalizedText(str: String) -> String {
+        str.components(separatedBy: ", ")
+            .map { $0.localized }
+            .joined(separator: ", ".localized)
     }
 }
 
