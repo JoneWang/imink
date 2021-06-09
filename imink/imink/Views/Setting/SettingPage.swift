@@ -17,6 +17,7 @@ struct SettingPage: View {
 
     @Binding var showSettings: Bool
     
+    @State private var showWhatsIksmSessionView = false
     @State private var showingMailView = false
     @State private var showLogoutAlert = false
     @State private var showReloadWidgetsAlert = false
@@ -41,9 +42,16 @@ struct SettingPage: View {
                                         .font(.system(size: 13))
                                 }
                                 
-                                Text("What is an iksm_session?")
-                                    .font(.system(size: 13))
-                                    .foregroundColor(.accentColor)
+                                Button(action: {
+                                    showWhatsIksmSessionView = true
+                                }) {
+                                    Text("What is an iksm_session?")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.accentColor)
+                                }
+                                .sheet(isPresented: $showWhatsIksmSessionView) {
+                                    WhatsIksmSessionView(isShowing: $showWhatsIksmSessionView)
+                                }
                             }
                         }
                     ) {
@@ -164,9 +172,12 @@ struct SettingPage: View {
 
                     if MailView.canSendMail() {
                         Button(action: {
-                            showingMailView.toggle()
+                            showingMailView = true
                         }) {
                             ListRow("Email")
+                        }
+                        .sheet(isPresented: $showingMailView) {
+                            MailView(isShowing: $showingMailView, recipient: "imink@jone.wang")
                         }
                     }
                 }
@@ -255,9 +266,6 @@ struct SettingPage: View {
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $showingMailView) {
-            MailView(isShowing: $showingMailView, recipient: "imink@jone.wang")
-        }
     }
 }
 
