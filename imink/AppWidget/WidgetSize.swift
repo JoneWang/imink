@@ -77,6 +77,8 @@ extension WidgetSize {
             return mediumSizes[self.rawValue]
         case .systemSmall:
             return smallSizes[self.rawValue]
+        @unknown default:
+            return smallSizes[self.rawValue]
         }
     }
     
