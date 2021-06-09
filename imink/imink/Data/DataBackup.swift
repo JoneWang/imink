@@ -23,7 +23,7 @@ extension DataBackupError: LocalizedError {
         case .databaseWriteError:
             return "Database write error"
         case .invalidDirectoryStructure:
-            return "Invalid directory tructure"
+            return "Invalid directory structure"
         }
     }
 }
