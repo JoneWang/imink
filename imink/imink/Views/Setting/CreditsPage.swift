@@ -89,7 +89,7 @@ struct CreditsPage: View {
                     .clipShape(Circle())
             }
             
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 2) {
                 Text(row.title)
                     .font(.system(size: 17))
                     .foregroundColor(AppColor.appLabelColor)
@@ -107,7 +107,7 @@ struct CreditsPage: View {
                     .foregroundColor(.tertiaryLabel)
             }
         }
-        .padding(.vertical, 5)
+        .padding(.vertical, 4)
     }
 }
 
