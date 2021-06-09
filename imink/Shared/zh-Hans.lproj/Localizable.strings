@@ -105,7 +105,7 @@
 "Manual Renew" = "手动续期";
 "Manual Renew_desc" = "续期API在全球范围内带有每分钟4次的请求次数限制。如遇续期失败，请等待1–2分钟后再次尝试。";
 "What is an iksm_session?" = "什么是iksm_session？";
-"Failure to renew" = "续期失败";
+"Failure to renew" = "Renewal Failed";
 "Failure to renew_desc" = "请等待1–2分钟后再试。";
 "GENERAL" = "通用";
 "Language" = "语言";
@@ -184,10 +184,10 @@
 
 // MARK: Import
 
-"Import Error" = "Import Error";
-"Database write error" = "Database write error";
-"Invalid directory tructure" = "Invalid directory tructure";
-"Unknown error" = "Unknown error";
+"Import Error" = "导入出现错误";
+"Database write error" = "数据库写入出现错误";
+"Invalid directory structure" = "无效的目录结构";
+"Unknown error" = "未知错误";
 
 // MARK: Credits
 
