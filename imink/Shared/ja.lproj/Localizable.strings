@@ -185,7 +185,7 @@
 // MARK: Import
 
 "Import Error" = "Import Error";
-"Database write error" = "Database write error";
+"Database write error" = "データ書き込みエラー";
 "Invalid directory tructure" = "Invalid directory tructure";
 "Unknown error" = "Unknown error";
 
