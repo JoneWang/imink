@@ -67,18 +67,13 @@ extension DataBackup {
     
     private func packingData(progress: @escaping (Double) -> Void) throws -> URL {
         
+        try removeTemporaryFiles()
+        
         let fileManager = FileManager()
         let temporaryPath = fileManager.temporaryDirectory
         
         let exportPath = temporaryPath.appendingPathComponent("imink_export")
-        if fileManager.fileExists(atPath: exportPath.path) {
-            try fileManager.removeItem(at: exportPath)
-        }
-        
         let zipPath = temporaryPath.appendingPathComponent("imink_export.zip")
-        if fileManager.fileExists(atPath: zipPath.path) {
-            try fileManager.removeItem(at: zipPath)
-        }
         
         let records = AppDatabase.shared.records(count: Int.max)
         let jobs = AppDatabase.shared.jobs(count: Int.max)
@@ -116,6 +111,10 @@ extension DataBackup {
             progress(0.3 + (value * 0.7))
         })
         
+        if fileManager.fileExists(atPath: exportPath.path) {
+            try fileManager.removeItem(at: exportPath)
+        }
+        
         return zipPath
     }
 }
@@ -147,6 +146,7 @@ extension DataBackup {
                 }
                 
                 if self.progress == 1 || self.importError != nil {
+                    try? self.removeTemporaryFiles()
                     self.progressCancellable?.cancel()
                 }
                 
@@ -172,9 +172,7 @@ extension DataBackup {
         let importPath = temporaryPath.appendingPathComponent("import")
         
         do {
-            if fileManager.fileExists(atPath: importPath.path) {
-                try fileManager.removeItem(at: importPath)
-            }
+            try removeTemporaryFiles()
             try fileManager.createDirectory(at: importPath, withIntermediateDirectories: true, attributes: nil)
             
             try Zip.unzipFile(url, destination: importPath, overwrite: true, password: nil, progress: { [weak self] value in
@@ -257,6 +255,28 @@ extension DataBackup {
             self.importError = .invalidDirectoryStructure
         } catch {
             self.importError = .unknownError
+        }
+    }
+}
+
+extension DataBackup {
+    private func removeTemporaryFiles() throws {
+        let fileManager = FileManager()
+        let temporaryPath = fileManager.temporaryDirectory
+        
+        let importPath = temporaryPath.appendingPathComponent("import")
+        if fileManager.fileExists(atPath: importPath.path) {
+            try fileManager.removeItem(at: importPath)
+        }
+        
+        let exportPath = temporaryPath.appendingPathComponent("imink_export")
+        if fileManager.fileExists(atPath: exportPath.path) {
+            try fileManager.removeItem(at: exportPath)
+        }
+        
+        let zipPath = temporaryPath.appendingPathComponent("imink_export.zip")
+        if fileManager.fileExists(atPath: zipPath.path) {
+            try fileManager.removeItem(at: zipPath)
         }
     }
 }
