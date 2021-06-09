@@ -24,6 +24,7 @@ struct JobShiftCardView: View {
                                 Image("JobShiftCardClear")
                                 Text("\(shiftCard.avgClearCount, places: 1)")
                                     .sp2Font(size: 10, color: AppColor.appLabelColor)
+                                    .minimumScaleFactor(0.5)
                             }
                             .frame(width: 36, alignment: .leading)
                             
@@ -39,6 +40,7 @@ struct JobShiftCardView: View {
                                 Image("JobShiftCardHelp")
                                 Text("\(shiftCard.avgHelpCount, places: 1)")
                                     .sp2Font(size: 10, color: AppColor.appLabelColor)
+                                    .minimumScaleFactor(0.5)
                             }
                             .frame(width: 36, alignment: .leading)
                             

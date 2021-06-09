@@ -22,6 +22,7 @@ struct BattleDetailMemberView: View {
                     Text("\(member.player.playerRank)")
                         .sp1Font(size: 16, color: victory ? AppColor.spPink : AppColor.spLightGreen)
                         .frame(width: 24)
+                        .minimumScaleFactor(0.5)
                     
                     if member.player.starRank > 0 {
                         HStack(spacing: 1) {
@@ -38,6 +39,7 @@ struct BattleDetailMemberView: View {
                     Text(udemae.name ?? "C-")
                         .sp1Font(size: 16, color: AppColor.appLabelColor)
                         .frame(width: 24)
+                        .minimumScaleFactor(0.5)
                 }
             }
             .padding(.bottom, 1)

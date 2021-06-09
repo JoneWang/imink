@@ -38,6 +38,7 @@ struct CreditsPage: View {
                 header: SectionHeader {
                     VStack(alignment: .leading, spacing: 22) {
                         Text("credits_desc")
+                            .font(.system(size: 13))
                             .padding(.top, 16)
                         
                         Text("CONTRIBUTORS")
@@ -47,6 +48,7 @@ struct CreditsPage: View {
                 footer: SectionFooter {
                     Link(destination: crowdinURL) {
                         Text("Contribute to localization…")
+                            .font(.system(size: 13))
                             .foregroundColor(.accentColor)
                     }
                 }
@@ -63,6 +65,7 @@ struct CreditsPage: View {
                 },
                 footer: SectionFooter {
                     Text("aknowledgements_desc")
+                        .font(.system(size: 13))
                         .padding(.bottom, 22)
                 }
             ) {

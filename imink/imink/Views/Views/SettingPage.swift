@@ -125,6 +125,7 @@ struct SettingPage: View {
                         },
                         footer: SectionFooter {
                             Text("USER DATA_desc")
+                                .font(.system(size: 13))
                         }
                     ) {
                         Button(action: {
