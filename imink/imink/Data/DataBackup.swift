@@ -37,9 +37,11 @@ class DataBackup {
     
     private var unzipProgress: Double = 0
     private var importBattlesProgress: Double = 0
+    private var importBattlesCount: Int = 0
     private var importJobsProgress: Double = 0
+    private var importJobsCount: Int = 0
     
-    private var importError: Error? = nil
+    private var importError: DataBackupError? = nil
     
     private var progressCancellable: AnyCancellable?
 }
@@ -128,10 +130,12 @@ extension DataBackup {
             importJobsProgress * importJobsProgressScale
     }
     
-    func `import`(url: URL, progress: @escaping (Double, Error?) -> Void) {
+    func `import`(url: URL, progress: @escaping (Double, Int, DataBackupError?) -> Void) {
         unzipProgress = 0
         importBattlesProgress = 0
+        importBattlesCount = 0
         importJobsProgress = 0
+        importJobsCount = 0
         importError = nil
         
         progressCancellable = Timer.publish(every: 0.1, on: .main, in: .default)
@@ -142,17 +146,22 @@ extension DataBackup {
                     return
                 }
                 
-                progress(self.progress, self.importError)
                 if self.progress == 1 || self.importError != nil {
                     self.progressCancellable?.cancel()
                 }
+                
+                progress(
+                    self.progress,
+                    self.importBattlesCount + self.importJobsCount,
+                    self.importError
+                )
             }
         
         DispatchQueue(label: "import").async {
             do {
                 try self.importData(url: url)
             } catch {
-                self.importError = DataBackupError.unknownError
+                self.importError = .unknownError
             }
         }
     }
@@ -179,7 +188,8 @@ extension DataBackup {
                         url.lastPathComponent != "__MACOSX" &&
                             !url.lastPathComponent.hasPrefix(".")
                     }) else {
-                throw DataBackupError.invalidDirectoryStructure
+                self.importError = .invalidDirectoryStructure
+                return
             }
             
             let battlePath = unzipPath.appendingPathComponent("battle")
@@ -199,10 +209,11 @@ extension DataBackup {
                 .filter { $0 != nil }
                 .map { $0! }
 
-            AppDatabase.shared.saveBattles(datas: battleDatas) { [weak self] value, error in
+            AppDatabase.shared.saveBattles(datas: battleDatas) { [weak self] value, count, error in
                 self?.importBattlesProgress = value
+                self?.importBattlesCount = count
                 if error != nil {
-                    self?.importError = DataBackupError.databaseWriteError
+                    self?.importError = .databaseWriteError
                 }
             }
             
@@ -224,22 +235,28 @@ extension DataBackup {
                 .filter { $0 != nil }
                 .map { $0! }
             
-            AppDatabase.shared.saveJobs(datas: salmonRunDatas) { [weak self] value, error in
+            AppDatabase.shared.saveJobs(datas: salmonRunDatas) { [weak self] value, count, error in
                 self?.importJobsProgress = value
+                self?.importJobsCount = count
                 if error != nil {
-                    self?.importError = DataBackupError.databaseWriteError
+                    self?.importError = .databaseWriteError
                 }
             }
             
             // Progress
             let allRecordsCount = battleDatas.count + salmonRunDatas.count
-            let allRecordsScale = 1 - unzipProgressScale
-            importBattlesProgressScale = (Double(battleDatas.count) / Double(allRecordsCount)) * allRecordsScale
-            importJobsProgressScale = allRecordsScale - importBattlesProgressScale
+            if allRecordsCount > 0 {
+                let allRecordsScale = 1 - unzipProgressScale
+                importBattlesProgressScale = (Double(battleDatas.count) / Double(allRecordsCount)) * allRecordsScale
+                importJobsProgressScale = allRecordsScale - importBattlesProgressScale
+            } else {
+                self.importBattlesProgress = 1
+                self.importJobsProgress = 1
+            }
         } catch is CocoaError {
-            self.importError = DataBackupError.invalidDirectoryStructure
+            self.importError = .invalidDirectoryStructure
         } catch {
-            self.importError = DataBackupError.unknownError
+            self.importError = .unknownError
         }
     }
 }

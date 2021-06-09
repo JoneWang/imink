@@ -111,34 +111,38 @@ extension AppDatabase {
         }
     }
     
-    func saveBattles(datas: [Data], progress: ((Double, Error?) -> Void)? = nil) {
-        dbQueue.asyncWrite { db in
-            for (i, data) in datas.enumerated() {
-                try self.saveBattle(db: db, data: data)
-                if i % 10 == 0 || (datas.count - 1) == i {
-                    progress?(Double(i + 1) / Double(datas.count), nil)
+    func saveBattles(datas: [Data], progress: ((Double, Int, Error?) -> Void)? = nil) {
+        do {
+            try dbQueue.write { db in
+                var saveCount = 0
+                for (i, data) in datas.enumerated() {
+                    if try self.saveBattle(db: db, data: data) {
+                        saveCount += 1
+                    }
+                    if i % 10 == 0 || (datas.count - 1) == i {
+                        progress?(Double(i + 1) / Double(datas.count), saveCount, nil)
+                    }
                 }
             }
-        } completion: { _, error in
-            if case let .failure(error) = error {
-                progress?(0, error)
-                os_log("Database Error: [saveBattles] \(error.localizedDescription)")
-            }
+        } catch let error {
+            progress?(1, 0, error)
+            os_log("Database Error: [saveBattles] \(error.localizedDescription)")
         }
     }
     
-    private func saveBattle(db: Database, data: Data) throws {
+    private func saveBattle(db: Database, data: Data) throws -> Bool {
         guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
               let jsonString = String(data: data, encoding: .utf8),
-              let battle = jsonString.decode(Battle.self) else {
-            return
+              let battle = jsonString.decode(Battle.self),
+              battle.playerResult.player.principalId == sp2PrincipalId else {
+            return false
         }
         
         if try DBRecord.filter(
             DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
                 DBRecord.Columns.battleNumber == battle.battleNumber
         ).fetchCount(db) > 0 {
-            return
+            return false
         }
         
         var record = DBRecord(
@@ -170,6 +174,8 @@ extension AppDatabase {
             isX: battle.udemae?.isX ?? false,
             xPower: battle.xPower)
         try record.insert(db)
+        
+        return true
     }
     
     func removeAllRecords() {

@@ -108,63 +108,69 @@ extension AppDatabase {
         }
     }
     
-    func saveJobs(datas: [Data], progress: ((Double, Error?) -> Void)? = nil) {
-        dbQueue.asyncWrite { db in
-            for (i, data) in datas.enumerated() {
-                try self.saveJob(db: db, data: data)
-                if i % 10 == 0 || (datas.count - 1) == i {
-                    progress?(Double(i + 1) / Double(datas.count), nil)
+    func saveJobs(datas: [Data], progress: ((Double, Int, Error?) -> Void)? = nil) {
+        do {
+            try dbQueue.write { db in
+                var saveCount = 0
+                for (i, data) in datas.enumerated() {
+                    if try self.saveJob(db: db, data: data) {
+                        saveCount += 1
+                    }
+                    if i % 10 == 0 || (datas.count - 1) == i {
+                        progress?(Double(i + 1) / Double(datas.count), saveCount, nil)
+                    }
                 }
             }
-        } completion: { _, error in
-            if case let .failure(error) = error {
-                progress?(0, error)
-                os_log("Database Error: [saveJobs] \(error.localizedDescription)")
-            }
+        } catch let error {
+            progress?(1, 0, error)
+            os_log("Database Error: [saveJobs] \(error.localizedDescription)")
         }
     }
     
-    func saveJob(db: Database, data: Data) throws {
-            guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
-                  let jsonString = String(data: data, encoding: .utf8),
-                  let job = jsonString.decode(Job.self) else {
-                return
-            }
+    private func saveJob(db: Database, data: Data) throws -> Bool {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
+              let jsonString = String(data: data, encoding: .utf8),
+              let job = jsonString.decode(Job.self),
+              job.myResult.pid == sp2PrincipalId else {
+            return false
+        }
         
-            if try DBJob.filter(
-                DBJob.Columns.sp2PrincipalId == sp2PrincipalId &&
-                    DBJob.Columns.jobId == job.jobId
-            ).fetchCount(db) > 0 {
-                return
-            }
-            
-            var record = DBJob(
-                sp2PrincipalId: sp2PrincipalId,
-                jobId: job.jobId,
-                json: jsonString,
-                isClear: job.jobResult.isClear,
-                gradePoint: job.gradePoint,
-                gradePointDelta: job.gradePointDelta,
-                gradeId: job.grade.id,
-                helpCount: job.myResult.helpCount,
-                deadCount: job.myResult.deadCount,
-                goldenIkuraNum: job.myResult.goldenIkuraNum,
-                ikuraNum: job.myResult.ikuraNum,
-                failureWave: job.jobResult.failureWave,
-                dangerRate: job.dangerRate,
-                scheduleStartTime: job.schedule.startTime,
-                scheduleEndTime: job.schedule.endTime,
-                scheduleStageName: job.schedule.stage?.name ?? "",
-                scheduleWeapon1Id: job.schedule.weapons?[0].id ?? "",
-                scheduleWeapon1Image: job.schedule.weapons?[0].weapon?.$image ?? "",
-                scheduleWeapon2Id: job.schedule.weapons?[1].id ?? "",
-                scheduleWeapon2Image: job.schedule.weapons?[1].weapon?.$image ?? "",
-                scheduleWeapon3Id: job.schedule.weapons?[2].id ?? "",
-                scheduleWeapon3Image: job.schedule.weapons?[2].weapon?.$image ?? "",
-                scheduleWeapon4Id: job.schedule.weapons?[3].id ?? "",
-                scheduleWeapon4Image: job.schedule.weapons?[3].weapon?.$image ?? ""
-                )
-            try record.insert(db)
+        if try DBJob.filter(
+            DBJob.Columns.sp2PrincipalId == sp2PrincipalId &&
+                DBJob.Columns.jobId == job.jobId
+        ).fetchCount(db) > 0 {
+            return false
+        }
+        
+        var record = DBJob(
+            sp2PrincipalId: sp2PrincipalId,
+            jobId: job.jobId,
+            json: jsonString,
+            isClear: job.jobResult.isClear,
+            gradePoint: job.gradePoint,
+            gradePointDelta: job.gradePointDelta,
+            gradeId: job.grade.id,
+            helpCount: job.myResult.helpCount,
+            deadCount: job.myResult.deadCount,
+            goldenIkuraNum: job.myResult.goldenIkuraNum,
+            ikuraNum: job.myResult.ikuraNum,
+            failureWave: job.jobResult.failureWave,
+            dangerRate: job.dangerRate,
+            scheduleStartTime: job.schedule.startTime,
+            scheduleEndTime: job.schedule.endTime,
+            scheduleStageName: job.schedule.stage?.name ?? "",
+            scheduleWeapon1Id: job.schedule.weapons?[0].id ?? "",
+            scheduleWeapon1Image: job.schedule.weapons?[0].weapon?.$image ?? "",
+            scheduleWeapon2Id: job.schedule.weapons?[1].id ?? "",
+            scheduleWeapon2Image: job.schedule.weapons?[1].weapon?.$image ?? "",
+            scheduleWeapon3Id: job.schedule.weapons?[2].id ?? "",
+            scheduleWeapon3Image: job.schedule.weapons?[2].weapon?.$image ?? "",
+            scheduleWeapon4Id: job.schedule.weapons?[3].id ?? "",
+            scheduleWeapon4Image: job.schedule.weapons?[3].weapon?.$image ?? ""
+        )
+        try record.insert(db)
+        
+        return true
     }
     
     // MARK: Reads

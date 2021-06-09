@@ -189,6 +189,7 @@
 "Database write error" = "Database write error";
 "Invalid directory structure" = "Invalid directory structure";
 "Unknown error" = "Unknown error";
+"Imported %d records" = "Imported %d records";
 
 // MARK: Credits
 
