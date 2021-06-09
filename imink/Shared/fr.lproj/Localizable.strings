@@ -105,7 +105,7 @@
 "Manual Renew" = "Manual Renew";
 "Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
 "What is an iksm_session?" = "What is an iksm_session?";
-"Failure to renew" = "Failure to renew";
+"Failure to renew" = "Renewal Failed";
 "Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
 "GENERAL" = "GENERAL";
 "Language" = "Langue";
@@ -186,7 +186,7 @@
 
 "Import Error" = "Import Error";
 "Database write error" = "Database write error";
-"Invalid directory tructure" = "Invalid directory tructure";
+"Invalid directory structure" = "Invalid directory structure";
 "Unknown error" = "Unknown error";
 
 // MARK: Credits
