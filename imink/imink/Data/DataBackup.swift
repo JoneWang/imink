@@ -312,7 +312,9 @@ extension DataBackup {
                 ProgressHUD.dismiss()
                 SPAlert.present(
                     title: String(format:"Imported %d records".localized, progress.count),
-                    preset: .done
+                    preset: progress.count == 0 ?
+                        .custom(UIImage(systemName: "exclamationmark.square.fill")!) :
+                        .done
                 )
             }
         }
