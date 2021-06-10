@@ -13,7 +13,7 @@ struct SessionStatusView: View {
     @Binding var isRenewing: Bool
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .top, spacing: 12) {
                 Image(systemName: "exclamationmark.arrow.circlepath")
                     .foregroundColor(.accentColor)
