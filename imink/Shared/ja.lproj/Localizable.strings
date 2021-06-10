@@ -113,9 +113,9 @@
 "USER DATA" = "ユーザーデータ";
 "USER DATA_desc" = "イカリング2から取得したユーザーデータをJSON形式でエクスポートします。";
 "Import" = "インポート";
-"Import Data" = "Import Data";
-"Import Data_desc" = "You can share from other apps or select from Files app.";
-"Select File" = "Select File";
+"Import Data" = "データのインポート";
+"Import Data_desc" = "他のアプリや、ファイルアプリからインポートするファイルを選択してください。";
+"Select File" = "ファイルを選択";
 "Export" = "エクスポート";
 "CONTACT" = "CONTACT";
 "Email" = "Email";
@@ -123,7 +123,7 @@
 "Send Kudos" = "iminkを評価する";
 "Send Kudos_desc" = "あなたからのレビューをお待ちしております！";
 "FAQ" = "よくある質問";
-"Credits" = "Credits";
+"Credits" = "クレジット";
 "Version" = "バージョン";
 "Source code" = "ソースコード";
 "ABOUT_desc" = "iminkはイカリング2から取得したデータを利用するユーティリティアプリです。任天堂株式会社公式のアプリではございません。";
