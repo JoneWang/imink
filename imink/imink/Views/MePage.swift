@@ -194,7 +194,7 @@ struct MePage: View {
                             .font(.system(size: 10))
                             .foregroundColor(.secondaryLabel)
                         
-                        Text(maxPower != nil ? "\(maxPower!)" : "----")
+                        Text(maxPower ?? 0 > 0 ? "\(maxPower!)" : "----")
                             .font(.system(size: 10, weight: .semibold).monospacedDigit())
                             .foregroundColor(AppColor.appLabelColor)
                     }
