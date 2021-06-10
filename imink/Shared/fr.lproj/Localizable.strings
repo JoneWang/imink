@@ -113,6 +113,9 @@
 "USER DATA" = "USER DATA";
 "USER DATA_desc" = "imink exports raw user data returned from SplatNet 2 in JSON format.";
 "Import" = "Import";
+"Import Data" = "Import Data";
+"Import Data_desc" = "You can share from other apps or select from Files app.";
+"Select File" = "Select File";
 "Export" = "Export";
 "CONTACT" = "CONTACT";
 "Email" = "Email";
