@@ -43,6 +43,7 @@
 		EC2D2F96266E36FF008D1F51 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = EC2D2F95266E36FF008D1F51 /* SPAlert */; };
 		EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
+		EC313B3F2671CC5F00EC1C63 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC313B3E2671CC5F00EC1C63 /* FilePickerView.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
@@ -269,6 +270,7 @@
 		EC2C34B92598D7210007BA4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2C34CA2598E8930007BA4D /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusModifier.swift; sourceTree = "<group>"; };
+		EC313B3E2671CC5F00EC1C63 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		EC344FE825330351004A7AF1 /* MePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePage.swift; sourceTree = "<group>"; };
 		EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		EC39701A2548028100557BD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -788,6 +790,7 @@
 				EC76329A26665A34007FF9C4 /* ListRow.swift */,
 				ECA9B3FD266B698200EE63FC /* ActivityView.swift */,
 				EC4C038A266F63A100AA7ECE /* SectionHeader.swift */,
+				EC313B3E2671CC5F00EC1C63 /* FilePickerView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,
 				EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */,
 				ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */,
+				EC313B3F2671CC5F00EC1C63 /* FilePickerView.swift in Sources */,
 				EC2C34AC25984CE20007BA4D /* BattleDetailMemberView.swift in Sources */,
 				ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */,
 				EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */,

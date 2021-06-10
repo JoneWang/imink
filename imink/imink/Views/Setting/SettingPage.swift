@@ -21,6 +21,8 @@ struct SettingPage: View {
     @State private var showingMailView = false
     @State private var showLogoutAlert = false
     @State private var showReloadWidgetsAlert = false
+    @State private var showImportActionSheet = false
+    @State private var showFilePicker = false
 
     @State private var exportPath: Any = ""
     @State private var showExportActivity = false
@@ -137,9 +139,25 @@ struct SettingPage: View {
                         }
                     ) {
                         Button(action: {
-                            // TODO: Import data
+                            showImportActionSheet = true
                         }) {
                             ListRow("Import", titleColor: .accentColor, showArrow: false)
+                        }
+                        .actionSheet(isPresented: $showImportActionSheet) {
+                            ActionSheet(
+                                title: Text("Import Data"),
+                                message: Text("Import Data_desc"),
+                                buttons: [
+                                    .default(Text("Select File"), action: {
+                                        showFilePicker = true
+                                    }),
+                                    .cancel()
+                                ])
+                        }
+                        .sheet(isPresented: $showFilePicker) {
+                            FilePickerView { url in
+                                print(url)
+                            }
                         }
                         
                         Button(action: {
