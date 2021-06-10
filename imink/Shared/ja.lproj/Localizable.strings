@@ -93,7 +93,7 @@
 // MARK: Me
 
 "Highest Power" = "最高リーグパワー";
-"Mysterious void under investigation…" = "今後のバージョンでここに何かが表示されるらしい...。乞うご期待";
+"Mysterious void under investigation…" = "今後のバージョンでここに何かが表示される...！？";
 
 // MARK: Settings
 
@@ -118,7 +118,7 @@
 "Select File" = "ファイルを選択";
 "Export" = "エクスポート";
 "CONTACT" = "CONTACT";
-"Email" = "Email";
+"Email" = "Eメール";
 "ABOUT" = "ABOUT";
 "Send Kudos" = "iminkを評価する";
 "Send Kudos_desc" = "あなたからのレビューをお待ちしております！";
@@ -196,7 +196,7 @@
 
 // MARK: Credits
 
-"credits_desc" = "iminkの開発に協力頂いた全てのインクリング、そしてオクトリングに感謝致します！";
+"credits_desc" = "iminkの開発に協力頂いた全ての皆様に感謝致します！";
 "CONTRIBUTORS" = "CONTRIBUTORS";
 ", " = "、";
 "Development" = "開発";
@@ -208,13 +208,13 @@
 "Traditional Chinese Localization" = "繁体字中国語への翻訳";
 "Japanese Localization" = "日本語への翻訳";
 "Korean Localization" = "韓国語への翻訳";
-"Contribute to localization…" = "多言語化対応を手伝う";
+"Contribute to localization…" = "翻訳作業を手伝う";
 "ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
-"aknowledgements_desc" = "アカウントログインに必要なアルゴリズムAPI、及び韓国語のカスタムフォントをご提供いただき、大変ありがとうございました。";
+"aknowledgements_desc" = "ログインに必要なアルゴリズムAPI、及び韓国語のカスタムフォントをご提供いただき、大変ありがとうございました！";
 
 // MARK: What's iksm_session
 
-"whats_iksm_session_desc_1" = "iksm_sessionはニンテンドーのサーバーによって生成される、Nintendo Switch Onlineのデータを取得するのに必要な情報です。";
+"whats_iksm_session_desc_1" = "iksm_sessionはニンテンドーのサーバーによって生成される、Nintendo Switch Onlineのデータを取得する為に必要な情報です。";
 "whats_iksm_session_desc_2" = "24時間アプリを使っていないと期限が切れます。";
 "whats_iksm_session_desc_3" = "iksm_sessionの有効期限が切れた場合、自動的に更新を試みます。";
-"whats_iksm_session_desc_4" = "APIの制限やネットワークの状況により更新に失敗する事があります。その場合、「設定」で手動で更新する事もできます。";
+"whats_iksm_session_desc_4" = "APIの制限やネットワークの状況により更新に失敗する事があります。その場合「設定」から手動で更新する事もできます。";
