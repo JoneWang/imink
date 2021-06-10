@@ -113,6 +113,9 @@
 "USER DATA" = "用户数据";
 "USER DATA_desc" = "imink导出SplatNet 2返回的原始数据，使用易于阅读和解析的JSON格式，可自由解压分析。";
 "Import" = "导入数据";
+"Import Data" = "导入数据";
+"Import Data_desc" = "您可以从其他app中分享，或直接选择文件。";
+"Select File" = "选择文件";
 "Export" = "导出数据";
 "CONTACT" = "联系";
 "Email" = "Email";
