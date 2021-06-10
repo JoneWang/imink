@@ -97,13 +97,99 @@ extension DBRecord: Hashable {
     }
 }
 
+extension DBRecord {
+    static func load(data: Data) -> DBRecord? {
+        guard let json = String(data: data, encoding: .utf8),
+              let battle = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+              let playerResult = battle["player_result"] as? [String: Any],
+              let player = playerResult["player"] as? [String: Any],
+              let weapon = player["weapon"] as? [String: Any],
+              let rule = battle["rule"] as? [String: Any],
+              let gameMode = battle["game_mode"] as? [String: Any],
+              let stage = battle["stage"] as? [String: Any],
+              let udemae = battle["udemae"] as? [String: Any],
+              let playerType = player["player_type"] as? [String: Any],
+              let myTeamResult = battle["my_team_result"] as? [String: Any],
+              
+              let sp2PrincipalId = player["principal_id"] as? String,
+              let battleNumber = battle["battle_number"] as? String,
+              let resultKey = myTeamResult["key"] as? String,
+              let weaponId = weapon["id"] as? String,
+              let weaponImage = weapon["image"] as? String,
+              let ruleName = rule["name"] as? String,
+              let ruleKey = rule["key"] as? String,
+              let gameModeName = gameMode["name"] as? String,
+              let gameModeKey = gameMode["key"] as? String,
+              let stageName = stage["name"] as? String,
+              let killCount = playerResult["kill_count"] as? Int,
+              let assistCount = playerResult["assist_count"] as? Int,
+              let specialCount = playerResult["special_count"] as? Int,
+              let gamePaintPoint = playerResult["game_paint_point"] as? Int,
+              let deathCount = playerResult["death_count"] as? Int,
+              let startTimestamp = battle["start_time"] as? Double,
+              let udemaeName = udemae["name"] as? String,
+              let battleType = Battle.BattleType(rawValue: battle["type"] as? String ?? ""),
+              let species = Player.PlayerType.Species(rawValue: playerType["species"] as? String ?? "")
+        else {
+            return nil
+        }
+        
+        var myPoint: Double
+        var otherPoint: Double
+        if ruleKey == GameRule.Key.turfWar.rawValue {
+            myPoint = battle["my_team_percentage"] as! Double
+            otherPoint = battle["other_team_percentage"] as! Double
+        } else {
+            myPoint = battle["my_team_count"] as! Double
+            otherPoint = battle["other_team_count"] as! Double
+        }
+        
+        let sPlusNumber = udemae["s_plus_number"] as? Int
+        let leaguePoint = battle["league_point"] as? Double
+        let estimateGachiPower = battle["estimate_gachi_power"] as? Int
+        let isX = udemae["is_x"] as? Bool
+        let xPower = battle["xPower"] as? Double
+        
+        return DBRecord(
+            sp2PrincipalId: sp2PrincipalId,
+            battleNumber: battleNumber,
+            json: json,
+            victory: resultKey == TeamResult.Key.victory.rawValue,
+            weaponId: weaponId,
+            weaponImage: Splatoon2API.host.appendingPathComponent(weaponImage).absoluteString,
+            rule: ruleName,
+            gameMode: gameModeName,
+            gameModeKey: gameModeKey,
+            stageName: stageName,
+            killTotalCount: killCount + assistCount,
+            killCount: killCount,
+            assistCount: assistCount,
+            specialCount: specialCount,
+            gamePaintPoint: gamePaintPoint,
+            deathCount: deathCount,
+            myPoint: myPoint,
+            otherPoint: otherPoint,
+            startDateTime: Date(timeIntervalSince1970: startTimestamp),
+            udemaeName: udemaeName,
+            udemaeSPlusNumber: sPlusNumber,
+            type: battleType,
+            leaguePoint: leaguePoint,
+            estimateGachiPower: estimateGachiPower,
+            playerTypeSpecies: species,
+            isX: isX ?? false,
+            xPower: xPower)
+    }
+}
+
 extension AppDatabase {
     
     // MARK: Writes
     
     func saveBattle(data: Data) {
         dbQueue.asyncWrite { db in
-            try self.saveBattle(db: db, data: data)
+            if let record = DBRecord.load(data: data) {
+                _ = try self.saveBattle(db: db, record: record)
+            }
         } completion: { _, error in
             if case let .failure(error) = error {
                 os_log("Database Error: [saveBattle] \(error.localizedDescription)")
@@ -111,68 +197,37 @@ extension AppDatabase {
         }
     }
     
-    func saveBattles(datas: [Data], progress: ((Double, Int, Error?) -> Void)? = nil) {
+    func saveBattles(records: [DBRecord], progress: ((Double, Int, Error?) -> Void)) {
         do {
             try dbQueue.write { db in
                 var saveCount = 0
-                for (i, data) in datas.enumerated() {
-                    if try self.saveBattle(db: db, data: data) {
+                for (i, record) in records.enumerated() {
+                    if try self.saveBattle(db: db, record: record) {
                         saveCount += 1
                     }
-                    if i % 10 == 0 || (datas.count - 1) == i {
-                        progress?(Double(i + 1) / Double(datas.count), saveCount, nil)
-                    }
+                    progress(Double(i + 1) / Double(records.count), saveCount, nil)
                 }
             }
         } catch let error {
-            progress?(1, 0, error)
+            progress(1, 0, error)
             os_log("Database Error: [saveBattles] \(error.localizedDescription)")
         }
     }
     
-    private func saveBattle(db: Database, data: Data) throws -> Bool {
+    private func saveBattle(db: Database, record: DBRecord) throws -> Bool {
         guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
-              let jsonString = String(data: data, encoding: .utf8),
-              let battle = jsonString.decode(Battle.self),
-              battle.playerResult.player.principalId == sp2PrincipalId else {
+              record.sp2PrincipalId == sp2PrincipalId else {
             return false
         }
         
         if try DBRecord.filter(
             DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
-                DBRecord.Columns.battleNumber == battle.battleNumber
+                DBRecord.Columns.battleNumber == record.battleNumber
         ).fetchCount(db) > 0 {
             return false
         }
         
-        var record = DBRecord(
-            sp2PrincipalId: sp2PrincipalId,
-            battleNumber: battle.battleNumber,
-            json: jsonString,
-            victory: battle.myTeamResult.key == .victory,
-            weaponId: battle.playerResult.player.weapon.id,
-            weaponImage: battle.playerResult.player.weapon.$image,
-            rule: battle.rule.name,
-            gameMode: battle.gameMode.name,
-            gameModeKey: battle.gameMode.key.rawValue,
-            stageName: battle.stage.name,
-            killTotalCount: battle.playerResult.killCount + battle.playerResult.assistCount,
-            killCount: battle.playerResult.killCount,
-            assistCount: battle.playerResult.assistCount,
-            specialCount: battle.playerResult.specialCount,
-            gamePaintPoint: battle.playerResult.gamePaintPoint,
-            deathCount: battle.playerResult.deathCount,
-            myPoint: battle.myPoint,
-            otherPoint: battle.otherPoint,
-            startDateTime: battle.startTime,
-            udemaeName: battle.udemae?.name,
-            udemaeSPlusNumber: battle.udemae?.sPlusNumber,
-            type: battle.type,
-            leaguePoint: battle.leaguePoint,
-            estimateGachiPower: battle.estimateGachiPower,
-            playerTypeSpecies: battle.playerResult.player.playerType.species,
-            isX: battle.udemae?.isX ?? false,
-            xPower: battle.xPower)
+        var record = record
         try record.insert(db)
         
         return true

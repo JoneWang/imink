@@ -84,6 +84,80 @@ extension DBJob: Codable, FetchableRecord, MutablePersistableRecord {
     }
 }
 
+extension DBJob {
+    static func load(data: Data) -> DBJob? {
+        guard let json = String(data: data, encoding: .utf8),
+              let job = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+              let myResult = job["my_result"] as? [String: Any],
+              let jobResult = job["job_result"] as? [String: Any],
+              let grade = job["grade"] as? [String: Any],
+              let schedule = job["schedule"] as? [String: Any],
+              let weapons = schedule["weapons"] as? [[String: Any]],
+              
+              let sp2PrincipalId = myResult["pid"] as? String,
+              let jobId = job["job_id"] as? Int,
+              let isClear = jobResult["is_clear"] as? Bool,
+              let gradePoint = job["grade_point"] as? Int,
+              let gradePointDelta = job["grade_point_delta"] as? Int,
+              let gradeId = grade["id"] as? String,
+              let helpCount = myResult["help_count"] as? Int,
+              let deadCount = myResult["dead_count"] as? Int,
+              let goldenIkuraNum = myResult["golden_ikura_num"] as? Int,
+              let ikuraNum = myResult["ikura_num"] as? Int,
+              let dangerRate = job["danger_rate"] as? Double,
+              let scheduleStartTimestamp = schedule["start_time"] as? Double,
+              let scheduleEndTimestamp = schedule["end_time"] as? Double
+        else {
+            return nil
+        }
+        
+        let failureWave = jobResult["failure_wave"] as? Int
+        let stage = schedule["stage"] as? [String: Any]
+        let scheduleStageName = stage?["name"] as? String
+        
+        let weapon1 = weapons[0]["weapon"] as? [String: Any]
+        let weapon2 = weapons[1]["weapon"] as? [String: Any]
+        let weapon3 = weapons[2]["weapon"] as? [String: Any]
+        let weapon4 = weapons[3]["weapon"] as? [String: Any]
+        
+        let scheduleWeapon1Id = weapons[0]["id"] as? String
+        let scheduleWeapon1Image = weapon1?["image"] as? String
+        let scheduleWeapon2Id = weapons[1]["id"] as? String
+        let scheduleWeapon2Image = weapon2?["image"] as? String
+        let scheduleWeapon3Id = weapons[2]["id"] as? String
+        let scheduleWeapon3Image = weapon3?["image"] as? String
+        let scheduleWeapon4Id = weapons[3]["id"] as? String
+        let scheduleWeapon4Image = weapon4?["image"] as? String
+
+        return DBJob(
+            sp2PrincipalId: sp2PrincipalId,
+            jobId: jobId,
+            json: json,
+            isClear: isClear,
+            gradePoint: gradePoint,
+            gradePointDelta: gradePointDelta,
+            gradeId: gradeId,
+            helpCount: helpCount,
+            deadCount: deadCount,
+            goldenIkuraNum: goldenIkuraNum,
+            ikuraNum: ikuraNum,
+            failureWave: failureWave,
+            dangerRate: dangerRate,
+            scheduleStartTime: Date(timeIntervalSince1970: scheduleStartTimestamp),
+            scheduleEndTime: Date(timeIntervalSince1970: scheduleEndTimestamp),
+            scheduleStageName: scheduleStageName ?? "",
+            scheduleWeapon1Id: scheduleWeapon1Id ?? "",
+            scheduleWeapon1Image: scheduleWeapon1Image ?? "",
+            scheduleWeapon2Id: scheduleWeapon2Id ?? "",
+            scheduleWeapon2Image: scheduleWeapon2Image ?? "",
+            scheduleWeapon3Id: scheduleWeapon3Id ?? "",
+            scheduleWeapon3Image: scheduleWeapon3Image ?? "",
+            scheduleWeapon4Id: scheduleWeapon4Id ?? "",
+            scheduleWeapon4Image: scheduleWeapon4Image ?? ""
+        )
+    }
+}
+
 extension AppDatabase {
     
     // MARK: Writes
@@ -100,7 +174,9 @@ extension AppDatabase {
     
     func saveJob(data: Data) {
         dbQueue.asyncWrite { db in
-            try self.saveJob(db: db, data: data)
+            if let job = DBJob.load(data: data) {
+                _ = try self.saveJob(db: db, job: job)
+            }
         } completion: { _, error in
             if case let .failure(error) = error {
                 os_log("Database Error: [saveJob] \(error.localizedDescription)")
@@ -108,17 +184,15 @@ extension AppDatabase {
         }
     }
     
-    func saveJobs(datas: [Data], progress: ((Double, Int, Error?) -> Void)? = nil) {
+    func saveJobs(jobs: [DBJob], progress: ((Double, Int, Error?) -> Void)? = nil) {
         do {
             try dbQueue.write { db in
                 var saveCount = 0
-                for (i, data) in datas.enumerated() {
-                    if try self.saveJob(db: db, data: data) {
+                for (i, job) in jobs.enumerated() {
+                    if try self.saveJob(db: db, job: job) {
                         saveCount += 1
                     }
-                    if i % 10 == 0 || (datas.count - 1) == i {
-                        progress?(Double(i + 1) / Double(datas.count), saveCount, nil)
-                    }
+                    progress?(Double(i + 1) / Double(jobs.count), saveCount, nil)
                 }
             }
         } catch let error {
@@ -127,11 +201,9 @@ extension AppDatabase {
         }
     }
     
-    private func saveJob(db: Database, data: Data) throws -> Bool {
+    private func saveJob(db: Database, job: DBJob) throws -> Bool {
         guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId,
-              let jsonString = String(data: data, encoding: .utf8),
-              let job = jsonString.decode(Job.self),
-              job.myResult.pid == sp2PrincipalId else {
+              job.sp2PrincipalId == sp2PrincipalId else {
             return false
         }
         
@@ -142,33 +214,8 @@ extension AppDatabase {
             return false
         }
         
-        var record = DBJob(
-            sp2PrincipalId: sp2PrincipalId,
-            jobId: job.jobId,
-            json: jsonString,
-            isClear: job.jobResult.isClear,
-            gradePoint: job.gradePoint,
-            gradePointDelta: job.gradePointDelta,
-            gradeId: job.grade.id,
-            helpCount: job.myResult.helpCount,
-            deadCount: job.myResult.deadCount,
-            goldenIkuraNum: job.myResult.goldenIkuraNum,
-            ikuraNum: job.myResult.ikuraNum,
-            failureWave: job.jobResult.failureWave,
-            dangerRate: job.dangerRate,
-            scheduleStartTime: job.schedule.startTime,
-            scheduleEndTime: job.schedule.endTime,
-            scheduleStageName: job.schedule.stage?.name ?? "",
-            scheduleWeapon1Id: job.schedule.weapons?[0].id ?? "",
-            scheduleWeapon1Image: job.schedule.weapons?[0].weapon?.$image ?? "",
-            scheduleWeapon2Id: job.schedule.weapons?[1].id ?? "",
-            scheduleWeapon2Image: job.schedule.weapons?[1].weapon?.$image ?? "",
-            scheduleWeapon3Id: job.schedule.weapons?[2].id ?? "",
-            scheduleWeapon3Image: job.schedule.weapons?[2].weapon?.$image ?? "",
-            scheduleWeapon4Id: job.schedule.weapons?[3].id ?? "",
-            scheduleWeapon4Image: job.schedule.weapons?[3].weapon?.$image ?? ""
-        )
-        try record.insert(db)
+        var job = job
+        try job.insert(db)
         
         return true
     }

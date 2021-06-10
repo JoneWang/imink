@@ -29,19 +29,35 @@ extension DataBackupError: LocalizedError {
     }
 }
 
+struct DataBackupProgress {
+    let unzipProgressScale = 0.5
+    let loadFilesProgressScale = 0.3
+    var importBattlesProgressScale = 0.15
+    var importJobsProgressScale = 0.05
+    
+    var unzipProgress: Double = 0
+    var loadFilesProgress: Double = 0
+    var importBattlesProgress: Double = 0
+    var importBattlesCount: Int = 0
+    var importJobsProgress: Double = 0
+    var importJobsCount: Int = 0
+    
+    var value: Double {
+        unzipProgress * unzipProgressScale +
+            loadFilesProgress * loadFilesProgressScale +
+            importBattlesProgress * importBattlesProgressScale +
+            importJobsProgress * importJobsProgressScale
+    }
+    
+    var count: Int {
+        importBattlesCount + importJobsCount
+    }
+}
+
 class DataBackup {
     static let shared = DataBackup()
     
-    private let unzipProgressScale = 0.1
-    private var importBattlesProgressScale = 0.45
-    private var importJobsProgressScale = 0.45
-    
-    private var unzipProgress: Double = 0
-    private var importBattlesProgress: Double = 0
-    private var importBattlesCount: Int = 0
-    private var importJobsProgress: Double = 0
-    private var importJobsCount: Int = 0
-    
+    private var importProgress = DataBackupProgress()
     private var importError: DataBackupError? = nil
     
     private var progressCancellable: AnyCancellable?
@@ -85,7 +101,7 @@ extension DataBackup {
         // Export battles
         let battlePath = exportPath.appendingPathComponent("battle")
         try fileManager.createDirectory(at: battlePath, withIntermediateDirectories: true, attributes: nil)
-
+        
         for record in records {
             exportedCount += 1
             progress((Double(exportedCount) / Double(exportTotalCount)) * 0.3)
@@ -94,11 +110,11 @@ extension DataBackup {
             guard let json = record.json else { continue }
             try json.write(to: filePath, atomically: false, encoding: .utf8)
         }
-
+        
         // Export jobs
         let salmonRunPath = exportPath.appendingPathComponent("salmonrun")
         try fileManager.createDirectory(at: salmonRunPath, withIntermediateDirectories: true, attributes: nil)
-
+        
         for job in jobs {
             exportedCount += 1
             progress((Double(exportedCount) / Double(exportTotalCount)) * 0.3)
@@ -124,41 +140,31 @@ extension DataBackup {
 
 extension DataBackup {
     
-    var progress: Double {
-        unzipProgress * unzipProgressScale +
-            importBattlesProgress * importBattlesProgressScale +
-            importJobsProgress * importJobsProgressScale
-    }
-    
-    func `import`(url: URL, progress: @escaping (Double, Int, DataBackupError?) -> Void) {
-        unzipProgress = 0
-        importBattlesProgress = 0
-        importBattlesCount = 0
-        importJobsProgress = 0
-        importJobsCount = 0
+    func `import`(url: URL, progress: @escaping (DataBackupProgress, DataBackupError?) -> Void) {
+        importProgress = DataBackupProgress()
         importError = nil
         
-        progressCancellable = Timer.publish(every: 0.1, on: .main, in: .default)
+        progressCancellable = Timer.publish(every: 0.1, on: .current, in: .common)
             .autoconnect()
-            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let `self` = self else {
                     return
                 }
                 
-                if self.progress == 1 || self.importError != nil {
+                print("progress: \(self.importProgress.value, places: 5), t: \(Date.timeIntervalSinceReferenceDate)")
+                
+                if self.importProgress.value == 1 || self.importError != nil {
                     try? self.removeTemporaryFiles()
                     self.progressCancellable?.cancel()
                 }
                 
                 progress(
-                    self.progress,
-                    self.importBattlesCount + self.importJobsCount,
+                    self.importProgress,
                     self.importError
                 )
             }
         
-        DispatchQueue(label: "import").async {
+        DispatchQueue(label: "import", attributes: .concurrent).async {
             self.importData(url: url)
         }
     }
@@ -169,11 +175,13 @@ extension DataBackup {
         let importPath = temporaryPath.appendingPathComponent("import")
         
         do {
+            // Create import Directory
             try removeTemporaryFiles()
             try fileManager.createDirectory(at: importPath, withIntermediateDirectories: true, attributes: nil)
             
+            // Unzip
             try Zip.unzipFile(url, destination: importPath, overwrite: true, password: nil, progress: { [weak self] value in
-                self?.unzipProgress = value
+                self?.importProgress.unzipProgress = value
             })
             
             guard let unzipPath = try fileManager.contentsOfDirectory(
@@ -187,30 +195,13 @@ extension DataBackup {
                 return
             }
             
+            // File paths
             let battlePath = unzipPath.appendingPathComponent("battle")
             let battleFilePaths = try fileManager.contentsOfDirectory(
                 at: battlePath,
                 includingPropertiesForKeys: nil,
                 options: [.skipsHiddenFiles])
                 .filter { $0.pathExtension == "json" }
-
-            let needImportBattleIds = AppDatabase.shared.unsynchronizedBattleIds(
-                with: battleFilePaths.map { $0.deletingPathExtension().lastPathComponent }
-            )
-
-            let battleDatas = battleFilePaths
-                .filter { needImportBattleIds.contains($0.deletingPathExtension().lastPathComponent) }
-                .map { try? Data(contentsOf: $0) }
-                .filter { $0 != nil }
-                .map { $0! }
-
-            AppDatabase.shared.saveBattles(datas: battleDatas) { [weak self] value, count, error in
-                self?.importBattlesProgress = value
-                self?.importBattlesCount = count
-                if error != nil {
-                    self?.importError = .databaseWriteError
-                }
-            }
             
             let salmonRunPath = unzipPath.appendingPathComponent("salmonrun")
             let salmonRunFilePaths = try fileManager.contentsOfDirectory(
@@ -219,35 +210,61 @@ extension DataBackup {
                 options: [.skipsHiddenFiles])
                 .filter { $0.pathExtension == "json" }
             
-            let needImportJobIds = AppDatabase.shared.unsynchronizedJobIds(
-                with: salmonRunFilePaths.map { $0.deletingPathExtension().lastPathComponent }.filter { Int($0) != nil }.map { Int($0)! }
-            )
-            .map { "\($0)" }
+            // Load battle and job files
+            let fileTotalCount = battleFilePaths.count + salmonRunFilePaths.count
+            var loadCount = 0
             
-            let salmonRunDatas = salmonRunFilePaths
-                .filter { needImportJobIds.contains($0.deletingPathExtension().lastPathComponent) }
-                .map { try? Data(contentsOf: $0) }
-                .filter { $0 != nil }
+            let records = battleFilePaths
+                .map { [weak self] url -> DBRecord? in
+                    loadCount += 1
+                    self?.importProgress.loadFilesProgress = Double(loadCount) / Double(fileTotalCount)
+                    if let data = try? Data(contentsOf: url) {
+                        return DBRecord.load(data: data)
+                    }
+                    return nil
+                }
+                .filter { $0 != nil && $0?.sp2PrincipalId == AppUserDefaults.shared.sp2PrincipalId }
                 .map { $0! }
             
-            AppDatabase.shared.saveJobs(datas: salmonRunDatas) { [weak self] value, count, error in
-                self?.importJobsProgress = value
-                self?.importJobsCount = count
-                if error != nil {
-                    self?.importError = .databaseWriteError
+            let jobs = salmonRunFilePaths
+                .map { [weak self] url -> DBJob? in
+                    loadCount += 1
+                    self?.importProgress.loadFilesProgress = Double(loadCount) / Double(fileTotalCount)
+                    if let data = try? Data(contentsOf: url) {
+                        return DBJob.load(data: data)
+                    }
+                    return nil
+                }
+                .filter { $0 != nil && $0?.sp2PrincipalId == AppUserDefaults.shared.sp2PrincipalId }
+                .map { $0! }
+            
+            let allRecordsCount = records.count + jobs.count
+            if allRecordsCount > 0 {
+                // Progress scale
+                let allRecordsScale = 1 - (self.importProgress.unzipProgressScale + self.importProgress.loadFilesProgressScale)
+                self.importProgress.importBattlesProgressScale = (Double(records.count) / Double(allRecordsCount)) * allRecordsScale
+                self.importProgress.importJobsProgressScale = allRecordsScale - self.importProgress.importBattlesProgressScale
+                
+                // Write
+                AppDatabase.shared.saveBattles(records: records) { [weak self] value, count, error in
+                    self?.importProgress.importBattlesProgress = value
+                    self?.importProgress.importBattlesCount = count
+                    if error != nil {
+                        self?.importError = .databaseWriteError
+                    }
+                }
+                
+                AppDatabase.shared.saveJobs(jobs: jobs) { [weak self] value, count, error in
+                    self?.importProgress.importJobsProgress = value
+                    self?.importProgress.importJobsCount = count
+                    if error != nil {
+                        self?.importError = .databaseWriteError
+                    }
                 }
             }
             
-            // Progress
-            let allRecordsCount = battleDatas.count + salmonRunDatas.count
-            if allRecordsCount > 0 {
-                let allRecordsScale = 1 - unzipProgressScale
-                importBattlesProgressScale = (Double(battleDatas.count) / Double(allRecordsCount)) * allRecordsScale
-                importJobsProgressScale = allRecordsScale - importBattlesProgressScale
-            } else {
-                self.importBattlesProgress = 1
-                self.importJobsProgress = 1
-            }
+            self.importProgress.importBattlesProgress = 1
+            self.importProgress.importJobsProgress = 1
         } catch is CocoaError {
             self.importError = .invalidDirectoryStructure
         } catch let error {
@@ -284,17 +301,17 @@ import SPAlert
 
 extension DataBackup {
     static func `import`(url: URL) {
-        DataBackup.shared.import(url: url) { progress, count, error in
-            ProgressHUD.showProgress(CGFloat(progress))
+        DataBackup.shared.import(url: url) { progress, error in
+            ProgressHUD.showProgress(CGFloat(progress.value))
             
             if let error = error {
                 ProgressHUD.dismiss()
                 
                 UIAlertController.show(title: "Import Error", message: error.localizedDescription)
-            } else if progress == 1 {
+            } else if progress.value == 1 {
                 ProgressHUD.dismiss()
                 SPAlert.present(
-                    title: String(format:"Imported %d records".localized),
+                    title: String(format:"Imported %d records".localized, progress.count),
                     preset: .done
                 )
             }
