@@ -155,8 +155,8 @@ struct SettingPage: View {
                                 ])
                         }
                         .sheet(isPresented: $showFilePicker) {
-                            FilePickerView { url in
-                                print(url)
+                            FilePickerView(fileType: .zip) { url in
+                                DataBackup.import(url: url)
                             }
                         }
                         

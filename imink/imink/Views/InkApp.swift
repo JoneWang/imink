@@ -38,25 +38,7 @@ struct InkApp: App {
                 }
             }
             .onOpenURL { url in
-                DataBackup.shared.import(url: url) { progress, count, error in
-                    ProgressHUD.showProgress(CGFloat(progress))
-                    
-                    if let error = error {
-                        ProgressHUD.dismiss()
-                        
-                        importError = error
-                        showImportAlert = true
-                    } else if progress == 1 {
-                        ProgressHUD.dismiss()
-                        SPAlert.present(
-                            title: String(format:"Imported %d records".localized),
-                            preset: .done
-                        )
-                    }
-                }
-            }
-            .alert(isPresented: $showImportAlert) {
-                Alert(title: Text("Import Error"), message: Text(importError?.localizedDescription ?? ""))
+                DataBackup.import(url: url)
             }
         }
     }

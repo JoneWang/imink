@@ -8,20 +8,23 @@
 import Foundation
 import SwiftUI
 import MobileCoreServices
+import UniformTypeIdentifiers
 
 struct FilePickerView: View {
     
+    let fileType: UTType
     let selected: (URL) -> ()
     
     var body: some View {
-        _FilePickerView(selected: selected)
+        _FilePickerView(fileType: fileType, selected: selected)
             .ignoresSafeArea()
     }
 }
 
 private struct _FilePickerView: UIViewControllerRepresentable {
     
-    var selected: (URL) -> ()
+    let fileType: UTType
+    let selected: (URL) -> ()
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -31,7 +34,7 @@ private struct _FilePickerView: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
-        let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.zip])
+        let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.zip], asCopy: true)
         controller.delegate = context.coordinator
         return controller
     }
@@ -54,7 +57,7 @@ private struct _FilePickerView: UIViewControllerRepresentable {
 struct PickerView_Preview: PreviewProvider {
     
     static var previews: some View {
-        FilePickerView { url in
+        FilePickerView(fileType: .zip) { url in
             print(url)
         }
     }

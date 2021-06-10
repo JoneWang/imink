@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Zip
+import os
 
 enum DataBackupError: Error {
     case unknownError
@@ -158,15 +159,11 @@ extension DataBackup {
             }
         
         DispatchQueue(label: "import").async {
-            do {
-                try self.importData(url: url)
-            } catch {
-                self.importError = .unknownError
-            }
+            self.importData(url: url)
         }
     }
     
-    private func importData(url: URL) throws {
+    private func importData(url: URL) {
         let fileManager = FileManager()
         let temporaryPath = fileManager.temporaryDirectory
         let importPath = temporaryPath.appendingPathComponent("import")
@@ -253,7 +250,8 @@ extension DataBackup {
             }
         } catch is CocoaError {
             self.importError = .invalidDirectoryStructure
-        } catch {
+        } catch let error {
+            os_log("Import Error: \(error.localizedDescription)")
             self.importError = .unknownError
         }
     }
@@ -277,6 +275,29 @@ extension DataBackup {
         let zipPath = temporaryPath.appendingPathComponent("imink_export.zip")
         if fileManager.fileExists(atPath: zipPath.path) {
             try fileManager.removeItem(at: zipPath)
+        }
+    }
+}
+
+import UIKit
+import SPAlert
+
+extension DataBackup {
+    static func `import`(url: URL) {
+        DataBackup.shared.import(url: url) { progress, count, error in
+            ProgressHUD.showProgress(CGFloat(progress))
+            
+            if let error = error {
+                ProgressHUD.dismiss()
+                
+                UIAlertController.show(title: "Import Error", message: error.localizedDescription)
+            } else if progress == 1 {
+                ProgressHUD.dismiss()
+                SPAlert.present(
+                    title: String(format:"Imported %d records".localized),
+                    preset: .done
+                )
+            }
         }
     }
 }
