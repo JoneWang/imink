@@ -93,7 +93,7 @@
 // MARK: Me
 
 "Highest Power" = "最高リーグパワー";
-"Mysterious void under investigation…" = "Mysterious void under investigation…";
+"Mysterious void under investigation…" = "今後のバージョンでここに何かが表示されるらしい...。乞うご期待";
 
 // MARK: Settings
 
@@ -111,19 +111,22 @@
 "Language" = "言語";
 "Reload Widgets" = "ウィジェットを再読み込み";
 "USER DATA" = "ユーザーデータ";
-"USER DATA_desc" = "imink exports raw user data returned from SplatNet 2 in JSON format.";
+"USER DATA_desc" = "イカリング2から取得したユーザーデータをJSON形式でエクスポートします。";
 "Import" = "インポート";
+"Import Data" = "Import Data";
+"Import Data_desc" = "You can share from other apps or select from Files app.";
+"Select File" = "Select File";
 "Export" = "エクスポート";
 "CONTACT" = "CONTACT";
 "Email" = "Email";
 "ABOUT" = "ABOUT";
-"Send Kudos" = "Send Kudos";
-"Send Kudos_desc" = "We appreaciate your love and support. Please support imink by writing a review.";
+"Send Kudos" = "iminkを評価する";
+"Send Kudos_desc" = "あなたからのレビューをお待ちしております！";
 "FAQ" = "よくある質問";
 "Credits" = "Credits";
 "Version" = "バージョン";
 "Source code" = "ソースコード";
-"ABOUT_desc" = "iminkはSplatNet 2から取得したデータを利用するユーティリティアプリです。任天堂株式会社 (Nintendo) 公式のアプリではございません。";
+"ABOUT_desc" = "iminkはイカリング2から取得したデータを利用するユーティリティアプリです。任天堂株式会社公式のアプリではございません。";
 "Log out" = "ログアウト";
 "Are you sure you want to log out?" = "ログアウトしますか？";
 
@@ -195,19 +198,19 @@
 
 "credits_desc" = "iminkの開発に協力頂いた全てのインクリング、そしてオクトリングに感謝致します！";
 "CONTRIBUTORS" = "CONTRIBUTORS";
-", " = ", ";
-"Development" = "Development";
-"Marketing" = "Marketing";
-"UI & Type Design" = "UI & Type Design";
-"UI & Icon Design" = "UI & Icon Design";
-"Type Design" = "Type Design";
-"Simplified Chinese Localization" = "Simplified Chinese Localization";
-"Traditional Chinese Localization" = "Traditional Chinese Localization";
-"Japanese Localization" = "Japanese Localization";
-"Korean Localization" = "Korean Localization";
-"Contribute to localization…" = "Contribute to localization…";
-"ACKNOWLEDGEMENTS" = "ACKNOWLEDGEMENTS";
-"aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
+", " = "、";
+"Development" = "開発";
+"Marketing" = "マーケティング";
+"UI & Type Design" = "UI & タイプデザイン";
+"UI & Icon Design" = "UI & アイコンデザイン";
+"Type Design" = "タイプデザイン";
+"Simplified Chinese Localization" = "簡体字中国語への翻訳";
+"Traditional Chinese Localization" = "繁体字中国語への翻訳";
+"Japanese Localization" = "日本語への翻訳";
+"Korean Localization" = "韓国語への翻訳";
+"Contribute to localization…" = "多言語化対応を手伝う";
+"ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
+"aknowledgements_desc" = "アカウントログインに必要なアルゴリズムAPI、及び韓国語のカスタムフォントをご提供いただき、大変ありがとうございました。";
 
 // MARK: What's iksm_session
 
