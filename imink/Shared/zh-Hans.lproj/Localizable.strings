@@ -33,6 +33,10 @@
 
 // MARK: Home
 
+"iksm_session is expired" = "iksm_session已过期";
+"iksm_session is expired_desc" = "在iksm_session完成续期前，战绩同步将会中断。";
+"Renew in Settings" = "立即续期";
+
 "Today" = "今日";
 "reset" = "重置";
 "Victory rate:" = "胜率：";
@@ -89,10 +93,40 @@
 // MARK: Me
 
 "Highest Power" = "最高分";
+"Mysterious void under investigation…" = "正在紧密调查中的神秘空白…";
+
+// MARK: Settings
+
+"Settings" = "设置";
+"LOGIN STATUS" = "登录状态";
+"Valid" = "有效";
+"Expired" = "过期";
+"Renewing…" = "续期中…";
+"Manual Renew" = "手动续期";
+"Manual Renew_desc" = "续期API在全球范围内带有每分钟4次的请求次数限制。如遇续期失败，请等待1–2分钟后再次尝试。";
+"What is an iksm_session?" = "什么是iksm_session？";
+"Failure to renew" = "续期失败";
+"Failure to renew_desc" = "请等待1–2分钟后再试。";
+"GENERAL" = "通用";
 "Language" = "语言";
-"Source code" = "源代码";
+"Reload Widgets" = "重新载入小组件";
+"USER DATA" = "用户数据";
+"USER DATA_desc" = "imink导出SplatNet 2返回的原始数据，使用易于阅读和解析的JSON格式，可自由解压分析。";
+"Import" = "导入数据";
+"Import Data" = "导入数据";
+"Import Data_desc" = "您可以从其他app中分享，或直接选择文件。";
+"Select File" = "选择文件";
+"Export" = "导出数据";
+"CONTACT" = "联系";
+"Email" = "Email";
+"ABOUT" = "关于";
+"Send Kudos" = "支持我们";
+"Send Kudos_desc" = "我们对大家的喜爱和支持深表感谢。如果您喜欢imink，请给我们一个好评。";
 "FAQ" = "常见问题";
-"About imink" = "关于 imink";
+"Credits" = "制作人员";
+"Version" = "版本";
+"Source code" = "源代码";
+"ABOUT_desc" = "imink是使用SplatNet 2数据的非官方app，与任天堂株式会社无隶属关系。";
 "Log out" = "退出登录";
 "Are you sure you want to log out?" = "确定要退出登录吗？";
 
@@ -127,6 +161,7 @@
 "Back" = "返回";
 "Yes" = "是";
 "No" = "否";
+"Done" = "完成";
 
 // MARK: Onboarding
 
@@ -150,3 +185,36 @@
 "update_1_1_0_description_1" = "在战绩详情页面中查看其他玩家的配装，为打造完美装备提供参考。";
 "update_1_1_0_description_2" = "属于团队的至高荣誉，现已悉心陈列在个人资料页面中。";
 "update_1_1_0_description_3" = "战绩详情页面现可显示X段排名和500强玩家的王冠。";
+
+// MARK: Import
+
+"Import Error" = "导入出现错误";
+"Database write error" = "数据库写入出现错误";
+"Invalid directory structure" = "无效的目录结构";
+"Unknown error" = "未知错误";
+"Imported %d records" = "导入了%d条记录";
+
+// MARK: Credits
+
+"credits_desc" = "感谢以下来自世界各地的乌贼和章鱼，是无与伦比的你们让imink照进现实。";
+"CONTRIBUTORS" = "贡献者";
+", " = "、";
+"Development" = "开发";
+"Marketing" = "市场营销";
+"UI & Type Design" = "UI和字体设计";
+"UI & Icon Design" = "UI和图标设计";
+"Type Design" = "字体设计";
+"Simplified Chinese Localization" = "简体中文本地化";
+"Traditional Chinese Localization" = "繁体中文本地化";
+"Japanese Localization" = "日语本地化";
+"Korean Localization" = "韩语本地化";
+"Contribute to localization…" = "贡献本地化翻译…";
+"ACKNOWLEDGEMENTS" = "致谢";
+"aknowledgements_desc" = "感谢以上作者提供用于账号登录的必要API，及韩文定制字体。";
+
+// MARK: What's iksm_session
+
+"whats_iksm_session_desc_1" = "iksm_session由任天堂服务器生成，是imink与Nintendo Switch Online之间同步战绩数据的唯一凭证";
+"whats_iksm_session_desc_2" = "如果您超过24小时未打开imink，iksm_session将会自动过期失效";
+"whats_iksm_session_desc_3" = "检测到iksm_session过期失效后，imink将会自动尝试续期";
+"whats_iksm_session_desc_4" = "由于API请求限制或不稳定的网络环境，自动续期有可能失败。在这种情况下，您可以前往设置手动续期";

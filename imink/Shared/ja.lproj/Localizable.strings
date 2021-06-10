@@ -8,11 +8,11 @@
 // MARK: API error
 
 
-"Error connecting to the server" = "Error connecting to the server";
-"Authorization error" = "Authorization error";
-"Client token is invalid" = "Client token is invalid";
-"The iksm_session is invalid" = "The iksm_session is invalid";
-"Request parameter error" = "Request parameter error";
+"Error connecting to the server" = "接続エラー";
+"Authorization error" = "認証エラー";
+"Client token is invalid" = "クライアントトークンが無効です";
+"The iksm_session is invalid" = "iksm_sessionが無効です";
+"Request parameter error" = "パラメーターエラー";
 
 // MARK: Tab bar
 
@@ -32,6 +32,10 @@
 "user_game_data_not_exist_message" = "お使いのアカウントがスプラトゥーン2のセーブデータを持っている事、またNintendo Switch Onlineに加入している事を確認してください。";
 
 // MARK: Home
+
+"iksm_session is expired" = "iksm_sessionの期限が切れています";
+"iksm_session is expired_desc" = "バトル履歴を取得するにはiksm_sessionを更新する必要があります。";
+"Renew in Settings" = "設定で更新する";
 
 "Today" = "今日";
 "reset" = "リセット";
@@ -89,10 +93,40 @@
 // MARK: Me
 
 "Highest Power" = "最高リーグパワー";
+"Mysterious void under investigation…" = "今後のバージョンでここに何かが表示されるらしい...。乞うご期待";
+
+// MARK: Settings
+
+"Settings" = "設定";
+"LOGIN STATUS" = "ログイン状態";
+"Valid" = "有効";
+"Expired" = "期限切れ";
+"Renewing…" = "更新中…";
+"Manual Renew" = "手動で更新する";
+"Manual Renew_desc" = "リクエストは現在ユーザー全体で1分間に4回までとなっております。エラーの際はお手数ですが数分待ってから再度お試し下さい。";
+"What is an iksm_session?" = "iksm_sessionについて";
+"Failure to renew" = "更新失敗";
+"Failure to renew_desc" = "数分おいてから再度お試し下さい。";
+"GENERAL" = "一般";
 "Language" = "言語";
-"Source code" = "ソースコード";
+"Reload Widgets" = "ウィジェットを再読み込み";
+"USER DATA" = "ユーザーデータ";
+"USER DATA_desc" = "イカリング2から取得したユーザーデータをJSON形式でエクスポートします。";
+"Import" = "インポート";
+"Import Data" = "Import Data";
+"Import Data_desc" = "You can share from other apps or select from Files app.";
+"Select File" = "Select File";
+"Export" = "エクスポート";
+"CONTACT" = "CONTACT";
+"Email" = "Email";
+"ABOUT" = "ABOUT";
+"Send Kudos" = "iminkを評価する";
+"Send Kudos_desc" = "あなたからのレビューをお待ちしております！";
 "FAQ" = "よくある質問";
-"About imink" = "imink に関して";
+"Credits" = "Credits";
+"Version" = "バージョン";
+"Source code" = "ソースコード";
+"ABOUT_desc" = "iminkはイカリング2から取得したデータを利用するユーティリティアプリです。任天堂株式会社公式のアプリではございません。";
 "Log out" = "ログアウト";
 "Are you sure you want to log out?" = "ログアウトしますか？";
 
@@ -127,6 +161,7 @@
 "Back" = "戻る";
 "Yes" = "はい";
 "No" = "いいえ";
+"Done" = "完了";
 
 // MARK: Onboarding
 
@@ -150,3 +185,36 @@
 "update_1_1_0_description_1" = "バトルのリザルトで各プレイヤーのギアを確認できるようになりました。";
 "update_1_1_0_description_2" = "今までの最高リーグパワー、及び獲得メダルの一覧をプロフィール画面で確認できるようになりました。";
 "update_1_1_0_description_3" = "ウデマエXのガチマッチのリザルトで自分のXランキングの順位と、各プレイヤーの王冠の有無を確認できるようになりました。";
+
+// MARK: Import
+
+"Import Error" = "インポートエラー";
+"Database write error" = "データ書き込みエラー";
+"Invalid directory structure" = "無効なディレクトリ構造";
+"Unknown error" = "不明なエラー";
+"Imported %d records" = "%d件のデータをインポートしました";
+
+// MARK: Credits
+
+"credits_desc" = "iminkの開発に協力頂いた全てのインクリング、そしてオクトリングに感謝致します！";
+"CONTRIBUTORS" = "CONTRIBUTORS";
+", " = "、";
+"Development" = "開発";
+"Marketing" = "マーケティング";
+"UI & Type Design" = "UI & タイプデザイン";
+"UI & Icon Design" = "UI & アイコンデザイン";
+"Type Design" = "タイプデザイン";
+"Simplified Chinese Localization" = "簡体字中国語への翻訳";
+"Traditional Chinese Localization" = "繁体字中国語への翻訳";
+"Japanese Localization" = "日本語への翻訳";
+"Korean Localization" = "韓国語への翻訳";
+"Contribute to localization…" = "多言語化対応を手伝う";
+"ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
+"aknowledgements_desc" = "アカウントログインに必要なアルゴリズムAPI、及び韓国語のカスタムフォントをご提供いただき、大変ありがとうございました。";
+
+// MARK: What's iksm_session
+
+"whats_iksm_session_desc_1" = "iksm_sessionはニンテンドーのサーバーによって生成される、Nintendo Switch Onlineのデータを取得するのに必要な情報です。";
+"whats_iksm_session_desc_2" = "24時間アプリを使っていないと期限が切れます。";
+"whats_iksm_session_desc_3" = "iksm_sessionの有効期限が切れた場合、自動的に更新を試みます。";
+"whats_iksm_session_desc_4" = "APIの制限やネットワークの状況により更新に失敗する事があります。その場合、「設定」で手動で更新する事もできます。";
