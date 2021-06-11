@@ -198,20 +198,20 @@ extension AppDatabase {
         }
     }
     
-    func saveBattles(records: [DBRecord], progress: ((Double, Int, Error?) -> Void)) {
-        do {
-            try dbQueue.write { db in
-                var saveCount = 0
-                for (i, record) in records.enumerated() {
-                    if try self.saveBattle(db: db, record: record) {
-                        saveCount += 1
-                    }
-                    progress(Double(i + 1) / Double(records.count), saveCount, nil)
+    func saveBattles(records: [DBRecord], progress: @escaping ((Double, Int, Error?) -> Void)) {
+        dbQueue.asyncWrite { db in
+            var saveCount = 0
+            for (i, record) in records.enumerated() {
+                if try self.saveBattle(db: db, record: record) {
+                    saveCount += 1
                 }
+                progress(Double(i + 1) / Double(records.count), saveCount, nil)
             }
-        } catch let error {
-            progress(1, 0, error)
-            os_log("Database Error: [saveBattles] \(error.localizedDescription)")
+        } completion: { _, result in
+            if case let .failure(error) = result {
+                progress(1, 0, error)
+                os_log("Database Error: [saveBattle] \(error.localizedDescription)")
+            }
         }
     }
     

@@ -184,20 +184,20 @@ extension AppDatabase {
         }
     }
     
-    func saveJobs(jobs: [DBJob], progress: ((Double, Int, Error?) -> Void)? = nil) {
-        do {
-            try dbQueue.write { db in
-                var saveCount = 0
-                for (i, job) in jobs.enumerated() {
-                    if try self.saveJob(db: db, job: job) {
-                        saveCount += 1
-                    }
-                    progress?(Double(i + 1) / Double(jobs.count), saveCount, nil)
+    func saveJobs(jobs: [DBJob], progress: @escaping ((Double, Int, Error?) -> Void)) {
+        dbQueue.asyncWrite { db in
+            var saveCount = 0
+            for (i, job) in jobs.enumerated() {
+                if try self.saveJob(db: db, job: job) {
+                    saveCount += 1
                 }
+                progress(Double(i + 1) / Double(jobs.count), saveCount, nil)
             }
-        } catch let error {
-            progress?(1, 0, error)
-            os_log("Database Error: [saveJobs] \(error.localizedDescription)")
+        } completion: { _, result in
+            if case let .failure(error) = result {
+                progress(1, 0, error)
+                os_log("Database Error: [saveJob] \(error.localizedDescription)")
+            }
         }
     }
     
