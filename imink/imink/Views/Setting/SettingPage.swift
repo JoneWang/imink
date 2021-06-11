@@ -233,7 +233,7 @@ struct SettingPage: View {
                     }
 
                     Link(destination: URL(string: "https://github.com/JoneWang/imink")!) {
-                        ListRow("Source code")
+                        ListRow("Source Code")
                     }
 
                     ListRow(
