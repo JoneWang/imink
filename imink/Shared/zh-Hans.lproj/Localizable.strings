@@ -125,7 +125,7 @@
 "FAQ" = "常见问题";
 "Credits" = "制作人员";
 "Version" = "版本";
-"Source code" = "源代码";
+"Source Code" = "源代码";
 "ABOUT_desc" = "imink是使用SplatNet 2数据的非官方app，与任天堂株式会社无隶属关系。";
 "Log out" = "退出登录";
 "Are you sure you want to log out?" = "确定要退出登录吗？";
@@ -214,6 +214,7 @@
 
 // MARK: What's iksm_session
 
+"Learn more about iksm_session" = "进一步了解iksm_session";
 "whats_iksm_session_desc_1" = "iksm_session由任天堂服务器生成，是imink与Nintendo Switch Online之间同步战绩数据的唯一凭证";
 "whats_iksm_session_desc_2" = "如果您超过24小时未打开imink，iksm_session将会自动过期失效";
 "whats_iksm_session_desc_3" = "检测到iksm_session过期失效后，imink将会自动尝试续期";
