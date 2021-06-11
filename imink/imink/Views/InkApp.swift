@@ -27,6 +27,7 @@ struct InkApp: App {
                     if AppUserDefaults.shared.firstLaunch {
                         showOnboarding = true
                         AppUserDefaults.shared.firstLaunch = false
+                        AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 = false
                     } else if AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 {
                         showUpdatePage = true
                         AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 = false
