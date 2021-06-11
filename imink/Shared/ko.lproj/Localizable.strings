@@ -8,11 +8,11 @@
 // MARK: API error
 
 
-"Error connecting to the server" = "Error connecting to the server";
-"Authorization error" = "Authorization error";
-"Client token is invalid" = "Client token is invalid";
-"The iksm_session is invalid" = "The iksm_session is invalid";
-"Request parameter error" = "Request parameter error";
+"Error connecting to the server" = "서버 연결 오류";
+"Authorization error" = "승인 오류";
+"Client token is invalid" = "클라이언트 토큰이 잘못되었습니다.";
+"The iksm_session is invalid" = "iksm_session이 잘못되었습니다.";
+"Request parameter error" = "요청 매개 변수 오류";
 
 // MARK: Tab bar
 
@@ -33,9 +33,9 @@
 
 // MARK: Home
 
-"iksm_session is expired" = "iksm_session is expired";
-"iksm_session is expired_desc" = "You won’t be able to sync battles before the iksm_session is renewed.";
-"Renew in Settings" = "Renew in Settings";
+"iksm_session is expired" = "iksm_session이 만료되었습니다.";
+"iksm_session is expired_desc" = "iksm_session을 갱신하기 전에 배틀을 동기화할 수 없습니다.";
+"Renew in Settings" = "새롭게 설정";
 
 "Today" = "오늘";
 "reset" = "리셋";
