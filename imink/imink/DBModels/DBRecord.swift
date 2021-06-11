@@ -107,7 +107,6 @@ extension DBRecord {
               let rule = battle["rule"] as? [String: Any],
               let gameMode = battle["game_mode"] as? [String: Any],
               let stage = battle["stage"] as? [String: Any],
-              let udemae = battle["udemae"] as? [String: Any],
               let playerType = player["player_type"] as? [String: Any],
               let myTeamResult = battle["my_team_result"] as? [String: Any],
               
@@ -127,13 +126,15 @@ extension DBRecord {
               let gamePaintPoint = playerResult["game_paint_point"] as? Int,
               let deathCount = playerResult["death_count"] as? Int,
               let startTimestamp = battle["start_time"] as? Double,
-              let udemaeName = udemae["name"] as? String,
               let battleType = Battle.BattleType(rawValue: battle["type"] as? String ?? ""),
               let species = Player.PlayerType.Species(rawValue: playerType["species"] as? String ?? "")
         else {
             return nil
         }
         
+        let udemae = battle["udemae"] as? [String: Any]
+        let udemaeName = udemae?["name"] as? String
+            
         var myPoint: Double
         var otherPoint: Double
         if ruleKey == GameRule.Key.turfWar.rawValue {
@@ -144,10 +145,10 @@ extension DBRecord {
             otherPoint = battle["other_team_count"] as! Double
         }
         
-        let sPlusNumber = udemae["s_plus_number"] as? Int
+        let sPlusNumber = udemae?["s_plus_number"] as? Int
         let leaguePoint = battle["league_point"] as? Double
         let estimateGachiPower = battle["estimate_gachi_power"] as? Int
-        let isX = udemae["is_x"] as? Bool
+        let isX = udemae?["is_x"] as? Bool
         let xPower = battle["xPower"] as? Double
         
         return DBRecord(
