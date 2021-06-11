@@ -8,7 +8,6 @@
 
 import SwiftUI
 import WidgetKit
-import StoreKit
 import SPAlert
 
 struct SettingPage: View {
@@ -210,9 +209,8 @@ struct SettingPage: View {
                     }
                 ) {
                     Button(action: {
-                        if let windowScene = UIApplication.shared.windows.first?.windowScene {
-                            SKStoreReviewController.requestReview(in: windowScene)
-                        }
+                        let writeReviewURL = URL(string: "https://apps.apple.com/app/id1530006671?action=write-review")!
+                        UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
                     }) {
                         ListRow("Send Kudos")
                     }
