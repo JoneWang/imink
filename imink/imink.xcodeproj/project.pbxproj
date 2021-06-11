@@ -44,6 +44,8 @@
 		EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */; };
 		EC313B3F2671CC5F00EC1C63 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC313B3E2671CC5F00EC1C63 /* FilePickerView.swift */; };
+		EC313B4326727E2200EC1C63 /* AppCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC313B4226727E2200EC1C63 /* AppCookieStorage.swift */; };
+		EC313B4426727E2200EC1C63 /* AppCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC313B4226727E2200EC1C63 /* AppCookieStorage.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
@@ -271,6 +273,7 @@
 		EC2C34CA2598E8930007BA4D /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusModifier.swift; sourceTree = "<group>"; };
 		EC313B3E2671CC5F00EC1C63 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
+		EC313B4226727E2200EC1C63 /* AppCookieStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCookieStorage.swift; sourceTree = "<group>"; };
 		EC344FE825330351004A7AF1 /* MePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePage.swift; sourceTree = "<group>"; };
 		EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		EC39701A2548028100557BD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -596,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				EC900EB1251C8EF700AA0B20 /* AppUserDefaults.swift */,
+				EC313B4226727E2200EC1C63 /* AppCookieStorage.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1007,6 +1011,7 @@
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
 				ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */,
 				EC11F1DB25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift in Sources */,
+				EC313B4426727E2200EC1C63 /* AppCookieStorage.swift in Sources */,
 				EC861247253AC6ED003BA67A /* Easeing.swift in Sources */,
 				EC3120572599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
 				EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */,
@@ -1083,6 +1088,7 @@
 				EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,
 				EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */,
+				EC313B4326727E2200EC1C63 /* AppCookieStorage.swift in Sources */,
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
 				EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */,
 				EC9A90492527851C00390573 /* ScheduleView.swift in Sources */,

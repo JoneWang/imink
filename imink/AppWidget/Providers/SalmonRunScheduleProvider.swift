@@ -105,6 +105,9 @@ extension SalmonRunScheduleProvider {
         success: @escaping ([SalmonRunSchedules.Schedule]) -> Void,
         failure: @escaping () -> Void
     ) {
+        // Reduce the frequency of iksm_session expiration
+        IksmSessionManager.shared.activateIksmSession()
+        
         AppAPI.salmonRunSchedules
             .request()
             .decode(type: SalmonRunSchedules.self)

@@ -79,6 +79,7 @@ class API {
         }
         
         let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.httpCookieStorage = HTTPCookieStorage.appGroup
         let urlSession = URLSession(configuration: sessionConfiguration)
         
         return urlSession.dataTaskPublisher(for: request)

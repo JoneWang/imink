@@ -19,7 +19,7 @@ class IksmSessionManager {
     private var renewResultSubject = PassthroughSubject<Error?, Never>()
     
     private static var isValid: Bool {
-        let sessionCookie = HTTPCookieStorage.shared.cookies?
+        let sessionCookie = HTTPCookieStorage.appGroup.cookies?
             .first(where: { $0.name == "iksm_session" })
         if let expiresDate = sessionCookie?.expiresDate {
             return expiresDate > Date()
@@ -81,7 +81,7 @@ class IksmSessionManager {
     }
 
     func clear(iksmSession: String? = nil) {
-        let cookieStorage = HTTPCookieStorage.shared
+        let cookieStorage = HTTPCookieStorage.appGroup
         if let sessionCookie = cookieStorage.cookies?
             .first(where: { $0.name == "iksm_session" && (iksmSession == nil || $0.value == iksmSession) }) {
             cookieStorage.deleteCookie(sessionCookie)
@@ -94,6 +94,20 @@ class IksmSessionManager {
     
     func refresh() {
         isValidSubject.value = IksmSessionManager.isValid
+    }
+}
+
+extension IksmSessionManager {
+    func activateIksmSession() {
+        if let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId, isValid {
+            Splatoon2API.nicknameAndIcon(id: sp2PrincipalId)
+                .request()
+                .receive(on: DispatchQueue.main)
+                .sink { _ in
+                } receiveValue: { (data: Data) in
+                }
+                .store(in: &cancelBag)
+        }
     }
 }
 

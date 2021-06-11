@@ -100,6 +100,9 @@ extension BattleScheduleProvider {
         success: @escaping ([Schedules.Schedule]) -> Void,
         failure: @escaping () -> Void
     ) {
+        // Reduce the frequency of iksm_session expiration
+        IksmSessionManager.shared.activateIksmSession()
+        
         if let data = AppUserDefaults.shared.splatoon2BattleScheduleData,
            let schedules = data.decode(Schedules.self) {
             let schedules = schedules.getSchedules(gameMode)
