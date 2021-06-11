@@ -214,6 +214,7 @@
 
 // MARK: What's iksm_session
 
+"Learn more about iksm_session" = "Learn more about iksm_session";
 "whats_iksm_session_desc_1" = "iksm_sessionはニンテンドーのサーバーによって生成される、Nintendo Switch Onlineのデータを取得する為に必要な情報です。";
 "whats_iksm_session_desc_2" = "24時間アプリを使っていないと期限が切れます。";
 "whats_iksm_session_desc_3" = "iksm_sessionの有効期限が切れた場合、自動的に更新を試みます。";
