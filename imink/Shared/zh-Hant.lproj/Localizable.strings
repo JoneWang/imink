@@ -214,6 +214,7 @@
 
 // MARK: What's iksm_session
 
+"Learn more about iksm_session" = "Learn more about iksm_session";
 "whats_iksm_session_desc_1" = "iksm_session由任天堂伺服器生成，是imink與Nintendo Switch Online之間同步戰績資料的唯一憑證";
 "whats_iksm_session_desc_2" = "如果您超過24小時未開啟imink，iksm_session將會自動過期失效";
 "whats_iksm_session_desc_3" = "檢測到iksm_session過期失效後，imink將會自動嘗試續期";
