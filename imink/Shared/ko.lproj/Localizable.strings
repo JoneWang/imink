@@ -10,8 +10,8 @@
 
 "Error connecting to the server" = "서버 연결 오류";
 "Authorization error" = "승인 오류";
-"Client token is invalid" = "클라이언트 토큰이 잘못되었습니다.";
-"The iksm_session is invalid" = "iksm_session이 잘못되었습니다.";
+"Client token is invalid" = "클라이언트 토큰이 잘못되었습니다";
+"The iksm_session is invalid" = "iksm_session이 잘못되었습니다";
 "Request parameter error" = "요청 매개 변수 오류";
 
 // MARK: Tab bar
@@ -33,9 +33,9 @@
 
 // MARK: Home
 
-"iksm_session is expired" = "iksm_session이 만료되었습니다.";
+"iksm_session is expired" = "iksm_session이 만료되었습니다";
 "iksm_session is expired_desc" = "iksm_session을 갱신하기 전에 배틀을 동기화할 수 없습니다.";
-"Renew in Settings" = "새롭게 설정";
+"Renew in Settings" = "설정 갱신";
 
 "Today" = "오늘";
 "reset" = "리셋";
@@ -93,40 +93,40 @@
 // MARK: Me
 
 "Highest Power" = "최고 리그 파워";
-"Mysterious void under investigation…" = "Mysterious void under investigation…";
+"Mysterious void under investigation…" = "현재 조사 중인 미스터리 공간...";
 
 // MARK: Settings
 
 "Settings" = "설정";
-"LOGIN STATUS" = "LOGIN STATUS";
-"Valid" = "Valid";
-"Expired" = "Expired";
-"Renewing…" = "Renewing…";
-"Manual Renew" = "Manual Renew";
-"Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
-"What is an iksm_session?" = "What is an iksm_session?";
-"Failure to renew" = "Renewal Failed";
-"Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
+"LOGIN STATUS" = "로그인 상태";
+"Valid" = "유효";
+"Expired" = "만료";
+"Renewing…" = "갱신 중...";
+"Manual Renew" = "수동 갱신";
+"Manual Renew_desc" = "요청은 전체적으로 분당 4번으로 제한됩니다. 오류가 발생하면 1~2분 기다린 후 다시 시도하십시오.";
+"What is an iksm_session?" = "iksm_session이란?";
+"Failure to renew" = "갱신 실패";
+"Failure to renew_desc" = "1~2분 기다린 후 다시 시도하십시오.";
 "GENERAL" = "일반";
 "Language" = "언어";
-"Reload Widgets" = "Reload Widgets";
-"USER DATA" = "USER DATA";
-"USER DATA_desc" = "imink exports raw user data returned from SplatNet 2 in JSON format.";
-"Import" = "Import";
-"Import Data" = "Import Data";
-"Import Data_desc" = "You can share from other apps or select from Files app.";
-"Select File" = "Select File";
-"Export" = "Export";
+"Reload Widgets" = "위젯 새로고침";
+"USER DATA" = "유저 데이터";
+"USER DATA_desc" = "imink는 SplatNet 2에서 반환된 기존 사용자 데이터를 JSON 형식으로 내보냅니다.";
+"Import" = "가져오기";
+"Import Data" = "데이터 가져오기";
+"Import Data_desc" = "다른 앱에서 공유하거나 파일 앱에서 선택할 수 있습니다.";
+"Select File" = "파일 선택";
+"Export" = "내보내기";
 "CONTACT" = "CONTACT";
-"Email" = "Email";
+"Email" = "이메일";
 "ABOUT" = "ABOUT";
-"Send Kudos" = "Send Kudos";
-"Send Kudos_desc" = "We appreaciate your love and support. Please support imink by writing a review.";
+"Send Kudos" = "칭찬 보내기";
+"Send Kudos_desc" = "여러분의 사랑과 성원에 감사드립니다. imink에 대한 리뷰를 남겨주세요.";
 "FAQ" = "자주 있는 질문";
-"Credits" = "Credits";
-"Version" = "Version";
+"Credits" = "제작진";
+"Version" = "버전";
 "Source Code" = "소스 코드";
-"ABOUT_desc" = "imink is an unofficial app that uses the information of SplatNet 2, and is not affiliated with Nintendo.";
+"ABOUT_desc" = "imink는 SplatNet 2의 정보를 사용하는 비공식 앱으로 닌텐도와 제휴하지 않았습니다.";
 "Log out" = "로그아웃";
 "Are you sure you want to log out?" = "로그아웃 하시겠습니까?";
 
@@ -188,34 +188,34 @@
 
 // MARK: Import
 
-"Import Error" = "Import Error";
-"Database write error" = "Database write error";
-"Invalid directory structure" = "Invalid directory structure";
-"Unknown error" = "Unknown error";
-"Imported %d records" = "Imported %d records";
+"Import Error" = "가져오기 오류";
+"Database write error" = "데이터베이스 쓰기 오류";
+"Invalid directory structure" = "디렉터리 구조가 잘못되었습니다";
+"Unknown error" = "알 수 없는 오류";
+"Imported %d records" = "%d개의 기록을 가져왔습니다";
 
 // MARK: Credits
 
-"credits_desc" = "Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.";
-"CONTRIBUTORS" = "CONTRIBUTORS";
+"credits_desc" = "imink 개발에 협력해 주신 분들께 감사드립니다!";
+"CONTRIBUTORS" = "기여자";
 ", " = ", ";
-"Development" = "Development";
-"Marketing" = "Marketing";
-"UI & Type Design" = "UI & Type Design";
-"UI & Icon Design" = "UI & Icon Design";
-"Type Design" = "Type Design";
-"Simplified Chinese Localization" = "Simplified Chinese Localization";
-"Traditional Chinese Localization" = "Traditional Chinese Localization";
-"Japanese Localization" = "Japanese Localization";
-"Korean Localization" = "Korean Localization";
-"Contribute to localization…" = "Contribute to localization…";
-"ACKNOWLEDGEMENTS" = "ACKNOWLEDGEMENTS";
-"aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
+"Development" = "개발";
+"Marketing" = "마케팅";
+"UI & Type Design" = "UI & 글자 디자인";
+"UI & Icon Design" = "UI & 아이콘 디자인";
+"Type Design" = "글자 디자인";
+"Simplified Chinese Localization" = "중국어 간체 현지화";
+"Traditional Chinese Localization" = "중국어 번체 현지화";
+"Japanese Localization" = "일본어 현지화";
+"Korean Localization" = "한국어 현지화";
+"Contribute to localization…" = "현지화 기여";
+"ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
+"aknowledgements_desc" = "계정 로그인을 위해 필요한 알고리즘 API와 한글 맞춤 글꼴을 제공해 주셔서 감사합니다.";
 
 // MARK: What's iksm_session
 
-"Learn more about iksm_session" = "Learn more about iksm_session";
-"whats_iksm_session_desc_1" = "An iksm_session is the solely credential generated by Nintendo server, enabling imink to sync data with Nintendo Switch Online.";
-"whats_iksm_session_desc_2" = "It will automatically become expired if you haven’t opened imink for over 24 hours.";
-"whats_iksm_session_desc_3" = "Automatic renewal will be triggered if imink detects an iksm_session is expired.";
-"whats_iksm_session_desc_4" = "Renewal may fail due to API limitations and unstable network conditions. In these cases, you can manually renew in Settings.";
+"Learn more about iksm_session" = "iksm_session에 대해 자세히 알아보기";
+"whats_iksm_session_desc_1" = "iksm_session은 닌텐도 서버에서 생성된 유일한 자격 증명으로, imink가 닌텐도 스위치 온라인과 데이터를 동기화할 수 있도록 합니다.";
+"whats_iksm_session_desc_2" = "imink를 24시간 이상 열지 않으면 자동으로 만료됩니다.";
+"whats_iksm_session_desc_3" = "iksm_session이 만료된 것을 imink가 감지하면 자동 갱신이 일어납니다.";
+"whats_iksm_session_desc_4" = "API 제한 및 불안정한 네트워크 조건으로 인해 갱신에 실패할 수 있습니다. 이러한 경우 설정에서 수동으로 갱신할 수 있습니다.";
