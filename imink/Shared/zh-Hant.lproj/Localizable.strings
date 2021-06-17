@@ -102,7 +102,7 @@
 "Valid" = "有效";
 "Expired" = "過期";
 "Renewing…" = "續期中…";
-"Manual Renew" = "手動續期";
+"Renew Manually" = "Renew Manually";
 "Manual Renew_desc" = "續期API在全球範圍內帶有每分鐘4次的請求次數限制。如遇續期失敗，請等待1–2分鐘後再次嘗試。";
 "What is an iksm_session?" = "什麼是iksm_session？";
 "Failure to renew" = "續期失敗";
