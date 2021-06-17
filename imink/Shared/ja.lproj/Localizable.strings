@@ -102,7 +102,7 @@
 "Valid" = "有効";
 "Expired" = "期限切れ";
 "Renewing…" = "更新中…";
-"Renew Manually" = "Renew Manually";
+"Renew Manually" = "手動で更新する";
 "Manual Renew_desc" = "リクエストは現在ユーザー全体で1分間に4回までとなっております。エラーの際はお手数ですが数分待ってから再度お試し下さい。";
 "What is an iksm_session?" = "iksm_sessionについて";
 "Failure to renew" = "更新失敗";
