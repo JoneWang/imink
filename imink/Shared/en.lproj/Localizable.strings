@@ -102,7 +102,7 @@
 "Valid" = "Valid";
 "Expired" = "Expired";
 "Renewing…" = "Renewing…";
-"Manual Renew" = "Manual Renew";
+"Renew Manually" = "Renew Manually";
 "Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
 "What is an iksm_session?" = "What is an iksm_session?";
 "Failure to renew" = "Renewal Failed";
