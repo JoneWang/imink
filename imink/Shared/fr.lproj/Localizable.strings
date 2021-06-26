@@ -35,7 +35,7 @@
 
 "iksm_session is expired" = "iksm_session a expiré";
 "iksm_session is expired_desc" = "Vous ne pourrez pas synchroniser les batailles avant le renouvellement de la session iksm_session.";
-"Renew in Settings" = "Renew in Settings";
+"Renew in Settings" = "Renouveler dans les paramètres";
 
 "Today" = "Aujourd'hui";
 "reset" = "remise à zéro";
