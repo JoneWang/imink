@@ -33,8 +33,8 @@
 
 // MARK: Home
 
-"iksm_session is expired" = "iksm_session is expired";
-"iksm_session is expired_desc" = "You won’t be able to sync battles before the iksm_session is renewed.";
+"iksm_session is expired" = "iksm_session a expiré";
+"iksm_session is expired_desc" = "Vous ne pourrez pas synchroniser les batailles avant le renouvellement de la session iksm_session.";
 "Renew in Settings" = "Renew in Settings";
 
 "Today" = "Aujourd'hui";
