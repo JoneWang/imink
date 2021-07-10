@@ -36,25 +36,16 @@ struct SettingPage: View {
                                 .padding(.top, 16)
                                 .padding(.bottom, 3)
                         },
-                        footer: SectionFooter {
-                            VStack(alignment: .leading, spacing: 8) {
-                                if !iksmSessionViewModel.iksmSessionIsValid {
-                                    Text("Manual Renew_desc")
-                                        .font(.system(size: 13))
-                                }
-                                
-                                Button(action: {
-                                    showWhatsIksmSessionView = true
-                                }) {
-                                    Text("What is an iksm_session?")
-                                        .font(.system(size: 13))
-                                        .foregroundColor(.accentColor)
-                                }
-                                .sheet(isPresented: $showWhatsIksmSessionView) {
-                                    WhatsIksmSessionView(isShowing: $showWhatsIksmSessionView)
-                                }
-                            }
-                        }
+                        footer: iksmSessionViewModel.iksmSessionIsValid ?
+                            AnyView(EmptyView()) :
+                            AnyView(SectionFooter {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    if !iksmSessionViewModel.iksmSessionIsValid {
+                                        Text("Manual Renew_desc")
+                                            .font(.system(size: 13))
+                                        }
+                                    }
+                            })
                     ) {
                         HStack {
                             Text("iksm_session")
@@ -131,10 +122,6 @@ struct SettingPage: View {
                     Section(
                         header: SectionHeader {
                             Text("USER DATA")
-                        },
-                        footer: SectionFooter {
-                            Text("USER DATA_desc")
-                                .font(.system(size: 13))
                         }
                     ) {
                         Button(action: {
