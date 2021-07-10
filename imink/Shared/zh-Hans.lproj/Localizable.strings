@@ -104,14 +104,12 @@
 "Renewing…" = "续期中…";
 "Renew Manually" = "手动续期";
 "Manual Renew_desc" = "续期API在全球范围内带有每分钟4次的请求次数限制。如遇续期失败，请等待1–2分钟后再次尝试。";
-"What is an iksm_session?" = "什么是iksm_session？";
 "Failure to renew" = "续期失败";
 "Failure to renew_desc" = "请等待1–2分钟后再试。";
 "GENERAL" = "通用";
 "Language" = "语言";
 "Reload Widgets" = "重新载入小组件";
 "USER DATA" = "用户数据";
-"USER DATA_desc" = "imink导出SplatNet 2返回的原始数据，使用易于阅读和解析的JSON格式，可自由解压分析。";
 "Import" = "导入数据";
 "Import Data" = "导入数据";
 "Import Data_desc" = "您可以从其他app中分享，或直接选择文件。";
@@ -126,7 +124,7 @@
 "Credits" = "制作人员";
 "Version" = "版本";
 "Source Code" = "源代码";
-"ABOUT_desc" = "imink是使用SplatNet 2数据的非官方app，与任天堂株式会社无隶属关系。";
+"ABOUT_desc" = "This app is an unofficial companion app, and is not affiliated or associated with Nintendo. All trademarks are property of their respective owners.";
 "Log out" = "退出登录";
 "Are you sure you want to log out?" = "确定要退出登录吗？";
 
@@ -211,11 +209,3 @@
 "Contribute to localization…" = "贡献本地化翻译…";
 "ACKNOWLEDGEMENTS" = "致谢";
 "aknowledgements_desc" = "感谢以上作者提供用于账号登录的必要API，及韩文定制字体。";
-
-// MARK: What's iksm_session
-
-"Learn more about iksm_session" = "进一步了解iksm_session";
-"whats_iksm_session_desc_1" = "iksm_session由任天堂服务器生成，是imink与Nintendo Switch Online之间同步战绩数据的唯一凭证";
-"whats_iksm_session_desc_2" = "如果您超过24小时未打开imink，iksm_session将会自动过期失效";
-"whats_iksm_session_desc_3" = "检测到iksm_session过期失效后，imink将会自动尝试续期";
-"whats_iksm_session_desc_4" = "由于API请求限制或不稳定的网络环境，自动续期有可能失败。在这种情况下，您可以前往设置手动续期";
