@@ -104,14 +104,12 @@
 "Renewing…" = "갱신 중...";
 "Renew Manually" = "수동 갱신";
 "Manual Renew_desc" = "요청은 전체적으로 분당 4번으로 제한됩니다. 오류가 발생하면 1~2분 기다린 후 다시 시도하십시오.";
-"What is an iksm_session?" = "iksm_session이란?";
 "Failure to renew" = "갱신 실패";
 "Failure to renew_desc" = "1~2분 기다린 후 다시 시도하십시오.";
 "GENERAL" = "일반";
 "Language" = "언어";
 "Reload Widgets" = "위젯 새로고침";
 "USER DATA" = "유저 데이터";
-"USER DATA_desc" = "imink는 SplatNet 2에서 반환된 기존 사용자 데이터를 JSON 형식으로 내보냅니다.";
 "Import" = "가져오기";
 "Import Data" = "데이터 가져오기";
 "Import Data_desc" = "다른 앱에서 공유하거나 파일 앱에서 선택할 수 있습니다.";
@@ -126,7 +124,7 @@
 "Credits" = "제작진";
 "Version" = "버전";
 "Source Code" = "소스 코드";
-"ABOUT_desc" = "imink는 SplatNet 2의 정보를 사용하는 비공식 앱으로 닌텐도와 제휴하지 않았습니다.";
+"ABOUT_desc" = "이 앱은 닌텐도주식회사와 일절 관계가 없습니다. 이 앱 내에서 사용된 아이콘, 로고 마크에 관한 권리는 닌텐도주식회사가 보유하고 있습니다.";
 "Log out" = "로그아웃";
 "Are you sure you want to log out?" = "로그아웃 하시겠습니까?";
 
@@ -211,11 +209,3 @@
 "Contribute to localization…" = "현지화 기여";
 "ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
 "aknowledgements_desc" = "계정 로그인을 위해 필요한 알고리즘 API와 한글 맞춤 글꼴을 제공해 주셔서 감사합니다.";
-
-// MARK: What's iksm_session
-
-"Learn more about iksm_session" = "iksm_session에 대해 자세히 알아보기";
-"whats_iksm_session_desc_1" = "iksm_session은 닌텐도 서버에서 생성된 유일한 자격 증명으로, imink가 닌텐도 스위치 온라인과 데이터를 동기화할 수 있도록 합니다.";
-"whats_iksm_session_desc_2" = "imink를 24시간 이상 열지 않으면 자동으로 만료됩니다.";
-"whats_iksm_session_desc_3" = "iksm_session이 만료된 것을 imink가 감지하면 자동 갱신이 일어납니다.";
-"whats_iksm_session_desc_4" = "API 제한 및 불안정한 네트워크 조건으로 인해 갱신에 실패할 수 있습니다. 이러한 경우 설정에서 수동으로 갱신할 수 있습니다.";
