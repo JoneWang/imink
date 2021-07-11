@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
-          "version": "5.4.1"
+          "revision": "f96b619bcb2383b43d898402283924b80e2c4bae",
+          "version": "5.4.3"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
           "branch": null,
-          "revision": "0e091124a26d9ce13f31e88aac94818b059a98e5",
-          "version": "5.7.2"
+          "revision": "af13c91744ad8607c94ffbca3b0f98fa00692417",
+          "version": "5.8.0"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/shibapm/Rocket",
         "state": {
           "branch": null,
-          "revision": "25613f7ffd16105c74417c1b4eb4c93fd04e2cdf",
-          "version": "1.1.0"
+          "revision": "51a77ce5fa66c42715c14dcc542c01cd7a60fb27",
+          "version": "1.2.0"
         }
       },
       {
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {
           "branch": null,
-          "revision": "d1c75d839709b3f91c82ecf7d3c7665272090456",
-          "version": "5.11.0"
+          "revision": "76dd4b49110b8624317fc128e7fa0d8a252018bc",
+          "version": "5.11.1"
         }
       },
       {
@@ -132,8 +132,8 @@
         "repositoryURL": "https://github.com/ivanvorobei/SPAlert.git",
         "state": {
           "branch": null,
-          "revision": "e173d6a0a0ed43f869cb66f25183f1dd689cb046",
-          "version": "3.1.0"
+          "revision": "78123b9be5baec601e510e860b29c44caff4436d",
+          "version": "3.2.3"
         }
       },
       {
@@ -159,8 +159,8 @@
         "repositoryURL": "https://github.com/jpsim/Yams",
         "state": {
           "branch": null,
-          "revision": "c947a306d2e80ecb2c0859047b35c73b8e1ca27f",
-          "version": "2.0.0"
+          "revision": "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",
+          "version": "4.0.6"
         }
       },
       {
