@@ -55,22 +55,21 @@ struct SalmonRunScheduleView: View {
                                 .sp2Font(color: AppColor.appLabelColor)
                                 .padding(.bottom)
                             
+                            // FIXME: Layout bug
+                            Spacer()
+                            Spacer()
                             Spacer()
                             
-                            VStack {
-                                Spacer()
-                                
-                                HStack(alignment: .center) {
-                                    ForEach(weapons, id: \.id) { weapon in
-                                        ImageView.weapon(id: weapon.id)
-                                            .aspectRatio(1, contentMode: .fit)
-                                            .frame(width: 35, height: 35)
-                                    }
+                            HStack(alignment: .center) {
+                                ForEach(weapons, id: \.id) { weapon in
+                                    ImageView.weapon(id: weapon.id)
+                                        .aspectRatio(1, contentMode: .fit)
+                                        .frame(width: 35, height: 35)
                                 }
-                                
-                                Spacer()
                             }
                             
+                            Spacer()
+                            Spacer()
                             Spacer()
                         }
                     }
