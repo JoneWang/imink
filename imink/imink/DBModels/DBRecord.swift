@@ -149,7 +149,7 @@ extension DBRecord {
         let leaguePoint = battle["league_point"] as? Double
         let estimateGachiPower = battle["estimate_gachi_power"] as? Int
         let isX = udemae?["is_x"] as? Bool
-        let xPower = battle["xPower"] as? Double
+        let xPower = battle["x_power"] as? Double
         
         return DBRecord(
             sp2PrincipalId: sp2PrincipalId,
