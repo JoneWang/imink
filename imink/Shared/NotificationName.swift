@@ -9,7 +9,7 @@ import Foundation
 
 extension Notification.Name {
     
-    static let showLoginView = NSNotification.Name("ShowLoginViewNSNotification")
+    static let loginedSuccessed = NSNotification.Name("loginedSuccessed")
     
     static let logout = NSNotification.Name("logout")
         

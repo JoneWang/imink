@@ -15,18 +15,17 @@ struct LoginViewModifier: ViewModifier {
     var backgroundColor: Color? = nil
     
     func body(content: Content) -> some View {
-        content
-            .grayscale(isLogined ? 0 : 0.9999)
-            .overlay(
-                isLogined ?
-                    AnyView(EmptyView()) :
-                    AnyView(
-                        LoginView(
-                            iconName: iconName,
-                            backgroundColor: backgroundColor
-                        )
-                    )
-            )
+        ZStack {
+            content
+                .grayscale(isLogined ? 0 : 0.9999)
+
+            if !isLogined {
+                LoginView(
+                    iconName: iconName,
+                    backgroundColor: backgroundColor
+                )
+            }
+        }
     }
 }
 
@@ -34,6 +33,8 @@ struct LoginView: View {
     
     var iconName: String? = nil
     var backgroundColor: Color? = nil
+    
+    @State private var showLoginView = false
     
     var body: some View {
         VStack {
@@ -59,10 +60,10 @@ struct LoginView: View {
             .background(Color.accentColor)
             .continuousCornerRadius(8)
             .onTapGesture {
-                NotificationCenter.default.post(
-                    name: .showLoginView,
-                    object: nil
-                )
+                showLoginView = true
+            }
+            .sheet(isPresented: $showLoginView) {
+                NintendoAccountLoginView()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

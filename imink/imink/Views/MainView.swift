@@ -13,8 +13,6 @@ struct MainView: View {
     @StateObject private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
     @StateObject private var synchronizeJobViewModel = SynchronizeJobViewModel()
     
-    @State private var showLoginView = false
-    
     var body: some View {
         TabView {
             HomePage()
@@ -52,23 +50,16 @@ struct MainView: View {
             synchronizeBattleViewModel.isLogined = isLogined
             synchronizeJobViewModel.isLogined = isLogined
         }
-        .onReceive(NotificationCenter.default.publisher(for: .showLoginView)) { _ in
-            showLoginView = true
+        .onReceive(NotificationCenter.default.publisher(for: .loginedSuccessed)) { _ in
+            mainViewModel.isLogined = true
+            synchronizeBattleViewModel.isLogined = true 
+            synchronizeJobViewModel.isLogined = true
         }
         .onReceive(NotificationCenter.default.publisher(for: .logout)) { _ in
             // Logout
             synchronizeBattleViewModel.isLogined = false
             synchronizeJobViewModel.isLogined = false
             mainViewModel.isLogined = false
-        }
-        .sheet(isPresented: $showLoginView) {
-            NintendoAccountLoginView() {
-                mainViewModel.isLogined = true
-                synchronizeBattleViewModel.isLogined = true
-                synchronizeJobViewModel.isLogined = true
-                
-                showLoginView = false
-            }
         }
         .alert(isPresented: $mainViewModel.showTokenErrorAlert) {
             Alert(

@@ -15,12 +15,10 @@ struct NintendoAccountLoginView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UINavigationController
     
     let viewModel = LoginViewModel()
-    let success: () -> Void
         
     func makeUIViewController(context: Context) -> UINavigationController {
         let vc = NintendoAccountLoginViewController()
         vc.viewModel = viewModel
-        vc.success = success
         return UINavigationController(rootViewController: vc)
     }
     
@@ -32,7 +30,6 @@ struct NintendoAccountLoginView: UIViewControllerRepresentable {
 class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
     
     var viewModel: LoginViewModel!
-    var success: (() -> Void)!
     
     private var cancelBag = Set<AnyCancellable>()
     private var webView: WKWebView!
@@ -101,7 +98,7 @@ class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
         viewModel.$status
             .sink { [weak self] status in
                 if status == .loginSuccess {
-                    self?.success()
+                    NotificationCenter.default.post(name: .loginedSuccessed, object: nil)
                     self?.dismiss(animated: true)
                 }
                 
