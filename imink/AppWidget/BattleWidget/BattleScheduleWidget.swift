@@ -46,7 +46,7 @@ struct BattleScheduleWidget: Widget {
             BattleScheduleWidgetEntryView(entry: entry, gameMode: gameMode)
         }
         .supportedFamilies([.systemMedium, .systemLarge])
-        .configurationDisplayName(displayName)
+        .configurationDisplayName(Text(displayName, tableName: splatNet2L10nTable))
         .description(description)
     }
 }
