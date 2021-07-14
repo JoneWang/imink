@@ -303,3 +303,31 @@ extension BattleScheduleWidgetGameMode {
     }
     
 }
+
+import SplatNet2API
+
+struct BattleScheduleLargeWidgetEntryView_Previews: PreviewProvider {
+    static let widgetFamily = WidgetFamily.systemLarge
+    static let gameMode = BattleScheduleWidgetGameMode.gachi
+    
+    static var previews: some View {
+        ForEach(WidgetSize.allCases, id: \.self) { size in
+            BattleScheduleWidgetEntryView(entry: genEntry(with: size), gameMode: gameMode)
+                .previewContext(WidgetPreviewContext(family: widgetFamily))
+                .previewDevice(PreviewDevice(stringLiteral: size.deviceName))
+                .previewDisplayName("\(size.cgSize(with: widgetFamily).width) \(size.deviceName)")
+        }
+    }
+    
+    static func genEntry(with size: WidgetSize) -> BattleScheduleProvider.Entry {
+        let sampleData = SplatNet2API.schedules.sampleData
+        let json = String(data: sampleData, encoding: .utf8)!
+        let schedules = json.decode(Schedules.self)!
+        let entry = BattleScheduleProvider.Entry(
+            date: Date(),
+            schedules: schedules.gachi,
+            size: size,
+            family: widgetFamily)
+        return entry
+    }
+}
