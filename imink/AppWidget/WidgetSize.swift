@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-enum WidgetSize: Int {
+enum WidgetSize: Int, CaseIterable {
     case size364 // iPhone 12 Pro Max
     case size360 // iPhone 11 Pro Max
     case size348 // iPhone 8 Plus
@@ -82,4 +82,25 @@ extension WidgetSize {
         }
     }
     
+}
+
+extension WidgetSize {
+    var deviceName: String {
+        switch self {
+        case .size364:
+            return "iPhone 12 Pro Max"
+        case .size360:
+            return "iPhone 11 Pro Max"
+        case .size348:
+            return "iPhone 8 Plus"
+        case .size338:
+            return "iPhone 12 Pro"
+        case .size329:
+            return "iPhone 11 Pro"
+        case .size322:
+            return "iPhone 8"
+        case .size291:
+            return "iPhone SE (2nd generation)"
+        }
+    }
 }

@@ -68,7 +68,8 @@ extension GrayscaleTextureView {
 
 struct WidgetBackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: .systemMedium, widgetSize: .size322)
-        .previewContext(WidgetPreviewContext(family: .systemMedium))
+        WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: .systemMedium, widgetSize: .size364)
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
+            .previewDevice("iPhone 12 Pro Max")
     }
 }

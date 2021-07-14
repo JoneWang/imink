@@ -361,3 +361,30 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
     }
     
 }
+
+import SplatNet2API
+
+struct SalmonRunScheduleLargeWidgetEntryView_Previews: PreviewProvider {
+    static let widgetFamily = WidgetFamily.systemLarge
+    
+    static var previews: some View {
+        ForEach(WidgetSize.allCases, id: \.self) { size in
+            SalmonRunScheduleWidgetEntryView(entry: genEntry(with: size))
+                .previewContext(WidgetPreviewContext(family: widgetFamily))
+                .previewDevice(PreviewDevice(stringLiteral: size.deviceName))
+                .previewDisplayName("\(size.cgSize(with: widgetFamily).width) \(size.deviceName)")
+        }
+    }
+    
+    static func genEntry(with size: WidgetSize) -> SalmonRunScheduleProvider.Entry {
+        let sampleData = SplatNet2API.salmonRunSchedules.sampleData
+        let json = String(data: sampleData, encoding: .utf8)!
+        let salmonRunSchedules = json.decode(SalmonRunSchedules.self)!
+        let entry = SalmonRunScheduleProvider.Entry(
+            date: Date(),
+            schedules: salmonRunSchedules.details + salmonRunSchedules.schedules,
+            size: size,
+            family: widgetFamily)
+        return entry
+    }
+}
