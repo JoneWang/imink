@@ -199,3 +199,56 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     }
     
 }
+
+import SplatNet2API
+
+struct SalmonRunScheduleMediumWidgetEntryView_Previews: PreviewProvider {
+    static var previews: some View {
+        SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size364))
+            .previewContext(Previewcontext())
+            .previewDevice("iPhone 12 Pro Max")
+            .previewDisplayName("Width 364 iPhone 12 Pro Max")
+        
+        SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size360))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice("iPhone 11 Pro Max")
+            .previewDisplayName("Width 360 iPhone 11 Pro Max")
+
+        SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size348))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice("iPhone 8 Plus")
+            .previewDisplayName("Width 348 iPhone 8 Plus")
+
+        SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size338))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice("iPhone 12 Pro")
+            .previewDisplayName("Width 338 iPhone 12 Pro")
+
+        SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size329))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice("iPhone 11 Pro")
+            .previewDisplayName("Width 329 iPhone 12 Pro")
+
+        SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size322))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice("iPhone 8")
+            .previewDisplayName("Width 322 iPhone 8")
+
+        SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size291))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice("iPhone SE (2nd generation)")
+            .previewDisplayName("Width 291 iPhone SE (2nd generation)")
+    }
+    
+    static func genEntry(with size: WidgetSize) -> SalmonRunScheduleProvider.Entry {
+        let sampleData = SplatNet2API.salmonRunSchedules.sampleData
+        let json = String(data: sampleData, encoding: .utf8)!
+        let salmonRunSchedules = json.decode(SalmonRunSchedules.self)!
+        let entry = SalmonRunScheduleProvider.Entry(
+            date: Date(),
+            schedules: salmonRunSchedules.details,
+            size: size,
+            family: .systemMedium)
+        return entry
+    }
+}
