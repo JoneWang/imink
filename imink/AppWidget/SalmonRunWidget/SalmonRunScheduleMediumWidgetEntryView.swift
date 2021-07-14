@@ -205,7 +205,7 @@ import SplatNet2API
 struct SalmonRunScheduleMediumWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
         SalmonRunScheduleMediumWidgetEntryView(entry: genEntry(with: .size364))
-            .previewContext(Previewcontext())
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDevice("iPhone 12 Pro Max")
             .previewDisplayName("Width 364 iPhone 12 Pro Max")
         
