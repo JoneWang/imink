@@ -19,15 +19,14 @@ struct WidgetBackgroundView: View {
     let texture: GrayscaleTextureView
     
     let widgetFamily: WidgetFamily
-    let widgetSize: WidgetSize
+    let widgetSize: CGSize
 
     var body: some View {
-        let size = widgetSize.cgSize(with: widgetFamily)
         Rectangle()
             .overlay(
                 texture
-                    .frame(width: widgetBaseSize.width, height: size.height * (widgetBaseSize.width / size.width))
-                    .scaleEffect(size.width / widgetBaseSize.width, anchor: .top),
+                    .frame(width: widgetBaseSize.width, height: widgetSize.height * (widgetBaseSize.width / widgetSize.width))
+                    .scaleEffect(widgetSize.width / widgetBaseSize.width, anchor: .top),
                 alignment: .top
             )
     }
@@ -68,7 +67,7 @@ extension GrayscaleTextureView {
 
 struct WidgetBackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: .systemMedium, widgetSize: .size364)
+        WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: .systemMedium, widgetSize: WidgetSize.size364.cgSize(with: .systemLarge))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .previewDevice("iPhone 12 Pro Max")
     }
