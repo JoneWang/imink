@@ -48,6 +48,8 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                 let stageHeight = (((geo.size.width - 42) / 2) * 0.1985).rounded()
                 let stageNameFontSize: CGFloat = geo.size.width <= 306 ? 11 : 12
                 
+                let makeLineOffset: CGFloat = geo.size.height <= 306 ? -2 : 0
+                
                 let futureTimeFontSize: CGFloat = geo.size.width <= 322 ? 11 : 12
                 let futureInHoursFontSize: CGFloat = geo.size.width <= 322 ? 13 : 14
                 let futureSpacingAndPadding: CGFloat = geo.size.width <= 306 ? 9 : geo.size.width >= 360 ? 11 : 10
@@ -82,7 +84,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                     Spacer()
                         .foregroundColor(Color.blue)
                     
-                    makeLine().padding(.top, 3).padding(.bottom, 1)
+                    makeLine().padding(.top, 3 + makeLineOffset).padding(.bottom, 1 + makeLineOffset)
                     
                     Spacer()
                     
@@ -90,7 +92,7 @@ struct SalmonRunScheduleLargeWidgetEntryView : View {
                     
                     Spacer()
                     
-                    makeLine().padding(.top, 3).padding(.bottom, 1)
+                    makeLine().padding(.top, 3 + makeLineOffset).padding(.bottom, 1 + makeLineOffset)
                     
                     Spacer()
                                         
