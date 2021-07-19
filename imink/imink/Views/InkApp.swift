@@ -39,6 +39,7 @@ struct InkApp: App {
                 .sheet(isPresented: $showUpdatePage) {
                     UpdatePage(isPresented: $showUpdatePage)
                 }
+                .overlay(NotchBranding(), alignment: .top)
             }
             .onOpenURL { url in
                 DataBackup.import(url: url)
