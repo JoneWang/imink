@@ -45,7 +45,7 @@ struct NotchBranding: View {
                     .publisher(for: UIScene.didActivateNotification)) { _ in
             if isAllScreen {
                 delayedDisplayInProgress = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     isShow = delayedDisplayInProgress
                 }
             }
