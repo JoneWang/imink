@@ -160,6 +160,7 @@
 		ECA9B400266BCE8400EE63FC /* NintendoAccountLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9B3FF266BCE8400EE63FC /* NintendoAccountLoginView.swift */; };
 		ECA9B402266BCE8C00EE63FC /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9B401266BCE8C00EE63FC /* SettingPage.swift */; };
 		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
+		ECB5CAFD26A6C2AE00B921C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB5CAFC26A6C2AE00B921C7 /* AppDelegate.swift */; };
 		ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */; };
 		ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */; };
 		ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */; };
@@ -360,6 +361,7 @@
 		ECA9B3FF266BCE8400EE63FC /* NintendoAccountLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NintendoAccountLoginView.swift; sourceTree = "<group>"; };
 		ECA9B401266BCE8C00EE63FC /* SettingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECB5CAFC26A6C2AE00B921C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeJobViewModel.swift; sourceTree = "<group>"; };
 		ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeBattleViewModel.swift; sourceTree = "<group>"; };
 		ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizeViewModel.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				EC2C34A925984CAB0007BA4D /* Battle */,
 				EC4C03C02670720E00AA7ECE /* Setting */,
 				EC00DBFF251CD8770010366A /* Views */,
+				ECB5CAFC26A6C2AE00B921C7 /* AppDelegate.swift */,
 				ECA9B3ED2669B8B500EE63FC /* InkApp.swift */,
 				ECA9B3F12669BD3E00EE63FC /* MainView.swift */,
 				EC5362522525DDDF0037BD12 /* HomePage.swift */,
@@ -1084,6 +1087,7 @@
 				EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */,
 				EC9C243D26A5A85E003B9D9F /* NotchBranding.swift in Sources */,
 				ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */,
+				ECB5CAFD26A6C2AE00B921C7 /* AppDelegate.swift in Sources */,
 				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,
 				EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,

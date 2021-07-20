@@ -10,6 +10,7 @@ import SwiftUI
 struct NotchBranding: View {
     
     @State var isShow = true
+    @State var delayedDisplayInProgress = false
     
     var isAllScreen: Bool {
         UIApplication.shared.windows.first!.safeAreaInsets.top > 20
@@ -27,7 +28,6 @@ struct NotchBranding: View {
                     .continuousCornerRadius(10)
                     .padding(.top, 12)
                     .edgesIgnoringSafeArea(.top)
-                    .animation(.none)
             }
         }
         .onAppear {
@@ -37,12 +37,16 @@ struct NotchBranding: View {
                     .default
                     .publisher(for: UIScene.willDeactivateNotification)) { _ in
             isShow = false
+            delayedDisplayInProgress = false
         }
         .onReceive(NotificationCenter
                     .default
-                    .publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                    .publisher(for: UIScene.didActivateNotification)) { _ in
             if isAllScreen {
-                isShow = true
+                delayedDisplayInProgress = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    isShow = delayedDisplayInProgress
+                }
             }
         }
     }
