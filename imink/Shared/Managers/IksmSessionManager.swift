@@ -28,6 +28,12 @@ class IksmSessionManager {
         }
     }
     
+    var value: String? {
+        let sessionCookie = HTTPCookieStorage.appGroup.cookies?
+            .first(where: { $0.name == "iksm_session" })
+        return sessionCookie?.value
+    }
+    
     var isValid: Bool {
         IksmSessionManager.isValid
     }

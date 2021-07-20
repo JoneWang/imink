@@ -63,6 +63,12 @@ struct SettingPage: View {
                                     .foregroundColor(.red)
                             }
                         }
+                        .onTapGesture {
+                            #if DEBUG
+                            UIPasteboard.general.string = IksmSessionManager.shared.value
+                            SPAlert.present(title: "Copied", preset: .done)
+                            #endif
+                        }
                         
                         if !iksmSessionViewModel.iksmSessionIsValid {
                             if iksmSessionViewModel.isRenewing {
