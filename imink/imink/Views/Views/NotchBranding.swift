@@ -28,6 +28,7 @@ struct NotchBranding: View {
                     .continuousCornerRadius(10)
                     .padding(.top, 12)
                     .edgesIgnoringSafeArea(.top)
+                    .transition(.fade(duration: 0.1))
             }
         }
         .onAppear {
