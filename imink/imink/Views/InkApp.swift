@@ -22,24 +22,24 @@ struct InkApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-            MainView()
-                .onAppear {
-                    if AppUserDefaults.shared.firstLaunch {
-                        showOnboarding = true
-                        AppUserDefaults.shared.firstLaunch = false
-                        AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 = false
-                    } else if AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 {
-                        showUpdatePage = true
-                        AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 = false
+                MainView()
+                    .onAppear {
+                        if AppUserDefaults.shared.firstLaunch {
+                            showOnboarding = true
+                            AppUserDefaults.shared.firstLaunch = false
+                            AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 = false
+                        } else if AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 {
+                            showUpdatePage = true
+                            AppUserDefaults.shared.firstLaunchAfterUpdating1_1_0 = false
+                        }
                     }
-                }
-                .sheet(isPresented: $showOnboarding) {
-                    OnboardingPage(isPresented: $showOnboarding)
-                }
-                .sheet(isPresented: $showUpdatePage) {
-                    UpdatePage(isPresented: $showUpdatePage)
-                }
-                .overlay(NotchBranding(), alignment: .top)
+                    .sheet(isPresented: $showOnboarding) {
+                        OnboardingPage(isPresented: $showOnboarding)
+                    }
+                    .sheet(isPresented: $showUpdatePage) {
+                        UpdatePage(isPresented: $showUpdatePage)
+                    }
+                    .overlay(NotchBranding(), alignment: .top)
             }
             .onOpenURL { url in
                 DataBackup.import(url: url)

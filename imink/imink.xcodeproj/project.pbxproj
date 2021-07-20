@@ -144,6 +144,7 @@
 		EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */; };
 		EC9A90492527851C00390573 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A90482527851C00390573 /* ScheduleView.swift */; };
+		EC9C243D26A5A85E003B9D9F /* NotchBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C243C26A5A85E003B9D9F /* NotchBranding.swift */; };
 		EC9D0A5925A1761900E8FF89 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5825A1761900E8FF89 /* SDWebImage */; };
 		EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */; };
 		EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */; };
@@ -348,6 +349,7 @@
 		EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC98424C253C25130079D739 /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		EC9C243C26A5A85E003B9D9F /* NotchBranding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotchBranding.swift; sourceTree = "<group>"; };
 		EC9D0A6825A18E2300E8FF89 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		ECA9B3E626686D5800EE63FC /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 		EC00DBFF251CD8770010366A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC9C243C26A5A85E003B9D9F /* NotchBranding.swift */,
 				EC9A90482527851C00390573 /* ScheduleView.swift */,
 				ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */,
 				EC4DF4F5252EF1510020B234 /* VDGridView.swift */,
@@ -1079,6 +1082,7 @@
 				EC902D192663F3AE0014093C /* UIViewController+Extension.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
 				EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */,
+				EC9C243D26A5A85E003B9D9F /* NotchBranding.swift in Sources */,
 				ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */,
 				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,
 				EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */,
