@@ -11,10 +11,10 @@ struct LoginFAQPage: View {
     @State var showingMailView = false
     
     let contents = [
-        ("为什么账号密码输入页面提示「要求的内容有误」？", "登录页面是任天堂的官方网页，其网页验证机制与 imink 无关。提示「要求的内容有误」时，与无法触发 Google 人机验证有关。请尝试更换质量更佳的国际网络连接。"),
-        ("为什么我尝试登录时登录按键呈现灰色的不可点击状态？", "登录页面是任天堂的官方网页，其网页验证机制与 imink 无关。登录键置灰可能与网络条件不佳，无法触发 Google 人机验证有关。请尝试更换质量更佳的国际网络连接。"),
+        ("为什么账号密码输入页面提示「要求的内容有误」？", "登录页面是任天堂的官方网页，其网页验证机制与imink无关。提示「要求的内容有误」可能与网络条件不佳，无法触发Google人机验证有关。请尝试更换质量更佳的国际网络连接。"),
+        ("为什么我尝试登录时登录按键呈现灰色的不可点击状态？", "登录页面是任天堂的官方网页，其网页验证机制与imink无关。登录键置灰可能与网络条件不佳，无法触发Google人机验证有关。请尝试更换质量更佳的国际网络连接。"),
         ("为什么点击登录后长时间停留在转圈加载页面？", "此情况属于正常现象。请耐心等待，完成授权登录需要一定的时间。"),
-        ("为什么登录时出现弹窗提示「登录验证服务器拥挤，请稍后重试。」？ ", "登录过程中，imink 需要与任天堂服务器和验证服务器多次交换数据，请等待1~2分钟或更换网络环境并再次尝试登录。我们会持续优化登录体验。对于带给您的不便，我们深感抱歉。")
+        ("为什么登录时出现弹窗提示「登录验证服务器拥挤，请稍后重试。」？ ", "登录过程中imink需要与任天堂服务器和验证服务器多次交换数据，请等待1–2分钟或更换网络环境并再次尝试登录。我们会持续优化登录体验。对于带给您的不便，我们深感抱歉。")
     ]
     
     var body: some View {
@@ -34,12 +34,12 @@ struct LoginFAQPage: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 14) {
-                        Text("使用 imink 时我的账号安全吗？")
+                        Text("使用imink时我的账号安全吗？")
                             .font(.body)
                             .fontWeight(.bold)
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("登录页面是任天堂的官方网页，imink 本质上是模拟 NSO 的登录流程，并且全程采用 HTTPS 传输您的数据。")
+                            Text("登录页面是任天堂的官方网页，imink本质上是模拟 Nintendo Switch Online的登录流程，并且全程采用HTTPS传输您的数据。")
                                 .font(.subheadline)
                                 .foregroundColor(.secondaryLabel)
                             
@@ -65,6 +65,7 @@ struct LoginFAQPage: View {
                                 VStack(spacing: 4) {
                                     Text("微博")
                                         .font(.subheadline)
+                                        .fontWeight(.bold)
                                     
                                     Text("@imink_splatoon")
                                         .font(.caption)
@@ -82,6 +83,7 @@ struct LoginFAQPage: View {
                                     VStack(spacing: 4) {
                                         Text("邮件")
                                             .font(.subheadline)
+                                            .fontWeight(.bold)
                                         
                                         Text("imink@jone.wang")
                                             .font(.caption)
@@ -105,7 +107,7 @@ struct LoginFAQPage: View {
                 }
                 .padding(16)
             }
-            .navigationTitle("常见问题解答 FAQ")
+            .navigationTitle("常见登录问题FAQ")
         }
     }
 }

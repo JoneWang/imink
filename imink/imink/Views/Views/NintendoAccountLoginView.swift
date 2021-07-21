@@ -17,23 +17,21 @@ struct NintendoAccountLoginView: View {
     
     var body: some View {
         NavigationView {
-            NintendoAccountLoginWebView()
-                .overlay(
-                    Group{
-                        if isSimplifiedChinese {
-                            LoginFAQButton()
-                                .padding(.top, 5)
-                                .onTapGesture {
-                                    loginFAQPresented = true
-                                }
-                                .sheet(isPresented: $loginFAQPresented) {
-                                    LoginFAQPage()
-                                }
+            VStack(spacing: 0) {
+                if isSimplifiedChinese {
+                    LoginFAQButton()
+                        .onTapGesture {
+                            loginFAQPresented = true
                         }
-                    }
-                    , alignment: .top
-                )
+                        .sheet(isPresented: $loginFAQPresented) {
+                            LoginFAQPage()
+                        }
+                        .preferredColorScheme(.light)
+                }
+                NintendoAccountLoginWebView()
                 .navigationBarTitle("Nintendo Account", displayMode: .inline)
+            }
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
