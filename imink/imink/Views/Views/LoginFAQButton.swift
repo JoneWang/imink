@@ -12,11 +12,6 @@ struct LoginFAQButton: View {
         HStack(spacing: 4) {
             Spacer()
             
-//            Image(systemName: "exclamationmark.circle")
-//                .font(.system(size: 14))
-//                .foregroundColor(Color("AppLabelColor"))
-            
-            
             Image("Ika_d")
                 .resizable()
                 .foregroundColor(.systemGray2)
@@ -32,7 +27,6 @@ struct LoginFAQButton: View {
             
             Spacer()
         }
-        .foregroundColor(.black)
         .frame(height: 42)
         .background(Color.systemBackground)
     }

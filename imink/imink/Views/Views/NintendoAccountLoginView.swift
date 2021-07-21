@@ -15,6 +15,8 @@ struct NintendoAccountLoginView: View {
     
     @State var loginFAQPresented = false
     
+    @Environment(\.presentationMode) private var presentationMode
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -29,7 +31,10 @@ struct NintendoAccountLoginView: View {
                         .preferredColorScheme(.light)
                 }
                 NintendoAccountLoginWebView()
-                .navigationBarTitle("Nintendo Account", displayMode: .inline)
+                    .navigationBarItems(leading: Button("Cancel") {
+                        presentationMode.wrappedValue.dismiss()
+                    })
+                    .navigationBarTitle("Nintendo Account", displayMode: .inline)
             }
             
         }

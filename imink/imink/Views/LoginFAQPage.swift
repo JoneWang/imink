@@ -10,6 +10,8 @@ import SwiftUI
 struct LoginFAQPage: View {
     @State var showingMailView = false
     
+    @Environment(\.presentationMode) private var presentationMode
+    
     let contents = [
         ("为什么账号密码输入页面提示「要求的内容有误」？", "登录页面是任天堂的官方网页，其网页验证机制与imink无关。提示「要求的内容有误」可能与网络条件不佳，无法触发Google人机验证有关。请尝试更换质量更佳的国际网络连接。"),
         ("为什么我尝试登录时登录按键呈现灰色的不可点击状态？", "登录页面是任天堂的官方网页，其网页验证机制与imink无关。登录键置灰可能与网络条件不佳，无法触发Google人机验证有关。请尝试更换质量更佳的国际网络连接。"),
@@ -107,6 +109,9 @@ struct LoginFAQPage: View {
                 }
                 .padding(16)
             }
+            .navigationBarItems(trailing: Button("完成") {
+                presentationMode.wrappedValue.dismiss()
+            })
             .navigationTitle("常见登录问题FAQ")
         }
     }
