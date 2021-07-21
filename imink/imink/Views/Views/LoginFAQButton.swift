@@ -29,6 +29,7 @@ struct LoginFAQButton: View {
         }
         .frame(height: 42)
         .background(Color.systemBackground)
+        .colorScheme(.light)
     }
 }
 

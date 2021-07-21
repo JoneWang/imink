@@ -28,13 +28,16 @@ struct NintendoAccountLoginView: View {
                         .sheet(isPresented: $loginFAQPresented) {
                             LoginFAQPage()
                         }
-                        .preferredColorScheme(.light)
                 }
                 NintendoAccountLoginWebView()
-                    .navigationBarItems(leading: Button("Cancel") {
+                    .navigationBarItems(leading: Button(action: {
                         presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Cancel")
+                            .fontWeight(.regular)
                     })
                     .navigationBarTitle("Nintendo Account", displayMode: .inline)
+                    .edgesIgnoringSafeArea([.bottom])
             }
             
         }
@@ -72,6 +75,7 @@ class NintendoAccountLoginWebViewController: UIViewController, WKUIDelegate {
     lazy var loadingView: UIView = {
         let loadingView = UIView()
         loadingView.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.8)
+        loadingView.overrideUserInterfaceStyle = .light
         view.addSubview(loadingView)
         loadingView.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(view)
@@ -138,6 +142,11 @@ class NintendoAccountLoginWebViewController: UIViewController, WKUIDelegate {
                 }
                 
                 self?.loadingView.isHidden = status != .loading
+                if (status == .loading) {
+                    self?.webView.backgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.00)
+                } else {
+                    self?.webView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+                }
             }
             .store(in: &cancelBag)
         
@@ -188,13 +197,15 @@ class NintendoAccountLoginWebViewController: UIViewController, WKUIDelegate {
         config.applicationNameForUserAgent = "imink"
 
         webView = WKWebView(frame: view.bounds, configuration: config)
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
+        webView.isOpaque = false
         webView.allowsLinkPreview = false
         
         view.insertSubview(webView, belowSubview: loadingView)
         webView.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(view)
             make.top.equalTo(view)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(view)
         }
         
         webView.publisher(for: \.title)
