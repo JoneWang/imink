@@ -26,7 +26,6 @@ struct NotchBranding: View {
                     .padding(.init(top: 1, leading: 9, bottom: 1, trailing: 8))
                     .background(Color.systemGray5)
                     .continuousCornerRadius(10)
-                    .padding(.top, 12)
                     .edgesIgnoringSafeArea(.top)
                     .transition(.fade(duration: 0.1))
             }

@@ -33,6 +33,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
+            
+            configureNotchBranding()
+        }
+    }
+}
+
+// NotchBranding
+extension SceneDelegate {
+    func configureNotchBranding() {
+        guard let window = window else { return }
+        
+        // Add NotchBranding to window
+        let notchBranding = UIHostingController(rootView: NotchBranding())
+        notchBranding.view.backgroundColor = .clear
+        window.addSubview(notchBranding.view)
+        notchBranding.view.snp.makeConstraints {
+            $0.leading.trailing.equalTo(window)
+            $0.top.equalTo(12)
         }
     }
 }
