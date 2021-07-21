@@ -11,23 +11,55 @@ import WebKit
 import Combine
 import SnapKit
 
-struct NintendoAccountLoginView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = UINavigationController
+struct NintendoAccountLoginView: View {
+    
+    @State var loginFAQPresented = false
+    
+    var body: some View {
+        NavigationView {
+            NintendoAccountLoginWebView()
+                .overlay(
+                    Group{
+                        if isSimplifiedChinese {
+                            LoginFAQButton()
+                                .padding(.top, 5)
+                                .onTapGesture {
+                                    loginFAQPresented = true
+                                }
+                                .sheet(isPresented: $loginFAQPresented) {
+                                    LoginFAQPage()
+                                }
+                        }
+                    }
+                    , alignment: .top
+                )
+                .navigationBarTitle("Nintendo Account", displayMode: .inline)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    private var isSimplifiedChinese: Bool {
+        AppUserDefaults.shared.currentLanguage == "zh-Hans"
+    }
+}
+
+struct NintendoAccountLoginWebView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = NintendoAccountLoginWebViewController
     
     let viewModel = LoginViewModel()
         
-    func makeUIViewController(context: Context) -> UINavigationController {
-        let vc = NintendoAccountLoginViewController()
+    func makeUIViewController(context: Context) -> UIViewControllerType {
+        let vc = NintendoAccountLoginWebViewController()
         vc.viewModel = viewModel
-        return UINavigationController(rootViewController: vc)
+        return vc
     }
     
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
         
     }
 }
 
-class NintendoAccountLoginViewController: UIViewController, WKUIDelegate {
+class NintendoAccountLoginWebViewController: UIViewController, WKUIDelegate {
     
     var viewModel: LoginViewModel!
     
@@ -190,7 +222,7 @@ class LoginSchemeHandler: NSObject, WKURLSchemeHandler {
     
 }
 
-extension NintendoAccountLoginViewController {
+extension NintendoAccountLoginWebViewController {
     
     func authorizeInfo() -> (URL, String) {
         let codeVerifier = NSOHash.urandom(length: 32).base64EncodedString
@@ -207,5 +239,16 @@ extension NintendoAccountLoginViewController {
         }
         
         return (urlComponents.url!, codeVerifier)
+    }
+}
+
+struct NintendoAccountLoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        StatefulPreviewWrapper(true) { showLoginView in
+            Rectangle()
+                .sheet(isPresented: showLoginView) {
+                    NintendoAccountLoginView()
+                }
+        }
     }
 }

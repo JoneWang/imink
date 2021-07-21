@@ -161,6 +161,8 @@
 		ECA9B402266BCE8C00EE63FC /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9B401266BCE8C00EE63FC /* SettingPage.swift */; };
 		ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */; };
 		ECB5CAFD26A6C2AE00B921C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB5CAFC26A6C2AE00B921C7 /* AppDelegate.swift */; };
+		ECB5CAFF26A722FF00B921C7 /* LoginFAQPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB5CAFE26A722FF00B921C7 /* LoginFAQPage.swift */; };
+		ECB5CB0126A723A600B921C7 /* LoginFAQButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB5CB0026A723A600B921C7 /* LoginFAQButton.swift */; };
 		ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */; };
 		ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */; };
 		ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */; };
@@ -362,6 +364,8 @@
 		ECA9B401266BCE8C00EE63FC /* SettingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
 		ECAE8DCA2520B7E0003D7EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECB5CAFC26A6C2AE00B921C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECB5CAFE26A722FF00B921C7 /* LoginFAQPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFAQPage.swift; sourceTree = "<group>"; };
+		ECB5CB0026A723A600B921C7 /* LoginFAQButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFAQButton.swift; sourceTree = "<group>"; };
 		ECB959A625B8387E0006E942 /* SynchronizeJobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeJobViewModel.swift; sourceTree = "<group>"; };
 		ECB959A725B8387E0006E942 /* SynchronizeBattleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeBattleViewModel.swift; sourceTree = "<group>"; };
 		ECB959AC25B85A4A0006E942 /* SynchronizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizeViewModel.swift; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 				EC5D2628258FA02F004E7B3A /* TestFontView.swift */,
 				EC17177C25FB114500500D13 /* OnboardingPage.swift */,
 				EC5CBF832653ABA500F1A063 /* UpdatePage.swift */,
+				ECB5CAFE26A722FF00B921C7 /* LoginFAQPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,6 +464,7 @@
 				EC5CBF812653924100F1A063 /* MedalView.swift */,
 				EC902D0F2663AAE40014093C /* SessionStatusView.swift */,
 				ECA9B3FF266BCE8400EE63FC /* NintendoAccountLoginView.swift */,
+				ECB5CB0026A723A600B921C7 /* LoginFAQButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1065,6 +1071,7 @@
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				ECA9B402266BCE8C00EE63FC /* SettingPage.swift in Sources */,
 				ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */,
+				ECB5CB0126A723A600B921C7 /* LoginFAQButton.swift in Sources */,
 				EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */,
 				EC761295260B214C00C4D3AA /* NSOHelper.swift in Sources */,
 				EC900EC9251C8EF700AA0B20 /* StringInterpolation.swift in Sources */,
@@ -1079,6 +1086,7 @@
 				EC76329B26665A34007FF9C4 /* ListRow.swift in Sources */,
 				EC4C70AC25B9CAFA00E6EF6E /* JobDetailWaveView.swift in Sources */,
 				EC98424D253C25130079D739 /* UserDefaultsMigrator.swift in Sources */,
+				ECB5CAFF26A722FF00B921C7 /* LoginFAQPage.swift in Sources */,
 				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				ECA9B3E726686D5800EE63FC /* ProgressHUD.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
