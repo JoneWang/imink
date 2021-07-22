@@ -53,10 +53,10 @@ struct NintendoAccountLoginView: View {
                             .foregroundColor(Color.systemBackground)
                             .opacity(0.8)
                             .overlay(ProgressView().scaleEffect(1.5).padding(.bottom, 84))
-                            .ignoresSafeArea(edges: .bottom)
                     }
                 }
             }
+            .ignoresSafeArea(edges: .bottom)
             .navigationBarTitle(navigationBarTitle ?? "Nintendo Account", displayMode: .inline)
             .navigationBarItems(leading: Button(action: {
                 presentationMode.wrappedValue.dismiss()
