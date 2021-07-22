@@ -16,7 +16,9 @@ enum WidgetSize: Int, CaseIterable {
     case size338 // iPhone 12 Pro
     case size329 // iPhone 11 Pro
     case size322 // iPhone 8
-    case size291 // iPhone SE 1st-gen
+    case size320 // iPad (7th generation)
+    case size305 // iPad Pro (9.7-inch)
+    case size291 // iPhone SE (1st generation)
 }
 
 extension WidgetSize {
@@ -35,6 +37,10 @@ extension WidgetSize {
             return .size329
         case 322:
             return .size322
+        case 320:
+            return .size320
+        case 305.5:
+            return .size305
         case 291:
             return .size291
         default:
@@ -45,29 +51,35 @@ extension WidgetSize {
     func cgSize(with widgetFamily: WidgetFamily) -> CGSize {
         let largeSizes = [
             CGSize(width: 364, height: 382),
-            CGSize(width: 360, height: 376),
-            CGSize(width: 348, height: 357),
+            CGSize(width: 360, height: 379),
+            CGSize(width: 348, height: 351),
             CGSize(width: 338, height: 354),
             CGSize(width: 329, height: 345),
             CGSize(width: 322, height: 324),
+            CGSize(width: 320.5, height: 320.5),
+            CGSize(width: 305.5, height: 305.5),
             CGSize(width: 291, height: 299),
         ]
         let mediumSizes = [
             CGSize(width: 364, height: 170),
             CGSize(width: 360, height: 169),
-            CGSize(width: 348, height: 159),
+            CGSize(width: 348, height: 157),
             CGSize(width: 338, height: 158),
             CGSize(width: 329, height: 155),
             CGSize(width: 322, height: 148),
+            CGSize(width: 320.5, height: 146),
+            CGSize(width: 305.5, height: 141),
             CGSize(width: 291, height: 141),
         ]
         let smallSizes = [
             CGSize(width: 170, height: 170),
             CGSize(width: 169, height: 169),
-            CGSize(width: 159, height: 159),
+            CGSize(width: 157, height: 157),
             CGSize(width: 158, height: 158),
             CGSize(width: 155, height: 155),
             CGSize(width: 148, height: 148),
+            CGSize(width: 146, height: 146),
+            CGSize(width: 141, height: 141),
             CGSize(width: 141, height: 141),
         ]
         switch widgetFamily {
@@ -99,8 +111,12 @@ extension WidgetSize {
             return "iPhone 11 Pro"
         case .size322:
             return "iPhone 8"
+        case .size320:
+            return "iPad (7th generation)"
+        case .size305:
+            return "iPad Pro (9.7-inch)"
         case .size291:
-            return "iPhone SE (2nd generation)"
+            return "iPhone SE (1st generation)"
         }
     }
 }

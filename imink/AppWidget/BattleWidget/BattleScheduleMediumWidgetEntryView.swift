@@ -14,45 +14,6 @@ struct BattleScheduleMediumWidgetEntryView : View {
     var entry: BattleScheduleProvider.Entry
     var gameMode: BattleScheduleWidgetGameMode
     
-    var vSpacing: CGFloat {
-        switch entry.size {
-        case .size364:
-            return 13.5
-        case .size360:
-            return 13
-        case .size348:
-            return 11
-        case .size338:
-            return 11.5
-        case .size329:
-            return 11
-        case .size322:
-            return 8.5
-        case .size291:
-            return 9
-        }
-    }
-    
-    var titleAndStageSpacing: CGFloat {
-        switch entry.size {
-        case .size364, .size360:
-            return 9
-        default:
-            return 8
-        }
-    }
-    
-    var background: some View {
-        switch gameMode {
-        case .regular:
-            return WidgetBackgroundView(texture: .regularStreak, widgetFamily: entry.family, widgetSize: entry.size)
-        case .gachi:
-            return WidgetBackgroundView(texture: .rankStreak, widgetFamily: entry.family, widgetSize: entry.size)
-        case .league:
-            return WidgetBackgroundView(texture: .leagueStreak, widgetFamily: entry.family, widgetSize: entry.size)
-        }
-    }
-    
     var body: some View {
         if entry.schedules != nil {
             makeContent()
@@ -69,98 +30,127 @@ struct BattleScheduleMediumWidgetEntryView : View {
     }()
     
     func makeContent() -> some View {
-        ZStack {
-            background
-            
-            VStack(spacing: vSpacing) {
-                let schedule = entry.schedules?[0]
-                let nextSchedule = entry.schedules?[1]
+        GeometryReader() { geo in
+            ZStack {
+                if gameMode == .regular {
+                    WidgetBackgroundView(texture: .regularStreak, widgetFamily: entry.family, widgetSize: geo.size)
+                } else if gameMode == .gachi {
+                    WidgetBackgroundView(texture: .rankStreak, widgetFamily: entry.family, widgetSize: geo.size)
+                } else if gameMode == .league {
+                    WidgetBackgroundView(texture: .leagueStreak, widgetFamily: entry.family, widgetSize: geo.size)
+                }
                 
-                HStack(spacing: 10) {
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack {
-                            Text("Now")
-                                .sp1Font(size: 14)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                                .unredacted()
+                let titleFontSize: CGFloat = geo.size.width <= 306 ? 13 : 14
+                let ruleIconWidth: CGFloat = geo.size.width <= 306 ? 19 : 20
+                let ruleIconHeight: CGFloat = geo.size.width <= 306 ? 13 : 14
+                let titleAndStageSpacing = (geo.size.width * 0.023).rounded()
+                
+                let stageHeight = (((geo.size.width - 42) / 2) * 0.1985).rounded()
+                let stageNameFontSize: CGFloat = geo.size.width <= 306 ? 11 : 12
+                
+                VStack() {
+                    let schedule = entry.schedules?[0]
+                    let nextSchedule = entry.schedules?[1]
+                    
+                        VStack(spacing: titleAndStageSpacing) {
+                            HStack {
+                                Text("Now")
+                                    .sp1Font(size: titleFontSize)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    .unredacted()
+                                
+                                Spacer()
+                                HStack(spacing: 6) {
+                                    Text(schedule?.rule.localizedName ?? "      ")
+                                        .sp1Font(size: titleFontSize, color: .white)
+                                        .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    
+                                    if let imageName = schedule?.rule.imageName {
+                                        Image(imageName)
+                                             .fixedSize()
+                                             .frame(width:ruleIconWidth, height:ruleIconHeight, alignment: .center)
+                                    }
+                                }
+                            }
                             
-                            Spacer()
-                            
-                            Text(schedule?.rule.localizedName ?? "      ")
-                                .sp1Font(size: 14, color: .white)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                            
-                            if let imageName = schedule?.rule.imageName {
-                                Image(imageName)
-                                     .fixedSize()
-                                     .frame(width: 20, height:14, alignment: .center)
+                            HStack {
+                                makeStageImage(
+                                    stageHeight: stageHeight,
+                                    stageNameFontSize: stageNameFontSize,
+                                    stageId: schedule?.stageA.id ?? "0",
+                                    stageName: schedule?.stageA.localizedName ?? "            "
+                                )
+                                
+                                makeStageImage(
+                                    stageHeight: stageHeight,
+                                    stageNameFontSize: stageNameFontSize,
+                                    stageId: schedule?.stageB.id ?? "0",
+                                    stageName: schedule?.stageB.localizedName ?? "            "
+                                )
                             }
                         }
-                        
-                        HStack {
-                            makeStageImage(
-                                stageId: schedule?.stageA.id ?? "0",
-                                stageName: schedule?.stageA.localizedName ?? "            "
-                            )
-                            
-                            makeStageImage(
-                                stageId: schedule?.stageB.id ?? "0",
-                                stageName: schedule?.stageB.localizedName ?? "            "
-                            )
+                    
+                    Spacer()
+                    
+                    GeometryReader { geo in
+                        Path { path in
+                            path.move(to: .init(x: 0, y: 0))
+                            path.addLine(to: .init(x: geo.size.width, y: 0))
                         }
+                        .stroke(style: StrokeStyle(lineWidth: 1, dash: [3.5, 3.5]))
+                        .foregroundColor(Color.white.opacity(0.5))
                     }
-                }
-                
-                GeometryReader { geo in
-                    Path { path in
-                        path.move(to: .init(x: 0, y: 0))
-                        path.addLine(to: .init(x: geo.size.width, y: 0))
-                    }
-                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [3.5, 3.5]))
-                    .foregroundColor(Color.white.opacity(0.5))
-                }
-                .frame(height: 1)
-                
-                HStack(spacing: 10) {
-                    VStack(spacing: titleAndStageSpacing) {
-                        HStack {
-                            Text(nextSchedule?.startTime != nil ? "\(nextSchedule!.startTime, formatter: scheduleTimeFormat)" : "     ")
-                                .sp1Font(size: 14)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                                .unredacted()
+                    .frame(height: 1)
+                    
+                    Spacer()
+                    
+                    
+                        VStack(spacing: titleAndStageSpacing) {
+                            HStack {
+                                Text(nextSchedule?.startTime != nil ? "\(nextSchedule!.startTime, formatter: scheduleTimeFormat)" : "     ")
+                                    .sp1Font(size: titleFontSize)
+                                    .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    .unredacted()
+                                
+                                Spacer()
+                                
+                                HStack(spacing: 6) {
+                                    Text(nextSchedule?.rule.localizedName ?? "      ")
+                                        .sp1Font(size: titleFontSize, color: .white)
+                                        .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
+                                    
+                                    if let imageName = nextSchedule?.rule.imageName {
+                                        Image(imageName)
+                                             .fixedSize()
+                                             .frame(width:ruleIconWidth, height:ruleIconHeight, alignment: .center)
+                                    }
+                                }
+                            }
                             
-                            Spacer()
-                            
-                            Text(nextSchedule?.rule.localizedName ?? "      ")
-                                .sp1Font(size: 14, color: .white)
-                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
-                            
-                            if let imageName = nextSchedule?.rule.imageName {
-                                Image(imageName)
-                                     .fixedSize()
-                                     .frame(width: 20, height:14, alignment: .center)
+                            HStack {
+                                makeStageImage(
+                                    stageHeight: stageHeight,
+                                    stageNameFontSize: stageNameFontSize,
+                                    stageId: nextSchedule?.stageA.id ?? "0",
+                                    stageName: nextSchedule?.stageA.localizedName ?? "            "
+                                )
+                                
+                                makeStageImage(
+                                    stageHeight: stageHeight,
+                                    stageNameFontSize: stageNameFontSize,
+                                    stageId: nextSchedule?.stageB.id ?? "0",
+                                    stageName: nextSchedule?.stageB.localizedName ?? "            "
+                                )
                             }
                         }
-                        
-                        HStack {
-                            makeStageImage(
-                                stageId: nextSchedule?.stageA.id ?? "0",
-                                stageName: nextSchedule?.stageA.localizedName ?? "            "
-                            )
-                            
-                            makeStageImage(
-                                stageId: nextSchedule?.stageB.id ?? "0",
-                                stageName: nextSchedule?.stageB.localizedName ?? "            "
-                            )
-                        }
-                    }
+                        .padding(.top, -2)
                 }
+                .padding(16)
             }
-            .padding(16)
         }
     }
     
-    func makeStageImage(stageId: String, stageName: String) -> some View {
+    func makeStageImage(stageHeight: CGFloat, stageNameFontSize: CGFloat, stageId: String, stageName: String) -> some View {
         var borderColor = Color("RegularScheduleStageBorderColor")
         switch gameMode {
         case .gachi:
@@ -173,7 +163,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
         
         return ImageView.stage(id: stageId)
             .aspectRatio(contentMode: .fill)
-            .frame(minHeight: 0, maxHeight: .infinity)
+            .frame(height: stageHeight)
             .overlay(
                 RoundedRectangle(cornerRadius: 6)
                     .foregroundColor(Color.black.opacity(0.75))
@@ -183,7 +173,7 @@ struct BattleScheduleMediumWidgetEntryView : View {
                     )
                     .opacity(0.4)
             )
-            .overlay(Text(stageName).sp2Font(), alignment: .center)
+            .overlay(Text(stageName).sp2Font(size: stageNameFontSize), alignment: .center)
             .continuousCornerRadius(6)
             .clipped()
     }
