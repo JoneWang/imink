@@ -21,20 +21,35 @@ class LoginViewModel: ObservableObject {
     @Published var clientToken: String = ""
     
     // Nintendo account login
-    @Published var codeVerifier: String?
+    let loginUrl: URL
+    let codeVerifier: String
     @Published var loginError: Error? = nil
     
     var cancelBag = Set<AnyCancellable>()
+    
+    init() {
+        let codeVerifier = NSOHash.urandom(length: 32).base64EncodedString
+        let authorizeAPI = NSOAPI.authorize(codeVerifier: codeVerifier)
+        
+        let url = authorizeAPI.baseURL.appendingPathComponent(authorizeAPI.path)
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        
+        if let querys = authorizeAPI.querys {
+            let queryItems = querys.map { name, value in
+                URLQueryItem(name: name, value: value)
+            }
+            urlComponents.queryItems = queryItems
+        }
+        
+        self.loginUrl = urlComponents.url!
+        self.codeVerifier = codeVerifier
+    }
 }
 
 /// Nintendo account login
 extension LoginViewModel {
     
     func loginFlow(sessionTokenCode: String) {
-        guard let codeVerifier = codeVerifier else {
-            return
-        }
-        
         status = .loading
         NSOHelper.logIn(codeVerifier: codeVerifier, sessionTokenCode: sessionTokenCode)
             .sink { (completion) in
@@ -50,6 +65,7 @@ extension LoginViewModel {
                 AppUserDefaults.shared.sessionToken = sessionToken
                 AppUserDefaults.shared.sp2PrincipalId = records.records.player.principalId
                 self.status = .loginSuccess
+                NotificationCenter.default.post(name: .loginedSuccessed, object: nil)
             }
             .store(in: &cancelBag)
     }
