@@ -136,7 +136,7 @@ struct MePage: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .opacity(viewModel.isLogined ? 1 : 0.2)
                     .listRowBackground(viewModel.isLogined ? .clear : AppColor.listBackgroundColor.opacity(0.8))
-                    .modifier(LoginViewModifier(isLogined: viewModel.isLogined, backgroundColor: .clear))
+                    .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarMe", backgroundColor: .clear))
                 }
             }
             .listStyle(InsetGroupedListStyle())
