@@ -14,7 +14,9 @@ struct HomePage: View {
     @StateObject private var viewModel = HomeViewModel()
     @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
     
-    @State private var scheduleType = 0
+    @AppStorage("scheduleTypeInHome")
+    private var scheduleType = 0
+    
     @State private var vdChartViewHeight: CGFloat = 0
     @State private var vdChartLastBlockWidth: CGFloat = 0
     
