@@ -70,7 +70,9 @@ struct NintendoAccountLoginView: View {
             viewModel.status = .loading
         }
         .onChange(of: navigationBarTitle) { title in
-            viewModel.status = .none
+            if title != "" {
+                viewModel.status = .none
+            }
         }
         .onChange(of: viewModel.status) { status in
             if status == .loginSuccess {
