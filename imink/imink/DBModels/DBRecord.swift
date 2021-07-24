@@ -291,15 +291,23 @@ extension AppDatabase {
     }
     
     func records(start battleNumber: String? = nil, count: Int) -> [DBRecord] {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
+            return []
+        }
+        
         return try! dbQueue.read { db in
             if let battleNumber = battleNumber {
                 return try! DBRecord
-                    .filter(DBRecord.Columns.battleNumber < battleNumber)
+                    .filter(
+                        DBRecord.Columns.battleNumber < battleNumber &&
+                            DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
+                    )
                     .order(DBRecord.Columns.battleNumber.desc)
                     .limit(count)
                     .fetchAll(db)
             } else {
                 return try! DBRecord
+                    .filter(DBRecord.Columns.sp2PrincipalId == sp2PrincipalId)
                     .order(DBRecord.Columns.battleNumber.desc)
                     .limit(count)
                     .fetchAll(db)
@@ -308,9 +316,15 @@ extension AppDatabase {
     }
     
     func record(with id: Int64) -> DBRecord? {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
+            return nil
+        }
+        
         return try! dbQueue.read { db in
             return try? DBRecord
-                .filter(DBRecord.Columns.id == id)
+                .filter(
+                    DBRecord.Columns.id == id &&
+                        DBRecord.Columns.sp2PrincipalId == sp2PrincipalId)
                 .fetchOne(db)
         }
     }
