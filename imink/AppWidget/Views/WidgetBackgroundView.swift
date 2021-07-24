@@ -10,23 +10,20 @@ import WidgetKit
 import InkCore
 
 struct WidgetBackgroundView: View {
+    @Environment(\.widgetSize) var widgetSize: CGSize
+    @Environment(\.widgetFamily) var widgetFamily
     
     // Scaling by 360 width
-    private var widgetBaseSize: CGSize {
-        WidgetSize.size360.cgSize(with: widgetFamily)
-    }
+    private let widgetBaseWidth: CGFloat = 360
     
     let texture: GrayscaleTextureView
-    
-    let widgetFamily: WidgetFamily
-    let widgetSize: CGSize
 
     var body: some View {
         Rectangle()
             .overlay(
                 texture
-                    .frame(width: widgetBaseSize.width, height: widgetSize.height * (widgetBaseSize.width / widgetSize.width))
-                    .scaleEffect(widgetSize.width / widgetBaseSize.width, anchor: .top),
+                    .frame(width: widgetBaseWidth, height: widgetSize.height * (widgetBaseWidth / widgetSize.width))
+                    .scaleEffect(widgetSize.width / widgetBaseWidth, anchor: .top),
                 alignment: .top
             )
     }
@@ -67,7 +64,7 @@ extension GrayscaleTextureView {
 
 struct WidgetBackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: .systemMedium, widgetSize: WidgetSize.size364.cgSize(with: .systemLarge))
+        WidgetBackgroundView(texture: .salmonRunBubble)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .previewDevice("iPhone 12 Pro Max")
     }

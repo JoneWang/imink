@@ -12,14 +12,14 @@ import SwiftUI
 struct SalmonRunScheduleWidgetEntryView : View {
     var entry: SalmonRunScheduleProvider.Entry
     
-    @Environment(\.widgetFamily) var family
+    @Environment(\.widgetFamily) var widgetFamily
     
     var body: some View {
         let content = VStack {
-            if family == .systemMedium {
+            if widgetFamily == .systemMedium {
                 SalmonRunScheduleMediumWidgetEntryView(entry: entry)
             }
-            else if family == .systemLarge {
+            else if widgetFamily == .systemLarge {
                 SalmonRunScheduleLargeWidgetEntryView(entry: entry)
             }
         }
@@ -41,7 +41,10 @@ struct SalmonRunScheduleWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "SalmonRun", provider: SalmonRunScheduleProvider()) { entry in
-            SalmonRunScheduleWidgetEntryView(entry: entry)
+            GeometryReader() { geo in
+                SalmonRunScheduleWidgetEntryView(entry: entry)
+                    .widgetSize(geo.size)
+            }
         }
         .supportedFamilies([.systemMedium, .systemLarge])
         .configurationDisplayName(displayName)

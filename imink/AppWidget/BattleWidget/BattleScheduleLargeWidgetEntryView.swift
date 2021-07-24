@@ -11,6 +11,8 @@ import SwiftUI
 import InkCore
 
 struct BattleScheduleLargeWidgetEntryView : View {
+    @Environment(\.widgetSize) var widgetSize: CGSize
+    
     var entry: BattleScheduleProvider.Entry
     var gameMode: BattleScheduleWidgetGameMode
     
@@ -41,35 +43,12 @@ struct BattleScheduleLargeWidgetEntryView : View {
     }()
     
     func makeContent() -> some View {
-        GeometryReader() { geo in
         ZStack {
-            if gameMode == .regular {
-                WidgetBackgroundView(texture: .regularStreak, widgetFamily: entry.family, widgetSize: geo.size)
-            } else if gameMode == .gachi {
-                WidgetBackgroundView(texture: .rankStreak, widgetFamily: entry.family, widgetSize: geo.size)
-            } else if gameMode == .league {
-                WidgetBackgroundView(texture: .leagueStreak, widgetFamily: entry.family, widgetSize: geo.size)
-            }
-            
-            let topBarHeight = round(((geo.size.width - 42) / 2) * 0.3035)
-            let topBarFontSize: CGFloat = geo.size.width <= 306 ? 15 : 17
-            let topBarTitleOffset: CGFloat = geo.size.width == 364 || geo.size.width == 338 ? 1 : 0
-            let titleIconHeight: CGFloat = geo.size.width <= 306 ? 19.5 : 22
-            
-            let titleFontSize: CGFloat = geo.size.width <= 306 ? 13 : 14
-            let ruleIconWidth: CGFloat = geo.size.width <= 306 ? 19 : 20
-            let ruleIconHeight: CGFloat = geo.size.width <= 306 ? 13 : 14
-            let titleAndStageSpacing = (geo.size.width * 0.023).rounded()
-            let stagePadding: CGFloat = geo.size.width <= 306 ? 8 : (geo.size.width * 0.03).rounded()
-            let stageSpacing: CGFloat = geo.size.width <= 306 ? 8 : (geo.size.width * 0.03).rounded()
-            let stageImageAndNameSpacing: CGFloat = geo.size.width <= 306 ? 6 : 8
-            let stageNameFontSize: CGFloat = geo.size.width <= 306 ? 11 : 12
-            let stageNameLineSpacing: CGFloat = geo.size.width <= 306 ? 3.025 : 3.3
-            let stageNameWidth: CGFloat = geo.size.width <= 306 ? 55 : 66
+            gameMode.background
             
             VStack(spacing: 0) {
                 ZStack {
-                    WidgetBackgroundView(texture: .topbarStreak, widgetFamily: entry.family, widgetSize: geo.size)
+                    WidgetBackgroundView(texture: .topbarStreak)
                     
                     HStack(alignment: .center) {
                         Spacer()
@@ -161,29 +140,35 @@ struct BattleScheduleLargeWidgetEntryView : View {
             }
         }
     }
-    }
     
     func makeStageImage(stageId: String) -> some View {
-        var borderColor = Color("RegularScheduleStageBorderColor")
-        switch gameMode {
-        case .gachi:
-            borderColor = Color("RankedScheduleStageBorderColor")
-        case .league:
-            borderColor = Color("LeagueScheduleStageBorderColor")
-        case .regular:
-            borderColor = Color("RegularScheduleStageBorderColor")
-        }
-        
-        return ImageView.stage(id: stageId)
-            //            .aspectRatio(contentMode: .fill)
+        ImageView.stage(id: stageId)
             .frame(minHeight: 0, maxHeight: .infinity)
             .overlay(
                 RoundedRectangle(cornerRadius: 6)
-                    .strokeBorder(borderColor.opacity(0.4), lineWidth: 1)
+                    .strokeBorder(gameMode.stageBorderColor.opacity(0.4), lineWidth: 1)
             )
             .continuousCornerRadius(6)
             .clipped()
     }
+}
+
+extension BattleScheduleLargeWidgetEntryView {
+    var topBarHeight: CGFloat { round(((widgetSize.width - 42) / 2) * 0.3035) }
+    var topBarFontSize: CGFloat { widgetSize.width <= 306 ? 15 : 17 }
+    var topBarTitleOffset: CGFloat { widgetSize.width == 364 || widgetSize.width == 338 ? 1 : 0 }
+    var titleIconHeight: CGFloat { widgetSize.width <= 306 ? 19.5 : 22 }
+    
+    var titleFontSize: CGFloat { widgetSize.width <= 306 ? 13 : 14 }
+    var ruleIconWidth: CGFloat { widgetSize.width <= 306 ? 19 : 20 }
+    var ruleIconHeight: CGFloat { widgetSize.width <= 306 ? 13 : 14 }
+    var titleAndStageSpacing: CGFloat { (widgetSize.width * 0.023).rounded() }
+    var stagePadding: CGFloat { widgetSize.width <= 306 ? 8 : (widgetSize.width * 0.03).rounded() }
+    var stageSpacing: CGFloat { widgetSize.width <= 306 ? 8 : (widgetSize.width * 0.03).rounded() }
+    var stageImageAndNameSpacing: CGFloat { widgetSize.width <= 306 ? 6 : 8 }
+    var stageNameFontSize: CGFloat { widgetSize.width <= 306 ? 11 : 12 }
+    var stageNameLineSpacing: CGFloat { widgetSize.width <= 306 ? 3.025 : 3.3 }
+    var stageNameWidth: CGFloat { widgetSize.width <= 306 ? 55 : 66 }
 }
 
 fileprivate extension Stage {
@@ -215,23 +200,21 @@ struct BattleScheduleLargeWidgetEntryView_Previews: PreviewProvider {
     static let gameMode = BattleScheduleWidgetGameMode.gachi
     
     static var previews: some View {
-        ForEach(WidgetSize.allCases, id: \.self) { size in
-            BattleScheduleWidgetEntryView(entry: genEntry(with: size), gameMode: gameMode)
+        ForEach(WidgetDevice.allCases, id: \.self) { size in
+            BattleScheduleWidgetEntryView(entry: entry, gameMode: gameMode)
                 .previewContext(WidgetPreviewContext(family: widgetFamily))
-                .previewDevice(PreviewDevice(stringLiteral: size.deviceName))
-                .previewDisplayName("\(size.cgSize(with: widgetFamily).width) \(size.deviceName)")
+                .previewDevice(PreviewDevice(stringLiteral: size.rawValue))
+                .previewDisplayName("\(size)")
         }
     }
     
-    static func genEntry(with size: WidgetSize) -> BattleScheduleProvider.Entry {
+    static var entry: BattleScheduleProvider.Entry {
         let sampleData = SplatNet2API.schedules.sampleData
         let json = String(data: sampleData, encoding: .utf8)!
         let schedules = json.decode(Schedules.self)!
         let entry = BattleScheduleProvider.Entry(
             date: Date(),
-            schedules: schedules.gachi,
-            size: size,
-            family: widgetFamily)
+            schedules: schedules.gachi)
         return entry
     }
 }

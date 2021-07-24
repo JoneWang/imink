@@ -12,8 +12,6 @@ import Combine
 struct SalmonRunScheduleEntry: TimelineEntry {
     let date: Date
     let schedules: [SalmonRunSchedules.Schedule]?
-    let size: WidgetSize
-    let family: WidgetFamily
 }
 
 class SalmonRunScheduleProvider: TimelineProvider {
@@ -23,9 +21,7 @@ class SalmonRunScheduleProvider: TimelineProvider {
     func placeholder(in context: Context) -> SalmonRunScheduleEntry {
         SalmonRunScheduleEntry(
             date: Date(),
-            schedules: nil,
-            size: .with(context.displaySize),
-            family: context.family
+            schedules: nil
         )
     }
     
@@ -33,17 +29,13 @@ class SalmonRunScheduleProvider: TimelineProvider {
         updateSchedule { schedules in
             let entry = SalmonRunScheduleEntry(
                 date: Date(),
-                schedules: schedules,
-                size: .with(context.displaySize),
-                family: context.family)
+                schedules: schedules)
             completion(entry)
         } failure: {
             let refreshDate = Calendar.current.date(byAdding: .second, value: 10, to: Date())!
             let entry = SalmonRunScheduleEntry(
                 date: refreshDate,
-                schedules: nil,
-                size: .with(context.displaySize),
-                family: context.family)
+                schedules: nil)
             completion(entry)
         }
     }
@@ -71,9 +63,7 @@ class SalmonRunScheduleProvider: TimelineProvider {
 
                     let entry = SalmonRunScheduleEntry(
                         date: refreshTime,
-                        schedules: showSchedules,
-                        size: .with(context.displaySize),
-                        family: context.family
+                        schedules: showSchedules
                     )
                     entries.append(entry)
                 }
@@ -89,9 +79,7 @@ class SalmonRunScheduleProvider: TimelineProvider {
             let timeline = Timeline(
                 entries: [SalmonRunScheduleEntry(
                             date: refreshDate,
-                            schedules: nil,
-                            size: .with(context.displaySize),
-                            family: context.family)],
+                            schedules: nil)],
                 policy: .atEnd)
             completion(timeline)
         }

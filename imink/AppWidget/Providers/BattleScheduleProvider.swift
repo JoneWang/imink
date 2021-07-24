@@ -18,8 +18,6 @@ enum BattleScheduleWidgetGameMode: String {
 struct ScheduleEntry: TimelineEntry {
     let date: Date
     let schedules: [Schedules.Schedule]?
-    let size: WidgetSize
-    let family: WidgetFamily
 }
 
 class BattleScheduleProvider: TimelineProvider {
@@ -34,9 +32,7 @@ class BattleScheduleProvider: TimelineProvider {
     func placeholder(in context: Context) -> ScheduleEntry {
         ScheduleEntry(
             date: Date(),
-            schedules: nil,
-            size: .with(context.displaySize),
-            family: context.family
+            schedules: nil
         )
     }
     
@@ -44,17 +40,13 @@ class BattleScheduleProvider: TimelineProvider {
         updateSchedule { schedules in
             let entry = ScheduleEntry(
                 date: Date(),
-                schedules: schedules.count >= 3 ? [schedules[0], schedules[1], schedules[2]] : nil,
-                size: .with(context.displaySize),
-                family: context.family)
+                schedules: schedules.count >= 3 ? [schedules[0], schedules[1], schedules[2]] : nil)
             completion(entry)
         } failure: {
             let refreshDate = Calendar.current.date(byAdding: .second, value: 10, to: Date())!
             let entry = ScheduleEntry(
                 date: refreshDate,
-                schedules: nil,
-                size: .with(context.displaySize),
-                family: context.family)
+                schedules: nil)
             completion(entry)
         }
     }
@@ -70,9 +62,7 @@ class BattleScheduleProvider: TimelineProvider {
                 
                 let entry = ScheduleEntry(
                     date: i == 0 ? Date() : schedule.startTime,
-                    schedules: Array(schedules[i..<i+3]),
-                    size: .with(context.displaySize),
-                    family: context.family
+                    schedules: Array(schedules[i..<i+3])
                 )
                 entries.append(entry)
             }
@@ -84,9 +74,7 @@ class BattleScheduleProvider: TimelineProvider {
             let timeline = Timeline(
                 entries: [ScheduleEntry(
                             date: refreshDate,
-                            schedules: nil,
-                            size: .with(context.displaySize),
-                            family: context.family)],
+                            schedules: nil)],
                 policy: .after(refreshDate))
             completion(timeline)
         }

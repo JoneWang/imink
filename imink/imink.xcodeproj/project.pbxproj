@@ -132,7 +132,7 @@
 		EC902D172663E9B90014093C /* IksmSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D152663E9B90014093C /* IksmSessionViewModel.swift */; };
 		EC902D192663F3AE0014093C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC902D182663F3AE0014093C /* UIViewController+Extension.swift */; };
 		EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */; };
-		EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440E025406C8200060E46 /* WidgetSize.swift */; };
+		EC9440E125406C8200060E46 /* WidgetDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440E025406C8200060E46 /* WidgetDevice.swift */; };
 		EC9440ED25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */; };
 		EC9440F125407ACA00060E46 /* BattleScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9440F025407ACA00060E46 /* BattleScheduleWidget.swift */; };
 		EC984217253ADE880079D739 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900EA4251C8EF600AA0B20 /* AppColor.swift */; };
@@ -175,6 +175,7 @@
 		ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = ECD777E3261178EC0067A51B /* SplatNet2 */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
+		ECF04C0A26AC235800337FC6 /* WidgetSizeEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */; };
 		ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */; };
 		ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
 		ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
@@ -346,7 +347,7 @@
 		EC902D152663E9B90014093C /* IksmSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmSessionViewModel.swift; sourceTree = "<group>"; };
 		EC902D182663F3AE0014093C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EC9440DA25406C3E00060E46 /* BattleScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleProvider.swift; sourceTree = "<group>"; };
-		EC9440E025406C8200060E46 /* WidgetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSize.swift; sourceTree = "<group>"; };
+		EC9440E025406C8200060E46 /* WidgetDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDevice.swift; sourceTree = "<group>"; };
 		EC9440EC25406E2E00060E46 /* BattleScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC9440F025407ACA00060E46 /* BattleScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleWidget.swift; sourceTree = "<group>"; };
 		EC984229253AE2720079D739 /* BattleScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
@@ -375,6 +376,7 @@
 		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizeEnvironmentKey.swift; sourceTree = "<group>"; };
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		ECF91ECE2609F58500FF7F55 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
@@ -577,10 +579,11 @@
 				EC68D1B1257393360024C994 /* Views */,
 				EC11F1D925558C3E00E10F5F /* SalmonRunWidget */,
 				EC9440D625406BB900060E46 /* BattleWidget */,
+				ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */,
 				EC8611D7253ABA31003BA67A /* AppWidget.swift */,
+				EC9440E025406C8200060E46 /* WidgetDevice.swift */,
 				EC8611CB253AB9CB003BA67A /* Assets.xcassets */,
 				EC8611CD253AB9CB003BA67A /* Info.plist */,
-				EC9440E025406C8200060E46 /* WidgetSize.swift */,
 			);
 			path = AppWidget;
 			sourceTree = "<group>";
@@ -1037,9 +1040,10 @@
 				BB520C1F26146C06006454FB /* StageImage.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
 				ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */,
-				EC9440E125406C8200060E46 /* WidgetSize.swift in Sources */,
+				EC9440E125406C8200060E46 /* WidgetDevice.swift in Sources */,
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */,
+				ECF04C0A26AC235800337FC6 /* WidgetSizeEnvironmentKey.swift in Sources */,
 				EC861231253AC6D4003BA67A /* Models.swift in Sources */,
 				EC5CBF7E2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				EC8611E5253AC359003BA67A /* AppWidget.swift in Sources */,

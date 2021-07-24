@@ -11,6 +11,7 @@ import SwiftUI
 import InkCore
 
 struct SalmonRunScheduleMediumWidgetEntryView : View {
+    @Environment(\.widgetSize) var widgetSize: CGSize
     
     var entry: SalmonRunScheduleProvider.Entry
         
@@ -21,56 +22,44 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     }()
 
     var body: some View {
-        if entry.schedules != nil {
-            makeContent()
-        } else {
-            makeContent()
-                .redacted(reason: .placeholder)
-        }
-    }
-    
-    func makeContent() -> some View {
-        GeometryReader() { geo in
-            ZStack {
-                WidgetBackgroundView(texture: .salmonRunBubble, widgetFamily: entry.family, widgetSize: geo.size)
-                
-                let titleFontSize: CGFloat = geo.size.width <= 306 ? 13 : 14
-                let timeFontSize: CGFloat = geo.size.width <= 306 ? 11 : 12
-                let titleAndStageSpacing = (geo.size.width * 0.023).rounded()
-                
-                let stageWidth = (geo.size.width - 42) / 2
-                let stageHeight = (((geo.size.width - 42) / 2) * 0.1985).rounded()
-                let stageNameFontSize: CGFloat = geo.size.width <= 306 ? 11 : 12
-                
-                    VStack() {
-                        let schedule = entry.schedules?[0]
-                        let nextSchedule = entry.schedules?[1]
-                        
-                        makeScheduleView(titleFontSize:titleFontSize, timeFontSize:timeFontSize, titleAndStageSpacing:titleAndStageSpacing, stageWidth:stageWidth, stageHeight:stageHeight, stageNameFontSize:stageNameFontSize, schedule: schedule, isFirst: true)
-                        
-                        Spacer()
-                        
-                        GeometryReader { geo in
-                            Path { path in
-                                path.move(to: .init(x: 0, y: 0))
-                                path.addLine(to: .init(x: geo.size.width, y: 0))
-                            }
-                            .stroke(style: StrokeStyle(lineWidth: 1, dash: [3.5, 3.5]))
-                            .foregroundColor(Color.white.opacity(0.5))
-                        }
-                        .frame(height: 1)
-                        
-                        Spacer()
-                        
-                        makeScheduleView(titleFontSize:titleFontSize, timeFontSize:timeFontSize, titleAndStageSpacing:titleAndStageSpacing, stageWidth:stageWidth, stageHeight:stageHeight, stageNameFontSize:stageNameFontSize, schedule: nextSchedule)
-                            .padding(.top, -2)
-                    }
-                    .padding(16)
+        ZStack {
+            WidgetBackgroundView(texture: .salmonRunBubble)
+            
+            if entry.schedules != nil {
+                makeContent()
+            } else {
+                makeContent()
+                    .redacted(reason: .placeholder)
             }
         }
     }
     
-    func makeScheduleView(titleFontSize: CGFloat, timeFontSize: CGFloat, titleAndStageSpacing: CGFloat, stageWidth: CGFloat, stageHeight: CGFloat, stageNameFontSize: CGFloat, schedule: SalmonRunSchedules.Schedule?, isFirst: Bool = false) -> some View {
+    func makeContent() -> some View {
+        let schedule = entry.schedules?[0]
+        let nextSchedule = entry.schedules?[1]
+
+        return VStack() {
+            makeScheduleView(schedule: schedule, isFirst: true)
+            
+            Spacer()
+            
+            Path { path in
+                path.move(to: .init(x: 0, y: 0))
+                path.addLine(to: .init(x: widgetSize.width - 32, y: 0))
+            }
+            .stroke(style: StrokeStyle(lineWidth: 1, dash: [3.5, 3.5]))
+            .foregroundColor(Color.white.opacity(0.5))
+            .frame(height: 1)
+            
+            Spacer()
+            
+            makeScheduleView(schedule: nextSchedule)
+                .padding(.top, -2)
+        }
+        .padding(16)
+    }
+    
+    func makeScheduleView(schedule: SalmonRunSchedules.Schedule?, isFirst: Bool = false) -> some View {
         var title: LocalizedStringKey = ""
         if let schedule = schedule {
             let now = self.entry.date
@@ -105,7 +94,6 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
             HStack() {
                 makeStageImage(
                     stageImageName: schedule?.stage?.imageName ?? "",
-                    stageNameFontSize: stageNameFontSize,
                     stageName: schedule?.stage?.localizedName ?? "            "
                 )
                 .frame(width: stageWidth, height: stageHeight)
@@ -126,7 +114,7 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
         }
     }
     
-    func makeStageImage(stageImageName: String, stageNameFontSize: CGFloat, stageName: String) -> some View {
+    func makeStageImage(stageImageName: String, stageName: String) -> some View {
         ImageView.salomonRunStage(name: stageImageName)
             .aspectRatio(contentMode: .fill)
             .frame(minHeight: 0, maxHeight: .infinity)
@@ -146,29 +134,37 @@ struct SalmonRunScheduleMediumWidgetEntryView : View {
     
 }
 
+extension SalmonRunScheduleMediumWidgetEntryView {
+    var titleFontSize: CGFloat { widgetSize.width <= 306 ? 13 : 14 }
+    var timeFontSize: CGFloat { widgetSize.width <= 306 ? 11 : 12 }
+    var titleAndStageSpacing: CGFloat { (widgetSize.width * 0.023).rounded() }
+    
+    var stageWidth: CGFloat { (widgetSize.width - 42) / 2 }
+    var stageHeight: CGFloat { (((widgetSize.width - 42) / 2) * 0.1985).rounded() }
+    var stageNameFontSize: CGFloat { widgetSize.width <= 306 ? 11 : 12 }
+}
+
 import SplatNet2API
 
 struct SalmonRunScheduleMediumWidgetEntryView_Previews: PreviewProvider {
     static let widgetFamily = WidgetFamily.systemMedium
     
     static var previews: some View {
-        ForEach(WidgetSize.allCases, id: \.self) { size in
-            SalmonRunScheduleWidgetEntryView(entry: genEntry(with: size))
+        ForEach(WidgetDevice.allCases, id: \.self) { size in
+            SalmonRunScheduleWidgetEntryView(entry: entry)
                 .previewContext(WidgetPreviewContext(family: widgetFamily))
-                .previewDevice(PreviewDevice(stringLiteral: size.deviceName))
-                .previewDisplayName("\(size.cgSize(with: widgetFamily).width) \(size.deviceName)")
+                .previewDevice(PreviewDevice(stringLiteral: size.rawValue))
+                .previewDisplayName("\(size)")
         }
     }
     
-    static func genEntry(with size: WidgetSize) -> SalmonRunScheduleProvider.Entry {
+    static var entry: SalmonRunScheduleProvider.Entry {
         let sampleData = SplatNet2API.salmonRunSchedules.sampleData
         let json = String(data: sampleData, encoding: .utf8)!
         let salmonRunSchedules = json.decode(SalmonRunSchedules.self)!
         let entry = SalmonRunScheduleProvider.Entry(
             date: Date(),
-            schedules: salmonRunSchedules.details,
-            size: size,
-            family: widgetFamily)
+            schedules: salmonRunSchedules.details)
         return entry
     }
 }

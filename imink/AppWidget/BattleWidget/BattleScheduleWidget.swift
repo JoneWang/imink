@@ -13,14 +13,14 @@ struct BattleScheduleWidgetEntryView : View {
     var entry: BattleScheduleProvider.Entry
     var gameMode: BattleScheduleWidgetGameMode
     
-    @Environment(\.widgetFamily) var family
+    @Environment(\.widgetFamily) var widgetFamily
     
     var body: some View {
         let content = VStack {
-            if family == .systemMedium {
+            if widgetFamily == .systemMedium {
                 BattleScheduleMediumWidgetEntryView(entry: entry, gameMode: gameMode)
             }
-            else if family == .systemLarge {
+            else if widgetFamily == .systemLarge {
                 BattleScheduleLargeWidgetEntryView(entry: entry, gameMode: gameMode)
             }
         }
@@ -36,6 +36,30 @@ struct BattleScheduleWidgetEntryView : View {
     }
 }
 
+extension BattleScheduleWidgetGameMode {
+    var background: some View {
+        switch self {
+        case .regular:
+            return WidgetBackgroundView(texture: .regularStreak)
+        case .gachi:
+            return WidgetBackgroundView(texture: .rankStreak)
+        case .league:
+            return WidgetBackgroundView(texture: .leagueStreak)
+        }
+    }
+    
+    var stageBorderColor: Color {
+        switch self {
+        case .regular:
+            return Color("RegularScheduleStageBorderColor")
+        case .gachi:
+            return Color("RankedScheduleStageBorderColor")
+        case .league:
+            return Color("LeagueScheduleStageBorderColor")
+        }
+    }
+}
+
 struct BattleScheduleWidget: Widget {
     var gameMode: BattleScheduleWidgetGameMode = .regular
     var displayName: LocalizedStringKey = ""
@@ -43,7 +67,10 @@ struct BattleScheduleWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: gameMode.rawValue, provider: BattleScheduleProvider(gameMode: gameMode)) { entry in
-            BattleScheduleWidgetEntryView(entry: entry, gameMode: gameMode)
+            GeometryReader() { geo in
+                BattleScheduleWidgetEntryView(entry: entry, gameMode: gameMode)
+                    .widgetSize(geo.size)
+            }
         }
         .supportedFamilies([.systemMedium, .systemLarge])
         .configurationDisplayName(Text(displayName, tableName: splatNet2L10nTable))
