@@ -34,43 +34,38 @@ struct SalmonRunScheduleView: View {
                 .padding(.horizontal)
                 .background(Color.secondary)
                 .clipShape(Capsule())
+                .padding(.bottom)
                 
                 if let stage = schedule.stage,
                    let weapons = schedule.weapons {
-                    HStack(spacing: 16) {
-                        VStack(spacing: 0) {
+                    VStack(spacing: 0) {
+                        HStack(spacing: 16) {
                             Text(stage.localizedName)
                                 .sp2Font(color: AppColor.appLabelColor)
-                                .padding(.bottom)
-                                .minimumScaleFactor(0.5)
+                                .frame(maxWidth: .infinity)
                             
+                            Text("Supplied Weapons")
+                                .sp2Font(color: AppColor.appLabelColor)
+                                .frame(maxWidth: .infinity)
+                        }
+                        
+                        HStack(spacing: 16) {
                             ImageView.salomonRunStage(name: stage.imageName ?? "", imageURL: stage.image)
                                 .aspectRatio(640.0 / 360.0, contentMode: .fill)
                                 .clipped()
                                 .continuousCornerRadius(8)
-                        }
-                        
-                        VStack(spacing: 0) {
-                            Text("Supplied Weapons")
-                                .sp2Font(color: AppColor.appLabelColor)
-                                .padding(.bottom)
-                            
-                            // FIXME: Layout bug
-                            Spacer()
-                            Spacer()
-                            Spacer()
+                                .frame(maxWidth: .infinity)
                             
                             HStack(alignment: .center) {
                                 ForEach(weapons, id: \.id) { weapon in
                                     ImageView.weapon(id: weapon.id)
                                         .aspectRatio(1, contentMode: .fit)
-                                        .frame(width: 35, height: 35)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(minHeight: 70)
+                                        .minimumScaleFactor(0.3)
                                 }
                             }
-                            
-                            Spacer()
-                            Spacer()
-                            Spacer()
+                            .frame(maxWidth: .infinity)
                         }
                     }
                 }
