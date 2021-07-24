@@ -24,7 +24,7 @@ struct SalmonRunScheduleView: View {
     
     var body: some View {
         ForEach(dataSource, id: \.startTime) { schedule in
-            VStack(spacing: 10) {
+            VStack {
                 VStack {
                     Text("\(schedule.startTime, formatter: scheduleTimeFormat) - \(schedule.endTime, formatter: scheduleTimeFormat)")
                         .sp2Font(size: 15, color: Color.primary)
@@ -34,11 +34,11 @@ struct SalmonRunScheduleView: View {
                 .padding(.horizontal)
                 .background(Color.secondary)
                 .clipShape(Capsule())
-                .padding(.bottom)
-                
+                .padding(.bottom, 5)
+
                 if let stage = schedule.stage,
                    let weapons = schedule.weapons {
-                    VStack(spacing: 0) {
+                    VStack {
                         HStack(spacing: 16) {
                             Text(stage.localizedName)
                                 .sp2Font(color: AppColor.appLabelColor)
