@@ -160,6 +160,7 @@
 "Yes" = "是";
 "No" = "否";
 "Done" = "完成";
+"Cancel" = "取消";
 
 // MARK: Onboarding
 

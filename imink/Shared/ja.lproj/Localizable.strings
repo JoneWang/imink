@@ -160,6 +160,7 @@
 "Yes" = "はい";
 "No" = "いいえ";
 "Done" = "完了";
+"Cancel" = "キャンセル";
 
 // MARK: Onboarding
 
