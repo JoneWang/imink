@@ -38,7 +38,7 @@ struct SalmonRunScheduleView: View {
 
                 if let stage = schedule.stage,
                    let weapons = schedule.weapons {
-                    VStack {
+                    VStack(spacing: 12) {
                         HStack(spacing: 16) {
                             Text(stage.localizedName)
                                 .sp2Font(color: AppColor.appLabelColor)

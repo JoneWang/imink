@@ -53,6 +53,7 @@ struct NintendoAccountLoginView: View {
                             .foregroundColor(Color.systemBackground)
                             .opacity(0.8)
                             .overlay(ProgressView().scaleEffect(1.5).padding(.bottom, 84))
+                            .colorScheme(.light)
                     }
                 }
             }
