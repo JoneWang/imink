@@ -12,10 +12,6 @@ struct NotchBranding: View {
     @State var isShow = true
     @State var delayedDisplayInProgress = false
     
-    var isAllScreen: Bool {
-        UIApplication.shared.windows.first!.safeAreaInsets.top > 20
-    }
-    
     var body: some View {
         Group {
             if isShow {
@@ -30,9 +26,6 @@ struct NotchBranding: View {
                     .transition(.fade(duration: 0.1))
             }
         }
-        .onAppear {
-            isShow = isAllScreen
-        }
         .onReceive(NotificationCenter
                     .default
                     .publisher(for: UIScene.willDeactivateNotification)) { _ in
@@ -42,11 +35,9 @@ struct NotchBranding: View {
         .onReceive(NotificationCenter
                     .default
                     .publisher(for: UIScene.didActivateNotification)) { _ in
-            if isAllScreen {
-                delayedDisplayInProgress = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    isShow = delayedDisplayInProgress
-                }
+            delayedDisplayInProgress = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isShow = delayedDisplayInProgress
             }
         }
     }

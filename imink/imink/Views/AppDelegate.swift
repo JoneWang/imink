@@ -42,7 +42,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 // NotchBranding
 extension SceneDelegate {
     func configureNotchBranding() {
-        guard let window = window else { return }
+        guard let window = window,
+              UIDevice.current.userInterfaceIdiom == .phone,
+              UIApplication.shared.windows.first!.safeAreaInsets.top > 20 else {
+            return
+        }
         
         // Add NotchBranding to window
         let notchBranding = UIHostingController(rootView: NotchBranding())
