@@ -135,8 +135,8 @@ struct MePage: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .opacity(viewModel.isLogined ? 1 : 0.2)
-                    .listRowBackground(viewModel.isLogined ? .clear : AppColor.listBackgroundColor.opacity(0.8))
                     .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarMe", backgroundColor: .clear))
+                    .listRowBackground(viewModel.isLogined ? .clear : AppColor.listBackgroundColor.opacity(0.8))
                 }
             }
             .listStyle(InsetGroupedListStyle())
@@ -205,10 +205,10 @@ struct MePage: View {
     }
 }
 
-//struct MePage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MePage(isLogined: true)
-//            .preferredColorScheme(.dark)
-//        MePage(isLogined: true)
-//    }
-//}
+struct MePage_Previews: PreviewProvider {
+    static var previews: some View {
+        MePage()
+            .environmentObject(MainViewModel())
+            .preferredColorScheme(.dark)
+    }
+}
