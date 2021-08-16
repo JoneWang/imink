@@ -26,23 +26,14 @@ enum NSOAPI {
             registrationToken: String,
             timestamp: String,
             f: String)
-    
-    // api docs: https://github.com/frozenpandaman/splatnet2statink/wiki/api-docs
-    case s2s(naIdToken: String, timestamp: String)
-    case f(naIdToken: String, requestId: String, timestamp: String, s2sHash: String, iid: Iid)
 }
 
 extension NSOAPI: APITargetType {
     private static let clientId = "71b963c1b7b6d119"
     public static let clientUrlScheme = "npf\(NSOAPI.clientId)"
-    private static let clientVersion = "1.11.0"
+    private static let clientVersion = "1.12.0"
     private static let gameServiceId = "5741031244955648"
     private static let flapgAPIVersion = "3"
-    
-    internal enum Iid: String {
-        case nso
-        case app
-    }
     
     var baseURL: URL {
         switch self {
@@ -53,13 +44,9 @@ extension NSOAPI: APITargetType {
         case .me:
             return URL(string: "https://api.accounts.nintendo.com/2.0.0")!
         case .login:
-            return URL(string: "https://api-lp1.znc.srv.nintendo.net/v1")!
+            return URL(string: "https://api-lp1.znc.srv.nintendo.net/v2")!
         case .getWebServiceToken:
             return URL(string: "https://api-lp1.znc.srv.nintendo.net/v2")!
-        case .s2s:
-            return URL(string: "https://elifessler.com/s2s/api")!
-        case .f:
-            return URL(string: "https://flapg.com/ika2/api/login?public")!
         }
     }
     
@@ -77,24 +64,18 @@ extension NSOAPI: APITargetType {
             return "/Account/Login"
         case .getWebServiceToken:
             return "/Game/GetWebServiceToken"
-        case .s2s:
-            return "/gen2"
-        case .f:
-            return ""
         }
     }
     
     var method: APIMethod {
         switch self {
         case .authorize,
-             .me,
-             .f:
+             .me:
             return .get
         case .sessionToken,
              .token,
              .login,
-             .getWebServiceToken,
-             .s2s:
+             .getWebServiceToken:
             return .post
         }
     }
@@ -134,19 +115,6 @@ extension NSOAPI: APITargetType {
                 "x-platform": "Android",
                 "X-ProductVersion": NSOAPI.clientVersion,
                 "Accept-Encoding": "gzip, deflate, br"
-            ]
-        case .s2s:
-            return [
-                "User-Agent": "imink/\(Bundle.main.appVersionShort)"
-            ]
-        case .f(let naIdToken, let requestId, let timestamp, let s2sHash, let iid):
-            return [
-                "x-token": naIdToken,
-                "x-time": "\(timestamp)",
-                "x-guid": requestId,
-                "x-hash": s2sHash,
-                "x-ver": NSOAPI.flapgAPIVersion,
-                "x-iid": iid.rawValue
             ]
         }
     }
@@ -222,11 +190,6 @@ extension NSOAPI: APITargetType {
                     "timestamp": "\(timestamp)",
                     "f": f,
                 ]
-            ])
-        case .s2s(let naIdToken, let timestamp):
-            return .form([
-                ("naIdToken", naIdToken),
-                ("timestamp", "\(timestamp)")
             ])
         default:
             return nil

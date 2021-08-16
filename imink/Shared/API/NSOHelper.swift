@@ -114,20 +114,18 @@ struct NSOHelper {
         self.requestF(
             requestId: requestId,
             accessToken: accessToken,
-            naUser: naUser,
             timestamp: timestamp,
-            iid: .nso
+            hashMethod: .hash1
         )
-        .map { $0.result }
-        .flatMap { result -> AnyPublisher<LoginResult, Error> in
+        .flatMap { f -> AnyPublisher<LoginResult, Error> in
             NSOAPI.login(
-                requestId: result.p3,
-                naIdToken: result.p1,
+                requestId: requestId,
+                naIdToken: accessToken,
                 naBirthday: naUser.birthday,
                 naCountry: naUser.country,
                 language: naUser.language,
-                timestamp: result.p2,
-                f: result.f
+                timestamp: timestamp,
+                f: f
             )
             .request()
             .decode(type: LoginResult.self)
@@ -146,18 +144,16 @@ struct NSOHelper {
         return self.requestF(
             requestId: requestId,
             accessToken: webApiServerToken,
-            naUser: naUser,
             timestamp: timestamp,
-            iid: .app
+            hashMethod: .hash2
         )
-        .map { $0.result }
-        .flatMap { result -> AnyPublisher<WebServiceToken, Error> in
+        .flatMap { f -> AnyPublisher<WebServiceToken, Error> in
             NSOAPI.getWebServiceToken(
                 webApiServerToken: webApiServerToken,
-                requestId: result.p3,
-                registrationToken: result.p1,
-                timestamp: result.p2,
-                f: result.f
+                requestId: requestId,
+                registrationToken: webApiServerToken,
+                timestamp: timestamp,
+                f: f
             )
             .request()
             .decode(type: WebServiceToken.self)
@@ -169,27 +165,19 @@ struct NSOHelper {
     
     private static func requestF(requestId: String,
                   accessToken: String,
-                  naUser: NAUser,
                   timestamp: String,
-                  iid: NSOAPI.Iid) -> AnyPublisher<F, Error> {
-        NSOAPI.s2s(naIdToken: accessToken, timestamp: timestamp)
-            .request()
-            .decode(type: S2SHash.self)
-            .receive(on: DispatchQueue.main)
-            .flatMap { hash -> AnyPublisher<F, Error> in
-                NSOAPI.f(
-                    naIdToken: accessToken,
-                    requestId: requestId,
-                    timestamp: timestamp,
-                    s2sHash: hash.hash,
-                    iid: iid
-                )
-                .request()
-                .decode(type: F.self)
-                .receive(on: DispatchQueue.main)
-                .eraseToAnyPublisher()
-            }
-            .eraseToAnyPublisher()
+                  hashMethod: AppAPI.HashMethod) -> AnyPublisher<String, Error> {
+        return AppAPI.f(
+            naIdToken: accessToken,
+            requestId: requestId,
+            timestamp: timestamp,
+            hashMethod: hashMethod
+        )
+        .request()
+        .decode(type: F.self)
+        .receive(on: DispatchQueue.main)
+        .map { $0.f }
+        .eraseToAnyPublisher()
     }
 }
 
@@ -225,13 +213,6 @@ extension NSOHelper {
     }
     
     struct F: Decodable {
-        let result: `Result`
-        
-        struct `Result`: Decodable {
-            let f: String
-            let p1: String
-            let p2: String
-            let p3: String
-        }
+        let f: String
     }
 }
