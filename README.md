@@ -34,7 +34,7 @@
 
 ## Thanks
 
-Thank them for providing the necessary algorithm API for account login.
+Thanks to these projects for helping imink.
 
 * [ikaWidget2](https://play.google.com/store/apps/details?id=com.flapg.ikawidget2) ([@NexusMine](https://twitter.com/NexusMine)) 
 
