@@ -157,6 +157,9 @@ struct MePage: View {
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            viewModel.loadUserInfo()
+        }
         .onReceive(mainViewModel.$isLogined) { isLogined in
             viewModel.updateLoginStatus(isLogined: isLogined)
         }

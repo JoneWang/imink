@@ -37,6 +37,8 @@ class MeViewModel: ObservableObject {
     }
     
     func loadUserInfo() {
+        if !isLogined { return }
+        
         isLoading = true
         
         Splatoon2API.records
