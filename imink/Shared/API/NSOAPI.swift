@@ -43,9 +43,7 @@ extension NSOAPI: APITargetType {
             return URL(string: "https://accounts.nintendo.com/connect/1.0.0")!
         case .me:
             return URL(string: "https://api.accounts.nintendo.com/2.0.0")!
-        case .login:
-            return URL(string: "https://api-lp1.znc.srv.nintendo.net/v2")!
-        case .getWebServiceToken:
+        case .login, .getWebServiceToken:
             return URL(string: "https://api-lp1.znc.srv.nintendo.net/v2")!
         }
     }
