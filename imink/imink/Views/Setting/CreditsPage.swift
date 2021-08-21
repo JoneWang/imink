@@ -62,11 +62,6 @@ struct CreditsPage: View {
             Section(
                 header: SectionHeader {
                     Text("ACKNOWLEDGEMENTS")
-                },
-                footer: SectionFooter {
-                    Text("aknowledgements_desc")
-                        .font(.system(size: 13))
-                        .padding(.bottom, 22)
                 }
             ) {
                 ForEach(0..<acknowledgements.count) { index in
