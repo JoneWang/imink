@@ -288,7 +288,8 @@ extension Battle {
     }
     
     var myTeamMembersSorted: [TeamMember] {
-        guard let myTeamMembers = myTeamMembers else { return [] }
+        guard var myTeamMembers = myTeamMembers else { return [] }
+        myTeamMembers.append(playerResult)
         return sorted(teamMembers: myTeamMembers)
     }
     
