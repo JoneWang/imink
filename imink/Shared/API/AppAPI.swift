@@ -8,6 +8,8 @@
 import Foundation
 
 enum AppAPI {
+    case config
+    
     case schedules
     case salmonRunSchedules
     
@@ -25,6 +27,8 @@ extension AppAPI: APITargetType {
     
     var path: String {
         switch self {
+        case .config:
+            return "/config"
         case .schedules:
             return "/schedules"
         case .salmonRunSchedules:
@@ -36,7 +40,8 @@ extension AppAPI: APITargetType {
     
     var method: APIMethod {
         switch self {
-        case .schedules,
+        case .config,
+             .schedules,
              .salmonRunSchedules:
             return .get
         case .f:

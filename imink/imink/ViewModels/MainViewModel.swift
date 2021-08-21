@@ -27,12 +27,26 @@ class MainViewModel: ObservableObject {
                 WidgetCenter.shared.reloadAllTimelines()
             }
         }
+        
+        getConfig()
     }
 }
 
 // MARK: Request
 
 extension MainViewModel {
+    
+    func getConfig() {
+        AppAPI.config
+            .request()
+            .decode(type: AppConfig.self)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in
+            }, receiveValue: { config in
+                AppUserDefaults.shared.nsoVersion = config.nsoVersion
+            })
+            .store(in: &cancelBag)
+    }
     
     func checkIksmSession() {
         if IksmSessionManager.shared.isValid {
