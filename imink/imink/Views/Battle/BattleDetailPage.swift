@@ -289,24 +289,21 @@ extension Battle {
     
     var myTeamMembersSorted: [TeamMember] {
         guard let myTeamMembers = myTeamMembers else { return [] }
-        
-        var members = myTeamMembers
-        members.append(playerResult)
-        if gameMode.key == .leaguePair || gameMode.key == .leagueTeam {
-            members.sort(by: teamKillSort)
-        } else {
-            members.sort { $0.sortScore > $1.sortScore }
-        }
-        return members
+        return sorted(teamMembers: myTeamMembers)
     }
     
     var otherTeamMembersSorted: [TeamMember] {
         guard let otherTeamMembers = otherTeamMembers else { return [] }
-        
+        return sorted(teamMembers: otherTeamMembers)
+    }
+    
+    private func sorted(teamMembers: [TeamMember]) -> [TeamMember] {
         if gameMode.key == .leaguePair || gameMode.key == .leagueTeam  {
-            return otherTeamMembers.sorted(by: teamKillSort)
+            return teamMembers.sorted(by: teamKillSort)
+        } else if gameMode.key == .regular {
+            return teamMembers.sorted { $0.gamePaintPoint > $1.gamePaintPoint }
         } else {
-            return otherTeamMembers.sorted { $0.sortScore > $1.sortScore }
+            return teamMembers.sorted { $0.sortScore > $1.sortScore }
         }
     }
     
