@@ -16,8 +16,53 @@
 		BBC15A2A256B9CEA00B67514 /* InkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17CB0C256B995900E34247 /* InkCore.framework */; };
 		EC00DBF5251CD29C0010366A /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */; };
 		EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF3251CD29C0010366A /* TransitionModifier.swift */; };
+		EC02D31526D637B100D4A1B6 /* Deepsea_Metro83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2D926D637A700D4A1B6 /* Deepsea_Metro83.5x83.5@2x.png */; };
+		EC02D31626D637B100D4A1B6 /* Order83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2DA26D637A700D4A1B6 /* Order83.5x83.5@2x.png */; };
+		EC02D31726D637B100D4A1B6 /* Chaos83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2DB26D637A700D4A1B6 /* Chaos83.5x83.5@2x.png */; };
+		EC02D31826D637B100D4A1B6 /* Salmon_Run76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2DC26D637A700D4A1B6 /* Salmon_Run76x76@2x.png */; };
+		EC02D31926D637B100D4A1B6 /* Squid_Squad_Band76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2DD26D637A800D4A1B6 /* Squid_Squad_Band76x76@2x.png */; };
+		EC02D31B26D637B100D4A1B6 /* Squid_Squad_Band83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2DF26D637A800D4A1B6 /* Squid_Squad_Band83.5x83.5@2x.png */; };
+		EC02D31F26D637B100D4A1B6 /* Toni_Kensa83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2E326D637A900D4A1B6 /* Toni_Kensa83.5x83.5@2x.png */; };
+		EC02D32026D637B100D4A1B6 /* Research_Lab60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2E426D637A900D4A1B6 /* Research_Lab60x60@3x.png */; };
+		EC02D32126D637B100D4A1B6 /* Salmon_Run83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2E526D637A900D4A1B6 /* Salmon_Run83.5x83.5@2x.png */; };
+		EC02D32226D637B100D4A1B6 /* Salmon_Run60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2E626D637A900D4A1B6 /* Salmon_Run60x60@3x.png */; };
+		EC02D32326D637B100D4A1B6 /* Research_Lab76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2E726D637A900D4A1B6 /* Research_Lab76x76@2x.png */; };
+		EC02D32426D637B100D4A1B6 /* Salmon_Run60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2E826D637A900D4A1B6 /* Salmon_Run60x60@2x.png */; };
+		EC02D32526D637B100D4A1B6 /* Black60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2E926D637AA00D4A1B6 /* Black60x60@2x.png */; };
+		EC02D32626D637B100D4A1B6 /* Chaos60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2EA26D637AA00D4A1B6 /* Chaos60x60@3x.png */; };
+		EC02D32726D637B100D4A1B6 /* Wet_Floor_Band60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2EB26D637AA00D4A1B6 /* Wet_Floor_Band60x60@2x.png */; };
+		EC02D32826D637B100D4A1B6 /* Deepsea_Metro60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2EC26D637AA00D4A1B6 /* Deepsea_Metro60x60@3x.png */; };
+		EC02D32926D637B100D4A1B6 /* Chaos60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2ED26D637AA00D4A1B6 /* Chaos60x60@2x.png */; };
+		EC02D32A26D637B100D4A1B6 /* Toni_Kensa60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2EE26D637AA00D4A1B6 /* Toni_Kensa60x60@3x.png */; };
+		EC02D32B26D637B100D4A1B6 /* Ink_You_Up76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2EF26D637AB00D4A1B6 /* Ink_You_Up76x76@2x.png */; };
+		EC02D32C26D637B100D4A1B6 /* White76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2F026D637AB00D4A1B6 /* White76x76@2x.png */; };
+		EC02D32F26D637B100D4A1B6 /* Deepsea_Metro76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2F326D637AB00D4A1B6 /* Deepsea_Metro76x76@2x.png */; };
+		EC02D33026D637B100D4A1B6 /* Black60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2F426D637AB00D4A1B6 /* Black60x60@3x.png */; };
+		EC02D33126D637B100D4A1B6 /* Order76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2F526D637AC00D4A1B6 /* Order76x76@2x.png */; };
+		EC02D33326D637B100D4A1B6 /* Research_Lab60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2F726D637AC00D4A1B6 /* Research_Lab60x60@2x.png */; };
+		EC02D33526D637B100D4A1B6 /* Squid_Squad_Band60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2F926D637AC00D4A1B6 /* Squid_Squad_Band60x60@2x.png */; };
+		EC02D33626D637B100D4A1B6 /* Wet_Floor_Band76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2FA26D637AC00D4A1B6 /* Wet_Floor_Band76x76@2x.png */; };
+		EC02D33726D637B100D4A1B6 /* White60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2FB26D637AD00D4A1B6 /* White60x60@2x.png */; };
+		EC02D33926D637B100D4A1B6 /* Chaos76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2FD26D637AD00D4A1B6 /* Chaos76x76@2x.png */; };
+		EC02D33B26D637B100D4A1B6 /* Deepsea_Metro60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D2FF26D637AD00D4A1B6 /* Deepsea_Metro60x60@2x.png */; };
+		EC02D33E26D637B100D4A1B6 /* White83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30226D637AE00D4A1B6 /* White83.5x83.5@2x.png */; };
+		EC02D33F26D637B100D4A1B6 /* Research_Lab83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30326D637AE00D4A1B6 /* Research_Lab83.5x83.5@2x.png */; };
+		EC02D34026D637B100D4A1B6 /* White60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30426D637AE00D4A1B6 /* White60x60@3x.png */; };
+		EC02D34226D637B100D4A1B6 /* Ink_You_Up83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30626D637AE00D4A1B6 /* Ink_You_Up83.5x83.5@2x.png */; };
+		EC02D34326D637B100D4A1B6 /* Wet_Floor_Band83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30726D637AF00D4A1B6 /* Wet_Floor_Band83.5x83.5@2x.png */; };
+		EC02D34426D637B100D4A1B6 /* Ink_You_Up60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30826D637AF00D4A1B6 /* Ink_You_Up60x60@3x.png */; };
+		EC02D34526D637B100D4A1B6 /* Wet_Floor_Band60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30926D637AF00D4A1B6 /* Wet_Floor_Band60x60@3x.png */; };
+		EC02D34626D637B100D4A1B6 /* Toni_Kensa60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30A26D637AF00D4A1B6 /* Toni_Kensa60x60@2x.png */; };
+		EC02D34826D637B100D4A1B6 /* Order60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30C26D637AF00D4A1B6 /* Order60x60@2x.png */; };
+		EC02D34926D637B100D4A1B6 /* Black76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30D26D637B000D4A1B6 /* Black76x76@2x.png */; };
+		EC02D34A26D637B100D4A1B6 /* Order60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30E26D637B000D4A1B6 /* Order60x60@3x.png */; };
+		EC02D34B26D637B100D4A1B6 /* Ink_You_Up60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D30F26D637B000D4A1B6 /* Ink_You_Up60x60@2x.png */; };
+		EC02D34C26D637B100D4A1B6 /* Squid_Squad_Band60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D31026D637B000D4A1B6 /* Squid_Squad_Band60x60@3x.png */; };
+		EC02D34E26D637B100D4A1B6 /* Toni_Kensa76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D31226D637B100D4A1B6 /* Toni_Kensa76x76@2x.png */; };
+		EC02D34F26D637B100D4A1B6 /* Black83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC02D31326D637B100D4A1B6 /* Black83.5x83.5@2x.png */; };
 		EC0598E426D121EC00262D86 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0598E326D121EC00262D86 /* AppConfig.swift */; };
 		EC0598E526D121EC00262D86 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0598E326D121EC00262D86 /* AppConfig.swift */; };
+		EC0598E726D1315600262D86 /* AppIconPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0598E626D1315600262D86 /* AppIconPage.swift */; };
 		EC0B0986266692640011758C /* CreditsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B0985266692640011758C /* CreditsPage.swift */; };
 		EC0B098E2667FA790011758C /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B098D2667FA780011758C /* DataBackup.swift */; };
 		EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
@@ -253,7 +298,52 @@
 		EC00DBF2251CD29C0010366A /* AnimatableModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
 		EC00DBF3251CD29C0010366A /* TransitionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
 		EC00DBF4251CD29C0010366A /* FontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
+		EC02D2D926D637A700D4A1B6 /* Deepsea_Metro83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deepsea_Metro83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D2DA26D637A700D4A1B6 /* Order83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Order83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D2DB26D637A700D4A1B6 /* Chaos83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chaos83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D2DC26D637A700D4A1B6 /* Salmon_Run76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Salmon_Run76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2DD26D637A800D4A1B6 /* Squid_Squad_Band76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Squid_Squad_Band76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2DF26D637A800D4A1B6 /* Squid_Squad_Band83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Squid_Squad_Band83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D2E326D637A900D4A1B6 /* Toni_Kensa83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toni_Kensa83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D2E426D637A900D4A1B6 /* Research_Lab60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Research_Lab60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D2E526D637A900D4A1B6 /* Salmon_Run83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Salmon_Run83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D2E626D637A900D4A1B6 /* Salmon_Run60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Salmon_Run60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D2E726D637A900D4A1B6 /* Research_Lab76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Research_Lab76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2E826D637A900D4A1B6 /* Salmon_Run60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Salmon_Run60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D2E926D637AA00D4A1B6 /* Black60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D2EA26D637AA00D4A1B6 /* Chaos60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chaos60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D2EB26D637AA00D4A1B6 /* Wet_Floor_Band60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wet_Floor_Band60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D2EC26D637AA00D4A1B6 /* Deepsea_Metro60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deepsea_Metro60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D2ED26D637AA00D4A1B6 /* Chaos60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chaos60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D2EE26D637AA00D4A1B6 /* Toni_Kensa60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toni_Kensa60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D2EF26D637AB00D4A1B6 /* Ink_You_Up76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ink_You_Up76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2F026D637AB00D4A1B6 /* White76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2F326D637AB00D4A1B6 /* Deepsea_Metro76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deepsea_Metro76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2F426D637AB00D4A1B6 /* Black60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D2F526D637AC00D4A1B6 /* Order76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Order76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2F726D637AC00D4A1B6 /* Research_Lab60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Research_Lab60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D2F926D637AC00D4A1B6 /* Squid_Squad_Band60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Squid_Squad_Band60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D2FA26D637AC00D4A1B6 /* Wet_Floor_Band76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wet_Floor_Band76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2FB26D637AD00D4A1B6 /* White60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D2FD26D637AD00D4A1B6 /* Chaos76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chaos76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D2FF26D637AD00D4A1B6 /* Deepsea_Metro60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deepsea_Metro60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D30226D637AE00D4A1B6 /* White83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D30326D637AE00D4A1B6 /* Research_Lab83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Research_Lab83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D30426D637AE00D4A1B6 /* White60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D30626D637AE00D4A1B6 /* Ink_You_Up83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ink_You_Up83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D30726D637AF00D4A1B6 /* Wet_Floor_Band83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wet_Floor_Band83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		EC02D30826D637AF00D4A1B6 /* Ink_You_Up60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ink_You_Up60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D30926D637AF00D4A1B6 /* Wet_Floor_Band60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wet_Floor_Band60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D30A26D637AF00D4A1B6 /* Toni_Kensa60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toni_Kensa60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D30C26D637AF00D4A1B6 /* Order60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Order60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D30D26D637B000D4A1B6 /* Black76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D30E26D637B000D4A1B6 /* Order60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Order60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D30F26D637B000D4A1B6 /* Ink_You_Up60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ink_You_Up60x60@2x.png"; sourceTree = "<group>"; };
+		EC02D31026D637B000D4A1B6 /* Squid_Squad_Band60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Squid_Squad_Band60x60@3x.png"; sourceTree = "<group>"; };
+		EC02D31226D637B100D4A1B6 /* Toni_Kensa76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toni_Kensa76x76@2x.png"; sourceTree = "<group>"; };
+		EC02D31326D637B100D4A1B6 /* Black83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Black83.5x83.5@2x.png"; sourceTree = "<group>"; };
 		EC0598E326D121EC00262D86 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		EC0598E626D1315600262D86 /* AppIconPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconPage.swift; sourceTree = "<group>"; };
 		EC0B0985266692640011758C /* CreditsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsPage.swift; sourceTree = "<group>"; };
 		EC0B098D2667FA780011758C /* DataBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBackup.swift; sourceTree = "<group>"; };
 		EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModifier.swift; sourceTree = "<group>"; };
@@ -474,6 +564,57 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		EC02D25326D6213A00D4A1B6 /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				EC02D2E926D637AA00D4A1B6 /* Black60x60@2x.png */,
+				EC02D2F426D637AB00D4A1B6 /* Black60x60@3x.png */,
+				EC02D30D26D637B000D4A1B6 /* Black76x76@2x.png */,
+				EC02D31326D637B100D4A1B6 /* Black83.5x83.5@2x.png */,
+				EC02D2ED26D637AA00D4A1B6 /* Chaos60x60@2x.png */,
+				EC02D2EA26D637AA00D4A1B6 /* Chaos60x60@3x.png */,
+				EC02D2FD26D637AD00D4A1B6 /* Chaos76x76@2x.png */,
+				EC02D2DB26D637A700D4A1B6 /* Chaos83.5x83.5@2x.png */,
+				EC02D2FF26D637AD00D4A1B6 /* Deepsea_Metro60x60@2x.png */,
+				EC02D2EC26D637AA00D4A1B6 /* Deepsea_Metro60x60@3x.png */,
+				EC02D2F326D637AB00D4A1B6 /* Deepsea_Metro76x76@2x.png */,
+				EC02D2D926D637A700D4A1B6 /* Deepsea_Metro83.5x83.5@2x.png */,
+				EC02D30F26D637B000D4A1B6 /* Ink_You_Up60x60@2x.png */,
+				EC02D30826D637AF00D4A1B6 /* Ink_You_Up60x60@3x.png */,
+				EC02D2EF26D637AB00D4A1B6 /* Ink_You_Up76x76@2x.png */,
+				EC02D30626D637AE00D4A1B6 /* Ink_You_Up83.5x83.5@2x.png */,
+				EC02D30C26D637AF00D4A1B6 /* Order60x60@2x.png */,
+				EC02D30E26D637B000D4A1B6 /* Order60x60@3x.png */,
+				EC02D2F526D637AC00D4A1B6 /* Order76x76@2x.png */,
+				EC02D2DA26D637A700D4A1B6 /* Order83.5x83.5@2x.png */,
+				EC02D2F726D637AC00D4A1B6 /* Research_Lab60x60@2x.png */,
+				EC02D2E426D637A900D4A1B6 /* Research_Lab60x60@3x.png */,
+				EC02D2E726D637A900D4A1B6 /* Research_Lab76x76@2x.png */,
+				EC02D30326D637AE00D4A1B6 /* Research_Lab83.5x83.5@2x.png */,
+				EC02D2E826D637A900D4A1B6 /* Salmon_Run60x60@2x.png */,
+				EC02D2E626D637A900D4A1B6 /* Salmon_Run60x60@3x.png */,
+				EC02D2DC26D637A700D4A1B6 /* Salmon_Run76x76@2x.png */,
+				EC02D2E526D637A900D4A1B6 /* Salmon_Run83.5x83.5@2x.png */,
+				EC02D2F926D637AC00D4A1B6 /* Squid_Squad_Band60x60@2x.png */,
+				EC02D31026D637B000D4A1B6 /* Squid_Squad_Band60x60@3x.png */,
+				EC02D2DD26D637A800D4A1B6 /* Squid_Squad_Band76x76@2x.png */,
+				EC02D2DF26D637A800D4A1B6 /* Squid_Squad_Band83.5x83.5@2x.png */,
+				EC02D30A26D637AF00D4A1B6 /* Toni_Kensa60x60@2x.png */,
+				EC02D2EE26D637AA00D4A1B6 /* Toni_Kensa60x60@3x.png */,
+				EC02D31226D637B100D4A1B6 /* Toni_Kensa76x76@2x.png */,
+				EC02D2E326D637A900D4A1B6 /* Toni_Kensa83.5x83.5@2x.png */,
+				EC02D2EB26D637AA00D4A1B6 /* Wet_Floor_Band60x60@2x.png */,
+				EC02D30926D637AF00D4A1B6 /* Wet_Floor_Band60x60@3x.png */,
+				EC02D2FA26D637AC00D4A1B6 /* Wet_Floor_Band76x76@2x.png */,
+				EC02D30726D637AF00D4A1B6 /* Wet_Floor_Band83.5x83.5@2x.png */,
+				EC02D2FB26D637AD00D4A1B6 /* White60x60@2x.png */,
+				EC02D30426D637AE00D4A1B6 /* White60x60@3x.png */,
+				EC02D2F026D637AB00D4A1B6 /* White76x76@2x.png */,
+				EC02D30226D637AE00D4A1B6 /* White83.5x83.5@2x.png */,
+			);
+			path = AppIcons;
+			sourceTree = "<group>";
+		};
 		EC11F1D925558C3E00E10F5F /* SalmonRunWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +695,7 @@
 			children = (
 				ECA9B401266BCE8C00EE63FC /* SettingPage.swift */,
 				EC0B0985266692640011758C /* CreditsPage.swift */,
+				EC0598E626D1315600262D86 /* AppIconPage.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -645,6 +787,7 @@
 		EC900E73251C55FF00AA0B20 /* imink */ = {
 			isa = PBXGroup;
 			children = (
+				EC02D25326D6213A00D4A1B6 /* AppIcons */,
 				ECA9B3E82668971800EE63FC /* Thirdpartys */,
 				EC902D1B2663F6A10014093C /* Utils */,
 				EC900EAF251C8EF700AA0B20 /* Data */,
@@ -986,9 +1129,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC02D33F26D637B100D4A1B6 /* Research_Lab83.5x83.5@2x.png in Resources */,
+				EC02D32826D637B100D4A1B6 /* Deepsea_Metro60x60@3x.png in Resources */,
+				EC02D32A26D637B100D4A1B6 /* Toni_Kensa60x60@3x.png in Resources */,
+				EC02D34026D637B100D4A1B6 /* White60x60@3x.png in Resources */,
+				EC02D34A26D637B100D4A1B6 /* Order60x60@3x.png in Resources */,
+				EC02D32426D637B100D4A1B6 /* Salmon_Run60x60@2x.png in Resources */,
+				EC02D32126D637B100D4A1B6 /* Salmon_Run83.5x83.5@2x.png in Resources */,
+				EC02D33526D637B100D4A1B6 /* Squid_Squad_Band60x60@2x.png in Resources */,
+				EC02D34B26D637B100D4A1B6 /* Ink_You_Up60x60@2x.png in Resources */,
+				EC02D32626D637B100D4A1B6 /* Chaos60x60@3x.png in Resources */,
+				EC02D32226D637B100D4A1B6 /* Salmon_Run60x60@3x.png in Resources */,
+				EC02D31626D637B100D4A1B6 /* Order83.5x83.5@2x.png in Resources */,
+				EC02D34226D637B100D4A1B6 /* Ink_You_Up83.5x83.5@2x.png in Resources */,
 				BB520C1326146683006454FB /* SplatNet2.strings in Resources */,
+				EC02D34926D637B100D4A1B6 /* Black76x76@2x.png in Resources */,
+				EC02D32F26D637B100D4A1B6 /* Deepsea_Metro76x76@2x.png in Resources */,
+				EC02D32526D637B100D4A1B6 /* Black60x60@2x.png in Resources */,
+				EC02D34E26D637B100D4A1B6 /* Toni_Kensa76x76@2x.png in Resources */,
+				EC02D33926D637B100D4A1B6 /* Chaos76x76@2x.png in Resources */,
+				EC02D32026D637B100D4A1B6 /* Research_Lab60x60@3x.png in Resources */,
+				EC02D33126D637B100D4A1B6 /* Order76x76@2x.png in Resources */,
+				EC02D33026D637B100D4A1B6 /* Black60x60@3x.png in Resources */,
+				EC02D32926D637B100D4A1B6 /* Chaos60x60@2x.png in Resources */,
+				EC02D31926D637B100D4A1B6 /* Squid_Squad_Band76x76@2x.png in Resources */,
+				EC02D34326D637B100D4A1B6 /* Wet_Floor_Band83.5x83.5@2x.png in Resources */,
+				EC02D34626D637B100D4A1B6 /* Toni_Kensa60x60@2x.png in Resources */,
+				EC02D33B26D637B100D4A1B6 /* Deepsea_Metro60x60@2x.png in Resources */,
+				EC02D34826D637B100D4A1B6 /* Order60x60@2x.png in Resources */,
+				EC02D31826D637B100D4A1B6 /* Salmon_Run76x76@2x.png in Resources */,
+				EC02D33326D637B100D4A1B6 /* Research_Lab60x60@2x.png in Resources */,
 				ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */,
+				EC02D32B26D637B100D4A1B6 /* Ink_You_Up76x76@2x.png in Resources */,
+				EC02D34426D637B100D4A1B6 /* Ink_You_Up60x60@3x.png in Resources */,
+				EC02D31B26D637B100D4A1B6 /* Squid_Squad_Band83.5x83.5@2x.png in Resources */,
+				EC02D32326D637B100D4A1B6 /* Research_Lab76x76@2x.png in Resources */,
+				EC02D33E26D637B100D4A1B6 /* White83.5x83.5@2x.png in Resources */,
+				EC02D33726D637B100D4A1B6 /* White60x60@2x.png in Resources */,
+				EC02D32726D637B100D4A1B6 /* Wet_Floor_Band60x60@2x.png in Resources */,
+				EC02D32C26D637B100D4A1B6 /* White76x76@2x.png in Resources */,
+				EC02D34526D637B100D4A1B6 /* Wet_Floor_Band60x60@3x.png in Resources */,
+				EC02D31526D637B100D4A1B6 /* Deepsea_Metro83.5x83.5@2x.png in Resources */,
+				EC02D34F26D637B100D4A1B6 /* Black83.5x83.5@2x.png in Resources */,
 				EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */,
+				EC02D34C26D637B100D4A1B6 /* Squid_Squad_Band60x60@3x.png in Resources */,
+				EC02D33626D637B100D4A1B6 /* Wet_Floor_Band76x76@2x.png in Resources */,
+				EC02D31F26D637B100D4A1B6 /* Toni_Kensa83.5x83.5@2x.png in Resources */,
+				EC02D31726D637B100D4A1B6 /* Chaos83.5x83.5@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,6 +1290,7 @@
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
 				EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */,
 				EC9C243D26A5A85E003B9D9F /* NotchBranding.swift in Sources */,
+				EC0598E726D1315600262D86 /* AppIconPage.swift in Sources */,
 				ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */,
 				ECB5CAFD26A6C2AE00B921C7 /* AppDelegate.swift in Sources */,
 				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,

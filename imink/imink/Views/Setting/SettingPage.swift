@@ -111,6 +111,12 @@ struct SettingPage: View {
                             .padding(.bottom,  viewModel.isLogined ? 0 : 3)
                     }
                 ) {
+                    if UIApplication.shared.supportsAlternateIcons {
+                        NavigationLink(destination: AppIconPage()) {
+                            ListRow("App Icon", showArrow: false)
+                        }
+                    }
+                    
                     Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
                         ListRow("Language")
                     }
