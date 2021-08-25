@@ -96,122 +96,122 @@
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-                    <string>Black60x60</string>
-                    <string>Black76x76</string>
-                    <string>Black83.5x83.5</string>
+					<string>Black60x60</string>
+					<string>Black76x76</string>
+					<string>Black83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>White</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>White60x60</string>
-                    <string>White76x76</string>
-                    <string>White83.5x83.5</string>
+					<string>White76x76</string>
+					<string>White83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Salmon Run</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Salmon_Run60x60</string>
-                    <string>Salmon_Run76x76</string>
-                    <string>Salmon_Run83.5x83.5</string>
+					<string>Salmon_Run76x76</string>
+					<string>Salmon_Run83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Deepsea Metro</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Deepsea_Metro60x60</string>
-                    <string>Deepsea_Metro76x76</string>
-                    <string>Deepsea_Metro83.5x83.5</string>
+					<string>Deepsea_Metro76x76</string>
+					<string>Deepsea_Metro83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Toni Kensa</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Toni_Kensa60x60</string>
-                    <string>Toni_Kensa76x76</string>
-                    <string>Toni_Kensa83.5x83.5</string>
+					<string>Toni_Kensa76x76</string>
+					<string>Toni_Kensa83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Chaos</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Chaos60x60</string>
-                    <string>Chaos76x76</string>
-                    <string>Chaos83.5x83.5</string>
+					<string>Chaos76x76</string>
+					<string>Chaos83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Order</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Order60x60</string>
-                    <string>Order76x76</string>
-                    <string>Order83.5x83.5</string>
+					<string>Order76x76</string>
+					<string>Order83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Squid Squad Band</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Squid_Squad_Band60x60</string>
-                    <string>Squid_Squad_Band76x76</string>
-                    <string>Squid_Squad_Band83.5x83.5</string>
+					<string>Squid_Squad_Band76x76</string>
+					<string>Squid_Squad_Band83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Wet Floor Band</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Wet_Floor_Band60x60</string>
-                    <string>Wet_Floor_Band76x76</string>
-                    <string>Wet_Floor_Band83.5x83.5</string>
+					<string>Wet_Floor_Band76x76</string>
+					<string>Wet_Floor_Band83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
-			<key>Ink You Up</key>
+			<key>INK YOU UP</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>Ink_You_Up60x60</string>
-                    <string>Ink_You_Up76x76</string>
-                    <string>Ink_You_Up83.5x83.5</string>
+					<string>INK_YOU_UP60x60</string>
+					<string>INK_YOU_UP76x76</string>
+					<string>INK_YOU_UP83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 			<key>Research Lab</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>Research_Lab60x60</string>
-                    <string>Research_Lab76x76</string>
-                    <string>Research_Lab83.5x83.5</string>
+					<string>Research_Lab76x76</string>
+					<string>Research_Lab83.5x83.5</string>
 				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
 			</dict>
 		</dict>
 	</dict>

@@ -45,7 +45,7 @@ enum AppIcon: CaseIterable {
         case .wetFloorBand:
             return "Wet Floor Band"
         case .inkYouUp:
-            return "Ink You Up"
+            return "INK YOU UP"
         case .researchLab:
             return "Research Lab"
         }
