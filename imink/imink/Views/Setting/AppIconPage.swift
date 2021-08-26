@@ -91,9 +91,16 @@ struct AppIconPage: View {
                         Spacer()
                         
                         if currentAlternateIconName == appIcon.alternateIconName {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.system(size: 22))
-                                .foregroundColor(AppColor.spPink)
+                            ZStack {
+                                Circle()
+                                    .fill(Color.white)
+                                    .frame(width: 20, height: 20)
+                                    .preferredColorScheme(.light)
+                                
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 22))
+                                    .foregroundColor(AppColor.spPink)
+                            }
                         }
                     }
                     .padding([.top, .bottom], 8)
