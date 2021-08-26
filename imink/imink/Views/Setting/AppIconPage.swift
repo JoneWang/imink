@@ -95,7 +95,7 @@ struct AppIconPage: View {
                                 Circle()
                                     .fill(Color.white)
                                     .frame(width: 20, height: 20)
-                                    .preferredColorScheme(.light)
+                                    .colorScheme(.light)
                                 
                                 Image(systemName: "checkmark.circle.fill")
                                     .font(.system(size: 22))
