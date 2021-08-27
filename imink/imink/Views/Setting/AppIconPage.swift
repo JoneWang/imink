@@ -79,19 +79,32 @@ struct AppIconPage: View {
                         Image(appIcon.previewImageName)
                             .frame(width: 60, height: 60)
                             .continuousCornerRadius(13)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 13)
+                                    .stroke(Color("AppLabelColor"), lineWidth: 0.5)
+                                    .opacity(0.05)
+                            )
                         
                         Text(appIcon.name.localized)
+                            .foregroundColor(Color("AppLabelColor"))
                         
                         Spacer()
                         
                         if currentAlternateIconName == appIcon.alternateIconName {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.system(size: 22))
-                                .foregroundColor(AppColor.spPink)
+                            ZStack {
+                                Circle()
+                                    .fill(Color.white)
+                                    .frame(width: 20, height: 20)
+                                    .colorScheme(.light)
+                                
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 22))
+                                    .foregroundColor(AppColor.spPink)
+                            }
                         }
                     }
-                    .padding(.top, 8)
-                    .padding(.bottom, 4)
+                    .padding([.top, .bottom], 8)
+
                 }
             }
         }
