@@ -1,8 +1,7 @@
-![Preview](./Preview.png)
-
+![Preview](./Resources/Preview.png)
 
 [![Crowdin](https://badges.crowdin.net/imink/localized.svg)](https://crowdin.com/project/imink)
-[![Crowdin](./Figma-imink.svg)](https://www.figma.com/file/87iBo261FZDyV86INCu3VU/imink.app?node-id=2813%3A32170)
+[![Crowdin](./Resources/Figma-imink.svg)](https://www.figma.com/file/87iBo261FZDyV86INCu3VU/imink.app?node-id=2813%3A32170)
 
 ## Download
 
