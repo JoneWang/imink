@@ -13,8 +13,6 @@ enum AppAPI {
     case schedules
     case salmonRunSchedules
     
-    // If you want to use this api, please check the documentation
-    // Docs: https://github.com/JoneWang/imink/wiki/imink-API-Document
     case f(naIdToken: String, requestId: String, timestamp: String, hashMethod: HashMethod)
     
     internal enum HashMethod: String {
@@ -22,6 +20,8 @@ enum AppAPI {
     }
 }
 
+// If you want to use this api, please check the documentation
+// Docs: https://github.com/JoneWang/imink/wiki/imink-API-Documentation
 extension AppAPI: APITargetType {
     var baseURL: URL { URL(string: "https://api.imink.jone.wang")! }
     
