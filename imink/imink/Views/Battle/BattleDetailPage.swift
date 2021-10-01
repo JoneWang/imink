@@ -32,43 +32,32 @@ struct BattleDetailPage: View {
     }
     
     var body: some View {
-        ZStack {
-            // FIXME: Fix navigationBar background is white.
-            GeometryReader { geometry in
-                Rectangle()
-                    .fill(AppColor.listBackgroundColor)
-                    .frame(height: geometry.safeAreaInsets.top)
-                    .edgesIgnoringSafeArea(.top)
+        ScrollView {
+            HStack {
+                Spacer()
+                
+                if let battle = viewModel.battle {
+                    makeContent(battle: battle)
+                        .padding([.top, .bottom], 20)
+                        .frame(maxWidth: 500)
+                }
                 
                 Spacer()
             }
-            
-            ScrollView {
-                HStack {
-                    Spacer()
-                    
-                    if let battle = viewModel.battle {
-                        makeContent(battle: battle)
-                            .padding([.top, .bottom], 20)
-                            .frame(maxWidth: 500)
-                    }
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, 8)
-            }
-            .frame(maxWidth: .infinity)
-            .background(AppColor.listBackgroundColor)
-            .navigationBarTitle(navigationTitle, displayMode: .inline)
-            .onAppear {
+            .padding(.horizontal, 8)
+        }
+        .frame(maxWidth: .infinity)
+        .background(AppColor.listBackgroundColor)
+        .navigationBarTitle(navigationTitle, displayMode: .inline)
+        .onAppear {
+            viewModel.load(id: row.record?.id)
+        }
+        .onChange(of: realtimeRow) { row in
+            if let row = row {
                 viewModel.load(id: row.record?.id)
             }
-            .onChange(of: realtimeRow) { row in
-                if let row = row {
-                    viewModel.load(id: row.record?.id)
-                }
-            }
         }
+        .fixSafeareaBackground()
         .modifier(Popup(isPresented: showPlayerSkill,
                         onDismiss: {
                             showPlayerSkill = false

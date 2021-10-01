@@ -14,39 +14,34 @@ struct BattleListPage: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(AppColor.listBackgroundColor)
-                    .ignoresSafeArea()
-                
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.rows, id: \.id) { row in
-                            BattleListItemView(
-                                row: row,
-                                selectedId: $viewModel.selectedId
-                            )
-                            .padding([.leading, .trailing])
-                            .onTapGesture {
-                                self.viewModel.selectedId = row.id
-                            }
-                            .background(
-                                NavigationLink(
-                                    destination: BattleDetailPage(
-                                        row: row,
-                                        realtimeRow: $viewModel.realtimeRow
-                                    ),
-                                    tag: row.id,
-                                    selection: $viewModel.selectedId
-                                ) { EmptyView() }
-                                .buttonStyle(PlainButtonStyle())
-                            )
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.rows, id: \.id) { row in
+                        BattleListItemView(
+                            row: row,
+                            selectedId: $viewModel.selectedId
+                        )
+                        .padding([.leading, .trailing])
+                        .onTapGesture {
+                            self.viewModel.selectedId = row.id
                         }
+                        .background(
+                            NavigationLink(
+                                destination: BattleDetailPage(
+                                    row: row,
+                                    realtimeRow: $viewModel.realtimeRow
+                                ),
+                                tag: row.id,
+                                selection: $viewModel.selectedId
+                            ) { EmptyView() }
+                            .buttonStyle(PlainButtonStyle())
+                        )
                     }
-                    .padding([.top, .bottom], 16)
                 }
-                .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
+                .padding([.top, .bottom], 16)
             }
+            .fixSafeareaBackground()
+            .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
             .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
         }
