@@ -22,10 +22,11 @@ struct NotchBranding: View {
                     .padding(.init(top: 1, leading: 9, bottom: 1, trailing: 8))
                     .background(Color.systemGray5)
                     .continuousCornerRadius(10)
-                    .edgesIgnoringSafeArea(.top)
                     .transition(.fade(duration: 0.1))
+                    .padding(.top, 12)
             }
         }
+        .edgesIgnoringSafeArea(.top)
         .onReceive(NotificationCenter
                     .default
                     .publisher(for: UIScene.willDeactivateNotification)) { _ in

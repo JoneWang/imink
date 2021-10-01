@@ -51,10 +51,10 @@ extension SceneDelegate {
         // Add NotchBranding to window
         let notchBranding = UIHostingController(rootView: NotchBranding())
         notchBranding.view.backgroundColor = .clear
+        notchBranding.view.isUserInteractionEnabled = false
         window.addSubview(notchBranding.view)
         notchBranding.view.snp.makeConstraints {
-            $0.leading.trailing.equalTo(window)
-            $0.top.equalTo(12)
+            $0.leading.trailing.top.equalTo(window)
         }
     }
 }
