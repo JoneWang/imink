@@ -37,9 +37,14 @@ struct CreditsPage: View {
             Section(
                 header: SectionHeader {
                     VStack(alignment: .leading, spacing: 22) {
-                        Text("credits_desc")
-                            .font(.system(size: 13))
-                            .padding(.top, 16)
+                        if #available(iOS 15.0, *) {
+                            Text("credits_desc")
+                                .font(.system(size: 13))
+                        } else {
+                            Text("credits_desc")
+                                .font(.system(size: 13))
+                                .padding(.top, 16)
+                        }
                         
                         Text("CONTRIBUTORS")
                     }
