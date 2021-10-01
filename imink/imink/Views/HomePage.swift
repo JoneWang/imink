@@ -28,172 +28,182 @@ struct HomePage: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                HStack {
-                    Spacer()
-                    
-                    VStack {
-                        if viewModel.isLogined,
-                           !iksmSessionViewModel.iksmSessionIsValid,
-                           iksmSessionViewModel.needManualRenew {
-                            SessionStatusView(isRenewing: $iksmSessionViewModel.isRenewing)
-                                .padding(.top)
-                        }
-                        
-                        VStack {
-                            VStack(spacing: 0) {
-                                
-                                HStack(alignment: .firstTextBaseline) {
-                                    Text("Today")
-                                        .sp1Font(size: 22, color: AppColor.appLabelColor)
-                                    
-                                    Text("(\(viewModel.resetHour):00 \("reset".localized))")
-                                        .sp2Font(color: Color.secondary)
-                                    
-                                    Spacer()
-                                }
-                                
-                                TodayView(today: viewModel.today)
-                                
-                            }
-                            .padding(.top)
-                            
-                            VStack(spacing: 0) {
-                                HStack(alignment: .firstTextBaseline) {
-                                    Text("Results")
-                                        .sp1Font(size: 22, color: AppColor.appLabelColor)
-                                    
-                                    Text("(\(NSLocalizedString("Last 500", comment: "")))")
-                                        .sp2Font(color: Color.secondary)
-                                    
-                                    Spacer()
-                                }
-                                
-                                HStack {
-                                    Spacer()
-                                    
-                                    Text("Last 50")
-                                        .sp2Font(size: 8, color: Color.secondary)
-                                        .minimumScaleFactor(0.5)
-                                        .frame(width: vdChartLastBlockWidth)
-                                }
-                                .frame(height: 20)
-                                
-                                VDGridView(
-                                    data: viewModel.vdWithLast500,
-                                    height: $vdChartViewHeight,
-                                    lastBlockWidth: $vdChartLastBlockWidth
-                                )
-                                .frame(height: vdChartViewHeight)
-                                
-                            }
-                            .padding(.top)
-                        }
-                        .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarHome"))
-                        
-                        if let festival = viewModel.activeFestivals?.festivals.first {
-                            VStack(spacing: 0) {
-                                Text("Splatfest")
-                                    .sp1Font(size: 22, color: AppColor.appLabelColor)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                ZStack {
-                                    HStack(spacing: 0) {
-                                        Rectangle()
-                                            .fill(festival.colors.alpha.color)
-                                        Rectangle()
-                                            .fill(festival.colors.bravo.color)
-                                    }
-                                    
-                                    VStack {
-                                        HStack(spacing: 0) {
-                                            WebImage(url: festival.images.alpha)
-                                                .resizable()
-                                                .frame(width: 32, height: 32)
-                                                .padding(.trailing, 8)
-                                            
-                                            Text(festival.names.alphaShort)
-                                                .sp1Font(size: 14)
-                                            
-                                            Spacer()
-                                            
-                                            Text(festival.names.bravoShort)
-                                                .sp1Font(size: 14)
-                                            
-                                            WebImage(url: festival.images.bravo)
-                                                .resizable()
-                                                .frame(width: 32, height: 32)
-                                                .padding(.leading, 8)
-                                        }
-                                        
-                                        Text("\(festival.times.start, formatter: scheduleTimeFormat) - \(festival.times.end, formatter: scheduleTimeFormat)")
-                                            .sp2Font()
-                                            .padding(.bottom, 4)
-                                    }
-                                    .padding(8)
-                                }
-                                .frame(height: 70)
-                                .background(AppColor.listItemBackgroundColor)
-                                .continuousCornerRadius(10)
-                                .padding(.top)
-                            }
-                            .padding(.top)
-                        }
-                        
-                        VStack(spacing: 0) {
-                            Text("Schedule")
-                                .sp1Font(size: 22, color: AppColor.appLabelColor)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                                Picker(selection: $scheduleType, label: Text("Picker"), content: {
-                                    Text("Battle").tag(0)
-                                    Text("Salmon Run").tag(1)
-                                })
-                                .pickerStyle(SegmentedPickerStyle())
-                                .frame(width: 230)
-                            .padding(.top)
-                            
-                            if scheduleType == 0 {
-                                if let schedules = viewModel.schedules {
-                                    ScheduleView(
-                                        regularSchedules: schedules.regular,
-                                        gachiSchedules: schedules.gachi,
-                                        leagueSchedules: schedules.league
-                                    )
-                                    .padding(.top)
-                                } else {
-                                    makeLoadingView()
-                                }
-                            } else {
-                                if let salmonRunSchedules = viewModel.salmonRunSchedules {
-                                    SalmonRunScheduleView(
-                                        schedules: salmonRunSchedules
-                                    )
-                                    .padding(.top)
-                                } else {
-                                    makeLoadingView()
-                                }
-                            }
-                            
-                        }
-                        .padding([.top, .bottom])
-                        .animation(.default)
-                        
-                        Spacer()
-                    }
-                    .frame(maxWidth: 500)
+            ZStack {
+                // FIXME: Fix navigationBar background is white.
+                GeometryReader { geometry in
+                    Rectangle()
+                        .fill(AppColor.listBackgroundColor)
+                        .frame(height: geometry.safeAreaInsets.top)
+                        .edgesIgnoringSafeArea(.top)
                     
                     Spacer()
                 }
-                .padding(.horizontal, 8)
+                
+                ScrollView {
+                    HStack {
+                        Spacer()
+                        
+                        VStack {
+                            if viewModel.isLogined,
+                               !iksmSessionViewModel.iksmSessionIsValid,
+                               iksmSessionViewModel.needManualRenew {
+                                SessionStatusView(isRenewing: $iksmSessionViewModel.isRenewing)
+                                    .padding(.top)
+                            }
+                            
+                            VStack {
+                                VStack(spacing: 0) {
+                                    
+                                    HStack(alignment: .firstTextBaseline) {
+                                        Text("Today")
+                                            .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                        
+                                        Text("(\(viewModel.resetHour):00 \("reset".localized))")
+                                            .sp2Font(color: Color.secondary)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    TodayView(today: viewModel.today)
+                                    
+                                }
+                                .padding(.top)
+                                
+                                VStack(spacing: 0) {
+                                    HStack(alignment: .firstTextBaseline) {
+                                        Text("Results")
+                                            .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                        
+                                        Text("(\(NSLocalizedString("Last 500", comment: "")))")
+                                            .sp2Font(color: Color.secondary)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    HStack {
+                                        Spacer()
+                                        
+                                        Text("Last 50")
+                                            .sp2Font(size: 8, color: Color.secondary)
+                                            .minimumScaleFactor(0.5)
+                                            .frame(width: vdChartLastBlockWidth)
+                                    }
+                                    .frame(height: 20)
+                                    
+                                    VDGridView(
+                                        data: viewModel.vdWithLast500,
+                                        height: $vdChartViewHeight,
+                                        lastBlockWidth: $vdChartLastBlockWidth
+                                    )
+                                    .frame(height: vdChartViewHeight)
+                                    
+                                }
+                                .padding(.top)
+                            }
+                            .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarHome"))
+                            
+                            if let festival = viewModel.activeFestivals?.festivals.first {
+                                VStack(spacing: 0) {
+                                    Text("Splatfest")
+                                        .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    
+                                    ZStack {
+                                        HStack(spacing: 0) {
+                                            Rectangle()
+                                                .fill(festival.colors.alpha.color)
+                                            Rectangle()
+                                                .fill(festival.colors.bravo.color)
+                                        }
+                                        
+                                        VStack {
+                                            HStack(spacing: 0) {
+                                                WebImage(url: festival.images.alpha)
+                                                    .resizable()
+                                                    .frame(width: 32, height: 32)
+                                                    .padding(.trailing, 8)
+                                                
+                                                Text(festival.names.alphaShort)
+                                                    .sp1Font(size: 14)
+                                                
+                                                Spacer()
+                                                
+                                                Text(festival.names.bravoShort)
+                                                    .sp1Font(size: 14)
+                                                
+                                                WebImage(url: festival.images.bravo)
+                                                    .resizable()
+                                                    .frame(width: 32, height: 32)
+                                                    .padding(.leading, 8)
+                                            }
+                                            
+                                            Text("\(festival.times.start, formatter: scheduleTimeFormat) - \(festival.times.end, formatter: scheduleTimeFormat)")
+                                                .sp2Font()
+                                                .padding(.bottom, 4)
+                                        }
+                                        .padding(8)
+                                    }
+                                    .frame(height: 70)
+                                    .background(AppColor.listItemBackgroundColor)
+                                    .continuousCornerRadius(10)
+                                    .padding(.top)
+                                }
+                                .padding(.top)
+                            }
+                            
+                            VStack(spacing: 0) {
+                                Text("Schedule")
+                                    .sp1Font(size: 22, color: AppColor.appLabelColor)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                    Picker(selection: $scheduleType, label: Text("Picker"), content: {
+                                        Text("Battle").tag(0)
+                                        Text("Salmon Run").tag(1)
+                                    })
+                                    .pickerStyle(SegmentedPickerStyle())
+                                    .frame(width: 230)
+                                .padding(.top)
+                                
+                                if scheduleType == 0 {
+                                    if let schedules = viewModel.schedules {
+                                        ScheduleView(
+                                            regularSchedules: schedules.regular,
+                                            gachiSchedules: schedules.gachi,
+                                            leagueSchedules: schedules.league
+                                        )
+                                        .padding(.top)
+                                    } else {
+                                        makeLoadingView()
+                                    }
+                                } else {
+                                    if let salmonRunSchedules = viewModel.salmonRunSchedules {
+                                        SalmonRunScheduleView(
+                                            schedules: salmonRunSchedules
+                                        )
+                                        .padding(.top)
+                                    } else {
+                                        makeLoadingView()
+                                    }
+                                }
+                                
+                            }
+                            .padding([.top, .bottom])
+                            .animation(.default)
+                            
+                            Spacer()
+                        }
+                        .frame(maxWidth: 500)
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal, 8)
+                }
+                .background(AppColor.listBackgroundColor)
+                .animation(.default, value: iksmSessionViewModel.iksmSessionIsValid)
             }
-            .background(AppColor.listBackgroundColor)
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
-            .navigationBarHidden(false)
-            .animation(.default, value: iksmSessionViewModel.iksmSessionIsValid)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .onReceive(mainViewModel.$isLogined) { isLogined in
             iksmSessionViewModel.updateLoginStatus(isLogined: isLogined)
             viewModel.updateLoginStatus(isLogined: isLogined)
