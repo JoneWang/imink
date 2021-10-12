@@ -247,6 +247,9 @@ struct BattleDetailPage: View {
                                     .position(x: 1, y: 18.5)
                             }
                         }
+                        // FIXME: Fix the bug of height error on iOS15
+                        .frame(height: 37)
+                        .background(Color.green)
                     }
                 }
             }
