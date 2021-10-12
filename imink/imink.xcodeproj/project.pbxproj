@@ -94,8 +94,6 @@
 		EC313B4326727E2200EC1C63 /* AppCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC313B4226727E2200EC1C63 /* AppCookieStorage.swift */; };
 		EC313B4426727E2200EC1C63 /* AppCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC313B4226727E2200EC1C63 /* AppCookieStorage.swift */; };
 		EC344FE925330351004A7AF1 /* MePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC344FE825330351004A7AF1 /* MePage.swift */; };
-		EC36A57127158A34005B38B5 /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC36A57027158A34005B38B5 /* SystemInfo.swift */; };
-		EC36A57227158A34005B38B5 /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC36A57027158A34005B38B5 /* SystemInfo.swift */; };
 		EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */; };
 		EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
 		EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703625482BE400557BD4 /* String+LocalizedString.swift */; };
@@ -376,7 +374,6 @@
 		EC313B3E2671CC5F00EC1C63 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		EC313B4226727E2200EC1C63 /* AppCookieStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCookieStorage.swift; sourceTree = "<group>"; };
 		EC344FE825330351004A7AF1 /* MePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePage.swift; sourceTree = "<group>"; };
-		EC36A57027158A34005B38B5 /* SystemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfo.swift; sourceTree = "<group>"; };
 		EC38A4E025330DAD00A81656 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		EC39701A2548028100557BD4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EC39701D25480B9C00557BD4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -834,7 +831,6 @@
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
 				BB520C1D26146C05006454FB /* StageImage.swift */,
 				EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */,
-				EC36A57027158A34005B38B5 /* SystemInfo.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1217,7 +1213,6 @@
 				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
 				EC902D172663E9B90014093C /* IksmSessionViewModel.swift in Sources */,
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
-				EC36A57227158A34005B38B5 /* SystemInfo.swift in Sources */,
 				EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
 				EC8754CE2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift in Sources */,
@@ -1300,7 +1295,6 @@
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
 				EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */,
 				EC9C243D26A5A85E003B9D9F /* NotchBranding.swift in Sources */,
-				EC36A57127158A34005B38B5 /* SystemInfo.swift in Sources */,
 				EC0598E726D1315600262D86 /* AppIconPage.swift in Sources */,
 				ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */,
 				ECB5CAFD26A6C2AE00B921C7 /* AppDelegate.swift in Sources */,
