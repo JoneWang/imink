@@ -136,7 +136,7 @@ struct MePage: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .opacity(viewModel.isLogined ? 1 : 0.2)
                     .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarMe", backgroundColor: .clear))
-                    .listRowBackground(viewModel.isLogined ? AppColor.listItemBackgroundColor : AppColor.listBackgroundColor.opacity(0.8))
+                    .listRowBackground((viewModel.isLogined || SystemInfo.iOS15) ? AppColor.listItemBackgroundColor : AppColor.listBackgroundColor.opacity(0.8))
                 }
             }
             .listStyle(InsetGroupedListStyle())
