@@ -34,7 +34,6 @@ struct SettingPage: View {
                         header: SectionHeader {
                             if #available(iOS 15.0, *) {
                                 Text("LOGIN STATUS")
-                                    .padding(.bottom, 3)
                             } else {
                                 Text("LOGIN STATUS")
                                     .padding(.top, 16)
@@ -111,9 +110,13 @@ struct SettingPage: View {
                 
                 Section(
                     header: SectionHeader {
-                        Text("GENERAL")
-                            .padding(.top, viewModel.isLogined ? 0 : 16)
-                            .padding(.bottom,  viewModel.isLogined ? 0 : 3)
+                        if #available(iOS 15.0, *) {
+                            Text("GENERAL")
+                        } else {
+                            Text("GENERAL")
+                                .padding(.top, viewModel.isLogined ? 0 : 16)
+                                .padding(.bottom,  viewModel.isLogined ? 0 : 3)
+                        }
                     }
                 ) {
                     if UIApplication.shared.supportsAlternateIcons {

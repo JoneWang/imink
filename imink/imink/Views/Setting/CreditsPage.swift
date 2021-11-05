@@ -36,19 +36,24 @@ struct CreditsPage: View {
         List {
             Section(
                 header: SectionHeader {
-                    VStack(alignment: .leading, spacing: 22) {
                         if #available(iOS 15.0, *) {
-                            Text("credits_desc")
-                                .font(.system(size: 13))
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("credits_desc")
+                                    .font(.system(size: 13))
+                                    .offset(y: -10)
+
+                                Text("CONTRIBUTORS")
+                            }
                         } else {
+                            VStack(alignment: .leading, spacing: 22) {
                             Text("credits_desc")
                                 .font(.system(size: 13))
                                 .padding(.top, 16)
+
+                                Text("CONTRIBUTORS")
+                            }
+                            .padding(.bottom, 3)
                         }
-                        
-                        Text("CONTRIBUTORS")
-                    }
-                    .padding(.bottom, 3)
                 },
                 footer: SectionFooter {
                     Link(destination: crowdinURL) {
