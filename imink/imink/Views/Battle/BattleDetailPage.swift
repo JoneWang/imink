@@ -16,6 +16,7 @@ struct BattleDetailPage: View {
     let row: BattleListRowModel
     @Binding var realtimeRow: BattleListRowModel?
     
+    @State private var hidePlayerNames: Bool = false
     @State private var showPlayerSkill: Bool = false
     @State private var activePlayer: Player? = nil
     @State private var activePlayerVictory: Bool = false
@@ -49,6 +50,28 @@ struct BattleDetailPage: View {
         .frame(maxWidth: .infinity)
         .background(AppColor.listBackgroundColor)
         .navigationBarTitle(navigationTitle, displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Menu {
+                    if (hidePlayerNames) {
+                        Button(action: {
+                            hidePlayerNames = false
+                        }) {
+                            Label("Show Player Names", systemImage: "eye")
+                        }
+                    } else {
+                        Button(action: {
+                            hidePlayerNames = true
+                        }) {
+                            Label("Hide Player Names", systemImage: "eye.slash")
+                        }
+                    }
+                }
+                label: {
+                    Label("Add", systemImage: "ellipsis.circle")
+                }
+            }
+        }
         .onAppear {
             viewModel.load(id: row.record?.id)
         }
@@ -222,7 +245,8 @@ struct BattleDetailPage: View {
                                 victory: victory,
                                 member: member,
                                 showCrown: battle.crownPlayers?.contains(member.player.principalId) ?? false,
-                                isSelected: member.player == activePlayer && (showPlayerSkill || hoveredMember)
+                                isSelected: member.player == activePlayer && (showPlayerSkill || hoveredMember),
+                                hidePlayerNames: hidePlayerNames
                             )
                             .overlay(
                                 TouchDownAndTouchUpGestureView{
