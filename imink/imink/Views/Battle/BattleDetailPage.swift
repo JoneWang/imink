@@ -246,7 +246,7 @@ struct BattleDetailPage: View {
                                 member: member,
                                 showCrown: battle.crownPlayers?.contains(member.player.principalId) ?? false,
                                 isSelected: member.player == activePlayer && (showPlayerSkill || hoveredMember),
-                                hidePlayerNames: hidePlayerNames
+                                hidePlayerNames: (member.player.principalId == battle.playerResult.player.principalId) ? false : hidePlayerNames
                             )
                             .overlay(
                                 TouchDownAndTouchUpGestureView{

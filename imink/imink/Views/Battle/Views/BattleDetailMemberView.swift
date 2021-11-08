@@ -61,6 +61,7 @@ struct BattleDetailMemberView: View {
                     
                     Text(hidePlayerNames ? "--------" : member.player.nickname)
                         .sp2Font(size: 13, color: AppColor.appLabelColor)
+                        .animation(.none)
                 }
                 
                 Text("\(member.gamePaintPoint)p")
