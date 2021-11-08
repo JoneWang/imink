@@ -48,10 +48,10 @@
 "Battle" = "バトル";
 
 // MARK: Battles
-"All Rules" = "All Rules";
+"All Rules" = "全ルール";
 
-"Hide Player Names" = "Hide Player Names";
-"Show Player Names" = "Show Player Names";
+"Hide Player Names" = "プレイヤー名を隠す";
+"Show Player Names" = "プレイヤー名を表示";
 
 "%@ power" = "%@ パワー";
 "Current" = "現在";
