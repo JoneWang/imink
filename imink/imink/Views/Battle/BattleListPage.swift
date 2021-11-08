@@ -59,6 +59,7 @@ struct BattleListPage: View {
                                 HStack{
                                     Text(item.0)
                                     Image(item.1, bundle: Bundle.inkCore)
+                                        .foregroundColor(.primary)
                                 }.tag(i)
                             }
                         }
