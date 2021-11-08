@@ -227,6 +227,7 @@ struct SettingPage: View {
                     footer: SectionFooter {
                         Text("ABOUT_desc")
                             .font(.system(size: 13))
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 ) {
                     Link(destination: URL(string: "https://github.com/JoneWang/imink/wiki/FAQ")!) {
