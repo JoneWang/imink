@@ -12,6 +12,12 @@ struct BattleListPage: View {
         
     @StateObject var viewModel = BattleListViewModel()
     
+    let filterItems: [(LocalizedStringKey, String)] = [
+        ("All Rules", ""), ("Turf War", "RegularBattleMono"),
+        ("Splat Zones", "SplatZonesMono"), ("Tower Control", "TowerControlMono"),
+        ("Rainmaker", "RainmakerMono"), ("Clam Blitz", "ClamBlitzMono")
+    ]
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -44,6 +50,24 @@ struct BattleListPage: View {
             .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
             .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Picker(selection: $viewModel.currentFilterIndex, label: Text("filtering options")) {
+                            ForEach(0..<filterItems.count) { i in
+                                let item = filterItems[i]
+                                HStack{
+                                    Text(item.0)
+                                    Image(item.1, bundle: Bundle.inkCore)
+                                }.tag(i)
+                            }
+                        }
+                    }
+                    label: {
+                        Label("Filter", systemImage: "line.horizontal.3.decrease.circle")
+                    }
+                }
+            }
         }
         .onReceive(mainViewModel.$isLogined) { isLogined in
             viewModel.updateLoginStatus(isLogined: isLogined)

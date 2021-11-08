@@ -279,6 +279,7 @@ struct BattleListItemView_Previews: PreviewProvider {
             weaponId: "11",
             weaponImage: "",
             rule: "Turf War",
+            ruleKey: "turf_war",
             gameMode: "Regular",
             gameModeKey: "gachi",
             stageName: "Arowana Mall",

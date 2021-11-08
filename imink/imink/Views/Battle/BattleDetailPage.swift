@@ -68,7 +68,7 @@ struct BattleDetailPage: View {
                     }
                 }
                 label: {
-                    Label("Add", systemImage: "ellipsis.circle")
+                    Label("Menu", systemImage: "ellipsis.circle")
                 }
             }
         }
