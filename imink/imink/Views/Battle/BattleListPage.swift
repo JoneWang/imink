@@ -52,20 +52,22 @@ struct BattleListPage: View {
             .navigationBarHidden(false)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Menu {
-                        Picker(selection: $viewModel.currentFilterIndex, label: Text("filtering options")) {
-                            ForEach(0..<filterItems.count) { i in
-                                let item = filterItems[i]
-                                HStack{
-                                    Text(item.0)
-                                    Image(item.1, bundle: Bundle.inkCore)
-                                        .foregroundColor(.primary)
-                                }.tag(i)
+                    if viewModel.isLogined {
+                        Menu {
+                            Picker(selection: $viewModel.currentFilterIndex, label: Text("filtering options")) {
+                                ForEach(0..<filterItems.count) { i in
+                                    let item = filterItems[i]
+                                    HStack{
+                                        Text(item.0)
+                                        Image(item.1, bundle: Bundle.inkCore)
+                                            .foregroundColor(.primary)
+                                    }.tag(i)
+                                }
                             }
                         }
-                    }
-                    label: {
-                        Label("Filter", systemImage: "line.horizontal.3.decrease.circle" + (viewModel.currentFilterIndex == 0 ? "" : ".fill"))
+                        label: {
+                            Label("Filter", systemImage: "line.horizontal.3.decrease.circle" + (viewModel.currentFilterIndex == 0 ? "" : ".fill"))
+                        }
                     }
                 }
             }
