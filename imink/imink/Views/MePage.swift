@@ -42,6 +42,18 @@ struct MePage: View {
         return data
     }
     
+    var listRowBackgroundColor: Color {
+        if viewModel.isLogined {
+            return AppColor.listItemBackgroundColor
+        } else {
+            if #available(iOS 15.0, *) {
+                return AppColor.listItemBackgroundColor.opacity(0.1)
+            } else {
+                return AppColor.listBackgroundColor.opacity(0.8)
+            }
+        }
+    }
+    
     var body: some View {
         let leagueStats = viewModel.records?.records.leagueStats
         let player = viewModel.records?.records.player
@@ -136,7 +148,7 @@ struct MePage: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .opacity(viewModel.isLogined ? 1 : 0.2)
                     .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarMe", backgroundColor: .clear))
-                    .listRowBackground(viewModel.isLogined ? .clear : AppColor.listBackgroundColor.opacity(0.8))
+                    .listRowBackground(listRowBackgroundColor)
                 }
             }
             .listStyle(InsetGroupedListStyle())
@@ -156,7 +168,6 @@ struct MePage: View {
                 }
             )
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             viewModel.loadUserInfo()
         }

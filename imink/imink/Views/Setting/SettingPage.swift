@@ -32,9 +32,13 @@ struct SettingPage: View {
                 if viewModel.isLogined {
                     Section(
                         header: SectionHeader {
-                            Text("LOGIN STATUS")
-                                .padding(.top, 16)
-                                .padding(.bottom, 3)
+                            if #available(iOS 15.0, *) {
+                                Text("LOGIN STATUS")
+                            } else {
+                                Text("LOGIN STATUS")
+                                    .padding(.top, 16)
+                                    .padding(.bottom, 3)
+                            }
                         },
                         footer: iksmSessionViewModel.iksmSessionIsValid ?
                             AnyView(EmptyView()) :
@@ -106,9 +110,13 @@ struct SettingPage: View {
                 
                 Section(
                     header: SectionHeader {
-                        Text("GENERAL")
-                            .padding(.top, viewModel.isLogined ? 0 : 16)
-                            .padding(.bottom,  viewModel.isLogined ? 0 : 3)
+                        if #available(iOS 15.0, *) {
+                            Text("GENERAL")
+                        } else {
+                            Text("GENERAL")
+                                .padding(.top, viewModel.isLogined ? 0 : 16)
+                                .padding(.bottom,  viewModel.isLogined ? 0 : 3)
+                        }
                     }
                 ) {
                     if UIApplication.shared.supportsAlternateIcons {

@@ -25,14 +25,11 @@ public struct GrayscaleTextureView: View {
     }
     
     public var body: some View {
-        Rectangle().mask(
-            Image(texture.imageName, bundle: Bundle.inkCore)
-                .resizable(resizingMode: .tile)
-                .luminanceToAlpha()
-        )
-        .foregroundColor(foregroundColor)
-        .background(backgroundColor)
-        .unredacted()
+        Image(texture.imageName, bundle: Bundle.inkCore)
+            .resizable(resizingMode: .tile)
+            .foregroundColor(foregroundColor)
+            .background(backgroundColor)
+            .unredacted()
     }
 }
 

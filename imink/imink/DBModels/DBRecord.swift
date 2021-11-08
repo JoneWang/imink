@@ -27,6 +27,7 @@ struct DBRecord: Identifiable {
     var weaponId: String
     var weaponImage: String
     var rule: String
+    var ruleKey: String
     var gameMode: String
     var gameModeKey: String
     var stageName: String
@@ -69,6 +70,7 @@ extension DBRecord: Codable, FetchableRecord, MutablePersistableRecord {
         static let weaponId = Column(CodingKeys.weaponId)
         static let weaponImage = Column(CodingKeys.weaponImage)
         static let rule = Column(CodingKeys.rule)
+        static let ruleKey = Column(CodingKeys.rule)
         static let gameMode = Column(CodingKeys.gameMode)
         static let gameModeKey = Column(CodingKeys.gameModeKey)
         static let stageName = Column(CodingKeys.stageName)
@@ -159,6 +161,7 @@ extension DBRecord {
             weaponId: weaponId,
             weaponImage: Splatoon2API.host.appendingPathComponent(weaponImage).absoluteString,
             rule: ruleName,
+            ruleKey: ruleKey,
             gameMode: gameModeName,
             gameModeKey: gameModeKey,
             stageName: stageName,
@@ -274,7 +277,7 @@ extension AppDatabase {
         
         return ValueObservation.tracking { db in
             // exclude json
-            var sql = "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies, isX, xPower FROM record WHERE sp2PrincipalId = ? ORDER BY startDateTime DESC"
+            var sql = "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, ruleKey, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies, isX, xPower FROM record WHERE sp2PrincipalId = ? ORDER BY startDateTime DESC"
             
             if returnJson {
                 sql = sql.replacingOccurrences(of: "battleNumber", with: "battleNumber, json")
@@ -485,6 +488,7 @@ extension DBRecord {
             weaponId: weaponId,
             weaponImage: weaponImage,
             rule: rule,
+            ruleKey: ruleKey,
             gameMode: gameMode,
             gameModeKey: gameModeKey,
             stageName: stageName,

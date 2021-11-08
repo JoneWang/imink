@@ -46,6 +46,8 @@ struct SP1FontModifier: ViewModifier {
         content
             .font(.custom(AppTheme.spFontName, size: size))
             .foregroundColor(color)
+            // FIXME: Fix the bug of minimumScaleFactor on iOS15
+            .fixedSize(horizontal: false, vertical: true)
             .lineLimit(lineLimit)
             .frame(height: lineLimit == 1 ? size : .infinity)
     }
@@ -60,6 +62,8 @@ struct SP2FontModifier: ViewModifier {
         content
             .font(.custom(AppTheme.sp2FontName, size: size))
             .foregroundColor(color)
+            // FIXME: Fix the bug of minimumScaleFactor on iOS15
+            .fixedSize(horizontal: false, vertical: true)
             .lineLimit(lineLimit)
             .frame(height: lineLimit == 1 ? size : .infinity)
     }

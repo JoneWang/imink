@@ -186,14 +186,12 @@ struct HomePage: View {
                     Spacer()
                 }
                 .padding(.horizontal, 8)
+                .animation(.default, value: iksmSessionViewModel.iksmSessionIsValid)
             }
-            .background(AppColor.listBackgroundColor)
+            .fixSafeareaBackground()
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
-            .navigationBarHidden(false)
-            .animation(.default, value: iksmSessionViewModel.iksmSessionIsValid)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .onReceive(mainViewModel.$isLogined) { isLogined in
             iksmSessionViewModel.updateLoginStatus(isLogined: isLogined)
             viewModel.updateLoginStatus(isLogined: isLogined)

@@ -16,43 +16,38 @@ struct JobListPage: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(AppColor.listBackgroundColor)
-                    .ignoresSafeArea()
-                
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.rows, id: \.id) { row in
-                            if let shiftCard = row.shiftCard {
-                                JobShiftCardView(shiftCard: shiftCard)
-                                    .rotationEffect(.degrees(-1))
-                                    .clipped(antialiased: true)
-                                    .padding([.leading, .trailing], 26)
-                                    .padding(.top, 15)
-                                    // FIXME:
-                                    .padding(.bottom, 0.1)
-                            } else if let job = row.job {
-                                JobListItemView(job: job, selectedId: $viewModel.selectedId)
-                                    .padding([.leading, .trailing])
-                                    .onTapGesture {
-                                        self.viewModel.selectedId = job.id
-                                    }
-                                    .background(
-                                        NavigationLink(
-                                            destination: JobDetailPage(id: job.id!),
-                                            tag: job.id!,
-                                            selection: $viewModel.selectedId
-                                        ) { EmptyView() }
-                                        .buttonStyle(PlainButtonStyle())
-                                    )
-                            }
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.rows, id: \.id) { row in
+                        if let shiftCard = row.shiftCard {
+                            JobShiftCardView(shiftCard: shiftCard)
+                                .rotationEffect(.degrees(-1))
+                                .clipped(antialiased: true)
+                                .padding([.leading, .trailing], 26)
+                                .padding(.top, 15)
+                                // FIXME:
+                                .padding(.bottom, 0.1)
+                        } else if let job = row.job {
+                            JobListItemView(job: job, selectedId: $viewModel.selectedId)
+                                .padding([.leading, .trailing])
+                                .onTapGesture {
+                                    self.viewModel.selectedId = job.id
+                                }
+                                .background(
+                                    NavigationLink(
+                                        destination: JobDetailPage(id: job.id!),
+                                        tag: job.id!,
+                                        selection: $viewModel.selectedId
+                                    ) { EmptyView() }
+                                    .buttonStyle(PlainButtonStyle())
+                                )
                         }
                     }
-                    .padding(.bottom, 16)
                 }
-                .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarSalmonRun"))
+                .padding(.bottom, 16)
             }
+            .fixSafeareaBackground()
+            .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarSalmonRun"))
             .navigationBarTitle("Salmon Run", displayMode: .inline)
             .navigationBarHidden(false)
         }

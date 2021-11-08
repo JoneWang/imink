@@ -270,6 +270,23 @@ class AppDatabase {
             )
         }
         
+        migrator.registerMigration("V10") { db in
+            try db.alter(table: "record", body: { tableAlteration in
+                tableAlteration.add(column: "ruleKey", .text).defaults(to: "").notNull()
+            })
+            
+            try self.eachBattles(db: db) { (id, battle) in
+                try db.execute(
+                    sql: "UPDATE record SET " +
+                        "ruleKey = :ruleKey " +
+                        "WHERE id = :id",
+                    arguments: [
+                        "ruleKey": battle.rule.key.rawValue,
+                        "id": id
+                    ])
+            }
+        }
+        
         return migrator
     }
 }

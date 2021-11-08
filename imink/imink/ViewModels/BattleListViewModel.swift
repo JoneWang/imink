@@ -38,6 +38,7 @@ class BattleListViewModel: ObservableObject {
     @Published var databaseRecords: [DBRecord] = []
     @Published var selectedId: String?
     @Published var realtimeRow: BattleListRowModel?
+    @Published var currentFilterIndex: Int = 0
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -71,6 +72,14 @@ class BattleListViewModel: ObservableObject {
 
         // Handle data source of list
         $databaseRecords
+            .combineLatest($currentFilterIndex)
+            .map { (records, filterIndex) -> [DBRecord] in
+                if let filterRule = GameRule.Key.with(index: filterIndex) {
+                    return records.filter { GameRule.Key(rawValue: $0.ruleKey) == filterRule }
+                } else {
+                    return records
+                }
+            }
             .map { $0.map { BattleListRowModel(type: .record, record: $0) } }
             .map { rows in
                 let realtimeRow = BattleListRowModel(
@@ -92,5 +101,26 @@ class BattleListViewModel: ObservableObject {
             }
             .assign(to: \.rows, on: self)
             .store(in: &cancelBag)
+    }
+}
+
+fileprivate extension GameRule.Key {
+    static func with(index: Int) -> Self? {
+        switch (index) {
+        case 0:
+            return nil
+        case 1:
+            return .turfWar
+        case 2:
+            return .splatZones
+        case 3:
+            return .towerControl
+        case 4:
+            return .rainmaker
+        case 5:
+            return .clamBlitz
+        default:
+            return nil
+        }
     }
 }

@@ -146,6 +146,8 @@
 		EC861247253AC6ED003BA67A /* Easeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E98251C8EF600AA0B20 /* Easeing.swift */; };
 		EC861249253AC6ED003BA67A /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC900E96251C8EF600AA0B20 /* StatefulPreviewWrapper.swift */; };
 		EC86124E253AC70D003BA67A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC565B5A251D882900CCAC9A /* NotificationName.swift */; };
+		EC8754CD2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */; };
+		EC8754CE2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */; };
 		EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
 		EC8B6B2426074F2100B645B5 /* NAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1D26074E9700B645B5 /* NAUser.swift */; };
 		EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B6B1926074E8200B645B5 /* LoginToken.swift */; };
@@ -408,6 +410,7 @@
 		EC8611CD253AB9CB003BA67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC8611D1253AB9CB003BA67A /* AppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppWidgetExtension.entitlements; sourceTree = "<group>"; };
 		EC8611D7253ABA31003BA67A /* AppWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWidget.swift; sourceTree = "<group>"; };
+		EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixSafeareaBackgroundModifier.swift; sourceTree = "<group>"; };
 		EC8B6B1926074E8200B645B5 /* LoginToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToken.swift; sourceTree = "<group>"; };
 		EC8B6B1D26074E9700B645B5 /* NAUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAUser.swift; sourceTree = "<group>"; };
 		EC8C34DF26177B32006E9D0B /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
@@ -541,6 +544,7 @@
 				EC00DBF4251CD29C0010366A /* FontModifier.swift */,
 				EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */,
 				EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */,
+				EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -1211,6 +1215,7 @@
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
 				EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
+				EC8754CE2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift in Sources */,
 				EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */,
 				EC861246253AC6ED003BA67A /* StringInterpolation.swift in Sources */,
 				ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */,
@@ -1294,6 +1299,7 @@
 				ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */,
 				ECB5CAFD26A6C2AE00B921C7 /* AppDelegate.swift in Sources */,
 				ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */,
+				EC8754CD2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift in Sources */,
 				EC8B6B2326074F2100B645B5 /* LoginToken.swift in Sources */,
 				ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */,
 				EC62E77325360B2B0028428C /* MeViewModel.swift in Sources */,

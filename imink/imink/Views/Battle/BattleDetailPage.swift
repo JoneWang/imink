@@ -16,6 +16,7 @@ struct BattleDetailPage: View {
     let row: BattleListRowModel
     @Binding var realtimeRow: BattleListRowModel?
     
+    @State private var hidePlayerNames: Bool = false
     @State private var showPlayerSkill: Bool = false
     @State private var activePlayer: Player? = nil
     @State private var activePlayerVictory: Bool = false
@@ -32,43 +33,54 @@ struct BattleDetailPage: View {
     }
     
     var body: some View {
-        ZStack {
-            // FIXME: Fix navigationBar background is white.
-            GeometryReader { geometry in
-                Rectangle()
-                    .fill(AppColor.listBackgroundColor)
-                    .frame(height: geometry.safeAreaInsets.top)
-                    .edgesIgnoringSafeArea(.top)
+        ScrollView {
+            HStack {
+                Spacer()
+                
+                if let battle = viewModel.battle {
+                    makeContent(battle: battle)
+                        .padding(.vertical, 16)
+                        .frame(maxWidth: 500)
+                }
                 
                 Spacer()
             }
-            
-            ScrollView {
-                HStack {
-                    Spacer()
-                    
-                    if let battle = viewModel.battle {
-                        makeContent(battle: battle)
-                            .padding([.top, .bottom], 20)
-                            .frame(maxWidth: 500)
+            .padding(.horizontal, 8)
+        }
+        .frame(maxWidth: .infinity)
+        .background(AppColor.listBackgroundColor)
+        .navigationBarTitle(navigationTitle, displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Menu {
+                    if (hidePlayerNames) {
+                        Button(action: {
+                            hidePlayerNames = false
+                        }) {
+                            Label("Show Player Names", systemImage: "eye")
+                        }
+                    } else {
+                        Button(action: {
+                            hidePlayerNames = true
+                        }) {
+                            Label("Hide Player Names", systemImage: "eye.slash")
+                        }
                     }
-                    
-                    Spacer()
                 }
-                .padding(.horizontal, 8)
-            }
-            .frame(maxWidth: .infinity)
-            .background(AppColor.listBackgroundColor)
-            .navigationBarTitle(navigationTitle, displayMode: .inline)
-            .onAppear {
-                viewModel.load(id: row.record?.id)
-            }
-            .onChange(of: realtimeRow) { row in
-                if let row = row {
-                    viewModel.load(id: row.record?.id)
+                label: {
+                    Label("Menu", systemImage: "ellipsis.circle")
                 }
             }
         }
+        .onAppear {
+            viewModel.load(id: row.record?.id)
+        }
+        .onChange(of: realtimeRow) { row in
+            if let row = row {
+                viewModel.load(id: row.record?.id)
+            }
+        }
+        .fixSafeareaBackground()
         .modifier(Popup(isPresented: showPlayerSkill,
                         onDismiss: {
                             showPlayerSkill = false
@@ -233,7 +245,8 @@ struct BattleDetailPage: View {
                                 victory: victory,
                                 member: member,
                                 showCrown: battle.crownPlayers?.contains(member.player.principalId) ?? false,
-                                isSelected: member.player == activePlayer && (showPlayerSkill || hoveredMember)
+                                isSelected: member.player == activePlayer && (showPlayerSkill || hoveredMember),
+                                hidePlayerNames: hidePlayerNames
                             )
                             .overlay(
                                 TouchDownAndTouchUpGestureView{
@@ -258,6 +271,8 @@ struct BattleDetailPage: View {
                                     .position(x: 1, y: 18.5)
                             }
                         }
+                        // FIXME: Fix the bug of height error on iOS15
+                        .frame(height: 37)
                     }
                 }
             }

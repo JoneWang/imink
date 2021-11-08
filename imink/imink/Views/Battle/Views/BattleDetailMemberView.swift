@@ -14,6 +14,7 @@ struct BattleDetailMemberView: View {
     let member: TeamMember
     let showCrown: Bool
     let isSelected: Bool
+    var hidePlayerNames: Bool = false
     
     var body: some View {
         HStack(spacing: 0) {
@@ -58,7 +59,7 @@ struct BattleDetailMemberView: View {
                         Image("Crown")
                     }
                     
-                    Text(member.player.nickname)
+                    Text(hidePlayerNames ? "--------" : member.player.nickname)
                         .sp2Font(size: 13, color: AppColor.appLabelColor)
                 }
                 

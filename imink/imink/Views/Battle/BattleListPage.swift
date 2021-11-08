@@ -12,43 +12,62 @@ struct BattleListPage: View {
         
     @StateObject var viewModel = BattleListViewModel()
     
+    let filterItems: [(LocalizedStringKey, String)] = [
+        ("All Rules", ""), ("Turf War", "RegularBattleMono"),
+        ("Splat Zones", "SplatZonesMono"), ("Tower Control", "TowerControlMono"),
+        ("Rainmaker", "RainmakerMono"), ("Clam Blitz", "ClamBlitzMono")
+    ]
+    
     var body: some View {
         NavigationView {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(AppColor.listBackgroundColor)
-                    .ignoresSafeArea()
-                
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.rows, id: \.id) { row in
-                            BattleListItemView(
-                                row: row,
-                                selectedId: $viewModel.selectedId
-                            )
-                            .padding([.leading, .trailing])
-                            .onTapGesture {
-                                self.viewModel.selectedId = row.id
-                            }
-                            .background(
-                                NavigationLink(
-                                    destination: BattleDetailPage(
-                                        row: row,
-                                        realtimeRow: $viewModel.realtimeRow
-                                    ),
-                                    tag: row.id,
-                                    selection: $viewModel.selectedId
-                                ) { EmptyView() }
-                                .buttonStyle(PlainButtonStyle())
-                            )
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.rows, id: \.id) { row in
+                        BattleListItemView(
+                            row: row,
+                            selectedId: $viewModel.selectedId
+                        )
+                        .padding([.leading, .trailing])
+                        .onTapGesture {
+                            self.viewModel.selectedId = row.id
                         }
+                        .background(
+                            NavigationLink(
+                                destination: BattleDetailPage(
+                                    row: row,
+                                    realtimeRow: $viewModel.realtimeRow
+                                ),
+                                tag: row.id,
+                                selection: $viewModel.selectedId
+                            ) { EmptyView() }
+                            .buttonStyle(PlainButtonStyle())
+                        )
                     }
-                    .padding([.top, .bottom], 16)
                 }
-                .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
+                .padding([.top, .bottom], 16)
             }
+            .fixSafeareaBackground()
+            .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
             .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Picker(selection: $viewModel.currentFilterIndex, label: Text("filtering options")) {
+                            ForEach(0..<filterItems.count) { i in
+                                let item = filterItems[i]
+                                HStack{
+                                    Text(item.0)
+                                    Image(item.1, bundle: Bundle.inkCore)
+                                }.tag(i)
+                            }
+                        }
+                    }
+                    label: {
+                        Label("Filter", systemImage: "line.horizontal.3.decrease.circle")
+                    }
+                }
+            }
         }
         .onReceive(mainViewModel.$isLogined) { isLogined in
             viewModel.updateLoginStatus(isLogined: isLogined)
