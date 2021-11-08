@@ -64,7 +64,7 @@ struct BattleListPage: View {
                         }
                     }
                     label: {
-                        Label("Filter", systemImage: "line.horizontal.3.decrease.circle")
+                        Label("Filter", systemImage: "line.horizontal.3.decrease.circle" + (viewModel.currentFilterIndex == 0 ? "" : ".fill"))
                     }
                 }
             }
