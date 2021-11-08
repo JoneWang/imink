@@ -48,10 +48,10 @@
 "Battle" = "배틀";
 
 // MARK: Battles
-"All Rules" = "All Rules";
+"All Rules" = "모든 룰";
 
-"Hide Player Names" = "Hide Player Names";
-"Show Player Names" = "Show Player Names";
+"Hide Player Names" = "플레이어 닉네임 숨기기";
+"Show Player Names" = "플레이어 닉네임 표시";
 
 "%@ power" = "%@ 파워";
 "Current" = "현재";
