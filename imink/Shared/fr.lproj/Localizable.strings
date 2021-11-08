@@ -48,6 +48,10 @@
 "Battle" = "Bataille";
 
 // MARK: Battles
+"All Rules" = "All Rules";
+
+"Hide Player Names" = "Hide Player Names";
+"Show Player Names" = "Show Player Names";
 
 "%@ power" = "%@ power";
 "Current" = "Actuelle";

@@ -48,6 +48,10 @@
 "Battle" = "對戰";
 
 // MARK: Battles
+"All Rules" = "全部規則";
+
+"Hide Player Names" = "隱藏玩家名稱";
+"Show Player Names" = "顯示玩家名稱";
 
 "%@ power" = "%@ 分";
 "Current" = "現在";
