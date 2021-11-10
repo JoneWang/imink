@@ -12,6 +12,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Fix the problem that NavgationView and TabBar has no background when Stack style.
+        if #available(iOS 15.0, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            let defaultAppearance = UINavigationBar.appearance()
+            defaultAppearance.standardAppearance = navigationBarAppearance
+            defaultAppearance.scrollEdgeAppearance = navigationBarAppearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            let appAppearance = UITabBar.appearance()
+            appAppearance.standardAppearance = tabBarAppearance
+            appAppearance.scrollEdgeAppearance = tabBarAppearance
+        }
+        
         return true
     }
 
