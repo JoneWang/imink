@@ -168,6 +168,7 @@ struct MePage: View {
                 }
             )
         }
+        .navigationViewStyle(.stack)
         .onAppear {
             viewModel.loadUserInfo()
         }

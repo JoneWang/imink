@@ -289,7 +289,6 @@ struct SettingPage: View {
                 }
             )
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

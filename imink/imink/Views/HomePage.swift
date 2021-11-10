@@ -192,6 +192,7 @@ struct HomePage: View {
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(trailing: makeNavigationBarItems())
         }
+        .navigationViewStyle(.stack)
         .onReceive(mainViewModel.$isLogined) { isLogined in
             iksmSessionViewModel.updateLoginStatus(isLogined: isLogined)
             viewModel.updateLoginStatus(isLogined: isLogined)
@@ -248,3 +249,23 @@ struct HomePage: View {
 //            .frame(width: 400, height: 768)
 //    }
 //}
+
+struct ScrollViewBackground: ViewModifier {
+    
+    let color: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .ignoresSafeArea(edges: .horizontal)
+            .onAppear {
+                UIScrollView.appearance().backgroundColor = UIColor(color)
+            }
+    
+    }
+}
+
+extension View {
+    func setBackgroundColor(color: Color) -> some View {
+        return self.modifier(ScrollViewBackground(color: color))
+    }
+}

@@ -66,7 +66,6 @@ struct NintendoAccountLoginView: View {
                     .fontWeight(.regular)
             })
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             viewModel.status = .loading
         }

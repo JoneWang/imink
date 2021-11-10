@@ -15,6 +15,16 @@ struct JobListPage: View {
     @State var selectedJob: DBJob?
     
     var body: some View {
+        if viewModel.isLogined {
+            content
+                .navigationViewStyle(.automatic)
+        } else {
+            content
+                .navigationViewStyle(.stack)
+        }
+    }
+    
+    var content: some View {
         NavigationView {
             ScrollView {
                 LazyVStack {
