@@ -39,7 +39,7 @@ struct BattleDetailPage: View {
                 
                 if let battle = viewModel.battle {
                     makeContent(battle: battle)
-                        .padding(.vertical, 16)
+                        .padding(.vertical, 20)
                         .frame(maxWidth: 500)
                 }
                 
