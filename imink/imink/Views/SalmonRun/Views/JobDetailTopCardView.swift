@@ -132,7 +132,7 @@ struct JobDetailTopCardView: View {
                     
                     Spacer()
                     
-                    Text("\("Hazard Level".localized) \(job.dangerRate)%")
+                    Text("\("Hazard Level".localized) \(job.dangerRate < 200 ? "\(job.dangerRate)%" : "MAX!!")")
                         .sp2Font(size: 12, color: .systemGray)
                 }
             }
