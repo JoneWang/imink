@@ -272,18 +272,21 @@ class AppDatabase {
         
         migrator.registerMigration("V10") { db in
             try db.alter(table: "record", body: { tableAlteration in
-                tableAlteration.add(column: "ruleKey", .text).defaults(to: "").notNull()
+                tableAlteration.add(column: "ruleKey", .text).defaults(to: "turf_war").notNull()
             })
             
-            try self.eachBattles(db: db) { (id, battle) in
-                try db.execute(
-                    sql: "UPDATE record SET " +
-                        "ruleKey = :ruleKey " +
-                        "WHERE id = :id",
-                    arguments: [
-                        "ruleKey": battle.rule.key.rawValue,
-                        "id": id
-                    ])
+            try self.fastEachBattles(db: db) { (id, battle) in
+                if let rule = battle["rule"] as? [String: Any],
+                   let ruleKey = rule["key"] as? String {
+                    try db.execute(
+                        sql: "UPDATE record SET " +
+                            "ruleKey = :ruleKey " +
+                            "WHERE id = :id",
+                        arguments: [
+                            "ruleKey": ruleKey,
+                            "id": id
+                        ])
+                }
             }
         }
         
@@ -292,6 +295,21 @@ class AppDatabase {
 }
 
 extension AppDatabase {
+    
+    func fastEachBattles(db: Database, _ block: (Int64, [String: Any]) throws -> Void) throws {
+        let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
+        while let row = try? rows.next() {
+            guard let id = row["id"] as? Int64,
+                  let json = row["json"] as? String,
+                  let data = json.data(using: .utf8),
+                  let battle = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                continue
+            }
+            
+            try block(id, battle)
+        }
+
+    }
     
     func eachBattles(db: Database, _ block: (Int64, Battle) throws -> Void) throws {
         let rows = try Row.fetchCursor(db, sql: "SELECT id, json FROM record")
