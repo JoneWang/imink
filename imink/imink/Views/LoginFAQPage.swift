@@ -114,6 +114,7 @@ struct LoginFAQPage: View {
             })
             .navigationTitle("常见登录问题FAQ")
         }
+        .navigationViewStyle(.stack)
     }
 }
 
