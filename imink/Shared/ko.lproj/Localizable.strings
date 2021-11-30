@@ -108,7 +108,6 @@
 "Expired" = "만료";
 "Renewing…" = "갱신 중...";
 "Renew Manually" = "수동 갱신";
-"Manual Renew_desc" = "요청은 전체적으로 분당 4번으로 제한됩니다. 오류가 발생하면 1~2분 기다린 후 다시 시도하십시오.";
 "Failure to renew" = "갱신 실패";
 "Failure to renew_desc" = "1~2분 기다린 후 다시 시도하십시오.";
 "GENERAL" = "일반";
