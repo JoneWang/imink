@@ -12,6 +12,8 @@ struct BattleListPage: View {
         
     @StateObject var viewModel = BattleListViewModel()
     
+    @State private var rows: [BattleListRowModel] = []
+
     let filterItems: [(String, String)] = [
         ("All Rules", ""), ("Turf War", "RegularBattleMono"),
         ("Splat Zones", "SplatZonesMono"), ("Tower Control", "TowerControlMono"),
@@ -32,7 +34,7 @@ struct BattleListPage: View {
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach(viewModel.rows, id: \.id) { row in
+                    ForEach(rows, id: \.id) { row in
                         BattleListItemView(
                             row: row,
                             selectedId: $viewModel.selectedId
@@ -84,6 +86,11 @@ struct BattleListPage: View {
         }
         .onReceive(mainViewModel.$isLogined) { isLogined in
             viewModel.updateLoginStatus(isLogined: isLogined)
+        }
+        .onChange(of: viewModel.rows) { rows in
+            withAnimation {
+                self.rows = rows
+            }
         }
     }
 }
