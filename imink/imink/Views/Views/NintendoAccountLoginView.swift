@@ -94,12 +94,16 @@ struct NintendoAccountLoginView: View {
                                         if case NSOError.userGameDataNotExist = error {
                                             Text("user_game_data_not_exist_message")
                                                  .font(.system(size: 14))
+                                                 .foregroundColor(AppColor.appLabelColor)
+                                                 .lineSpacing(2)
                                                  .multilineTextAlignment(.center)
                                                  .frame(width: 280)
                                                  .padding(.top, 16)
                                         } else {
                                             Text("login_error_message")
                                                  .font(.system(size: 14))
+                                                 .foregroundColor(AppColor.appLabelColor)
+                                                 .lineSpacing(2)
                                                  .multilineTextAlignment(.center)
                                                  .frame(width: 280)
                                                  .padding(.top, 16)
