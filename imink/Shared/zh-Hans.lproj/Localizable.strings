@@ -108,7 +108,6 @@
 "Expired" = "过期";
 "Renewing…" = "续期中…";
 "Renew Manually" = "手动续期";
-"Manual Renew_desc" = "续期API在全球范围内带有每分钟4次的请求次数限制。如遇续期失败，请等待1–2分钟后再次尝试。";
 "Failure to renew" = "续期失败";
 "Failure to renew_desc" = "请等待1–2分钟后再试。";
 "GENERAL" = "通用";
