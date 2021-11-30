@@ -92,6 +92,9 @@ struct BattleListPage: View {
                 self.rows = rows
             }
         }
+        .onAppear {
+            self.rows = viewModel.rows
+        }
     }
 }
 
