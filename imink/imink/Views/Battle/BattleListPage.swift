@@ -12,7 +12,7 @@ struct BattleListPage: View {
         
     @StateObject var viewModel = BattleListViewModel()
     
-    let filterItems: [(LocalizedStringKey, String)] = [
+    let filterItems: [(String, String)] = [
         ("All Rules", ""), ("Turf War", "RegularBattleMono"),
         ("Splat Zones", "SplatZonesMono"), ("Tower Control", "TowerControlMono"),
         ("Rainmaker", "RainmakerMono"), ("Clam Blitz", "ClamBlitzMono")
@@ -68,7 +68,7 @@ struct BattleListPage: View {
                                 ForEach(0..<filterItems.count) { i in
                                     let item = filterItems[i]
                                     HStack{
-                                        Text(item.0)
+                                        Text(item.0.localized)
                                         Image(item.1, bundle: Bundle.inkCore)
                                             .foregroundColor(.primary)
                                     }.tag(i)
