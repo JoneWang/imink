@@ -26,10 +26,11 @@
 "Log in to sync your data" = "立即登入同步資料";
 "Log in with Nintendo Account" = "任天堂帳號登入";
 "login_error_title" = "失敗";
-"login_error_message" = "登入驗證伺服器正忙，請稍後重試。";
+"login_error_message" = "登入時發生問題，請稍後重試。";
 "session_token_invalid_title" = "登入已過期";
 "session_token_invalid_message" = "由於長時間未使用imink，您的登入資料已過期，請重新登入。";
 "user_game_data_not_exist_message" = "請確認您的賬號下持有 Splatoon 2 遊戲資料和有效的 Nintendo Switch Online 會員資格。";
+"Close" = "Close";
 
 // MARK: Home
 

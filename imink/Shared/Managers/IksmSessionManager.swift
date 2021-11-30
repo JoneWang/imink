@@ -60,7 +60,7 @@ class IksmSessionManager {
             needManualRenewSubject.value = false
         }
         isRenewingSubject.value = true
-        NSOHelper.getIKsmSession(sessionToken: sessionToken)
+        NSOAuthorization().getIKsmSession(sessionToken: sessionToken)
             .sink { completion in
                 self.isRenewingSubject.value = false
                 

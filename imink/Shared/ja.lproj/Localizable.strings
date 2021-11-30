@@ -30,6 +30,7 @@
 "session_token_invalid_title" = "ログイン期限切れ";
 "session_token_invalid_message" = "長い間使われなかったのでログイン情報の期限が切れました。再度ログインし直して下さい。";
 "user_game_data_not_exist_message" = "お使いのアカウントがスプラトゥーン2のセーブデータを持っている事、またNintendo Switch Onlineに加入している事を確認してください。";
+"Close" = "Close";
 
 // MARK: Home
 

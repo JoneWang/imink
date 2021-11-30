@@ -61,7 +61,7 @@ extension MainViewModel {
                 .catch({ error -> AnyPublisher<Void, Error> in
                     if case APIError.iksmSessionInvalid = error,
                        let sessionToken = AppUserDefaults.shared.sessionToken {
-                        return NSOHelper.getIKsmSession(sessionToken: sessionToken)
+                        return NSOAuthorization().getIKsmSession(sessionToken: sessionToken)
                             .map { _ in Void() }
                             .eraseToAnyPublisher()
                     } else {
