@@ -47,7 +47,7 @@ struct MePage: View {
             return AppColor.listItemBackgroundColor
         } else {
             if #available(iOS 15.0, *) {
-                return AppColor.listItemBackgroundColor.opacity(0.1)
+                return AppColor.listItemBackgroundColor.opacity(0.2)
             } else {
                 return AppColor.listBackgroundColor.opacity(0.8)
             }
