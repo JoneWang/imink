@@ -16,6 +16,8 @@ struct BattleDetailMemberView: View {
     let isSelected: Bool
     var hidePlayerNames: Bool = false
     
+    @State private var backgroudColor = AppColor.listItemBackgroundColor
+    
     var body: some View {
         HStack(spacing: 0) {
             HStack(spacing: 7) {
@@ -143,9 +145,13 @@ struct BattleDetailMemberView: View {
         .padding(.leading, 14)
         .padding(.trailing, 13)
         .frame(height: 37)
-        .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
+        .background(backgroudColor)
         .clipShape(Capsule())
-        .animation(.linear(duration: 0.15))
+        .onChange(of: isSelected) { newValue in
+            withAnimation {
+                backgroudColor = newValue ? .systemGray5 : AppColor.listItemBackgroundColor
+            }
+        }
     }
 }
 
