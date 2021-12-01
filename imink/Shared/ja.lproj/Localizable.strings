@@ -26,11 +26,11 @@
 "Log in to sync your data" = "ログインでデータを同期";
 "Log in with Nintendo Account" = "Nintendo Account でサインイン";
 "login_error_title" = "失敗";
-"login_error_message" = "現在サーバーが混雑しています。しばらく経ってから再度お試し下さい。";
+"login_error_message" = "ログイン中にエラーが発生しました。後でやり直してください。";
 "session_token_invalid_title" = "ログイン期限切れ";
 "session_token_invalid_message" = "長い間使われなかったのでログイン情報の期限が切れました。再度ログインし直して下さい。";
 "user_game_data_not_exist_message" = "お使いのアカウントがスプラトゥーン2のセーブデータを持っている事、またNintendo Switch Onlineに加入している事を確認してください。";
-"Close" = "Close";
+"Close" = "閉じる";
 
 // MARK: Home
 

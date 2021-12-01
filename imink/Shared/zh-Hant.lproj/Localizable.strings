@@ -30,7 +30,7 @@
 "session_token_invalid_title" = "登入已過期";
 "session_token_invalid_message" = "由於長時間未使用imink，您的登入資料已過期，請重新登入。";
 "user_game_data_not_exist_message" = "請確認您的賬號下持有 Splatoon 2 遊戲資料和有效的 Nintendo Switch Online 會員資格。";
-"Close" = "Close";
+"Close" = "關閉";
 
 // MARK: Home
 
