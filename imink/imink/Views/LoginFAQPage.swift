@@ -87,7 +87,7 @@ struct LoginFAQPage: View {
                                             .font(.subheadline)
                                             .fontWeight(.bold)
                                         
-                                        Text("imink@jone.wang")
+                                        Text(verbatim: "imink@jone.wang")
                                             .font(.caption)
                                     }
                                     .frame(maxWidth: .infinity)
