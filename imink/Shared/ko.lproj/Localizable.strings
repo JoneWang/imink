@@ -26,7 +26,7 @@
 "Log in to sync your data" = "로그인으로 데이터 동기화";
 "Log in with Nintendo Account" = "Nintendo Account로 로그인";
 "login_error_title" = "실패";
-"login_error_message" = "An error occurred during logging in, please try again later.";
+"login_error_message" = "로그인하는 동안 오류가 발생했습니다. 나중에 다시 시도하십시오.";
 "session_token_invalid_title" = "자동 로그아웃";
 "session_token_invalid_message" = "장시간 미사용으로 인해 로그인 정보가 끊어졌습니다. 다시 로그인해 주세요.";
 "user_game_data_not_exist_message" = "어카운트에 스플래툰 2 저장 데이터가 있는지, Nintendo Switch Online에 가입되어 있는지 확인해 주세요.";
