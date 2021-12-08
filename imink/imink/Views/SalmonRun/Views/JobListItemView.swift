@@ -98,7 +98,7 @@ struct JobListItemView: View {
             .padding(.bottom, 6)
             
             HStack {
-                Text("\("Hazard Level".localized) \(job.dangerRate)%")
+                Text("\("Hazard Level".localized) \(job.dangerRate < 200 ? "\(job.dangerRate)%" : "MAX!!")")
                     .font(.system(size: 10))
                     .foregroundColor(.systemGray2)
                 

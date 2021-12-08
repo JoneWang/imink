@@ -10,6 +10,59 @@ import SwiftUI
 import Combine
 import os
 
+struct LoginProgress {
+    enum API: String {
+        case nso
+        case splatoon
+        case imink
+        
+        var name: String {
+            switch self {
+            case .nso:
+                return "NSO"
+            case .splatoon:
+                return "SplatNet"
+            case .imink:
+                return "imink"
+            }
+        }
+        
+        var color: Color {
+            switch self {
+            case .nso:
+                return AppColor.nintendoRedColor
+            case .imink:
+                return AppColor.spPink
+            case .splatoon:
+                return AppColor.spLightGreen
+            }
+        }
+    }
+    
+    let api: API
+    let path: String
+    var status: NSOAuthorization.ProgressStatus
+    
+    init(api: API, path: String, status: NSOAuthorization.ProgressStatus) {
+        self.api = api
+        self.path = path
+        self.status = status
+    }
+    
+    init(targetType: APITargetType, status: NSOAuthorization.ProgressStatus) {
+        if targetType is NSOAPI {
+            self.api = .nso
+        } else if targetType is Splatoon2API {
+            self.api = .splatoon
+        } else {
+            self.api = .imink
+        }
+        
+        self.path = targetType.path
+        self.status = status
+    }
+}
+
 class LoginViewModel: ObservableObject {
     enum Status {
         case none
@@ -24,6 +77,7 @@ class LoginViewModel: ObservableObject {
     let loginUrl: URL
     let codeVerifier: String
     @Published var loginError: Error? = nil
+    @Published var loginProgress: [LoginProgress] = []
     
     var cancelBag = Set<AnyCancellable>()
     
@@ -51,7 +105,32 @@ extension LoginViewModel {
     
     func loginFlow(sessionTokenCode: String) {
         status = .loading
-        NSOHelper.logIn(codeVerifier: codeVerifier, sessionTokenCode: sessionTokenCode)
+        let nsoHelper = NSOAuthorization()
+        
+        $loginProgress.sink { list in
+            print(list.count)
+        }
+        .store(in: &cancelBag)
+        
+        nsoHelper.currentStatus
+            .map { [weak self] (targetType, status) -> [LoginProgress] in
+                print("type: \(targetType.path), status: \(status)")
+                
+                guard var statusList = self?.loginProgress else { return [] }
+                if var last = statusList.last, last.path == targetType.path {
+                    last.status = status
+                    statusList[statusList.count - 1] = last
+                } else {
+                    let progress = LoginProgress(targetType: targetType, status: status)
+                    statusList.append(progress)
+                }
+                
+                return statusList
+            }
+            .assign(to: \.loginProgress, on: self)
+            .store(in: &cancelBag)
+        
+        nsoHelper.logIn(codeVerifier: codeVerifier, sessionTokenCode: sessionTokenCode)
             .sink { (completion) in
                 switch completion {
                 case .finished:

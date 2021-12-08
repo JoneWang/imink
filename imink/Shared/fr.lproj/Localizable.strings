@@ -26,10 +26,11 @@
 "Log in to sync your data" = "Connectez-vous pour synchroniser vos données";
 "Log in with Nintendo Account" = "Connectez-vous avec votre compte Nintendo";
 "login_error_title" = "Échec";
-"login_error_message" = "Le serveur d'authentification de connexion est occupé, veuillez réessayer plus tard.";
+"login_error_message" = "An error occurred during logging in, please try again later.";
 "session_token_invalid_title" = "Connexion expirée";
 "session_token_invalid_message" = "Votre connexion ont expiré en raison d'une inactivité pour une longue durée, veuillez vous reconnecter.";
 "user_game_data_not_exist_message" = "Veuillez vous assurer que votre compte possède des données de jeu Splatoon 2 et un abonnement active de Nintendo Switch Online.";
+"Close" = "Close";
 
 // MARK: Home
 
@@ -107,7 +108,6 @@
 "Expired" = "Expired";
 "Renewing…" = "Renewing…";
 "Renew Manually" = "Renew Manually";
-"Manual Renew_desc" = "Requests are globally limited to four per minute. If you receive an error, please wait 1–2 minutes before trying again.";
 "Failure to renew" = "Renewal Failed";
 "Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
 "GENERAL" = "GENERAL";

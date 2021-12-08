@@ -144,8 +144,8 @@ struct BattleDetailPage: View {
                     }
                     .padding([.leading, .trailing], 16)
                     .padding(.top, 1)
-                    .frame(height: 43)
                 }
+                .frame(height: 43)
                 
                 ZStack {
                     Rectangle()

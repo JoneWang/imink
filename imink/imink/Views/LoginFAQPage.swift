@@ -87,7 +87,7 @@ struct LoginFAQPage: View {
                                             .font(.subheadline)
                                             .fontWeight(.bold)
                                         
-                                        Text("imink@jone.wang")
+                                        Text(verbatim: "imink@jone.wang")
                                             .font(.caption)
                                     }
                                     .frame(maxWidth: .infinity)
@@ -114,6 +114,7 @@ struct LoginFAQPage: View {
             })
             .navigationTitle("常见登录问题FAQ")
         }
+        .navigationViewStyle(.stack)
     }
 }
 

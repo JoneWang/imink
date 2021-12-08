@@ -14,6 +14,8 @@ struct BattleListPage: View {
     
     @State var showFilter: Bool = false
     
+    @State private var rows: [BattleListRowModel] = []
+    
     var body: some View {
         if viewModel.isLogined {
             content
@@ -28,7 +30,7 @@ struct BattleListPage: View {
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach(viewModel.rows, id: \.id) { row in
+                    ForEach(rows, id: \.id) { row in
                         BattleListItemView(
                             row: row,
                             selectedId: $viewModel.selectedId
@@ -85,6 +87,14 @@ struct BattleListPage: View {
         }
         .onReceive(mainViewModel.$isLogined) { isLogined in
             viewModel.updateLoginStatus(isLogined: isLogined)
+        }
+        .onChange(of: viewModel.rows) { rows in
+            withAnimation {
+                self.rows = rows
+            }
+        }
+        .onAppear {
+            self.rows = viewModel.rows
         }
     }
 }

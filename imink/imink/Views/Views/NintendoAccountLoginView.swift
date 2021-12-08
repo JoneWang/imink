@@ -50,10 +50,89 @@ struct NintendoAccountLoginView: View {
                     
                     if viewModel.status == .loading {
                         Rectangle()
-                            .foregroundColor(Color.systemBackground)
+                            .foregroundColor(viewModel.loginProgress.count > 0 ? Color.secondarySystemBackground : Color.systemBackground)
                             .opacity(0.8)
-                            .overlay(ProgressView().scaleEffect(1.5).padding(.bottom, 84))
+                            .overlay(viewModel.loginProgress.count > 0 ? AnyView(EmptyView()) : AnyView(ProgressView().scaleEffect(1.5).padding(.bottom, 84)))
                             .colorScheme(.light)
+                            .animation(.default)
+                        
+                        if viewModel.loginProgress.count > 0 {
+                            VStack {
+                                VStack {
+                                    ForEach(0..<viewModel.loginProgress.count, id: \.self) { i in
+                                        let progress = viewModel.loginProgress[i]
+                                        HStack {
+                                            Text(progress.api.name)
+                                                .font(.system(size: 12))
+                                                .foregroundColor(.white)
+                                                .padding(.horizontal, 4)
+                                                .padding(.vertical, 2)
+                                                .background(progress.api.color)
+                                                .continuousCornerRadius(4)
+                                            
+                                            Text(progress.path)
+                                                .font(.system(size: 14))
+                                                .foregroundColor(Color.secondaryLabel)
+                                            
+                                            Spacer()
+                                            
+                                            if progress.status == .loading {
+                                                ProgressView()
+                                            } else if progress.status == .success {
+                                                Image(systemName: "checkmark.circle")
+                                                    .foregroundColor(.green)
+                                            } else if progress.status == .fail {
+                                                Image(systemName: "xmark.circle")
+                                                    .foregroundColor(.red)
+                                            }
+                                        }
+                                        .padding(8)
+                                        .frame(width: 280, height: 30)
+                                    }
+                                    
+                                    if let error = viewModel.loginError {
+                                        if case NSOError.userGameDataNotExist = error {
+                                            Text("user_game_data_not_exist_message")
+                                                 .font(.system(size: 14))
+                                                 .foregroundColor(AppColor.appLabelColor)
+                                                 .lineSpacing(2)
+                                                 .multilineTextAlignment(.center)
+                                                 .frame(width: 280)
+                                                 .padding(.top, 16)
+                                        } else {
+                                            Text("login_error_message")
+                                                 .font(.system(size: 14))
+                                                 .foregroundColor(AppColor.appLabelColor)
+                                                 .lineSpacing(2)
+                                                 .multilineTextAlignment(.center)
+                                                 .frame(width: 280)
+                                                 .padding(.top, 16)
+                                        }
+                                        
+                                        HStack {
+                                            Text("Close")
+                                                .font(.system(size: 14, weight: .semibold))
+                                                .foregroundColor(.white)
+                                                .padding(.horizontal, 18)
+                                        }
+                                        .frame(width: 80, height: 30)
+                                        .background(Color.accentColor)
+                                        .continuousCornerRadius(8)
+                                        .onTapGesture {
+                                            presentationMode.wrappedValue.dismiss()
+                                        }
+                                    }
+                                }
+                                .padding(16)
+                                .background(Color.white)
+                                .continuousCornerRadius(10)
+                                .colorScheme(.light)
+                                
+                                Spacer()
+                            }
+                            .frame(height: 440)
+                            .animation(.default)
+                        }
                     }
                 }
             }
@@ -77,24 +156,6 @@ struct NintendoAccountLoginView: View {
         .onChange(of: viewModel.status) { status in
             if status == .loginSuccess {
                 presentationMode.wrappedValue.dismiss()
-            }
-        }
-        .onReceive(viewModel.$loginError) { error in
-            guard let error = error else { return }
-            if case NSOError.userGameDataNotExist = error {
-                UIAlertController.show(
-                    title: "login_error_title".localized,
-                    message: "user_game_data_not_exist_message".localized
-                ) {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            } else {
-                UIAlertController.show(
-                    title: "login_error_title".localized,
-                    message: "login_error_message".localized
-                ) {
-                    presentationMode.wrappedValue.dismiss()
-                }
             }
         }
     }
@@ -189,6 +250,10 @@ extension NintendoAccountLoginWebView {
         
         return webView
     }
+}
+
+extension LoginProgress.API {
+
 }
 
 struct NintendoAccountLoginView_Previews: PreviewProvider {

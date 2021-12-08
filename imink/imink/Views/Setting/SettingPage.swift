@@ -40,15 +40,13 @@ struct SettingPage: View {
                                     .padding(.bottom, 3)
                             }
                         },
-                        footer: iksmSessionViewModel.iksmSessionIsValid ?
+                        footer: (iksmSessionViewModel.iksmSessionIsValid || AppUserDefaults.shared.currentLanguage != "zh-Hans") ?
                             AnyView(EmptyView()) :
                             AnyView(SectionFooter {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    if !iksmSessionViewModel.iksmSessionIsValid {
-                                        Text("Manual Renew_desc")
-                                            .font(.system(size: 13))
-                                        }
-                                    }
+                                VStack(alignment: .leading) {
+                                    Text("任天堂服务器在中国境内网络环境下访问不稳定，如遇频繁续期失败，请尝试连接至国际网络后重试。")
+                                        .font(.system(size: 13))
+                                }
                             })
                     ) {
                         HStack {
@@ -89,7 +87,7 @@ struct SettingPage: View {
                                     iksmSessionViewModel.renew()
                                 }) {
                                     HStack {
-                                        Text("Manual Renew")
+                                        Text("Renew Manually")
                                             .foregroundColor(.accentColor)
                                         
                                         Spacer()

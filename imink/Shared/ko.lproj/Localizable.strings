@@ -26,10 +26,11 @@
 "Log in to sync your data" = "로그인으로 데이터 동기화";
 "Log in with Nintendo Account" = "Nintendo Account로 로그인";
 "login_error_title" = "실패";
-"login_error_message" = "현재 서버가 혼잡합니다. 잠시 후 다시 시도해 주세요.";
+"login_error_message" = "로그인하는 동안 오류가 발생했습니다. 나중에 다시 시도하십시오.";
 "session_token_invalid_title" = "자동 로그아웃";
 "session_token_invalid_message" = "장시간 미사용으로 인해 로그인 정보가 끊어졌습니다. 다시 로그인해 주세요.";
 "user_game_data_not_exist_message" = "어카운트에 스플래툰 2 저장 데이터가 있는지, Nintendo Switch Online에 가입되어 있는지 확인해 주세요.";
+"Close" = "닫기";
 
 // MARK: Home
 
@@ -107,7 +108,6 @@
 "Expired" = "만료";
 "Renewing…" = "갱신 중...";
 "Renew Manually" = "수동 갱신";
-"Manual Renew_desc" = "요청은 전체적으로 분당 4번으로 제한됩니다. 오류가 발생하면 1~2분 기다린 후 다시 시도하십시오.";
 "Failure to renew" = "갱신 실패";
 "Failure to renew_desc" = "1~2분 기다린 후 다시 시도하십시오.";
 "GENERAL" = "일반";
