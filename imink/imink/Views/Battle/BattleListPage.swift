@@ -12,11 +12,7 @@ struct BattleListPage: View {
         
     @StateObject var viewModel = BattleListViewModel()
     
-    let filterItems: [(LocalizedStringKey, String)] = [
-        ("All Rules", ""), ("Turf War", "RegularBattleMono"),
-        ("Splat Zones", "SplatZonesMono"), ("Tower Control", "TowerControlMono"),
-        ("Rainmaker", "RainmakerMono"), ("Clam Blitz", "ClamBlitzMono")
-    ]
+    @State var showFilter: Bool = false
     
     var body: some View {
         if viewModel.isLogined {
@@ -60,26 +56,31 @@ struct BattleListPage: View {
             .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
             .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    if viewModel.isLogined {
-                        Menu {
-                            Picker(selection: $viewModel.currentFilterIndex, label: Text("filtering options")) {
-                                ForEach(0..<filterItems.count) { i in
-                                    let item = filterItems[i]
-                                    HStack{
-                                        Text(item.0)
-                                        Image(item.1, bundle: Bundle.inkCore)
-                                            .foregroundColor(.primary)
-                                    }.tag(i)
-                                }
-                            }
-                        }
-                        label: {
-                            Label("Filter", systemImage: "line.horizontal.3.decrease.circle" + (viewModel.currentFilterIndex == 0 ? "" : ".fill"))
-                        }
+            .navigationBarItems(trailing:
+                Button(action: {
+                    showFilter = true
+                }) {
+                    HStack {
+                        Spacer()
+                        
+                        Image(systemName: "line.horizontal.3.decrease.circle")
+                            .frame(width: 22, height: 22)
                     }
+                    .frame(width: 38, height: 40)
                 }
+            )
+        }
+        .sheet(isPresented: $showFilter) {
+            BattleListFilterPage(
+                type: viewModel.filterType,
+                rule: viewModel.filterRule,
+                stageId: viewModel.filterStageId,
+                weaponId: viewModel.filterWeaponId
+            ) { type, rule, stageId, weaponId in
+                viewModel.filterType = type
+                viewModel.filterRule = rule
+                viewModel.filterStageId = stageId
+                viewModel.filterWeaponId = weaponId
             }
         }
         .onReceive(mainViewModel.$isLogined) { isLogined in

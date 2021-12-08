@@ -30,18 +30,7 @@ extension SalmonRunSchedules.Schedule.Weapon: Identifiable { }
 extension Battle {
     
     var battleType: Battle.BattleType {
-        switch self.gameMode.key {
-        case .regular:
-            return .regular
-        case .gachi:
-            return .gachi
-        case .leaguePair, .leagueTeam:
-            return .league
-        case .fesSolo, .fesTeam:
-            return .fes
-        case .private:
-            return .private
-        }
+        gameMode.key.battleType
     }
     
 }
@@ -78,6 +67,40 @@ extension Battle.BattleType {
         }
     }
     
+}
+
+extension GameMode.Key {
+    var battleType: Battle.BattleType {
+        switch self {
+        case .regular:
+            return .regular
+        case .gachi:
+            return .gachi
+        case .leaguePair, .leagueTeam:
+            return .league
+        case .fesSolo, .fesTeam:
+            return .fes
+        case .private:
+            return .private
+        }
+    }
+}
+
+extension GameRule.Key {
+    var imageName: String {
+        switch self {
+        case .turfWar:
+            return "RegularBattleMono"
+        case .splatZones:
+            return "SplatZonesMono"
+        case .towerControl:
+            return "TowerControlMono"
+        case .rainmaker:
+            return "RainmakerMono"
+        case .clamBlitz:
+            return "ClamBlitzMono"
+        }
+    }
 }
 
 extension Schedules.Schedule.GameMode {

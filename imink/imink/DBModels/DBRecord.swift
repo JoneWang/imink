@@ -475,6 +475,24 @@ extension AppDatabase {
             return (killCount, assistCount, deathCount)
         }
     }
+    
+    func usedWeaponIds() -> [String] {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
+            return []
+        }
+        
+        return try! dbQueue.read { db in
+            guard let usedWeaponIds = try? String.fetchAll(
+                db,
+                sql: "SELECT weaponId+0 FROM record WHERE sp2PrincipalId = ? GROUP BY weaponId ORDER BY weaponId+0",
+                arguments: [sp2PrincipalId]
+            ) else {
+                return []
+            }
+            
+            return usedWeaponIds
+        }
+    }
 }
 
 extension DBRecord {

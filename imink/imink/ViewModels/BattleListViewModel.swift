@@ -38,7 +38,12 @@ class BattleListViewModel: ObservableObject {
     @Published var databaseRecords: [DBRecord] = []
     @Published var selectedId: String?
     @Published var realtimeRow: BattleListRowModel?
-    @Published var currentFilterIndex: Int = 0
+    
+    // Filter
+    @Published var filterType: Battle.BattleType? = nil
+    @Published var filterRule: GameRule.Key? = nil
+    @Published var filterStageId: String? = nil
+    @Published var filterWeaponId: String? = nil
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -69,16 +74,40 @@ class BattleListViewModel: ObservableObject {
             }
             .assign(to: \.databaseRecords, on: self)
             .store(in: &cancelBag)
-
+        
         // Handle data source of list
         $databaseRecords
-            .combineLatest($currentFilterIndex)
-            .map { (records, filterIndex) -> [DBRecord] in
-                if let filterRule = GameRule.Key.with(index: filterIndex) {
-                    return records.filter { GameRule.Key(rawValue: $0.ruleKey) == filterRule }
-                } else {
-                    return records
+            .combineLatest($filterType.removeDuplicates())
+            .map { (records, type) -> [DBRecord] in
+                if let type = type {
+                    return records.filter { GameMode.Key(rawValue: $0.gameModeKey)?.battleType == type }
                 }
+                
+                return records
+            }
+            .combineLatest($filterRule.removeDuplicates())
+            .map { (records, rule) -> [DBRecord] in
+                if let rule = rule {
+                    return records.filter { GameRule.Key(rawValue: $0.ruleKey) == rule }
+                }
+                
+                return records
+            }
+//            .combineLatest($filterStageId.removeDuplicates())
+//            .map { (records, stageId) -> [DBRecord] in
+//                if let stageId = stageId {
+//                    return records.filter { $0.stageId == "\(stageId)" }
+//                }
+//
+//                return records
+//            }
+            .combineLatest($filterWeaponId.removeDuplicates())
+            .map { (records, weaponId) -> [DBRecord] in
+                if let weaponId = weaponId {
+                    return records.filter { $0.weaponId == "\(weaponId)" }
+                }
+                
+                return records
             }
             .map { $0.map { BattleListRowModel(type: .record, record: $0) } }
             .map { rows in
