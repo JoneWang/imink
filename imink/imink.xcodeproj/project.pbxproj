@@ -72,6 +72,8 @@
 		EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */; };
 		EC11F1E525558E3500E10F5F /* SalmonRunScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */; };
 		EC16CED8261990D800663DC1 /* AvatarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16CED7261990D800663DC1 /* AvatarViewModel.swift */; };
+		EC16D1BC27762AC600325114 /* HitTestingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16D1BB27762AC600325114 /* HitTestingModifier.swift */; };
+		EC16D1BD27762AC600325114 /* HitTestingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16D1BB27762AC600325114 /* HitTestingModifier.swift */; };
 		EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17177C25FB114500500D13 /* OnboardingPage.swift */; };
 		EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
 		EC17179325FBA98100500D13 /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
@@ -360,6 +362,7 @@
 		EC11F1DE25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleLargeWidgetEntryView.swift; sourceTree = "<group>"; };
 		EC11F1E425558E3500E10F5F /* SalmonRunScheduleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleProvider.swift; sourceTree = "<group>"; };
 		EC16CED7261990D800663DC1 /* AvatarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewModel.swift; sourceTree = "<group>"; };
+		EC16D1BB27762AC600325114 /* HitTestingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestingModifier.swift; sourceTree = "<group>"; };
 		EC17177C25FB114500500D13 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		EC17178A25FB653300500D13 /* NSOAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOAPI.swift; sourceTree = "<group>"; };
 		EC17179225FBA98100500D13 /* NSOHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOHash.swift; sourceTree = "<group>"; };
@@ -555,6 +558,7 @@
 				EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */,
 				EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */,
 				EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */,
+				EC16D1BB27762AC600325114 /* HitTestingModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -1266,6 +1270,7 @@
 				EC8B6B2726074F2600B645B5 /* LoginToken.swift in Sources */,
 				EC86123F253AC6ED003BA67A /* AppBundle.swift in Sources */,
 				EC11F1DF25558CB900E10F5F /* SalmonRunScheduleLargeWidgetEntryView.swift in Sources */,
+				EC16D1BD27762AC600325114 /* HitTestingModifier.swift in Sources */,
 				EC861223253AC656003BA67A /* AppAPI.swift in Sources */,
 				EC809F29264C196D00F125AA /* SplatNet2+Localized.swift in Sources */,
 			);
@@ -1347,6 +1352,7 @@
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
 				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
 				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,
+				EC16D1BC27762AC600325114 /* HitTestingModifier.swift in Sources */,
 				EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */,
 				ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */,
 				EC313B3F2671CC5F00EC1C63 /* FilePickerView.swift in Sources */,
