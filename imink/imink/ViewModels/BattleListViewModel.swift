@@ -9,6 +9,20 @@ import Foundation
 import Combine
 import os
 
+struct BattleListFilterContent: Equatable {
+    var startDate: BattleListFilterViewModel.FilterDate?
+    var customDate = Date()
+    var battleType: Battle.BattleType?
+    var rule: GameRule.Key?
+    var stageId: String?
+    var weaponId: String?
+    
+    var noContent: Bool {
+        startDate == nil && battleType == nil &&
+        rule == nil && stageId == nil && weaponId == nil
+    }
+}
+
 struct BattleListRowModel: Identifiable {
     
     let type: RowType
@@ -40,10 +54,7 @@ class BattleListViewModel: ObservableObject {
     @Published var realtimeRow: BattleListRowModel?
     
     // Filter
-    @Published var filterType: Battle.BattleType? = nil
-    @Published var filterRule: GameRule.Key? = nil
-    @Published var filterStageId: String? = nil
-    @Published var filterWeaponId: String? = nil
+    @Published var filterContent = BattleListFilterContent()
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -77,40 +88,33 @@ class BattleListViewModel: ObservableObject {
         
         // Handle data source of list
         $databaseRecords
-            .combineLatest($filterType.removeDuplicates())
-            .map { (records, type) -> [DBRecord] in
-                if let type = type {
-                    return records.filter { GameMode.Key(rawValue: $0.gameModeKey)?.battleType == type }
+            .combineLatest($filterContent.removeDuplicates())
+            .map { (records, filterContent) -> ([DBRecord], Bool) in
+                var records = records
+                if let startDate = filterContent.startDate {
+                    records = records.filter { $0.startDateTime > startDate.dateValue }
                 }
                 
-                return records
-            }
-            .combineLatest($filterRule.removeDuplicates())
-            .map { (records, rule) -> [DBRecord] in
-                if let rule = rule {
-                    return records.filter { GameRule.Key(rawValue: $0.ruleKey) == rule }
+                if let type = filterContent.battleType {
+                    records = records.filter { GameMode.Key(rawValue: $0.gameModeKey)?.battleType == type }
+                }
+
+                if let rule = filterContent.rule {
+                    records = records.filter { GameRule.Key(rawValue: $0.ruleKey) == rule }
                 }
                 
-                return records
-            }
-//            .combineLatest($filterStageId.removeDuplicates())
-//            .map { (records, stageId) -> [DBRecord] in
-//                if let stageId = stageId {
-//                    return records.filter { $0.stageId == "\(stageId)" }
-//                }
-//
-//                return records
-//            }
-            .combineLatest($filterWeaponId.removeDuplicates())
-            .map { (records, weaponId) -> [DBRecord] in
-                if let weaponId = weaponId {
-                    return records.filter { $0.weaponId == "\(weaponId)" }
+                if let stageId = filterContent.stageId {
+                    records = records.filter { $0.stageId == "\(stageId)" }
                 }
-                
-                return records
+
+                if let weaponId = filterContent.weaponId {
+                    records = records.filter { $0.weaponId == "\(weaponId)" }
+                }
+
+                return (records, filterContent.noContent)
             }
-            .map { $0.map { BattleListRowModel(type: .record, record: $0) } }
-            .map { rows in
+            .map { ($0.map { BattleListRowModel(type: .record, record: $0) }, $1) }
+            .map { (rows, showRealtime) in
                 let realtimeRow = BattleListRowModel(
                     type: .realtime,
                     record: rows.first?.record
@@ -122,34 +126,13 @@ class BattleListViewModel: ObservableObject {
                     self.realtimeRow = nil
                 }
                 
-                if rows.first != nil {
+                if showRealtime {
                     return [realtimeRow] + rows
                 } else {
-                    return [realtimeRow]
+                    return rows
                 }
             }
             .assign(to: \.rows, on: self)
             .store(in: &cancelBag)
-    }
-}
-
-fileprivate extension GameRule.Key {
-    static func with(index: Int) -> Self? {
-        switch (index) {
-        case 0:
-            return nil
-        case 1:
-            return .turfWar
-        case 2:
-            return .splatZones
-        case 3:
-            return .towerControl
-        case 4:
-            return .rainmaker
-        case 5:
-            return .clamBlitz
-        default:
-            return nil
-        }
     }
 }

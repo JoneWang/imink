@@ -283,6 +283,7 @@ struct BattleListItemView_Previews: PreviewProvider {
             gameMode: "Regular",
             gameModeKey: "gachi",
             stageName: "Arowana Mall",
+            stageId: "15",
             killTotalCount: 10,
             killCount: 6,
             assistCount: 2,

@@ -222,6 +222,8 @@
 		ECC29E1E2760B040009C79C6 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC29E1D2760B040009C79C6 /* GameData.swift */; };
 		ECC29E1F2760B040009C79C6 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC29E1D2760B040009C79C6 /* GameData.swift */; };
 		ECC3F292252C85B6001E81E1 /* SalmonRunScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */; };
+		ECCDA20627632C6F00A7E546 /* ConvenientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCDA20527632C6F00A7E546 /* ConvenientType.swift */; };
+		ECCDA20727632C6F00A7E546 /* ConvenientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCDA20527632C6F00A7E546 /* ConvenientType.swift */; };
 		ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4125F87903002E36DD /* LoginView.swift */; };
 		ECD1FA5025F89EF8002E36DD /* FixVectorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */; };
 		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
@@ -476,6 +478,7 @@
 		ECB959CA25B896A80006E942 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		ECC29E1D2760B040009C79C6 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		ECC3F291252C85B6001E81E1 /* SalmonRunScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleView.swift; sourceTree = "<group>"; };
+		ECCDA20527632C6F00A7E546 /* ConvenientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenientType.swift; sourceTree = "<group>"; };
 		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
@@ -840,6 +843,7 @@
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
 				BB520C1D26146C05006454FB /* StageImage.swift */,
 				EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */,
+				ECCDA20527632C6F00A7E546 /* ConvenientType.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1248,6 +1252,7 @@
 				BB520C1F26146C06006454FB /* StageImage.swift in Sources */,
 				EC39703A25482C5300557BD4 /* String+LocalizedString.swift in Sources */,
 				ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */,
+				ECCDA20727632C6F00A7E546 /* ConvenientType.swift in Sources */,
 				EC9440E125406C8200060E46 /* WidgetDevice.swift in Sources */,
 				EC984253253D38110079D739 /* UserDefaultsMigrator.swift in Sources */,
 				EC761299260B22BE00C4D3AA /* NSOAPI.swift in Sources */,
@@ -1336,6 +1341,7 @@
 				EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
 				EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */,
+				ECCDA20627632C6F00A7E546 /* ConvenientType.swift in Sources */,
 				EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */,
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,

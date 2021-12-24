@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import InkCore
 
 struct BattleListPage: View {
     @EnvironmentObject var mainViewModel: MainViewModel
@@ -28,31 +29,90 @@ struct BattleListPage: View {
     
     var content: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack {
-                    ForEach(rows, id: \.id) { row in
-                        BattleListItemView(
-                            row: row,
-                            selectedId: $viewModel.selectedId
-                        )
-                        .padding([.leading, .trailing])
-                        .onTapGesture {
-                            self.viewModel.selectedId = row.id
+            ZStack {
+                ScrollView {
+                    LazyVStack {
+                        if !viewModel.filterContent.noContent {
+                            // TODO: Stat
+                            VStack{
+                                HStack {
+                                    if let battleType = viewModel.filterContent.battleType {
+                                        Image(battleType.imageName)
+                                            .resizable()
+                                            .renderingMode(.template)
+                                            .foregroundColor(.primary)
+                                            .aspectRatio(1, contentMode: .fit)
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 5)
+                                            .frame(height: 30)
+                                            .background(Color.quaternarySystemFill)
+                                            .continuousCornerRadius(6)
+                                    }
+                                    if let rule = viewModel.filterContent.rule {
+                                        Image(rule.imageName, bundle: Bundle.inkCore)
+                                            .resizable()
+                                            .foregroundColor(.primary)
+                                            .aspectRatio(1, contentMode: .fit)
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 5)
+                                            .frame(height: 30)
+                                            .background(Color.quaternarySystemFill)
+                                            .continuousCornerRadius(6)
+                                    }
+                                    if let stageId = viewModel.filterContent.stageId {
+                                        ImageView.stage(id: stageId)
+                                            .aspectRatio(640 / 360, contentMode: .fit)
+                                            .frame(height: 30)
+                                            .background(Color.quaternarySystemFill)
+                                            .continuousCornerRadius(6)
+                                    }
+                                    if let weaponId = viewModel.filterContent.weaponId {
+                                        ImageView.weapon(id: weaponId)
+                                            .aspectRatio(1, contentMode: .fit)
+                                            .padding(.horizontal, 5)
+                                            .padding(.vertical, 2)
+                                            .frame(height: 30)
+                                            .background(Color.quaternarySystemFill)
+                                            .continuousCornerRadius(6)
+                                    }
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(.top, 16)
+                            .padding(.bottom)
+                            .padding([.leading, .trailing], 8)
+                            .frame(height: 100)
+                            .frame(maxWidth: .infinity)
+                            .background(AppColor.listItemBackgroundColor)
+                            .continuousCornerRadius(10)
+                            .padding([.leading, .trailing])
                         }
-                        .background(
-                            NavigationLink(
-                                destination: BattleDetailPage(
-                                    row: row,
-                                    realtimeRow: $viewModel.realtimeRow
-                                ),
-                                tag: row.id,
-                                selection: $viewModel.selectedId
-                            ) { EmptyView() }
-                            .buttonStyle(PlainButtonStyle())
-                        )
+
+                        ForEach(rows, id: \.id) { row in
+                            BattleListItemView(
+                                row: row,
+                                selectedId: $viewModel.selectedId
+                            )
+                            .padding([.leading, .trailing])
+                            .onTapGesture {
+                                self.viewModel.selectedId = row.id
+                            }
+                            .background(
+                                NavigationLink(
+                                    destination: BattleDetailPage(
+                                        row: row,
+                                        realtimeRow: $viewModel.realtimeRow
+                                    ),
+                                    tag: row.id,
+                                    selection: $viewModel.selectedId
+                                ) { EmptyView() }
+                                .buttonStyle(PlainButtonStyle())
+                            )
+                        }
                     }
+                    .padding([.top, .bottom], 16)
                 }
-                .padding([.top, .bottom], 16)
             }
             .fixSafeareaBackground()
             .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
@@ -74,15 +134,9 @@ struct BattleListPage: View {
         }
         .sheet(isPresented: $showFilter) {
             BattleListFilterPage(
-                type: viewModel.filterType,
-                rule: viewModel.filterRule,
-                stageId: viewModel.filterStageId,
-                weaponId: viewModel.filterWeaponId
-            ) { type, rule, stageId, weaponId in
-                viewModel.filterType = type
-                viewModel.filterRule = rule
-                viewModel.filterStageId = stageId
-                viewModel.filterWeaponId = weaponId
+                viewModel.filterContent
+            ) { filterContent in
+                viewModel.filterContent = filterContent
             }
         }
         .onReceive(mainViewModel.$isLogined) { isLogined in

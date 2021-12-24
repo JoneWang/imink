@@ -31,6 +31,7 @@ struct DBRecord: Identifiable {
     var gameMode: String
     var gameModeKey: String
     var stageName: String
+    var stageId: String
     var killTotalCount: Int
     var killCount: Int
     var assistCount: Int
@@ -74,6 +75,7 @@ extension DBRecord: Codable, FetchableRecord, MutablePersistableRecord {
         static let gameMode = Column(CodingKeys.gameMode)
         static let gameModeKey = Column(CodingKeys.gameModeKey)
         static let stageName = Column(CodingKeys.stageName)
+        static let stageId = Column(CodingKeys.stageId)
         static let killTotalCount = Column(CodingKeys.killTotalCount)
         static let killCount = Column(CodingKeys.killCount)
         static let assistCount = Column(CodingKeys.assistCount)
@@ -122,6 +124,7 @@ extension DBRecord {
               let gameModeName = gameMode["name"] as? String,
               let gameModeKey = gameMode["key"] as? String,
               let stageName = stage["name"] as? String,
+              let stageId = stage["id"] as? String,
               let killCount = playerResult["kill_count"] as? Int,
               let assistCount = playerResult["assist_count"] as? Int,
               let specialCount = playerResult["special_count"] as? Int,
@@ -165,6 +168,7 @@ extension DBRecord {
             gameMode: gameModeName,
             gameModeKey: gameModeKey,
             stageName: stageName,
+            stageId: stageId,
             killTotalCount: killCount + assistCount,
             killCount: killCount,
             assistCount: assistCount,
@@ -277,7 +281,7 @@ extension AppDatabase {
         
         return ValueObservation.tracking { db in
             // exclude json
-            var sql = "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, ruleKey, gameMode, gameModeKey, stageName, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies, isX, xPower FROM record WHERE sp2PrincipalId = ? ORDER BY startDateTime DESC"
+            var sql = "SELECT id, sp2PrincipalId, battleNumber, isDetail, victory, weaponId, weaponImage, rule, ruleKey, gameMode, gameModeKey, stageName, stageId, killTotalCount, killCount, assistCount, specialCount, gamePaintPoint, deathCount, myPoint, otherPoint, syncDetailTime, startDateTime, udemaeName, udemaeSPlusNumber, type, leaguePoint, estimateGachiPower, playerTypeSpecies, isX, xPower FROM record WHERE sp2PrincipalId = ? ORDER BY startDateTime DESC"
             
             if returnJson {
                 sql = sql.replacingOccurrences(of: "battleNumber", with: "battleNumber, json")
@@ -476,21 +480,211 @@ extension AppDatabase {
         }
     }
     
-    func usedWeaponIds() -> [String] {
+    func filterable(
+        startDate: Date,
+        battleType: Battle.BattleType?,
+        rule: GameRule.Key?,
+        stageId: String?,
+        weaponId: String?
+    ) -> Bool {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
+            return false
+        }
+        
+        var args: [DatabaseValueConvertible] = [sp2PrincipalId, startDate]
+        var sql = "SELECT COUNT(*) FROM record WHERE sp2PrincipalId = ? AND startDateTime > ? "
+        
+        if let battleType = battleType {
+            switch battleType {
+            case .regular, .gachi, .private:
+                sql += "AND gameModeKey = ? "
+                args.append(battleType.rawValue)
+            case .league:
+                sql += "AND (gameModeKey = ? OR gameModeKey = ?) "
+                args.append(GameMode.Key.leaguePair.rawValue)
+                args.append(GameMode.Key.leagueTeam.rawValue)
+            case .fes:
+                sql += "AND (gameModeKey = ? OR gameModeKey = ?) "
+                args.append(GameMode.Key.fesSolo.rawValue)
+                args.append(GameMode.Key.fesTeam.rawValue)
+            }
+        }
+        
+        if let rule = rule {
+            sql += "AND ruleKey = ? "
+            args.append(rule.rawValue)
+        }
+        
+        if let stageId = stageId {
+            sql += "AND stageId = ? "
+            args.append(stageId)
+        }
+        
+        if let weaponId = weaponId {
+            sql += "AND weaponId = ? "
+            args.append(weaponId)
+        }
+        
+        return try! dbQueue.read { db in
+            guard let count = try? Int.fetchOne(
+                db,
+                sql: sql,
+                arguments: StatementArguments(args)
+            ) else {
+                return false
+            }
+            
+            return count > 0
+        }
+    }
+    
+    func filterableBattleTypes(
+        startDate: Date?,
+        rule: GameRule.Key?,
+        stageId: String?,
+        weaponId: String?
+    ) -> [Battle.BattleType] {
+        filterableIds(
+            select: "gameModeKey",
+            startDate: startDate,
+            battleType: nil,
+            rule: rule,
+            stageId: stageId,
+            weaponId: weaponId
+        ).map { GameMode.Key(rawValue: $0)!.battleType }
+    }
+    
+    func filterableRules(
+        startDate: Date?,
+        battleType: Battle.BattleType?,
+        stageId: String?,
+        weaponId: String?
+    ) -> [GameRule.Key] {
+        filterableIds(
+            select: "ruleKey",
+            startDate: startDate,
+            battleType: battleType,
+            rule: nil,
+            stageId: stageId,
+            weaponId: weaponId
+        ).map { GameRule.Key(rawValue: $0)! }
+    }
+    
+    func filterableWeaponIds(
+        startDate: Date?,
+        battleType: Battle.BattleType?,
+        rule: GameRule.Key?,
+        stageId: String?
+    ) -> [String] {
+        filterableIds(
+            select: "weaponId",
+            startDate: startDate,
+            battleType: battleType,
+            rule: rule,
+            stageId: stageId,
+            weaponId: nil
+        )
+    }
+    
+    func filterableStageIds(
+        startDate: Date?,
+        battleType: Battle.BattleType?,
+        rule: GameRule.Key?,
+        weaponId: String?
+    ) -> [String] {
+        filterableIds(
+            select: "stageId",
+            startDate: startDate,
+            battleType: battleType,
+            rule: rule,
+            stageId: nil,
+            weaponId: weaponId
+        )
+    }
+    
+    private func filterableIds(
+        select: String,
+        startDate: Date?,
+        battleType: Battle.BattleType?,
+        rule: GameRule.Key?,
+        stageId: String?,
+        weaponId: String?
+    ) -> [String] {
         guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
             return []
         }
         
+        var args: [DatabaseValueConvertible] = [sp2PrincipalId]
+        var sql = "SELECT \(select) FROM record WHERE sp2PrincipalId = ? "
+        
+        if let startDate = startDate {
+            sql += "AND startDateTime > ? "
+            args.append(startDate)
+        }
+        
+        if let battleType = battleType {
+            switch battleType {
+            case .regular, .gachi, .private:
+                sql += "AND gameModeKey = ? "
+                args.append(battleType.rawValue)
+            case .league:
+                sql += "AND (gameModeKey = ? OR gameModeKey = ?) "
+                args.append(GameMode.Key.leaguePair.rawValue)
+                args.append(GameMode.Key.leagueTeam.rawValue)
+            case .fes:
+                sql += "AND (gameModeKey = ? OR gameModeKey = ?) "
+                args.append(GameMode.Key.fesSolo.rawValue)
+                args.append(GameMode.Key.fesTeam.rawValue)
+            }
+        }
+        
+        if let rule = rule {
+            sql += "AND ruleKey = ? "
+            args.append(rule.rawValue)
+        }
+        
+        if let stageId = stageId {
+            sql += "AND stageId = ? "
+            args.append(stageId)
+        }
+        
+        if let weaponId = weaponId {
+            sql += "AND weaponId = ? "
+            args.append(weaponId)
+        }
+        
+        sql += "GROUP BY \(select)"
+        
         return try! dbQueue.read { db in
             guard let usedWeaponIds = try? String.fetchAll(
                 db,
-                sql: "SELECT weaponId+0 FROM record WHERE sp2PrincipalId = ? GROUP BY weaponId ORDER BY weaponId+0",
-                arguments: [sp2PrincipalId]
+                sql: sql,
+                arguments: StatementArguments(args)
             ) else {
                 return []
             }
             
             return usedWeaponIds
+        }
+    }
+    
+    func firstAndLastRecordDate() -> (Date?, Date?) {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
+            return (nil, nil)
+        }
+        
+        return try! dbQueue.read { db in
+            guard let dates = try? Date.fetchAll(
+                db,
+                sql: "SELECT MIN(startDateTime) FROM record WHERE sp2PrincipalId = ? " +
+                "UNION ALL " +
+                "SELECT MAX(startDateTime) FROM record WHERE sp2PrincipalId = ?",
+                arguments: [sp2PrincipalId, sp2PrincipalId]
+            ) else {
+                return (nil, nil)
+            }
+            
+            return (dates.first, dates.last)
         }
     }
 }
@@ -510,6 +704,7 @@ extension DBRecord {
             gameMode: gameMode,
             gameModeKey: gameModeKey,
             stageName: stageName,
+            stageId: stageId,
             killTotalCount: killTotalCount,
             killCount: killCount,
             assistCount: assistCount,

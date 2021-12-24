@@ -68,6 +68,8 @@ struct RoundedCorners: Shape {
         path.addLine(to: CGPoint(x: 0, y: tl))
         path.addArc(center: CGPoint(x: tl, y: tl), radius: tl,
                     startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
+        
+        path.addLine(to: CGPoint(x: w / 2.0, y: 0))
 
         return path
     }
