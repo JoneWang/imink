@@ -50,6 +50,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             configureNotchBranding()
         }
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            DataBackup.import(url: url)
+        }
+    }
 }
 
 // NotchBranding

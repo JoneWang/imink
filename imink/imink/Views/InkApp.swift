@@ -38,8 +38,5 @@ struct InkApp: View {
                     UpdatePage(isPresented: $showUpdatePage)
                 }
         }
-        .onOpenURL { url in
-            DataBackup.import(url: url)
-        }
     }
 }
