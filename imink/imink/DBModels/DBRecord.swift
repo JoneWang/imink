@@ -687,6 +687,74 @@ extension AppDatabase {
             return (dates.first, dates.last)
         }
     }
+    
+    func firstAndLastRecordDate(
+        battleType: Battle.BattleType?,
+        rule: GameRule.Key?,
+        stageId: String?,
+        weaponId: String?
+    ) -> (Date?, Date?) {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
+            return (nil, nil)
+        }
+        
+        var args: [DatabaseValueConvertible] = []
+        
+        var sqls = [
+            "SELECT MIN(startDateTime) FROM record WHERE sp2PrincipalId = ? ",
+            "SELECT MAX(startDateTime) FROM record WHERE sp2PrincipalId = ? "
+        ]
+        
+        for (i, sql) in sqls.enumerated() {
+            var sql = sql
+            args.append(sp2PrincipalId)
+            
+            if let battleType = battleType {
+                switch battleType {
+                case .regular, .gachi, .private:
+                    sql += "AND gameModeKey = ? "
+                    args.append(battleType.rawValue)
+                case .league:
+                    sql += "AND (gameModeKey = ? OR gameModeKey = ?) "
+                    args.append(GameMode.Key.leaguePair.rawValue)
+                    args.append(GameMode.Key.leagueTeam.rawValue)
+                case .fes:
+                    sql += "AND (gameModeKey = ? OR gameModeKey = ?) "
+                    args.append(GameMode.Key.fesSolo.rawValue)
+                    args.append(GameMode.Key.fesTeam.rawValue)
+                }
+            }
+            
+            if let rule = rule {
+                sql += "AND ruleKey = ? "
+                args.append(rule.rawValue)
+            }
+            
+            if let stageId = stageId {
+                sql += "AND stageId = ? "
+                args.append(stageId)
+            }
+            
+            if let weaponId = weaponId {
+                sql += "AND weaponId = ? "
+                args.append(weaponId)
+            }
+            
+            sqls[i] = sql
+        }
+        
+        return try! dbQueue.read { db in
+            guard let dates = try? Date.fetchAll(
+                db,
+                sql: sqls.joined(separator: " UNION ALL "),
+                arguments: StatementArguments(args)
+            ) else {
+                return (nil, nil)
+            }
+            
+            return (dates.first, dates.last)
+        }
+    }
 }
 
 extension DBRecord {

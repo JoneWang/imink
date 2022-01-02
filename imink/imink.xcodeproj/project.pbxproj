@@ -65,6 +65,8 @@
 		EC0598E726D1315600262D86 /* AppIconPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0598E626D1315600262D86 /* AppIconPage.swift */; };
 		EC0B0986266692640011758C /* CreditsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B0985266692640011758C /* CreditsPage.swift */; };
 		EC0B098E2667FA790011758C /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B098D2667FA780011758C /* DataBackup.swift */; };
+		EC0BB94A27819A7300A1E333 /* PopoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0BB94927819A7300A1E333 /* PopoverModifier.swift */; };
+		EC0BB94E27819DB500A1E333 /* Popovers in Frameworks */ = {isa = PBXBuildFile; productRef = EC0BB94D27819DB500A1E333 /* Popovers */; };
 		EC0DFCF4263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */; };
 		EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */; };
@@ -356,6 +358,7 @@
 		EC0598E626D1315600262D86 /* AppIconPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconPage.swift; sourceTree = "<group>"; };
 		EC0B0985266692640011758C /* CreditsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsPage.swift; sourceTree = "<group>"; };
 		EC0B098D2667FA780011758C /* DataBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBackup.swift; sourceTree = "<group>"; };
+		EC0BB94927819A7300A1E333 /* PopoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverModifier.swift; sourceTree = "<group>"; };
 		EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModifier.swift; sourceTree = "<group>"; };
 		EC11F1D525558C2D00E10F5F /* SalmonRunScheduleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleWidget.swift; sourceTree = "<group>"; };
 		EC11F1DA25558CAB00E10F5F /* SalmonRunScheduleMediumWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleMediumWidgetEntryView.swift; sourceTree = "<group>"; };
@@ -517,6 +520,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0BB94E27819DB500A1E333 /* Popovers in Frameworks */,
 				EC2D2F96266E36FF008D1F51 /* SPAlert in Frameworks */,
 				ECE6785C2585F79C00D750DB /* GRDB in Frameworks */,
 				BBC15A23256B9CE200B67514 /* InkCore.framework in Frameworks */,
@@ -559,6 +563,7 @@
 				EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */,
 				EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */,
 				EC16D1BB27762AC600325114 /* HitTestingModifier.swift */,
+				EC0BB94927819A7300A1E333 /* PopoverModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -1068,6 +1073,7 @@
 				EC606044251CD5B200DCF35E /* SnapKit */,
 				EC8136AB264FD3F100423D14 /* Zip */,
 				EC2D2F95266E36FF008D1F51 /* SPAlert */,
+				EC0BB94D27819DB500A1E333 /* Popovers */,
 			);
 			productName = imink;
 			productReference = EC900E71251C55FF00AA0B20 /* imink.app */;
@@ -1114,6 +1120,7 @@
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
 				EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */,
 				EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */,
+				EC0BB94C27819DB400A1E333 /* XCRemoteSwiftPackageReference "Popovers" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1290,6 +1297,7 @@
 				EC5CBF822653924100F1A063 /* MedalView.swift in Sources */,
 				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
+				EC0BB94A27819A7300A1E333 /* PopoverModifier.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
 				ECA9B402266BCE8C00EE63FC /* SettingPage.swift in Sources */,
 				ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */,
@@ -1789,6 +1797,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC0BB94C27819DB400A1E333 /* XCRemoteSwiftPackageReference "Popovers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/Popovers";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ivanvorobei/SPAlert.git";
@@ -1848,6 +1864,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC0BB94D27819DB500A1E333 /* Popovers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC0BB94C27819DB400A1E333 /* XCRemoteSwiftPackageReference "Popovers" */;
+			productName = Popovers;
+		};
 		EC2D2F95266E36FF008D1F51 /* SPAlert */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */;

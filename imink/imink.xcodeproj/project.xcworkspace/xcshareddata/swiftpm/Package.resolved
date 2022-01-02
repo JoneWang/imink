@@ -65,6 +65,15 @@
         }
       },
       {
+        "package": "Popovers",
+        "repositoryURL": "https://github.com/aheze/Popovers",
+        "state": {
+          "branch": "main",
+          "revision": "1d31c39e10594ae3099e84d49c0debb6349c5703",
+          "version": null
+        }
+      },
+      {
         "package": "Quick",
         "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {

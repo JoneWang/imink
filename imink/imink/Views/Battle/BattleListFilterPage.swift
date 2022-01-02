@@ -7,6 +7,7 @@
 
 import SwiftUI
 import InkCore
+import Popovers
 
 struct BattleListFilterPage: View {
     
@@ -14,7 +15,8 @@ struct BattleListFilterPage: View {
     
     @StateObject var viewModel: BattleListFilterViewModel
     
-    @State private var customDate = Date()
+    @State private var customDate: Date
+    @State private var showDatePicker = false
     
     private let itemSpacing: CGFloat = 8
     private let threeColumn: CGFloat = 3
@@ -36,6 +38,7 @@ struct BattleListFilterPage: View {
         onDone: @escaping (BattleListFilterContent) -> Void
     ) {
         _viewModel = StateObject(wrappedValue: BattleListFilterViewModel(filterContent))
+        _customDate = State(wrappedValue: _viewModel.wrappedValue.currentFilterContent.customDate)
         
         self.onDone = onDone
     }
@@ -64,7 +67,10 @@ struct BattleListFilterPage: View {
                             makeWeaponFilterView(itemWidth: fiveColumnWidth)
                         }
                         .padding(.vertical, 20)
+                        .padding(.bottom, UIApplication.shared.windows.first!.safeAreaInsets.bottom)
                     }
+                    .background(AppColor.listBackgroundColor)
+                    .ignoresSafeArea(edges: .bottom)
                 }
             }
             .navigationBarTitle("筛选", displayMode: .inline)
@@ -101,59 +107,60 @@ struct BattleListFilterPage: View {
             LazyVGrid(columns: Array(repeating: .init(.fixed(itemWidth), alignment: .leading), count: 3)) {
                 ForEach(viewModel.dates, id: \.id) { item in
                     if item.id == .custom {
-                        HStack(spacing: 0) {
-                            Text(customDateTitle)
+                        HStack(spacing: 8) {
+                            Spacer()
+                            
+                            Text(item.id == viewModel.currentFilterContent.startDate ? customDateTitle : "Custom")
                                 .font(.system(size: 15))
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .onTapGesture {
-                                    if !item.canSelect { return }
-                                    withAnimation {
-                                        if viewModel.currentFilterContent.startDate == .custom {
-                                            viewModel.currentFilterContent.startDate = nil
-                                        } else {
-                                            viewModel.currentFilterContent.startDate = .custom
-                                        }
-                                    }
-                                }
-                                .background(Color.quaternarySystemFill)
-                                .opacity(item.canSelect ? 1 : 0.3)
-                                .overlay(
-                                    item.id == viewModel.currentFilterContent.startDate && item.canSelect ?
-                                    AnyView(RoundedCorners(corners: [.topLeft, .bottomLeft], radius: cornerRadius)
-                                                .stroke(Color.accentColor, lineWidth: 2).padding(0)) : AnyView(EmptyView())
-                                )
                             
-                            if item.canSelect {
-                                Divider()
-                            }
+                            Image(systemName: "calendar")
                             
-                            ZStack {
-                                GeometryReader { geo in
-                                    DatePicker("", selection: $customDate, in: viewModel.customDateClosedRange, displayedComponents: [.date])
-                                        .datePickerStyle(CompactDatePickerStyle())
-                                        .labelsHidden()
-                                        .offset(x: geo.size.width / 2 - 30)
-                                }
-                                
-                                Image(systemName: "calendar")
-                                    .foregroundColor(.accentColor)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 2)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.quaternarySystemFill)
-                                    .userInteractionDisabled()
-                            }
-                            .frame(width: 60)
-                            .frame(maxHeight: .infinity)
-                            .clipped()
+                            Spacer()
                         }
                         .frame(width: itemWidth * 2 + itemSpacing, height: normalHeight)
+                        .background(AppColor.listItemBackgroundColor)
+                        .overlay(
+                            item.id == viewModel.currentFilterContent.startDate && item.canSelect ?
+                            AnyView(RoundedRectangle(cornerRadius: cornerRadius)
+                                        .strokeBorder(Color.accentColor, lineWidth: 1).padding(0)) : AnyView(EmptyView())
+                        )
                         .continuousCornerRadius(cornerRadius)
+                        .onTapGesture {
+                            if item.id == viewModel.currentFilterContent.startDate {
+                                withAnimation {
+                                    viewModel.currentFilterContent.startDate = nil
+                                }
+                            } else {
+                                showDatePicker = true
+                            }
+                        }
+                        .popover(
+                            present: $showDatePicker,
+                            attributes: {
+                                $0.rubberBandingMode = .none
+                                $0.sourceFrameInset.bottom = -8
+                                $0.blocksBackgroundTouches = true
+                                $0.onTapOutside = {
+                                    showDatePicker = false
+                                }
+                            }
+                        ) {
+                            PopoverTemplates.Standard {
+                                DatePicker("", selection: $customDate, in: viewModel.customDateClosedRange, displayedComponents: [.date])
+                                    .datePickerStyle(.graphical)
+                                    .padding(.horizontal, 16)
+                            }
+                        }
+                        .onChange(of: customDate) { newValue in
+                            withAnimation {
+                                viewModel.currentFilterContent.startDate = .custom
+                            }
+                        }
                     } else {
                         Text(item.id.name)
                             .font(.system(size: 15))
                             .frame(width: itemWidth, height: normalHeight)
-                            .background(Color.quaternarySystemFill)
+                            .background(AppColor.listItemBackgroundColor)
                             .continuousCornerRadius(cornerRadius)
                             .opacity(item.canSelect ? 1 : 0.3)
                             .overlay(
@@ -191,7 +198,7 @@ struct BattleListFilterPage: View {
                         .aspectRatio(1, contentMode: .fit)
                         .padding(5)
                         .frame(width: itemWidth, height: itemHeight)
-                        .background(Color.quaternarySystemFill)
+                        .background(AppColor.listItemBackgroundColor)
                         .continuousCornerRadius(cornerRadius)
                         .opacity(item.canSelect ? 1 : 0.3)
                         .overlay(
@@ -227,7 +234,7 @@ struct BattleListFilterPage: View {
                         .aspectRatio(1, contentMode: .fit)
                         .padding(5)
                         .frame(width: itemWidth, height: itemHeight)
-                        .background(Color.quaternarySystemFill)
+                        .background(AppColor.listItemBackgroundColor)
                         .continuousCornerRadius(cornerRadius)
                         .opacity(item.canSelect ? 1 : 0.3)
                         .overlay(
@@ -297,7 +304,7 @@ struct BattleListFilterPage: View {
                     ForEach(viewModel.weapons, id: \.self) { weapon in
                         ImageView.weapon(id: weapon.id)
                             .padding(cornerRadius)
-                            .background(Color.quaternarySystemFill)
+                            .background(AppColor.listItemBackgroundColor)
                             .frame(width: itemWidth, height: itemWidth)
                             .continuousCornerRadius(cornerRadius)
                             .opacity(weapon.canSelect ? 1 : 0.3)

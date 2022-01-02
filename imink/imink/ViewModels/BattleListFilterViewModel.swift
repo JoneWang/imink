@@ -34,8 +34,12 @@ class BattleListFilterViewModel: ObservableObject {
         
         if currentFilterContent.startDate != .custom {
             let (firstDate, lastDate) = AppDatabase.shared.firstAndLastRecordDate()
-            currentFilterContent.customDate = firstDate ?? Date()
-            customDateClosedRange = (firstDate ?? Date())...(lastDate ?? Date())
+            
+            let startDate = firstDate ?? Date()
+            let endDate = lastDate ?? Date()
+            
+            currentFilterContent.customDate = endDate
+            customDateClosedRange = startDate...endDate
         }
         
         $currentFilterContent
@@ -43,6 +47,19 @@ class BattleListFilterViewModel: ObservableObject {
                 guard let `self` = self else { return }
                 
                 var filterContent = filterContent
+                
+                let (firstDate, lastDate) = AppDatabase.shared.firstAndLastRecordDate(
+                    battleType: filterContent.battleType,
+                    rule: filterContent.rule,
+                    stageId: filterContent.stageId,
+                    weaponId: filterContent.weaponId
+                )
+                
+                let startDate = firstDate ?? Date()
+                let endDate = lastDate ?? Date()
+                print("\(startDate) ... \(endDate)")
+                
+                self.customDateClosedRange = startDate...endDate
                 
                 self.dates = FilterDate.filterKeys.map { filterDate in
                     var date = filterDate.dateValue
