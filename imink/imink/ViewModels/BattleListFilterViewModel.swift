@@ -18,28 +18,35 @@ protocol BattleListFilterItem: Hashable {
 class BattleListFilterViewModel: ObservableObject {
     
     @Published var currentFilterContent: BattleListFilterContent
-    @Published var customDateClosedRange: ClosedRange<Date>
+    @Published var customDateClosedRange = Date()...Date()
 
-    @Published var dates: [DateFilterItem] = []
-    @Published var battleTypes: [BattleTypeFilterItem] = []
-    @Published var rules: [RuleFilterItem] = []
-    @Published var stages: [ObjectIdFilterItem] = []
-    @Published var weapons: [ObjectIdFilterItem] = []
+    @Published var dates: [DateFilterItem] = FilterDate.filterKeys
+        .map { DateFilterItem(id: $0, canSelect: true) }
+    @Published var battleTypes: [BattleTypeFilterItem] = Battle.BattleType.filterKeys
+        .map { BattleTypeFilterItem(id: $0, canSelect: true) }
+    @Published var rules: [RuleFilterItem] = GameRule.Key.filterKeys
+        .map { RuleFilterItem(id: $0, canSelect: true) }
+    @Published var stages: [ObjectIdFilterItem] = GameData.stageIds
+        .map { ObjectIdFilterItem(id: $0, canSelect: true) }
+    @Published var weapons: [ObjectIdFilterItem] = GameData.weaponIds
+        .map { ObjectIdFilterItem(id: $0, canSelect: true) }
+        .sorted { Int($0.canSelect) > Int($1.canSelect) }
     
     private var cancelBag = Set<AnyCancellable>()
 
     init(_ filterContent: BattleListFilterContent) {
         currentFilterContent = filterContent
-        customDateClosedRange = Date()...Date()
         
         if currentFilterContent.startDate != .custom {
-            let (firstDate, lastDate) = AppDatabase.shared.firstAndLastRecordDate()
-            
-            let startDate = firstDate ?? Date()
-            let endDate = lastDate ?? Date()
-            
-            currentFilterContent.customDate = endDate
-            customDateClosedRange = startDate...endDate
+            AppDatabase.shared.firstAndLastRecordDate {  [weak self] (firstDate, lastDate) in
+                guard let `self` = self else { return }
+                
+                let startDate = firstDate ?? Date()
+                let endDate = lastDate ?? Date()
+                
+                self.currentFilterContent.customDate = endDate
+                self.customDateClosedRange = startDate...endDate
+            }
         }
         
         $currentFilterContent
@@ -48,77 +55,89 @@ class BattleListFilterViewModel: ObservableObject {
                 
                 var filterContent = filterContent
                 
-                let (firstDate, lastDate) = AppDatabase.shared.firstAndLastRecordDate(
-                    battleType: filterContent.battleType,
-                    rule: filterContent.rule,
-                    stageId: filterContent.stageId,
-                    weaponId: filterContent.weaponId
-                )
-                
-                let startDate = firstDate ?? Date()
-                let endDate = lastDate ?? Date()
-                print("\(startDate) ... \(endDate)")
-                
-                self.customDateClosedRange = startDate...endDate
-                
-                self.dates = FilterDate.filterKeys.map { filterDate in
-                    var date = filterDate.dateValue
-                    if filterDate == .custom {
-                        date = filterContent.customDate
-                    }
-                    let filterable = AppDatabase.shared
-                        .filterable(
-                            startDate: date,
+                AppDatabase.shared.dbPool.asyncRead { result in
+                    if case .success(let db) = result {
+                        let (firstDate, lastDate) = AppDatabase.shared.firstAndLastRecordDate(
+                            db: db,
                             battleType: filterContent.battleType,
                             rule: filterContent.rule,
                             stageId: filterContent.stageId,
                             weaponId: filterContent.weaponId
                         )
-                    return DateFilterItem(id: filterDate, canSelect: filterable)
+                        
+                        let startDate = firstDate ?? Date()
+                        let endDate = lastDate ?? Date()
+                        
+                        let dates: [DateFilterItem] = FilterDate.filterKeys.map { filterDate in
+                            var date = filterDate.dateValue
+                            if filterDate == .custom {
+                                date = filterContent.customDate
+                            }
+                            let filterable = AppDatabase.shared
+                                .filterable(
+                                    db: db,
+                                    startDate: date,
+                                    battleType: filterContent.battleType,
+                                    rule: filterContent.rule,
+                                    stageId: filterContent.stageId,
+                                    weaponId: filterContent.weaponId
+                                )
+                            return DateFilterItem(id: filterDate, canSelect: filterable)
+                        }
+                        
+                        if let customDate = self.dates.last, !customDate.canSelect {
+                            filterContent.startDate = nil
+                        }
+                        
+                        let filterableBattleTypes = AppDatabase.shared
+                            .filterableBattleTypes(
+                                db: db,
+                                startDate: filterContent.startDateValue,
+                                rule: filterContent.rule,
+                                stageId: filterContent.stageId,
+                                weaponId: filterContent.weaponId
+                            )
+                        
+                        let filterableRules = AppDatabase.shared
+                            .filterableRules(
+                                db: db,
+                                startDate: filterContent.startDateValue,
+                                battleType: filterContent.battleType,
+                                stageId: filterContent.stageId,
+                                weaponId: filterContent.weaponId
+                            )
+                        
+                        let filterableStageIds = AppDatabase.shared
+                            .filterableStageIds(
+                                db: db,
+                                startDate: filterContent.startDateValue,
+                                battleType: filterContent.battleType,
+                                rule: filterContent.rule,
+                                weaponId: filterContent.weaponId
+                            )
+                        
+                        let filterableWeaponIds = AppDatabase.shared
+                            .filterableWeaponIds(
+                                db: db,
+                                startDate: filterContent.startDateValue,
+                                battleType: filterContent.battleType,
+                                rule: filterContent.rule,
+                                stageId: filterContent.stageId
+                            )
+                        
+                        DispatchQueue.main.async {
+                            self.customDateClosedRange = startDate...endDate
+                            self.dates = dates
+                            self.battleTypes = Battle.BattleType.filterKeys.map { BattleTypeFilterItem(id: $0, canSelect: filterableBattleTypes.contains($0)) }
+                            self.rules = GameRule.Key.filterKeys.map { RuleFilterItem(id: $0, canSelect: filterableRules.contains($0)) }
+                            self.stages = GameData.stageIds
+                                .map { ObjectIdFilterItem(id: $0, canSelect: filterableStageIds.contains($0)) }
+                            self.weapons = GameData.weaponIds
+                                .map { ObjectIdFilterItem(id: $0, canSelect: filterableWeaponIds.contains($0)) }
+                                .sorted { Int($0.canSelect) > Int($1.canSelect) }
+                        }
+                    }
                 }
-                
-                if let customDate = self.dates.last, !customDate.canSelect {
-                    filterContent.startDate = nil
-                }
-                
-                let filterableBattleTypes = AppDatabase.shared
-                    .filterableBattleTypes(
-                        startDate: filterContent.startDateValue,
-                        rule: filterContent.rule,
-                        stageId: filterContent.stageId,
-                        weaponId: filterContent.weaponId
-                    )
-                self.battleTypes = Battle.BattleType.filterKeys.map { BattleTypeFilterItem(id: $0, canSelect: filterableBattleTypes.contains($0)) }
-                
-                let filterableRules = AppDatabase.shared
-                    .filterableRules(
-                        startDate: filterContent.startDateValue,
-                        battleType: filterContent.battleType,
-                        stageId: filterContent.stageId,
-                        weaponId: filterContent.weaponId
-                    )
-                self.rules = GameRule.Key.filterKeys.map { RuleFilterItem(id: $0, canSelect: filterableRules.contains($0)) }
-                
-                let filterableStageIds = AppDatabase.shared
-                    .filterableStageIds(
-                        startDate: filterContent.startDateValue,
-                        battleType: filterContent.battleType,
-                        rule: filterContent.rule,
-                        weaponId: filterContent.weaponId
-                    )
-                self.stages = GameData.stageIds
-                    .map { ObjectIdFilterItem(id: $0, canSelect: filterableStageIds.contains($0)) }
-                
-                let filterableWeaponIds = AppDatabase.shared
-                    .filterableWeaponIds(
-                        startDate: filterContent.startDateValue,
-                        battleType: filterContent.battleType,
-                        rule: filterContent.rule,
-                        stageId: filterContent.stageId
-                    )
-                self.weapons = GameData.weaponIds
-                    .map { ObjectIdFilterItem(id: $0, canSelect: filterableWeaponIds.contains($0)) }
-                    .sorted { Int($0.canSelect) > Int($1.canSelect) }
             }
             .store(in: &cancelBag)
     }

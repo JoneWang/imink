@@ -194,7 +194,7 @@ extension AppDatabase {
     // MARK: Writes
     
     func saveBattle(data: Data) {
-        dbQueue.asyncWrite { db in
+        dbPool.asyncWrite { db in
             if let record = DBRecord.load(data: data) {
                 _ = try self.saveBattle(db: db, record: record)
             }
@@ -206,7 +206,7 @@ extension AppDatabase {
     }
     
     func saveBattles(records: [DBRecord], progress: @escaping ((Double, Int, Error?) -> Void)) {
-        dbQueue.asyncWrite { db in
+        dbPool.asyncWrite { db in
             var saveCount = 0
             for (i, record) in records.enumerated() {
                 if try self.saveBattle(db: db, record: record) {
@@ -242,7 +242,7 @@ extension AppDatabase {
     }
     
     func removeAllRecords() {
-        dbQueue.asyncWrite { db in
+        dbPool.asyncWrite { db in
             try DBRecord.deleteAll(db)
         } completion: { _, error in
             if case let .failure(error) = error {
@@ -258,7 +258,7 @@ extension AppDatabase {
             return []
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             let alreadyExistsRecords = try! DBRecord.filter(
                 DBRecord.Columns.sp2PrincipalId == sp2PrincipalId &&
                 battleIds.contains(DBRecord.Columns.battleNumber)
@@ -293,7 +293,7 @@ extension AppDatabase {
                     DBRecord(row: row)
                 }
         }
-        .publisher(in: dbQueue, scheduling: .immediate)
+        .publisher(in: dbPool, scheduling: .immediate)
         .eraseToAnyPublisher()
     }
     
@@ -302,7 +302,7 @@ extension AppDatabase {
             return []
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             if let battleNumber = battleNumber {
                 return try! DBRecord
                     .filter(
@@ -327,7 +327,7 @@ extension AppDatabase {
             return nil
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             return try? DBRecord
                 .filter(
                     DBRecord.Columns.id == id &&
@@ -349,7 +349,7 @@ extension AppDatabase {
                     .filter(DBRecord.Columns.sp2PrincipalId == sp2PrincipalId)
                     .fetchCount
             )
-            .publisher(in: dbQueue, scheduling: .immediate)
+            .publisher(in: dbPool, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
     
@@ -358,7 +358,7 @@ extension AppDatabase {
             return 0
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             let request = DBRecord.filter(
                 DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             )
@@ -372,7 +372,7 @@ extension AppDatabase {
             return []
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             return try! Bool.fetchAll(
                 db,
                 sql: "SELECT victory FROM record WHERE sp2PrincipalId = ? ORDER BY startDateTime DESC LIMIT 0, 500",
@@ -386,7 +386,7 @@ extension AppDatabase {
             return 0
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             let request = DBRecord.filter(
                 DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             )
@@ -409,7 +409,7 @@ extension AppDatabase {
                                                             DBRecord.Columns.syncDetailTime > lastSyncTime)) &&
                     DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             ).fetchCount)
-            .publisher(in: dbQueue, scheduling: .immediate)
+            .publisher(in: dbPool, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
     
@@ -425,7 +425,7 @@ extension AppDatabase {
                 DBRecord.Columns.syncDetailTime > lastSyncTime &&
                     DBRecord.Columns.sp2PrincipalId == sp2PrincipalId
             ).fetchCount)
-            .publisher(in: dbQueue, scheduling: .immediate)
+            .publisher(in: dbPool, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
     
@@ -434,7 +434,7 @@ extension AppDatabase {
             return (0, 0)
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             guard let victoryCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT COUNT(*) FROM record WHERE victory AND startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
@@ -457,7 +457,7 @@ extension AppDatabase {
             return (0, 0, 0)
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             guard let killCount = try? Int.fetchOne(
                 db,
                 sql: "SELECT SUM(killCount) FROM record WHERE startDateTime > ? AND startDateTime < ? AND sp2PrincipalId = ?",
@@ -481,6 +481,7 @@ extension AppDatabase {
     }
     
     func filterable(
+        db: Database,
         startDate: Date,
         battleType: Battle.BattleType?,
         rule: GameRule.Key?,
@@ -525,26 +526,26 @@ extension AppDatabase {
             args.append(weaponId)
         }
         
-        return try! dbQueue.read { db in
-            guard let count = try? Int.fetchOne(
-                db,
-                sql: sql,
-                arguments: StatementArguments(args)
-            ) else {
-                return false
-            }
-            
-            return count > 0
+        guard let count = try? Int.fetchOne(
+            db,
+            sql: sql,
+            arguments: StatementArguments(args)
+        ) else {
+            return false
         }
+        
+        return count > 0
     }
     
     func filterableBattleTypes(
+        db: Database,
         startDate: Date?,
         rule: GameRule.Key?,
         stageId: String?,
         weaponId: String?
     ) -> [Battle.BattleType] {
         filterableIds(
+            db: db,
             select: "gameModeKey",
             startDate: startDate,
             battleType: nil,
@@ -555,12 +556,14 @@ extension AppDatabase {
     }
     
     func filterableRules(
+        db: Database,
         startDate: Date?,
         battleType: Battle.BattleType?,
         stageId: String?,
         weaponId: String?
     ) -> [GameRule.Key] {
         filterableIds(
+            db: db,
             select: "ruleKey",
             startDate: startDate,
             battleType: battleType,
@@ -571,12 +574,14 @@ extension AppDatabase {
     }
     
     func filterableWeaponIds(
+        db: Database,
         startDate: Date?,
         battleType: Battle.BattleType?,
         rule: GameRule.Key?,
         stageId: String?
     ) -> [String] {
         filterableIds(
+            db: db,
             select: "weaponId",
             startDate: startDate,
             battleType: battleType,
@@ -587,12 +592,14 @@ extension AppDatabase {
     }
     
     func filterableStageIds(
+        db: Database,
         startDate: Date?,
         battleType: Battle.BattleType?,
         rule: GameRule.Key?,
         weaponId: String?
     ) -> [String] {
         filterableIds(
+            db: db,
             select: "stageId",
             startDate: startDate,
             battleType: battleType,
@@ -603,6 +610,7 @@ extension AppDatabase {
     }
     
     private func filterableIds(
+        db: Database,
         select: String,
         startDate: Date?,
         battleType: Battle.BattleType?,
@@ -655,40 +663,47 @@ extension AppDatabase {
         
         sql += "GROUP BY \(select)"
         
-        return try! dbQueue.read { db in
-            guard let usedWeaponIds = try? String.fetchAll(
-                db,
-                sql: sql,
-                arguments: StatementArguments(args)
-            ) else {
-                return []
-            }
-            
-            return usedWeaponIds
-        }
-    }
-    
-    func firstAndLastRecordDate() -> (Date?, Date?) {
-        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
-            return (nil, nil)
+        guard let usedWeaponIds = try? String.fetchAll(
+            db,
+            sql: sql,
+            arguments: StatementArguments(args)
+        ) else {
+            return []
         }
         
-        return try! dbQueue.read { db in
-            guard let dates = try? Date.fetchAll(
-                db,
-                sql: "SELECT MIN(startDateTime) FROM record WHERE sp2PrincipalId = ? " +
-                "UNION ALL " +
-                "SELECT MAX(startDateTime) FROM record WHERE sp2PrincipalId = ?",
-                arguments: [sp2PrincipalId, sp2PrincipalId]
-            ) else {
-                return (nil, nil)
+        return usedWeaponIds
+    }
+    
+    func firstAndLastRecordDate(success: @escaping (Date?, Date?) -> Void) {
+        guard let sp2PrincipalId = AppUserDefaults.shared.sp2PrincipalId else {
+            success(nil, nil)
+            return
+        }
+        
+        dbPool.asyncRead { result in
+            if case .success(let db) = result {
+                guard let dates = try? Date.fetchAll(
+                    db,
+                    sql: "SELECT MIN(startDateTime) FROM record WHERE sp2PrincipalId = ? " +
+                    "UNION ALL " +
+                    "SELECT MAX(startDateTime) FROM record WHERE sp2PrincipalId = ?",
+                    arguments: [sp2PrincipalId, sp2PrincipalId]
+                ) else {
+                    DispatchQueue.main.async {
+                        success(nil, nil)
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    success(dates.first, dates.last)
+                }
             }
-            
-            return (dates.first, dates.last)
         }
     }
     
     func firstAndLastRecordDate(
+        db: Database,
         battleType: Battle.BattleType?,
         rule: GameRule.Key?,
         stageId: String?,
@@ -743,17 +758,15 @@ extension AppDatabase {
             sqls[i] = sql
         }
         
-        return try! dbQueue.read { db in
-            guard let dates = try? Date.fetchAll(
-                db,
-                sql: sqls.joined(separator: " UNION ALL "),
-                arguments: StatementArguments(args)
-            ) else {
-                return (nil, nil)
-            }
-            
-            return (dates.first, dates.last)
+        guard let dates = try? Date?.fetchAll(
+            db,
+            sql: sqls.joined(separator: " UNION ALL "),
+            arguments: StatementArguments(args)
+        ) else {
+            return (nil, nil)
         }
+        
+        return (dates.first ?? nil, dates.last ?? nil)
     }
 }
 

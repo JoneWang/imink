@@ -15,6 +15,11 @@ struct BattleListFilterPage: View {
     
     @StateObject var viewModel: BattleListFilterViewModel
     
+    @State private var dates: [BattleListFilterViewModel.DateFilterItem] = []
+    @State private var battleTypes: [BattleListFilterViewModel.BattleTypeFilterItem] = []
+    @State private var rules: [BattleListFilterViewModel.RuleFilterItem] = []
+    @State private var stages: [BattleListFilterViewModel.ObjectIdFilterItem] = []
+    @State private var weapons: [BattleListFilterViewModel.ObjectIdFilterItem] = []
     @State private var customDate: Date
     @State private var showDatePicker = false
     
@@ -96,6 +101,21 @@ struct BattleListFilterPage: View {
             .onChange(of: customDate) { newValue in
                 viewModel.currentFilterContent.customDate = newValue
             }
+            .onReceive(viewModel.$dates) { newValue in
+                withAnimation { dates = newValue }
+            }
+            .onReceive(viewModel.$battleTypes) { newValue in
+                withAnimation { battleTypes = newValue }
+            }
+            .onReceive(viewModel.$rules) { newValue in
+                withAnimation { rules = newValue }
+            }
+            .onReceive(viewModel.$stages) { newValue in
+                withAnimation { stages = newValue }
+            }
+            .onReceive(viewModel.$weapons) { newValue in
+                withAnimation { weapons = newValue }
+            }
         }
     }
     
@@ -105,7 +125,7 @@ struct BattleListFilterPage: View {
                 .font(.system(size: 20, weight: .bold))
             
             LazyVGrid(columns: Array(repeating: .init(.fixed(itemWidth), alignment: .leading), count: 3)) {
-                ForEach(viewModel.dates, id: \.id) { item in
+                ForEach(dates, id: \.id) { item in
                     if item.id == .custom {
                         HStack(spacing: 8) {
                             Spacer()
@@ -190,7 +210,7 @@ struct BattleListFilterPage: View {
                 .font(.system(size: 20, weight: .bold))
             
             HStack {
-                ForEach(viewModel.battleTypes, id: \.id) { item in
+                ForEach(battleTypes, id: \.id) { item in
                     Image(item.id.imageName)
                         .resizable()
                         .renderingMode(.template)
@@ -227,7 +247,7 @@ struct BattleListFilterPage: View {
                 .font(.system(size: 20, weight: .bold))
             
             HStack {
-                ForEach(viewModel.rules, id: \.id) { item in
+                ForEach(rules, id: \.id) { item in
                     Image(item.id.imageName, bundle: Bundle.inkCore)
                         .resizable()
                         .foregroundColor(.primary)
@@ -265,7 +285,7 @@ struct BattleListFilterPage: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: Array(repeating: .init(.fixed(itemHeight)), count: 3)) {
-                    ForEach(viewModel.stages, id: \.id) { stage in
+                    ForEach(stages, id: \.id) { stage in
                         ImageView.stage(id: stage.id)
                             .aspectRatio(640 / 360, contentMode: .fill)
                             .frame(width: itemWidth, height: itemHeight)
@@ -301,7 +321,7 @@ struct BattleListFilterPage: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: Array(repeating: .init(.fixed(itemWidth)), count: 3)) {
-                    ForEach(viewModel.weapons, id: \.self) { weapon in
+                    ForEach(weapons, id: \.self) { weapon in
                         ImageView.weapon(id: weapon.id)
                             .padding(cornerRadius)
                             .background(AppColor.listItemBackgroundColor)

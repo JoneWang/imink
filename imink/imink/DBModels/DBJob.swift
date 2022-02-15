@@ -163,7 +163,7 @@ extension AppDatabase {
     // MARK: Writes
     
     func removeAllJobs() {
-        dbQueue.asyncWrite { db in
+        dbPool.asyncWrite { db in
             try DBJob.deleteAll(db)
         } completion: { _, error in
             if case let .failure(error) = error {
@@ -173,7 +173,7 @@ extension AppDatabase {
     }
     
     func saveJob(data: Data) {
-        dbQueue.asyncWrite { db in
+        dbPool.asyncWrite { db in
             if let job = DBJob.load(data: data) {
                 _ = try self.saveJob(db: db, job: job)
             }
@@ -185,7 +185,7 @@ extension AppDatabase {
     }
     
     func saveJobs(jobs: [DBJob], progress: @escaping ((Double, Int, Error?) -> Void)) {
-        dbQueue.asyncWrite { db in
+        dbPool.asyncWrite { db in
             var saveCount = 0
             for (i, job) in jobs.enumerated() {
                 if try self.saveJob(db: db, job: job) {
@@ -237,12 +237,12 @@ extension AppDatabase {
                     DBJob(row: row)
                 }
         }
-        .publisher(in: dbQueue, scheduling: .immediate)
+        .publisher(in: dbPool, scheduling: .immediate)
         .eraseToAnyPublisher()
     }
     
     func jobs(start jobId: Int? = nil, count: Int) -> [DBJob] {
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             if let jobId = jobId {
                 return try! DBJob
                     .filter(DBJob.Columns.jobId < jobId)
@@ -263,7 +263,7 @@ extension AppDatabase {
             return []
         }
         
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             let alreadyExistsRecords = try! DBJob.filter(
                 DBJob.Columns.sp2PrincipalId == sp2PrincipalId &&
                     jobIds.contains(DBJob.Columns.jobId)
@@ -278,7 +278,7 @@ extension AppDatabase {
     }
     
     func job(with id: Int64) -> DBJob? {
-        return try! dbQueue.read { db in
+        return try! dbPool.read { db in
             return try? DBJob
                 .filter(DBJob.Columns.id == id)
                 .fetchOne(db)

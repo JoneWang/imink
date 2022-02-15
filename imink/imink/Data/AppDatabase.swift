@@ -12,7 +12,7 @@ import GRDB
 class AppDatabase {
     static let shared = try! AppDatabase()
     
-    internal let dbQueue: DatabaseQueue
+    public let dbPool: DatabasePool
     
     init() throws {
         let databaseURL = try FileManager.default
@@ -23,9 +23,9 @@ class AppDatabase {
         print("sqlite url: \(databaseURL.path)")
         #endif
         
-        let dbQueue = try DatabaseQueue(path: databaseURL.path)
+        let dbQueue = try DatabasePool(path: databaseURL.path)
         
-        self.dbQueue = dbQueue
+        self.dbPool = dbQueue
         
         try migrator.migrate(dbQueue)
     }
