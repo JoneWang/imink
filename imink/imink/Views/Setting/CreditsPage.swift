@@ -30,6 +30,7 @@ struct CreditsPage: View {
         Row(title: "ikaWidget 2", subtitle: "@NexusMine", url: URL(string: "https://twitter.com/NexusMine")),
         Row(title: "splatnet2statink", subtitle: "@frozenpandaman", url: URL(string: "https://github.com/frozenpandaman/splatnet2statink")),
         Row(title: "스플래툰 한글 폰트", subtitle: "Padotagi", url: URL(string: "https://blog.naver.com/wonno79/221083547461")),
+        Row(title: "Salmon Run schedule data", subtitle: "@OatmealDome & @Simon1844", url: URL(string: "https://twitter.com/OatmealDome")),
     ]
     
     var body: some View {
@@ -97,6 +98,8 @@ struct CreditsPage: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(row.title)
                     .font(.system(size: 17))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
                     .foregroundColor(AppColor.appLabelColor)
                 
                 Text(genRoleLocalizedText(str: row.subtitle))

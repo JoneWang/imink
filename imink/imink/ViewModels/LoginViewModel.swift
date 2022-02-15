@@ -97,6 +97,21 @@ class LoginViewModel: ObservableObject {
         
         self.loginUrl = urlComponents.url!
         self.codeVerifier = codeVerifier
+        
+        // Get latest nso version
+        self.updateConfig()
+    }
+    
+    func updateConfig() {
+        AppAPI.config
+            .request()
+            .decode(type: AppConfig.self)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in
+            }, receiveValue: { config in
+                AppUserDefaults.shared.nsoVersion = config.nsoVersion
+            })
+            .store(in: &cancelBag)
     }
 }
 
