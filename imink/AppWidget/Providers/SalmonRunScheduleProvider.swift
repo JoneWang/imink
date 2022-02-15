@@ -96,7 +96,7 @@ extension SalmonRunScheduleProvider {
         // Reduce the frequency of iksm_session expiration
         IksmSessionManager.shared.activateIksmSession()
         
-        AppAPI.salmonRunSchedules
+        AppAPI.salmonRunSchedules()
             .request()
             .decode(type: SalmonRunSchedules.self)
             .receive(on: DispatchQueue.main)

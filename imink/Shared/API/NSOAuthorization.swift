@@ -14,13 +14,6 @@ enum NSOError: Error {
 }
 
 struct NSOAuthorization {
-    
-    enum ProgressStatus: String {
-        case loading
-        case success
-        case fail
-    }
-    
     var currentStatus = PassthroughSubject<(APITargetType, ProgressStatus), Never>()
     
     func logIn(codeVerifier: String, sessionTokenCode: String) -> AnyPublisher<(String, Records), Error> {

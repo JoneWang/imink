@@ -10,8 +10,8 @@ import SwiftUI
 struct MainView: View {
     @StateObject private var mainViewModel = MainViewModel()
     
-    @StateObject private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
-    @StateObject private var synchronizeJobViewModel = SynchronizeJobViewModel()
+    @State private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
+    @State private var synchronizeJobViewModel = SynchronizeJobViewModel()
     
     var body: some View {
         TabView {

@@ -224,6 +224,8 @@
 		ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = ECD777E3261178EC0067A51B /* SplatNet2 */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
+		ECEE0C8527BBB44F0091B688 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */; };
+		ECEE0C8727BBBF290091B688 /* SalmonRunScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE0C8627BBBF290091B688 /* SalmonRunScheduleViewModel.swift */; };
 		ECF04C0A26AC235800337FC6 /* WidgetSizeEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */; };
 		ECF26EFE25BA9E3400F1FBCA /* JobDetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */; };
 		ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
@@ -472,6 +474,8 @@
 		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		ECEE0C8627BBBF290091B688 /* SalmonRunScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleViewModel.swift; sourceTree = "<group>"; };
 		ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizeEnvironmentKey.swift; sourceTree = "<group>"; };
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
@@ -894,6 +898,8 @@
 				EC16CED7261990D800663DC1 /* AvatarViewModel.swift */,
 				EC902D0D266395540014093C /* SettingViewModel.swift */,
 				EC902D152663E9B90014093C /* IksmSessionViewModel.swift */,
+				ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */,
+				ECEE0C8627BBBF290091B688 /* SalmonRunScheduleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1267,6 +1273,7 @@
 				EC900ED9251C8EF700AA0B20 /* AppUserDefaults.swift in Sources */,
 				EC16CED8261990D800663DC1 /* AvatarViewModel.swift in Sources */,
 				EC5CBF822653924100F1A063 /* MedalView.swift in Sources */,
+				ECEE0C8527BBB44F0091B688 /* ScheduleViewModel.swift in Sources */,
 				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
@@ -1324,6 +1331,7 @@
 				EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */,
 				EC565B5B251D882900CCAC9A /* NotificationName.swift in Sources */,
 				EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */,
+				ECEE0C8727BBBF290091B688 /* SalmonRunScheduleViewModel.swift in Sources */,
 				EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */,
 				EC900EC6251C8EF700AA0B20 /* Operator.swift in Sources */,
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,

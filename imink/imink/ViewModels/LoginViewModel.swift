@@ -41,15 +41,15 @@ struct LoginProgress {
     
     let api: API
     let path: String
-    var status: NSOAuthorization.ProgressStatus
+    var status: ProgressStatus
     
-    init(api: API, path: String, status: NSOAuthorization.ProgressStatus) {
+    init(api: API, path: String, status: ProgressStatus) {
         self.api = api
         self.path = path
         self.status = status
     }
     
-    init(targetType: APITargetType, status: NSOAuthorization.ProgressStatus) {
+    init(targetType: APITargetType, status: ProgressStatus) {
         if targetType is NSOAPI {
             self.api = .nso
         } else if targetType is Splatoon2API {

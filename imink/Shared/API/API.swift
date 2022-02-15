@@ -10,6 +10,12 @@ import Foundation
 import Combine
 import os
 
+enum ProgressStatus: String {
+    case loading
+    case success
+    case fail
+}
+
 enum APIError: Error, LocalizedError {
     case unknown
     case apiError(reason: String)
