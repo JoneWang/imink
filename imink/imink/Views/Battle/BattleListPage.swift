@@ -118,19 +118,7 @@ struct BattleListPage: View {
             .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarBattle"))
             .navigationBarTitle("Battles", displayMode: .inline)
             .navigationBarHidden(false)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    showFilter = true
-                }) {
-                    HStack {
-                        Spacer()
-                        
-                        Image(systemName: "line.horizontal.3.decrease.circle")
-                            .frame(width: 22, height: 22)
-                    }
-                    .frame(width: 38, height: 40)
-                }
-            )
+            .navigationBarItems(trailing: makeBarRightItem())
         }
         .sheet(isPresented: $showFilter) {
             BattleListFilterPage(
@@ -150,6 +138,24 @@ struct BattleListPage: View {
         .onAppear {
             self.rows = viewModel.rows
         }
+    }
+    
+    private func makeBarRightItem() -> some View {
+        if viewModel.isLogined {
+            return AnyView(Button(action: {
+                showFilter = true
+            }) {
+                HStack {
+                    Spacer()
+                    
+                    Image(systemName: "line.horizontal.3.decrease.circle")
+                        .frame(width: 22, height: 22)
+                }
+                .frame(width: 38, height: 40)
+            })
+        }
+        
+        return AnyView(EmptyView())
     }
 }
 
