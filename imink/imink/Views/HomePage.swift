@@ -177,14 +177,22 @@ struct HomePage: View {
                                     makeLoadingView(isFailed: scheduleViewModel.loadStatus == .fail) {
                                         scheduleViewModel.reload()
                                     }
+                                    .padding(.top)
                                 }
                             } else {
                                 SalmonRunScheduleView()
                                     .padding(.top)
                                 
                                 if salmonRunScheduleViewModel.loadStatus != .success {
-                                    makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
-                                        salmonRunScheduleViewModel.reloadNextPage()
+                                    if salmonRunScheduleViewModel.schedules.count > 0 {
+                                        makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
+                                            salmonRunScheduleViewModel.reloadNextPage()
+                                        }
+                                        .padding(.top, 8)
+                                    } else {
+                                        makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
+                                            salmonRunScheduleViewModel.reloadNextPage()
+                                        }
                                     }
                                 }
                             }
@@ -234,7 +242,6 @@ struct HomePage: View {
         .padding()
         .background(AppColor.listItemBackgroundColor)
         .continuousCornerRadius(10)
-        .padding(.top)
         .onTapGesture {
             onReload()
         }
