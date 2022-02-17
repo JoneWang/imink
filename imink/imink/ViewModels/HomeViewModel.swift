@@ -42,8 +42,6 @@ class HomeViewModel: ObservableObject {
     @Published var activeFestivals: ActiveFestivals?
     
     @Published var isLoading: Bool = false
-    @Published var schedules: Schedules?
-    @Published var salmonRunSchedules: SalmonRunSchedules?
     
     private var todayStartTime: Date? {
         let now = Date()
@@ -68,7 +66,13 @@ class HomeViewModel: ObservableObject {
     
     private var lastSyncTime = Date()
     
-    init() {
+    private var schedulesPublisher: AnyPublisher<ProgressStatus, Never>
+    private var salmonRunSchedulesPublisher: AnyPublisher<ProgressStatus, Never>
+    
+    init(schedulesLoadStatus: AnyPublisher<ProgressStatus, Never>, salmonRunSchedulesLoadStatus: AnyPublisher<ProgressStatus, Never>) {
+        schedulesPublisher = schedulesLoadStatus
+        salmonRunSchedulesPublisher = salmonRunSchedulesLoadStatus
+        
         let isLogined = AppUserDefaults.shared.sessionToken != nil
         updateLoginStatus(isLogined: isLogined)
     }
@@ -138,36 +142,6 @@ class HomeViewModel: ObservableObject {
     func updateSchedules() {
         isLoading = true
         
-        let battleSchedules = AppAPI.schedules
-            .request()
-            .decode(type: Schedules.self)
-            .receive(on: DispatchQueue.main)
-            .map { schedules -> Schedules? in schedules }
-            .catch { error -> Just<Schedules?> in
-                os_log("API Error: [schedules] \(error.localizedDescription)")
-                return Just<Schedules?>(nil)
-            }
-            .share()
-        
-        battleSchedules
-            .assign(to: \.schedules, on: self)
-            .store(in: &cancelBag)
-        
-        let salmonRunSchedules = AppAPI.salmonRunSchedules
-            .request()
-            .decode(type: SalmonRunSchedules.self)
-            .receive(on: DispatchQueue.main)
-            .map { schedules -> SalmonRunSchedules? in schedules }
-            .catch { error -> Just<SalmonRunSchedules?> in
-                os_log("API Error: [salmonRunSchedules] \(error.localizedDescription)")
-                return Just<SalmonRunSchedules?>(nil)
-            }
-            .share()
-        
-        salmonRunSchedules
-            .assign(to: \.salmonRunSchedules, on: self)
-            .store(in: &cancelBag)
-        
         if isLogined {
             let activeFestivals = Splatoon2API.activeFestivals
                 .request()
@@ -185,13 +159,13 @@ class HomeViewModel: ObservableObject {
                 .store(in: &cancelBag)
             
             // All finish
-            Publishers.Zip3(battleSchedules, salmonRunSchedules, activeFestivals)
+            Publishers.Zip3(schedulesPublisher, salmonRunSchedulesPublisher, activeFestivals)
                 .map { _ in false }
                 .assign(to: \.isLoading, on: self)
                 .store(in: &cancelBag)
         } else {
             // All finish
-            Publishers.Zip(battleSchedules, salmonRunSchedules)
+            Publishers.Zip(schedulesPublisher, salmonRunSchedulesPublisher)
                 .map { _ in false }
                 .assign(to: \.isLoading, on: self)
                 .store(in: &cancelBag)
@@ -211,5 +185,4 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &syncCancelBag)
     }
-    
 }

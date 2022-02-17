@@ -41,15 +41,15 @@ struct LoginProgress {
     
     let api: API
     let path: String
-    var status: NSOAuthorization.ProgressStatus
+    var status: ProgressStatus
     
-    init(api: API, path: String, status: NSOAuthorization.ProgressStatus) {
+    init(api: API, path: String, status: ProgressStatus) {
         self.api = api
         self.path = path
         self.status = status
     }
     
-    init(targetType: APITargetType, status: NSOAuthorization.ProgressStatus) {
+    init(targetType: APITargetType, status: ProgressStatus) {
         if targetType is NSOAPI {
             self.api = .nso
         } else if targetType is Splatoon2API {
@@ -97,6 +97,21 @@ class LoginViewModel: ObservableObject {
         
         self.loginUrl = urlComponents.url!
         self.codeVerifier = codeVerifier
+        
+        // Get latest nso version
+        self.updateConfig()
+    }
+    
+    func updateConfig() {
+        AppAPI.config
+            .request()
+            .decode(type: AppConfig.self)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in
+            }, receiveValue: { config in
+                AppUserDefaults.shared.nsoVersion = config.nsoVersion
+            })
+            .store(in: &cancelBag)
     }
 }
 

@@ -11,7 +11,10 @@ import SDWebImageSwiftUI
 struct HomePage: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     
-    @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var viewModel: HomeViewModel
+    @StateObject private var scheduleViewModel: ScheduleViewModel
+    @StateObject private var salmonRunScheduleViewModel: SalmonRunScheduleViewModel
+    
     @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
     
     @AppStorage("scheduleTypeInHome")
@@ -25,6 +28,19 @@ struct HomePage: View {
         formatter.dateFormat = "MM/dd HH:mm"
         return formatter
     }()
+    
+    init() {
+        let seduleViewModel = ScheduleViewModel()
+        let salmonRunScheduleViewModel = SalmonRunScheduleViewModel()
+        
+        _scheduleViewModel = StateObject(wrappedValue: seduleViewModel)
+        _salmonRunScheduleViewModel = StateObject(wrappedValue: salmonRunScheduleViewModel)
+        
+        _viewModel = StateObject(wrappedValue: HomeViewModel(
+            schedulesLoadStatus: seduleViewModel.$loadStatus.eraseToAnyPublisher(),
+            salmonRunSchedulesLoadStatus: salmonRunScheduleViewModel.$loadStatus.eraseToAnyPublisher())
+        )
+    }
     
     var body: some View {
         NavigationView {
@@ -154,30 +170,36 @@ struct HomePage: View {
                             .padding(.top)
                             
                             if scheduleType == 0 {
-                                if let schedules = viewModel.schedules {
-                                    ScheduleView(
-                                        regularSchedules: schedules.regular,
-                                        gachiSchedules: schedules.gachi,
-                                        leagueSchedules: schedules.league
-                                    )
-                                    .padding(.top)
+                                if scheduleViewModel.loadStatus == .success {
+                                    ScheduleView()
+                                        .padding(.top)
                                 } else {
-                                    makeLoadingView()
+                                    makeLoadingView(isFailed: scheduleViewModel.loadStatus == .fail) {
+                                        scheduleViewModel.reload()
+                                    }
+                                    .padding(.top)
                                 }
                             } else {
-                                if let salmonRunSchedules = viewModel.salmonRunSchedules {
-                                    SalmonRunScheduleView(
-                                        schedules: salmonRunSchedules
-                                    )
+                                SalmonRunScheduleView()
                                     .padding(.top)
-                                } else {
-                                    makeLoadingView()
+                                
+                                if salmonRunScheduleViewModel.loadStatus != .success {
+                                    if salmonRunScheduleViewModel.schedules.count > 0 {
+                                        makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
+                                            salmonRunScheduleViewModel.reloadNextPage()
+                                        }
+                                        .padding(.top, 8)
+                                    } else {
+                                        makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
+                                            salmonRunScheduleViewModel.reloadNextPage()
+                                        }
+                                    }
                                 }
                             }
-                            
                         }
                         .padding([.top, .bottom])
-                        .animation(.default)
+                        .environmentObject(scheduleViewModel)
+                        .environmentObject(salmonRunScheduleViewModel)
                         
                         Spacer()
                     }
@@ -206,16 +228,23 @@ struct HomePage: View {
         }
     }
     
-    func makeLoadingView() -> some View {
+    func makeLoadingView(isFailed: Bool, onReload: @escaping () -> Void) -> some View {
         HStack {
             Spacer()
-            ProgressView()
+            if isFailed {
+                Text("Reload")
+                    .foregroundColor(.accentColor)
+            } else {
+                ProgressView()
+            }
             Spacer()
         }
         .padding()
         .background(AppColor.listItemBackgroundColor)
         .continuousCornerRadius(10)
-        .padding(.top)
+        .onTapGesture {
+            onReload()
+        }
     }
     
     func makeNavigationBarItems() -> some View {
@@ -227,6 +256,8 @@ struct HomePage: View {
                     .frame(width: 22, height: 22)
             } else {
                 Button(action: {
+                    scheduleViewModel.reload()
+                    salmonRunScheduleViewModel.reload()
                     viewModel.updateSchedules()
                 }) {
                     Image(systemName: "arrow.triangle.2.circlepath")

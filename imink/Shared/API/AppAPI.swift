@@ -11,7 +11,7 @@ enum AppAPI {
     case config
     
     case schedules
-    case salmonRunSchedules
+    case salmonRunSchedules(page: Int = 1)
     
     case f(naIdToken: String, requestId: String, timestamp: String, hashMethod: HashMethod)
     
@@ -54,7 +54,12 @@ extension AppAPI: APITargetType {
     }
     
     var querys: [(String, String?)]? {
-        return nil
+        switch self {
+        case .salmonRunSchedules(let page):
+            return [("p", "\(page)")]
+        default:
+            return nil
+        }
     }
     
     var data: MediaType? {

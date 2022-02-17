@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import os
 
-class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
+class SynchronizeViewModel<I> where I: Comparable {
     typealias IdType = I
     
     @Published var unsynchronizedIds: [IdType] = []
@@ -60,11 +60,11 @@ extension SynchronizeViewModel {
         if IksmSessionManager.shared.isValid, self.unsynchronizedIds.count == 0 {
             requestResults {
                 if !self.autoRefresh { return }
-                
+
                 if self.unsynchronizedIds.count == 0 {
                     self.loadingStatus(isLoading: false)
                 }
-                
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                     self.startRealTimeDataLoop()
                 }

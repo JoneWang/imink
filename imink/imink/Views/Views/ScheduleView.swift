@@ -10,11 +10,8 @@ import SDWebImageSwiftUI
 import InkCore
 
 struct ScheduleView: View {
-    
-    let regularSchedules: [Schedules.Schedule]
-    let gachiSchedules: [Schedules.Schedule]
-    let leagueSchedules: [Schedules.Schedule]
-    
+    @EnvironmentObject var scheduleViewModel: ScheduleViewModel
+
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
@@ -24,12 +21,15 @@ struct ScheduleView: View {
     private let calendar = NSCalendar.current
     private let gameModeColors: [Color] = [AppColor.spLightGreen, AppColor.spOrange, AppColor.spPink]
     private let gameModeImageNames: [String] = ["RegularBattle", "RankedBattle", "LeagueBattle"]
-    private var schedules: [[Schedules.Schedule]] {
-        [regularSchedules, gachiSchedules, leagueSchedules]
-    }
+    private var schedules: [[Schedules.Schedule]] { [
+        scheduleViewModel.schedules?.regular ?? [],
+        scheduleViewModel.schedules?.gachi ?? [],
+        scheduleViewModel.schedules?.league ?? []
+    ] }
+    private var scheduleCount: Int { schedules.first!.count }
     
     var body: some View {
-        ForEach(0..<regularSchedules.count, id: \.self) { (index: Int) in
+        ForEach(0..<scheduleCount, id: \.self) { (index: Int) in
             VStack {
                 if let schedule = schedules.first?[index] {
                     let scheduleTime = schedule.startTime
