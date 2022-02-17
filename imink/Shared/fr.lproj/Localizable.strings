@@ -26,11 +26,11 @@
 "Log in to sync your data" = "Connectez-vous pour synchroniser vos données";
 "Log in with Nintendo Account" = "Connectez-vous avec votre compte Nintendo";
 "login_error_title" = "Échec";
-"login_error_message" = "An error occurred during logging in, please try again later.";
+"login_error_message" = "Une erreur s'est produite lors de la connexion, veuillez réessayer plus tard.";
 "session_token_invalid_title" = "Connexion expirée";
 "session_token_invalid_message" = "Votre connexion ont expiré en raison d'une inactivité pour une longue durée, veuillez vous reconnecter.";
 "user_game_data_not_exist_message" = "Veuillez vous assurer que votre compte possède des données de jeu Splatoon 2 et un abonnement active de Nintendo Switch Online.";
-"Close" = "Close";
+"Close" = "Fermer";
 
 // MARK: Home
 
@@ -49,15 +49,15 @@
 "Battle" = "Bataille";
 
 // MARK: Battles
-"All Rules" = "All Rules";
+"All Rules" = "Toutes les règles";
 
-"Hide Player Names" = "Hide Player Names";
-"Show Player Names" = "Show Player Names";
+"Hide Player Names" = "Cacher les noms des joueurs";
+"Show Player Names" = "Afficher le nom des joueurs";
 
 "%@ power" = "%@ power";
 "Current" = "Actuelle";
 "Highest" = "La plus haute";
-"Crew" = "Crew";
+"Crew" = "Équipe";
 "Rival" = "Rival";
 "Position" = "Position";
 "My X Power" = "Ma X Power";
@@ -178,6 +178,7 @@
 "No" = "No";
 "Done" = "Done";
 "Cancel" = "Cancel";
+"Reload" = "Reload";
 
 // MARK: Onboarding
 
