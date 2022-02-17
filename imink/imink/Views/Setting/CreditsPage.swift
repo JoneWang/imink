@@ -30,7 +30,7 @@ struct CreditsPage: View {
         Row(title: "ikaWidget 2", subtitle: "@NexusMine", url: URL(string: "https://twitter.com/NexusMine")),
         Row(title: "splatnet2statink", subtitle: "@frozenpandaman", url: URL(string: "https://github.com/frozenpandaman/splatnet2statink")),
         Row(title: "스플래툰 한글 폰트", subtitle: "Padotagi", url: URL(string: "https://blog.naver.com/wonno79/221083547461")),
-        Row(title: "Salmon Run schedule data", subtitle: "@OatmealDome & @Simon1844", url: URL(string: "https://twitter.com/OatmealDome")),
+        Row(title: "Future Salmon Run Rotations", subtitle: "@OatmealDome & @Simon1844", url: URL(string: "https://content.oatmealdome.me/bcat/salmon_run")),
     ]
     
     var body: some View {
