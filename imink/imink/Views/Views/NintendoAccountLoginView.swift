@@ -130,7 +130,7 @@ struct NintendoAccountLoginView: View {
                                 
                                 Spacer()
                             }
-                            .frame(height: 440)
+                            .frame(height: 480)
                             .animation(.default)
                         }
                     }
