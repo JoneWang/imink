@@ -11,9 +11,9 @@ import SDWebImageSwiftUI
 struct HomePage: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     
-    @StateObject private var viewModel: HomeViewModel
-    @StateObject private var scheduleViewModel: ScheduleViewModel
-    @StateObject private var salmonRunScheduleViewModel: SalmonRunScheduleViewModel
+    @StateObject var viewModel: HomeViewModel
+    @StateObject var scheduleViewModel: ScheduleViewModel
+    @StateObject var salmonRunScheduleViewModel: SalmonRunScheduleViewModel
     
     @StateObject private var iksmSessionViewModel = IksmSessionViewModel()
     
@@ -28,19 +28,6 @@ struct HomePage: View {
         formatter.dateFormat = "MM/dd HH:mm"
         return formatter
     }()
-    
-    init() {
-        let seduleViewModel = ScheduleViewModel()
-        let salmonRunScheduleViewModel = SalmonRunScheduleViewModel()
-        
-        _scheduleViewModel = StateObject(wrappedValue: seduleViewModel)
-        _salmonRunScheduleViewModel = StateObject(wrappedValue: salmonRunScheduleViewModel)
-        
-        _viewModel = StateObject(wrappedValue: HomeViewModel(
-            schedulesLoadStatus: seduleViewModel.$loadStatus.eraseToAnyPublisher(),
-            salmonRunSchedulesLoadStatus: salmonRunScheduleViewModel.$loadStatus.eraseToAnyPublisher())
-        )
-    }
     
     var body: some View {
         NavigationView {
@@ -170,8 +157,8 @@ struct HomePage: View {
                             .padding(.top)
                             
                             if scheduleType == 0 {
-                                if scheduleViewModel.loadStatus == .success {
-                                    ScheduleView()
+                                if scheduleViewModel.schedules != nil {
+                                    ScheduleView(scheduleViewModel: scheduleViewModel)
                                         .padding(.top)
                                 } else {
                                     makeLoadingView(isFailed: scheduleViewModel.loadStatus == .fail) {
@@ -180,20 +167,14 @@ struct HomePage: View {
                                     .padding(.top)
                                 }
                             } else {
-                                SalmonRunScheduleView()
+                                SalmonRunScheduleView(salmonRunScheduleViewModel: salmonRunScheduleViewModel)
                                     .padding(.top)
                                 
-                                if salmonRunScheduleViewModel.loadStatus != .success {
-                                    if salmonRunScheduleViewModel.schedules.count > 0 {
-                                        makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
-                                            salmonRunScheduleViewModel.reloadNextPage()
-                                        }
-                                        .padding(.top, 8)
-                                    } else {
-                                        makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
-                                            salmonRunScheduleViewModel.reloadNextPage()
-                                        }
+                                if salmonRunScheduleViewModel.loadStatus != .success, salmonRunScheduleViewModel.schedules.count > 0 {
+                                    makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
+                                        salmonRunScheduleViewModel.reloadNextPage()
                                     }
+                                    .padding(.top, 8)
                                 }
                             }
                         }

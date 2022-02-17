@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 import InkCore
 
 struct ScheduleView: View {
-    @EnvironmentObject var scheduleViewModel: ScheduleViewModel
+    @StateObject var scheduleViewModel: ScheduleViewModel
 
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()

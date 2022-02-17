@@ -9,7 +9,7 @@ import SwiftUI
 import InkCore
 
 struct SalmonRunScheduleView: View {
-    @EnvironmentObject var salmonRunScheduleViewModel: SalmonRunScheduleViewModel
+    @StateObject var salmonRunScheduleViewModel: SalmonRunScheduleViewModel
     
     private let scheduleTimeFormat: DateFormatter = {
         let formatter = DateFormatter()

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import os
 
-class SynchronizeViewModel<I> where I: Comparable {
+class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
     typealias IdType = I
     
     @Published var unsynchronizedIds: [IdType] = []

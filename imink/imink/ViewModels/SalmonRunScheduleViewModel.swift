@@ -20,15 +20,33 @@ class SalmonRunScheduleViewModel: ObservableObject {
     private var canLoadMorePages = true
     
     private var cancelBag = Set<AnyCancellable>()
-    private var reloadBag = Set<AnyCancellable>()
+    private var requestBag = Set<AnyCancellable>()
     
     init() {
         reload()
+        
+        Timer.publish(every: 2, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                self?.localReload()
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func localReload() {
+        let now = Date()
+        let schedules = schedules.filter { $0.endTime > now }
+        if schedules.count != self.schedules.count {
+            self.schedules = schedules
+        }
     }
     
     func reload() {
-        schedules = []
-        load(page: 1)
+        if schedules.count > 0 {
+            localReload()
+        } else {
+            load(page: 1)
+        }
     }
     
     func reloadNextPage() {
@@ -45,7 +63,7 @@ class SalmonRunScheduleViewModel: ObservableObject {
     }
     
     private func load(page: Int = 1) {
-        reloadBag = Set<AnyCancellable>()
+        requestBag = Set<AnyCancellable>()
         
         loadStatus = .loading
         
@@ -80,6 +98,6 @@ class SalmonRunScheduleViewModel: ObservableObject {
                     self.schedules = self.schedules + schedules
                 }
             }
-            .store(in: &reloadBag)
+            .store(in: &requestBag)
     }
 }

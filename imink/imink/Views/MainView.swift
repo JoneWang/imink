@@ -10,16 +10,28 @@ import SwiftUI
 struct MainView: View {
     @StateObject private var mainViewModel = MainViewModel()
     
-    @State private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
-    @State private var synchronizeJobViewModel = SynchronizeJobViewModel()
+    @StateObject private var synchronizeBattleViewModel = SynchronizeBattleViewModel()
+    @StateObject private var synchronizeJobViewModel = SynchronizeJobViewModel()
+    
+    @StateObject private var scheduleViewModel = ScheduleViewModel()
+    @StateObject private var salmonRunScheduleViewModel = SalmonRunScheduleViewModel()
     
     var body: some View {
         TabView {
-            HomePage()
-                .tabItem {
-                    Image("TabBarHome")
-                    Text("Home")
-                }
+            HomePage(
+                viewModel: HomeViewModel(
+                    schedulesLoadStatus: scheduleViewModel.$loadStatus.eraseToAnyPublisher(),
+                    salmonRunSchedulesLoadStatus: salmonRunScheduleViewModel.$loadStatus.eraseToAnyPublisher()
+                ),
+                scheduleViewModel: scheduleViewModel,
+                salmonRunScheduleViewModel: salmonRunScheduleViewModel
+            )
+            .tabItem {
+                Image("TabBarHome")
+                Text("Home")
+            }
+            .environmentObject(scheduleViewModel)
+            .environmentObject(salmonRunScheduleViewModel)
             
             BattleListPage()
                 .tabItem {

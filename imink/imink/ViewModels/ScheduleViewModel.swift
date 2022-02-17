@@ -14,17 +14,42 @@ class ScheduleViewModel: ObservableObject {
     @Published var loadStatus: ProgressStatus = .success
     
     private var cancelBag = Set<AnyCancellable>()
+    private var requestBag = Set<AnyCancellable>()
     
     init() {
         reload()
+        
+        Timer.publish(every: 2, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                self?.localFilter()
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func localFilter() {
+        if var schedules = schedules {
+            let now = Date()
+            schedules.regular = schedules.regular.filter { $0.endTime > now }
+            schedules.gachi = schedules.gachi.filter { $0.endTime > now }
+            schedules.league = schedules.league.filter { $0.endTime > now }
+            
+            if schedules.regular.count != self.schedules!.regular.count ||
+                schedules.gachi.count != self.schedules!.gachi.count ||
+                schedules.league.count != self.schedules!.league.count {
+                self.schedules = schedules
+                
+                reload()
+            }
+        }
     }
     
     func reload() {
-        cancelBag = Set<AnyCancellable>()
+        requestBag = Set<AnyCancellable>()
+        
+        localFilter()
         
         loadStatus = .loading
-        
-        schedules = nil
         
         AppAPI.schedules
             .request()
@@ -42,6 +67,6 @@ class ScheduleViewModel: ObservableObject {
                 self?.loadStatus = .success
                 self?.schedules = schedules
             }
-            .store(in: &cancelBag)
+            .store(in: &requestBag)
     }
 }
