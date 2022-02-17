@@ -179,8 +179,7 @@ struct HomePage: View {
                             }
                         }
                         .padding([.top, .bottom])
-                        .environmentObject(scheduleViewModel)
-                        .environmentObject(salmonRunScheduleViewModel)
+                        .animation(.default)
                         
                         Spacer()
                     }
