@@ -237,15 +237,30 @@ extension AppDatabase {
         return true
     }
     
+#if DEBUG
     func removeAllRecords() {
         dbQueue.asyncWrite { db in
             try DBRecord.deleteAll(db)
         } completion: { _, error in
             if case let .failure(error) = error {
-                os_log("Database Error: [saveBattle] \(error.localizedDescription)")
+                os_log("Database Error: [removeAllRecords] \(error.localizedDescription)")
             }
         }
     }
+    
+    func removeRecords(count: Int) {
+        dbQueue.asyncWrite { db in
+            try DBRecord
+                .order(DBRecord.Columns.battleNumber.desc)
+                .limit(count)
+                .deleteAll(db)
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                os_log("Database Error: [removeRecords] \(error.localizedDescription)")
+            }
+        }
+    }
+#endif
     
     // MARK: Reads
     

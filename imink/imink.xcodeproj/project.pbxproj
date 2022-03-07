@@ -76,7 +76,7 @@
 		EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
 		EC17179325FBA98100500D13 /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
 		EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */; };
-		EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */; };
+		EC1FAE3B25D12EF000B063B5 /* BattleDetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */; };
 		EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */; };
 		EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8A25B8A0C50085670D /* JobListPage.swift */; };
 		EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8E25B934640085670D /* JobListItemView.swift */; };
@@ -122,6 +122,10 @@
 		EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
 		EC76329B26665A34007FF9C4 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76329A26665A34007FF9C4 /* ListRow.swift */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
+		EC7F679827CF7454000876BB /* ScrollViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F679727CF7454000876BB /* ScrollViewModifier.swift */; };
+		EC7F679D27CF8239000876BB /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = EC7F679C27CF8239000876BB /* Introspect */; };
+		EC7FE1A927D134440053885E /* BattleDetailPageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE1A827D134440053885E /* BattleDetailPageContainer.swift */; };
+		EC7FE1AB27D13C150053885E /* BattleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE1AA27D13C150053885E /* BattleDetailViewModel.swift */; };
 		EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC807CA625F7385C003FC2E6 /* TodayView.swift */; };
 		EC809F28264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
 		EC809F29264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
@@ -362,7 +366,7 @@
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
-		EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailViewModel.swift; sourceTree = "<group>"; };
+		EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailContainerViewModel.swift; sourceTree = "<group>"; };
 		EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListItemView.swift; sourceTree = "<group>"; };
 		EC25FE8A25B8A0C50085670D /* JobListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListPage.swift; sourceTree = "<group>"; };
 		EC25FE8E25B934640085670D /* JobListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListItemView.swift; sourceTree = "<group>"; };
@@ -403,6 +407,9 @@
 		EC761294260B214C00C4D3AA /* NSOAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOAuthorization.swift; sourceTree = "<group>"; };
 		EC76329A26665A34007FF9C4 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTopCardView.swift; sourceTree = "<group>"; };
+		EC7F679727CF7454000876BB /* ScrollViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewModifier.swift; sourceTree = "<group>"; };
+		EC7FE1A827D134440053885E /* BattleDetailPageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailPageContainer.swift; sourceTree = "<group>"; };
+		EC7FE1AA27D13C150053885E /* BattleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailViewModel.swift; sourceTree = "<group>"; };
 		EC807CA625F7385C003FC2E6 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplatNet2+Localized.swift"; sourceTree = "<group>"; };
 		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -489,6 +496,7 @@
 			files = (
 				EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */,
 				EC9D0A5925A1761900E8FF89 /* SDWebImage in Frameworks */,
+				EC7F679D27CF8239000876BB /* Introspect in Frameworks */,
 				ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */,
 				EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */,
 			);
@@ -549,6 +557,7 @@
 				EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */,
 				EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */,
 				EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */,
+				EC7F679727CF7454000876BB /* ScrollViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -672,6 +681,7 @@
 			children = (
 				EC2C34AA25984CCF0007BA4D /* Views */,
 				EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */,
+				EC7FE1A827D134440053885E /* BattleDetailPageContainer.swift */,
 				EC4CA1732595C6B900B5C8CF /* BattleDetailPage.swift */,
 			);
 			path = Battle;
@@ -891,7 +901,8 @@
 				EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */,
 				EC5362472525D68E0037BD12 /* HomeViewModel.swift */,
 				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
-				EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */,
+				EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */,
+				EC7FE1AA27D13C150053885E /* BattleDetailViewModel.swift */,
 				ECB959CA25B896A80006E942 /* JobListViewModel.swift */,
 				ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */,
 				EC62E77225360B2B0028428C /* MeViewModel.swift */,
@@ -1008,6 +1019,7 @@
 				EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */,
 				EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */,
 				ECD777E3261178EC0067A51B /* SplatNet2 */,
+				EC7F679C27CF8239000876BB /* Introspect */,
 			);
 			productName = InkCore;
 			productReference = EC17CB0C256B995900E34247 /* InkCore.framework */;
@@ -1102,6 +1114,7 @@
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
 				EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */,
 				EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */,
+				EC7F679927CF7DFD000876BB /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1267,6 +1280,7 @@
 			files = (
 				EC2C34B2259899590007BA4D /* BattleDetailResultBarView.swift in Sources */,
 				EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */,
+				EC7FE1AB27D13C150053885E /* BattleDetailViewModel.swift in Sources */,
 				EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */,
 				ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */,
 				ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */,
@@ -1353,12 +1367,14 @@
 				EC0B098E2667FA790011758C /* DataBackup.swift in Sources */,
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				EC4C038B266F63A100AA7ECE /* SectionHeader.swift in Sources */,
+				EC7FE1A927D134440053885E /* BattleDetailPageContainer.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				ECB959B525B872BD0006E942 /* DBJob.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
 				EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */,
+				EC7F679827CF7454000876BB /* ScrollViewModifier.swift in Sources */,
 				EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */,
 				EC902D102663AAE40014093C /* SessionStatusView.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
@@ -1366,7 +1382,7 @@
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,
 				EC4CA1782595DEAB00B5C8CF /* ConvenientColors.swift in Sources */,
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
-				EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */,
+				EC1FAE3B25D12EF000B063B5 /* BattleDetailContainerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1811,6 +1827,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		EC7F679927CF7DFD000876BB /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip.git";
@@ -1844,6 +1868,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EC7F679C27CF8239000876BB /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC7F679927CF7DFD000876BB /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 		EC8136AB264FD3F100423D14 /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;

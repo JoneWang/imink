@@ -13,7 +13,7 @@ struct BattleListItemView: View {
     static let RealtimeRecordId: Int64 = -1
     
     let row: BattleListRowModel
-    @Binding var selectedId: String?
+    @Binding var selectedId: Int64?
     
     @State private var isSelected: Bool = false
     @State private var realtimeLoading: Bool = false
@@ -305,7 +305,7 @@ struct BattleListItemView_Previews: PreviewProvider {
         let realtimeRow = BattleListRowModel(type: .realtime, record: dbRecord)
         let row = BattleListRowModel(type: .record, record: dbRecord)
         
-        StatefulPreviewWrapper("") { selectedId in
+        StatefulPreviewWrapper(-1) { selectedId in
             BattleListItemView(row: realtimeRow, selectedId: selectedId)
                 .padding(.top, 8)
                 .padding([.leading, .trailing])
@@ -313,7 +313,7 @@ struct BattleListItemView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
         }
         
-        StatefulPreviewWrapper("") { selectedId in
+        StatefulPreviewWrapper(-1) { selectedId in
             BattleListItemView(row: row, selectedId: selectedId)
                 .padding(.top, 8)
                 .padding([.leading, .trailing])
@@ -321,7 +321,7 @@ struct BattleListItemView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
         }
             
-        StatefulPreviewWrapper("") { selectedId in
+        StatefulPreviewWrapper(-1) { selectedId in
             BattleListItemView(row: row, selectedId: selectedId)
                 .padding(.top, 8)
                 .padding([.leading, .trailing])

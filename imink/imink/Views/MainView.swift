@@ -38,6 +38,7 @@ struct MainView: View {
                     Image("TabBarBattle")
                     Text("Battles")
                 }
+                .environmentObject(synchronizeBattleViewModel)
             
             JobListPage()
                 .tabItem {
