@@ -59,7 +59,7 @@ extension SceneDelegate {
     func configureNotchBranding() {
         guard let window = window,
               UIDevice.current.userInterfaceIdiom == .phone,
-              UIApplication.shared.windows.first!.safeAreaInsets.top > 20 else {
+              UIDevice.current.hasTopNotch else {
             return
         }
         
