@@ -48,6 +48,9 @@ struct BattleScheduleMediumWidgetEntryView : View {
                         
                         Spacer()
                         HStack(spacing: 6) {
+                            Text(gameMode.localizedName)
+                                .sp1Font(size: titleFontSize, color: .white)
+                                .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
                             Text(schedule?.rule.localizedName ?? "      ")
                                 .sp1Font(size: titleFontSize, color: .white)
                                 .shadow(color: Color.black.opacity(0.8), radius: 0, x: 1, y: 1)
