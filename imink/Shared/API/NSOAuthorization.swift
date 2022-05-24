@@ -16,10 +16,22 @@ enum NSOError: Error {
 struct NSOAuthorization {
     var currentStatus = PassthroughSubject<(APITargetType, ProgressStatus), Never>()
     
+    private let logger = APILogger()
+    
+    let api: API
+    
+    init() {
+        api = API(logger: logger)
+    }
+    
+    func getLog() -> String {
+        logger.log
+    }
+    
     func logIn(codeVerifier: String, sessionTokenCode: String) -> AnyPublisher<(String, Records), Error> {
         let getSessionToken = NSOAPI.sessionToken(codeVerifier: codeVerifier, sessionTokenCode: sessionTokenCode)
         currentStatus.send((getSessionToken, .loading))
-        return getSessionToken.request()
+        return api.request(getSessionToken)
             .decode(type: SessionTokenInfo.self)
             .receive(on: DispatchQueue.main)
             .mapError { error -> Error in
@@ -37,7 +49,7 @@ struct NSOAuthorization {
     func getIKsmSession(sessionToken: String) -> AnyPublisher<(String, Records), Error> {
         let getToken = NSOAPI.token(sessionToken: sessionToken)
         currentStatus.send((getToken, .loading))
-        return getToken.request()
+        return api.request(getToken)
             .decode(type: LoginToken.self)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
@@ -53,7 +65,7 @@ struct NSOAuthorization {
                 currentStatus.send((getToken, .success))
                 let getMe = NSOAPI.me(accessToken: loginToken.accessToken)
                 currentStatus.send((getMe, .loading))
-                return getMe.request()
+                return api.request(getMe)
                     .decode(type: NAUser.self)
                     .receive(on: DispatchQueue.main)
                     .mapError { error -> Error in
@@ -157,7 +169,7 @@ struct NSOAuthorization {
                 f: f
             )
             currentStatus.send((login, .loading))
-            return login.request()
+            return api.request(login)
                 .decode(type: LoginResult.self)
                 .receive(on: DispatchQueue.main)
                 .mapError { error -> Error in
@@ -194,7 +206,7 @@ struct NSOAuthorization {
                 f: f
             )
             currentStatus.send((getWebServiceToken, .loading))
-            return getWebServiceToken.request()
+            return api.request(getWebServiceToken)
                 .decode(type: WebServiceToken.self)
                 .receive(on: DispatchQueue.main)
                 .mapError { error -> Error in
@@ -221,7 +233,7 @@ struct NSOAuthorization {
             hashMethod: hashMethod
         )
         currentStatus.send((getF, .loading))
-        return getF.request()
+        return api.request(getF)
             .decode(type: F.self)
             .receive(on: DispatchQueue.main)
             .mapError { error -> Error in

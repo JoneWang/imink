@@ -226,6 +226,8 @@
 		ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = ECD777E3261178EC0067A51B /* SplatNet2 */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
+		ECE79FD6283B9877003F42CB /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE79FD5283B9877003F42CB /* APILogger.swift */; };
+		ECE79FD7283B9877003F42CB /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE79FD5283B9877003F42CB /* APILogger.swift */; };
 		ECEE0C8527BBB44F0091B688 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */; };
 		ECEE0C8727BBBF290091B688 /* SalmonRunScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE0C8627BBBF290091B688 /* SalmonRunScheduleViewModel.swift */; };
 		ECF04C0A26AC235800337FC6 /* WidgetSizeEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */; };
@@ -477,6 +479,7 @@
 		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		ECE79FD5283B9877003F42CB /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
 		ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		ECEE0C8627BBBF290091B688 /* SalmonRunScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleViewModel.swift; sourceTree = "<group>"; };
 		ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizeEnvironmentKey.swift; sourceTree = "<group>"; };
@@ -851,6 +854,7 @@
 				EC900EA1251C8EF600AA0B20 /* AppAPI.swift */,
 				EC900EA0251C8EF600AA0B20 /* APITargetType.swift */,
 				EC900EA2251C8EF600AA0B20 /* API.swift */,
+				ECE79FD5283B9877003F42CB /* APILogger.swift */,
 				EC761294260B214C00C4D3AA /* NSOAuthorization.swift */,
 			);
 			path = API;
@@ -1223,6 +1227,7 @@
 				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
 				EC902D172663E9B90014093C /* IksmSessionViewModel.swift in Sources */,
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
+				ECE79FD7283B9877003F42CB /* APILogger.swift in Sources */,
 				EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */,
 				ECA4F6D827D7654500FE7017 /* UIDevice+Extension.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
@@ -1342,6 +1347,7 @@
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
 				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
 				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,
+				ECE79FD6283B9877003F42CB /* APILogger.swift in Sources */,
 				EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */,
 				ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */,
 				EC313B3F2671CC5F00EC1C63 /* FilePickerView.swift in Sources */,

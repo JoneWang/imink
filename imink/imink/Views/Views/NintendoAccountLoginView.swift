@@ -17,7 +17,10 @@ struct NintendoAccountLoginView: View {
 
     @State var navigationBarTitle: String?
     @State var loginFAQPresented = false
-    
+    @State private var showingMailView = false
+    @State private var showShareLogView = false
+    @State private var errorLog: Any = ""
+
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
@@ -87,7 +90,7 @@ struct NintendoAccountLoginView: View {
                                             }
                                         }
                                         .padding(8)
-                                        .frame(width: 280, height: 30)
+                                        .frame(height: 30)
                                     }
                                     
                                     if let error = viewModel.loginError {
@@ -110,19 +113,23 @@ struct NintendoAccountLoginView: View {
                                         }
                                         
                                         HStack {
-                                            Text("Close")
-                                                .font(.system(size: 14, weight: .semibold))
-                                                .foregroundColor(.white)
-                                                .padding(.horizontal, 18)
-                                        }
-                                        .frame(width: 80, height: 30)
-                                        .background(Color.accentColor)
-                                        .continuousCornerRadius(8)
-                                        .onTapGesture {
-                                            presentationMode.wrappedValue.dismiss()
+                                            HStack {
+                                                Text("Close")
+                                                    .font(.system(size: 14, weight: .semibold))
+                                                    .foregroundColor(.white)
+                                                    .padding(.horizontal, 18)
+                                            }
+                                            .frame(width: 80, height: 30)
+                                            .background(Color.accentColor)
+                                            .continuousCornerRadius(8)
+                                            .onTapGesture {
+                                                presentationMode.wrappedValue.dismiss()
+                                            }
                                         }
                                     }
                                 }
+                                .overlay(viewModel.loginError != nil ? AnyView(makeErrorLogShareButton()) : AnyView(EmptyView()), alignment: .bottomTrailing)
+                                .frame(width: 280)
                                 .padding(16)
                                 .background(Color.white)
                                 .continuousCornerRadius(10)
@@ -156,6 +163,31 @@ struct NintendoAccountLoginView: View {
         .onChange(of: viewModel.status) { status in
             if status == .loginSuccess {
                 presentationMode.wrappedValue.dismiss()
+            }
+        }
+    }
+    
+    private func makeErrorLogShareButton() -> some View {
+        HStack {
+            Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
+                .foregroundColor(.accentColor)
+                .frame(width: 22, height: 22)
+        }
+        .padding(.horizontal, 8)
+        .onTapGesture {
+            if MailView.canSendMail() {
+                showingMailView = true
+            } else {
+                showShareLogView = true
+            }
+        }
+        .sheet(isPresented: $showingMailView) {
+            MailView(isShowing: $showingMailView, recipient: "imink@jone.wang", textAttachmentName: "log.txt", textAttachmentContent: viewModel.loginLog)
+        }
+        .background(ActivityView(isPresented: $showShareLogView, item: $errorLog))
+        .onAppear {
+            if let log = viewModel.loginLog {
+                errorLog = log
             }
         }
     }

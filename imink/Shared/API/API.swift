@@ -48,7 +48,13 @@ enum APIError: Error, LocalizedError {
 class API {
     static let shared = API()
     
-    func request(_ api: APITargetType) -> AnyPublisher<(Data, HTTPURLResponse), APIError> {
+    private var logger: APILogger? = nil
+    
+    init(logger: APILogger? = nil) {
+        self.logger = logger
+    }
+    
+    private func req(_ api: APITargetType) -> AnyPublisher<(Data, HTTPURLResponse), APIError> {
         let url = api.baseURL.appendingPathComponent(api.path)
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         
@@ -89,7 +95,7 @@ class API {
         let urlSession = URLSession(configuration: sessionConfiguration)
         
         return urlSession.dataTaskPublisher(for: request)
-            .tryMap { data, response in
+            .tryMap { [weak self] data, response in
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw APIError.unknown
                 }
@@ -110,15 +116,54 @@ class API {
                     throw APIError.unknown
                 }
                 
+                if let logger = self?.logger {
+                    logger.res(data: data, response: httpResponse)
+                }
+                
                 return (data, httpResponse)
             }
-            .mapError { error in
+            .mapError { [weak self] error in
+                self?.logger?.err(error)
+                
                 if let error = error as? APIError {
                     return error
                 } else {
                     return APIError.apiError(reason: error.localizedDescription)
                 }
             }
+            .eraseToAnyPublisher()
+    }
+}
+
+extension API {
+    func request(_ api: APITargetType) -> AnyPublisher<Data, Error> {
+        request(api)
+            .map { result in result.0 }
+            .eraseToAnyPublisher()
+    }
+    
+    func request(_ api: APITargetType) -> AnyPublisher<(Data, HTTPURLResponse), Error> {
+        req(api)
+            .mapError { error -> APIError in
+                if case APIError.authorizationError(let response) = error {
+                    if type(of: api) is Splatoon2API.Type {
+                        os_log("API Error: [splatoon2] iksm_session error")
+                        
+                        // Remove invalid iksm_session
+                        if let fields = response.allHeaderFields as? [String: String],
+                           let url = response.url,
+                           let iksmSessionCookie = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
+                            .first(where: { $0.name == "iksm_session" }) {
+                            IksmSessionManager.shared.clear(iksmSession: iksmSessionCookie.value)
+                        }
+                        
+                        return .iksmSessionInvalid
+                    }
+                }
+
+                return error
+            }
+            .mapError { $0 as Error }
             .eraseToAnyPublisher()
     }
 }
@@ -143,34 +188,11 @@ extension MediaType {
 /// Wrapping up request
 extension APITargetType {
     func request() -> AnyPublisher<Data, Error> {
-        self.request()
-            .map { result in result.0 }
-            .eraseToAnyPublisher()
+        API.shared.request(self)
     }
     
     func request() -> AnyPublisher<(Data, HTTPURLResponse), Error> {
         API.shared.request(self)
-            .mapError { error -> APIError in
-                if case APIError.authorizationError(let response) = error {
-                    if type(of: self) is Splatoon2API.Type {
-                        os_log("API Error: [splatoon2] iksm_session error")
-                        
-                        // Remove invalid iksm_session
-                        if let fields = response.allHeaderFields as? [String: String],
-                           let url = response.url,
-                           let iksmSessionCookie = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
-                            .first(where: { $0.name == "iksm_session" }) {
-                            IksmSessionManager.shared.clear(iksmSession: iksmSessionCookie.value)
-                        }
-                        
-                        return .iksmSessionInvalid
-                    }
-                }
-
-                return error
-            }
-            .mapError { $0 as Error }
-            .eraseToAnyPublisher()
     }
 }
 

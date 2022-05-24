@@ -77,6 +77,7 @@ class LoginViewModel: ObservableObject {
     let loginUrl: URL
     let codeVerifier: String
     @Published var loginError: Error? = nil
+    @Published var loginLog: String? = nil
     @Published var loginProgress: [LoginProgress] = []
     
     var cancelBag = Set<AnyCancellable>()
@@ -151,6 +152,7 @@ extension LoginViewModel {
                 case .finished:
                     break
                 case .failure(let error):
+                    self.loginLog = nsoHelper.getLog()
                     self.loginError = error
                     os_log("API [Login] Error: \(error.localizedDescription)")
                 }
