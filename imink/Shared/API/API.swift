@@ -92,6 +92,7 @@ class API {
         
         let sessionConfiguration = URLSessionConfiguration.default
         sessionConfiguration.httpCookieStorage = HTTPCookieStorage.appGroup
+        sessionConfiguration.timeoutIntervalForRequest = 15
         let urlSession = URLSession(configuration: sessionConfiguration)
         
         return urlSession.dataTaskPublisher(for: request)
