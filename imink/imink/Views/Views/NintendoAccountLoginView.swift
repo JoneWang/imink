@@ -182,7 +182,7 @@ struct NintendoAccountLoginView: View {
             }
         }
         .sheet(isPresented: $showingMailView) {
-            MailView(isShowing: $showingMailView, recipient: "imink@jone.wang", textAttachmentName: "log.txt", textAttachmentContent: viewModel.loginLog)
+            MailView(isShowing: $showingMailView, recipient: InkConfig.email, textAttachmentName: "log.txt", textAttachmentContent: viewModel.loginLog)
         }
         .background(ActivityView(isPresented: $showShareLogView, item: $errorLog))
         .onAppear {

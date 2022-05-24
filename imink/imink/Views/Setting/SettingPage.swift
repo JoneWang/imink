@@ -199,7 +199,7 @@ struct SettingPage: View {
                             ListRow("Email")
                         }
                         .sheet(isPresented: $showingMailView) {
-                            MailView(isShowing: $showingMailView, recipient: "imink@jone.wang")
+                            MailView(isShowing: $showingMailView, recipient: InkConfig.email)
                         }
                     }
                 }
@@ -302,9 +302,9 @@ extension SettingPage {
     
     var socialLink: URL {
         if AppUserDefaults.shared.currentLanguage == "zh-Hans" {
-            return URL(string: "https://weibo.com/7582779251")!
+            return URL(string: InkConfig.weibo)!
         } else {
-            return URL(string: "https://Twitter.com/imink_splatoon")!
+            return URL(string: InkConfig.twitter)!
         }
     }
 }

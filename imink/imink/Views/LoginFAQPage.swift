@@ -63,13 +63,13 @@ struct LoginFAQPage: View {
                             .font(.subheadline)
                         
                         HStack(spacing: 16) {
-                            Link(destination: URL(string: "https://weibo.com/7582779251")!) {
+                            Link(destination: URL(string: InkConfig.weibo)!) {
                                 VStack(spacing: 4) {
                                     Text("微博")
                                         .font(.subheadline)
                                         .fontWeight(.bold)
                                     
-                                    Text("@imink_splatoon")
+                                    Text("@\(InkConfig.socialUsername)")
                                         .font(.caption)
                                 }
                                 .frame(maxWidth: .infinity)
@@ -87,7 +87,7 @@ struct LoginFAQPage: View {
                                             .font(.subheadline)
                                             .fontWeight(.bold)
                                         
-                                        Text(verbatim: "imink@jone.wang")
+                                        Text(verbatim: InkConfig.email)
                                             .font(.caption)
                                     }
                                     .frame(maxWidth: .infinity)
@@ -96,7 +96,7 @@ struct LoginFAQPage: View {
                                     .continuousCornerRadius(8)
                                 }
                                 .sheet(isPresented: $showingMailView) {
-                                    MailView(isShowing: $showingMailView, recipient: "imink@jone.wang")
+                                    MailView(isShowing: $showingMailView, recipient: InkConfig.email)
                                 }
                             } else {
                                 Rectangle()
