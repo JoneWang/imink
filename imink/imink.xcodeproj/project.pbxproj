@@ -202,6 +202,8 @@
 		EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */; };
 		EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */; };
 		EC9D0A6925A18E2300E8FF89 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9D0A6825A18E2300E8FF89 /* ImageView.swift */; };
+		ECA4F6D727D7654500FE7017 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4F6D627D7654500FE7017 /* UIDevice+Extension.swift */; };
+		ECA4F6D827D7654500FE7017 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA4F6D627D7654500FE7017 /* UIDevice+Extension.swift */; };
 		ECA695092531AC9D00376D95 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA695082531AC9D00376D95 /* PieView.swift */; };
 		ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
 		ECA6AD9F257E1C31005D873B /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC00DBF4251CD29C0010366A /* FontModifier.swift */; };
@@ -228,6 +230,10 @@
 		ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = ECD777E3261178EC0067A51B /* SplatNet2 */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
+		ECE79FD6283B9877003F42CB /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE79FD5283B9877003F42CB /* APILogger.swift */; };
+		ECE79FD7283B9877003F42CB /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE79FD5283B9877003F42CB /* APILogger.swift */; };
+		ECE79FE0283CEFCF003F42CB /* InkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE79FDF283CEFCF003F42CB /* InkConfig.swift */; };
+		ECE79FE1283CEFCF003F42CB /* InkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE79FDF283CEFCF003F42CB /* InkConfig.swift */; };
 		ECEE0C8527BBB44F0091B688 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */; };
 		ECEE0C8727BBBF290091B688 /* SalmonRunScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE0C8627BBBF290091B688 /* SalmonRunScheduleViewModel.swift */; };
 		ECF04C0A26AC235800337FC6 /* WidgetSizeEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */; };
@@ -460,6 +466,7 @@
 		EC9A90482527851C00390573 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		EC9C243C26A5A85E003B9D9F /* NotchBranding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotchBranding.swift; sourceTree = "<group>"; };
 		EC9D0A6825A18E2300E8FF89 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		ECA4F6D627D7654500FE7017 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		ECA695082531AC9D00376D95 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		ECA9B3E626686D5800EE63FC /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		ECA9B3ED2669B8B500EE63FC /* InkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkApp.swift; sourceTree = "<group>"; };
@@ -481,6 +488,8 @@
 		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		ECE79FD5283B9877003F42CB /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
+		ECE79FDF283CEFCF003F42CB /* InkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkConfig.swift; sourceTree = "<group>"; };
 		ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		ECEE0C8627BBBF290091B688 /* SalmonRunScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonRunScheduleViewModel.swift; sourceTree = "<group>"; };
 		ECF04C0926AC235800337FC6 /* WidgetSizeEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSizeEnvironmentKey.swift; sourceTree = "<group>"; };
@@ -766,6 +775,7 @@
 				ECAE8DCB2520B7E0003D7EDC /* Localizable.strings */,
 				BB520C1626146683006454FB /* SplatNet2.strings */,
 				EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */,
+				ECE79FDF283CEFCF003F42CB /* InkConfig.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -845,6 +855,7 @@
 				EC17179225FBA98100500D13 /* NSOHash.swift */,
 				BB520C1D26146C05006454FB /* StageImage.swift */,
 				EC5CBF7C2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift */,
+				ECA4F6D627D7654500FE7017 /* UIDevice+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -857,6 +868,7 @@
 				EC900EA1251C8EF600AA0B20 /* AppAPI.swift */,
 				EC900EA0251C8EF600AA0B20 /* APITargetType.swift */,
 				EC900EA2251C8EF600AA0B20 /* API.swift */,
+				ECE79FD5283B9877003F42CB /* APILogger.swift */,
 				EC761294260B214C00C4D3AA /* NSOAuthorization.swift */,
 			);
 			path = API;
@@ -1232,7 +1244,10 @@
 				EC861224253AC656003BA67A /* Splatoon2API.swift in Sources */,
 				EC902D172663E9B90014093C /* IksmSessionViewModel.swift in Sources */,
 				EC9440DB25406C3E00060E46 /* BattleScheduleProvider.swift in Sources */,
+				ECE79FE1283CEFCF003F42CB /* InkConfig.swift in Sources */,
+				ECE79FD7283B9877003F42CB /* APILogger.swift in Sources */,
 				EC4CA17C2595DEB000B5C8CF /* ConvenientColors.swift in Sources */,
+				ECA4F6D827D7654500FE7017 /* UIDevice+Extension.swift in Sources */,
 				EC11F1D625558C2D00E10F5F /* SalmonRunScheduleWidget.swift in Sources */,
 				EC8754CE2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift in Sources */,
 				EC0DFCF5263AC1CE00E95564 /* PopupModifier.swift in Sources */,
@@ -1351,11 +1366,13 @@
 				EC900ECC251C8EF700AA0B20 /* APITargetType.swift in Sources */,
 				EC900ED8251C8EF700AA0B20 /* AppDatabase.swift in Sources */,
 				EC900ED2251C8EF700AA0B20 /* Models.swift in Sources */,
+				ECE79FD6283B9877003F42CB /* APILogger.swift in Sources */,
 				EC4CA1742595C6B900B5C8CF /* BattleDetailPage.swift in Sources */,
 				ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */,
 				EC313B3F2671CC5F00EC1C63 /* FilePickerView.swift in Sources */,
 				EC2C34AC25984CE20007BA4D /* BattleDetailMemberView.swift in Sources */,
 				ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */,
+				ECE79FE0283CEFCF003F42CB /* InkConfig.swift in Sources */,
 				EC4DF4F6252EF1510020B234 /* VDGridView.swift in Sources */,
 				EC900EE0251C8EF700AA0B20 /* BattleListViewModel.swift in Sources */,
 				ECA9B3F02669BAB900EE63FC /* MainViewModel.swift in Sources */,
@@ -1371,6 +1388,7 @@
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				ECB959B525B872BD0006E942 /* DBJob.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
+				ECA4F6D727D7654500FE7017 /* UIDevice+Extension.swift in Sources */,
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
 				EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */,
