@@ -29,15 +29,7 @@ struct BattleDetailPageContainer: View {
     var selectedRow: BattleListRowModel
 
     private var navigationTitle: String {
-        guard let battleNumber = viewModel.currentBattleNumber else {
-            return "Real-time"
-        }
-
-        if viewModel.currentPageIndex == 0 {
-            return "Real-time ID: \(battleNumber)"
-        } else {
-            return "ID: \(battleNumber)"
-        }
+        "ID: \(viewModel.currentBattleNumber)"
     }
 
     private var onlyOne: Bool {

@@ -12,8 +12,7 @@ import os
 class BattleDetailContainerViewModel: ObservableObject {
     @Published var pages: [BattleDetailViewModel] = []
     @Published var currentPageIndex: Int = 0
-    @Published var currentBattleNumber: String? = nil
-    @Published var isRealtime: Bool = false
+    @Published var currentBattleNumber: String
     @Published var currentPageId: Int64? = nil
 
     private var cancelBag = Set<AnyCancellable>()
@@ -21,10 +20,10 @@ class BattleDetailContainerViewModel: ObservableObject {
     @Published var record: DBRecord?
     @Published var filterIndex: Int = 0
 
-    func update(record: DBRecord?, initPageId: Int64, filterIndex: Int) {
+    func update(record: DBRecord, initPageId: Int64, filterIndex: Int) {
         self.filterIndex = filterIndex
         currentPageId = initPageId
-        currentBattleNumber = record?.battleNumber
+        currentBattleNumber = record.battleNumber
 
         // Load the first data to be displayed.
         Just<Int>.init(0)
@@ -45,7 +44,9 @@ class BattleDetailContainerViewModel: ObservableObject {
             .store(in: &cancelBag)
     }
 
-    init(records: AnyPublisher<[DBRecord], Never>, record: DBRecord?, initPageId: Int64, filterIndex: Int) {
+    init(records: AnyPublisher<[DBRecord], Never>, record: DBRecord, initPageId: Int64, filterIndex: Int) {
+        currentBattleNumber = record.battleNumber
+        
         update(record: record, initPageId: initPageId, filterIndex: filterIndex)
 
         // Database records publisher
@@ -67,11 +68,7 @@ class BattleDetailContainerViewModel: ObservableObject {
                 }
             }
             .map { records -> [BattleDetailViewModel] in
-                if let firstRecord = records.first {
-                    return [BattleDetailViewModel(record: firstRecord, isRealtime: true)] +
-                        records.map { record in BattleDetailViewModel(record: record, isRealtime: false) }
-                }
-                return []
+                records.map { record in BattleDetailViewModel(record: record) }
             }
             .assign(to: \.pages, on: self)
             .store(in: &cancelBag)
@@ -105,10 +102,8 @@ class BattleDetailContainerViewModel: ObservableObject {
             .store(in: &cancelBag)
 
         currentPageIndexPulisher
-            .map { (index, pages) -> String? in
-                if !pages.indices.contains(index) { return nil }
-                return pages[index].record.battleNumber
-            }
+            .filter { $1.indices.contains($0) }
+            .map { $1[$0].record.battleNumber }
             .assign(to: \.currentBattleNumber, on: self)
             .store(in: &cancelBag)
     }

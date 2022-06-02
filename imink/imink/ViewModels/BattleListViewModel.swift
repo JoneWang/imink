@@ -12,28 +12,16 @@ import SwiftUI
 
 struct BattleListRowModel: Identifiable {
     
-    let type: RowType
-    var record: DBRecord?
-    
-    enum RowType: String {
-        case realtime, record
-    }
+    let record: DBRecord
     
     var id: Int64 {
-        if type == .record, let record = record {
-            return record.id ?? 0
-        } else {
-            return BattleListRowModel.realtimeId
-        }
-//        "\(type == .record ? "\(record?.battleNumber ?? "")" : "")|\(type.rawValue)"
+        record.id ?? 0
     }
-    
-    static let realtimeId: Int64 = -1
 }
 
 extension BattleListRowModel: Hashable {
     public static func == (lhs: BattleListRowModel, rhs: BattleListRowModel) -> Bool {
-        lhs.record?.id == rhs.record?.id && lhs.type == rhs.type
+        lhs.record.id == rhs.record.id
     }
 }
 
@@ -42,7 +30,6 @@ class BattleListViewModel: ObservableObject {
     @Published var isLogined: Bool = false
     @Published var rows: [BattleListRowModel] = []
     @Published var selectedRowId: Int64?
-    @Published var realtimeRow: BattleListRowModel?
     @Published var currentFilterIndex: Int = 0
     
     @Published var databaseRecords: [DBRecord] = []
@@ -86,25 +73,7 @@ class BattleListViewModel: ObservableObject {
                     return records
                 }
             }
-            .map { $0.map { BattleListRowModel(type: .record, record: $0) } }
-            .map { rows in
-                let realtimeRow = BattleListRowModel(
-                    type: .realtime,
-                    record: rows.first?.record
-                )
-                
-                if self.selectedRowId == BattleListRowModel.realtimeId {
-                    self.realtimeRow = realtimeRow
-                } else {
-                    self.realtimeRow = nil
-                }
-                
-                if rows.first != nil {
-                    return [realtimeRow] + rows
-                } else {
-                    return [realtimeRow]
-                }
-            }
+            .map { $0.map { BattleListRowModel(record: $0) } }
             .assign(to: \.rows, on: self)
             .store(in: &cancelBag)
     }

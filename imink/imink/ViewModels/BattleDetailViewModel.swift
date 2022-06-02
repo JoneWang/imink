@@ -11,15 +11,13 @@ class BattleDetailViewModel: ObservableObject, Identifiable {
     @Published var battle: Battle? = nil
     
     let record: DBRecord
-    let isRealtime: Bool
     
     var id: Int64? {
-        isRealtime ? -1 : record.id 
+        record.id
     }
     
-    init(record: DBRecord, isRealtime: Bool) {
+    init(record: DBRecord) {
         self.record = record
-        self.isRealtime = isRealtime
     }
     
     func loadBattle(sync: Bool = false) {
