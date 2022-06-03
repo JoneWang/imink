@@ -21,6 +21,7 @@ struct BattleDetailPageContainer: View {
     @State private var hoveredMember: Bool = false
     @State private var activePlayer: Player? = nil
     @State private var activePlayerVictory: Bool = false
+    @State private var showFloatButton: Bool = false
 
     @State private var hidePlayerNames: Bool = false
 
@@ -37,11 +38,28 @@ struct BattleDetailPageContainer: View {
     }
 
     var body: some View {
-        Group {
-            // Do not allow scrolling when synchronization is in progress.
-            onlyOne ? AnyView(singleBattle) : AnyView(multipleBattle)
+        ScrollViewReader { proxy in
+            Group {
+                // Do not allow scrolling when synchronization is in progress.
+                onlyOne ? AnyView(singleBattle) : AnyView(makeMultipleBattle(proxy: proxy))
+            }
+            .ignoresSafeArea()
+            .overlay(
+                LatestDataFloatButton(isPresent: $showFloatButton, title: "Latest Battle", action: {
+                    if !onlyOne {
+                        withAnimation {
+                            proxy.scrollTo(viewModel.pages.first?.id)
+                        }
+                    }
+                }),
+                alignment: .bottom
+            )
+            .onChange(of: synchronizeBattleViewModel.newMessage) { newValue in
+                if newValue {
+                    showFloatButton = true
+                }
+            }
         }
-        .ignoresSafeArea()
         .modifier(
             Popup(
                 isPresented: showPlayerSkill,
@@ -106,50 +124,51 @@ struct BattleDetailPageContainer: View {
                 EmptyView()
             }
         }
+        .background(AppColor.listBackgroundColor)
     }
 
-    var multipleBattle: some View {
+    func makeMultipleBattle(proxy: ScrollViewProxy) -> some View {
         GeometryReader { geo in
             let pageWidth = geo.size.width
-            ScrollViewReader { proxy in
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 0) {
-                        ForEach(viewModel.pages) { page in
-                            // Wrapping BattleDetailPage with View is used to prevent
-                            // the problem of the previous page not being released.
-                            // It is caused by the Lazy Stack and the id() function working together.
-                            // ZStack is used here, but it can be any View.
-                            ZStack {
-                                BattleDetailPage(
-                                    viewModel: page,
-                                    hidePlayerNames: hidePlayerNames,
-                                    showPlayerSkill: $showPlayerSkill,
-                                    hoveredMember: $hoveredMember,
-                                    activePlayer: $activePlayer,
-                                    activePlayerVictory: $activePlayerVictory
-                                )
-                            }
-                            .frame(width: pageWidth, height: geo.size.height)
-                            .id(page.id)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 0) {
+                    ForEach(viewModel.pages) { page in
+                        // Wrapping BattleDetailPage with View is used to prevent
+                        // the problem of the previous page not being released.
+                        // It is caused by the Lazy Stack and the id() function working together.
+                        // ZStack is used here, but it can be any View.
+                        ZStack {
+                            BattleDetailPage(
+                                viewModel: page,
+                                hidePlayerNames: hidePlayerNames,
+                                showPlayerSkill: $showPlayerSkill,
+                                hoveredMember: $hoveredMember,
+                                activePlayer: $activePlayer,
+                                activePlayerVictory: $activePlayerVictory
+                            )
                         }
+                        .frame(width: pageWidth, height: geo.size.height)
+                        .id(page.id)
                     }
                 }
-                .onChange(of: initPageId) { pageId in
-                    isTouchSelection = true
-                    showPlayerSkill = false
-                    proxy.scrollTo(pageId)
-                }
-                .onAppear {
-                    withAnimation {
-                        proxy.scrollTo(initPageId)
-                    }
+            }
+            .onChange(of: initPageId) { pageId in
+                isTouchSelection = true
+                showPlayerSkill = false
+                proxy.scrollTo(pageId)
+            }
+            .onAppear {
+                withAnimation {
+                    proxy.scrollTo(initPageId)
                 }
             }
             .background(AppColor.listBackgroundColor)
             .scrollViewPaging()
             .scrollViewScroll { offset in
+                showFloatButton = false
+                
                 let pageIndex = Int(round(offset.x / pageWidth))
-
+                
                 if !viewModel.pages.indices.contains(pageIndex) { return }
                 guard let pageId = viewModel.pages[pageIndex].id else { return }
                 if viewModel.pages[pageIndex].id == viewModel.currentPageId { return }

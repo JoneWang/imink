@@ -241,6 +241,7 @@
 		ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
 		ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
 		ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF91ECE2609F58500FF7F55 /* MailView.swift */; };
+		ECFA6B142848BE0500361B06 /* LatestDataFloatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFA6B132848BE0500361B06 /* LatestDataFloatButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -496,6 +497,7 @@
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		ECF91ECE2609F58500FF7F55 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		ECFA6B132848BE0500361B06 /* LatestDataFloatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestDataFloatButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -586,6 +588,7 @@
 				EC902D0F2663AAE40014093C /* SessionStatusView.swift */,
 				ECA9B3FF266BCE8400EE63FC /* NintendoAccountLoginView.swift */,
 				ECB5CB0026A723A600B921C7 /* LoginFAQButton.swift */,
+				ECFA6B132848BE0500361B06 /* LatestDataFloatButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1303,6 +1306,7 @@
 				EC16CED8261990D800663DC1 /* AvatarViewModel.swift in Sources */,
 				EC5CBF822653924100F1A063 /* MedalView.swift in Sources */,
 				ECEE0C8527BBB44F0091B688 /* ScheduleViewModel.swift in Sources */,
+				ECFA6B142848BE0500361B06 /* LatestDataFloatButton.swift in Sources */,
 				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,

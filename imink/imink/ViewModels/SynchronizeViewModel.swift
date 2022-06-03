@@ -14,6 +14,7 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
     
     @Published var unsynchronizedIds: [IdType] = []
     @Published var synchronizing: Bool = false
+    @Published var newMessage: Bool = false
     
     @Published var isLogined: Bool = false
     @Published var autoRefresh = false
@@ -37,6 +38,12 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
             .store(in: &cancelBag)
         
         $isLogined.assign(to: \.autoRefresh, on: self)
+            .store(in: &cancelBag)
+        
+        $synchronizing
+            .removeDuplicates()
+            .map { !$0 }
+            .assign(to: \.newMessage, on: self)
             .store(in: &cancelBag)
     }
     
