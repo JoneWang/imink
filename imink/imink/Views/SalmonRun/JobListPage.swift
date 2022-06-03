@@ -12,8 +12,12 @@ struct JobListPage: View {
             
     @StateObject var viewModel = JobListViewModel()
     
-    @State var selectedJob: DBJob?
+    @State private var rows: [JobListRowModel] = []
+    @State private var jobDetailPresented: Bool = false
+    @State var selectedRow: JobListRowModel?
     
+    @State private var currentDBJobIdInDetail: Int64?
+
     var body: some View {
         if viewModel.isLogined {
             content
@@ -26,43 +30,83 @@ struct JobListPage: View {
     
     var content: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.rows, id: \.id) { row in
-                        if let shiftCard = row.shiftCard {
-                            JobShiftCardView(shiftCard: shiftCard)
-                                .rotationEffect(.degrees(-1))
-                                .clipped(antialiased: true)
-                                .padding([.leading, .trailing], 26)
-                                .padding(.top, 15)
-                                // FIXME:
-                                .padding(.bottom, 0.1)
-                        } else if let job = row.job {
-                            JobListItemView(job: job, selectedId: $viewModel.selectedId)
-                                .padding([.leading, .trailing])
-                                .onTapGesture {
-                                    self.viewModel.selectedId = job.id
+            ZStack {
+                ScrollViewReader { proxy in
+                    NavigationLink(
+                        destination: detailPage,
+                        isActive: $jobDetailPresented
+                    ) { EmptyView() }
+                    
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(rows, id: \.id) { row in
+                                if let shiftCard = row.shiftCard {
+                                    JobShiftCardView(shiftCard: shiftCard)
+                                        .rotationEffect(.degrees(-1))
+                                        .clipped(antialiased: true)
+                                        .padding([.leading, .trailing], 26)
+                                        .padding(.top, 15)
+                                        // FIXME:
+                                        .padding(.bottom, 0.1)
+                                } else if let job = row.job {
+                                    JobListItemView(job: job, selectedId: $viewModel.selectedId)
+                                        .padding([.leading, .trailing])
+                                        .onTapGesture {
+                                            viewModel.selectedId = row.dbId
+                                            selectedRow = row
+                                            jobDetailPresented = true
+                                        }
                                 }
-                                .background(
-                                    NavigationLink(
-                                        destination: JobDetailPage(id: job.id!),
-                                        tag: job.id!,
-                                        selection: $viewModel.selectedId
-                                    ) { EmptyView() }
-                                    .buttonStyle(PlainButtonStyle())
-                                )
+                            }
                         }
+                        .padding(.bottom, 16)
                     }
+                    .fixSafeareaBackground()
+                    .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarSalmonRun"))
+                    .navigationBarTitle("Salmon Run", displayMode: .inline)
+                    .navigationBarHidden(false)
                 }
-                .padding(.bottom, 16)
+                .onReceive(mainViewModel.$isLogined) { isLogined in
+                    viewModel.updateLoginStatus(isLogined: isLogined)
+                }
             }
-            .fixSafeareaBackground()
-            .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarSalmonRun"))
-            .navigationBarTitle("Salmon Run", displayMode: .inline)
-            .navigationBarHidden(false)
+            .onAppear {
+                self.rows = viewModel.rows
+            }
+            .onChange(of: viewModel.rows) { rows in
+                withAnimation {
+                    self.rows = rows
+                }
+            }
+            .onChange(of: jobDetailPresented) { newValue in
+                if !newValue {
+                    viewModel.selectedId = nil
+                }
+            }
         }
-        .onReceive(mainViewModel.$isLogined) { isLogined in
-            viewModel.updateLoginStatus(isLogined: isLogined)
+    }
+    
+    var detailPage: some View {
+        Group {
+            if let row = selectedRow {
+                JobDetailPageContainer(
+                    viewModel: JobDetailContainerViewModel(
+                        dbJobs: viewModel.$databaseDBJobs.eraseToAnyPublisher(),
+                        dbJob: row.job!,
+                        initPageId: row.dbId),
+                    showPage: { pageId in
+                        if jobDetailPresented {
+                            currentDBJobIdInDetail = pageId
+                            viewModel.selectedId = pageId
+                        }
+                    },
+                    initPageId: row.dbId,
+                    isPresented: $jobDetailPresented,
+                    selectedRow: row
+                )
+            } else {
+                EmptyView()
+            }
         }
     }
 }

@@ -45,6 +45,7 @@ struct MainView: View {
                     Image("TabBarSalmonRun")
                     Text("Salmon Run")
                 }
+                .environmentObject(synchronizeJobViewModel)
             
             MePage()
                 .tabItem {

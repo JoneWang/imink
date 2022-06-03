@@ -1,29 +1,27 @@
 //
-//  BattleDetailViewModel.swift
+//  JobDetailContainerViewModel.swift
 //  imink
 //
-//  Created by Jone Wang on 2021/2/8.
+//  Created by Jone Wang on 2022/6/3.
 //
 
-import Combine
 import Foundation
+import Combine
 import os
 
-class BattleDetailContainerViewModel: ObservableObject {
-    @Published var pages: [BattleDetailViewModel] = []
+class JobDetailContainerViewModel: ObservableObject {
+    @Published var pages: [JobDetailViewModel] = []
     @Published var currentPageIndex: Int = 0
-    @Published var currentBattleNumber: String
+    @Published var currentJobId: Int
     @Published var currentPageId: Int64? = nil
 
     private var cancelBag = Set<AnyCancellable>()
 
-    @Published var record: DBRecord?
-    @Published var filterIndex: Int = 0
+    @Published var dbJob: DBJob?
 
-    func update(record: DBRecord, initPageId: Int64, filterIndex: Int) {
-        self.filterIndex = filterIndex
+    func update(dbJob: DBJob, initPageId: Int64) {
         currentPageId = initPageId
-        currentBattleNumber = record.battleNumber
+        currentJobId = dbJob.jobId
 
         // Load the first data to be displayed.
         Just<Int>.init(0)
@@ -36,7 +34,7 @@ class BattleDetailContainerViewModel: ObservableObject {
                     // Data is loaded before entering the page.
                     // So here I use synchronous loading.
                     if pages.indices.contains(i) {
-                        pages[i].loadBattle(sync: true)
+                        pages[i].loadJob(sync: true)
                     }
                 }
                 self.currentPageIndex = index
@@ -44,31 +42,14 @@ class BattleDetailContainerViewModel: ObservableObject {
             .store(in: &cancelBag)
     }
 
-    init(records: AnyPublisher<[DBRecord], Never>, record: DBRecord, initPageId: Int64, filterIndex: Int) {
-        currentBattleNumber = record.battleNumber
+    init(dbJobs: AnyPublisher<[DBJob], Never>, dbJob: DBJob, initPageId: Int64) {
+        currentJobId = dbJob.jobId
         
-        update(record: record, initPageId: initPageId, filterIndex: filterIndex)
+        update(dbJob: dbJob, initPageId: initPageId)
 
-        // Database records publisher
-//        let recordUpdatePublisher = AppDatabase.shared.records()
-//            .catch { error -> Just<[DBRecord]> in
-//                os_log("Database Error: [records] \(error.localizedDescription)")
-//                return Just<[DBRecord]>([])
-//            }
-//            .eraseToAnyPublisher()
-//            .share()
-
-        records
-            .combineLatest($filterIndex)
-            .map { (records, filterIndex) -> [DBRecord] in
-                if let filterRule = GameRule.Key.with(index: filterIndex) {
-                    return records.filter { GameRule.Key(rawValue: $0.ruleKey) == filterRule }
-                } else {
-                    return records
-                }
-            }
-            .map { records -> [BattleDetailViewModel] in
-                records.map { record in BattleDetailViewModel(record: record) }
+        dbJobs
+            .map { dbJobs -> [JobDetailViewModel] in
+                dbJobs.map { dbJob in JobDetailViewModel(dbJob: dbJob) }
             }
             .assign(to: \.pages, on: self)
             .store(in: &cancelBag)
@@ -94,7 +75,7 @@ class BattleDetailContainerViewModel: ObservableObject {
                 // Pre-decode the Battle model adjacent to the current index.
                 for i in (index - 1) ... (index + 1) {
                     if pages.indices.contains(i) {
-                        pages[i].loadBattle()
+                        pages[i].loadJob()
                     }
                 }
             }
@@ -102,12 +83,12 @@ class BattleDetailContainerViewModel: ObservableObject {
 
         currentPageIndexPulisher
             .filter { $1.indices.contains($0) }
-            .map { $1[$0].record.battleNumber }
-            .assign(to: \.currentBattleNumber, on: self)
+            .map { $1[$0].dbJob.jobId }
+            .assign(to: \.currentJobId, on: self)
             .store(in: &cancelBag)
     }
     
-    func recordIndex(with recordId: Int64) -> Int? {
-        pages.firstIndex { $0.id == recordId }
+    func dbJobIndex(with dbJobId: Int64) -> Int? {
+        pages.firstIndex { $0.id == dbJobId }
     }
 }

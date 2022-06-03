@@ -10,12 +10,10 @@ import InkCore
 
 struct JobDetailPage: View {
     
-    var viewModel: JobDetailViewModel!
-    
-    init(id: Int64) {
-        viewModel = JobDetailViewModel(id: id)
-    }
-    
+    @StateObject var viewModel: JobDetailViewModel
+
+    var topSafearea: CGFloat = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0
+
     var body: some View {
         ScrollView {
             HStack {
@@ -56,10 +54,11 @@ struct JobDetailPage: View {
                 Spacer()
             }
             .padding(.horizontal, 8)
+            // FIXME: When two ScrollViews are nested. The inner one ScrollView has no safa area.
+            .padding(.top, topSafearea + 44)
         }
         .frame(maxWidth: .infinity)
         .fixSafeareaBackground()
-        .navigationBarTitle(viewModel.job != nil ? "ID: \(viewModel.job!.jobId)" : "", displayMode: .inline)
     }
 }
 
@@ -69,19 +68,19 @@ extension Job {
     }
 }
 
-import SplatNet2API
-
-struct JobDetailPage_Previews: PreviewProvider {
-    static var previews: some View {
-        let sampleData = SplatNet2API.jobOverview.sampleData
-        let json = String(data: sampleData, encoding: .utf8)!
-        let jobOverview = json.decode(JobOverview.self)!
-        
-        let page = JobDetailPage(id: 0)
-        page.viewModel.job = jobOverview.results[0]
-
-        return VStack {
-            page
-        }
-    }
-}
+//import SplatNet2API
+//
+//struct JobDetailPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let sampleData = SplatNet2API.jobOverview.sampleData
+//        let json = String(data: sampleData, encoding: .utf8)!
+//        let jobOverview = json.decode(JobOverview.self)!
+//
+//        let page = JobDetailPage(id: 0)
+//        page.viewModel.job = jobOverview.results[0]
+//
+//        return VStack {
+//            page
+//        }
+//    }
+//}
