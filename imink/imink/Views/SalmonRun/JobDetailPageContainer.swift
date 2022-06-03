@@ -37,7 +37,7 @@ struct JobDetailPageContainer: View {
             }
             .ignoresSafeArea()
             .overlay(
-                LatestDataFloatButton(isPresent: $showFloatButton, title: "Latest Record", action: {
+                LatestDataFloatButton(isPresent: $showFloatButton, action: {
                     if !onlyOne {
                         withAnimation {
                             proxy.scrollTo(viewModel.pages.first?.id)

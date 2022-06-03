@@ -45,7 +45,7 @@ struct BattleDetailPageContainer: View {
             }
             .ignoresSafeArea()
             .overlay(
-                LatestDataFloatButton(isPresent: $showFloatButton, title: "Latest Battle", action: {
+                LatestDataFloatButton(isPresent: $showFloatButton, action: {
                     if !onlyOne {
                         withAnimation {
                             proxy.scrollTo(viewModel.pages.first?.id)

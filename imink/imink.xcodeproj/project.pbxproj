@@ -75,6 +75,8 @@
 		EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17177C25FB114500500D13 /* OnboardingPage.swift */; };
 		EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
 		EC17179325FBA98100500D13 /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
+		EC18D98E2849E07800293345 /* JobDetailPageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18D98D2849E07800293345 /* JobDetailPageContainer.swift */; };
+		EC18D9902849E0A100293345 /* JobDetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18D98F2849E0A100293345 /* JobDetailContainerViewModel.swift */; };
 		EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */; };
 		EC1FAE3B25D12EF000B063B5 /* BattleDetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */; };
 		EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */; };
@@ -372,6 +374,8 @@
 		EC17179225FBA98100500D13 /* NSOHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOHash.swift; sourceTree = "<group>"; };
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC18D98D2849E07800293345 /* JobDetailPageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailPageContainer.swift; sourceTree = "<group>"; };
+		EC18D98F2849E0A100293345 /* JobDetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailContainerViewModel.swift; sourceTree = "<group>"; };
 		EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
 		EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailContainerViewModel.swift; sourceTree = "<group>"; };
 		EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListItemView.swift; sourceTree = "<group>"; };
@@ -671,6 +675,7 @@
 			children = (
 				EC25FEA325B963B40085670D /* Views */,
 				EC25FE8A25B8A0C50085670D /* JobListPage.swift */,
+				EC18D98D2849E07800293345 /* JobDetailPageContainer.swift */,
 				EC25FE9F25B960990085670D /* JobDetailPage.swift */,
 			);
 			path = SalmonRun;
@@ -919,6 +924,7 @@
 				EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */,
 				EC7FE1AA27D13C150053885E /* BattleDetailViewModel.swift */,
 				ECB959CA25B896A80006E942 /* JobListViewModel.swift */,
+				EC18D98F2849E0A100293345 /* JobDetailContainerViewModel.swift */,
 				ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */,
 				EC62E77225360B2B0028428C /* MeViewModel.swift */,
 				EC16CED7261990D800663DC1 /* AvatarViewModel.swift */,
@@ -1347,11 +1353,13 @@
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
 				EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */,
 				EC0598E426D121EC00262D86 /* AppConfig.swift in Sources */,
+				EC18D98E2849E07800293345 /* JobDetailPageContainer.swift in Sources */,
 				EC9A90492527851C00390573 /* ScheduleView.swift in Sources */,
 				EC902D0E266395540014093C /* SettingViewModel.swift in Sources */,
 				ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */,
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
+				EC18D9902849E0A100293345 /* JobDetailContainerViewModel.swift in Sources */,
 				EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */,
 				EC0B0986266692640011758C /* CreditsPage.swift in Sources */,
 				EC54C0862618BBE900EA3A9E /* PlayerSkillView.swift in Sources */,

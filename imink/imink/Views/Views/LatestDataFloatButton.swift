@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LatestDataFloatButton: View {
     @Binding var isPresent: Bool
-    let title: String
     let action: () -> Void
     
     var body: some View {
@@ -32,7 +31,7 @@ struct LatestDataFloatButton: View {
                 .font(.system(size: 14))
                 .foregroundColor(.white)
             
-            Text(title)
+            Text("Latest Record")
                 .sp2Font(size: 13, color: .white)
         }
         .padding(.leading, 11)
@@ -48,7 +47,7 @@ struct LatestDataFloatButton: View {
 struct LastDataFloatButton_Previews: PreviewProvider {
     static var previews: some View {
         StatefulPreviewWrapper(true) { isPresent in
-            LatestDataFloatButton(isPresent: isPresent, title: "Latest Battle", action: {})
+            LatestDataFloatButton(isPresent: isPresent, action: {})
                 .previewLayout(.sizeThatFits)
         }
     }
