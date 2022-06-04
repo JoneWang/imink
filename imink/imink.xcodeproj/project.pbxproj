@@ -229,6 +229,7 @@
 		ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4125F87903002E36DD /* LoginView.swift */; };
 		ECD1FA5025F89EF8002E36DD /* FixVectorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */; };
 		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
+		ECD3055F284A234000A7B1E9 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3055E284A234000A7B1E9 /* ScrollViewOffset.swift */; };
 		ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = ECD777E3261178EC0067A51B /* SplatNet2 */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
@@ -493,6 +494,7 @@
 		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		ECD3055E284A234000A7B1E9 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		ECE79FD5283B9877003F42CB /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
 		ECE79FDF283CEFCF003F42CB /* InkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkConfig.swift; sourceTree = "<group>"; };
 		ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				ECA9B3FF266BCE8400EE63FC /* NintendoAccountLoginView.swift */,
 				ECB5CB0026A723A600B921C7 /* LoginFAQButton.swift */,
 				ECFA6B132848BE0500361B06 /* LatestDataFloatButton.swift */,
+				ECD3055E284A234000A7B1E9 /* ScrollViewOffset.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1336,6 +1339,7 @@
 				ECB5CAFF26A722FF00B921C7 /* LoginFAQPage.swift in Sources */,
 				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				ECA9B3E726686D5800EE63FC /* ProgressHUD.swift in Sources */,
+				ECD3055F284A234000A7B1E9 /* ScrollViewOffset.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				EC902D192663F3AE0014093C /* UIViewController+Extension.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,

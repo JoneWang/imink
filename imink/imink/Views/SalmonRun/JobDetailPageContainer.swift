@@ -13,11 +13,10 @@ struct JobDetailPageContainer: View {
     @StateObject var viewModel: JobDetailContainerViewModel
 
     var showPage: (Int64) -> Void
-    var initPageId: Int64
+    @State var initPageId: Int64
     @Binding var isPresented: Bool
 
     @State private var showFloatButton: Bool = false
-    @State private var isTouchSelection: Bool = true
 
     var selectedRow: JobListRowModel
 
@@ -54,7 +53,7 @@ struct JobDetailPageContainer: View {
         }
         .navigationBarTitle(navigationTitle, displayMode: .inline)
         .onDisappear {
-            isPresented = false
+            initPageId = viewModel.currentPageId ?? 0
         }
         .onChange(of: selectedRow) { row in
             viewModel.update(dbJob: row.job!, initPageId: initPageId)
@@ -77,7 +76,7 @@ struct JobDetailPageContainer: View {
     func makeMultipleJob(proxy: ScrollViewProxy) -> some View {
         GeometryReader { geo in
             let pageWidth = geo.size.width
-            ScrollView(.horizontal, showsIndicators: false) {
+            ScrollViewOffset(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 0) {
                     ForEach(viewModel.pages) { page in
                         // Wrapping JobDetailPage with View is used to prevent
@@ -91,10 +90,27 @@ struct JobDetailPageContainer: View {
                         .id(page.id)
                     }
                 }
+            } onOffsetChange: { offset in
+                let pageIndex = Int(round(offset.x / pageWidth))
+                
+                if !viewModel.pages.indices.contains(pageIndex) { return }
+                guard let pageId = viewModel.pages[pageIndex].id else { return }
+                if viewModel.pages[pageIndex].id == viewModel.currentPageId {
+                    showFloatButton = false
+                    return
+                }
+                
+                viewModel.currentPageId = pageId
+                showPage(pageId)
             }
+            .scrollViewPaging()
             .onChange(of: initPageId) { pageId in
-                isTouchSelection = true
                 proxy.scrollTo(pageId)
+            }
+            .onChange(of: selectedRow) { row in
+                withAnimation {
+                    proxy.scrollTo(row.dbId)
+                }
             }
             .onAppear {
                 withAnimation {
@@ -102,23 +118,6 @@ struct JobDetailPageContainer: View {
                 }
             }
             .background(AppColor.listBackgroundColor)
-            .scrollViewPaging()
-            .scrollViewScroll { offset in
-                showFloatButton = false
-                
-                let pageIndex = Int(round(offset.x / pageWidth))
-                
-                if !viewModel.pages.indices.contains(pageIndex) { return }
-                guard let pageId = viewModel.pages[pageIndex].id else { return }
-                if viewModel.pages[pageIndex].id == viewModel.currentPageId { return }
-
-                viewModel.currentPageId = pageId
-                if !isTouchSelection {
-                    showPage(pageId)
-                } else {
-                    isTouchSelection = false
-                }
-            }
         }
     }
 }

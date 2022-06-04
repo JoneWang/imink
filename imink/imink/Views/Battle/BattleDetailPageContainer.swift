@@ -14,7 +14,7 @@ struct BattleDetailPageContainer: View {
     @StateObject private var avatarViewModel = AvatarViewModel()
 
     var showPage: (Int64) -> Void
-    var initPageId: Int64
+    @State var initPageId: Int64
     @Binding var isPresented: Bool
 
     @State private var showPlayerSkill: Bool = false
@@ -24,9 +24,7 @@ struct BattleDetailPageContainer: View {
     @State private var showFloatButton: Bool = false
 
     @State private var hidePlayerNames: Bool = false
-
-    @State private var isTouchSelection: Bool = true
-
+    
     var selectedRow: BattleListRowModel
 
     private var navigationTitle: String {
@@ -50,6 +48,7 @@ struct BattleDetailPageContainer: View {
                         withAnimation {
                             proxy.scrollTo(viewModel.pages.first?.id)
                         }
+                        showFloatButton = false
                     }
                 }),
                 alignment: .bottom
@@ -100,7 +99,7 @@ struct BattleDetailPageContainer: View {
             }
         }
         .onDisappear {
-            isPresented = false
+            initPageId = viewModel.currentPageId ?? 0
         }
         .onChange(of: selectedRow) { row in
             viewModel.update(record: row.record, initPageId: initPageId, filterIndex: 0)
@@ -130,7 +129,7 @@ struct BattleDetailPageContainer: View {
     func makeMultipleBattle(proxy: ScrollViewProxy) -> some View {
         GeometryReader { geo in
             let pageWidth = geo.size.width
-            ScrollView(.horizontal, showsIndicators: false) {
+            ScrollViewOffset(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 0) {
                     ForEach(viewModel.pages) { page in
                         // Wrapping BattleDetailPage with View is used to prevent
@@ -151,11 +150,28 @@ struct BattleDetailPageContainer: View {
                         .id(page.id)
                     }
                 }
+            } onOffsetChange: { offset in
+                let pageIndex = Int(round(offset.x / pageWidth))
+                
+                if !viewModel.pages.indices.contains(pageIndex) { return }
+                guard let pageId = viewModel.pages[pageIndex].id else { return }
+                if viewModel.pages[pageIndex].id == viewModel.currentPageId {
+                    showFloatButton = false
+                    return
+                }
+
+                viewModel.currentPageId = pageId
+                showPage(pageId)
             }
+            .scrollViewPaging()
             .onChange(of: initPageId) { pageId in
-                isTouchSelection = true
                 showPlayerSkill = false
                 proxy.scrollTo(pageId)
+            }
+            .onChange(of: selectedRow) { row in
+                withAnimation {
+                    proxy.scrollTo(row.id)
+                }
             }
             .onAppear {
                 withAnimation {
@@ -163,23 +179,6 @@ struct BattleDetailPageContainer: View {
                 }
             }
             .background(AppColor.listBackgroundColor)
-            .scrollViewPaging()
-            .scrollViewScroll { offset in
-                showFloatButton = false
-                
-                let pageIndex = Int(round(offset.x / pageWidth))
-                
-                if !viewModel.pages.indices.contains(pageIndex) { return }
-                guard let pageId = viewModel.pages[pageIndex].id else { return }
-                if viewModel.pages[pageIndex].id == viewModel.currentPageId { return }
-
-                viewModel.currentPageId = pageId
-                if !isTouchSelection {
-                    showPage(pageId)
-                } else {
-                    isTouchSelection = false
-                }
-            }
         }
     }
 }

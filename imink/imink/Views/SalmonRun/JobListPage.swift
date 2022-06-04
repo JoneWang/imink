@@ -56,10 +56,16 @@ struct JobListPage: View {
                                             selectedRow = row
                                             jobDetailPresented = true
                                         }
+                                        .id(row.dbId)
                                 }
                             }
                         }
                         .padding(.bottom, 16)
+                        .onChange(of: currentDBJobIdInDetail) { recordId in
+                            withAnimation {
+                                proxy.scrollTo(recordId, anchor: .center)
+                            }
+                        }
                     }
                     .fixSafeareaBackground()
                     .modifier(LoginViewModifier(isLogined: viewModel.isLogined, iconName: "TabBarSalmonRun"))

@@ -41,6 +41,7 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
             .store(in: &cancelBag)
         
         $synchronizing
+            .print()
             .removeDuplicates()
             .map { !$0 }
             .assign(to: \.newMessage, on: self)

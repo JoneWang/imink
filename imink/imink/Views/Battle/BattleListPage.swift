@@ -9,21 +9,23 @@ import SwiftUI
 
 struct BattleListPage: View {
     @EnvironmentObject var mainViewModel: MainViewModel
-        
+
     @StateObject var viewModel = BattleListViewModel()
-    
+
     @State private var rows: [BattleListRowModel] = []
     @State private var battleDetailPresented: Bool = false
     @State private var selectedRow: BattleListRowModel?
-    
+
     @State private var currentRecordIdInDetail: Int64?
-    
+
+    @State private var allowScrollingToSelected = false
+
     let filterItems: [(String, String)] = [
         ("All Rules", ""), ("Turf War", "RegularBattleMono"),
         ("Splat Zones", "SplatZonesMono"), ("Tower Control", "TowerControlMono"),
         ("Rainmaker", "RainmakerMono"), ("Clam Blitz", "ClamBlitzMono")
     ]
-    
+
     var body: some View {
         Group {
             if viewModel.isLogined {
@@ -36,9 +38,9 @@ struct BattleListPage: View {
                             ToolbarItem(placement: .primaryAction) {
                                 Menu {
                                     Picker(selection: $viewModel.currentFilterIndex, label: Text("filtering options")) {
-                                        ForEach(0..<filterItems.count) { i in
+                                        ForEach(0 ..< filterItems.count) { i in
                                             let item = filterItems[i]
-                                            HStack{
+                                            HStack {
                                                 Text(item.0.localized)
                                                 Image(item.1, bundle: Bundle.inkCore)
                                                     .foregroundColor(.primary)
@@ -68,7 +70,7 @@ struct BattleListPage: View {
             viewModel.updateLoginStatus(isLogined: isLogined)
         }
     }
-    
+
     var content: some View {
         ZStack {
             ScrollViewReader { proxy in
@@ -76,7 +78,7 @@ struct BattleListPage: View {
                     destination: detailPage,
                     isActive: $battleDetailPresented
                 ) { EmptyView() }
-            
+
                 ScrollView {
                     LazyVStack {
                         ForEach(rows, id: \.id) { row in
@@ -98,14 +100,22 @@ struct BattleListPage: View {
                     .padding([.top, .bottom], 16)
                 }
                 .onChange(of: currentRecordIdInDetail) { recordId in
-                    withAnimation {
-                        proxy.scrollTo(recordId, anchor: .center)
+                    if allowScrollingToSelected {
+                        allowScrollingToSelected = false
+                    } else {
+                        withAnimation {
+                            proxy.scrollTo(recordId, anchor: .center)
+                        }
                     }
                 }
             }
         }
         .onAppear {
             self.rows = viewModel.rows
+            self.allowScrollingToSelected = false
+        }
+        .onDisappear {
+            self.allowScrollingToSelected = true
         }
         .onChange(of: viewModel.rows) { rows in
             withAnimation {
@@ -118,7 +128,7 @@ struct BattleListPage: View {
             }
         }
     }
-    
+
     var detailPage: some View {
         Group {
             if let row = selectedRow {
