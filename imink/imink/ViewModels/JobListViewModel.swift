@@ -24,6 +24,10 @@ struct JobListRowModel: Identifiable {
         }
     }
     
+    var dbId: Int64 {
+        job?.id ?? 0
+    }
+    
     enum RowType: String {
         case shiftCard, job
     }
@@ -48,12 +52,20 @@ struct JobListRowModel: Identifiable {
     }
 }
 
+extension JobListRowModel: Equatable {
+    static func == (lhs: JobListRowModel, rhs: JobListRowModel) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 class JobListViewModel: ObservableObject {
     
     @Published var isLogined: Bool = false
     @Published var rows: [JobListRowModel] = []
     @Published var selectedId: Int64?
     
+    @Published var databaseDBJobs: [DBJob] = []
+
     private var cancelBag = Set<AnyCancellable>()
 
     init() {
@@ -78,6 +90,10 @@ class JobListViewModel: ObservableObject {
                 os_log("Database Error: [jobs] \(error.localizedDescription)")
                 return Just<[DBJob]>([])
             }
+            .assign(to: \.databaseDBJobs, on: self)
+            .store(in: &cancelBag)
+        
+        $databaseDBJobs
             .map { jobs in
                 var rows = [JobListRowModel]()
                 var lastStartTime: Date?

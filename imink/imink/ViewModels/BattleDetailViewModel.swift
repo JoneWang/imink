@@ -2,23 +2,39 @@
 //  BattleDetailViewModel.swift
 //  imink
 //
-//  Created by Jone Wang on 2021/2/8.
+//  Created by Jone Wang on 2022/3/4.
 //
 
 import Foundation
-import Combine
 
-class BattleDetailViewModel: ObservableObject {
+class BattleDetailViewModel: ObservableObject, Identifiable {
     @Published var battle: Battle? = nil
     
-    private var cancelBag = Set<AnyCancellable>()
+    let record: DBRecord
     
-    func load(id: Int64?) {
-        guard let id = id else {
+    var id: Int64? {
+        record.id
+    }
+    
+    init(record: DBRecord) {
+        self.record = record
+    }
+    
+    func loadBattle(sync: Bool = false) {
+        guard let id = record.id, self.battle == nil else {
             return
         }
         
-        let dbRecord = AppDatabase.shared.record(with: id)
-        self.battle = dbRecord?.battle
+        if sync {
+            let dbRecord = AppDatabase.shared.record(with: id)
+            self.battle = dbRecord?.battle
+        } else {
+            DispatchQueue(label: "", qos: .background, attributes: .concurrent).async {
+                let dbRecord = AppDatabase.shared.record(with: id)
+                DispatchQueue.main.async {
+                    self.battle = dbRecord?.battle
+                }
+            }
+        }
     }
 }

@@ -10,67 +10,25 @@ import InkCore
 
 struct BattleListItemView: View {
     
-    static let RealtimeRecordId: Int64 = -1
-    
     let row: BattleListRowModel
-    @Binding var selectedId: String?
+    @Binding var selectedId: Int64?
     
     @State private var isSelected: Bool = false
-    @State private var realtimeLoading: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
-            if row.type == .realtime {
-                makeRealtimeContent()
-                    .padding(.top, 16)
-                    .padding(.bottom)
-                    .padding([.leading, .trailing], 8)
-                    .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
-                    .frame(height: 79)
-                    .continuousCornerRadius(10)
-                    .onReceive(
-                        NotificationCenter.default
-                            .publisher(for: .isLoadingRealTimeBattleResult)
-                            .map { $0.object as! Bool },
-                        perform: { self.realtimeLoading = $0 }
-                    )
-            } else if let record = row.record {
-                makeRecordContent(record: record)
-                    .padding(.top, 7.5)
-                    .padding(.bottom, 7)
-                    .padding([.leading, .trailing], 8)
-                    .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
-                    .frame(height: 79)
-                    .continuousCornerRadius(10)
+            makeRecordContent(record: row.record)
+                .padding(.top, 7.5)
+                .padding(.bottom, 7)
+                .padding([.leading, .trailing], 8)
+                .background(isSelected ? .systemGray5 : AppColor.listItemBackgroundColor)
+                .frame(height: 79)
+                .continuousCornerRadius(10)
             }
-        }
         .onChange(of: selectedId) { value in
             withAnimation {
                 self.isSelected = selectedId == row.id
             }
-        }
-    }
-    
-    func makeRealtimeContent() -> some View {
-        HStack {
-            Spacer()
-            
-            VStack(spacing: 8) {
-                if let battleNumber = row.record?.battleNumber, !realtimeLoading {
-                    Text("ID: \(battleNumber)")
-                        .sp1Font(size: 18, color: Color.secondaryLabel)
-                        .frame(height: 24)
-                } else {
-                    ProgressView()
-                        .scaleEffect(1.3)
-                        .frame(height: 24)
-                }
-                
-                Text("Real-time data")
-                    .sp1Font(size: 18, color: AppColor.appLabelColor)
-            }
-            
-            Spacer()
         }
     }
     
@@ -302,18 +260,9 @@ struct BattleListItemView_Previews: PreviewProvider {
             isX: false,
             xPower: 0
         )
-        let realtimeRow = BattleListRowModel(type: .realtime, record: dbRecord)
-        let row = BattleListRowModel(type: .record, record: dbRecord)
+        let row = BattleListRowModel(record: dbRecord)
         
-        StatefulPreviewWrapper("") { selectedId in
-            BattleListItemView(row: realtimeRow, selectedId: selectedId)
-                .padding(.top, 8)
-                .padding([.leading, .trailing])
-                .background(AppColor.listBackgroundColor)
-                .previewLayout(.sizeThatFits)
-        }
-        
-        StatefulPreviewWrapper("") { selectedId in
+        StatefulPreviewWrapper(-1) { selectedId in
             BattleListItemView(row: row, selectedId: selectedId)
                 .padding(.top, 8)
                 .padding([.leading, .trailing])
@@ -321,7 +270,7 @@ struct BattleListItemView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
         }
             
-        StatefulPreviewWrapper("") { selectedId in
+        StatefulPreviewWrapper(-1) { selectedId in
             BattleListItemView(row: row, selectedId: selectedId)
                 .padding(.top, 8)
                 .padding([.leading, .trailing])

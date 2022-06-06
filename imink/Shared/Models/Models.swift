@@ -122,6 +122,28 @@ extension Battle {
     }
 }
 
+// Filter
+extension GameRule.Key {
+    static func with(index: Int) -> Self? {
+        switch (index) {
+        case 0:
+            return nil
+        case 1:
+            return .turfWar
+        case 2:
+            return .splatZones
+        case 3:
+            return .towerControl
+        case 4:
+            return .rainmaker
+        case 5:
+            return .clamBlitz
+        default:
+            return nil
+        }
+    }
+}
+
 import SwiftUI
 
 extension SN2Color {

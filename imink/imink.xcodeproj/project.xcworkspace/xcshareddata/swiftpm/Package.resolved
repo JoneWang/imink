@@ -1,175 +1,187 @@
 {
-  "pins" : [
-    {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire.git",
-      "state" : {
-        "revision" : "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
-        "version" : "5.4.4"
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
+          "version": "5.4.4"
+        }
+      },
+      {
+        "package": "GRDB",
+        "repositoryURL": "https://github.com/groue/GRDB.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "8658b7bc1009237457324fc050cd06e0d961b72a",
+          "version": "5.13.0"
+        }
+      },
+      {
+        "package": "Logger",
+        "repositoryURL": "https://github.com/shibapm/Logger",
+        "state": {
+          "branch": null,
+          "revision": "53c3ecca5abe8cf46697e33901ee774236d94cce",
+          "version": "0.2.3"
+        }
+      },
+      {
+        "package": "Moya",
+        "repositoryURL": "https://github.com/Moya/Moya",
+        "state": {
+          "branch": null,
+          "revision": "d27767c3624cc64a45bb371b267b89c92d70c670",
+          "version": "14.0.1"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
+          "version": "8.1.2"
+        }
+      },
+      {
+        "package": "OHHTTPStubs",
+        "repositoryURL": "https://github.com/AliSoftware/OHHTTPStubs.git",
+        "state": {
+          "branch": null,
+          "revision": "12f19662426d0434d6c330c6974d53e2eb10ecd9",
+          "version": "9.1.0"
+        }
+      },
+      {
+        "package": "PackageConfig",
+        "repositoryURL": "https://github.com/shibapm/PackageConfig.git",
+        "state": {
+          "branch": null,
+          "revision": "5df1709f87e40e27b3fbe5022b826aff30d652d9",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "09b3becb37cb2163919a3842a4c5fa6ec7130792",
+          "version": "2.2.1"
+        }
+      },
+      {
+        "package": "ReactiveSwift",
+        "repositoryURL": "https://github.com/Moya/ReactiveSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "f195d82bb30e412e70446e2b4a77e1b514099e88",
+          "version": "6.1.0"
+        }
+      },
+      {
+        "package": "Rocket",
+        "repositoryURL": "https://github.com/shibapm/Rocket",
+        "state": {
+          "branch": null,
+          "revision": "9880a5beb7fcb9e61ddd5764edc1700b8c418deb",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "cec68169a048a079f461ba203fe85636548d7a89",
+          "version": "5.1.3"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "a72df4849408da7e5d3c1b586797b7c601c41d1b",
+          "version": "5.12.1"
+        }
+      },
+      {
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "4c7f169e39bc35d6b80d42b8eb8301bee9cd0907",
+          "version": "1.5.0"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SPAlert",
+        "repositoryURL": "https://github.com/ivanvorobei/SPAlert.git",
+        "state": {
+          "branch": null,
+          "revision": "7bb70ab93d066875341ae64b9d39d0957594f018",
+          "version": "3.5.0"
+        }
+      },
+      {
+        "package": "SplatNet2",
+        "repositoryURL": "https://github.com/ddddxxx/SplatNet2.git",
+        "state": {
+          "branch": null,
+          "revision": "387275f05406c57814e4dabdb8805cc96d822cea",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftShell",
+        "repositoryURL": "https://github.com/kareman/SwiftShell",
+        "state": {
+          "branch": null,
+          "revision": "a6014fe94c3dbff0ad500e8da4f251a5d336530b",
+          "version": "5.1.0-beta.1"
+        }
+      },
+      {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "state": {
+          "branch": null,
+          "revision": "f2616860a41f9d9932da412a8978fec79c06fe24",
+          "version": "0.1.4"
+        }
+      },
+      {
+        "package": "Yams",
+        "repositoryURL": "https://github.com/jpsim/Yams",
+        "state": {
+          "branch": null,
+          "revision": "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",
+          "version": "4.0.6"
+        }
+      },
+      {
+        "package": "Zip",
+        "repositoryURL": "https://github.com/marmelroy/Zip.git",
+        "state": {
+          "branch": null,
+          "revision": "bd19d974e8a38cc8d3a88c90c8a107386c3b8ccf",
+          "version": "2.1.1"
+        }
       }
-    },
-    {
-      "identity" : "grdb.swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/groue/GRDB.swift.git",
-      "state" : {
-        "revision" : "8658b7bc1009237457324fc050cd06e0d961b72a",
-        "version" : "5.13.0"
-      }
-    },
-    {
-      "identity" : "logger",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/shibapm/Logger",
-      "state" : {
-        "revision" : "53c3ecca5abe8cf46697e33901ee774236d94cce",
-        "version" : "0.2.3"
-      }
-    },
-    {
-      "identity" : "moya",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Moya/Moya",
-      "state" : {
-        "revision" : "d27767c3624cc64a45bb371b267b89c92d70c670",
-        "version" : "14.0.1"
-      }
-    },
-    {
-      "identity" : "nimble",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Quick/Nimble.git",
-      "state" : {
-        "revision" : "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
-        "version" : "8.1.2"
-      }
-    },
-    {
-      "identity" : "ohhttpstubs",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AliSoftware/OHHTTPStubs.git",
-      "state" : {
-        "revision" : "12f19662426d0434d6c330c6974d53e2eb10ecd9",
-        "version" : "9.1.0"
-      }
-    },
-    {
-      "identity" : "packageconfig",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/shibapm/PackageConfig.git",
-      "state" : {
-        "revision" : "5df1709f87e40e27b3fbe5022b826aff30d652d9",
-        "version" : "1.1.0"
-      }
-    },
-    {
-      "identity" : "quick",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Quick/Quick.git",
-      "state" : {
-        "revision" : "09b3becb37cb2163919a3842a4c5fa6ec7130792",
-        "version" : "2.2.1"
-      }
-    },
-    {
-      "identity" : "reactiveswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Moya/ReactiveSwift.git",
-      "state" : {
-        "revision" : "f195d82bb30e412e70446e2b4a77e1b514099e88",
-        "version" : "6.1.0"
-      }
-    },
-    {
-      "identity" : "rocket",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/shibapm/Rocket",
-      "state" : {
-        "revision" : "9880a5beb7fcb9e61ddd5764edc1700b8c418deb",
-        "version" : "1.2.1"
-      }
-    },
-    {
-      "identity" : "rxswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveX/RxSwift.git",
-      "state" : {
-        "revision" : "cec68169a048a079f461ba203fe85636548d7a89",
-        "version" : "5.1.3"
-      }
-    },
-    {
-      "identity" : "sdwebimage",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SDWebImage/SDWebImage.git",
-      "state" : {
-        "revision" : "a72df4849408da7e5d3c1b586797b7c601c41d1b",
-        "version" : "5.12.1"
-      }
-    },
-    {
-      "identity" : "sdwebimageswiftui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
-      "state" : {
-        "revision" : "4c7f169e39bc35d6b80d42b8eb8301bee9cd0907",
-        "version" : "1.5.0"
-      }
-    },
-    {
-      "identity" : "snapkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SnapKit/SnapKit.git",
-      "state" : {
-        "revision" : "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-        "version" : "5.0.1"
-      }
-    },
-    {
-      "identity" : "spalert",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ivanvorobei/SPAlert.git",
-      "state" : {
-        "revision" : "dceb157023ad81447ba7c3b7386469866a4e3f3c",
-        "version" : "3.5.0"
-      }
-    },
-    {
-      "identity" : "splatnet2",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ddddxxx/SplatNet2.git",
-      "state" : {
-        "revision" : "387275f05406c57814e4dabdb8805cc96d822cea"
-      }
-    },
-    {
-      "identity" : "swiftshell",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kareman/SwiftShell",
-      "state" : {
-        "revision" : "a6014fe94c3dbff0ad500e8da4f251a5d336530b",
-        "version" : "5.1.0-beta.1"
-      }
-    },
-    {
-      "identity" : "yams",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jpsim/Yams",
-      "state" : {
-        "revision" : "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",
-        "version" : "4.0.6"
-      }
-    },
-    {
-      "identity" : "zip",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/marmelroy/Zip.git",
-      "state" : {
-        "revision" : "bd19d974e8a38cc8d3a88c90c8a107386c3b8ccf",
-        "version" : "2.1.1"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }

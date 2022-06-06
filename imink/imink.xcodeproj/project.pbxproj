@@ -75,8 +75,10 @@
 		EC17177D25FB114600500D13 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17177C25FB114500500D13 /* OnboardingPage.swift */; };
 		EC17178B25FB653300500D13 /* NSOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17178A25FB653300500D13 /* NSOAPI.swift */; };
 		EC17179325FBA98100500D13 /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
+		EC18D98E2849E07800293345 /* JobDetailPageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18D98D2849E07800293345 /* JobDetailPageContainer.swift */; };
+		EC18D9902849E0A100293345 /* JobDetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18D98F2849E0A100293345 /* JobDetailContainerViewModel.swift */; };
 		EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */; };
-		EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */; };
+		EC1FAE3B25D12EF000B063B5 /* BattleDetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */; };
 		EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */; };
 		EC25FE8B25B8A0C50085670D /* JobListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8A25B8A0C50085670D /* JobListPage.swift */; };
 		EC25FE8F25B934640085670D /* JobListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25FE8E25B934640085670D /* JobListItemView.swift */; };
@@ -122,6 +124,10 @@
 		EC76129C260B22D000C4D3AA /* NSOHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17179225FBA98100500D13 /* NSOHash.swift */; };
 		EC76329B26665A34007FF9C4 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC76329A26665A34007FF9C4 /* ListRow.swift */; };
 		EC7DF2F825B9A4B100B503F0 /* JobDetailTopCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */; };
+		EC7F679827CF7454000876BB /* ScrollViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F679727CF7454000876BB /* ScrollViewModifier.swift */; };
+		EC7F679D27CF8239000876BB /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = EC7F679C27CF8239000876BB /* Introspect */; };
+		EC7FE1A927D134440053885E /* BattleDetailPageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE1A827D134440053885E /* BattleDetailPageContainer.swift */; };
+		EC7FE1AB27D13C150053885E /* BattleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE1AA27D13C150053885E /* BattleDetailViewModel.swift */; };
 		EC807CA725F7385C003FC2E6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC807CA625F7385C003FC2E6 /* TodayView.swift */; };
 		EC809F28264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
 		EC809F29264C196D00F125AA /* SplatNet2+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */; };
@@ -223,6 +229,7 @@
 		ECD1FA4225F87903002E36DD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4125F87903002E36DD /* LoginView.swift */; };
 		ECD1FA5025F89EF8002E36DD /* FixVectorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */; };
 		ECD2BFAE25BD8B5E00AA11CA /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */; };
+		ECD3055F284A234000A7B1E9 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3055E284A234000A7B1E9 /* ScrollViewOffset.swift */; };
 		ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */ = {isa = PBXBuildFile; productRef = ECD777E3261178EC0067A51B /* SplatNet2 */; };
 		ECE6785C2585F79C00D750DB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = EC43AA57251C9A7100283D28 /* GRDB */; };
 		ECE6785E2585F79C00D750DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC606044251CD5B200DCF35E /* SnapKit */; };
@@ -237,6 +244,7 @@
 		ECF26F0325BACBDE00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
 		ECF26F0425BACBDF00F1FBCA /* WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */; };
 		ECF91ECF2609F58500FF7F55 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF91ECE2609F58500FF7F55 /* MailView.swift */; };
+		ECFA6B142848BE0500361B06 /* LatestDataFloatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFA6B132848BE0500361B06 /* LatestDataFloatButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,8 +375,10 @@
 		EC17179225FBA98100500D13 /* NSOHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOHash.swift; sourceTree = "<group>"; };
 		EC17CB0C256B995900E34247 /* InkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC17CB0F256B995900E34247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC18D98D2849E07800293345 /* JobDetailPageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailPageContainer.swift; sourceTree = "<group>"; };
+		EC18D98F2849E0A100293345 /* JobDetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailContainerViewModel.swift; sourceTree = "<group>"; };
 		EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListPage.swift; sourceTree = "<group>"; };
-		EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailViewModel.swift; sourceTree = "<group>"; };
+		EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailContainerViewModel.swift; sourceTree = "<group>"; };
 		EC1FAE4025D1335F00B063B5 /* BattleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleListItemView.swift; sourceTree = "<group>"; };
 		EC25FE8A25B8A0C50085670D /* JobListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListPage.swift; sourceTree = "<group>"; };
 		EC25FE8E25B934640085670D /* JobListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListItemView.swift; sourceTree = "<group>"; };
@@ -409,6 +419,9 @@
 		EC761294260B214C00C4D3AA /* NSOAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOAuthorization.swift; sourceTree = "<group>"; };
 		EC76329A26665A34007FF9C4 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		EC7DF2F725B9A4B100B503F0 /* JobDetailTopCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailTopCardView.swift; sourceTree = "<group>"; };
+		EC7F679727CF7454000876BB /* ScrollViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewModifier.swift; sourceTree = "<group>"; };
+		EC7FE1A827D134440053885E /* BattleDetailPageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailPageContainer.swift; sourceTree = "<group>"; };
+		EC7FE1AA27D13C150053885E /* BattleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDetailViewModel.swift; sourceTree = "<group>"; };
 		EC807CA625F7385C003FC2E6 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		EC809F27264C196D00F125AA /* SplatNet2+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplatNet2+Localized.swift"; sourceTree = "<group>"; };
 		EC8611A8253AA873003BA67A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -481,6 +494,7 @@
 		ECD1FA4125F87903002E36DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECD1FA4F25F89EF8002E36DD /* FixVectorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixVectorImage.swift; sourceTree = "<group>"; };
 		ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		ECD3055E284A234000A7B1E9 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		ECE79FD5283B9877003F42CB /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
 		ECE79FDF283CEFCF003F42CB /* InkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkConfig.swift; sourceTree = "<group>"; };
 		ECEE0C8427BBB44F0091B688 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
@@ -489,6 +503,7 @@
 		ECF26EFD25BA9E3400F1FBCA /* JobDetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailMemberView.swift; sourceTree = "<group>"; };
 		ECF26F0225BACBDE00F1FBCA /* WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveShape.swift; sourceTree = "<group>"; };
 		ECF91ECE2609F58500FF7F55 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		ECFA6B132848BE0500361B06 /* LatestDataFloatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestDataFloatButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +513,7 @@
 			files = (
 				EC9D0A5D25A1761900E8FF89 /* SDWebImageSwiftUI in Frameworks */,
 				EC9D0A5925A1761900E8FF89 /* SDWebImage in Frameworks */,
+				EC7F679D27CF8239000876BB /* Introspect in Frameworks */,
 				ECD777E4261178EC0067A51B /* SplatNet2 in Frameworks */,
 				EC9D0A5B25A1761900E8FF89 /* SDWebImageMapKit in Frameworks */,
 			);
@@ -558,6 +574,7 @@
 				EC3120552599D55300CEE73B /* CornerRadiusModifier.swift */,
 				EC0DFCF3263AC1CE00E95564 /* PopupModifier.swift */,
 				EC8754CC2706D5E900D4A96B /* FixSafeareaBackgroundModifier.swift */,
+				EC7F679727CF7454000876BB /* ScrollViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -577,6 +594,8 @@
 				EC902D0F2663AAE40014093C /* SessionStatusView.swift */,
 				ECA9B3FF266BCE8400EE63FC /* NintendoAccountLoginView.swift */,
 				ECB5CB0026A723A600B921C7 /* LoginFAQButton.swift */,
+				ECFA6B132848BE0500361B06 /* LatestDataFloatButton.swift */,
+				ECD3055E284A234000A7B1E9 /* ScrollViewOffset.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -659,6 +678,7 @@
 			children = (
 				EC25FEA325B963B40085670D /* Views */,
 				EC25FE8A25B8A0C50085670D /* JobListPage.swift */,
+				EC18D98D2849E07800293345 /* JobDetailPageContainer.swift */,
 				EC25FE9F25B960990085670D /* JobDetailPage.swift */,
 			);
 			path = SalmonRun;
@@ -681,6 +701,7 @@
 			children = (
 				EC2C34AA25984CCF0007BA4D /* Views */,
 				EC1FAE3425D12B5A00B063B5 /* BattleListPage.swift */,
+				EC7FE1A827D134440053885E /* BattleDetailPageContainer.swift */,
 				EC4CA1732595C6B900B5C8CF /* BattleDetailPage.swift */,
 			);
 			path = Battle;
@@ -903,8 +924,10 @@
 				EC900EBB251C8EF700AA0B20 /* LoginViewModel.swift */,
 				EC5362472525D68E0037BD12 /* HomeViewModel.swift */,
 				EC900EBD251C8EF700AA0B20 /* BattleListViewModel.swift */,
-				EC1FAE3A25D12EF000B063B5 /* BattleDetailViewModel.swift */,
+				EC1FAE3A25D12EF000B063B5 /* BattleDetailContainerViewModel.swift */,
+				EC7FE1AA27D13C150053885E /* BattleDetailViewModel.swift */,
 				ECB959CA25B896A80006E942 /* JobListViewModel.swift */,
+				EC18D98F2849E0A100293345 /* JobDetailContainerViewModel.swift */,
 				ECD2BFAD25BD8B5E00AA11CA /* JobDetailViewModel.swift */,
 				EC62E77225360B2B0028428C /* MeViewModel.swift */,
 				EC16CED7261990D800663DC1 /* AvatarViewModel.swift */,
@@ -1020,6 +1043,7 @@
 				EC9D0A5A25A1761900E8FF89 /* SDWebImageMapKit */,
 				EC9D0A5C25A1761900E8FF89 /* SDWebImageSwiftUI */,
 				ECD777E3261178EC0067A51B /* SplatNet2 */,
+				EC7F679C27CF8239000876BB /* Introspect */,
 			);
 			productName = InkCore;
 			productReference = EC17CB0C256B995900E34247 /* InkCore.framework */;
@@ -1114,6 +1138,7 @@
 				ECD777DC261177BC0067A51B /* XCRemoteSwiftPackageReference "SplatNet2" */,
 				EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */,
 				EC2D2F94266E36FF008D1F51 /* XCRemoteSwiftPackageReference "SPAlert" */,
+				EC7F679927CF7DFD000876BB /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = EC900E72251C55FF00AA0B20 /* Products */;
 			projectDirPath = "";
@@ -1282,6 +1307,7 @@
 			files = (
 				EC2C34B2259899590007BA4D /* BattleDetailResultBarView.swift in Sources */,
 				EC00DBF6251CD29C0010366A /* TransitionModifier.swift in Sources */,
+				EC7FE1AB27D13C150053885E /* BattleDetailViewModel.swift in Sources */,
 				EC900ED0251C8EF700AA0B20 /* AppTheme.swift in Sources */,
 				ECA6AD9E257E1C31005D873B /* FontModifier.swift in Sources */,
 				ECB959A925B8387E0006E942 /* SynchronizeBattleViewModel.swift in Sources */,
@@ -1289,6 +1315,7 @@
 				EC16CED8261990D800663DC1 /* AvatarViewModel.swift in Sources */,
 				EC5CBF822653924100F1A063 /* MedalView.swift in Sources */,
 				ECEE0C8527BBB44F0091B688 /* ScheduleViewModel.swift in Sources */,
+				ECFA6B142848BE0500361B06 /* LatestDataFloatButton.swift in Sources */,
 				EC1FAE4125D1335F00B063B5 /* BattleListItemView.swift in Sources */,
 				EC900ECD251C8EF700AA0B20 /* AppAPI.swift in Sources */,
 				EC900EC2251C8EF700AA0B20 /* Decode&Encode.swift in Sources */,
@@ -1312,6 +1339,7 @@
 				ECB5CAFF26A722FF00B921C7 /* LoginFAQPage.swift in Sources */,
 				EC8C34E026177B32006E9D0B /* UIAlertController+Extension.swift in Sources */,
 				ECA9B3E726686D5800EE63FC /* ProgressHUD.swift in Sources */,
+				ECD3055F284A234000A7B1E9 /* ScrollViewOffset.swift in Sources */,
 				EC5D2629258FA02F004E7B3A /* TestFontView.swift in Sources */,
 				EC902D192663F3AE0014093C /* UIViewController+Extension.swift in Sources */,
 				ECB959CB25B896A80006E942 /* JobListViewModel.swift in Sources */,
@@ -1329,11 +1357,13 @@
 				EC900EC5251C8EF700AA0B20 /* Easeing.swift in Sources */,
 				EC900EC3251C8EF700AA0B20 /* StatefulPreviewWrapper.swift in Sources */,
 				EC0598E426D121EC00262D86 /* AppConfig.swift in Sources */,
+				EC18D98E2849E07800293345 /* JobDetailPageContainer.swift in Sources */,
 				EC9A90492527851C00390573 /* ScheduleView.swift in Sources */,
 				EC902D0E266395540014093C /* SettingViewModel.swift in Sources */,
 				ECB959A825B8387E0006E942 /* SynchronizeJobViewModel.swift in Sources */,
 				EC900EC7251C8EF700AA0B20 /* UserDefaultsWrapper.swift in Sources */,
 				EC3120562599D55300CEE73B /* CornerRadiusModifier.swift in Sources */,
+				EC18D9902849E0A100293345 /* JobDetailContainerViewModel.swift in Sources */,
 				EC1FAE3525D12B5A00B063B5 /* BattleListPage.swift in Sources */,
 				EC0B0986266692640011758C /* CreditsPage.swift in Sources */,
 				EC54C0862618BBE900EA3A9E /* PlayerSkillView.swift in Sources */,
@@ -1370,6 +1400,7 @@
 				EC0B098E2667FA790011758C /* DataBackup.swift in Sources */,
 				EC38A4E125330DAD00A81656 /* Bundle+Extension.swift in Sources */,
 				EC4C038B266F63A100AA7ECE /* SectionHeader.swift in Sources */,
+				EC7FE1A927D134440053885E /* BattleDetailPageContainer.swift in Sources */,
 				ECA695092531AC9D00376D95 /* PieView.swift in Sources */,
 				ECB959B525B872BD0006E942 /* DBJob.swift in Sources */,
 				EC5362532525DDDF0037BD12 /* HomePage.swift in Sources */,
@@ -1377,6 +1408,7 @@
 				EC900ECE251C8EF700AA0B20 /* API.swift in Sources */,
 				EC5CBF7D2652B2FF00F1A063 /* TouchDownAndTouchUpGestureView.swift in Sources */,
 				ECB959AD25B85A4A0006E942 /* SynchronizeViewModel.swift in Sources */,
+				EC7F679827CF7454000876BB /* ScrollViewModifier.swift in Sources */,
 				EC39703725482BE400557BD4 /* String+LocalizedString.swift in Sources */,
 				EC902D102663AAE40014093C /* SessionStatusView.swift in Sources */,
 				EC900ECB251C8EF700AA0B20 /* Splatoon2API.swift in Sources */,
@@ -1384,7 +1416,7 @@
 				EC900ECF251C8EF700AA0B20 /* AppColor.swift in Sources */,
 				EC4CA1782595DEAB00B5C8CF /* ConvenientColors.swift in Sources */,
 				EC900EDE251C8EF700AA0B20 /* LoginViewModel.swift in Sources */,
-				EC1FAE3B25D12EF000B063B5 /* BattleDetailViewModel.swift in Sources */,
+				EC1FAE3B25D12EF000B063B5 /* BattleDetailContainerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1829,6 +1861,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		EC7F679927CF7DFD000876BB /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		EC8136AA264FD3F100423D14 /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip.git";
@@ -1862,6 +1902,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC606043251CD5B200DCF35E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EC7F679C27CF8239000876BB /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC7F679927CF7DFD000876BB /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 		EC8136AB264FD3F100423D14 /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;

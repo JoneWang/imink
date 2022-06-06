@@ -10,30 +10,22 @@ import SDWebImageSwiftUI
 import InkCore
 
 struct BattleDetailPage: View {
-    @StateObject private var viewModel = BattleDetailViewModel()
-    @StateObject private var avatarViewModel = AvatarViewModel()
+    @StateObject var viewModel: BattleDetailViewModel
     
-    let row: BattleListRowModel
-    @Binding var realtimeRow: BattleListRowModel?
+    let hidePlayerNames: Bool
     
-    @State private var hidePlayerNames: Bool = false
-    @State private var showPlayerSkill: Bool = false
-    @State private var activePlayer: Player? = nil
-    @State private var activePlayerVictory: Bool = false
-    @State private var hoveredMember: Bool = false
+    @Binding var showPlayerSkill: Bool
+    @Binding var hoveredMember: Bool
+    @Binding var activePlayer: Player?
+    @Binding var activePlayerVictory: Bool
     
-    var navigationTitle: String {
-        let title = viewModel.battle?.battleNumber != nil ?
-            "ID: \(viewModel.battle!.battleNumber)" : ""
-        if row.type == .realtime {
-            return "Real-time \(title)"
-        } else {
-            return title
-        }
-    }
+    @State var battle: Battle? = nil
+    @State var showAnimation: Bool = false
+    
+    var topSafearea: CGFloat = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0
     
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical) {
             HStack {
                 Spacer()
                 
@@ -46,49 +38,10 @@ struct BattleDetailPage: View {
                 Spacer()
             }
             .padding(.horizontal, 8)
+            // FIXME: When two ScrollViews are nested. The inner one ScrollView has no safa area.
+            .padding(.top, topSafearea + 44)
         }
         .frame(maxWidth: .infinity)
-        .background(AppColor.listBackgroundColor)
-        .navigationBarTitle(navigationTitle, displayMode: .inline)
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Menu {
-                    if (hidePlayerNames) {
-                        Button(action: {
-                            hidePlayerNames = false
-                        }) {
-                            Label("Show Player Names", systemImage: "eye")
-                        }
-                    } else {
-                        Button(action: {
-                            hidePlayerNames = true
-                        }) {
-                            Label("Hide Player Names", systemImage: "eye.slash")
-                        }
-                    }
-                }
-                label: {
-                    Label("Menu", systemImage: "ellipsis.circle")
-                }
-            }
-        }
-        .onAppear {
-            viewModel.load(id: row.record?.id)
-        }
-        .onChange(of: realtimeRow) { row in
-            if let row = row {
-                viewModel.load(id: row.record?.id)
-            }
-        }
-        .fixSafeareaBackground()
-        .modifier(Popup(isPresented: showPlayerSkill,
-                        onDismiss: {
-                            showPlayerSkill = false
-                        }, content: {
-                            PlayerSkillView(victory: $activePlayerVictory, player: $activePlayer, viewModel: avatarViewModel) {
-                                showPlayerSkill = false
-                            }
-                        }))
     }
     
     func makeContent(battle: Battle) -> some View {
@@ -356,54 +309,3 @@ extension Player: Identifiable {
 //        return BattleDetailPage(row: <#T##BattleListRowModel#>, realtimeRow: <#T##Binding<BattleListRowModel?>#>)
 //    }
 //}
-
-public enum ButtonState {
-    case pressed
-    case notPressed
-}
-
-/// ViewModifier allows us to get a view, then modify it and return it
-public struct TouchDownUpEventModifier: ViewModifier {
-    
-    /// Properties marked with `@GestureState` automatically resets when the gesture ends/is cancelled
-    /// for example, once the finger lifts up, this will reset to false
-    /// this functionality is handled inside the `.updating` modifier
-    @GestureState private var isPressed = false
-    
-    /// this is the closure that will get passed around.
-    /// we will update the ButtonState every time your finger touches down or up.
-    let changeState: (ButtonState) -> Void
-    
-    /// a required function for ViewModifier.
-    /// content is the body content of the caller view
-    public func body(content: Content) -> some View {
-        
-        /// declare the drag gesture
-        let drag = DragGesture(minimumDistance: 0)
-            
-            /// this is called whenever the gesture is happening
-            /// because we do this on a `DragGesture`, this is called when the finger is down
-            .updating($isPressed) { (value, gestureState, transaction) in
-                
-            /// setting the gestureState will automatically set `$isPressed`
-            gestureState = true
-        }
-        
-        return content
-        .gesture(drag) /// add the gesture
-        .onChange(of: isPressed, perform: { (pressed) in /// call `changeState` whenever the state changes
-            /// `onChange` is available in iOS 14 and higher.
-            if pressed {
-                self.changeState(.pressed)
-            } else {
-                self.changeState(.notPressed)
-            }
-        })
-    }
-    
-    /// if you're on iPad Swift Playgrounds and you put all of this code in a seperate file,
-    /// you need to add a public init so that the compiler detects it.
-    public init(changeState: @escaping (ButtonState) -> Void) {
-        self.changeState = changeState
-    }
-}

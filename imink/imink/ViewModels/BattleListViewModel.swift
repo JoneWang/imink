@@ -8,26 +8,20 @@
 import Foundation
 import Combine
 import os
+import SwiftUI
 
 struct BattleListRowModel: Identifiable {
     
-    let type: RowType
-    var record: DBRecord?
+    let record: DBRecord
     
-    enum RowType: String {
-        case realtime, record
+    var id: Int64 {
+        record.id ?? 0
     }
-    
-    var id: String {
-        "\(type == .record ? "\(record?.battleNumber ?? "")" : "")\(type.rawValue)"
-    }
-    
-    static let realtimeId = "realtime"
 }
 
 extension BattleListRowModel: Hashable {
     public static func == (lhs: BattleListRowModel, rhs: BattleListRowModel) -> Bool {
-        lhs.record?.id == rhs.record?.id && lhs.type == rhs.type
+        lhs.record.id == rhs.record.id
     }
 }
 
@@ -35,10 +29,10 @@ class BattleListViewModel: ObservableObject {
     
     @Published var isLogined: Bool = false
     @Published var rows: [BattleListRowModel] = []
-    @Published var databaseRecords: [DBRecord] = []
-    @Published var selectedId: String?
-    @Published var realtimeRow: BattleListRowModel?
+    @Published var selectedRowId: Int64?
     @Published var currentFilterIndex: Int = 0
+    
+    @Published var databaseRecords: [DBRecord] = []
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -55,9 +49,8 @@ class BattleListViewModel: ObservableObject {
         self.isLogined = isLogined
         
         if !isLogined {
-            databaseRecords = []
             rows = []
-            selectedId = nil
+            selectedRowId = nil
             return
         }
         
@@ -69,7 +62,7 @@ class BattleListViewModel: ObservableObject {
             }
             .assign(to: \.databaseRecords, on: self)
             .store(in: &cancelBag)
-
+        
         // Handle data source of list
         $databaseRecords
             .combineLatest($currentFilterIndex)
@@ -80,47 +73,9 @@ class BattleListViewModel: ObservableObject {
                     return records
                 }
             }
-            .map { $0.map { BattleListRowModel(type: .record, record: $0) } }
-            .map { rows in
-                let realtimeRow = BattleListRowModel(
-                    type: .realtime,
-                    record: rows.first?.record
-                )
-                
-                if self.selectedId == BattleListRowModel.realtimeId {
-                    self.realtimeRow = realtimeRow
-                } else {
-                    self.realtimeRow = nil
-                }
-                
-                if rows.first != nil {
-                    return [realtimeRow] + rows
-                } else {
-                    return [realtimeRow]
-                }
-            }
+            .map { $0.map { BattleListRowModel(record: $0) } }
             .assign(to: \.rows, on: self)
             .store(in: &cancelBag)
     }
 }
 
-fileprivate extension GameRule.Key {
-    static func with(index: Int) -> Self? {
-        switch (index) {
-        case 0:
-            return nil
-        case 1:
-            return .turfWar
-        case 2:
-            return .splatZones
-        case 3:
-            return .towerControl
-        case 4:
-            return .rainmaker
-        case 5:
-            return .clamBlitz
-        default:
-            return nil
-        }
-    }
-}
