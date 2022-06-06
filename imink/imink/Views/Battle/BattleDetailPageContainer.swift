@@ -53,8 +53,8 @@ struct BattleDetailPageContainer: View {
                 }),
                 alignment: .bottom
             )
-            .onChange(of: synchronizeBattleViewModel.newMessage) { newValue in
-                if newValue {
+            .onChange(of: synchronizeBattleViewModel.synchronizing) { newValue in
+                if !newValue {
                     showFloatButton = true
                 }
             }
@@ -100,6 +100,7 @@ struct BattleDetailPageContainer: View {
         }
         .onDisappear {
             initPageId = viewModel.currentPageId ?? 0
+            isPresented = false
         }
         .onChange(of: selectedRow) { row in
             viewModel.update(record: row.record, initPageId: initPageId, filterIndex: 0)

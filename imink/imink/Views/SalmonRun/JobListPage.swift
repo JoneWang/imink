@@ -14,6 +14,7 @@ struct JobListPage: View {
     
     @State private var rows: [JobListRowModel] = []
     @State private var jobDetailPresented: Bool = false
+    @State private var allowScrollingToSelected: Bool = false
     @State var selectedRow: JobListRowModel?
     
     @State private var currentDBJobIdInDetail: Int64?
@@ -62,8 +63,10 @@ struct JobListPage: View {
                         }
                         .padding(.bottom, 16)
                         .onChange(of: currentDBJobIdInDetail) { recordId in
-                            withAnimation {
-                                proxy.scrollTo(recordId, anchor: .center)
+                            if allowScrollingToSelected {
+                                withAnimation {
+                                    proxy.scrollTo(recordId, anchor: .center)
+                                }
                             }
                         }
                     }
@@ -78,6 +81,9 @@ struct JobListPage: View {
             }
             .onAppear {
                 self.rows = viewModel.rows
+            }
+            .onDisappear {
+                self.allowScrollingToSelected = true
             }
             .onChange(of: viewModel.rows) { rows in
                 withAnimation {
@@ -107,7 +113,7 @@ struct JobListPage: View {
                         }
                     },
                     initPageId: row.dbId,
-                    isPresented: $jobDetailPresented,
+                    isPresented: $allowScrollingToSelected,
                     selectedRow: row
                 )
             } else {

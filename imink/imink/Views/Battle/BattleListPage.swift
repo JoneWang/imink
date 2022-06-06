@@ -14,11 +14,10 @@ struct BattleListPage: View {
 
     @State private var rows: [BattleListRowModel] = []
     @State private var battleDetailPresented: Bool = false
+    @State private var allowScrollingToSelected: Bool = false
     @State private var selectedRow: BattleListRowModel?
 
     @State private var currentRecordIdInDetail: Int64?
-
-    @State private var allowScrollingToSelected = false
 
     let filterItems: [(String, String)] = [
         ("All Rules", ""), ("Turf War", "RegularBattleMono"),
@@ -101,8 +100,6 @@ struct BattleListPage: View {
                 }
                 .onChange(of: currentRecordIdInDetail) { recordId in
                     if allowScrollingToSelected {
-                        allowScrollingToSelected = false
-                    } else {
                         withAnimation {
                             proxy.scrollTo(recordId, anchor: .center)
                         }
@@ -112,7 +109,6 @@ struct BattleListPage: View {
         }
         .onAppear {
             self.rows = viewModel.rows
-            self.allowScrollingToSelected = false
         }
         .onDisappear {
             self.allowScrollingToSelected = true
@@ -146,7 +142,7 @@ struct BattleListPage: View {
                         }
                     },
                     initPageId: row.id,
-                    isPresented: $battleDetailPresented,
+                    isPresented: $allowScrollingToSelected,
                     selectedRow: row
                 )
             } else {

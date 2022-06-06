@@ -45,8 +45,8 @@ struct JobDetailPageContainer: View {
                 }),
                 alignment: .bottom
             )
-            .onChange(of: synchronizeJobViewModel.newMessage) { newValue in
-                if newValue {
+            .onChange(of: synchronizeJobViewModel.synchronizing) { newValue in
+                if !newValue {
                     showFloatButton = true
                 }
             }
@@ -54,6 +54,7 @@ struct JobDetailPageContainer: View {
         .navigationBarTitle(navigationTitle, displayMode: .inline)
         .onDisappear {
             initPageId = viewModel.currentPageId ?? 0
+            isPresented = false
         }
         .onChange(of: selectedRow) { row in
             viewModel.update(dbJob: row.job!, initPageId: initPageId)

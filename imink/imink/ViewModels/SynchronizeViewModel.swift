@@ -14,7 +14,6 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
     
     @Published var unsynchronizedIds: [IdType] = []
     @Published var synchronizing: Bool = false
-    @Published var newMessage: Bool = false
     
     @Published var isLogined: Bool = false
     @Published var autoRefresh = false
@@ -38,13 +37,6 @@ class SynchronizeViewModel<I>: ObservableObject where I: Comparable {
             .store(in: &cancelBag)
         
         $isLogined.assign(to: \.autoRefresh, on: self)
-            .store(in: &cancelBag)
-        
-        $synchronizing
-            .print()
-            .removeDuplicates()
-            .map { !$0 }
-            .assign(to: \.newMessage, on: self)
             .store(in: &cancelBag)
     }
     
@@ -91,8 +83,6 @@ extension SynchronizeViewModel {
                self.unsynchronizedIds.first != firstId {
                 let unsynchronizedIds = self.localUnsynchronizedIds(ids).sorted { $0 < $1 }
                 
-                self.synchronizing = unsynchronizedIds.count > 0
-                
                 if unsynchronizedIds.count == 0 {
                     self.loadingStatus(isLoading: false)
                 }
@@ -122,6 +112,11 @@ extension SynchronizeViewModel {
                     self.loadingStatus(isLoading: false)
                 }
             })
+            .store(in: &syncCancelBag)
+        
+        $unsynchronizedIds
+            .map { $0.count != 0 }
+            .assign(to: \.synchronizing, on: self)
             .store(in: &syncCancelBag)
     }
     
