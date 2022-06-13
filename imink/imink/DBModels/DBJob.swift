@@ -162,6 +162,7 @@ extension AppDatabase {
     
     // MARK: Writes
     
+#if DEBUG
     func removeAllJobs() {
         dbQueue.asyncWrite { db in
             try DBJob.deleteAll(db)
@@ -171,6 +172,20 @@ extension AppDatabase {
             }
         }
     }
+    
+    func removeJobs(count: Int) {
+        dbQueue.asyncWrite { db in
+            try DBJob
+                .order(DBJob.Columns.jobId.desc)
+                .limit(count)
+                .deleteAll(db)
+        } completion: { _, error in
+            if case let .failure(error) = error {
+                os_log("Database Error: [removeJobs] \(error.localizedDescription)")
+            }
+        }
+    }
+#endif
     
     func saveJob(data: Data) {
         dbQueue.asyncWrite { db in
