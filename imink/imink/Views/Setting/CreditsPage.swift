@@ -64,7 +64,7 @@ struct CreditsPage: View {
                     }
                 }
             ) {
-                ForEach(0..<contributors.count) { index in
+                ForEach(0..<contributors.count, id: \.self) { index in
                     makeRow(contributors[index], showSeparator: index != contributors.count - 1)
                 }
             }
@@ -75,7 +75,7 @@ struct CreditsPage: View {
                     Text("ACKNOWLEDGEMENTS")
                 }
             ) {
-                ForEach(0..<acknowledgements.count) { index in
+                ForEach(0..<acknowledgements.count, id: \.self) { index in
                     Link(destination: acknowledgements[index].url!) {
                         makeRow(acknowledgements[index], showSeparator: index != acknowledgements.count - 1)
                     }

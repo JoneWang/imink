@@ -90,9 +90,9 @@ struct JobDetailWaveView: View {
                 return specials + sps
             }
             
-            ForEach(0..<(allSpecialCount + 3) / 4) { (i: Int) in
+            ForEach(0..<(allSpecialCount + 3) / 4, id: \.self) { (i: Int) in
                 HStack(spacing: 6) {
-                    ForEach((i * 4)..<((i + 1) * 4)) { (j: Int) in
+                    ForEach((i * 4)..<((i + 1) * 4), id: \.self) { (j: Int) in
                         if j < allSpecials.count {
                             let special = allSpecials[j]
                             Rectangle()

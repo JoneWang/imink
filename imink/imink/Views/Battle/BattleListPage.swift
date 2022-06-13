@@ -67,7 +67,7 @@ struct BattleListPage: View {
                     if viewModel.isLogined {
                         Menu {
                             Picker(selection: $viewModel.currentFilterIndex, label: Text("filtering options")) {
-                                ForEach(0..<filterItems.count) { i in
+                                ForEach(0..<filterItems.count, id: \.self) { i in
                                     let item = filterItems[i]
                                     HStack{
                                         Text(item.0.localized)

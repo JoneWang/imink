@@ -47,7 +47,7 @@ struct PlayerSkillView: View {
                             (player.clothes, player.clothesSkills.main, player.clothesSkills.subs),
                             (player.shoes, player.shoesSkills.main, player.shoesSkills.subs)
                         ]
-                        ForEach(0..<skillData.count) { i in
+                        ForEach(0..<skillData.count, id: \.self) { i in
                             let skill = skillData[i]
                             HStack(spacing: 14) {
                                 if i == 0 {
@@ -71,7 +71,7 @@ struct PlayerSkillView: View {
                                     }
                                     .frame(width: 30, height: 30)
                                     
-                                    ForEach(0..<skill.2.count) { j in
+                                    ForEach(0..<skill.2.count, id: \.self) { j in
                                         if let sub = skill.2[j] {
                                             ZStack {
                                                 Circle()

@@ -233,12 +233,12 @@ struct BattleDetailPage: View {
             )
             
             let teams = [battle.victoryTeamMembersSorted, battle.defeatTeamMembersSorted]
-            ForEach(0..<teams.count) { i in
+            ForEach(0..<teams.count, id: \.self) { i in
                 let victory = i == 0
                 let members = teams[i]
                 
                 VStack(spacing: 6) {
-                    ForEach(0..<members.count) { j in
+                    ForEach(0..<members.count, id: \.self) { j in
                         let member = members[j]
                         ZStack {
                             BattleDetailMemberView(

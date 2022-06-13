@@ -17,7 +17,7 @@ struct PieView: View {
             
             Circle()
                 .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-            ForEach(0..<values.count) { index in
+            ForEach(0..<values.count, id: \.self) { index in
                 self.makeCircularSector(index: index, radius: radius)
             }
             

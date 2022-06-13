@@ -110,7 +110,7 @@ struct MePage: View {
                                         .padding(.bottom, 7)
                                         
                                         VStack(alignment: .leading, spacing: 2) {
-                                            ForEach(udemaeData.indices) { index in
+                                            ForEach(udemaeData.indices, id: \.self) { index in
                                                 let (gameMode, udemae) = udemaeData[index]
                                                 
                                                 HStack {
