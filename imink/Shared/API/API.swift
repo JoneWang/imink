@@ -102,18 +102,22 @@ class API {
                 }
                 
                 if 401...403 ~= httpResponse.statusCode {
+                    self?.logger?.err(request: request, data: data, response: httpResponse)
                     throw APIError.authorizationError(response: httpResponse)
                 }
                 
                 if httpResponse.statusCode == 400 {
+                    self?.logger?.err(request: request, data: data, response: httpResponse)
                     throw APIError.requestParameterError
                 }
                 
                 if httpResponse.statusCode == 500 {
+                    self?.logger?.err(request: request, data: data, response: httpResponse)
                     throw APIError.internalServerError
                 }
                 
                 guard 200..<300 ~= httpResponse.statusCode else {
+                    self?.logger?.err(request: request, data: data, response: httpResponse)
                     throw APIError.unknown
                 }
                 
@@ -124,7 +128,7 @@ class API {
                 return (data, httpResponse)
             }
             .mapError { [weak self] error in
-                self?.logger?.err(error)
+                self?.logger?.err(request: request, error: error)
                 
                 if let error = error as? APIError {
                     return error

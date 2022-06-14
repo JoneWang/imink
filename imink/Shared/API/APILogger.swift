@@ -16,8 +16,8 @@ extension APILogger {
         log(content: "Url: \(response.url?.absoluteString ?? ""), Code: \(response.statusCode), Body: \(String(data: data, encoding: .utf8) ?? "")")
     }
     
-    func err(_ error: Error) {
-        log(content: "Error: \(error.localizedDescription)")
+    func err(request: URLRequest, data: Data? = nil, response: HTTPURLResponse? = nil, error: Error? = nil) {
+        log(content: "Url: \(request.url?.absoluteString ?? ""), Code: \(response?.statusCode ?? -1), Body: \(data != nil ? (String(data: data!, encoding: .utf8) ?? "") : "none") Error: \(error?.localizedDescription ?? "none")")
     }
 }
 

@@ -112,7 +112,7 @@ struct NSOAuthorization {
                 gameWebToken: webServiceToken.result.accessToken
             )
             currentStatus.send((getCookie, .loading))
-            return getCookie.request()
+            return api.request(getCookie)
                 .receive(on: DispatchQueue.main)
                 .mapError { error -> Error in
                     currentStatus.send((getCookie, .fail))
@@ -127,7 +127,7 @@ struct NSOAuthorization {
         .flatMap { _ -> AnyPublisher<Records, Error> in
             let getRecords = Splatoon2API.records
             currentStatus.send((getRecords, .loading))
-            return getRecords.request()
+            return api.request(getRecords)
                 .receive(on: DispatchQueue.main)
                 .mapError({ error -> Error in
                     currentStatus.send((getRecords, .fail))
