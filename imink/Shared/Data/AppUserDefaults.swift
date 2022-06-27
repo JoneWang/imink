@@ -48,7 +48,7 @@ class AppUserDefaults: ObservableObject {
     var sp2PrincipalId: String?
     
     @AppStorage("nsoVersion", store: .appGroup)
-    var nsoVersion: String = "1.12.0"
+    var nsoVersion: String = "2.1.1"
     
     @StandardStorage(key: "sessionToken", store: .appGroup)
     var sessionToken: String? {

@@ -8,7 +8,7 @@
 import Foundation
 
 class APILogger {
-    public private(set) var log: String = "API Log\n\n"
+    public private(set) var log: String = "Login Log\nVersion: \(Bundle.main.appVersionShort) (\(Bundle.main.appVersionLong))\nNSO Version: \(AppUserDefaults.shared.nsoVersion)\n"
 }
 
 extension APILogger {
