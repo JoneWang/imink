@@ -18,13 +18,13 @@ enum NSOAPI {
                naBirthday: String,
                naCountry: String,
                language: String,
-               timestamp: String,
+               timestamp: Int64,
                f: String)
     case getWebServiceToken(
             webApiServerToken: String,
             requestId: String,
             registrationToken: String,
-            timestamp: String,
+            timestamp: Int64,
             f: String)
 }
 
@@ -170,29 +170,58 @@ extension NSOAPI: APITargetType {
                     let language,
                     let timestamp,
                     let f):
-            return .jsonData([
-                "parameter": [
-                    "requestId": requestId,
-                    "naIdToken": naIdToken,
-                    "naBirthday": naBirthday,
-                    "naCountry": naCountry,
-                    "timestamp": "\(timestamp)",
-                    "language": language,
-                    "f": f,
-                ]
-            ])
+            return .jsonData(
+                AccountLoginBody(
+                    parameter: AccountLoginParamemter(
+                        requestId: requestId,
+                        naIdToken: naIdToken,
+                        naBirthday: naBirthday,
+                        naCountry: naCountry,
+                        timestamp: timestamp,
+                        language: language,
+                        f: f
+                    )
+                )
+            )
         case .getWebServiceToken(_, let requestId, let registrationToken, let timestamp, let f):
-            return .jsonData([
-                "parameter": [
-                    "id": NSOAPI.gameServiceId,
-                    "requestId": requestId,
-                    "registrationToken": registrationToken,
-                    "timestamp": "\(timestamp)",
-                    "f": f,
-                ]
-            ])
+            return .jsonData(
+                WebServiceTokenBody(
+                    parameter: WebServiceTokenParamemter(
+                        id: NSOAPI.gameServiceId,
+                        requestId: requestId,
+                        registrationToken: registrationToken,
+                        timestamp: timestamp,
+                        f: f)
+                )
+            )
         default:
             return nil
         }
     }
+}
+
+fileprivate struct AccountLoginBody: Codable {
+    var parameter: AccountLoginParamemter
+}
+
+fileprivate struct AccountLoginParamemter: Codable {
+    var requestId: String
+    var naIdToken: String
+    var naBirthday: String
+    var naCountry: String
+    var timestamp: Int64
+    var language: String
+    var f: String
+}
+
+fileprivate struct WebServiceTokenBody: Codable {
+    var parameter: WebServiceTokenParamemter
+}
+
+fileprivate struct WebServiceTokenParamemter: Codable {
+    var id: String
+    var requestId: String
+    var registrationToken: String
+    var timestamp: Int64
+    var f: String
 }

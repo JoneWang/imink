@@ -13,7 +13,7 @@ enum AppAPI {
     case schedules
     case salmonRunSchedules(page: Int = 1)
     
-    case f(naIdToken: String, requestId: String, timestamp: String, hashMethod: HashMethod)
+    case f(naIdToken: String, hashMethod: HashMethod)
     
     internal enum HashMethod: String {
         case hash1 = "1", hash2 = "2"
@@ -64,11 +64,9 @@ extension AppAPI: APITargetType {
     
     var data: MediaType? {
         switch self {
-        case .f(let naIdToken, let requestId, let timestamp, let hashMethod):
+        case .f(let naIdToken, let hashMethod):
             return .jsonData([
                 "token": naIdToken,
-                "timestamp": "\(timestamp)",
-                "request_id": requestId,
                 "hash_method": hashMethod.rawValue
             ])
         default:

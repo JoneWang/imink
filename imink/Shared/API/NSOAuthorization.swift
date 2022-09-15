@@ -87,19 +87,14 @@ struct NSOAuthorization {
     }
     
     func getIksmSession(loginToken: LoginToken, naUser: NAUser) -> AnyPublisher<Records, Error> {
-        let requestId = UUID().uuidString.lowercased()
-        let timestamp = "\(Int(Date().timeIntervalSince1970))"
         return self.requestLogin(
-            requestId: requestId,
             accessToken: loginToken.accessToken,
-            timestamp: timestamp,
             naUser: naUser
         )
         .map { $0.result }
         .flatMap { loginResult in
             self.requestWebServiceToken(
                 webApiServerToken: loginResult.webApiServerCredential.accessToken,
-                requestId: requestId,
                 accessToken: loginToken.accessToken,
                 naUser: naUser
             )
@@ -148,25 +143,22 @@ struct NSOAuthorization {
         .eraseToAnyPublisher()
     }
     
-    private func requestLogin(requestId: String,
+    private func requestLogin(
                       accessToken: String,
-                      timestamp: String,
                       naUser: NAUser) -> AnyPublisher<LoginResult, Error> {
         self.requestF(
-            requestId: requestId,
             accessToken: accessToken,
-            timestamp: timestamp,
             hashMethod: .hash1
         )
         .flatMap { f -> AnyPublisher<LoginResult, Error> in
             let login = NSOAPI.login(
-                requestId: requestId,
+                requestId: f.requestId,
                 naIdToken: accessToken,
                 naBirthday: naUser.birthday,
                 naCountry: naUser.country,
                 language: naUser.language,
-                timestamp: timestamp,
-                f: f
+                timestamp: f.timestamp,
+                f: f.f
             )
             currentStatus.send((login, .loading))
             return api.request(login)
@@ -186,24 +178,19 @@ struct NSOAuthorization {
     }
     
     private func requestWebServiceToken(webApiServerToken: String,
-                                requestId: String,
                                 accessToken: String,
                                 naUser: NAUser) -> AnyPublisher<WebServiceToken, Error> {
-        let requestId = UUID().uuidString.lowercased()
-        let timestamp = "\(Int(Date().timeIntervalSince1970))"
         return self.requestF(
-            requestId: requestId,
             accessToken: webApiServerToken,
-            timestamp: timestamp,
             hashMethod: .hash2
         )
         .flatMap { f -> AnyPublisher<WebServiceToken, Error> in
             let getWebServiceToken = NSOAPI.getWebServiceToken(
                 webApiServerToken: webApiServerToken,
-                requestId: requestId,
+                requestId: f.requestId,
                 registrationToken: webApiServerToken,
-                timestamp: timestamp,
-                f: f
+                timestamp: f.timestamp,
+                f: f.f
             )
             currentStatus.send((getWebServiceToken, .loading))
             return api.request(getWebServiceToken)
@@ -222,14 +209,11 @@ struct NSOAuthorization {
         .eraseToAnyPublisher()
     }
     
-    private func requestF(requestId: String,
+    private func requestF(
                   accessToken: String,
-                  timestamp: String,
-                  hashMethod: AppAPI.HashMethod) -> AnyPublisher<String, Error> {
+                  hashMethod: AppAPI.HashMethod) -> AnyPublisher<F, Error> {
         let getF = AppAPI.f(
             naIdToken: accessToken,
-            requestId: requestId,
-            timestamp: timestamp,
             hashMethod: hashMethod
         )
         currentStatus.send((getF, .loading))
@@ -242,7 +226,7 @@ struct NSOAuthorization {
             }
             .map {
                 currentStatus.send((getF, .success))
-                return $0.f
+                return $0
             }
             .eraseToAnyPublisher()
     }
@@ -281,5 +265,7 @@ extension NSOAuthorization {
     
     struct F: Decodable {
         let f: String
+        let timestamp: Int64
+        let requestId: String
     }
 }
