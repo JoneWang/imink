@@ -1,3 +1,5 @@
+***Looking for imink for Splatoon 3? [Please check here](https://github.com/imink-app).***
+
 ![Preview](./Resources/Preview.png)
 
 [![Crowdin](https://badges.crowdin.net/imink/localized.svg)](https://crowdin.com/project/imink)
