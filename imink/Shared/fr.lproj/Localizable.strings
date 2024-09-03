@@ -8,223 +8,223 @@
 // MARK: API error
 
 
-"Error connecting to the server" = "Erreur de connexion au serveur {}";
-"Authorization error" = "Erreur d'autorisation";
-"Client token is invalid" = "Jeton de client est invalide";
+"Error connecting to the server" = "Erreur de connexion au serveur";
+"Authorization error" = "Erreur d’autorisation";
+"Client token is invalid" = "Le jeton de client est invalide";
 "The iksm_session is invalid" = "La session iksm_session est invalide";
 "Request parameter error" = "Erreur de requête paramètre";
 
 // MARK: Tab bar
 
 "Home" = "Accueil";
-"Battles" = "Batailles";
+"Battles" = "Matchs";
 "Me" = "Moi";
 
 // MARK: Sign in
 
-"Welcome to imink!" = "Bienvenue sur imink!";
+"Welcome to imink!" = "Bienvenue dans imink !";
 "Log in to sync your data" = "Connectez-vous pour synchroniser vos données";
 "Log in with Nintendo Account" = "Connectez-vous avec votre compte Nintendo";
 "login_error_title" = "Échec";
-"login_error_message" = "Une erreur s'est produite lors de la connexion, veuillez réessayer plus tard.";
+"login_error_message" = "Une erreur s’est produite lors de la connexion, veuillez réessayer plus tard.";
 "session_token_invalid_title" = "Connexion expirée";
-"session_token_invalid_message" = "Votre connexion ont expiré en raison d'une inactivité pour une longue durée, veuillez vous reconnecter.";
+"session_token_invalid_message" = "Votre connexion ont expiré en raison d’une inactivité pour une longue durée, veuillez vous reconnecter.";
 "user_game_data_not_exist_message" = "Veuillez vous assurer que votre compte possède des données de jeu Splatoon 2 et un abonnement active de Nintendo Switch Online.";
 "Close" = "Fermer";
 
 // MARK: Home
 
 "iksm_session is expired" = "iksm_session a expiré";
-"iksm_session is expired_desc" = "Vous ne pourrez pas synchroniser les batailles avant le renouvellement de la session iksm_session.";
+"iksm_session is expired_desc" = "Vous ne pourrez pas synchroniser les batailles avant que la session iksm_session soit renouvelée.";
 "Renew in Settings" = "Renouveler dans les paramètres";
 
-"Today" = "Aujourd'hui";
-"reset" = "remise à zéro";
-"Victory rate:" = "Victoire:";
+"Today" = "Aujourd’hui";
+"reset" = "réinitialiser";
+"Victory rate:" = "Victoire :";
 "Results" = "Résultats";
 "Last 500" = "Les 500 derniers";
 "Last 50" = "Les 50 derniers";
 "Splatfest" = "Festival";
-"Schedule" = "Agenda";
-"Battle" = "Bataille";
+"Schedule" = "Planning";
+"Battle" = "Match";
 
 // MARK: Battles
-"All Rules" = "Toutes les règles";
+"All Rules" = "Tous les modes";
 
 "Hide Player Names" = "Cacher les noms des joueurs";
 "Show Player Names" = "Afficher le nom des joueurs";
 
 "%@ power" = "%@ power";
-"Current" = "Actuelle";
-"Highest" = "La plus haute";
+"Current" = "Actuel";
+"Highest" = "Maximal";
 "Crew" = "Équipe";
 "Rival" = "Rival";
 "Position" = "Position";
-"My X Power" = "Ma X Power";
-"Average" = "Moyen(ne)";
-" count" = " count";
-"KO BONUS!" = "KO BONUS!";
+"My X Power" = "Mon X Power";
+"Average" = "Moyen";
+" count" = " progression";
+"KO BONUS!" = "K.-O.!";
 
-"8-Squid Tower Control Power" = "8-Squid Tower Control Power";
-"8-Squid Rainmaker Power" = "8-Squid Rainmaker Power";
-"8-Squid Clam Blitz Power" = "8-Squid Clam Blitz Power";
-"8-Squid Splat Zones Power" = "8-Squid Splat Zones Power";
-"8-Squid Splat Zones X Power" = "8-Squid Splat Zones X Power";
-"8-Squid Tower Control X Power" = "8-Squid Tower Control X Power";
-"8-Squid Rainmaker X Power" = "8-Squid Rainmaker X Power";
-"8-Squid Clam Blitz X Power" = "8-Squid Clam Blitz X Power";
-"8-Squid ガチヤグラ Power" = "8-Squid Tower Control Power";
-"8-Squid ガチホコバトル Power" = "8-Squid Rainmaker Power";
-"8-Squid ガチアサリ Power" = "8-Squid Clam Blitz Power";
-"8-Squid ガチエリア Power" = "8-Squid Splat Zones Power";
-"8-Squid ガチエリア X Power" = "8-Squid Splat Zones X Power";
-"8-Squid ガチヤグラ X Power" = "8-Squid Tower Control X Power";
-"8-Squid ガチホコバトル X Power" = "8-Squid Rainmaker X Power";
-"8-Squid ガチアサリ X Power" = "8-Squid Clam Blitz X Power";
+"8-Squid Tower Control Power" = "Expédition risquée - 8 J Power estimé";
+"8-Squid Rainmaker Power" = "Mission bazookarpe - 8 J Power estimé";
+"8-Squid Clam Blitz Power" = "Pluie de palourdes - 8 J Power estimé";
+"8-Squid Splat Zones Power" = "Défense de zone - 8 J Power estimé";
+"8-Squid Splat Zones X Power" = "Défense de zone ( rang X ) - 8 J Power estimé";
+"8-Squid Tower Control X Power" = "Expédition risquée ( rang X ) - 8 J Power estimé";
+"8-Squid Rainmaker X Power" = "Mission bazookarpe ( rang X ) - 8 J Power estimé";
+"8-Squid Clam Blitz X Power" = "Pluie de palourdes ( rang X )  - 8 J Power estimé";
+"8-Squid ガチヤグラ Power" = "Expédition risquée - 8 J Power estimé";
+"8-Squid ガチホコバトル Power" = "Mission bazookarpe - 8 J Power estimé";
+"8-Squid ガチアサリ Power" = "Pluie de palourdes - 8 J Power estimé";
+"8-Squid ガチエリア Power" = "Défense de zone - 8 J Power estimé";
+"8-Squid ガチエリア X Power" = "Défense de zone ( rang X ) - 8 J Power estimé";
+"8-Squid ガチヤグラ X Power" = "Expédition risquée ( rang X ) - 8 J Power estimé";
+"8-Squid ガチホコバトル X Power" = "Mission bazookarpe ( rang X ) - 8 J Power estimé";
+"8-Squid ガチアサリ X Power" = "Pluie de palourdes ( rang X )  - 8 J Power estimé";
 
 // MARK: Salmon Run
 
-"grade_0" = "Intern";
-"grade_1" = "Apprentice";
-"grade_2" = "Part-Timer";
-"grade_3" = "Go-Getter";
-"grade_4" = "Overachiever";
-"grade_5" = "Profreshional";
-"Hazard Level" = "Hazard Level";
-"Clear!" = "Clear!";
-"Defeat_job" = "Defeat";
-"Wave %d" = "Wave %d";
+"grade_0" = "Apprenti∙e";
+"grade_1" = "Débutant∙e";
+"grade_2" = "Connaisseur∙euse";
+"grade_3" = "Semi-pro";
+"grade_4" = "Pro";
+"grade_5" = "Prodige";
+"Hazard Level" = "Niveau de danger";
+"Clear!" = "Réussite !";
+"Defeat_job" = "Échec…";
+"Wave %d" = "Vague %d";
 
 // MARK: Me
 
-"Highest Power" = "Highest Power";
-"Mysterious void under investigation…" = "Mysterious void under investigation…";
+"Highest Power" = "Power maximal";
+"Mysterious void under investigation…" = "Vide mystérieux en cours d’enquête…";
 
 // MARK: Settings
 
-"Settings" = "Settings";
-"LOGIN STATUS" = "LOGIN STATUS";
-"Valid" = "Valid";
-"Expired" = "Expired";
-"Renewing…" = "Renewing…";
-"Renew Manually" = "Renew Manually";
-"Failure to renew" = "Renewal Failed";
-"Failure to renew_desc" = "Please wait 1–2 minutes before trying again.";
-"GENERAL" = "GENERAL";
-"App Icon" = "App Icon";
-"Default" = "Default";
-"Black" = "Black";
-"White" = "White";
+"Settings" = "Paramètres";
+"LOGIN STATUS" = "STATUT DE CONNEXION";
+"Valid" = "Valide";
+"Expired" = "Expiré";
+"Renewing…" = "Renouvellement en cours…";
+"Renew Manually" = "Renouveler manuellement";
+"Failure to renew" = "Renouvellement échoué";
+"Failure to renew_desc" = "Veuillez patienter 1 à 2 minutes avant d’essayer de nouveau.";
+"GENERAL" = "GÉNÉRAL";
+"App Icon" = "Icône de l’application";
+"Default" = "Défaut";
+"Black" = "Noir";
+"White" = "Blanc";
 "Salmon Run" = "Salmon Run";
-"Deepsea Metro" = "Deepsea Metro";
-"Toni Kensa" = "Toni Kensa";
+"Deepsea Metro" = "Métro Abyssal";
+"Toni Kensa" = "Thony K";
 "Chaos" = "Chaos";
-"Order" = "Order";
-"Squid Squad Band" = "Squid Squad Band";
-"Wet Floor Band" = "Wet Floor Band";
+"Order" = "Ordre";
+"Squid Squad Band" = "Squid Squad";
+"Wet Floor Band" = "Wet Floor";
 "INK YOU UP" = "INK YOU UP";
-"Research Lab" = "Research Lab";
+"Research Lab" = "Laboratoire de recherche";
 "Language" = "Langue";
-"Reload Widgets" = "Reload Widgets";
-"USER DATA" = "USER DATA";
-"Import" = "Import";
-"Import Data" = "Import Data";
-"Import Data_desc" = "You can share from other apps or select from Files app.";
-"Select File" = "Select File";
-"Export" = "Export";
-"CONTACT" = "CONTACT";
-"Email" = "Email";
-"ABOUT" = "ABOUT";
-"Send Kudos" = "Send Kudos";
-"Send Kudos_desc" = "We appreaciate your love and support. Please support imink by writing a review.";
+"Reload Widgets" = "Recharger les Widgets";
+"USER DATA" = "DONNÉES UTILISATEUR";
+"Import" = "Importer";
+"Import Data" = "Importer des données";
+"Import Data_desc" = "Partager depuis d’autres applications ou sélectionner depuis l’application Fichiers.";
+"Select File" = "Choisir un fichier";
+"Export" = "Exporter";
+"CONTACT" = "CONTACTER";
+"Email" = "Courriel";
+"ABOUT" = "À PROPOS";
+"Send Kudos" = "Soutenez-nous";
+"Send Kudos_desc" = "Nous apprécions votre amour et votre soutien. Merci de soutenir imink en laissant un commentaire.";
 "FAQ" = "FAQ";
-"Credits" = "Credits";
+"Credits" = "Générique";
 "Version" = "Version";
-"Source Code" = "Source Code";
-"ABOUT_desc" = "This app is an unofficial companion app, and is not affiliated or associated with Nintendo. All trademarks are property of their respective owners.";
-"Log out" = "Déconnexion";
+"Source Code" = "Code source";
+"ABOUT_desc" = "Cette application est une application compagnon non officielle qui n’est ni affiliée ni associée à Nintendo. Toutes les marques commerciales appartiennent à leurs propriétaires respectifs.";
+"Log out" = "Se déconnecter";
 "Are you sure you want to log out?" = "Êtes-vous sûr de vouloir vous déconnecter ?";
 
 // MARK: Schedule
 
-"Now" = "Maintenant";
-"Next" = "Next";
-"Next Day" = "Next Day";
-"Supplied Weapons" = "Supplied Weapons";
-"Open!" = "Open!";
-"Soon!" = "Soon!";
-"Next_salmonrun" = "Next";
-"Future" = "Future";
-"In %d hours" = "In %d hours";
+"Now" = "Actuel";
+"Next" = "Suivant";
+"Next Day" = "Jour suivant";
+"Supplied Weapons" = "Armes fournies";
+"Open!" = "Ouvert !";
+"Soon!" = "Bientôt !";
+"Next_salmonrun" = "Suivant";
+"Future" = "Prochains";
+"In %d hours" = "Dans %d heures";
 
 // MARK: Widget
 
-"widget_regular_schedule_preview_description" = "View the current and upcoming Regular Battle stages.";
-"widget_ranked_schedule_preview_description" = "View the current and upcoming Ranked Battle stages.";
-"widget_league_schedule_preview_description" = "View the current and upcoming League Battle stages.";
-"widget_salmon_run_schedule_preview_description" = "View the latest Salmon Run shift schedule.";
+"widget_regular_schedule_preview_description" = "Voir le planning des stages du match classique.";
+"widget_ranked_schedule_preview_description" = "Voir le planning des stages du match pro.";
+"widget_league_schedule_preview_description" = "Voir le planning des stages du match de ligue.";
+"widget_salmon_run_schedule_preview_description" = "Consulter les heures de travail du Salmon Run.";
 
 // MARK: Game
 
-"Victory" = "VICTORY";
-"Defeat" = "DEFEAT";
-"VICTORY" = "VICTORY";
-"DEFEAT" = "DEFEAT";
+"Victory" = "VICTOIRE";
+"Defeat" = "DÉFAITE";
+"VICTORY" = "VICTOIRE";
+"DEFEAT" = "DÉFAITE";
 
 // MARK: Common
 
-"Back" = "Back";
-"Yes" = "Yes";
-"No" = "No";
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Reload" = "Reload";
+"Back" = "Retour";
+"Yes" = "Oui";
+"No" = "Non";
+"Done" = "OK";
+"Cancel" = "Annuler";
+"Reload" = "Rafraîchir";
 
 // MARK: Onboarding
 
-"Welcome to imink" = "Welcome to imink";
-"Welcome to imink_multi-line" = "Welcome to\nimink";
-"Real-Time Syncing" = "Real-Time Syncing";
-"onboarding_description_1" = "Battle results auto synced and stored with no upper limit.";
-"Home Screen Widgets" = "Home Screen Widgets";
-"onboarding_description_2" = "Effortlessly view the game schedule on the Home screen.";
+"Welcome to imink" = "Bienvenue dans imink";
+"Welcome to imink_multi-line" = "Bienvenue dans\nimink";
+"Real-Time Syncing" = "En temps réel";
+"onboarding_description_1" = "Les résultats des matchs sont automatiquement synchronisés et enregistrés sans limite supérieure.";
+"Home Screen Widgets" = "Widgets pour l’écran d’accueil";
+"onboarding_description_2" = "Consulter facilement le planning sur l'écran d'accueil.";
 "Salmon Run" = "Salmon Run";
-"onboarding_description_3" = "Check how good you perform as Grizzco’s loyal egg collector.";
-"Continue" = "Continue";
+"onboarding_description_3" = "Découvrez votre performance en tant que fidèle collecteur∙rice d’œufs de M. Ours.";
+"Continue" = "Continuer";
 
 // MARK: Update 1.1.0
 
-"What’s New in imink" = "What’s New in imink";
-"What’s New in imink_multi-line" = "What’s New in\nimink";
-"Gear Loadout" = "Gear Loadout";
-"League Battle Medals" = "League Battle Medals";
-"X Rank Improvements" = "X Rank Improvements";
-"update_1_1_0_description_1" = "Check the gear loadout of other squids in battle detail.";
-"update_1_1_0_description_2" = "All your shiny medals are now well displayed under your profile.";
-"update_1_1_0_description_3" = "Support for X Rank Leaderboard position, and the crown for Top 500 players in battle detail.";
+"What’s New in imink" = "Nouveautés d’imink";
+"What’s New in imink_multi-line" = "Nouveautés\nd’imink";
+"Gear Loadout" = "Équipement";
+"League Battle Medals" = "Médailles du match de ligue";
+"X Rank Improvements" = "Améliorations de rang X";
+"update_1_1_0_description_1" = "Découvrez les équipements des autres dans les détails du match.";
+"update_1_1_0_description_2" = "Toutes vos médailles brillantes sont bien affichées dans votre profil.";
+"update_1_1_0_description_3" = "Affichage de la position du classement du rang X et la couronne des 500 meilleurs joueurs dans les détails du match.";
 
 // MARK: Import
 
-"Import Error" = "Import Error";
-"Database write error" = "Database write error";
-"Invalid directory structure" = "Invalid directory structure";
-"Unknown error" = "Unknown error";
-"Imported %d records" = "Imported %d records";
+"Import Error" = "Échec de l’importation";
+"Database write error" = "Erreur d’écriture de la base de données";
+"Invalid directory structure" = "Structure de répertoire invalide";
+"Unknown error" = "Erreur inconnue";
+"Imported %d records" = "%d enregistrements importés";
 
 // MARK: Credits
 
-"credits_desc" = "Kudos to these wonderful Inklings and Octolings around the world, without whom imink cannot become a reality.";
-"CONTRIBUTORS" = "CONTRIBUTORS";
+"credits_desc" = "Bravo à ces merveilleux Inklings et Octalings du monde entier, sans qui imink ne pourrait pas devenir réalité.";
+"CONTRIBUTORS" = "CONTRIBUTEUR∙RICES";
 ", " = ", ";
-"Development" = "Development";
-"Marketing" = "Marketing";
-"UI & Type Design" = "UI & Type Design";
-"UI & Icon Design" = "UI & Icon Design";
-"Type Design" = "Type Design";
-"Simplified Chinese Localization" = "Simplified Chinese Localization";
-"Traditional Chinese Localization" = "Traditional Chinese Localization";
-"Japanese Localization" = "Japanese Localization";
-"Korean Localization" = "Korean Localization";
-"Contribute to localization…" = "Contribute to localization…";
-"ACKNOWLEDGEMENTS" = "ACKNOWLEDGEMENTS";
-"aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
+"Development" = "Développement";
+"Marketing" = "marketing";
+"UI & Type Design" = "Design d’interface et typographique";
+"UI & Icon Design" = "Design d’interface et d’icône";
+"Type Design" = "design typographique";
+"Simplified Chinese Localization" = "Localisation en chinois simplifié";
+"Traditional Chinese Localization" = "Localisation en chinois traditionnel";
+"Japanese Localization" = "Localisation en japonais";
+"Korean Localization" = "Localisation en coréen";
+"Contribute to localization…" = "Contribuer à la localisation…";
+"ACKNOWLEDGEMENTS" = "RECONNAISSANCE";
+"aknowledgements_desc" = "Un grand merci pour l’autorisation de l’API d’algorithme nécessaire pour la connexion des comptes, ainsi que les polices personnalisées pour le coréen.";
