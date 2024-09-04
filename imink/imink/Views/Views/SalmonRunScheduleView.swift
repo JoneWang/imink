@@ -71,9 +71,6 @@ struct SalmonRunScheduleView: View {
                 .background(AppColor.listItemBackgroundColor)
                 .continuousCornerRadius(10)
                 .animation(.none)
-                .onAppear {
-                    salmonRunScheduleViewModel.loadNextPageIfNeeded(currentItem: schedule)
-                }
             }
         }
     }

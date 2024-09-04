@@ -167,14 +167,14 @@ struct HomePage: View {
                                     .padding(.top)
                                 }
                             } else {
-                                SalmonRunScheduleView(salmonRunScheduleViewModel: salmonRunScheduleViewModel)
-                                    .padding(.top)
-                                
-                                if salmonRunScheduleViewModel.loadStatus != .success, salmonRunScheduleViewModel.schedules.count > 0 {
+                                if salmonRunScheduleViewModel.schedules.count > 0 {
+                                    SalmonRunScheduleView(salmonRunScheduleViewModel: salmonRunScheduleViewModel)
+                                        .padding(.top)
+                                } else {
                                     makeLoadingView(isFailed: salmonRunScheduleViewModel.loadStatus == .fail) {
-                                        salmonRunScheduleViewModel.reloadNextPage()
+                                        salmonRunScheduleViewModel.reload()
                                     }
-                                    .padding(.top, 8)
+                                    .padding(.top)
                                 }
                             }
                         }
