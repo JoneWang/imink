@@ -120,8 +120,8 @@
 "Toni Kensa" = "Toni Kensa";
 "Chaos" = "混沌";
 "Order" = "秩序";
-"Past" = "Past";
-"Present" = "Present";
+"Past" = "過去";
+"Present" = "現在";
 "Future" = "已排班";
 "Squid Squad Band" = "Squid Squad樂團";
 "Wet Floor Band" = "Wet Floor樂團";
@@ -157,7 +157,7 @@
 "Open!" = "開工中！";
 "Soon!" = "待工中";
 "Next_salmonrun" = "下一班";
-"Future" = "Future";
+"Future_AppIcon" = "未來";
 "In %d hours" = "%d小時後";
 
 // MARK: Widget
