@@ -120,8 +120,8 @@
 "Toni Kensa" = "Thony K";
 "Chaos" = "Chaos";
 "Order" = "Ordre";
-"Past" = "Past";
-"Present" = "Present";
+"Past" = "Passé";
+"Present" = "Présent";
 "Future" = "Prochains";
 "Squid Squad Band" = "Squid Squad";
 "Wet Floor Band" = "Wet Floor";
@@ -157,7 +157,7 @@
 "Open!" = "Ouvert !";
 "Soon!" = "Bientôt !";
 "Next_salmonrun" = "Suivant";
-"Future" = "Future";
+"Future_AppIcon" = "Futur";
 "In %d hours" = "Dans %dh";
 
 // MARK: Widget
