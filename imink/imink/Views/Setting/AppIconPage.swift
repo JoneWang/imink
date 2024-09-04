@@ -17,6 +17,9 @@ enum AppIcon: CaseIterable {
     case toniKensa
     case chaos
     case order
+    case past;
+    case present;
+    case future;
     case squidSquadBand
     case wetFloorBand
     case inkYouUp
@@ -40,6 +43,12 @@ enum AppIcon: CaseIterable {
             return "Chaos"
         case .order:
             return "Order"
+        case .past:
+            return "Past"
+        case .present:
+            return "Present"
+        case .future:
+            return "Future"
         case .squidSquadBand:
             return "Squid Squad Band"
         case .wetFloorBand:

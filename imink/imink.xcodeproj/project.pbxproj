@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E15C8EF2C88455F0098EAD7 /* Past60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8EB2C88455E0098EAD7 /* Past60x60@3x.png */; };
+		5E15C8F02C88455F0098EAD7 /* Past83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8EC2C88455F0098EAD7 /* Past83.5x83.5@2x.png */; };
+		5E15C8F12C88455F0098EAD7 /* Past76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8ED2C88455F0098EAD7 /* Past76x76@2x.png */; };
+		5E15C8F22C88455F0098EAD7 /* Past60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8EE2C88455F0098EAD7 /* Past60x60@2x.png */; };
+		5E15C8F72C8845780098EAD7 /* Future60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8F32C8845770098EAD7 /* Future60x60@2x.png */; };
+		5E15C8F82C8845780098EAD7 /* Future60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8F42C8845770098EAD7 /* Future60x60@3x.png */; };
+		5E15C8F92C8845780098EAD7 /* Future83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8F52C8845770098EAD7 /* Future83.5x83.5@2x.png */; };
+		5E15C8FA2C8845780098EAD7 /* Future76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8F62C8845770098EAD7 /* Future76x76@2x.png */; };
+		5E15C8FF2C8845920098EAD7 /* Present76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8FB2C8845920098EAD7 /* Present76x76@2x.png */; };
+		5E15C9002C8845920098EAD7 /* Present60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8FC2C8845920098EAD7 /* Present60x60@2x.png */; };
+		5E15C9012C8845920098EAD7 /* Present83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8FD2C8845920098EAD7 /* Present83.5x83.5@2x.png */; };
+		5E15C9022C8845920098EAD7 /* Present60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15C8FE2C8845920098EAD7 /* Present60x60@3x.png */; };
 		BB520C1326146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
 		BB520C1426146683006454FB /* SplatNet2.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB520C1626146683006454FB /* SplatNet2.strings */; };
 		BB520C1E26146C06006454FB /* StageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB520C1D26146C05006454FB /* StageImage.swift */; };
@@ -301,6 +313,18 @@
 /* Begin PBXFileReference section */
 		5E15C8D72C8809860098EAD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E15C8D82C8809860098EAD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SplatNet2.strings; sourceTree = "<group>"; };
+		5E15C8EB2C88455E0098EAD7 /* Past60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Past60x60@3x.png"; sourceTree = "<group>"; };
+		5E15C8EC2C88455F0098EAD7 /* Past83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Past83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		5E15C8ED2C88455F0098EAD7 /* Past76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Past76x76@2x.png"; sourceTree = "<group>"; };
+		5E15C8EE2C88455F0098EAD7 /* Past60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Past60x60@2x.png"; sourceTree = "<group>"; };
+		5E15C8F32C8845770098EAD7 /* Future60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Future60x60@2x.png"; sourceTree = "<group>"; };
+		5E15C8F42C8845770098EAD7 /* Future60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Future60x60@3x.png"; sourceTree = "<group>"; };
+		5E15C8F52C8845770098EAD7 /* Future83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Future83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		5E15C8F62C8845770098EAD7 /* Future76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Future76x76@2x.png"; sourceTree = "<group>"; };
+		5E15C8FB2C8845920098EAD7 /* Present76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Present76x76@2x.png"; sourceTree = "<group>"; };
+		5E15C8FC2C8845920098EAD7 /* Present60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Present60x60@2x.png"; sourceTree = "<group>"; };
+		5E15C8FD2C8845920098EAD7 /* Present83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Present83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		5E15C8FE2C8845920098EAD7 /* Present60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Present60x60@3x.png"; sourceTree = "<group>"; };
 		BB520C1526146683006454FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SplatNet2.strings; sourceTree = "<group>"; };
 		BB520C1926146686006454FB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
 		BB520C1A2614668A006454FB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
@@ -586,6 +610,18 @@
 		EC02D25326D6213A00D4A1B6 /* AppIcons */ = {
 			isa = PBXGroup;
 			children = (
+				5E15C8EE2C88455F0098EAD7 /* Past60x60@2x.png */,
+				5E15C8EB2C88455E0098EAD7 /* Past60x60@3x.png */,
+				5E15C8ED2C88455F0098EAD7 /* Past76x76@2x.png */,
+				5E15C8EC2C88455F0098EAD7 /* Past83.5x83.5@2x.png */,
+				5E15C8FC2C8845920098EAD7 /* Present60x60@2x.png */,
+				5E15C8FE2C8845920098EAD7 /* Present60x60@3x.png */,
+				5E15C8FB2C8845920098EAD7 /* Present76x76@2x.png */,
+				5E15C8FD2C8845920098EAD7 /* Present83.5x83.5@2x.png */,
+				5E15C8F32C8845770098EAD7 /* Future60x60@2x.png */,
+				5E15C8F42C8845770098EAD7 /* Future60x60@3x.png */,
+				5E15C8F62C8845770098EAD7 /* Future76x76@2x.png */,
+				5E15C8F52C8845770098EAD7 /* Future83.5x83.5@2x.png */,
 				EC02D2E926D637AA00D4A1B6 /* Black60x60@2x.png */,
 				EC02D2F426D637AB00D4A1B6 /* Black60x60@3x.png */,
 				EC02D30D26D637B000D4A1B6 /* Black76x76@2x.png */,
@@ -1163,20 +1199,28 @@
 				EC02D32126D637B100D4A1B6 /* Salmon_Run83.5x83.5@2x.png in Resources */,
 				EC02D33526D637B100D4A1B6 /* Squid_Squad_Band60x60@2x.png in Resources */,
 				EC02D34B26D637B100D4A1B6 /* INK_YOU_UP60x60@2x.png in Resources */,
+				5E15C8F22C88455F0098EAD7 /* Past60x60@2x.png in Resources */,
 				EC02D32626D637B100D4A1B6 /* Chaos60x60@3x.png in Resources */,
+				5E15C9012C8845920098EAD7 /* Present83.5x83.5@2x.png in Resources */,
+				5E15C8FA2C8845780098EAD7 /* Future76x76@2x.png in Resources */,
 				EC02D32226D637B100D4A1B6 /* Salmon_Run60x60@3x.png in Resources */,
 				EC02D31626D637B100D4A1B6 /* Order83.5x83.5@2x.png in Resources */,
+				5E15C9002C8845920098EAD7 /* Present60x60@2x.png in Resources */,
 				EC02D34226D637B100D4A1B6 /* INK_YOU_UP83.5x83.5@2x.png in Resources */,
 				BB520C1326146683006454FB /* SplatNet2.strings in Resources */,
 				EC02D34926D637B100D4A1B6 /* Black76x76@2x.png in Resources */,
 				EC02D32F26D637B100D4A1B6 /* Deepsea_Metro76x76@2x.png in Resources */,
 				EC02D32526D637B100D4A1B6 /* Black60x60@2x.png in Resources */,
 				EC02D34E26D637B100D4A1B6 /* Toni_Kensa76x76@2x.png in Resources */,
+				5E15C9022C8845920098EAD7 /* Present60x60@3x.png in Resources */,
 				EC02D33926D637B100D4A1B6 /* Chaos76x76@2x.png in Resources */,
 				EC02D32026D637B100D4A1B6 /* Research_Lab60x60@3x.png in Resources */,
 				EC02D33126D637B100D4A1B6 /* Order76x76@2x.png in Resources */,
+				5E15C8F72C8845780098EAD7 /* Future60x60@2x.png in Resources */,
 				EC02D33026D637B100D4A1B6 /* Black60x60@3x.png in Resources */,
+				5E15C8F02C88455F0098EAD7 /* Past83.5x83.5@2x.png in Resources */,
 				EC02D32926D637B100D4A1B6 /* Chaos60x60@2x.png in Resources */,
+				5E15C8FF2C8845920098EAD7 /* Present76x76@2x.png in Resources */,
 				EC02D31926D637B100D4A1B6 /* Squid_Squad_Band76x76@2x.png in Resources */,
 				EC02D34326D637B100D4A1B6 /* Wet_Floor_Band83.5x83.5@2x.png in Resources */,
 				EC02D34626D637B100D4A1B6 /* Toni_Kensa60x60@2x.png in Resources */,
@@ -1186,6 +1230,7 @@
 				EC02D33326D637B100D4A1B6 /* Research_Lab60x60@2x.png in Resources */,
 				ECAE8DC92520B7E0003D7EDC /* Localizable.strings in Resources */,
 				EC02D32B26D637B100D4A1B6 /* INK_YOU_UP76x76@2x.png in Resources */,
+				5E15C8F82C8845780098EAD7 /* Future60x60@3x.png in Resources */,
 				EC02D34426D637B100D4A1B6 /* INK_YOU_UP60x60@3x.png in Resources */,
 				EC02D31B26D637B100D4A1B6 /* Squid_Squad_Band83.5x83.5@2x.png in Resources */,
 				EC02D32326D637B100D4A1B6 /* Research_Lab76x76@2x.png in Resources */,
@@ -1194,8 +1239,11 @@
 				EC02D32726D637B100D4A1B6 /* Wet_Floor_Band60x60@2x.png in Resources */,
 				EC02D32C26D637B100D4A1B6 /* White76x76@2x.png in Resources */,
 				EC02D34526D637B100D4A1B6 /* Wet_Floor_Band60x60@3x.png in Resources */,
+				5E15C8F12C88455F0098EAD7 /* Past76x76@2x.png in Resources */,
 				EC02D31526D637B100D4A1B6 /* Deepsea_Metro83.5x83.5@2x.png in Resources */,
+				5E15C8F92C8845780098EAD7 /* Future83.5x83.5@2x.png in Resources */,
 				EC02D34F26D637B100D4A1B6 /* Black83.5x83.5@2x.png in Resources */,
+				5E15C8EF2C88455F0098EAD7 /* Past60x60@3x.png in Resources */,
 				EC900E7E251C55FF00AA0B20 /* Assets.xcassets in Resources */,
 				EC02D34C26D637B100D4A1B6 /* Squid_Squad_Band60x60@3x.png in Resources */,
 				EC02D33626D637B100D4A1B6 /* Wet_Floor_Band76x76@2x.png in Resources */,

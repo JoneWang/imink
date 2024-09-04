@@ -78,6 +78,39 @@
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
+			<key>Past</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Past60x60</string>
+					<string>Past76x76</string>
+					<string>Past83.5x83.5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>Present</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Present60x60</string>
+					<string>Present76x76</string>
+					<string>Present83.5x83.5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>Future</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Future60x60</string>
+					<string>Future76x76</string>
+					<string>Future83.5x83.5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
 			<key>Research Lab</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
@@ -201,6 +234,39 @@
 					<string>Order60x60</string>
 					<string>Order76x76</string>
 					<string>Order83.5x83.5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>Past</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Past60x60</string>
+					<string>Past76x76</string>
+					<string>Past83.5x83.5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>Present</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Present60x60</string>
+					<string>Present76x76</string>
+					<string>Present83.5x83.5</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>Future</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Future60x60</string>
+					<string>Future76x76</string>
+					<string>Future83.5x83.5</string>
 				</array>
 				<key>UIPrerenderedIcon</key>
 				<false/>
