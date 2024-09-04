@@ -39,7 +39,7 @@
 "Renew in Settings" = "Renouveler dans les paramètres";
 
 "Today" = "Aujourd’hui";
-"reset" = "réinitialiser";
+"%@ reset" = "réinitialisation à %@";
 "Victory rate:" = "Victoire :";
 "Results" = "Résultats";
 "Last 500" = "Les 500 derniers";

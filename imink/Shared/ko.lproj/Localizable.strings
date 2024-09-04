@@ -39,7 +39,7 @@
 "Renew in Settings" = "설정 갱신";
 
 "Today" = "오늘";
-"reset" = "리셋";
+"%@ reset" = "%@ 리셋";
 "Victory rate:" = "승률 :";
 "Results" = "기록";
 "Last 500" = "최근 500회";

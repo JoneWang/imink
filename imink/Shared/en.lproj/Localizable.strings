@@ -39,7 +39,7 @@
 "Renew in Settings" = "Renew in Settings";
 
 "Today" = "Today";
-"reset" = "reset";
+"%@ reset" = "%@ reset";
 "Victory rate:" = "Victory:";
 "Results" = "Results";
 "Last 500" = "Last 500";

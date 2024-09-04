@@ -39,7 +39,7 @@
 "Renew in Settings" = "設定で更新する";
 
 "Today" = "今日";
-"reset" = "リセット";
+"%@ reset" = "%@ リセット";
 "Victory rate:" = "しょうりつ：";
 "Results" = "きろく";
 "Last 500" = "最近の500回";
