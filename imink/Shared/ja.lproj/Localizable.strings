@@ -120,8 +120,8 @@
 "Toni Kensa" = "タタキケンサキ";
 "Chaos" = "混沌";
 "Order" = "秩序";
-"Past" = "Past";
-"Present" = "Present";
+"Past" = "過去";
+"Present" = "現在";
 "Future" = "そのっぎ";
 "Squid Squad Band" = "Squid Squad";
 "Wet Floor Band" = "Wet Floor";
@@ -157,7 +157,7 @@
 "Open!" = "オープン！";
 "Soon!" = "もうすぐ";
 "Next_salmonrun" = "つぎ";
-"Future" = "Future";
+"Future_AppIcon" = "未来";
 "In %d hours" = "%d時間後";
 
 // MARK: Widget
