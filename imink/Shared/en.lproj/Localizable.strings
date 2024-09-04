@@ -228,6 +228,12 @@
 "Traditional Chinese Localization" = "Traditional Chinese Localization";
 "Japanese Localization" = "Japanese Localization";
 "Korean Localization" = "Korean Localization";
+"French Localization" = "French Localization";
 "Contribute to localization…" = "Contribute to localization…";
 "ACKNOWLEDGEMENTS" = "ACKNOWLEDGEMENTS";
 "aknowledgements_desc" = "Many thanks for providing the necessary algorithm API for account login, and the custom fonts for Korean.";
+
+"Development, Marketing" = "Development, Marketing";
+"UI & Type Design, Marketing, French Localization" = "UI & Type Design, Marketing, French Localization";
+"UI & Icon Design, Marketing" = "UI & Icon Design, Marketing";
+"Korean Localization, Type Design" = "Korean Localization, Type Design";

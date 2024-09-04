@@ -228,6 +228,12 @@
 "Traditional Chinese Localization" = "중국어 번체 현지화";
 "Japanese Localization" = "일본어 현지화";
 "Korean Localization" = "한국어 현지화";
+"French Localization" = "프랑스어 현지화";
 "Contribute to localization…" = "현지화 기여";
 "ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
 "aknowledgements_desc" = "계정 로그인을 위해 필요한 알고리즘 API와 한글 맞춤 글꼴을 제공해 주셔서 감사합니다.";
+
+"Development, Marketing" = "개발, 마케팅";
+"UI & Type Design, Marketing, French Localization" = "UI & 글자 디자인, 마케팅, 프랑스어 현지화";
+"UI & Icon Design, Marketing" = "UI & 아이콘 디자인, 마케팅";
+"Korean Localization, Type Design" = "한국어 현지화, 글자 디자인";

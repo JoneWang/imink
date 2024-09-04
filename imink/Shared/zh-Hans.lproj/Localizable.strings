@@ -228,6 +228,12 @@
 "Traditional Chinese Localization" = "繁体中文本地化";
 "Japanese Localization" = "日语本地化";
 "Korean Localization" = "韩语本地化";
+"French Localization" = "法语本地化";
 "Contribute to localization…" = "贡献本地化翻译…";
 "ACKNOWLEDGEMENTS" = "致谢";
 "aknowledgements_desc" = "感谢以上作者提供用于账号登录的必要API，及韩文定制字体。";
+
+"Development, Marketing" = "开发、市场营销";
+"UI & Type Design, Marketing, French Localization" = "UI和字体设计、市场营销、法语本地化";
+"UI & Icon Design, Marketing" = "UI和图标设计、市场营销";
+"Korean Localization, Type Design" = "韩语本地化、字体设计";

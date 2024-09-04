@@ -11,7 +11,7 @@ struct CreditsPage: View {
     
     let contributors: [Row] = [
         Row(title: "Jone Wang", avatarName: "avatar_jone", subtitle: "Development, Marketing"),
-        Row(title: "Ryan Lau", avatarName: "avatar_ryan", subtitle: "UI & Type Design, Marketing"),
+        Row(title: "Ryan Lau", avatarName: "avatar_ryan", subtitle: "UI & Type Design, Marketing, French Localization"),
         Row(title: "Shaw", avatarName: "avatar_shaw", subtitle: "UI & Icon Design, Marketing"),
         Row(title: "Key山", avatarName: "avatar_key", subtitle: "Simplified Chinese Localization"),
         Row(title: "俐吟", avatarName: "avatar_liyin", subtitle: "Traditional Chinese Localization"),
@@ -22,6 +22,7 @@ struct CreditsPage: View {
         Row(title: "泊汐", avatarName: "avatar_boxi", subtitle: "Japanese Localization"),
         Row(title: "Padotagi", avatarName: "avatar_padotagi", subtitle: "Korean Localization, Type Design"),
         Row(title: "issei-m", avatarName: "avatar_isseim", subtitle: "Japanese Localization"),
+        Row(title: "Lemange", avatarName: "avatar_lemange", subtitle: "French Localization"),
     ]
     
     let crowdinURL: URL = URL(string: "https://crowdin.com/project/imink")!
@@ -102,7 +103,7 @@ struct CreditsPage: View {
                     .minimumScaleFactor(0.5)
                     .foregroundColor(AppColor.appLabelColor)
                 
-                Text(genRoleLocalizedText(str: row.subtitle))
+                Text(row.subtitle.localized)
                     .font(.system(size: 13))
                     .foregroundColor(Color.secondaryLabel)
             }
@@ -125,14 +126,6 @@ extension CreditsPage {
         var avatarName: String? = nil
         let subtitle: String
         var url: URL? = nil
-    }
-}
-
-extension CreditsPage {
-    func genRoleLocalizedText(str: String) -> String {
-        str.components(separatedBy: ", ")
-            .map { $0.localized }
-            .joined(separator: ", ".localized)
     }
 }
 

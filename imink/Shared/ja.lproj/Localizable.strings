@@ -228,6 +228,12 @@
 "Traditional Chinese Localization" = "繁体字中国語への翻訳";
 "Japanese Localization" = "日本語への翻訳";
 "Korean Localization" = "韓国語への翻訳";
+"French Localization" = "フランス語への翻訳";
 "Contribute to localization…" = "翻訳作業を手伝う";
 "ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
 "aknowledgements_desc" = "ログインに必要なアルゴリズムAPI、及び韓国語のカスタムフォントをご提供いただき、大変ありがとうございました！";
+
+"Development, Marketing" = "開発、";
+"UI & Type Design, Marketing, French Localization" = "UI & タイプデザイン、マーケティング、フランス語への翻訳";
+"UI & Icon Design, Marketing" = "UI & アイコンデザイン、マーケティング";
+"Korean Localization, Type Design" = "韓国語への翻訳、タイプデザイン";
