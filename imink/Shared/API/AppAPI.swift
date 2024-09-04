@@ -23,7 +23,7 @@ enum AppAPI {
 // If you want to use this api, please check the documentation
 // Docs: https://github.com/JoneWang/imink/wiki/imink-API-Documentation
 extension AppAPI: APITargetType {
-    var baseURL: URL { URL(string: "https://api.imink.jone.wang")! }
+    var baseURL: URL { URL(string: "https://api.imink.app")! }
     
     var path: String {
         switch self {
