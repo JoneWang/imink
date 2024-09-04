@@ -122,7 +122,7 @@
 "Order" = "秩序";
 "Past" = "过去";
 "Present" = "现在";
-"Future" = "已排班";
+"Future_AppIcon" = "未来";
 "Squid Squad Band" = "Squid Squad乐队";
 "Wet Floor Band" = "Wet Floor乐队";
 "INK YOU UP" = "INK YOU UP";
@@ -157,7 +157,7 @@
 "Open!" = "开工中! ";
 "Soon!" = "待工中";
 "Next_salmonrun" = "下一班";
-"Future_AppIcon" = "未来";
+"Future" = "已排班";
 "In %d hours" = "%d小时后";
 
 // MARK: Widget

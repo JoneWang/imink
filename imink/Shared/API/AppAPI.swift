@@ -11,7 +11,7 @@ enum AppAPI {
     case config
     
     case schedules
-    case salmonRunSchedules(page: Int = 1)
+    case salmonRunSchedules
     
     case f(naIdToken: String, hashMethod: HashMethod)
     
@@ -23,7 +23,7 @@ enum AppAPI {
 // If you want to use this api, please check the documentation
 // Docs: https://github.com/JoneWang/imink/wiki/imink-API-Documentation
 extension AppAPI: APITargetType {
-    var baseURL: URL { URL(string: "https://api.imink.jone.wang")! }
+    var baseURL: URL { URL(string: "https://api.imink.app")! }
     
     var path: String {
         switch self {
@@ -55,8 +55,6 @@ extension AppAPI: APITargetType {
     
     var querys: [(String, String?)]? {
         switch self {
-        case .salmonRunSchedules(let page):
-            return [("p", "\(page)")]
         default:
             return nil
         }

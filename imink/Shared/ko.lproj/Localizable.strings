@@ -122,7 +122,7 @@
 "Order" = "질서";
 "Past" = "과거";
 "Present" = "현재";
-"Future" = "그 다음";
+"Future_AppIcon" = "미래";
 "Squid Squad Band" = "Squid Squad 밴드";
 "Wet Floor Band" = "Wet Floor 밴드";
 "INK YOU UP" = "INK YOU UP";
@@ -157,7 +157,7 @@
 "Open!" = "오픈!";
 "Soon!" = "이제 곧";
 "Next_salmonrun" = "다음";
-"Future_AppIcon" = "미래";
+"Future" = "그 다음";
 "In %d hours" = "%d시간 후";
 
 // MARK: Widget

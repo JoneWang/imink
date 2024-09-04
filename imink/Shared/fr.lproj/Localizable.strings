@@ -122,7 +122,7 @@
 "Order" = "Ordre";
 "Past" = "Passé";
 "Present" = "Présent";
-"Future" = "Prochains";
+"Future_AppIcon" = "Futur";
 "Squid Squad Band" = "Squid Squad";
 "Wet Floor Band" = "Wet Floor";
 "INK YOU UP" = "INK YOU UP";
@@ -157,7 +157,7 @@
 "Open!" = "Ouvert !";
 "Soon!" = "Bientôt !";
 "Next_salmonrun" = "Suivant";
-"Future_AppIcon" = "Futur";
+"Future" = "Prochains";
 "In %d hours" = "Dans %dh";
 
 // MARK: Widget

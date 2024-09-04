@@ -70,7 +70,7 @@ class SalmonRunScheduleProvider: TimelineProvider {
             }
             
             // entries not too long
-            entries = Array(entries[0..<48])
+            entries = Array(entries[0..<5])
             
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
@@ -96,7 +96,7 @@ extension SalmonRunScheduleProvider {
         // Reduce the frequency of iksm_session expiration
         IksmSessionManager.shared.activateIksmSession()
         
-        AppAPI.salmonRunSchedules()
+        AppAPI.salmonRunSchedules
             .request()
             .decode(type: SalmonRunSchedules.self)
             .receive(on: DispatchQueue.main)
@@ -105,7 +105,10 @@ extension SalmonRunScheduleProvider {
                     failure()
                 }
             }, receiveValue: { schedules in
-                success(schedules.details)
+                let schedules = schedules.details +
+                    schedules.schedules.filter { s in !schedules.details.contains { $0.$startTime == s.$startTime } }
+                
+                success(schedules)
             })
             .store(in: &cancelBag)
     }

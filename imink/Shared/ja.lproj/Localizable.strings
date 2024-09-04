@@ -122,7 +122,7 @@
 "Order" = "秩序";
 "Past" = "過去";
 "Present" = "現在";
-"Future" = "そのっぎ";
+"Future_AppIcon" = "未来";
 "Squid Squad Band" = "Squid Squad";
 "Wet Floor Band" = "Wet Floor";
 "INK YOU UP" = "INK YOU UP";
@@ -157,7 +157,7 @@
 "Open!" = "オープン！";
 "Soon!" = "もうすぐ";
 "Next_salmonrun" = "つぎ";
-"Future_AppIcon" = "未来";
+"Future" = "そのっぎ";
 "In %d hours" = "%d時間後";
 
 // MARK: Widget
