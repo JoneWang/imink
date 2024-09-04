@@ -39,7 +39,7 @@
 "Renew in Settings" = "立即續期";
 
 "Today" = "今日";
-"%@ reset" = "%@ 重置";
+"%@ reset" = "%@ reset";
 "Victory rate:" = "勝率：";
 "Results" = "近期戰況";
 "Last 500" = "最近500場";
@@ -228,12 +228,12 @@
 "Traditional Chinese Localization" = "繁體中文在地化";
 "Japanese Localization" = "日文在地化";
 "Korean Localization" = "韓文在地化";
-"French Localization" = "法文在地化";
+"French Localization" = "French Localization";
 "Contribute to localization…" = "貢獻在地化翻譯…";
 "ACKNOWLEDGEMENTS" = "致謝";
 "aknowledgements_desc" = "感謝以上作者提供用於賬號登入的必要API，及韓文客製字型。";
 
-"Development, Marketing" = "開發、市場行銷";
-"UI & Type Design, Marketing, French Localization" = "UI和字型設計、市場行銷、法文在地化";
-"UI & Icon Design, Marketing" = "UI和圖標設計、市場行銷";
-"Korean Localization, Type Design" = "韓文在地化、字型設計";
+"Development, Marketing" = "Development, Marketing";
+"UI & Type Design, Marketing, French Localization" = "UI & Type Design, Marketing, French Localization";
+"UI & Icon Design, Marketing" = "UI & Icon Design, Marketing";
+"Korean Localization, Type Design" = "Korean Localization, Type Design";
