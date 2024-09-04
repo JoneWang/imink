@@ -50,7 +50,7 @@ struct HomePage: View {
                                     Text("Today")
                                         .sp1Font(size: 22, color: AppColor.appLabelColor)
                                     
-                                    Text("(\(viewModel.resetHour):00 \("reset".localized))")
+                                    Text("(\(String(format: "%@ reset".localized, "\(viewModel.resetHour):00")))")
                                         .sp2Font(color: Color.secondary)
                                     
                                     Spacer()

@@ -39,7 +39,7 @@
 "Renew in Settings" = "立即續期";
 
 "Today" = "今日";
-"reset" = "重置";
+"%@ reset" = "%@ 重置";
 "Victory rate:" = "勝率：";
 "Results" = "近期戰況";
 "Last 500" = "最近500場";
