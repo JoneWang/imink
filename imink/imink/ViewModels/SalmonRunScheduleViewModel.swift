@@ -92,10 +92,12 @@ class SalmonRunScheduleViewModel: ObservableObject {
                     self.currentPage = page
                 }
                 
-                if self.currentIsFirstPage {
-                    self.schedules = schedules
-                } else {
-                    self.schedules = self.schedules + schedules
+                if schedules.count > 0 {
+                    if self.currentIsFirstPage {
+                        self.schedules = schedules
+                    } else {
+                        self.schedules = self.schedules + schedules
+                    }
                 }
             }
             .store(in: &requestBag)

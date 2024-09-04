@@ -30,7 +30,7 @@ struct SalmonRunScheduleView: View {
                     .padding(.horizontal)
                     .background(Color.secondary)
                     .clipShape(Capsule())
-                    .padding(.bottom, 5)
+                    .frame(maxWidth: .infinity)
 
                     if let stage = schedule.stage,
                        let weapons = schedule.weapons {
@@ -64,6 +64,7 @@ struct SalmonRunScheduleView: View {
                                 .frame(maxWidth: .infinity)
                             }
                         }
+                        .padding(.top, 5)
                     }
                 }
                 .padding(16)
