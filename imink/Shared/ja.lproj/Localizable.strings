@@ -39,7 +39,7 @@
 "Renew in Settings" = "設定で更新する";
 
 "Today" = "今日";
-"%@ reset" = "%@ リセット";
+"%@ reset" = "%@ reset";
 "Victory rate:" = "しょうりつ：";
 "Results" = "きろく";
 "Last 500" = "最近の500回";
@@ -228,12 +228,12 @@
 "Traditional Chinese Localization" = "繁体字中国語への翻訳";
 "Japanese Localization" = "日本語への翻訳";
 "Korean Localization" = "韓国語への翻訳";
-"French Localization" = "フランス語への翻訳";
+"French Localization" = "French Localization";
 "Contribute to localization…" = "翻訳作業を手伝う";
 "ACKNOWLEDGEMENTS" = "SPECIAL THANKS";
 "aknowledgements_desc" = "ログインに必要なアルゴリズムAPI、及び韓国語のカスタムフォントをご提供いただき、大変ありがとうございました！";
 
-"Development, Marketing" = "開発、";
-"UI & Type Design, Marketing, French Localization" = "UI & タイプデザイン、マーケティング、フランス語への翻訳";
-"UI & Icon Design, Marketing" = "UI & アイコンデザイン、マーケティング";
-"Korean Localization, Type Design" = "韓国語への翻訳、タイプデザイン";
+"Development, Marketing" = "Development, Marketing";
+"UI & Type Design, Marketing, French Localization" = "UI & Type Design, Marketing, French Localization";
+"UI & Icon Design, Marketing" = "UI & Icon Design, Marketing";
+"Korean Localization, Type Design" = "Korean Localization, Type Design";

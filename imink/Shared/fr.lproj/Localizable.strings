@@ -39,7 +39,7 @@
 "Renew in Settings" = "Renouveler dans les paramètres";
 
 "Today" = "Aujourd’hui";
-"%@ reset" = "Réinitialisation à %@";
+"%@ reset" = "%@ reset";
 "Victory rate:" = "Victoire :";
 "Results" = "Résultats";
 "Last 500" = "Les 500 derniers";
@@ -220,20 +220,20 @@
 "CONTRIBUTORS" = "CONTRIBUTEUR∙RICES";
 ", " = ", ";
 "Development" = "Développement";
-"Marketing" = "Marketing";
+"Marketing" = "marketing";
 "UI & Type Design" = "Design d’interface et typographique";
 "UI & Icon Design" = "Design d’interface et d’icône";
-"Type Design" = "Design typographique";
+"Type Design" = "design typographique";
 "Simplified Chinese Localization" = "Localisation en chinois simplifié";
 "Traditional Chinese Localization" = "Localisation en chinois traditionnel";
 "Japanese Localization" = "Localisation en japonais";
 "Korean Localization" = "Localisation en coréen";
-"French Localization" = "Localisation en français";
+"French Localization" = "French Localization";
 "Contribute to localization…" = "Contribuer à la localisation…";
 "ACKNOWLEDGEMENTS" = "RECONNAISSANCE";
 "aknowledgements_desc" = "Un grand merci pour l’autorisation de l’API d’algorithme nécessaire pour la connexion des comptes, ainsi que les polices personnalisées pour le coréen.";
 
-"Development, Marketing" = "Développement, marketing";
-"UI & Type Design, Marketing, French Localization" = "Design d’interface et typographique, marketing, localisation en français";
-"UI & Icon Design, Marketing" = "Design d’interface et d’icône, marketing";
-"Korean Localization, Type Design" = "Localisation en coréen, design typographique";
+"Development, Marketing" = "Development, Marketing";
+"UI & Type Design, Marketing, French Localization" = "UI & Type Design, Marketing, French Localization";
+"UI & Icon Design, Marketing" = "UI & Icon Design, Marketing";
+"Korean Localization, Type Design" = "Korean Localization, Type Design";
