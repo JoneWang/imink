@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -299,6 +299,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5E15C8D72C8809860098EAD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5E15C8D82C8809860098EAD7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SplatNet2.strings; sourceTree = "<group>"; };
 		BB520C1526146683006454FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SplatNet2.strings; sourceTree = "<group>"; };
 		BB520C1926146686006454FB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
 		BB520C1A2614668A006454FB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SplatNet2.strings"; sourceTree = "<group>"; };
@@ -1104,6 +1106,7 @@
 				ja,
 				"zh-Hant",
 				ko,
+				fr,
 			);
 			mainGroup = EC900E68251C55FE00AA0B20;
 			packageReferences = (
@@ -1417,6 +1420,7 @@
 				BB520C1A2614668A006454FB /* zh-Hant */,
 				BB520C1B2614668A006454FB /* ja */,
 				BB520C1C2614668B006454FB /* ko */,
+				5E15C8D82C8809860098EAD7 /* fr */,
 			);
 			name = SplatNet2.strings;
 			sourceTree = "<group>";
@@ -1429,6 +1433,7 @@
 				EC39701D25480B9C00557BD4 /* ja */,
 				EC3F74A125505FFA0061989B /* zh-Hant */,
 				EC6CF3F925F3F540005427B5 /* ko */,
+				5E15C8D72C8809860098EAD7 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
