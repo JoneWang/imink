@@ -179,7 +179,7 @@ struct HomePage: View {
                             }
                         }
                         .padding([.top, .bottom])
-                        .animation(.default)
+                        .animation(.linear(duration: 0.1))
                         
                         Spacer()
                     }
