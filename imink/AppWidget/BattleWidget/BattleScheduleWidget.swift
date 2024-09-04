@@ -23,7 +23,7 @@ struct BattleScheduleWidgetEntryView : View {
             else if widgetFamily == .systemLarge {
                 BattleScheduleLargeWidgetEntryView(entry: entry, gameMode: gameMode)
             }
-        }
+        }.widgetBackground()
 
         return Group {
             if let code = AppUserDefaults.shared.currentLanguage {
@@ -75,5 +75,6 @@ struct BattleScheduleWidget: Widget {
         .supportedFamilies([.systemMedium, .systemLarge])
         .configurationDisplayName(Text(displayName, tableName: splatNet2L10nTable))
         .description(description)
+        .disableContentMarginsIfNeeded()
     }
 }

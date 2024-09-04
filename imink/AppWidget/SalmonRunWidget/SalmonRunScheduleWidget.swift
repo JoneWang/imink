@@ -22,7 +22,7 @@ struct SalmonRunScheduleWidgetEntryView : View {
             else if widgetFamily == .systemLarge {
                 SalmonRunScheduleLargeWidgetEntryView(entry: entry)
             }
-        }
+        }.widgetBackground()
 
         return Group {
             if let code = AppUserDefaults.shared.currentLanguage {
@@ -49,5 +49,6 @@ struct SalmonRunScheduleWidget: Widget {
         .supportedFamilies([.systemMedium, .systemLarge])
         .configurationDisplayName(displayName)
         .description(description)
+        .disableContentMarginsIfNeeded()
     }
 }

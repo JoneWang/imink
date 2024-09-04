@@ -69,3 +69,27 @@ struct WidgetBackgroundView_Previews: PreviewProvider {
             .previewDevice("iPhone 12 Pro Max")
     }
 }
+
+// Adapted for iOS 17
+extension View {
+    func widgetBackground() -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                Color.white
+            }
+        } else {
+            return background(Color.white)
+        }
+    }
+}
+
+// Adapted for iOS 17
+extension WidgetConfiguration {
+    func disableContentMarginsIfNeeded() -> some WidgetConfiguration {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return self.contentMarginsDisabled()
+        } else {
+            return self
+        }
+    }
+}
