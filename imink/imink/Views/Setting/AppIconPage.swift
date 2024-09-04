@@ -48,7 +48,7 @@ enum AppIcon: CaseIterable {
         case .present:
             return "Present"
         case .future:
-            return "Future"
+            return "Future_AppIcon"
         case .squidSquadBand:
             return "Squid Squad Band"
         case .wetFloorBand:
@@ -64,13 +64,20 @@ enum AppIcon: CaseIterable {
         switch self {
         case .main:
             return nil
+        case .future:
+            return "Future"
         default:
             return name
         }
     }
     
     var previewImageName: String {
-        name
+        switch self {
+        case .future:
+            return "Future"
+        default:
+            return name
+        }
     }
 }
 
