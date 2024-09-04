@@ -23,7 +23,7 @@
 // MARK: Sign in
 
 "Welcome to imink!" = "Bienvenue dans imink !";
-"Log in to sync your data" = "Connectez-vous pour synchroniser vos données";
+"Log in to sync your data" = "Connectez-vous pour synchroniser";
 "Log in with Nintendo Account" = "Connectez-vous avec votre compte Nintendo";
 "login_error_title" = "Échec";
 "login_error_message" = "Une erreur s’est produite lors de la connexion, veuillez réessayer plus tard.";
@@ -43,7 +43,7 @@
 "Victory rate:" = "Victoire :";
 "Results" = "Résultats";
 "Last 500" = "Les 500 derniers";
-"Last 50" = "Les 50 derniers";
+"Last 50" = "50 derniers";
 "Splatfest" = "Festival";
 "Schedule" = "Planning";
 "Battle" = "Match";
@@ -51,8 +51,8 @@
 // MARK: Battles
 "All Rules" = "Tous les modes";
 
-"Hide Player Names" = "Cacher les noms des joueurs";
-"Show Player Names" = "Afficher le nom des joueurs";
+"Hide Player Names" = "Cacher les surnoms des joueurs";
+"Show Player Names" = "Afficher le surnom des joueurs";
 
 "%@ power" = "%@ power";
 "Current" = "Actuel";
@@ -120,15 +120,15 @@
 "Toni Kensa" = "Thony K";
 "Chaos" = "Chaos";
 "Order" = "Ordre";
-"Past" = "Past";
-"Present" = "Present";
-"Future" = "Future";
+"Past" = "Passé";
+"Present" = "Présent";
+"Future_AppIcon" = "Futur";
 "Squid Squad Band" = "Squid Squad";
 "Wet Floor Band" = "Wet Floor";
 "INK YOU UP" = "INK YOU UP";
 "Research Lab" = "Laboratoire de recherche";
 "Language" = "Langue";
-"Reload Widgets" = "Recharger les Widgets";
+"Reload Widgets" = "Recharger les widgets";
 "USER DATA" = "DONNÉES UTILISATEUR";
 "Import" = "Importer";
 "Import Data" = "Importer des données";
@@ -152,13 +152,13 @@
 
 "Now" = "Actuel";
 "Next" = "Suivant";
-"Next Day" = "Jour suivant";
+"Next Day" = "Demain";
 "Supplied Weapons" = "Armes fournies";
 "Open!" = "Ouvert !";
 "Soon!" = "Bientôt !";
 "Next_salmonrun" = "Suivant";
 "Future" = "Prochains";
-"In %d hours" = "Dans %d heures";
+"In %d hours" = "Dans %dh";
 
 // MARK: Widget
 
