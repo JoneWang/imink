@@ -43,7 +43,7 @@
 "Victory rate:" = "Victoire :";
 "Results" = "Résultats";
 "Last 500" = "Les 500 derniers";
-"Last 50" = "Les 50 derniers";
+"Last 50" = "50 derniers";
 "Splatfest" = "Festival";
 "Schedule" = "Planning";
 "Battle" = "Match";
@@ -51,8 +51,8 @@
 // MARK: Battles
 "All Rules" = "Tous les modes";
 
-"Hide Player Names" = "Cacher les noms des joueurs";
-"Show Player Names" = "Afficher le nom des joueurs";
+"Hide Player Names" = "Cacher les surnoms des joueurs";
+"Show Player Names" = "Afficher le surnom des joueurs";
 
 "%@ power" = "%@ power";
 "Current" = "Actuel";
@@ -125,7 +125,7 @@
 "INK YOU UP" = "INK YOU UP";
 "Research Lab" = "Laboratoire de recherche";
 "Language" = "Langue";
-"Reload Widgets" = "Recharger les Widgets";
+"Reload Widgets" = "Recharger les widgets";
 "USER DATA" = "DONNÉES UTILISATEUR";
 "Import" = "Importer";
 "Import Data" = "Importer des données";
@@ -149,7 +149,7 @@
 
 "Now" = "Actuel";
 "Next" = "Suivant";
-"Next Day" = "Jour suivant";
+"Next Day" = "Demain";
 "Supplied Weapons" = "Armes fournies";
 "Open!" = "Ouvert !";
 "Soon!" = "Bientôt !";
